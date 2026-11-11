@@ -95,3 +95,9 @@ Sem `--sintetico`, usa os caminhos reais do `config.yaml`. Resultados de dados s
 - D36 (2026-11-11): coleta POWER via API REST (`urllib`, sem dependência nova). Parâmetros confirmados na resposta da API: PRECTOTCORR (mm/dia), T2M_MAX, T2M_MIN (°C), ALLSKY_SFC_SW_DWN (MJ/m²/dia); fill_value -999 vira NaN. Comunidade AG. `celula_power` = índice aproximado da grade 0,5° x 0,625° (`round(lat/0.5)_round(lon/0.625)`), não o ID oficial.
 - D38: NDVI via ORNL DAAC subset (10 datas/chamada, ~8 chamadas/min), porque o AppEEARS não saiu da fila. `modis_date` AYYYYDDD = início do composto (S5 confirmada para esta fonte); NDVI inteiro x 0,0001, preenchimento -3000; reliability fill -1.
 - D37: lista de 13 pontos em `config.yaml` é PROPOSTA minha (um por célula, semiárido do NE); S2 segue pendente de revisão do usuário.
+- D39 (2026-11-11): primeira rodada com dados reais. `ndvi.confiabilidade_aceita: [0, 1]` mantido: valores observados 0, 1 e 3 (sem 2); 3 (nuvem) é descartado. Semântica 0–3 segue a conferir na doc oficial. Resultado: ver `relatorio_modelos.md`.
+- D40 (2026-11-11): validação de melhorias por walk-forward (`walkforward.py`); anos 2010–2021 decidem, 2022–2024 selados para confirmação; Bonferroni pelo nº de variantes; placebo obrigatório (docs/05).
+- D41: **persistência** (anomalia dos 2 compostos anteriores, só se consecutivos ≤ 17 d) validada: +0,23 vs. +0,06. Ressalva: ganho vem da autocorrelação do NDVI, não do clima; cenários de chuva ficam pouco sensíveis.
+- D42: Ceará ampliado: 1 município por célula POWER (centroide IBGE API v1 + malhas v3). 59 pontos / 59 células no total. Lista é proposta a revisar (S2).
+- D43: NDVI via ORNL com 16 downloads em paralelo (~100 janelas/min); com 4–8 era ~8/min.
+- D44: experimentos dos agentes ficam em `experimentos/` (scripts + caches parciais + `dados13/` com o instantâneo dos 13 pontos).

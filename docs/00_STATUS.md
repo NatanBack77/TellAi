@@ -21,14 +21,26 @@ Atualizado em 2026-11-11. Escopo atual: módulo `src/modelos/` (séries temporai
 
 Total: 71 testes passando (`pytest -q -W error`). Todo o desenvolvimento usou dados sintéticos.
 
+## Walk-forward e melhorias (2026-11-11) — ver `docs/05_EXPERIMENTOS.md`
+- Protocolo anti-overfitting implementado (`walkforward.py`, 10 testes): walk-forward, linhas comuns, placebo, Bonferroni, confirmação selada 2022–2024.
+- **Persistência** da anomalia de NDVI: skill +0,23 (seleção) / +0,10 (confirmação) contra +0,06 / −0,02 da base. Ganho vem da memória do NDVI; o clima acrescenta ~+0,014.
+- `pers_lags4` (4 lags): +0,024 sobre a persistência, **pendente de confirmação selada**.
+- Reprovadas: janelas 120/180 d, alvo normalizado, features de clima novas (anomalia de chuva, SPI, eventos, térmica, déficit), XGBoost monotônico.
+- CHIRPS e EVI/SAVI: agentes interrompidos, sem resultado.
+- Dados: clima 59 pontos completo; NDVI 34/59 pontos em cache (`ndvi_16d.parquet` ainda com 13).
+
+## Resultado real do preditivo (13 pontos, 2026-11-11)
+Ridge escolhido; **não supera a climatologia no holdout** (skill −0,021; CV +0,033). Conformal cobre ~72%/81% para metas 80%/90% (subcobertura). Ver `relatorio_modelos.md`.
+
 ## Falta (módulo `src/modelos/`)
-- Rodar com dados reais e gerar `relatorio_modelos.md` real (métricas, cobertura, decisão).
+- Terminar NDVI dos 59 pontos (34 completos no cache), reavaliar (walk-forward + preditivo + conformal) e fazer a confirmação selada (2022–2024) de `persistencia` e `pers_lags4`; só então levar a persistência para `preditivo.py`/`cenarios.py`.
+- Testar (agentes interrompidos): CHIRPS, EVI/SAVI; ideias: uso do solo (MapBiomas), SMAP, FUNCEME.
 - Opcional: instalar `shap` se houver wheel para o Python em uso; hoje a explicação usa `pred_contribs`.
 
 ## Coleta (`src/coleta`)
 - **POWER: feita (2026-11-11).** 13 pontos propostos (a revisar, S2), 2001–2024, 113.958 linhas, 0 ausentes, 13 células. `python -m src.coleta.power` (cache em `data/raw/power/`, idempotente).
 - Com 13 células (< 15) o modelo sai com confiança "baixa" e o aviso de amostra efetiva; ampliar os pontos melhora isso.
-- **MODIS: parcial.** AppEEARS (`coleta/modis.py`) ficou preso na fila; usamos o serviço de subset do ORNL DAAC (`coleta/modis_ornl.py`, público, sem login, cache em `data/raw/modis_ornl/`, retomável). Ele confirmou que `data` = início do composto (resolve S5). Ritmo ~8 janelas/min; ver `docs/04_RETOMADA.md`.
+- **Clima: 59 pontos / 59 células (Ceará completo + 13 originais), 0 ausentes.** **MODIS: 34/59 pontos completos no cache**; `ndvi_16d.parquet` ainda com os 13 pontos (7.173 composições). (Histórico: AppEEARS (`coleta/modis.py`) ficou preso na fila; usamos o serviço de subset do ORNL DAAC (`coleta/modis_ornl.py`, público, sem login, cache em `data/raw/modis_ornl/`, retomável). Ele confirmou que `data` = início do composto (resolve S5). Com 16 downloads em paralelo o ritmo foi ~100 janelas/min; ver `docs/04_RETOMADA.md`.)
 - SMAP (SPL4SMGP): pendente, opcional; exige Earthdata. Sem o `ndvi_16d.parquet` o preditivo real não roda.
 
 ## Falta (projeto SULCO fora deste módulo)

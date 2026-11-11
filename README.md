@@ -14,9 +14,10 @@ A ferramenta **apoia**, não decide: todo cenário é "a avaliar com técnico lo
 - Passo 4 concluído: `diagnostico.py` (STL, anomalias, solo nu, tendências, veranicos), 20 testes passando.
 - Passo 5 concluído: `features.py` (janelas anteriores, dias secos, sazonalidade, alvo = anomalia), 37 testes passando.
 - Passo 6 concluído: `preditivo.py` (climatologia, Ridge, XGBoost; GroupKFold por célula + holdout temporal), 54 testes passando.
-- Passos 7–12 concluídos no código: conformal + cobertura, decisão XGBoost vs. Ridge, explicação (`pred_contribs`), `cenarios.py`, `relatorio.py`, 71 testes passando.
+- Passos 7–12 concluídos no código: conformal + cobertura, decisão XGBoost vs. Ridge, explicação (`pred_contribs`), `cenarios.py`, `relatorio.py`, 81 testes passando (inclui walk-forward).
 - Coleta POWER feita (13 pontos, 2001–2024): `python -m src.coleta.power`. Faltam MODIS e SMAP (Earthdata).
-- NDVI (MODIS) em coleta parcial; para continuar em outro PC veja [`docs/04_RETOMADA.md`](docs/04_RETOMADA.md).
+- **Estado (2026-11-11):** clima POWER de 59 pontos (Ceará + outros) completo; NDVI MODIS em 34/59 pontos (cache). Walk-forward implementado: a persistência da anomalia de NDVI é a única melhoria validada até agora. Ver [`docs/05_EXPERIMENTOS.md`](docs/05_EXPERIMENTOS.md) e [`docs/04_RETOMADA.md`](docs/04_RETOMADA.md).
+- NDVI (MODIS) coletado para os 13 primeiros pontos; diagnóstico e preditivo rodados com dados reais (ver `relatorio_modelos.md`: o modelo não supera a climatologia no holdout). Retomada em outro PC: [`docs/04_RETOMADA.md`](docs/04_RETOMADA.md).
 - Próximo: dados reais geração do `relatorio_modelos.md` real.
 
 ## Como rodar
@@ -26,6 +27,8 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python -m src.modelos.diagnostico --sintetico   # diagnóstico dos pontos sintéticos
 .venv/bin/python -m src.modelos.preditivo --sintetico     # só testa o fluxo; não imprime métricas
 .venv/bin/python -m pytest -q
+# validação walk-forward de variantes (ver docs/05_EXPERIMENTOS.md)
+.venv/bin/python -m src.modelos.walkforward --variantes base,persistencia
 .venv/bin/python -m src.modelos.preditivo   # com dados reais: grava metricas.json e relatorio_modelos.md
 ```
 (No Windows use `.venv/Scripts/python`.)

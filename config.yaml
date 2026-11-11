@@ -86,3 +86,57 @@ coleta:
     - {ponto_id: irece_ba,       lat: -11.30, lon: -41.85}
     - {ponto_id: senhor_do_bonfim_ba, lat: -10.46, lon: -40.19}
     - {ponto_id: euclides_da_cunha_ba, lat: -10.51, lon: -39.01}
+    # Ceará completo (2026-11-11): 1 município por célula POWER (centroide mais próximo do centro da célula).
+    # Fonte: IBGE API localidades v1 (municípios, UF 23) + malhas v3 (qualidade mínima); centroide = planar, ponderado por área, calculado aqui.
+    - {ponto_id: acarau_ce, lat: -2.9686, lon: -40.0868}
+    - {ponto_id: alto_santo_ce, lat: -5.5165, lon: -38.241}
+    - {ponto_id: apuiares_ce, lat: -3.9694, lon: -39.3305}
+    - {ponto_id: aracati_ce, lat: -4.6801, lon: -37.6864}
+    - {ponto_id: aracoiaba_ce, lat: -4.4832, lon: -38.7151}
+    - {ponto_id: barbalha_ce, lat: -7.407, lon: -39.3465}
+    - {ponto_id: barro_ce, lat: -7.1246, lon: -38.795}
+    - {ponto_id: barroquinha_ce, lat: -2.9698, lon: -41.1732}
+    - {ponto_id: beberibe_ce, lat: -4.4026, lon: -38.1135}
+    - {ponto_id: camocim_ce, lat: -2.9495, lon: -40.7992}
+    - {ponto_id: caninde_ce, lat: -4.4028, lon: -39.4303}
+    - {ponto_id: caririacu_ce, lat: -7.0209, lon: -39.2747}
+    - {ponto_id: croata_ce, lat: -4.3882, lon: -40.9759}
+    - {ponto_id: deputado_irapuan_pinheiro_ce, lat: -5.8848, lon: -39.2666}
+    - {ponto_id: erere_ce, lat: -5.9865, lon: -38.3125}
+    - {ponto_id: ibiapina_ce, lat: -3.9498, lon: -41.0002}
+    - {ponto_id: ico_ce, lat: -6.388, lon: -38.782}
+    - {ponto_id: iguatu_ce, lat: -6.3588, lon: -39.283}
+    - {ponto_id: ipu_ce, lat: -4.3683, lon: -40.6708}
+    - {ponto_id: iraucuba_ce, lat: -3.8671, lon: -39.8173}
+    - {ponto_id: jaguaretama_ce, lat: -5.4919, lon: -38.747}
+    - {ponto_id: jaguaribe_ce, lat: -5.9613, lon: -38.7076}
+    - {ponto_id: madalena_ce, lat: -4.8579, lon: -39.5093}
+    - {ponto_id: maranguape_ce, lat: -4.0067, lon: -38.8101}
+    - {ponto_id: mauriti_ce, lat: -7.3972, lon: -38.7182}
+    - {ponto_id: miraima_ce, lat: -3.5597, lon: -39.9096}
+    - {ponto_id: monsenhor_tabosa_ce, lat: -4.9144, lon: -40.0443}
+    - {ponto_id: moraujo_ce, lat: -3.4625, lon: -40.6832}
+    - {ponto_id: novo_oriente_ce, lat: -5.5924, lon: -40.7721}
+    - {ponto_id: pacuja_ce, lat: -4.0056, lon: -40.6899}
+    - {ponto_id: paracuru_ce, lat: -3.4794, lon: -39.0389}
+    - {ponto_id: parambu_ce, lat: -6.3024, lon: -40.6289}
+    - {ponto_id: pedra_branca_ce, lat: -5.4966, lon: -39.8471}
+    - {ponto_id: penaforte_ce, lat: -7.7777, lon: -39.0538}
+    - {ponto_id: pindoretama_ce, lat: -4.0553, lon: -38.3043}
+    - {ponto_id: poranga_ce, lat: -4.7991, lon: -41.0787}
+    - {ponto_id: potengi_ce, lat: -7.0737, lon: -40.036}
+    - {ponto_id: quiterianopolis_ce, lat: -5.8723, lon: -40.7631}
+    - {ponto_id: russas_ce, lat: -4.8434, lon: -38.1473}
+    - {ponto_id: saboeiro_ce, lat: -6.4862, lon: -39.8874}
+    - {ponto_id: salitre_ce, lat: -7.2034, lon: -40.3651}
+    - {ponto_id: santa_quiteria_ce, lat: -4.34, lon: -40.0429}
+    - {ponto_id: senador_pompeu_ce, lat: -5.5881, lon: -39.4333}
+    - {ponto_id: taua_ce, lat: -5.9363, lon: -40.2592}
+    - {ponto_id: tururu_ce, lat: -3.5529, lon: -39.4038}
+    - {ponto_id: vicosa_do_ceara_ce, lat: -3.5485, lon: -41.1349}
+
+# Walk-forward (src/modelos/walkforward.py): 1 ano à frente, treino = anos anteriores
+walkforward:
+  min_anos_treino: 8
+  anos_selecao: [2010, 2021]       # decidem quais variantes seguem
+  anos_confirmacao: [2022, 2024]   # SELADOS: só olhar no fim, uma vez

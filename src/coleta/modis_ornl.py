@@ -130,4 +130,5 @@ if __name__ == "__main__":
     if "--status" in sys.argv:
         print(json.dumps(progresso(), ensure_ascii=False, indent=2))
     else:
-        print(json.dumps(coletar(), ensure_ascii=False, indent=2))
+        n = int(sys.argv[sys.argv.index("--workers") + 1]) if "--workers" in sys.argv else 4
+        print(json.dumps(coletar(trabalhadores=n), ensure_ascii=False, indent=2))

@@ -10,3 +10,6 @@ data/processed/sintetico/
 data/processed/**/SINTETICO_*
 *.egg-info/
 .DS_Store
+
+data/processed/modelos/
+experimentos/**/*.pkl
