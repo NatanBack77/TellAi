@@ -1,0 +1,87 @@
+# Suposições, decisões e pendências
+
+Registro vivo. Atualizar a cada decisão. Última atualização: 2026-11-09.
+
+## Suposições (aprovadas pelo usuário em 2026-11-09)
+| # | Suposição | Status |
+|---|---|---|
+| S1 | Python 3.11+, `venv`, sem LangChain | aprovada |
+| S2 | Região do demo: semiárido do Nordeste; pontos a definir | pendente (pontos) |
+| S3 | Dados reais ainda não existem localmente; desenvolvimento só com `SINTETICO_*` | aprovada |
+| S4 | Features de chuva usam apenas dados até o início do período t (sem vazamento do futuro) | aprovada |
+| S5 | NDVI 16 d alinhado ao clima diário pela data de início do composto | **a confirmar** que `data` = início |
+| S6 | Caminhos em `data/processed/`, configuráveis em `config.yaml` | aprovada |
+| S7 | "Estação chuvosa" = quinzenas de maior chuva na climatologia do ponto (em `config.yaml`) | aprovada |
+| S8 | Mann-Kendall com poucos anos => lacuna explícita (mínimo configurável) | aprovada |
+| S9 | Holdout temporal é a avaliação final; `GroupKFold` roda dentro do período de treino | aprovada |
+| S10 | `tabela_culturas.py` e `rag_docs.py` não foram fornecidos; serão criados do zero | aprovada |
+| S11 | Valores da tabela de culturas só com fonte lida; sem fonte => lacuna | aprovada |
+
+## Itens a verificar na documentação oficial (não adivinhar)
+- Nomes de parâmetros do NASA POWER (ex.: `PRECTOTCORR`, `T2M_MAX`, `T2M_MIN`, radiação).
+- Camadas do MOD13Q1 v061 e semântica do *pixel reliability*.
+- Variáveis e versão mais recente do SPL4SMGP.
+- ID do modelo DeepSeek (`deepseek-flash` não confirmado).
+- `intfloat/multilingual-e5-small` (validar uso para PT).
+- Link do desafio (Resources tab): **não informado**.
+
+## Perguntas em aberto ao usuário
+1. Lat/lon no diagnóstico (descritivo) e fora das features — confirmar.
+2. Escala/valores de `confiabilidade` do `ndvi_16d` e qual descartar.
+3. Quantos anos de dados reais esperados (decide limiar de "poucos anos").
+4. Permitir bloco "teste de fumaça" marcado como sintético no relatório (sem tratá-lo como resultado).
+5. Lista dos 10–20 pontos do demo (ou aceitar proposta).
+6. Contas/chaves: Earthdata, DeepSeek/Gemini (via `.env`; nunca lidas nem commitadas).
+
+## Decisões
+- D1 (2026-11-09): este ciclo implementa só `src/modelos/`; coleta, RAG, LLM e app ficam para outras tarefas.
+- D2 (2026-11-09): documentação criada antes de qualquer código (`docs/01..03`).
+- D3 (2026-11-09): Python 3.14.7 no ambiente. `shap` não foi instalado ainda (dependência pesada/numba); instalar no passo 9 e, se não houver wheel para 3.14, usar `TreeExplainer` alternativo ou `xgboost` `pred_contribs` e registrar aqui.
+- D4 (2026-11-09): "instalar as bases" = dados sintéticos aleatórios por ora. Dados reais (POWER, MODIS, SMAP) não são baixados neste módulo; exigem Earthdata e ficam na etapa de coleta (`src/coleta`).
+
+## Progresso
+- [x] Passo 1: esqueleto, config, requirements (fixados), sementes
+- [x] Passo 2: gerador `SINTETICO_*` (6 células x 2 pontos, 2010–2023, clima/NDVI/umidade)
+- [x] Passo 3: validador de entrada (`entrada.py`), falha explícita
+- [x] Passo 4: `diagnostico.py` + `tests/test_diagnostico.py` (20 testes no total passando)
+- [x] Passo 5: `features.py` + `tests/test_features.py` (37 testes no total passando)
+- [x] Passo 6: `preditivo.py` + `tests/test_preditivo.py` (54 testes no total passando)
+- [ ] Passos 7–12
+
+## Decisões do diagnóstico (passo 4)
+- D5: grade do NDVI = 23 slots por ano pela regra `(dia_do_ano-1)//16`; o gerador sintético agora segue a grade MODIS (DOY 1, 17, ..., 353).
+  **Pendente de confirmar com dado real**: a `data` do MOD13Q1 ser o início do composto (S5).
+- D6: interpolação só em buracos internos de até 2 observações seguidas; buracos maiores ficam NaN e viram lacuna. Interpoladas são marcadas (`interpolado`).
+- D7: STL roda no maior trecho contínuo sem NaN (mínimo 2 períodos = 46 obs); se não houver, não roda e registra lacuna.
+- D8: ano de NDVI só conta se tiver >= 16 observações válidas originais (antes da interpolação).
+- D9: períodos (quinzena/ano/estação) com cobertura de dias < 90% viram NaN, nunca são preenchidos.
+- D10: solo nu padrão = percentil 20 do próprio ponto. Por construção todo ponto terá "solo nu"; o limiar é relativo ao local. Aviso fixo em `lacunas`. Quinzena é "típica" se solo nu em >= 50% dos anos e >= 3 anos de dados.
+- D11: estação chuvosa = janela circular de `n_quinzenas` (padrão 8) consecutivas com maior chuva média; ano da estação desloca -1 quando a janela cruza o fim do ano.
+- D12: z-score só com >= 3 anos na quinzena e desvio > 0.
+- D13: `confianca` (alta/media/baixa) = heurística: anos válidos (>=15 alta, >=8 media), -1 nível se >10% do NDVI interpolado, -1 nível se faltar veranico ou NDVI. **Não é probabilidade.**
+- D14: `n_anos_validos` é dicionário por variável (ndvi, chuva, umidade_solo).
+- D15: toda saída carrega `limites` (resolução 250 m / 50 km / 9 km, NDVI não é produtividade, não prevê).
+
+## Como rodar o diagnóstico
+`.venv/bin/python -m src.modelos.diagnostico --sintetico` grava `diagnostico.json` e `anomalias.parquet` em `data/processed/sintetico/modelos/`.
+Sem `--sintetico`, usa os caminhos reais do `config.yaml`. Resultados de dados sintéticos não são resultado do projeto.
+
+## Decisões das features (passo 5)
+- D16: unidade de linha = (ponto, período t de NDVI observado). `data` = início do composto (grade 23 slots). Só NDVI original e confiável vira linha; interpolados nunca são alvo.
+- D17: toda feature usa só dias em [t-W, t-1]. Teste de vazamento: alterar clima a partir de D não muda nenhuma feature de t <= D.
+- D18: janelas de soma (chuva 30/60/90 d) exigem cobertura 100%; janelas de média (tmax 30 d, umidade 15 d) exigem >= 90% (`cobertura_minima_dados`). Faltou => NaN, sem preencher. Linhas com NaN ficam com `completo = False` e fora do treino.
+- D19: `dias_secos_consecutivos` conta dias com chuva < 1 mm terminando em t-1, teto de 90 dias; NaN se a sequência toca dado ausente ou o início da série.
+- D20: sazonalidade como `quinzena_sin`/`quinzena_cos` (circular); a quinzena crua fica só como metadado, não é feature.
+- D21: umidade do solo = média de `sm_superficie` e `sm_raiz` nos 15 dias antes de t (defasada por construção). Sem umidade, essas features não existem e isso vira lacuna.
+- D22: alvo = NDVI - média do slot por ponto, calculada SÓ nos `anos_referencia` informados (`adicionar_anomalia`). Slot com < 3 anos de referência => NaN. **O preditivo deve passar só anos de TREINO no holdout temporal.** Limite conhecido: no GroupKFold por célula a climatologia do ponto de teste usa os anos do próprio ponto; é padrão em anomalias, mas fica registrado.
+- D23: `resumir_dataset` devolve contagens e lacunas, incluindo o aviso de < 15 células POWER distintas.
+
+## Decisões do preditivo (passo 6)
+- D24: modelos comparados em todo esquema: climatologia (anomalia = 0), Ridge (StandardScaler + Ridge) e XGBoost. Skill = 1 - RMSE_modelo/RMSE_baseline; baseline principal = climatologia, e o XGBoost também reporta `skill_vs_ridge`.
+- D25: divisão: holdout = últimos `holdout_anos` (3) anos presentes; `GroupKFold` por `celula_power` roda só nas linhas do período de treino. Cada célula valida em exatamente um fold. `n_folds = min(config, células de treino)` e a redução vira lacuna.
+- D26: Ridge escolhe `alpha` (grade em `config.yaml`) por `GroupKFold` interno de 3 folds usando só dados de treino de cada ajuste; com < 3 células no treino, alpha fixo 1.0 + aviso. XGBoost usa parâmetros fixos a priori (`preditivo.xgboost` no config), NUNCA ajustados olhando teste. Sementes fixas, `n_jobs=1`.
+- D27: um teste lê o código-fonte e falha se aparecer `KFold(` sem Group, `ShuffleSplit`, `train_test_split` ou `cross_val_score` (CV aleatória proibida).
+- D28: métricas por fold com média e desvio (ddof=1); holdout com métricas pooled. R² pode ser instável em folds pequenos; reportado como está.
+- D29: `confianca` do preditivo = "baixa" se < 15 células POWER distintas, senão "media" (heurística, não probabilidade). Toda saída traz `lacunas`, `confianca` e o aviso de que é associação histórica, não causalidade nem previsão do clima.
+- D30: com `--sintetico` a CLI grava `SINTETICO_metricas.json`, marca `dados_sinteticos: true` na primeira lacuna e **não imprime métricas**. Um teste de fluxo checa só que o Ridge supera a climatologia no sintético (o NDVI sintético depende da chuva por construção); isso valida o encanamento, não é resultado.
+- **A decidir no passo 8**: critério de "XGBoost supera o Ridge de forma consistente" (proposta: skill_vs_ridge > 0 na média dos folds E na maioria dos folds E no holdout; caso contrário, Ridge). Pendente de aprovação antes de olhar dados reais.

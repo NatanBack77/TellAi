@@ -1,0 +1,61 @@
+# Configuração do módulo src/modelos/ (SULCO)
+semente: 42
+
+caminhos:
+  clima: data/processed/clima_diario.parquet
+  ndvi: data/processed/ndvi_16d.parquet
+  umidade_solo: data/processed/umidade_solo.parquet   # opcional
+  saida: data/processed/modelos
+
+# Colunas obrigatórias por arquivo (falta => parar e pedir)
+colunas_obrigatorias:
+  clima: [ponto_id, celula_power, data, chuva_mm, tmax_c, tmin_c, radiacao]
+  ndvi: [ponto_id, data, ndvi, confiabilidade]
+  umidade_solo: [ponto_id, data, sm_superficie, sm_raiz]
+
+ndvi:
+  observacoes_por_ano: 23
+  # PROVISÓRIO: valores de "pixel reliability" do MOD13Q1 aceitos. Confirmar na doc oficial.
+  confiabilidade_aceita: [0, 1]
+  max_interpolacao_consecutiva: 2   # observações seguidas que podem ser interpoladas
+  min_obs_ano_valido: 16            # observações válidas (de 23) para o ano contar
+  stl_robusto: true
+
+solo_nu:
+  metodo: percentil          # percentil | fixo
+  percentil: 20
+  limiar_fixo: null          # usado se metodo = fixo
+
+veranico:
+  limiar_chuva_mm: 1.0
+
+estacao_chuvosa:
+  n_quinzenas: 8             # quinzenas mais chuvosas da climatologia do ponto
+
+cobertura_minima_dados: 0.9   # fração de dias presentes para aceitar um período (quinzena/ano/estação)
+
+confianca:
+  anos_alta: 15       # heurística de cobertura de dados, NÃO é probabilidade
+  anos_media: 8
+
+tendencia:
+  min_anos: 10               # abaixo disso => lacuna explícita
+
+preditivo:
+  janelas_chuva_dias: [30, 60, 90]
+  janela_tmax_dias: 30
+  janela_umidade_dias: 15          # média da umidade nos 15 dias ANTES do período t
+  min_anos_climatologia_slot: 3    # anos de referência por slot para calcular a anomalia
+  holdout_anos: 3
+  ridge_alphas: [0.1, 1.0, 10.0, 100.0]   # escolhido por validação interna agrupada, só com dados de treino
+  xgboost:                                # fixos a priori; NUNCA ajustados olhando o teste
+    n_estimators: 200
+    max_depth: 3
+    learning_rate: 0.05
+    subsample: 0.8
+    colsample_bytree: 0.8
+    min_child_weight: 5
+  min_linhas_treino: 50
+  n_folds: 5
+  cobertura_alvos: [0.8, 0.9]
+  min_celulas_aviso: 15

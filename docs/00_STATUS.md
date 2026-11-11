@@ -1,0 +1,46 @@
+# Status do projeto SULCO
+
+Atualizado em 2026-11-11. Escopo atual: módulo `src/modelos/` (séries temporais e preditivo).
+
+## Feito
+| Passo | Entrega | Testes |
+|---|---|---|
+| 1 | Esqueleto, `config.yaml`, `requirements.txt` (versões fixas), sementes | |
+| 2 | Gerador de dados `SINTETICO_*` (`sintetico.py`), grade MODIS de 23 obs/ano | |
+| 3 | Validador de entrada (`entrada.py`): falha explícita se faltar arquivo/coluna | 7 |
+| 4 | `diagnostico.py`: STL, climatologia/z-score, solo nu, Theil-Sen + Mann-Kendall, veranicos | +13 |
+| 5 | `features.py`: janelas só de dias anteriores, dias secos, sazonalidade, alvo = anomalia | +17 |
+| 6 | `preditivo.py`: climatologia, Ridge, XGBoost; GroupKFold por célula + holdout temporal; métricas | +17 |
+
+Total: 54 testes passando (`pytest -q -W error`). Todo o desenvolvimento usou dados sintéticos.
+
+## Falta (módulo `src/modelos/`)
+- Passo 7: conformal split (treino/calibração/teste em grupos distintos) e cobertura empírica a 80% e 90%.
+- Passo 8: decisão XGBoost vs. Ridge. **Critério proposto, aguardando aprovação:** `skill_vs_ridge > 0` na média dos folds, no holdout e em mais da metade dos folds; senão, Ridge.
+- Passo 9: SHAP (só explicativo). Não instalado; ver "Achados".
+- Passo 10: `cenarios.py` (fatores de chuva/temperatura, faixa de incerteza, aviso de extrapolação).
+- Passo 11: testes adicionais de vazamento entre grupos, reprodutibilidade e extrapolação.
+- Passo 12: `relatorio_modelos.md` com métricas reais por fold, baselines, cobertura, lacunas e decisão.
+
+## Falta (projeto SULCO fora deste módulo)
+Coleta real (POWER, MODIS, SMAP, `src/coleta`), tabela de culturas e motor de cenários, RAG, LLM com cache,
+app Streamlit, página "Limites dos dados". Ver `docs/01_VISAO_GERAL.md`.
+
+## Achados
+- Ambiente: Python 3.14.7. A primeira instalação (com `shap`) travou; o resto instalou. `shap` pode não ter wheel
+  para 3.14; alternativa: `pred_contribs` do XGBoost (D3).
+- Os esqueletos `tabela_culturas.py` e `rag_docs.py` citados no briefing não foram fornecidos.
+- O link do desafio (Resources tab) não foi informado.
+- Pendentes de confirmar na documentação oficial: nomes de parâmetros POWER, camadas MOD13Q1 v061 e semântica de
+  *pixel reliability* (hoje provisório: aceitar 0 e 1), variáveis SPL4SMGP, ID do modelo DeepSeek, `multilingual-e5-small`.
+- Pendente com dado real: `data` do MOD13Q1 é o início do composto? (S5)
+- O limiar de solo nu por percentil 20 é relativo ao ponto; todo ponto terá "solo nu" por construção (D10).
+- `confianca` em todas as saídas é heurística de cobertura de dados, não probabilidade.
+- Limite do alvo: no GroupKFold a climatologia do ponto de teste usa os anos do próprio ponto (D22); no holdout temporal
+  ela vem só dos anos de treino.
+- Poucas células POWER distintas (< 15) reduzem o tamanho efetivo da amostra; o aviso sai nas lacunas.
+- Métricas de dados sintéticos nunca são resultado do projeto; a CLI não as imprime.
+
+## Perguntas em aberto
+Pontos do demo; contas Earthdata e chaves DeepSeek/Gemini (via `.env`); anos de dados reais esperados;
+escala de `confiabilidade` do NDVI; aprovação do critério do passo 8.

@@ -1,0 +1,11 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+data/raw/
+indice/
+.pytest_cache/
+data/processed/sintetico/
+data/processed/**/SINTETICO_*
+*.egg-info/
+.DS_Store
