@@ -58,4 +58,5 @@ preditivo:
   min_linhas_treino: 50
   n_folds: 5
   cobertura_alvos: [0.8, 0.9]
+  conformal_fracao_calibracao: 0.25   # fração das CÉLULAS do treino reservada à calibração
   min_celulas_aviso: 15

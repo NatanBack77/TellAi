@@ -15,10 +15,12 @@ Este módulo mede associação histórica; não prevê clima, não prevê produt
 from __future__ import annotations
 
 import json
+import math
 from pathlib import Path
 
 import numpy as np
 import pandas as pd
+import xgboost as xgb
 from sklearn.linear_model import Ridge
 from sklearn.model_selection import GridSearchCV, GroupKFold
 from sklearn.pipeline import Pipeline
@@ -120,6 +122,104 @@ def preparar_tabela_modelagem(df: pd.DataFrame, cfg: dict) -> tuple[pd.DataFrame
     return d, treino_anos, teste_anos, cols
 
 
+# ----------------------------------------------------------------------------- conformal (passo 7)
+def dividir_celulas_calibracao(celulas, fracao: float, semente: int) -> tuple[list[str], list[str]]:
+    """Separa CÉLULAS (nunca linhas) do treino em 'treino próprio' e 'calibração', de forma determinística."""
+    cel = sorted(str(c) for c in set(celulas))
+    n_cal = max(1, int(round(fracao * len(cel))))
+    if len(cel) - n_cal < 2:
+        raise DadosInvalidos(f"Células insuficientes ({len(cel)}) para separar treino e calibração.")
+    ordem = np.random.default_rng(semente).permutation(len(cel))
+    cal = sorted(cel[i] for i in ordem[:n_cal])
+    return sorted(set(cel) - set(cal)), cal
+
+
+def quantil_conformal(residuos_abs: np.ndarray, alpha: float) -> float:
+    """Quantil de split conformal com correção de amostra finita: ceil((n+1)(1-alpha))/n. inf se n for pequeno."""
+    n = len(residuos_abs)
+    k = math.ceil((n + 1) * (1 - alpha))
+    return float("inf") if n == 0 or k > n else float(np.sort(residuos_abs)[k - 1])
+
+
+def conformal_split(treino: pd.DataFrame, teste: pd.DataFrame, cols: list[str], cfg: dict, nome: str) -> dict:
+    """Treino / calibração / teste em grupos (células) distintos para a calibração.
+
+    O modelo é ajustado só nas células de treino próprio; o quantil dos resíduos vem das células de calibração;
+    a cobertura é medida no `teste`. Devolve cobertura empírica e largura para cada meta (ex.: 80%, 90%).
+    """
+    p = cfg["preditivo"]
+    cel_tr, cel_cal = dividir_celulas_calibracao(treino["celula_power"].unique(),
+                                                 p["conformal_fracao_calibracao"], cfg["semente"])
+    tr = treino[treino["celula_power"].isin(cel_tr)]
+    cal = treino[treino["celula_power"].isin(cel_cal)]
+    mod, _ = ajustar_modelo(nome, tr[cols], tr["anomalia_ndvi"].to_numpy(), tr["celula_power"].to_numpy(), cfg)
+    res_cal = np.abs(cal["anomalia_ndvi"].to_numpy() - mod.predict(cal[cols]))
+    y, pred = teste["anomalia_ndvi"].to_numpy(), mod.predict(teste[cols])
+    saida = {"celulas_treino_proprio": cel_tr, "celulas_calibracao": cel_cal, "n_calibracao": int(len(cal)),
+             "n_teste": int(len(teste)), "metas": {}}
+    for alvo in p["cobertura_alvos"]:
+        q = quantil_conformal(res_cal, 1 - alvo)
+        cob = float(np.mean(np.abs(y - pred) <= q)) if np.isfinite(q) else float("nan")
+        saida["metas"][f"{int(round(alvo * 100))}"] = {
+            "meta": float(alvo), "quantil": q, "cobertura": cob,
+            "largura_media": 2 * q if np.isfinite(q) else float("nan")}
+    return saida
+
+
+def _conformal_conjunto(treino, teste, cols, cfg) -> dict:
+    return {nome: conformal_split(treino, teste, cols, cfg, nome) for nome in MODELOS}
+
+
+def _resumir_conformal(folds: list[dict], cfg: dict) -> dict:
+    """Cobertura de CV por modelo/meta: média ponderada pelo nº de linhas de validação + valor por fold."""
+    out = {}
+    for nome in MODELOS:
+        out[nome] = {}
+        for alvo in cfg["preditivo"]["cobertura_alvos"]:
+            k = f"{int(round(alvo * 100))}"
+            cobs = np.array([f["conformal"][nome]["metas"][k]["cobertura"] for f in folds], dtype=float)
+            pesos = np.array([f["conformal"][nome]["n_teste"] for f in folds], dtype=float)
+            ok = ~np.isnan(cobs)
+            media = float(np.average(cobs[ok], weights=pesos[ok])) if ok.any() else float("nan")
+            out[nome][k] = {"meta": float(alvo), "cobertura_media_ponderada": media,
+                            "cobertura_por_fold": [None if np.isnan(c) else float(c) for c in cobs]}
+    return out
+
+
+# ----------------------------------------------------------------------------- decisão XGBoost vs Ridge (passo 8)
+def decidir_modelo(folds: list[dict], holdout: dict) -> dict:
+    """Critério aprovado pelo usuário: XGBoost só vence se skill_vs_ridge > 0
+    (a) na média dos folds, (b) no holdout temporal e (c) em mais da metade dos folds. Senão, Ridge."""
+    sk = np.array([f["modelos"]["xgboost"]["skill_vs_ridge"] for f in folds], dtype=float)
+    media = float(np.nanmean(sk))
+    frac = float(np.mean(sk > 0))
+    sk_h = float(holdout["modelos"]["xgboost"]["skill_vs_ridge"])
+    cond = {"media_folds_positiva": bool(media > 0), "holdout_positivo": bool(sk_h > 0),
+            "maioria_folds_positiva": bool(frac > 0.5)}
+    usa_xgb = all(cond.values())
+    escolhido = "xgboost" if usa_xgb else "ridge"
+    motivo = ("XGBoost superou o Ridge nos três testes do critério." if usa_xgb else
+              "XGBoost não superou o Ridge de forma consistente (" +
+              ", ".join(k for k, v in cond.items() if not v) + "); mantém-se o Ridge, mais simples.")
+    aviso = None
+    if not holdout["modelos"][escolhido]["skill_vs_climatologia"] > 0:
+        aviso = (f"O modelo escolhido ({escolhido}) NÃO supera a climatologia no holdout; "
+                 "a previsão de anomalia não agrega valor sobre a média histórica.")
+    return {"modelo": escolhido, "criterio": cond, "skill_vs_ridge_media_folds": media,
+            "fracao_folds_xgb_melhor": frac, "skill_vs_ridge_holdout": sk_h, "motivo": motivo,
+            "aviso": aviso, "criterio_aprovado_pelo_usuario": True}
+
+
+# ----------------------------------------------------------------------------- explicação (passo 9)
+def importancia_contribuicoes(modelo: XGBRegressor, X: pd.DataFrame, cols: list[str]) -> dict:
+    """Contribuição média absoluta por feature (`pred_contribs` do XGBoost = valores de Shapley de árvore).
+    SÓ EXPLICATIVO: descreve o modelo, não valida nada nem indica causalidade. (D3: `shap` não instalado.)"""
+    contrib = modelo.get_booster().predict(xgb.DMatrix(X[cols]), pred_contribs=True)[:, :-1]  # última coluna = viés
+    imp = np.abs(contrib).mean(axis=0)
+    return {"metodo": "xgboost pred_contribs (valores de Shapley de árvore)", "explicativo_apenas": True,
+            "importancia_media_abs": {cols[i]: float(imp[i]) for i in np.argsort(-imp)}}
+
+
 # ----------------------------------------------------------------------------- avaliação
 def avaliar(df: pd.DataFrame, cfg: dict, sintetico: bool = False) -> dict:
     """Avalia climatologia, Ridge e XGBoost por GroupKFold (célula) e por holdout temporal."""
@@ -150,7 +250,8 @@ def avaliar(df: pd.DataFrame, cfg: dict, sintetico: bool = False) -> dict:
                       "celulas_treino": sorted(tr["celula_power"].unique().tolist()),
                       "celulas_validacao": sorted(va["celula_power"].unique().tolist()),
                       "n_treino": int(len(tr)), "n_validacao": int(len(va)),
-                      "modelos": _avaliar_conjunto(tr, va, cols, cfg)})
+                      "modelos": _avaliar_conjunto(tr, va, cols, cfg),
+                      "conformal": _conformal_conjunto(tr, va, cols, cfg)})
 
     def agrega(nome, chave):
         v = np.array([f["modelos"][nome].get(chave, np.nan) for f in folds], dtype=float)
@@ -161,9 +262,17 @@ def avaliar(df: pd.DataFrame, cfg: dict, sintetico: bool = False) -> dict:
 
     holdout = {"anos_treino": [treino_anos[0], treino_anos[-1]], "anos_teste": teste_anos,
                "n_treino": int(len(treino)), "n_teste": int(len(teste)),
-               "modelos": _avaliar_conjunto(treino, teste, cols, cfg)}
+               "modelos": _avaliar_conjunto(treino, teste, cols, cfg),
+               "conformal": _conformal_conjunto(treino, teste, cols, cfg)}
     if len(teste) < 30:
         lacunas.append(f"Holdout com poucas linhas ({len(teste)}): métricas instáveis.")
+    if any(not np.isfinite(m["quantil"]) for m in holdout["conformal"]["ridge"]["metas"].values()):
+        lacunas.append("Calibração conformal com poucas linhas: faixa de incerteza indisponível em alguma meta.")
+    xgb_final, _ = ajustar_modelo("xgboost", treino[cols], treino["anomalia_ndvi"].to_numpy(),
+                                  treino["celula_power"].to_numpy(), cfg)
+    decisao = decidir_modelo(folds, holdout)
+    if sintetico:
+        decisao["motivo"] = "[SINTÉTICO — só fluxo] " + decisao["motivo"]
 
     return {
         "dados_sinteticos": bool(sintetico),
@@ -171,8 +280,10 @@ def avaliar(df: pd.DataFrame, cfg: dict, sintetico: bool = False) -> dict:
         "alvo": "anomalia_ndvi = NDVI - climatologia do slot (climatologia só dos anos de treino)",
         "divisao": {"anos_treino": treino_anos, "anos_teste": teste_anos, "n_celulas_treino": int(celulas_treino),
                     "n_folds": int(n_folds)},
-        "cv_grupos": {"folds": folds, "resumo": resumo_cv},
+        "cv_grupos": {"folds": folds, "resumo": resumo_cv, "conformal": _resumir_conformal(folds, cfg)},
         "holdout_temporal": holdout,
+        "decisao": decisao,
+        "explicacao": importancia_contribuicoes(xgb_final, teste, cols),
         "dataset": {k: resumo_ds[k] for k in ("n_linhas", "n_completas", "n_pontos", "n_celulas", "anos")},
         "lacunas": lacunas,
         "confianca": "baixa" if resumo_ds["n_celulas"] < p["min_celulas_aviso"] else "media",
@@ -203,7 +314,13 @@ if __name__ == "__main__":
         cfg["caminhos"].update(clima=f"{d}/SINTETICO_clima_diario.parquet", ndvi=f"{d}/SINTETICO_ndvi_16d.parquet",
                                umidade_solo=f"{d}/SINTETICO_umidade_solo.parquet", saida=f"{d}/modelos")
     res = avaliar(construir_dataset(carregar_entradas(cfg), cfg), cfg, sintetico=sint)
-    print("salvo em", salvar_metricas(res, RAIZ / cfg["caminhos"]["saida"]))
+    from .relatorio import gerar
+
+    caminho = salvar_metricas(res, RAIZ / cfg["caminhos"]["saida"])
+    print("salvo em", caminho)
+    print("relatório em", gerar(caminho))
+    if not sint:
+        print("decisão:", res["decisao"]["modelo"])
     if sint:
         print("Fluxo OK. Métricas omitidas: dados sintéticos não são resultado do projeto.")
     else:

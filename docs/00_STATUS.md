@@ -12,15 +12,18 @@ Atualizado em 2026-11-11. Escopo atual: módulo `src/modelos/` (séries temporai
 | 5 | `features.py`: janelas só de dias anteriores, dias secos, sazonalidade, alvo = anomalia | +17 |
 | 6 | `preditivo.py`: climatologia, Ridge, XGBoost; GroupKFold por célula + holdout temporal; métricas | +17 |
 
-Total: 54 testes passando (`pytest -q -W error`). Todo o desenvolvimento usou dados sintéticos.
+| 7 | Conformal split: calibração em células distintas, cobertura a 80%/90% (CV e holdout) | |
+| 8 | `decidir_modelo`: XGBoost vs. Ridge pelo critério proposto (critério aprovado pelo usuário) | |
+| 9 | Explicação via `pred_contribs` do XGBoost (só explicativa) | |
+| 10 | `cenarios.py`: fatores de chuva/temperatura, faixa conformal, aviso de extrapolação | |
+| 11 | Testes de vazamento entre grupos, reprodutibilidade, ordem das linhas, extrapolação | |
+| 12 | `relatorio.py` + `relatorio_modelos.md` (esqueleto; real só com dados reais) | +17 (7–12) |
+
+Total: 71 testes passando (`pytest -q -W error`). Todo o desenvolvimento usou dados sintéticos.
 
 ## Falta (módulo `src/modelos/`)
-- Passo 7: conformal split (treino/calibração/teste em grupos distintos) e cobertura empírica a 80% e 90%.
-- Passo 8: decisão XGBoost vs. Ridge. **Critério proposto, aguardando aprovação:** `skill_vs_ridge > 0` na média dos folds, no holdout e em mais da metade dos folds; senão, Ridge.
-- Passo 9: SHAP (só explicativo). Não instalado; ver "Achados".
-- Passo 10: `cenarios.py` (fatores de chuva/temperatura, faixa de incerteza, aviso de extrapolação).
-- Passo 11: testes adicionais de vazamento entre grupos, reprodutibilidade e extrapolação.
-- Passo 12: `relatorio_modelos.md` com métricas reais por fold, baselines, cobertura, lacunas e decisão.
+- Rodar com dados reais e gerar `relatorio_modelos.md` real (métricas, cobertura, decisão).
+- Opcional: instalar `shap` se houver wheel para o Python em uso; hoje a explicação usa `pred_contribs`.
 
 ## Falta (projeto SULCO fora deste módulo)
 Coleta real (POWER, MODIS, SMAP, `src/coleta`), tabela de culturas e motor de cenários, RAG, LLM com cache,

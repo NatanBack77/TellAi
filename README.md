@@ -14,7 +14,8 @@ A ferramenta **apoia**, não decide: todo cenário é "a avaliar com técnico lo
 - Passo 4 concluído: `diagnostico.py` (STL, anomalias, solo nu, tendências, veranicos), 20 testes passando.
 - Passo 5 concluído: `features.py` (janelas anteriores, dias secos, sazonalidade, alvo = anomalia), 37 testes passando.
 - Passo 6 concluído: `preditivo.py` (climatologia, Ridge, XGBoost; GroupKFold por célula + holdout temporal), 54 testes passando.
-- Próximo: passo 7 (conformal + cobertura).
+- Passos 7–12 concluídos no código: conformal + cobertura, decisão XGBoost vs. Ridge, explicação (`pred_contribs`), `cenarios.py`, `relatorio.py`, 71 testes passando.
+- Próximo: dados reais geração do `relatorio_modelos.md` real.
 
 ## Como rodar
 ```
@@ -23,7 +24,9 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python -m src.modelos.diagnostico --sintetico   # diagnóstico dos pontos sintéticos
 .venv/bin/python -m src.modelos.preditivo --sintetico     # só testa o fluxo; não imprime métricas
 .venv/bin/python -m pytest -q
+.venv/bin/python -m src.modelos.preditivo   # com dados reais: grava metricas.json e relatorio_modelos.md
 ```
+(No Windows use `.venv/Scripts/python`.)
 Dados `SINTETICO_*` servem só para testar formato e fluxo; nenhuma métrica deles é resultado do projeto.
 
 ## Segurança

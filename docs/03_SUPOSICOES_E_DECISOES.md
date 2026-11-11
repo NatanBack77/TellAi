@@ -46,7 +46,7 @@ Registro vivo. Atualizar a cada decisão. Última atualização: 2026-11-09.
 - [x] Passo 4: `diagnostico.py` + `tests/test_diagnostico.py` (20 testes no total passando)
 - [x] Passo 5: `features.py` + `tests/test_features.py` (37 testes no total passando)
 - [x] Passo 6: `preditivo.py` + `tests/test_preditivo.py` (54 testes no total passando)
-- [ ] Passos 7–12
+- [x] Passos 7–12 (código e testes; 71 testes passando). Falta rodar com dados reais.
 
 ## Decisões do diagnóstico (passo 4)
 - D5: grade do NDVI = 23 slots por ano pela regra `(dia_do_ano-1)//16`; o gerador sintético agora segue a grade MODIS (DOY 1, 17, ..., 353).
@@ -85,3 +85,10 @@ Sem `--sintetico`, usa os caminhos reais do `config.yaml`. Resultados de dados s
 - D29: `confianca` do preditivo = "baixa" se < 15 células POWER distintas, senão "media" (heurística, não probabilidade). Toda saída traz `lacunas`, `confianca` e o aviso de que é associação histórica, não causalidade nem previsão do clima.
 - D30: com `--sintetico` a CLI grava `SINTETICO_metricas.json`, marca `dados_sinteticos: true` na primeira lacuna e **não imprime métricas**. Um teste de fluxo checa só que o Ridge supera a climatologia no sintético (o NDVI sintético depende da chuva por construção); isso valida o encanamento, não é resultado.
 - **A decidir no passo 8**: critério de "XGBoost supera o Ridge de forma consistente" (proposta: skill_vs_ridge > 0 na média dos folds E na maioria dos folds E no holdout; caso contrário, Ridge). Pendente de aprovação antes de olhar dados reais.
+
+## Decisões dos passos 7–12
+- D31: critério XGBoost vs. Ridge implementado como proposto (skill_vs_ridge > 0 na média dos folds, no holdout e em mais da metade dos folds; senão Ridge). **Aprovado pelo usuário em 2026-11-11**; a saída traz `criterio_aprovado_pelo_usuario: true`. Se o modelo escolhido não superar a climatologia no holdout, há aviso explícito.
+- D32: conformal split por CÉLULA: das células do treino, `conformal_fracao_calibracao` (0.25) vão à calibração; o modelo é ajustado nas demais; quantil com correção de amostra finita ceil((n+1)(1-α))/n (inf => sem faixa, vira lacuna). Cobertura medida nas células de validação (CV) e nos anos de holdout. Limite: no holdout as células de teste coincidem com as de treino (a separação é temporal).
+- D33: SHAP: `shap` não instalado; usa-se `pred_contribs` do XGBoost (valores de Shapley de árvore). Só explicativo.
+- D34: cenários: `chuva_ac_*` × fator, `tmax_media_*` + delta; dias secos, sazonalidade e umidade não mudam (declarado em `limites`). Qualquer feature fora de [min, max] do treino => `extrapolacao: true`, sem número e sem faixa.
+- D35: com dados sintéticos o relatório e a CLI não mostram métricas nem a decisão.
