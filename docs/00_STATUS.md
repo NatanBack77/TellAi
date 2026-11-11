@@ -28,7 +28,8 @@ Total: 71 testes passando (`pytest -q -W error`). Todo o desenvolvimento usou da
 ## Coleta (`src/coleta`)
 - **POWER: feita (2026-11-11).** 13 pontos propostos (a revisar, S2), 2001–2024, 113.958 linhas, 0 ausentes, 13 células. `python -m src.coleta.power` (cache em `data/raw/power/`, idempotente).
 - Com 13 células (< 15) o modelo sai com confiança "baixa" e o aviso de amostra efetiva; ampliar os pontos melhora isso.
-- MODIS (MOD13Q1) e SMAP (SPL4SMGP): pendentes; exigem login Earthdata (`.env`, via `earthaccess`). Sem o `ndvi_16d.parquet` o preditivo real não roda.
+- **MODIS: parcial.** AppEEARS (`coleta/modis.py`) ficou preso na fila; usamos o serviço de subset do ORNL DAAC (`coleta/modis_ornl.py`, público, sem login, cache em `data/raw/modis_ornl/`, retomável). Ele confirmou que `data` = início do composto (resolve S5). Ritmo ~8 janelas/min; ver `docs/04_RETOMADA.md`.
+- SMAP (SPL4SMGP): pendente, opcional; exige Earthdata. Sem o `ndvi_16d.parquet` o preditivo real não roda.
 
 ## Falta (projeto SULCO fora deste módulo)
 Coleta MODIS e SMAP, tabela de culturas e motor de cenários, RAG, LLM com cache,
