@@ -60,3 +60,29 @@ preditivo:
   cobertura_alvos: [0.8, 0.9]
   conformal_fracao_calibracao: 0.25   # fração das CÉLULAS do treino reservada à calibração
   min_celulas_aviso: 15
+
+# Coleta (src/coleta). PONTOS = PROPOSTA a revisar (S2): semiárido do Nordeste, uma célula POWER por ponto.
+coleta:
+  power:
+    inicio: 20010101
+    fim: 20241231
+    comunidade: AG
+    # nomes e unidades confirmados na resposta da API em 2026-11-11 (header.parameters); fill_value = -999
+    parametros: {chuva_mm: PRECTOTCORR, tmax_c: T2M_MAX, tmin_c: T2M_MIN, radiacao: ALLSKY_SFC_SW_DWN}
+    pasta_bruta: data/raw/power
+    grade_lat: 0.5
+    grade_lon: 0.625
+  pontos:
+    - {ponto_id: petrolina_pe,   lat: -9.39,  lon: -40.50}
+    - {ponto_id: araripina_pe,   lat: -7.58,  lon: -40.50}
+    - {ponto_id: serra_talhada_pe, lat: -7.99, lon: -38.30}
+    - {ponto_id: sertania_pe,    lat: -8.07,  lon: -37.27}
+    - {ponto_id: patos_pb,       lat: -7.02,  lon: -37.28}
+    - {ponto_id: sousa_pb,       lat: -6.76,  lon: -38.23}
+    - {ponto_id: mossoro_rn,     lat: -5.19,  lon: -37.34}
+    - {ponto_id: quixada_ce,     lat: -4.97,  lon: -39.02}
+    - {ponto_id: crateus_ce,     lat: -5.17,  lon: -40.65}
+    - {ponto_id: picos_pi,       lat: -7.08,  lon: -41.47}
+    - {ponto_id: irece_ba,       lat: -11.30, lon: -41.85}
+    - {ponto_id: senhor_do_bonfim_ba, lat: -10.46, lon: -40.19}
+    - {ponto_id: euclides_da_cunha_ba, lat: -10.51, lon: -39.01}

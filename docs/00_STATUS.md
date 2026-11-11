@@ -25,8 +25,13 @@ Total: 71 testes passando (`pytest -q -W error`). Todo o desenvolvimento usou da
 - Rodar com dados reais e gerar `relatorio_modelos.md` real (métricas, cobertura, decisão).
 - Opcional: instalar `shap` se houver wheel para o Python em uso; hoje a explicação usa `pred_contribs`.
 
+## Coleta (`src/coleta`)
+- **POWER: feita (2026-11-11).** 13 pontos propostos (a revisar, S2), 2001–2024, 113.958 linhas, 0 ausentes, 13 células. `python -m src.coleta.power` (cache em `data/raw/power/`, idempotente).
+- Com 13 células (< 15) o modelo sai com confiança "baixa" e o aviso de amostra efetiva; ampliar os pontos melhora isso.
+- MODIS (MOD13Q1) e SMAP (SPL4SMGP): pendentes; exigem login Earthdata (`.env`, via `earthaccess`). Sem o `ndvi_16d.parquet` o preditivo real não roda.
+
 ## Falta (projeto SULCO fora deste módulo)
-Coleta real (POWER, MODIS, SMAP, `src/coleta`), tabela de culturas e motor de cenários, RAG, LLM com cache,
+Coleta MODIS e SMAP, tabela de culturas e motor de cenários, RAG, LLM com cache,
 app Streamlit, página "Limites dos dados". Ver `docs/01_VISAO_GERAL.md`.
 
 ## Achados

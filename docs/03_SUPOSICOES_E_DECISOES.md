@@ -92,3 +92,5 @@ Sem `--sintetico`, usa os caminhos reais do `config.yaml`. Resultados de dados s
 - D33: SHAP: `shap` não instalado; usa-se `pred_contribs` do XGBoost (valores de Shapley de árvore). Só explicativo.
 - D34: cenários: `chuva_ac_*` × fator, `tmax_media_*` + delta; dias secos, sazonalidade e umidade não mudam (declarado em `limites`). Qualquer feature fora de [min, max] do treino => `extrapolacao: true`, sem número e sem faixa.
 - D35: com dados sintéticos o relatório e a CLI não mostram métricas nem a decisão.
+- D36 (2026-11-11): coleta POWER via API REST (`urllib`, sem dependência nova). Parâmetros confirmados na resposta da API: PRECTOTCORR (mm/dia), T2M_MAX, T2M_MIN (°C), ALLSKY_SFC_SW_DWN (MJ/m²/dia); fill_value -999 vira NaN. Comunidade AG. `celula_power` = índice aproximado da grade 0,5° x 0,625° (`round(lat/0.5)_round(lon/0.625)`), não o ID oficial.
+- D37: lista de 13 pontos em `config.yaml` é PROPOSTA minha (um por célula, semiárido do NE); S2 segue pendente de revisão do usuário.

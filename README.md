@@ -15,6 +15,7 @@ A ferramenta **apoia**, não decide: todo cenário é "a avaliar com técnico lo
 - Passo 5 concluído: `features.py` (janelas anteriores, dias secos, sazonalidade, alvo = anomalia), 37 testes passando.
 - Passo 6 concluído: `preditivo.py` (climatologia, Ridge, XGBoost; GroupKFold por célula + holdout temporal), 54 testes passando.
 - Passos 7–12 concluídos no código: conformal + cobertura, decisão XGBoost vs. Ridge, explicação (`pred_contribs`), `cenarios.py`, `relatorio.py`, 71 testes passando.
+- Coleta POWER feita (13 pontos, 2001–2024): `python -m src.coleta.power`. Faltam MODIS e SMAP (Earthdata).
 - Próximo: dados reais geração do `relatorio_modelos.md` real.
 
 ## Como rodar
