@@ -33,7 +33,7 @@ def _env() -> tuple[str, str]:
         for lin in arq.read_text(encoding="utf-8").splitlines():
             if "=" in lin and not lin.lstrip().startswith("#"):
                 k, v = lin.split("=", 1)
-                os.environ.setdefault(k.strip(), v.strip())
+                os.environ.setdefault(k.strip(), v.strip().strip('"\''))
     u, s = os.environ.get("EARTHDATA_USERNAME"), os.environ.get("EARTHDATA_PASSWORD")
     if not u or not s:
         raise DadosInvalidos("Defina EARTHDATA_USERNAME e EARTHDATA_PASSWORD no .env.")

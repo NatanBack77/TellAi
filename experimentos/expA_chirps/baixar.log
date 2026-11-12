@@ -1,0 +1,4 @@
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.prefix, expected /home/natanaelmarcelino/sulco_nasa/.venv, got /home/natanaelmarcelino/sulco_nasa/experimentos/expA_chirps/../../.venv
+<frozen site>:101: RuntimeWarning: Unexpected value in sys.exec_prefix, expected /home/natanaelmarcelino/sulco_nasa/.venv, got /home/natanaelmarcelino/sulco_nasa/experimentos/expA_chirps/../../.venv
+13 pontos
+falhas: []

@@ -67,3 +67,11 @@ seguindo o protocolo (só 2010–2021; N total; placebo; confirmação selada s�
 Defasagem de 2–3 meses da resposta da caatinga à chuva (estudos com Meteosat-SEVIRI e TRMM); SAVI pode ser melhor que NDVI na caatinga
 (estudo na Paraíba); CHIRPS via ClimateSERV (pacote rOpenSci `chirps`); SPL4SMGP v8 pelo AppEEARS (série desde 31/03/2015;
 nomes das camadas a conferir); rede de ~500 pluviômetros da FUNCEME (sem documentação oficial de API encontrada).
+
+## 6. Atualização (2026-11-11, noite)
+- **CHIRPS: concluído, sem ganho.** 13 pontos, seleção 2010–2021, N=6 variantes, placebo ≈ 0. Melhor variante (`pers_power_chirps`) +0,0012 sobre a persistência
+  (IC inferior −0,0019, não passa); trocar POWER por CHIRPS piora (−0,0103). Confirmação selada não aberta. Detalhes: `experimentos/expA_chirps/RESULTADO.md`.
+  Conclusão: "sem evidência de ganho" (pouco poder), não prova que a chuva não importa.
+- **SMAP coletado** (195 pontos, 2015–2024) mas **ainda não testado como feature**. Série curta (desde 2015): poucos anos de seleção.
+- **Avaliação com 195 pontos pendente** (depende do `ndvi_16d.parquet` completo). Ver `docs/04_RETOMADA.md`, seção 5.
+- EVI/SAVI segue sem resultado.

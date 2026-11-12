@@ -1,0 +1,74 @@
+CHIRPS linhas 113958 NaN 0
+corr diaria POWER x CHIRPS: 0.5207581529938337 | total anual medio P/C: 0.991425423296597
+
+==== REAL (dif vs persistencia)
+         variante  modelo  anos_selecao  skill_media  skill_ic_inf_corrigido  frac_anos_positivos  dif_vs_base_media  dif_vs_base_ic_inf
+             base   ridge            12       0.0583                  0.0285               0.8333            -0.1701             -0.2221
+             base xgboost            12       0.0659                  0.0296               0.9167            -0.1624             -0.2084
+      base_chirps   ridge            12       0.0378                  0.0074               0.8333            -0.1905             -0.2418
+      base_chirps xgboost            12       0.0504                  0.0159               0.8333            -0.1780             -0.2229
+base_power_chirps   ridge            12       0.0600                  0.0260               0.8333            -0.1683             -0.2170
+base_power_chirps xgboost            12       0.0707                  0.0291               0.9167            -0.1577             -0.1983
+      pers_chirps ingenua            12       0.1101                 -0.0157               0.6667            -0.1182             -0.2035
+      pers_chirps   ridge            12       0.2180                  0.1482               1.0000            -0.0103             -0.0117
+      pers_chirps xgboost            12       0.2220                  0.1362               1.0000            -0.0063             -0.0355
+pers_power_chirps ingenua            12       0.1101                 -0.0157               0.6667            -0.1182             -0.2035
+pers_power_chirps   ridge            12       0.2295                  0.1584               1.0000             0.0012             -0.0019
+pers_power_chirps xgboost            12       0.2349                  0.1471               1.0000             0.0066             -0.0205
+     persistencia ingenua            12       0.1101                 -0.0157               0.6667            -0.1182             -0.2035
+     persistencia   ridge            12       0.2283                  0.1581               1.0000             0.0000              0.0000
+     persistencia xgboost            12       0.2333                  0.1473               1.0000             0.0049             -0.0199
+==== (dif vs base)
+         variante  modelo  anos_selecao  skill_media  skill_ic_inf_corrigido  frac_anos_positivos  dif_vs_base_media  dif_vs_base_ic_inf
+             base   ridge            12       0.0583                  0.0285               0.8333             0.0000              0.0000
+             base xgboost            12       0.0659                  0.0296               0.9167             0.0076             -0.0027
+      base_chirps   ridge            12       0.0378                  0.0074               0.8333            -0.0205             -0.0263
+      base_chirps xgboost            12       0.0504                  0.0159               0.8333            -0.0079             -0.0181
+base_power_chirps   ridge            12       0.0600                  0.0260               0.8333             0.0017             -0.0050
+base_power_chirps xgboost            12       0.0707                  0.0291               0.9167             0.0124             -0.0058
+      pers_chirps ingenua            12       0.1101                 -0.0157               0.6667             0.0519             -0.0569
+      pers_chirps   ridge            12       0.2180                  0.1482               1.0000             0.1597              0.1078
+      pers_chirps xgboost            12       0.2220                  0.1362               1.0000             0.1638              0.0993
+pers_power_chirps ingenua            12       0.1101                 -0.0157               0.6667             0.0519             -0.0569
+pers_power_chirps   ridge            12       0.2295                  0.1584               1.0000             0.1712              0.1182
+pers_power_chirps xgboost            12       0.2349                  0.1471               1.0000             0.1766              0.1092
+     persistencia ingenua            12       0.1101                 -0.0157               0.6667             0.0519             -0.0569
+     persistencia   ridge            12       0.2283                  0.1581               1.0000             0.1701              0.1180
+     persistencia xgboost            12       0.2333                  0.1473               1.0000             0.1750              0.1092
+n teste por ano: [221, 189, 238, 210, 201, 217, 217, 178, 183, 213, 172, 205]
+
+==== placebo (dif vs persistencia)
+         variante  modelo  anos_selecao  skill_media  skill_ic_inf_corrigido  frac_anos_positivos  dif_vs_base_media  dif_vs_base_ic_inf
+             base   ridge            12      -0.0011                 -0.0024               0.2500            -0.0006             -0.0032
+             base xgboost            12      -0.0134                 -0.0237               0.0833            -0.0129             -0.0234
+      base_chirps   ridge            12      -0.0010                 -0.0022               0.2500            -0.0005             -0.0030
+      base_chirps xgboost            12      -0.0094                 -0.0185               0.1667            -0.0089             -0.0179
+base_power_chirps   ridge            12      -0.0009                 -0.0024               0.2500            -0.0004             -0.0030
+base_power_chirps xgboost            12      -0.0116                 -0.0217               0.1667            -0.0111             -0.0217
+      pers_chirps ingenua            12      -0.2730                 -0.3810               0.0833            -0.2726             -0.3808
+      pers_chirps   ridge            12      -0.0006                 -0.0043               0.5833            -0.0001             -0.0010
+      pers_chirps xgboost            12      -0.0205                 -0.0308               0.1667            -0.0201             -0.0303
+pers_power_chirps ingenua            12      -0.2730                 -0.3810               0.0833            -0.2726             -0.3808
+pers_power_chirps   ridge            12      -0.0006                 -0.0042               0.5833            -0.0001             -0.0004
+pers_power_chirps xgboost            12      -0.0208                 -0.0308               0.1667            -0.0203             -0.0307
+     persistencia ingenua            12      -0.2730                 -0.3810               0.0833            -0.2726             -0.3808
+     persistencia   ridge            12      -0.0005                 -0.0040               0.5833             0.0000              0.0000
+     persistencia xgboost            12      -0.0231                 -0.0374               0.0833            -0.0226             -0.0379
+==== (dif vs base)
+         variante  modelo  anos_selecao  skill_media  skill_ic_inf_corrigido  frac_anos_positivos  dif_vs_base_media  dif_vs_base_ic_inf
+             base   ridge            12      -0.0011                 -0.0024               0.2500             0.0000              0.0000
+             base xgboost            12      -0.0134                 -0.0237               0.0833            -0.0123             -0.0222
+      base_chirps   ridge            12      -0.0010                 -0.0022               0.2500             0.0001             -0.0013
+      base_chirps xgboost            12      -0.0094                 -0.0185               0.1667            -0.0083             -0.0169
+base_power_chirps   ridge            12      -0.0009                 -0.0024               0.2500             0.0002             -0.0003
+base_power_chirps xgboost            12      -0.0116                 -0.0217               0.1667            -0.0105             -0.0201
+      pers_chirps ingenua            12      -0.2730                 -0.3810               0.0833            -0.2720             -0.3789
+      pers_chirps   ridge            12      -0.0006                 -0.0043               0.5833             0.0005             -0.0030
+      pers_chirps xgboost            12      -0.0205                 -0.0308               0.1667            -0.0194             -0.0292
+pers_power_chirps ingenua            12      -0.2730                 -0.3810               0.0833            -0.2720             -0.3789
+pers_power_chirps   ridge            12      -0.0006                 -0.0042               0.5833             0.0005             -0.0027
+pers_power_chirps xgboost            12      -0.0208                 -0.0308               0.1667            -0.0197             -0.0299
+     persistencia ingenua            12      -0.2730                 -0.3810               0.0833            -0.2720             -0.3789
+     persistencia   ridge            12      -0.0005                 -0.0040               0.5833             0.0006             -0.0025
+     persistencia xgboost            12      -0.0231                 -0.0374               0.0833            -0.0220             -0.0363
+n teste por ano: [202, 207, 212, 198, 205, 219, 205, 190, 201, 199, 191, 188]

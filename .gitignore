@@ -13,3 +13,5 @@ data/processed/**/SINTETICO_*
 
 data/processed/modelos/
 experimentos/**/*.pkl
+!data/raw/smap_cache.tar.gz
+!data/raw/power_cache.tar.gz

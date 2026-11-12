@@ -72,6 +72,19 @@ coleta:
     pasta_bruta: data/raw/power
     grade_lat: 0.5
     grade_lon: 0.625
+  # SMAP L4 (SPL4SMGP v008, 9 km, 3-hourly). Variáveis/unidades conferidas nos atributos do arquivo HDF5 (2026-11-11):
+  # Geophysical_Data/sm_surface (0-5 cm) e sm_rootzone (0-100 cm), m3 m-3, _FillValue -9999.
+  smap:
+    short_name: SPL4SMGP
+    versao: "008"
+    inicio: 20150331
+    fim: 20241231
+    pasta_bruta: data/raw/smap
+    var_superficie: sm_surface
+    var_raiz: sm_rootzone
+    fill: -9999.0
+    min_granulos_dia: 6        # de 8 granulos de 3 h por dia (UTC); abaixo disso o dia vira NaN
+    workers: 16
   pontos:
     - {ponto_id: petrolina_pe,   lat: -9.39,  lon: -40.50}
     - {ponto_id: araripina_pe,   lat: -7.58,  lon: -40.50}
@@ -134,6 +147,143 @@ coleta:
     - {ponto_id: taua_ce, lat: -5.9363, lon: -40.2592}
     - {ponto_id: tururu_ce, lat: -3.5529, lon: -39.4038}
     - {ponto_id: vicosa_do_ceara_ce, lat: -3.5485, lon: -41.1349}
+    # Ceará completo, demais 136 municípios (2026-11-11): cada um recebe o clima da sua célula POWER; celula_power segue sendo o grupo do GroupKFold.
+    - {ponto_id: abaiara_ce, lat: -7.3608, lon: -39.0361}
+    - {ponto_id: acarape_ce, lat: -4.2156, lon: -38.6617}
+    - {ponto_id: acopiara_ce, lat: -6.1227, lon: -39.4952}
+    - {ponto_id: aiuaba_ce, lat: -6.6045, lon: -40.2977}
+    - {ponto_id: alcantaras_ce, lat: -3.5951, lon: -40.546}
+    - {ponto_id: altaneira_ce, lat: -6.985, lon: -39.6928}
+    - {ponto_id: amontada_ce, lat: -3.2387, lon: -39.785}
+    - {ponto_id: antonina_do_norte_ce, lat: -6.7578, lon: -39.9841}
+    - {ponto_id: aquiraz_ce, lat: -3.9759, lon: -38.3941}
+    - {ponto_id: ararenda_ce, lat: -4.7736, lon: -40.7471}
+    - {ponto_id: araripe_ce, lat: -7.2388, lon: -40.0765}
+    - {ponto_id: aratuba_ce, lat: -4.4135, lon: -39.0248}
+    - {ponto_id: arneiroz_ce, lat: -6.2379, lon: -40.1521}
+    - {ponto_id: assare_ce, lat: -6.9101, lon: -39.8696}
+    - {ponto_id: aurora_ce, lat: -6.9883, lon: -38.9676}
+    - {ponto_id: baixio_ce, lat: -6.7127, lon: -38.7492}
+    - {ponto_id: banabuiu_ce, lat: -5.2629, lon: -38.9031}
+    - {ponto_id: barreira_ce, lat: -4.3203, lon: -38.6199}
+    - {ponto_id: baturite_ce, lat: -4.3871, lon: -38.8512}
+    - {ponto_id: bela_cruz_ce, lat: -3.0535, lon: -40.308}
+    - {ponto_id: boa_viagem_ce, lat: -5.0865, lon: -39.8085}
+    - {ponto_id: brejo_santo_ce, lat: -7.554, lon: -38.9212}
+    - {ponto_id: campos_sales_ce, lat: -6.9358, lon: -40.272}
+    - {ponto_id: capistrano_ce, lat: -4.4708, lon: -38.906}
+    - {ponto_id: caridade_ce, lat: -4.2036, lon: -39.1088}
+    - {ponto_id: carire_ce, lat: -3.9516, lon: -40.5239}
+    - {ponto_id: carius_ce, lat: -6.6444, lon: -39.4628}
+    - {ponto_id: carnaubal_ce, lat: -4.1302, lon: -41.0117}
+    - {ponto_id: cascavel_ce, lat: -4.2385, lon: -38.2972}
+    - {ponto_id: catarina_ce, lat: -6.2555, lon: -39.9083}
+    - {ponto_id: catunda_ce, lat: -4.6299, lon: -40.1753}
+    - {ponto_id: caucaia_ce, lat: -3.7825, lon: -38.8108}
+    - {ponto_id: cedro_ce, lat: -6.5695, lon: -39.0943}
+    - {ponto_id: chaval_ce, lat: -3.0914, lon: -41.2309}
+    - {ponto_id: choro_ce, lat: -4.7734, lon: -39.1908}
+    - {ponto_id: chorozinho_ce, lat: -4.3061, lon: -38.4704}
+    - {ponto_id: coreau_ce, lat: -3.6426, lon: -40.7261}
+    - {ponto_id: crato_ce, lat: -7.2323, lon: -39.4896}
+    - {ponto_id: cruz_ce, lat: -2.8957, lon: -40.3256}
+    - {ponto_id: eusebio_ce, lat: -3.8772, lon: -38.4589}
+    - {ponto_id: farias_brito_ce, lat: -6.9112, lon: -39.5493}
+    - {ponto_id: forquilha_ce, lat: -3.823, lon: -40.2252}
+    - {ponto_id: fortaleza_ce, lat: -3.7856, lon: -38.5277}
+    - {ponto_id: fortim_ce, lat: -4.4625, lon: -37.8712}
+    - {ponto_id: frecheirinha_ce, lat: -3.7117, lon: -40.8215}
+    - {ponto_id: general_sampaio_ce, lat: -4.0629, lon: -39.4478}
+    - {ponto_id: graca_ce, lat: -4.0456, lon: -40.7736}
+    - {ponto_id: granja_ce, lat: -3.2311, lon: -41.0021}
+    - {ponto_id: granjeiro_ce, lat: -6.9087, lon: -39.2476}
+    - {ponto_id: groairas_ce, lat: -3.912, lon: -40.3645}
+    - {ponto_id: guaiuba_ce, lat: -4.1029, lon: -38.6671}
+    - {ponto_id: guaraciaba_do_norte_ce, lat: -4.2334, lon: -40.9158}
+    - {ponto_id: guaramiranga_ce, lat: -4.2522, lon: -38.9532}
+    - {ponto_id: hidrolandia_ce, lat: -4.4327, lon: -40.4066}
+    - {ponto_id: horizonte_ce, lat: -4.102, lon: -38.4657}
+    - {ponto_id: ibaretama_ce, lat: -4.7794, lon: -38.7228}
+    - {ponto_id: ibicuitinga_ce, lat: -4.9751, lon: -38.5591}
+    - {ponto_id: icapui_ce, lat: -4.7391, lon: -37.4124}
+    - {ponto_id: independencia_ce, lat: -5.475, lon: -40.3422}
+    - {ponto_id: ipaporanga_ce, lat: -4.9097, lon: -40.8035}
+    - {ponto_id: ipaumirim_ce, lat: -6.8067, lon: -38.7429}
+    - {ponto_id: ipueiras_ce, lat: -4.5736, lon: -40.8778}
+    - {ponto_id: iracema_ce, lat: -5.7779, lon: -38.336}
+    - {ponto_id: itaicaba_ce, lat: -4.7192, lon: -37.849}
+    - {ponto_id: itaitinga_ce, lat: -3.9991, lon: -38.5498}
+    - {ponto_id: itapaje_ce, lat: -3.7336, lon: -39.5751}
+    - {ponto_id: itapipoca_ce, lat: -3.3946, lon: -39.5976}
+    - {ponto_id: itapiuna_ce, lat: -4.5942, lon: -38.9526}
+    - {ponto_id: itarema_ce, lat: -3.0499, lon: -39.8899}
+    - {ponto_id: itatira_ce, lat: -4.6264, lon: -39.5783}
+    - {ponto_id: jaguaribara_ce, lat: -5.6125, lon: -38.5245}
+    - {ponto_id: jaguaruana_ce, lat: -4.8666, lon: -37.7461}
+    - {ponto_id: jardim_ce, lat: -7.5903, lon: -39.2482}
+    - {ponto_id: jati_ce, lat: -7.6924, lon: -38.9921}
+    - {ponto_id: jijoca_de_jericoacoara_ce, lat: -2.8786, lon: -40.4949}
+    - {ponto_id: juazeiro_do_norte_ce, lat: -7.185, lon: -39.2864}
+    - {ponto_id: jucas_ce, lat: -6.46, lon: -39.6067}
+    - {ponto_id: lavras_da_mangabeira_ce, lat: -6.7775, lon: -38.9947}
+    - {ponto_id: limoeiro_do_norte_ce, lat: -5.1576, lon: -38.0477}
+    - {ponto_id: maracanau_ce, lat: -3.8738, lon: -38.6273}
+    - {ponto_id: marco_ce, lat: -3.1908, lon: -40.2639}
+    - {ponto_id: martinopole_ce, lat: -3.1692, lon: -40.6494}
+    - {ponto_id: massape_ce, lat: -3.483, lon: -40.39}
+    - {ponto_id: meruoca_ce, lat: -3.5774, lon: -40.4544}
+    - {ponto_id: milagres_ce, lat: -7.2725, lon: -38.9432}
+    - {ponto_id: milha_ce, lat: -5.6391, lon: -39.1684}
+    - {ponto_id: missao_velha_ce, lat: -7.3072, lon: -39.1531}
+    - {ponto_id: mombaca_ce, lat: -5.7874, lon: -39.7487}
+    - {ponto_id: morada_nova_ce, lat: -5.0336, lon: -38.432}
+    - {ponto_id: morrinhos_ce, lat: -3.285, lon: -40.0873}
+    - {ponto_id: mucambo_ce, lat: -3.8996, lon: -40.7574}
+    - {ponto_id: mulungu_ce, lat: -4.3226, lon: -38.9938}
+    - {ponto_id: nova_olinda_ce, lat: -7.0948, lon: -39.6656}
+    - {ponto_id: nova_russas_ce, lat: -4.6787, lon: -40.5292}
+    - {ponto_id: ocara_ce, lat: -4.5261, lon: -38.5081}
+    - {ponto_id: oros_ce, lat: -6.2447, lon: -38.9457}
+    - {ponto_id: pacajus_ce, lat: -4.1838, lon: -38.4965}
+    - {ponto_id: pacatuba_ce, lat: -3.9535, lon: -38.5962}
+    - {ponto_id: pacoti_ce, lat: -4.1991, lon: -38.9024}
+    - {ponto_id: palhano_ce, lat: -4.7086, lon: -38.0275}
+    - {ponto_id: palmacia_ce, lat: -4.1254, lon: -38.8391}
+    - {ponto_id: paraipaba_ce, lat: -3.4225, lon: -39.1763}
+    - {ponto_id: paramoti_ce, lat: -4.16, lon: -39.3767}
+    - {ponto_id: pentecoste_ce, lat: -3.8546, lon: -39.146}
+    - {ponto_id: pereiro_ce, lat: -6.0363, lon: -38.4882}
+    - {ponto_id: piquet_carneiro_ce, lat: -5.8624, lon: -39.4503}
+    - {ponto_id: pires_ferreira_ce, lat: -4.2586, lon: -40.5855}
+    - {ponto_id: porteiras_ce, lat: -7.5417, lon: -39.1064}
+    - {ponto_id: potiretama_ce, lat: -5.7495, lon: -38.1669}
+    - {ponto_id: quixelo_ce, lat: -6.1754, lon: -39.119}
+    - {ponto_id: quixeramobim_ce, lat: -5.2449, lon: -39.3335}
+    - {ponto_id: quixere_ce, lat: -5.0879, lon: -37.8612}
+    - {ponto_id: redencao_ce, lat: -4.2461, lon: -38.7622}
+    - {ponto_id: reriutaba_ce, lat: -4.1191, lon: -40.6129}
+    - {ponto_id: santana_do_acarau_ce, lat: -3.4625, lon: -40.166}
+    - {ponto_id: santana_do_cariri_ce, lat: -7.2224, lon: -39.7572}
+    - {ponto_id: sao_benedito_ce, lat: -4.041, lon: -40.9689}
+    - {ponto_id: sao_goncalo_do_amarante_ce, lat: -3.6001, lon: -39.0599}
+    - {ponto_id: sao_joao_do_jaguaribe_ce, lat: -5.3264, lon: -38.272}
+    - {ponto_id: sao_luis_do_curu_ce, lat: -3.6462, lon: -39.2638}
+    - {ponto_id: senador_sa_ce, lat: -3.2683, lon: -40.4614}
+    - {ponto_id: sobral_ce, lat: -3.8117, lon: -40.2279}
+    - {ponto_id: solonopole_ce, lat: -5.7769, lon: -39.0034}
+    - {ponto_id: tabuleiro_do_norte_ce, lat: -5.3622, lon: -38.0264}
+    - {ponto_id: tamboril_ce, lat: -4.92, lon: -40.3361}
+    - {ponto_id: tarrafas_ce, lat: -6.7303, lon: -39.7372}
+    - {ponto_id: tejucuoca_ce, lat: -3.934, lon: -39.5831}
+    - {ponto_id: tiangua_ce, lat: -3.7354, lon: -41.0538}
+    - {ponto_id: trairi_ce, lat: -3.3377, lon: -39.353}
+    - {ponto_id: ubajara_ce, lat: -3.8678, lon: -41.0061}
+    - {ponto_id: umari_ce, lat: -6.6235, lon: -38.7309}
+    - {ponto_id: umirim_ce, lat: -3.6877, lon: -39.3845}
+    - {ponto_id: uruburetama_ce, lat: -3.6219, lon: -39.5168}
+    - {ponto_id: uruoca_ce, lat: -3.3206, lon: -40.6762}
+    - {ponto_id: varjota_ce, lat: -4.1659, lon: -40.4918}
+    - {ponto_id: varzea_alegre_ce, lat: -6.7727, lon: -39.2978}
 
 # Walk-forward (src/modelos/walkforward.py): 1 ano à frente, treino = anos anteriores
 walkforward:

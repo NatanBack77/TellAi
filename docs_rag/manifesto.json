@@ -1,0 +1,107 @@
+{
+  "_nota": "Todos os arquivos foram baixados em 2026-11-11 (curl) das URLs abaixo. 'titulo' foi copiado do texto da primeira(s) pagina(s) do proprio PDF. Nada foi escrito de memoria. Tipo: 'literatura_tecnica' = artigo/capitulo/instrucao; 'academico' = dissertacao/tese (hospedada no repositorio Embrapa Ainfo, mas NAO e publicacao da Embrapa).",
+  "documentos": [
+    {
+      "arquivo": "agrometeoros_zoneamento_metodologias.pdf",
+      "titulo": "Considerações sobre metodologias para zoneamento agrícola em escala regionalizada (Gonçalves e Wrege; Revista Brasileira de Agrometeorologia v26n2, DOI 10.31062/agrom.v26i2.26426)",
+      "tipo": "literatura_tecnica",
+      "url": "https://seer.sct.embrapa.br/index.php/agrometeoros/article/download/26426/14567",
+      "data_download": "2026-11-11",
+      "sha256": "d1edd135f0d68090885698134ad8f14c63799d48f3711251bc62886f50054605"
+    },
+    {
+      "arquivo": "mapa_zarc_2021.pdf",
+      "titulo": "Zoneamento Agrícola de Risco Climático (ZARC) (Monteiro et al.; excerto de 2 páginas, MAPA/Embrapa, livro 'Estratégias de adaptação às mudanças do clima dos sistemas agropecuários brasileiros', MAPA 2021)",
+      "tipo": "literatura_tecnica",
+      "url": "https://www.alice.cnptia.embrapa.br/alice/bitstream/doc/1136438/1/PL-ZARC-2021.pdf",
+      "data_download": "2026-11-11",
+      "sha256": "04906701ed8fe18324e1972b6e869d83267182f585599006d6356cec0bfebcdf"
+    },
+    {
+      "arquivo": "mapa_2021_forragem_semiarido_ajustes.pdf",
+      "titulo": "Ajustes tecnológicos para sistemas de produção de forragem visando garantir a sustentabilidade dos rebanhos no semiárido do Brasil (Pompeu et al.; excerto de 4 páginas, MAPA 2021)",
+      "tipo": "literatura_tecnica",
+      "url": "https://ainfo.cnptia.embrapa.br/digital/bitstream/item/229073/1/CNPC-2021-Art-96.pdf",
+      "data_download": "2026-11-11",
+      "sha256": "7ad50e2f72bbb67e5d9b5980d7c93620d5c671e5917880f3bdc609f775735803"
+    },
+    {
+      "arquivo": "mapa_2021_forrageiras_semiarido.pdf",
+      "titulo": "Forrageiras para o semiárido: estratégia para garantir a segurança alimentar de rebanhos no semiárido brasileiro (Cavalcante et al.; excerto de 4 páginas, MAPA 2021)",
+      "tipo": "literatura_tecnica",
+      "url": "https://ainfo.cnptia.embrapa.br/digital/bitstream/item/228988/1/CNPC-2021-Art-97.pdf",
+      "data_download": "2026-11-11",
+      "sha256": "9dc180cca5582a0e858d86209a883720ca92f706c089dd27c501ab55bf19c09a"
+    },
+    {
+      "arquivo": "embrapa_microrganismos_feijoeiro_milho.pdf",
+      "titulo": "Interação entre microrganismos do solo, feijoeiro e milho em monocultura ou consórcio (Hungria, Andrade, Colozzi-Filho, Balota)",
+      "tipo": "literatura_tecnica",
+      "url": "https://ainfo.cnptia.embrapa.br/digital/bitstream/item/44914/1/INTERACAO-ENTRE-MICRORGANISMOS-DO-SOLO.pdf",
+      "data_download": "2026-11-11",
+      "sha256": "2082de4093bc13a22355dd628de3be1823acd7f5312680251115431151770786"
+    },
+    {
+      "arquivo": "pab_milho_sucessao_adubos_verdes.pdf",
+      "titulo": "Produtividade do milho em sucessão a adubos verdes no sistema de plantio direto e convencional (Carvalho et al.; Pesq. agropec. bras., Brasília, v.39, n.1, p.47-53, jan. 2004)",
+      "tipo": "literatura_tecnica",
+      "url": "https://ainfo.cnptia.embrapa.br/digital/bitstream/item/108442/1/Produtividade.pdf",
+      "data_download": "2026-11-11",
+      "sha256": "83c67e6adee4e4c1b3187900c6bc8c3b5556bf5e1b4846b6a82ffb8ed9b999be"
+    },
+    {
+      "arquivo": "univasf_ciclagem_nutrientes_semiarido.pdf",
+      "titulo": "Ciclagem de nutrientes e qualidade do solo em agroecossistemas multifuncionais frutícolas irrigados no Semiárido (Rafael; dissertação, UNIVASF, Juazeiro-BA)",
+      "tipo": "academico",
+      "url": "https://ainfo.cnptia.embrapa.br/digital/bitstream/item/213195/1/Ciclagem-de-nutrientes-e-qualidade-do-solo-2020.pdf",
+      "data_download": "2026-11-11",
+      "sha256": "fa0e8905a85cca7acfeffda6e35821b6ed9297b93d70dabb90026c276ad0da9e"
+    },
+    {
+      "arquivo": "univasf_consorcio_gramineas_leguminosas.pdf",
+      "titulo": "Cultivo consorciado de gramíneas e leguminosas para recuperação de pastagens degradadas (Gut, 2020; dissertação, UNIVASF, Petrolina)",
+      "tipo": "academico",
+      "url": "https://ainfo.cnptia.embrapa.br/digital/bitstream/item/216624/1/Cultivo-Consorciado-de-gramineas-e-leguminosas-2020.pdf",
+      "data_download": "2026-11-11",
+      "sha256": "3c801fcb349f43c86f67136a10dee585ad63a929ae8d3c14ffe629b863132e6d"
+    },
+    {
+      "arquivo": "uepb_estirpe_bradyrhizobium_amendoim.pdf",
+      "titulo": "Eficiência agronômica da estirpe ESA 123 de Bradyrhizobium sp. para cultura do amendoim (Arachis hypogaea) em diferentes condições (Jovino; dissertação, UEPB). ATENCAO: o tema e AMENDOIM, nao caupi.",
+      "tipo": "academico",
+      "url": "https://ainfo.cnptia.embrapa.br/digital/bitstream/item/228437/1/Eficiencia-agronomica-da-estirpe-2021.pdf",
+      "data_download": "2026-11-11",
+      "sha256": "47763cc7967de12ea870f49aaf17c07238a66944b599fdd1f7772a7ca658cbcb"
+    },
+    {
+      "arquivo": "fao_conservation_agriculture_ai552.pdf",
+      "titulo": "Conservation Agriculture: Conserving resources above and below the ground (FAO, 2 páginas)",
+      "tipo": "literatura_tecnica",
+      "url": "https://www.fao.org/docrep/pdf/010/ai552e/ai552e00.pdf",
+      "data_download": "2026-11-11",
+      "sha256": "d23d17aad39b93106336ab7c341a1a407d7ee93d9b2d462784f27372cfd6ca42"
+    },
+    {
+      "arquivo": "fao_reosa_conservation_agriculture_2010.pdf",
+      "titulo": "Farming for the Future in Southern Africa: An Introduction to Conservation Agriculture (FAO REOSA Technical Brief 01, July 2010)",
+      "tipo": "literatura_tecnica",
+      "url": "https://www.fao.org/fileadmin/user_upload/emergencies/docs/FAO_REOSA_Technical_Brief_1__July_2010_.pdf",
+      "data_download": "2026-11-11",
+      "sha256": "b99f0965caa979df31b2044c749ec1897cf17bde270776e53753ea3295e2ccb3"
+    }
+  ],
+  "tentativas_falhas_ou_descartadas": [
+    "infoteca.cnptia.embrapa.br: host nao resolve por DNS neste ambiente (curl exit 6); Circular Tecnica 45 Embrapa Soja, ILPF Semiarido 2022, Fixacao Biologica Revisao e Cultivo de Feijao-Caupi nao puderam ser baixados dali. Os mesmos ids no alice.cnptia.embrapa.br retornaram 404.",
+    "core.ac.uk: HTTP 403 (bloqueio de download automatico).",
+    "openknowledge.fao.org (cover crops Europa Oriental/Asia Central): download de 18 MB retornou content-type application/x-mobipocket-ebook, nao PDF; descartado sem leitura.",
+    "alice.cnptia.embrapa.br doc/134530 (Embrapa Semi-Arido, 10 pp.): baixado mas texto OCR de qualidade ruim e conteudo institucional; descartado.",
+    "ainfo item/86652 (praticas agricolas sustentaveis, horticultura de montanha): baixado e descartado por irrelevancia (nao e semiarido).",
+    "ainfo doc/94556 (O meio ambiente e o plantio direto, 123 pp.): OCR muito corrompido; descartado para nao indexar texto ilegivel.",
+    "FAO EcoCrop (ecocrop.apps.fao.org): so paginas HTML sem paginacao; fora do escopo deste indice paginado. A tabela de culturas/EcoCrop e tratada em outro modulo.",
+    "ZARC portarias/tabelas por municipio (gov.br/MAPA): nao baixadas; nao ha portaria ZARC no acervo, apenas texto metodologico."
+  ],
+  "embedding": {
+    "modelo": "intfloat/multilingual-e5-small",
+    "verificacao": "Model card oficial (https://huggingface.co/intfloat/multilingual-e5-small, README.md baixado em 2026-11-11): 'pt' consta na lista de idiomas do cabecalho; texto: 'This model has 12 layers and the embedding size is 384'; 'Each input text should start with \"query: \" or \"passage: \"'; 'It supports 100 languages from xlm-roberta, but low-resource languages may see performance degradation'; licenca mit. Nao ha benchmark em portugues no card (Mr. TyDi nao inclui pt): qualidade em PT nao esta comprovada pela doc oficial e foi medida aqui nas perguntas de teste."
+  }
+}

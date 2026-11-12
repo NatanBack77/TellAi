@@ -1,5 +1,11 @@
 # Status do projeto SULCO
 
+> **Retomada (2026-11-11, noite):** tudo parado e commitado. Veja `docs/04_RETOMADA.md` (passo a passo) antes de qualquer coisa.
+> Resumo: 195 pontos (184 municípios do CE + 11 de outros estados); clima completo; SMAP coletado (694.980 linhas, 44 granulos com HTTP 502);
+> NDVI em 85% (18.479/21.840 janelas, 164/195 pontos completos), `ndvi_16d.parquet` ainda com 13 pontos; avaliação com 195 pontos NÃO feita.
+> Novos módulos: `src/culturas/` (16 culturas, 53 lacunas), `src/rag/` (acerto top-5 54%, meta 80% não atingida), `src/app/` (Streamlit), `src/coleta/smap.py`.
+> CHIRPS testado em 13 pontos: **sem ganho** (`experimentos/expA_chirps/RESULTADO.md`). Suíte: 136 testes passando.
+
 Atualizado em 2026-11-11. Escopo atual: módulo `src/modelos/` (séries temporais e preditivo).
 
 ## Feito
@@ -27,20 +33,20 @@ Total: 71 testes passando (`pytest -q -W error`). Todo o desenvolvimento usou da
 - `pers_lags4` (4 lags): +0,024 sobre a persistência, **pendente de confirmação selada**.
 - Reprovadas: janelas 120/180 d, alvo normalizado, features de clima novas (anomalia de chuva, SPI, eventos, térmica, déficit), XGBoost monotônico.
 - CHIRPS e EVI/SAVI: agentes interrompidos, sem resultado.
-- Dados: clima 59 pontos completo; NDVI 34/59 pontos em cache (`ndvi_16d.parquet` ainda com 13).
+- Dados: clima 195 pontos completo (184 municípios do CE + 11 de outros estados); NDVI em coleta (21.840 janelas; cache parcial; `ndvi_16d.parquet` ainda com 13).
 
 ## Resultado real do preditivo (13 pontos, 2026-11-11)
 Ridge escolhido; **não supera a climatologia no holdout** (skill −0,021; CV +0,033). Conformal cobre ~72%/81% para metas 80%/90% (subcobertura). Ver `relatorio_modelos.md`.
 
 ## Falta (módulo `src/modelos/`)
-- Terminar NDVI dos 59 pontos (34 completos no cache), reavaliar (walk-forward + preditivo + conformal) e fazer a confirmação selada (2022–2024) de `persistencia` e `pers_lags4`; só então levar a persistência para `preditivo.py`/`cenarios.py`.
+- Terminar NDVI dos 195 pontos (coleta em andamento, 32 workers), reavaliar (walk-forward + preditivo + conformal) e fazer a confirmação selada (2022–2024) de `persistencia` e `pers_lags4`; só então levar a persistência para `preditivo.py`/`cenarios.py`.
 - Testar (agentes interrompidos): CHIRPS, EVI/SAVI; ideias: uso do solo (MapBiomas), SMAP, FUNCEME.
 - Opcional: instalar `shap` se houver wheel para o Python em uso; hoje a explicação usa `pred_contribs`.
 
 ## Coleta (`src/coleta`)
 - **POWER: feita (2026-11-11).** 13 pontos propostos (a revisar, S2), 2001–2024, 113.958 linhas, 0 ausentes, 13 células. `python -m src.coleta.power` (cache em `data/raw/power/`, idempotente).
 - Com 13 células (< 15) o modelo sai com confiança "baixa" e o aviso de amostra efetiva; ampliar os pontos melhora isso.
-- **Clima: 59 pontos / 59 células (Ceará completo + 13 originais), 0 ausentes.** **MODIS: 34/59 pontos completos no cache**; `ndvi_16d.parquet` ainda com os 13 pontos (7.173 composições). (Histórico: AppEEARS (`coleta/modis.py`) ficou preso na fila; usamos o serviço de subset do ORNL DAAC (`coleta/modis_ornl.py`, público, sem login, cache em `data/raw/modis_ornl/`, retomável). Ele confirmou que `data` = início do composto (resolve S5). Com 16 downloads em paralelo o ritmo foi ~100 janelas/min; ver `docs/04_RETOMADA.md`.)
+- **Clima (2026-11-11): 195 pontos = 184 municípios do CE (IBGE, todos) + 11 de outros estados; 59 `celula_power` aproximadas distintas (vários municípios compartilham célula e contam como UMA amostra efetiva; `celula_power` segue como grupo do GroupKFold); 1.709.370 linhas, 0 ausentes; as linhas dos 59 pontos antigos ficaram idênticas.** **MODIS: coleta reiniciada para os 195 pontos (21.840 janelas, 32 workers, ~180 janelas/min; ver 04_RETOMADA)**; `ndvi_16d.parquet` ainda com os 13 pontos (7.173 composições). (Histórico: AppEEARS (`coleta/modis.py`) ficou preso na fila; usamos o serviço de subset do ORNL DAAC (`coleta/modis_ornl.py`, público, sem login, cache em `data/raw/modis_ornl/`, retomável). Ele confirmou que `data` = início do composto (resolve S5). Com 16 downloads em paralelo o ritmo foi ~100 janelas/min; ver `docs/04_RETOMADA.md`.)
 - SMAP (SPL4SMGP): pendente, opcional; exige Earthdata. Sem o `ndvi_16d.parquet` o preditivo real não roda.
 
 ## Falta (projeto SULCO fora deste módulo)

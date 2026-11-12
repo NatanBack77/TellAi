@@ -1,0 +1,17 @@
+{"cenarios": [
+ {"sintetico": true, "local": {"ponto_id": "T01", "nome": "SINTÉTICO ponto teste"}, "cultura_atual": "cultura_x",
+  "rotacao": "cultura_x", "score": 1.5, "faixa_incerteza": [1.0, 2.0],
+  "criterios": {"criterio_a": {"valor": 11, "unidade": "u", "nota": 3, "fonte": "SINTETICO_doc.pdf", "pagina": 2}},
+  "lacunas": ["lacuna sintética"], "riscos_revisao_local": ["risco sintético"],
+  "trechos": [{"n": 1, "arquivo": "SINTETICO_doc.pdf", "pagina": 2, "texto": "texto sintético de teste"}]},
+ {"sintetico": true, "local": {"ponto_id": "T01", "nome": "SINTÉTICO ponto teste"}, "cultura_atual": "cultura_x",
+  "rotacao": ["cultura_x", "cultura_y"], "score": 2.5, "faixa_incerteza": {"min": 2.0, "max": 3.0},
+  "criterios": {"criterio_a": {"valor": 22, "unidade": "u", "nota": 5, "fonte": "SINTETICO_doc.pdf", "pagina": 2},
+                "criterio_b": {"valor": 7, "unidade": "u", "nota": 1, "fonte": "SINTETICO_doc.pdf", "pagina": 9}},
+  "lacunas": [], "riscos_revisao_local": ["risco sintético 2"],
+  "trechos": [{"n": 1, "arquivo": "SINTETICO_doc.pdf", "pagina": 2, "texto": "texto sintético de teste"}]},
+ {"sintetico": true, "local": {"ponto_id": "T01", "nome": "SINTÉTICO ponto teste"}, "cultura_atual": "cultura_x",
+  "rotacao": ["cultura_x", "cultura_z"], "score": null, "faixa_incerteza": null,
+  "criterios": {"criterio_a": {"valor": 5, "unidade": "u", "nota": null, "fonte": "SINTETICO_doc.pdf", "pagina": 2}},
+  "lacunas": [], "riscos_revisao_local": [], "trechos": []}
+]}

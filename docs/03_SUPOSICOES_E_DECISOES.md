@@ -101,3 +101,13 @@ Sem `--sintetico`, usa os caminhos reais do `config.yaml`. Resultados de dados s
 - D42: Ceará ampliado: 1 município por célula POWER (centroide IBGE API v1 + malhas v3). 59 pontos / 59 células no total. Lista é proposta a revisar (S2).
 - D43: NDVI via ORNL com 16 downloads em paralelo (~100 janelas/min); com 4–8 era ~8/min.
 - D44: experimentos dos agentes ficam em `experimentos/` (scripts + caches parciais + `dados13/` com o instantâneo dos 13 pontos).
+
+## Decisões da rodada de 2026-11-11 (noite)
+- D45: Ceará inteiro: 184 municípios (IBGE localidades v1 + malhas v3, centroide). 195 pontos com os 11 de outros estados. Clima por município (POWER); só 59 células distintas.
+- D46: NDVI via ORNL com 64 workers (satura perto de ~230 janelas/min).
+- D47: SMAP SPL4SMGP v008 via OPeNDAP (subset por caixa, 1 pedido/granulo); `sm_surface`→`sm_superficie` (0–5 cm), `sm_rootzone`→`sm_raiz` (0–100 cm), m3/m3, fill −9999→NaN (variáveis lidas dos atributos HDF5). Pixel EASE2 mais próximo (≤ 6,2 km); média diária UTC com ≥ 6/8 granulos, senão NaN. 44 granulos falharam (HTTP 502 do servidor).
+- D48: CHIRPS descartado (sem ganho validado).
+- D49: `src/culturas/`: valores só com fonte lida (validador exige fonte, URL, página e trecho contendo o número); sem fonte = lacuna. EcoCrop via espelho OpenCLIM (não conferido com a FAO). Pesos do score e lista de culturas: **proposta pendente de aprovação**.
+- D50: `src/rag/`: texto indexado é o `pdftotext` de cada página e testado como substring; limiar de relevância (60% dos termos ou cosseno ≥ 0,87) calibrado com poucas perguntas negativas.
+- D51: caches pesados (SMAP, POWER) versionados como `.tar.gz` em `data/raw/` para retomar em outro PC; `.env` nunca.
+- S5 confirmada (D38). Pendentes: S2 (pontos), semântica da `confiabilidade`.
