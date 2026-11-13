@@ -11,7 +11,9 @@ data/processed/**/SINTETICO_*
 *.egg-info/
 .DS_Store
 
-data/processed/modelos/
+data/processed/modelos/*
+!data/processed/modelos/metricas.json
+!data/processed/modelos/relatorio_modelos.md
 experimentos/**/*.pkl
 !data/raw/smap_cache.tar.gz
 !data/raw/power_cache.tar.gz
