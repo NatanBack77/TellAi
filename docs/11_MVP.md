@@ -102,3 +102,34 @@ Segundo local (se sobrar tempo): **Limoeiro do Norte (CE)** com a mesma cultura:
 5. Ciclo, risco aceitável, pesos-base e mapeamento das prioridades são suposições do projeto (docs/06, docs/10).
 6. Diagnóstico com confiança *baixa* em 14 locais; o app mostra um alerta.
 7. Primeira abertura (carregar clima e bibliotecas) é mais lenta que as seleções seguintes: abra o app antes da demo.
+
+## 7. Estado ao encerrar (2026-11-12, ~21:15)
+
+**Pronto e testado** (`tests/test_mvp.py` + `tests/test_app.py`: 24 passam com `-W error`; app abre sem exceção em AppTest e em servidor headless, health `ok`, HTTP 200):
+mapa clicável + lista, cultura atual, prioridade (com renda como lacuna), diagnóstico real dos 195 pontos, 3 estratégias com empate técnico explícito,
+cenário de chuva/temperatura com aviso de extrapolação, glossário, limites com números lidos de arquivo.
+
+**Tempos medidos (AppTest, esta máquina, outros processos rodando):** primeira abertura ~6 s (carrega clima e bibliotecas); trocar local ~1,2 s;
+trocar cultura ~1,0 s; trocar prioridade ~0,9 s; mover slider ~0,6 s. Motor sozinho: 0,25 a 0,55 s por seleção. O teste exige < 5 s por seleção.
+
+**Parcial / fraco:** acerto do RAG 54% (meta 80%; 43 de 80 pares cultura-critério têm algum trecho); alternativas sem separação (100% em empate técnico
+com prioridade livre/água); prioridade "solo" dominada por palma forrageira (dado de poucos estudos); nomes sem acento; mapa sem fundo offline;
+`src/modelos/cenarios.py` não usado.
+
+**Suíte completa:** a execução de `pytest tests -W error` inteira foi interrompida ao encerrar (processos de outros agentes disputavam CPU e um `pkill`
+meu pode ter encerrado execuções deles). Antes da interrupção, 114 passavam e a única falha era um erro do meu próprio teste, já corrigido.
+Rode a suíte inteira de novo antes do commit.
+
+**Decisões pendentes do usuário:** ciclo real das culturas; pesos-base; mapeamento prioridade -> ordem de critérios (seção 3) e validação com técnico;
+fonte de preço/mercado para "renda"; incluir mais culturas; aceitar `bloco_ranking` no motor (mudança pequena em `src/culturas/motor.py` e `parametros.py`);
+`altair` e `pydeck` fixados em `requirements.txt`.
+
+## 8. Próximos passos (em ordem)
+
+1. Rodar a suíte inteira (`.venv/bin/python -m pytest tests -W error -q`) e commitar (inclui `data/processed/diagnostico/` e `data/processed/mvp/`).
+2. Ensaiar o roteiro de 2 min no navegador, com internet, e conferir o mapa.
+3. Validar com técnico a ordem de critérios por prioridade e o ciclo das culturas.
+4. Melhorar a separação das alternativas (mais critérios com dado: demanda hídrica, palha/N com fonte do semiárido).
+5. Melhorar o RAG (mais fontes em português sobre rotação/palhada) e regerar `evidencias_rag.json`.
+6. Nomes oficiais dos municípios (IBGE) em `pontos.csv`; opção de rodar a auditoria com outras culturas atuais.
+7. Quando a persistência entrar em `src/modelos`, avaliar um cenário de NDVI separado do cenário do motor de ciclo.

@@ -75,3 +75,10 @@ nomes das camadas a conferir); rede de ~500 pluviômetros da FUNCEME (sem docume
 - **SMAP coletado** (195 pontos, 2015–2024) mas **ainda não testado como feature**. Série curta (desde 2015): poucos anos de seleção.
 - **Avaliação com 195 pontos pendente** (depende do `ndvi_16d.parquet` completo). Ver `docs/04_RETOMADA.md`, seção 5.
 - EVI/SAVI segue sem resultado.
+
+## 7. Avaliação com 195 pontos (2026-11-12) — resumo; completo em `experimentos/avaliacao_195/RESULTADO.md`
+Skill Ridge (XGBoost) contra a climatologia, seleção 2010–2021 / confirmação selada 2022–2024: base +0,066 (+0,086) / −0,044 (−0,017);
+**persistência +0,309 (+0,322) / +0,239 (+0,264)**; pers_lags4 +0,311 / +0,244; ingênua +0,239 / +0,146. Placebo ≈ 0 em todas.
+SMAP (seleção 2018–2021, 4 anos): +0,007 sobre a persistência; confirmação +0,2374 contra +0,2311. Bonferroni N=4 (NDVI) e N=7 (SMAP).
+Persistência em produção (`preditivo.py`, holdout 2022–2024): Ridge +0,257, XGBoost +0,284; conformal 76% / 87%. Cenários: variação ~0,002 contra RMSE ~0,07.
+Teste de horizonte/estação e ERA5-Land: iniciados e interrompidos (`experimentos/previsao_doc09/`); ver `docs/15_PENDENCIAS.md`.

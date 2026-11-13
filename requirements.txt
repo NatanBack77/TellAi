@@ -15,3 +15,7 @@ earthaccess==0.19.0
 h5py==3.16.0
 sentence-transformers==6.3.0
 torch==2.15.0  # CPU; instale com --index-url https://download.pytorch.org/whl/cpu. Só o RAG usa; sem ele a busca cai para BM25
+fastapi==0.162.5
+httpx==0.28.1
+uvicorn==0.54.0
+pydantic==2.14.3

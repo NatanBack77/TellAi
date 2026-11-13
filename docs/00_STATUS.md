@@ -1,10 +1,12 @@
 # Status do projeto SULCO
 
-> **Retomada (2026-11-11, noite):** tudo parado e commitado. Veja `docs/04_RETOMADA.md` (passo a passo) antes de qualquer coisa.
-> Resumo: 195 pontos (184 municípios do CE + 11 de outros estados); clima completo; SMAP coletado (694.980 linhas, 44 granulos com HTTP 502);
-> NDVI em 85% (18.479/21.840 janelas, 164/195 pontos completos), `ndvi_16d.parquet` ainda com 13 pontos; avaliação com 195 pontos NÃO feita.
-> Novos módulos: `src/culturas/` (16 culturas, 53 lacunas), `src/rag/` (acerto top-5 54%, meta 80% não atingida), `src/app/` (Streamlit), `src/coleta/smap.py`.
-> CHIRPS testado em 13 pontos: **sem ganho** (`experimentos/expA_chirps/RESULTADO.md`). Suíte: 136 testes passando.
+> **Retomada (2026-11-12, 21h20):** tudo parado e commitado. Passo a passo: `docs/04_RETOMADA.md`; o que falta, em ordem: `docs/15_PENDENCIAS.md`.
+> **Estado:** 195 pontos (184 municípios do CE + 11 de outros estados). Clima POWER, NDVI MODIS (107.583 linhas) e SMAP (195 × 3.564 dias) completos.
+> **Modelo:** a persistência do NDVI é a única melhoria confirmada (skill +0,24 na confirmação selada 2022–2024); o clima sozinho não supera a climatologia;
+> CHIRPS e SMAP (+0,007) não ajudam de forma útil; conformal cobre 76% / 87% para metas de 80% / 90%. Detalhes em `experimentos/avaliacao_195/RESULTADO.md` e `docs/05_EXPERIMENTOS.md`.
+> **Produto:** MVP Streamlit (`src/app`, `docs/11_MVP.md`), motor de culturas com ciclo e incerteza (`docs/10`), RAG com 31 PDFs, API FastAPI (`docs/12`, 6/7 endpoints),
+> camada LLM com verificador testada sem chave (`docs/14`). ZARC não iniciado (`docs/13`). Alternativas de rotação seguem em empate técnico.
+> Pesquisas: `docs/07` (viabilidade), `docs/08` (ranking/incerteza), `docs/09` (previsão NDVI). Decisões: `docs/03`. Pesos: `docs/06`.
 
 Atualizado em 2026-11-11. Escopo atual: módulo `src/modelos/` (séries temporais e preditivo).
 
