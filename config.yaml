@@ -59,6 +59,11 @@ preditivo:
   n_folds: 5
   cobertura_alvos: [0.8, 0.9]
   conformal_fracao_calibracao: 0.25   # fração das CÉLULAS do treino reservada à calibração
+  conformal_aci:                      # conformal adaptativo por estação (src/modelos/conformal_aci.py); gamma fixo a priori
+    ligado: true
+    gamma: 0.05
+    anos_calibracao: 3
+    min_anos_treino_aquecimento: 8
   min_celulas_aviso: 15
   # D52: persistência = anomalia dos 2 compostos anteriores (validada em walk-forward, D41). Padrão: ligada.
   # false => modelo só-clima (comportamento anterior), mantido como opção e como linha de comparação no relatório.

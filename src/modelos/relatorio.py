@@ -15,6 +15,19 @@ def _f(x, nd=3) -> str:
     return "—" if x is None or x != x else f"{x:.{nd}f}"
 
 
+def _aci(r: dict) -> list[str]:
+    a = r.get("conformal_aci")
+    if not a:
+        return []
+    L = ["", "## Faixa de incerteza adaptativa (ACI por estação)", "",
+         f"{a['metodo']}; gamma {a['gamma']}; calibração nos {a['anos_calibracao']} anos anteriores; modelo {a['modelo']}; "
+         f"anos avaliados {a['anos_teste']}.", "",
+         "| Meta | Cobertura média | Pior ano | Pior estação |", "|---|---|---|---|"]
+    for k, v in a["metas"].items():
+        L.append(f"| {k}% | {_f(v['cobertura'])} | {_f(v['pior_ano'])} | {_f(v['pior_estacao'])} |")
+    return L + ["", f"> {a['aviso']}", ""]
+
+
 def gerar_markdown(r: dict) -> str:
     L = ["# Relatório dos modelos (SULCO)", ""]
     if r["dados_sinteticos"]:
@@ -57,6 +70,7 @@ def gerar_markdown(r: dict) -> str:
             h = r["holdout_temporal"]["conformal"][n]["metas"][k]
             L.append(f"| {n} | {k}% | {_f(v['cobertura_media_ponderada'])} | {_f(h['cobertura'])} |")
     L += _comparativo(r)
+    L += _aci(r)
     dec = r["decisao"]
     L += ["", "## Decisão XGBoost vs. Ridge", "", f"**Modelo: {dec['modelo']}.** {dec['motivo']}", "",
           f"- Critérios: {dec['criterio']}", f"- Fração de folds com XGBoost melhor: {_f(dec['fracao_folds_xgb_melhor'], 2)}"]

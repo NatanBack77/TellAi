@@ -133,3 +133,13 @@ fonte de preço/mercado para "renda"; incluir mais culturas; aceitar `bloco_rank
 5. Melhorar o RAG (mais fontes em português sobre rotação/palhada) e regerar `evidencias_rag.json`.
 6. Nomes oficiais dos municípios (IBGE) em `pontos.csv`; opção de rodar a auditoria com outras culturas atuais.
 7. Quando a persistência entrar em `src/modelos`, avaliar um cenário de NDVI separado do cenário do motor de ciclo.
+
+
+## 9. Atualização 2026-11-13: seções 2b e 3b da página "Meu local"
+- **2b. Chuva da quadra (fev–mai):** média, variabilidade e anos secos do local (clima POWER 2001–2024); relação com o rendimento municipal do IBGE (PAM 2015–2023)
+  em quadra seca/úmida e R²; aviso de que é associação histórica, de que o rendimento do IBGE é estimado e de que a previsão da próxima quadra é da FUNCEME.
+  Código: `src/app/quadra.py`; testes: `tests/test_quadra.py`.
+- **3b. Rotação em 3 safras:** sequências de 3 safras (uma por ano) partindo da cultura atual, com a rotação do agricultor (opcional), textura e matéria orgânica
+  do solo (avisos de risco, não alteram nota) e ZARC opcional. Critérios: adequação ao clima do ciclo, diversidade de famílias (proxy de pragas), leguminosa antes de
+  não leguminosa (regra a validar), palha e demanda hídrica (lacuna quando falta). Só as 80 sequências de maior nota média entram na simulação de incerteza (tempo).
+  Empate técnico entre alternativas continua; separa bem rotação x repetir a mesma cultura. Código: `src/culturas/rotacao.py`; testes: `tests/test_rotacao.py`.

@@ -361,6 +361,16 @@ def avaliar(df: pd.DataFrame, cfg: dict, sintetico: bool = False, usar_persisten
     else:
         lacunas += _avisos_cobertura(holdout["conformal"])
 
+    aci = None
+    a = p.get("conformal_aci", {})
+    if a.get("ligado"):
+        from .conformal_aci import aci_walk_forward      # importação tardia: conformal_aci usa funções deste módulo
+        aquec = [y for y in treino_anos if y >= treino_anos[0] + int(a.get("min_anos_treino_aquecimento", 8))]
+        try:
+            aci = aci_walk_forward(df, cfg, aquec, teste_anos, usar)
+        except ValueError as e:
+            lacunas.append(f"Conformal adaptativo (ACI) não calculado: {e}")
+
     comparativo = None
     if usar:
         d0, _, _, cols0 = preparar_tabela_modelagem(df, cfg, False, so_linhas_com_persistencia=True)
@@ -391,6 +401,7 @@ def avaliar(df: pd.DataFrame, cfg: dict, sintetico: bool = False, usar_persisten
                     "n_folds": nuc["n_folds"]},
         "cv_grupos": {"folds": nuc["folds"], "resumo": nuc["resumo_cv"], "conformal": nuc["conformal_cv"]},
         "holdout_temporal": holdout,
+        "conformal_aci": aci,
         "comparativo": comparativo,
         "decisao": decisao,
         "explicacao": importancia_contribuicoes(xgb_final, teste, cols),

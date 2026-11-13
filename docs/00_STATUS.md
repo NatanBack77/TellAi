@@ -1,3 +1,4 @@
+> **Atualização 2026-11-13:** rotação em 3 safras (seção 3b do app, `src/culturas/rotacao.py`), indicador da chuva da quadra (seção 2b), ACI por estação integrado ao preditivo (cobertura 80,9% / 90,6%), ZARC opcional, terreno (SRTM) e PAM/IBGE coletados. Terreno e índices Niño/Atlântico não melhoram a previsão do NDVI; NDVI explica pouco do rendimento. Ver `docs/16_PESQUISA.md`, `docs/15_PENDENCIAS.md`, `experimentos/*/RESULTADO.md`. Solo (SoilGrids) bloqueado.
 # Status do projeto SULCO
 
 > **Retomada (2026-11-12, 21h20):** tudo parado e commitado. Passo a passo: `docs/04_RETOMADA.md`; o que falta, em ordem: `docs/15_PENDENCIAS.md`.

@@ -15,6 +15,7 @@ import streamlit as st
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from src.app import logica as L  # noqa: E402
 from src.app import mvp as M  # noqa: E402
+from src.app import quadra as Q  # noqa: E402
 
 AVISO = M.AVISO
 LOCAL_PADRAO, CULTURA_PADRAO = "quixada_ce", "milho"
@@ -294,6 +295,38 @@ def painel_estrategias(lid: str, cultura: str, prio: str, calc: dict):
         st.caption(f"Tempo de cálculo desta seleção: {M.br(calc['segundos'], 2)} s.")
 
 
+# ------------------------------------------------------------------------------------------ 2b. chuva da quadra e rendimento
+def painel_quadra(lid: str):
+    st.subheader("2b. A chuva da quadra (fev–mai) e o rendimento das lavouras")
+    ind = Q.indicador_quadra(lid)
+    if "lacuna" in ind:
+        lacuna(ind["lacuna"])
+        return
+    st.markdown(
+        f"Neste local, a chuva de fevereiro a maio ({ind['anos'][0]}–{ind['anos'][1]}) teve média de **{M.br(ind['media_mm'], 0)} mm** e variou "
+        f"muito de um ano para outro (desvio de {M.br(ind['desvio_mm'], 0)} mm). Em **{ind['n_secos']} de {ind['n_anos']} anos** a quadra ficou abaixo "
+        f"de 80% da média (< {M.br(ind['limiar_seco_mm'], 0)} mm). A pior foi em {ind['pior_ano']} ({M.br(ind['pior_mm'], 0)} mm) e a melhor em "
+        f"{ind['melhor_ano']} ({M.br(ind['melhor_mm'], 0)} mm).")
+    s = ind["serie"].assign(ano=lambda d: d["ano"].astype(str))
+    st.altair_chart(alt.Chart(s).mark_bar(color="#3b7ea1").encode(
+        x=alt.X("ano:O", title=None), y=alt.Y("fma_mm:Q", title="Chuva de fev–mai (mm)"),
+        tooltip=[alt.Tooltip("ano:O"), alt.Tooltip("fma_mm:Q", format=".0f")]).properties(height=180), use_container_width=True)
+    ef = Q.efeito_rendimento()
+    if ef:
+        st.markdown("**O que isso significou para o rendimento nos dados do IBGE (municípios do Ceará, 2015–2023)**")
+        linhas = [{"Cultura": k.capitalize(), "Rendimento em quadra seca (<80% da média)": f"{M.br(v['rend_ano_seco_pct'], 0)}%",
+                   "Rendimento em quadra úmida (>120%)": f"+{M.br(v['rend_ano_umido_pct'], 0)}%", "Quanto a chuva explica (R²)": M.br(v["r2"], 2),
+                   "Observações": v["n_obs"]} for k, v in ef.items()]
+        st.dataframe(pd.DataFrame(linhas), hide_index=True, use_container_width=True)
+        st.caption("Variação do rendimento em relação à média do próprio município. É associação histórica, não causa nem previsão. O rendimento do IBGE "
+                   "é estimado por agentes (não medido por parcela). Para comparação: o NDVI explica menos da produtividade (R² de 0,03 a 0,10), por isso "
+                   "este app usa a chuva da quadra, e não o NDVI, como indicador de risco para a lavoura.")
+    else:
+        lacuna("dados do IBGE (PAM) ausentes: relação entre chuva e rendimento não mostrada.")
+    st.info("Esta seção olha o PASSADO. A previsão da próxima quadra chuvosa é feita pela FUNCEME (previsão sazonal oficial do Ceará); consulte-a "
+            "antes de decidir. Os índices do Pacífico e do Atlântico testados aqui não anteciparam a chuva com 24 anos de dados.")
+
+
 # ------------------------------------------------------------------------------------------ 3b. rotação em 3 safras
 def painel_rotacao(lid: str, cultura: str, prio: str):
     st.subheader("3b. Rotação em 3 safras (uma por ano)")
@@ -402,6 +435,7 @@ def pagina_meu_local():
         lacuna(f"não foi possível calcular as estratégias ({e.__class__.__name__}: {e}).")
         return
     painel_diagnostico(lid, cultura, calc)
+    painel_quadra(lid)
     painel_estrategias(lid, cultura, prio, calc)
     painel_rotacao(lid, cultura, prio)
     painel_cenario(lid, cultura, prio)

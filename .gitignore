@@ -20,3 +20,4 @@ experimentos/**/*.pkl
 !data/raw/power_cache.tar.gz
 
 coleta_*.log
+preditivo_real.log
