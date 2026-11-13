@@ -1,0 +1,1880 @@
+[
+ {
+  "ponto": "quixada_ce",
+  "sem": {
+   "viaveis": [
+    "algodao",
+    "amendoim",
+    "crotalaria_juncea",
+    "feijao_caupi",
+    "feijao_comum",
+    "gergelim",
+    "girassol",
+    "guandu",
+    "mamona",
+    "mandioca",
+    "milheto",
+    "milho",
+    "mucuna",
+    "palma_forrageira",
+    "sorgo"
+   ],
+   "janelas": {
+    "algodao": "27/12",
+    "amendoim": "11/01",
+    "crotalaria_juncea": "10/02",
+    "feijao_caupi": "21/01",
+    "feijao_comum": "10/02",
+    "gergelim": "10/02",
+    "girassol": "21/01",
+    "guandu": "17/12",
+    "mamona": "17/12",
+    "mandioca": "07/11",
+    "milheto": "10/02",
+    "milho": "17/12",
+    "mucuna": "27/12",
+    "palma_forrageira": "21/01",
+    "sorgo": "12/03"
+   },
+   "zarc": {}
+  },
+  "com": {
+   "viaveis": [
+    "algodao",
+    "amendoim",
+    "crotalaria_juncea",
+    "feijao_caupi",
+    "feijao_comum",
+    "gergelim",
+    "girassol",
+    "guandu",
+    "mamona",
+    "mandioca",
+    "milheto",
+    "milho",
+    "mucuna",
+    "palma_forrageira",
+    "sorgo"
+   ],
+   "janelas": {
+    "algodao": "31/01",
+    "amendoim": "31/01",
+    "crotalaria_juncea": "10/02",
+    "feijao_caupi": "10/02",
+    "feijao_comum": "10/02",
+    "gergelim": "10/02",
+    "girassol": "10/02",
+    "guandu": "17/12",
+    "mamona": "20/02",
+    "mandioca": "31/01",
+    "milheto": "10/02",
+    "milho": "10/02",
+    "mucuna": "27/12",
+    "palma_forrageira": "21/01",
+    "sorgo": "12/03"
+   },
+   "zarc": {
+    "milho": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 3,
+     "inicios_permitidos": 3
+    },
+    "feijao_caupi": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 7,
+     "inicios_permitidos": 7
+    },
+    "feijao_comum": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 4,
+     "inicios_permitidos": 4
+    },
+    "sorgo": {
+     "aplicado": false,
+     "motivo": "cultura 'sorgo' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "milheto": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 11,
+     "inicios_permitidos": 11
+    },
+    "mandioca": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 5,
+     "inicios_permitidos": 5
+    },
+    "algodao": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 6,
+     "inicios_permitidos": 6
+    },
+    "amendoim": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 7,
+     "inicios_permitidos": 7
+    },
+    "girassol": {
+     "aplicado": true,
+     "recurso": "safra_2025_2026",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 7,
+     "inicios_permitidos": 7
+    },
+    "mamona": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 7,
+     "inicios_permitidos": 7
+    },
+    "gergelim": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 10,
+     "inicios_permitidos": 10
+    },
+    "guandu": {
+     "aplicado": false,
+     "motivo": "cultura 'guandu' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "palma_forrageira": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 10,
+     "inicios_permitidos": 11
+    },
+    "crotalaria_juncea": {
+     "aplicado": false,
+     "motivo": "cultura 'crotalaria_juncea' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "feijao_de_porco": {
+     "aplicado": false,
+     "motivo": "cultura 'feijao_de_porco' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "mucuna": {
+     "aplicado": false,
+     "motivo": "cultura 'mucuna' sem correspondência clara no ZARC (ou sem ZARC)"
+    }
+   }
+  }
+ },
+ {
+  "ponto": "ico_ce",
+  "sem": {
+   "viaveis": [
+    "algodao",
+    "amendoim",
+    "crotalaria_juncea",
+    "feijao_caupi",
+    "feijao_comum",
+    "feijao_de_porco",
+    "gergelim",
+    "girassol",
+    "guandu",
+    "mamona",
+    "mandioca",
+    "milheto",
+    "milho",
+    "mucuna",
+    "palma_forrageira",
+    "sorgo"
+   ],
+   "janelas": {
+    "algodao": "17/12",
+    "amendoim": "01/01",
+    "crotalaria_juncea": "11/01",
+    "feijao_caupi": "27/12",
+    "feijao_comum": "31/01",
+    "feijao_de_porco": "17/12",
+    "gergelim": "01/01",
+    "girassol": "01/01",
+    "guandu": "17/12",
+    "mamona": "17/12",
+    "mandioca": "18/10",
+    "milheto": "21/01",
+    "milho": "17/12",
+    "mucuna": "17/12",
+    "palma_forrageira": "11/01",
+    "sorgo": "02/03"
+   },
+   "zarc": {}
+  },
+  "com": {
+   "viaveis": [
+    "algodao",
+    "amendoim",
+    "crotalaria_juncea",
+    "feijao_caupi",
+    "feijao_comum",
+    "feijao_de_porco",
+    "gergelim",
+    "girassol",
+    "guandu",
+    "mamona",
+    "mandioca",
+    "milheto",
+    "milho",
+    "mucuna",
+    "palma_forrageira",
+    "sorgo"
+   ],
+   "janelas": {
+    "algodao": "21/01",
+    "amendoim": "21/01",
+    "crotalaria_juncea": "11/01",
+    "feijao_caupi": "10/02",
+    "feijao_comum": "31/01",
+    "feijao_de_porco": "17/12",
+    "gergelim": "11/01",
+    "girassol": "31/01",
+    "guandu": "17/12",
+    "mamona": "21/01",
+    "mandioca": "11/01",
+    "milheto": "21/01",
+    "milho": "21/01",
+    "mucuna": "17/12",
+    "palma_forrageira": "11/01",
+    "sorgo": "02/03"
+   },
+   "zarc": {
+    "milho": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 5,
+     "inicios_permitidos": 5
+    },
+    "feijao_caupi": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 7,
+     "inicios_permitidos": 7
+    },
+    "feijao_comum": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 5,
+     "inicios_permitidos": 5
+    },
+    "sorgo": {
+     "aplicado": false,
+     "motivo": "cultura 'sorgo' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "milheto": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 11,
+     "inicios_permitidos": 11
+    },
+    "mandioca": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 6,
+     "inicios_permitidos": 6
+    },
+    "algodao": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 6,
+     "inicios_permitidos": 6
+    },
+    "amendoim": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 7,
+     "inicios_permitidos": 7
+    },
+    "girassol": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 4,
+     "inicios_permitidos": 4
+    },
+    "mamona": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 10,
+     "inicios_permitidos": 10
+    },
+    "gergelim": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 10,
+     "inicios_permitidos": 10
+    },
+    "guandu": {
+     "aplicado": false,
+     "motivo": "cultura 'guandu' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "palma_forrageira": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 10,
+     "inicios_permitidos": 11
+    },
+    "crotalaria_juncea": {
+     "aplicado": false,
+     "motivo": "cultura 'crotalaria_juncea' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "feijao_de_porco": {
+     "aplicado": false,
+     "motivo": "cultura 'feijao_de_porco' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "mucuna": {
+     "aplicado": false,
+     "motivo": "cultura 'mucuna' sem correspondência clara no ZARC (ou sem ZARC)"
+    }
+   }
+  }
+ },
+ {
+  "ponto": "pindoretama_ce",
+  "sem": {
+   "viaveis": [
+    "algodao",
+    "amendoim",
+    "crotalaria_juncea",
+    "feijao_caupi",
+    "feijao_comum",
+    "feijao_de_porco",
+    "gergelim",
+    "girassol",
+    "guandu",
+    "mamona",
+    "mandioca",
+    "milheto",
+    "milho",
+    "mucuna",
+    "palma_forrageira",
+    "sorgo"
+   ],
+   "janelas": {
+    "algodao": "11/01",
+    "amendoim": "21/01",
+    "crotalaria_juncea": "10/02",
+    "feijao_caupi": "10/02",
+    "feijao_comum": "10/02",
+    "feijao_de_porco": "01/01",
+    "gergelim": "10/02",
+    "girassol": "10/02",
+    "guandu": "17/12",
+    "mamona": "21/01",
+    "mandioca": "27/11",
+    "milheto": "10/02",
+    "milho": "17/12",
+    "mucuna": "27/12",
+    "palma_forrageira": "10/02",
+    "sorgo": "22/03"
+   },
+   "zarc": {}
+  },
+  "com": {
+   "viaveis": [
+    "algodao",
+    "amendoim",
+    "crotalaria_juncea",
+    "feijao_caupi",
+    "feijao_comum",
+    "feijao_de_porco",
+    "gergelim",
+    "girassol",
+    "guandu",
+    "mamona",
+    "mandioca",
+    "milheto",
+    "milho",
+    "mucuna",
+    "palma_forrageira",
+    "sorgo"
+   ],
+   "janelas": {
+    "algodao": "31/01",
+    "amendoim": "31/01",
+    "crotalaria_juncea": "10/02",
+    "feijao_caupi": "02/03",
+    "feijao_comum": "10/02",
+    "feijao_de_porco": "01/01",
+    "gergelim": "10/02",
+    "girassol": "10/02",
+    "guandu": "17/12",
+    "mamona": "12/03",
+    "mandioca": "21/01",
+    "milheto": "10/02",
+    "milho": "31/01",
+    "mucuna": "27/12",
+    "palma_forrageira": "27/12",
+    "sorgo": "22/03"
+   },
+   "zarc": {
+    "milho": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 7,
+     "inicios_permitidos": 7
+    },
+    "feijao_caupi": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 6,
+     "inicios_permitidos": 6
+    },
+    "feijao_comum": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 5,
+     "inicios_permitidos": 5
+    },
+    "sorgo": {
+     "aplicado": false,
+     "motivo": "cultura 'sorgo' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "milheto": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 11,
+     "inicios_permitidos": 11
+    },
+    "mandioca": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 7,
+     "inicios_permitidos": 7
+    },
+    "algodao": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 8,
+     "inicios_permitidos": 8
+    },
+    "amendoim": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 9,
+     "inicios_permitidos": 9
+    },
+    "girassol": {
+     "aplicado": true,
+     "recurso": "safra_2025_2026",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 9,
+     "inicios_permitidos": 9
+    },
+    "mamona": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 6,
+     "inicios_permitidos": 6
+    },
+    "gergelim": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 12,
+     "inicios_permitidos": 12
+    },
+    "guandu": {
+     "aplicado": false,
+     "motivo": "cultura 'guandu' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "palma_forrageira": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 2,
+     "inicios_permitidos": 3
+    },
+    "crotalaria_juncea": {
+     "aplicado": false,
+     "motivo": "cultura 'crotalaria_juncea' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "feijao_de_porco": {
+     "aplicado": false,
+     "motivo": "cultura 'feijao_de_porco' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "mucuna": {
+     "aplicado": false,
+     "motivo": "cultura 'mucuna' sem correspondência clara no ZARC (ou sem ZARC)"
+    }
+   }
+  }
+ },
+ {
+  "ponto": "amontada_ce",
+  "sem": {
+   "viaveis": [
+    "algodao",
+    "amendoim",
+    "crotalaria_juncea",
+    "feijao_caupi",
+    "feijao_comum",
+    "feijao_de_porco",
+    "gergelim",
+    "girassol",
+    "guandu",
+    "mamona",
+    "mandioca",
+    "milheto",
+    "milho",
+    "mucuna",
+    "palma_forrageira",
+    "sorgo"
+   ],
+   "janelas": {
+    "algodao": "01/01",
+    "amendoim": "21/01",
+    "crotalaria_juncea": "10/02",
+    "feijao_caupi": "10/02",
+    "feijao_comum": "10/02",
+    "feijao_de_porco": "01/01",
+    "gergelim": "31/01",
+    "girassol": "11/01",
+    "guandu": "17/12",
+    "mamona": "11/01",
+    "mandioca": "28/10",
+    "milheto": "10/02",
+    "milho": "27/12",
+    "mucuna": "27/12",
+    "palma_forrageira": "11/01",
+    "sorgo": "22/03"
+   },
+   "zarc": {}
+  },
+  "com": {
+   "viaveis": [
+    "algodao",
+    "amendoim",
+    "crotalaria_juncea",
+    "feijao_caupi",
+    "feijao_comum",
+    "feijao_de_porco",
+    "gergelim",
+    "girassol",
+    "guandu",
+    "mamona",
+    "mandioca",
+    "milheto",
+    "milho",
+    "mucuna",
+    "palma_forrageira",
+    "sorgo"
+   ],
+   "janelas": {
+    "algodao": "10/02",
+    "amendoim": "31/01",
+    "crotalaria_juncea": "10/02",
+    "feijao_caupi": "10/02",
+    "feijao_comum": "10/02",
+    "feijao_de_porco": "01/01",
+    "gergelim": "31/01",
+    "girassol": "10/02",
+    "guandu": "17/12",
+    "mamona": "02/03",
+    "mandioca": "31/01",
+    "milheto": "10/02",
+    "milho": "10/02",
+    "mucuna": "27/12",
+    "palma_forrageira": "11/01",
+    "sorgo": "22/03"
+   },
+   "zarc": {
+    "milho": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 5,
+     "inicios_permitidos": 5
+    },
+    "feijao_caupi": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 8,
+     "inicios_permitidos": 8
+    },
+    "feijao_comum": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 3,
+     "inicios_permitidos": 3
+    },
+    "sorgo": {
+     "aplicado": false,
+     "motivo": "cultura 'sorgo' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "milheto": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 10,
+     "inicios_permitidos": 10
+    },
+    "mandioca": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 6,
+     "inicios_permitidos": 6
+    },
+    "algodao": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 6,
+     "inicios_permitidos": 6
+    },
+    "amendoim": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 8,
+     "inicios_permitidos": 8
+    },
+    "girassol": {
+     "aplicado": true,
+     "recurso": "safra_2025_2026",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 7,
+     "inicios_permitidos": 7
+    },
+    "mamona": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 6,
+     "inicios_permitidos": 6
+    },
+    "gergelim": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 10,
+     "inicios_permitidos": 10
+    },
+    "guandu": {
+     "aplicado": false,
+     "motivo": "cultura 'guandu' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "palma_forrageira": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 10,
+     "inicios_permitidos": 11
+    },
+    "crotalaria_juncea": {
+     "aplicado": false,
+     "motivo": "cultura 'crotalaria_juncea' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "feijao_de_porco": {
+     "aplicado": false,
+     "motivo": "cultura 'feijao_de_porco' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "mucuna": {
+     "aplicado": false,
+     "motivo": "cultura 'mucuna' sem correspondência clara no ZARC (ou sem ZARC)"
+    }
+   }
+  }
+ },
+ {
+  "ponto": "caridade_ce",
+  "sem": {
+   "viaveis": [
+    "algodao",
+    "amendoim",
+    "crotalaria_juncea",
+    "feijao_caupi",
+    "feijao_comum",
+    "feijao_de_porco",
+    "gergelim",
+    "girassol",
+    "guandu",
+    "mamona",
+    "mandioca",
+    "milheto",
+    "milho",
+    "mucuna",
+    "palma_forrageira",
+    "sorgo"
+   ],
+   "janelas": {
+    "algodao": "17/12",
+    "amendoim": "11/01",
+    "crotalaria_juncea": "21/01",
+    "feijao_caupi": "21/01",
+    "feijao_comum": "10/02",
+    "feijao_de_porco": "17/12",
+    "gergelim": "11/01",
+    "girassol": "01/01",
+    "guandu": "07/12",
+    "mamona": "01/01",
+    "mandioca": "28/10",
+    "milheto": "31/01",
+    "milho": "17/12",
+    "mucuna": "27/12",
+    "palma_forrageira": "11/01",
+    "sorgo": "12/03"
+   },
+   "zarc": {}
+  },
+  "com": {
+   "viaveis": [
+    "algodao",
+    "amendoim",
+    "crotalaria_juncea",
+    "feijao_caupi",
+    "feijao_comum",
+    "feijao_de_porco",
+    "gergelim",
+    "girassol",
+    "guandu",
+    "mamona",
+    "mandioca",
+    "milheto",
+    "milho",
+    "mucuna",
+    "palma_forrageira",
+    "sorgo"
+   ],
+   "janelas": {
+    "algodao": "31/01",
+    "amendoim": "31/01",
+    "crotalaria_juncea": "21/01",
+    "feijao_caupi": "20/02",
+    "feijao_comum": "10/02",
+    "feijao_de_porco": "17/12",
+    "gergelim": "31/01",
+    "girassol": "31/01",
+    "guandu": "07/12",
+    "mamona": "02/03",
+    "mandioca": "21/01",
+    "milheto": "31/01",
+    "milho": "31/01",
+    "mucuna": "27/12",
+    "palma_forrageira": "11/01",
+    "sorgo": "12/03"
+   },
+   "zarc": {
+    "milho": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 6,
+     "inicios_permitidos": 6
+    },
+    "feijao_caupi": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 6,
+     "inicios_permitidos": 6
+    },
+    "feijao_comum": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 6,
+     "inicios_permitidos": 6
+    },
+    "sorgo": {
+     "aplicado": false,
+     "motivo": "cultura 'sorgo' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "milheto": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 11,
+     "inicios_permitidos": 11
+    },
+    "mandioca": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 7,
+     "inicios_permitidos": 7
+    },
+    "algodao": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 7,
+     "inicios_permitidos": 7
+    },
+    "amendoim": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 8,
+     "inicios_permitidos": 8
+    },
+    "girassol": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 8,
+     "inicios_permitidos": 8
+    },
+    "mamona": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 7,
+     "inicios_permitidos": 7
+    },
+    "gergelim": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 11,
+     "inicios_permitidos": 11
+    },
+    "guandu": {
+     "aplicado": false,
+     "motivo": "cultura 'guandu' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "palma_forrageira": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 8,
+     "inicios_permitidos": 9
+    },
+    "crotalaria_juncea": {
+     "aplicado": false,
+     "motivo": "cultura 'crotalaria_juncea' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "feijao_de_porco": {
+     "aplicado": false,
+     "motivo": "cultura 'feijao_de_porco' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "mucuna": {
+     "aplicado": false,
+     "motivo": "cultura 'mucuna' sem correspondência clara no ZARC (ou sem ZARC)"
+    }
+   }
+  }
+ },
+ {
+  "ponto": "fortaleza_ce",
+  "sem": {
+   "viaveis": [
+    "algodao",
+    "amendoim",
+    "crotalaria_juncea",
+    "feijao_caupi",
+    "feijao_comum",
+    "feijao_de_porco",
+    "gergelim",
+    "girassol",
+    "guandu",
+    "mamona",
+    "mandioca",
+    "milheto",
+    "milho",
+    "mucuna",
+    "palma_forrageira",
+    "sorgo"
+   ],
+   "janelas": {
+    "algodao": "17/12",
+    "amendoim": "10/02",
+    "crotalaria_juncea": "10/02",
+    "feijao_caupi": "21/01",
+    "feijao_comum": "02/03",
+    "feijao_de_porco": "01/01",
+    "gergelim": "10/02",
+    "girassol": "10/02",
+    "guandu": "11/01",
+    "mamona": "10/02",
+    "mandioca": "28/10",
+    "milheto": "02/03",
+    "milho": "07/11",
+    "mucuna": "27/12",
+    "palma_forrageira": "10/02",
+    "sorgo": "01/04"
+   },
+   "zarc": {}
+  },
+  "com": {
+   "viaveis": [
+    "algodao",
+    "amendoim",
+    "crotalaria_juncea",
+    "feijao_caupi",
+    "feijao_comum",
+    "feijao_de_porco",
+    "gergelim",
+    "girassol",
+    "guandu",
+    "mamona",
+    "mandioca",
+    "milheto",
+    "milho",
+    "mucuna",
+    "sorgo"
+   ],
+   "janelas": {
+    "algodao": "31/01",
+    "amendoim": "10/02",
+    "crotalaria_juncea": "10/02",
+    "feijao_caupi": "12/03",
+    "feijao_comum": "02/03",
+    "feijao_de_porco": "01/01",
+    "gergelim": "10/02",
+    "girassol": "10/02",
+    "guandu": "11/01",
+    "mamona": "12/03",
+    "mandioca": "21/01",
+    "milheto": "02/03",
+    "milho": "31/01",
+    "mucuna": "27/12",
+    "sorgo": "01/04"
+   },
+   "zarc": {
+    "milho": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 8,
+     "inicios_permitidos": 8
+    },
+    "feijao_caupi": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 5,
+     "inicios_permitidos": 5
+    },
+    "feijao_comum": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 6,
+     "inicios_permitidos": 6
+    },
+    "sorgo": {
+     "aplicado": false,
+     "motivo": "cultura 'sorgo' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "milheto": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 11,
+     "inicios_permitidos": 11
+    },
+    "mandioca": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 7,
+     "inicios_permitidos": 7
+    },
+    "algodao": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 8,
+     "inicios_permitidos": 8
+    },
+    "amendoim": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 10,
+     "inicios_permitidos": 10
+    },
+    "girassol": {
+     "aplicado": true,
+     "recurso": "safra_2025_2026",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 9,
+     "inicios_permitidos": 9
+    },
+    "mamona": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 6,
+     "inicios_permitidos": 6
+    },
+    "gergelim": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 12,
+     "inicios_permitidos": 12
+    },
+    "guandu": {
+     "aplicado": false,
+     "motivo": "cultura 'guandu' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "palma_forrageira": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 0,
+     "inicios_permitidos": 0
+    },
+    "crotalaria_juncea": {
+     "aplicado": false,
+     "motivo": "cultura 'crotalaria_juncea' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "feijao_de_porco": {
+     "aplicado": false,
+     "motivo": "cultura 'feijao_de_porco' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "mucuna": {
+     "aplicado": false,
+     "motivo": "cultura 'mucuna' sem correspondência clara no ZARC (ou sem ZARC)"
+    }
+   }
+  }
+ },
+ {
+  "ponto": "ipaumirim_ce",
+  "sem": {
+   "viaveis": [
+    "algodao",
+    "amendoim",
+    "crotalaria_juncea",
+    "feijao_caupi",
+    "feijao_comum",
+    "feijao_de_porco",
+    "gergelim",
+    "girassol",
+    "guandu",
+    "mamona",
+    "mandioca",
+    "milheto",
+    "milho",
+    "mucuna",
+    "palma_forrageira",
+    "sorgo"
+   ],
+   "janelas": {
+    "algodao": "17/12",
+    "amendoim": "01/01",
+    "crotalaria_juncea": "11/01",
+    "feijao_caupi": "27/12",
+    "feijao_comum": "21/01",
+    "feijao_de_porco": "27/11",
+    "gergelim": "11/01",
+    "girassol": "17/12",
+    "guandu": "27/11",
+    "mamona": "17/12",
+    "mandioca": "18/10",
+    "milheto": "21/01",
+    "milho": "17/12",
+    "mucuna": "07/12",
+    "palma_forrageira": "01/01",
+    "sorgo": "20/02"
+   },
+   "zarc": {}
+  },
+  "com": {
+   "viaveis": [
+    "algodao",
+    "amendoim",
+    "crotalaria_juncea",
+    "feijao_caupi",
+    "feijao_comum",
+    "feijao_de_porco",
+    "gergelim",
+    "guandu",
+    "mamona",
+    "mandioca",
+    "milheto",
+    "milho",
+    "mucuna",
+    "palma_forrageira",
+    "sorgo"
+   ],
+   "janelas": {
+    "algodao": "21/01",
+    "amendoim": "11/01",
+    "crotalaria_juncea": "11/01",
+    "feijao_caupi": "10/02",
+    "feijao_comum": "31/01",
+    "feijao_de_porco": "27/11",
+    "gergelim": "11/01",
+    "guandu": "27/11",
+    "mamona": "21/01",
+    "mandioca": "11/01",
+    "milheto": "21/01",
+    "milho": "21/01",
+    "mucuna": "07/12",
+    "palma_forrageira": "01/01",
+    "sorgo": "20/02"
+   },
+   "zarc": {
+    "milho": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 5,
+     "inicios_permitidos": 5
+    },
+    "feijao_caupi": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 6,
+     "inicios_permitidos": 6
+    },
+    "feijao_comum": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 5,
+     "inicios_permitidos": 5
+    },
+    "sorgo": {
+     "aplicado": false,
+     "motivo": "cultura 'sorgo' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "milheto": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 11,
+     "inicios_permitidos": 11
+    },
+    "mandioca": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 6,
+     "inicios_permitidos": 6
+    },
+    "algodao": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 5,
+     "inicios_permitidos": 5
+    },
+    "amendoim": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 7,
+     "inicios_permitidos": 7
+    },
+    "girassol": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 0,
+     "inicios_permitidos": 0
+    },
+    "mamona": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 9,
+     "inicios_permitidos": 9
+    },
+    "gergelim": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 9,
+     "inicios_permitidos": 9
+    },
+    "guandu": {
+     "aplicado": false,
+     "motivo": "cultura 'guandu' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "palma_forrageira": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 10,
+     "inicios_permitidos": 11
+    },
+    "crotalaria_juncea": {
+     "aplicado": false,
+     "motivo": "cultura 'crotalaria_juncea' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "feijao_de_porco": {
+     "aplicado": false,
+     "motivo": "cultura 'feijao_de_porco' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "mucuna": {
+     "aplicado": false,
+     "motivo": "cultura 'mucuna' sem correspondência clara no ZARC (ou sem ZARC)"
+    }
+   }
+  }
+ },
+ {
+  "ponto": "limoeiro_do_norte_ce",
+  "sem": {
+   "viaveis": [
+    "algodao",
+    "crotalaria_juncea",
+    "feijao_caupi",
+    "feijao_comum",
+    "gergelim",
+    "girassol",
+    "guandu",
+    "mamona",
+    "mandioca",
+    "milheto",
+    "milho",
+    "mucuna",
+    "palma_forrageira",
+    "sorgo"
+   ],
+   "janelas": {
+    "algodao": "27/12",
+    "crotalaria_juncea": "11/01",
+    "feijao_caupi": "21/01",
+    "feijao_comum": "10/02",
+    "gergelim": "11/01",
+    "girassol": "11/01",
+    "guandu": "17/12",
+    "mamona": "27/12",
+    "mandioca": "07/11",
+    "milheto": "10/02",
+    "milho": "27/12",
+    "mucuna": "27/12",
+    "palma_forrageira": "21/01",
+    "sorgo": "28/09"
+   },
+   "zarc": {}
+  },
+  "com": {
+   "viaveis": [
+    "crotalaria_juncea",
+    "feijao_caupi",
+    "feijao_comum",
+    "gergelim",
+    "guandu",
+    "mamona",
+    "milheto",
+    "milho",
+    "mucuna",
+    "palma_forrageira",
+    "sorgo"
+   ],
+   "janelas": {
+    "crotalaria_juncea": "11/01",
+    "feijao_caupi": "10/02",
+    "feijao_comum": "20/02",
+    "gergelim": "31/01",
+    "guandu": "17/12",
+    "mamona": "10/02",
+    "milheto": "10/02",
+    "milho": "20/02",
+    "mucuna": "27/12",
+    "palma_forrageira": "21/01",
+    "sorgo": "28/09"
+   },
+   "zarc": {
+    "milho": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 1,
+     "inicios_permitidos": 1
+    },
+    "feijao_caupi": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 7,
+     "inicios_permitidos": 7
+    },
+    "feijao_comum": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 1,
+     "inicios_permitidos": 1
+    },
+    "sorgo": {
+     "aplicado": false,
+     "motivo": "cultura 'sorgo' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "milheto": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 9,
+     "inicios_permitidos": 9
+    },
+    "mandioca": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 4,
+     "inicios_permitidos": 4
+    },
+    "algodao": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 4,
+     "inicios_permitidos": 4
+    },
+    "amendoim": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 5,
+     "inicios_permitidos": 5
+    },
+    "girassol": {
+     "aplicado": true,
+     "recurso": "safra_2025_2026",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 1,
+     "inicios_permitidos": 1
+    },
+    "mamona": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 8,
+     "inicios_permitidos": 8
+    },
+    "gergelim": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 8,
+     "inicios_permitidos": 8
+    },
+    "guandu": {
+     "aplicado": false,
+     "motivo": "cultura 'guandu' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "palma_forrageira": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 8,
+     "inicios_permitidos": 9
+    },
+    "crotalaria_juncea": {
+     "aplicado": false,
+     "motivo": "cultura 'crotalaria_juncea' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "feijao_de_porco": {
+     "aplicado": false,
+     "motivo": "cultura 'feijao_de_porco' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "mucuna": {
+     "aplicado": false,
+     "motivo": "cultura 'mucuna' sem correspondência clara no ZARC (ou sem ZARC)"
+    }
+   }
+  }
+ },
+ {
+  "ponto": "pacajus_ce",
+  "sem": {
+   "viaveis": [
+    "algodao",
+    "amendoim",
+    "crotalaria_juncea",
+    "feijao_caupi",
+    "feijao_comum",
+    "feijao_de_porco",
+    "gergelim",
+    "girassol",
+    "guandu",
+    "mamona",
+    "mandioca",
+    "milheto",
+    "milho",
+    "mucuna",
+    "palma_forrageira",
+    "sorgo"
+   ],
+   "janelas": {
+    "algodao": "17/12",
+    "amendoim": "10/02",
+    "crotalaria_juncea": "10/02",
+    "feijao_caupi": "21/01",
+    "feijao_comum": "02/03",
+    "feijao_de_porco": "01/01",
+    "gergelim": "10/02",
+    "girassol": "10/02",
+    "guandu": "11/01",
+    "mamona": "10/02",
+    "mandioca": "28/10",
+    "milheto": "02/03",
+    "milho": "07/11",
+    "mucuna": "27/12",
+    "palma_forrageira": "10/02",
+    "sorgo": "01/04"
+   },
+   "zarc": {}
+  },
+  "com": {
+   "viaveis": [
+    "algodao",
+    "amendoim",
+    "crotalaria_juncea",
+    "feijao_caupi",
+    "feijao_comum",
+    "feijao_de_porco",
+    "gergelim",
+    "girassol",
+    "guandu",
+    "mamona",
+    "mandioca",
+    "milheto",
+    "milho",
+    "mucuna",
+    "palma_forrageira",
+    "sorgo"
+   ],
+   "janelas": {
+    "algodao": "31/01",
+    "amendoim": "10/02",
+    "crotalaria_juncea": "10/02",
+    "feijao_caupi": "20/02",
+    "feijao_comum": "02/03",
+    "feijao_de_porco": "01/01",
+    "gergelim": "10/02",
+    "girassol": "10/02",
+    "guandu": "11/01",
+    "mamona": "02/03",
+    "mandioca": "21/01",
+    "milheto": "02/03",
+    "milho": "31/01",
+    "mucuna": "27/12",
+    "palma_forrageira": "10/02",
+    "sorgo": "01/04"
+   },
+   "zarc": {
+    "milho": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 6,
+     "inicios_permitidos": 6
+    },
+    "feijao_caupi": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 7,
+     "inicios_permitidos": 7
+    },
+    "feijao_comum": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 5,
+     "inicios_permitidos": 5
+    },
+    "sorgo": {
+     "aplicado": false,
+     "motivo": "cultura 'sorgo' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "milheto": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 11,
+     "inicios_permitidos": 11
+    },
+    "mandioca": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 7,
+     "inicios_permitidos": 7
+    },
+    "algodao": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 8,
+     "inicios_permitidos": 8
+    },
+    "amendoim": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 8,
+     "inicios_permitidos": 8
+    },
+    "girassol": {
+     "aplicado": true,
+     "recurso": "safra_2025_2026",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 9,
+     "inicios_permitidos": 9
+    },
+    "mamona": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 7,
+     "inicios_permitidos": 7
+    },
+    "gergelim": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 12,
+     "inicios_permitidos": 12
+    },
+    "guandu": {
+     "aplicado": false,
+     "motivo": "cultura 'guandu' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "palma_forrageira": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 9,
+     "inicios_permitidos": 10
+    },
+    "crotalaria_juncea": {
+     "aplicado": false,
+     "motivo": "cultura 'crotalaria_juncea' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "feijao_de_porco": {
+     "aplicado": false,
+     "motivo": "cultura 'feijao_de_porco' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "mucuna": {
+     "aplicado": false,
+     "motivo": "cultura 'mucuna' sem correspondência clara no ZARC (ou sem ZARC)"
+    }
+   }
+  }
+ },
+ {
+  "ponto": "santana_do_acarau_ce",
+  "sem": {
+   "viaveis": [
+    "algodao",
+    "amendoim",
+    "crotalaria_juncea",
+    "feijao_caupi",
+    "feijao_comum",
+    "feijao_de_porco",
+    "gergelim",
+    "girassol",
+    "guandu",
+    "mamona",
+    "mandioca",
+    "milheto",
+    "milho",
+    "mucuna",
+    "palma_forrageira",
+    "sorgo"
+   ],
+   "janelas": {
+    "algodao": "17/12",
+    "amendoim": "21/01",
+    "crotalaria_juncea": "31/01",
+    "feijao_caupi": "21/01",
+    "feijao_comum": "10/02",
+    "feijao_de_porco": "27/12",
+    "gergelim": "31/01",
+    "girassol": "11/01",
+    "guandu": "07/12",
+    "mamona": "11/01",
+    "mandioca": "28/10",
+    "milheto": "10/02",
+    "milho": "17/12",
+    "mucuna": "27/12",
+    "palma_forrageira": "11/01",
+    "sorgo": "22/03"
+   },
+   "zarc": {}
+  },
+  "com": {
+   "viaveis": [
+    "algodao",
+    "amendoim",
+    "crotalaria_juncea",
+    "feijao_caupi",
+    "feijao_comum",
+    "feijao_de_porco",
+    "gergelim",
+    "girassol",
+    "guandu",
+    "mamona",
+    "mandioca",
+    "milheto",
+    "milho",
+    "mucuna",
+    "palma_forrageira",
+    "sorgo"
+   ],
+   "janelas": {
+    "algodao": "31/01",
+    "amendoim": "31/01",
+    "crotalaria_juncea": "31/01",
+    "feijao_caupi": "10/02",
+    "feijao_comum": "10/02",
+    "feijao_de_porco": "27/12",
+    "gergelim": "31/01",
+    "girassol": "10/02",
+    "guandu": "07/12",
+    "mamona": "20/02",
+    "mandioca": "21/01",
+    "milheto": "10/02",
+    "milho": "31/01",
+    "mucuna": "27/12",
+    "palma_forrageira": "11/01",
+    "sorgo": "22/03"
+   },
+   "zarc": {
+    "milho": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 5,
+     "inicios_permitidos": 5
+    },
+    "feijao_caupi": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 7,
+     "inicios_permitidos": 7
+    },
+    "feijao_comum": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 4,
+     "inicios_permitidos": 4
+    },
+    "sorgo": {
+     "aplicado": false,
+     "motivo": "cultura 'sorgo' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "milheto": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 10,
+     "inicios_permitidos": 10
+    },
+    "mandioca": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 5,
+     "inicios_permitidos": 5
+    },
+    "algodao": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 5,
+     "inicios_permitidos": 5
+    },
+    "amendoim": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 6,
+     "inicios_permitidos": 6
+    },
+    "girassol": {
+     "aplicado": true,
+     "recurso": "safra_2025_2026",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 6,
+     "inicios_permitidos": 6
+    },
+    "mamona": {
+     "aplicado": true,
+     "recurso": "safra_2026_2027",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 6,
+     "inicios_permitidos": 6
+    },
+    "gergelim": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 10,
+     "inicios_permitidos": 10
+    },
+    "guandu": {
+     "aplicado": false,
+     "motivo": "cultura 'guandu' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "palma_forrageira": {
+     "aplicado": true,
+     "recurso": "perene_olericola_sem_safra",
+     "risco": 30,
+     "solo": "qualquer",
+     "decendios_permitidos": 9,
+     "inicios_permitidos": 10
+    },
+    "crotalaria_juncea": {
+     "aplicado": false,
+     "motivo": "cultura 'crotalaria_juncea' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "feijao_de_porco": {
+     "aplicado": false,
+     "motivo": "cultura 'feijao_de_porco' sem correspondência clara no ZARC (ou sem ZARC)"
+    },
+    "mucuna": {
+     "aplicado": false,
+     "motivo": "cultura 'mucuna' sem correspondência clara no ZARC (ou sem ZARC)"
+    }
+   }
+  }
+ }
+]

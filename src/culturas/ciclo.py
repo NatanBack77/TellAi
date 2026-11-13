@@ -122,7 +122,20 @@ def notas_ciclo(tab: dict, cid: str, clima: ClimaPonto, p: Parametros) -> dict:
     soma_r, vr = _somas_janela(clima.chuva, ini, dur_r)
     tmedia = soma_t / dur
     nt, nr = trapezio(tmedia, *ft), trapezio(soma_r, *fr)
-    return {"estado": "avaliavel", "lacunas": [], "dur": dur, "dur_chuva": dur_r, "tmedia": tmedia, "chuva": soma_r,
+    zinfo = None
+    if p.usar_zarc:
+        from . import zarc
+        z = zarc.janela(zarc.geocodigo_do_ponto(clima.ponto_id), cid, p.zarc_risco, p.zarc_solo)
+        if z["permitido"] is None:
+            zinfo = {"aplicado": False, "motivo": z["motivo"]}
+        else:
+            offs = np.arange(0, DIAS_ANO_REF, p.passo_inicio_dias)
+            ok_ini = z["permitido"][zarc.decendios_do_inicio(offs)]            # [início]
+            nt = np.where(ok_ini[None, :] | np.isnan(nt), nt, 0.0)           # fora da janela: nota 0 (NaN segue NaN)
+            nr = np.where(ok_ini[None, :] | np.isnan(nr), nr, 0.0)
+            zinfo = {"aplicado": True, "recurso": z["recurso"], "risco": z["risco"], "solo": z["solo"],
+                     "decendios_permitidos": z["n_decendios"], "inicios_permitidos": int(ok_ini.sum())}
+    return {"estado": "avaliavel", "lacunas": [], "zarc": zinfo, "dur": dur, "dur_chuva": dur_r, "tmedia": tmedia, "chuva": soma_r,
             "nt": nt, "nr": nr, "valido": vt & vr}
 
 
