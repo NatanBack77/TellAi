@@ -9,6 +9,7 @@ Princípio: o produto é apoio à decisão do agricultor (marcar a área, cultur
 3. **[FAZER] Fonte nova de chuva/umidade com série longa** (ERA5-Land ou GLDAS/FLDAS via Earthdata). Scripts iniciais `experimentos/previsao_doc09/t3_*.py` (download não concluído). Earth Engine e CDS exigem cadastro novo. Testar pelo protocolo (só 2010–2021, N no Bonferroni, placebo, pareado contra `pers_lags4`).
 4. **[VERIFICAR] Grade do SMAP**: catálogo do Earth Engine diz 11 km, nossa doc diz 9 km. Conferir nos metadados do arquivo.
 5. **[FAZER]** SMAP como feature só vale se houver mais anos (série desde 2015). `pers_lags4` não integrado (ganho +0,005).
+5b. **[FEITO 2026-11-13] Outros algoritmos e ensembles**: 12 candidatos; XGBoost (+0,028) e stack NNLS (+0,028) melhoram o Ridge na confirmação, mas ensemble não supera o XGBoost sozinho (já em produção). Ver `experimentos/ensemble/RESULTADO.md`.
 6. Só 59 células de clima distintas para 195 pontos (amostra efetiva); confirmação com 3 anos.
 
 ## B. Motor de culturas (`src/culturas/`)
