@@ -5,6 +5,10 @@ __pycache__/
 data/raw/*
 !data/raw/indices/
 !data/raw/modis_ornl/
+!data/raw/power/
+!data/raw/soilgrids/
+!data/raw/zarc/
+!data/raw/srtm_tiles.tar.gz.part-*
 indice/
 .pytest_cache/
 data/processed/sintetico/

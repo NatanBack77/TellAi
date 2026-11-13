@@ -33,7 +33,7 @@ A senha do Earthdata foi digitada numa conversa com o assistente: **troque-a** n
 |---|---|
 | Código, `config.yaml`, `requirements.txt`, `docs/`, `tests/`, `experimentos/` (scripts e `RESULTADO.md`) | `.env` (criar à mão) |
 | `data/processed/`: `clima_diario`, `ndvi_16d`, `umidade_solo`, `pam_ce`, `solo`, `terreno`, `zarc_ce` (parquet), `zarc_manifesto.json`, `pontos.csv`, `sensibilidade_pesos.json`, `diagnostico/`, `mvp/`, `cenarios/`, `modelos/metricas.json` e `modelos/relatorio_modelos.md` | outros arquivos de `data/processed/modelos/` (`anomalias.parquet`, `diagnostico.json`): regerar com `python -m src.modelos.preditivo` / `diagnostico` |
-| `data/raw/modis_ornl/` (21.840 JSON, ~97 MB) e `data/raw/indices/` (Niño 3.4, TNA, TSA) | `data/raw/*` restante é ignorado: `power/`, `smap/`, `srtm/` (~693 MB de tiles), `soilgrids/`, `zarc/`, `modis/` |
+| `data/raw/modis_ornl/` (21.840 JSON, ~97 MB), `data/raw/indices/` (Niño 3.4, TNA, TSA), `data/raw/power/`, `data/raw/soilgrids/`, `data/raw/zarc/` (dicionário) e **`data/raw/srtm_tiles.tar.gz.part-00..02`** (28 tiles SRTM, 709 MB compactados em 231 MB; restaurar com `cat data/raw/srtm_tiles.tar.gz.part-* | tar -xz -C data/raw`) | `data/raw/smap/` e `data/raw/modis/` (a tarefa antiga do AppEEARS); `.venv/`, `.env`, `indice/` e `data/processed/sintetico/` |
 | `data/raw/power_cache.tar.gz` (27 MB) e `data/raw/smap_cache.tar.gz` (61 MB); `scripts/setup.sh` extrai | `indice/` do RAG (ignorado): `python -m src.rag.rag_docs` (precisa de `pdftotext`; baixa o modelo de embeddings na 1ª vez; a suíte do RAG leva ~7 min) |
 | `data/culturas/tabela_culturas.csv`, `docs_rag/` (31 PDFs + `manifesto.json`) | `experimentos/**/*.pkl` (ex.: `t1_linhas.pkl`, 46 MB), `coleta_*.log`, `data/processed/sintetico/` |
 

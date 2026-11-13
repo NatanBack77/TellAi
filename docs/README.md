@@ -22,3 +22,4 @@
 | 17_PITCH | avaliação honesta e pitch |
 | 18_ARQUITETURA_TECNICA | **como o sistema funciona, das bases ao resultado; como reproduzir cada etapa** |
 | 19_ALINHAMENTO_AO_DESAFIO | régua de alinhamento ao desafio e maiores lacunas |
+| 20_PLANO_PROXIMAS_FASES | **plano das próximas fases (0 a 7) para continuar em outro computador; dados já no repositório; prompts prontos** |

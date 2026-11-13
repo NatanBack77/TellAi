@@ -22,6 +22,7 @@ Alinhamento ao desafio: ~61% dos pontos do texto (núcleo obrigatório 86%): [`d
 | entender o sistema das bases ao resultado | [`docs/18_ARQUITETURA_TECNICA.md`](docs/18_ARQUITETURA_TECNICA.md) |
 | apresentar a solução (pitch e avaliação honesta) | [`docs/17_PITCH.md`](docs/17_PITCH.md) |
 | comparar com o desafio da NASA | [`docs/19_ALINHAMENTO_AO_DESAFIO.md`](docs/19_ALINHAMENTO_AO_DESAFIO.md) |
+| **planejar as próximas fases em outro computador** | [`docs/20_PLANO_PROXIMAS_FASES.md`](docs/20_PLANO_PROXIMAS_FASES.md) |
 | saber o estado e o histórico | [`docs/00_STATUS.md`](docs/00_STATUS.md), [`docs/03_SUPOSICOES_E_DECISOES.md`](docs/03_SUPOSICOES_E_DECISOES.md) |
 | ver os experimentos e a pesquisa | [`docs/05_EXPERIMENTOS.md`](docs/05_EXPERIMENTOS.md), [`docs/16_PESQUISA.md`](docs/16_PESQUISA.md), `experimentos/*/RESULTADO.md` |
 Índice completo: [`docs/README.md`](docs/README.md).
