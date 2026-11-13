@@ -23,6 +23,7 @@ import pandas as pd
 from src.culturas import ciclo as ciclo_mod
 from src.culturas.motor import avaliar_local, gerar_cenarios
 from src.culturas.parametros import Parametros
+from src.culturas.rotacao import gerar_rotacoes
 from src.culturas.tabela_culturas import carregar as carregar_tabela_culturas
 
 RAIZ = Path(__file__).resolve().parents[2]
@@ -669,3 +670,30 @@ def contagens_dados() -> dict:
     com_dem = sum(1 for c in tab.values() if c["atributos"].get("demanda_hidrica_mm_ciclo") is not None)
     return {"pontos": len(p), "pontos_ce": int((p["uf"] == "CE").sum()), "celulas_power": int(p["celula_power"].nunique()),
             "confianca": conf, "culturas": len(tab), "com_n": com_n, "com_palha": com_palha, "com_demanda": com_dem}
+
+
+# ------------------------------------------------------------------------------------------ rotação em 3 safras
+OPCOES_TEXTURA = ["não sei", "arenoso", "médio", "argiloso"]
+OPCOES_MO = ["não sei", "baixa", "média", "alta"]
+
+
+def calcular_rotacao(ponto_id: str, cultura_atual: str, prioridade: str = "sem", rotacao_atual: list[str] | None = None,
+                     textura: str = "não sei", materia_organica: str = "não sei", usar_zarc: bool = False,
+                     n_sorteios: int = 3000) -> dict:
+    """Rotação de 3 safras (atual + 2 alternativas) para o local. `rotacao_atual`: 3 culturas começando pela atual, ou None (repete a atual).
+
+    Solo informado pelo usuário só gera avisos de risco (não altera nota). ZARC (opcional) restringe os inícios de plantio.
+    """
+    t0 = time.perf_counter()
+    tab = carregar_tabela()
+    pts = carregar_pontos().set_index("ponto_id")
+    if ponto_id not in pts.index:
+        raise KeyError(f"ponto '{ponto_id}' não está em pontos.csv")
+    p = replace(parametros(prioridade, n_sorteios), usar_zarc=usar_zarc)
+    solo = {k: v for k, v in (("textura", textura), ("materia_organica", materia_organica)) if v not in (None, "não sei")} or None
+    ibge = pts.loc[ponto_id].get("ibge")
+    r = gerar_rotacoes({"local": ponto_id}, cultura_atual, tab, clima_ponto(ponto_id), p, prioridade, rotacao_atual, 2, solo,
+                       None if pd.isna(ibge) else int(ibge))
+    r["usar_zarc"], r["solo_informado"], r["segundos"] = usar_zarc, solo, time.perf_counter() - t0
+    r["local"] = {"ponto_id": ponto_id, "nome": pts.loc[ponto_id]["nome"]}
+    return r

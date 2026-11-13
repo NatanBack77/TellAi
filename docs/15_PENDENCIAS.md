@@ -4,13 +4,15 @@ Atualizado em 2026-11-12 (21h20). Marcas: **[DECISÃO SUA]** precisa de você; *
 Princípio: o produto é apoio à decisão do agricultor (marcar a área, cultura atual, prioridade; épocas de solo nu e de estresse; 3 caminhos com lacunas; sem fingir certeza). A previsão do NDVI é módulo de apoio.
 
 ## A. Modelos (`src/modelos/`)
-1. **[FEITO em parte, 2026-11-13] Cobertura do conformal**: 6 métodos testados, nenhum fecha a marginal (76% / 87% na confirmação; causa: anos deslocam os resíduos juntos). O quantil por estação (`temp_k3_estacao`) sobe a pior estação de 53% para 74% (meta 80%). **[DECISÃO SUA]** adotar na produção? Ver `experimentos/conformal_A1/RESULTADO.md`.
+1. **[FEITO 2026-11-13] Cobertura do conformal**: o conformal adaptativo por estação (ACI, gamma 0,05) fecha a cobertura: 79,9% / 90,0% na confirmação selada (método atual 75,6% / 86,6%). **[DECISÃO SUA]** adotar o ACI em `preditivo.py`/`cenarios.py`? Ver `experimentos/conformal_A1/RESULTADO.md` e `docs/16_PESQUISA.md`.
 2. **[FAZER] Teste de horizonte e estação** (+1 a +4 compostos; chuvosa/seca) para `base`, `persistencia`, `pers_lags4`, só 2010–2021. Parcial em `experimentos/previsao_doc09/` (scripts `t1_*.py`; o `t1_linhas.pkl` é ignorado pelo git; o placebo foi interrompido). Mostra onde o clima pode ajudar (a literatura lida indica R² 0,69 → 0,35 → 0,16 em 1, 2, 3 meses).
 3. **[FAZER] Fonte nova de chuva/umidade com série longa** (ERA5-Land ou GLDAS/FLDAS via Earthdata). Scripts iniciais `experimentos/previsao_doc09/t3_*.py` (download não concluído). Earth Engine e CDS exigem cadastro novo. Testar pelo protocolo (só 2010–2021, N no Bonferroni, placebo, pareado contra `pers_lags4`).
 4. **[VERIFICAR] Grade do SMAP**: catálogo do Earth Engine diz 11 km, nossa doc diz 9 km. Conferir nos metadados do arquivo.
 5. **[FAZER]** SMAP como feature só vale se houver mais anos (série desde 2015). `pers_lags4` não integrado (ganho +0,005).
 5b. **[FEITO 2026-11-13] Outros algoritmos e ensembles**: 12 candidatos; XGBoost (+0,028) e stack NNLS (+0,028) melhoram o Ridge na confirmação, mas ensemble não supera o XGBoost sozinho (já em produção). Ver `experimentos/ensemble/RESULTADO.md`.
 5c. **[FEITO 2026-11-13] Overfitting/underfitting**: sem evidência de nenhum; parâmetros de produção no fundo plano da curva; erro restante = choques de ano inteiro. Ver `experimentos/overfit_underfit/RESULTADO.md`.
+5d. **[FEITO 2026-11-13] Terreno e índices (Niño/Atlântico) como features**: não melhoram a previsão do NDVI; índices de out–jan não anteciparam a chuva de fev–mai. NDVI explica R² 0,03–0,10 do rendimento (PAM), chuva da quadra mais (milho 0,31). Ver `experimentos/novas_fontes/RESULTADO.md`.
+5e. **[FEITO 2026-11-13] Rotação em sequência de 3 safras** (`src/culturas/rotacao.py`, seção 3b do app, 11 testes): atual + 2 alternativas, entradas do agricultor (rotação atual, textura e matéria orgânica), ZARC opcional, contexto de produção do município (IBGE). Empate técnico entre alternativas continua; separa bem rotação x repetir a mesma cultura. Falta: solo coletado (SoilGrids fora do ar), N fixado só de 4 culturas, pragas sem dado.
 6. Só 59 células de clima distintas para 195 pontos (amostra efetiva); confirmação com 3 anos.
 
 ## B. Motor de culturas (`src/culturas/`)

@@ -30,3 +30,17 @@ Script: `conformal_wf.py` (`selecao`, `confirma`). Ridge com persistência, 195 
   e a confirmação reproduziu o ganho.
 - Produção NÃO foi alterada (`preditivo.py`/`cenarios.py` seguem com `cell_split`). Falta decisão: adotar o quantil por estação.
   Em qualquer caso, apresentar a faixa como "cobre ~76% / ~87% (não 80% / 90%)", e pior estação menor.
+
+
+## Adendo: conformal adaptativo (ACI), 2026-11-13 (`aci.py`)
+ACI (Gibbs e Candès 2021): alpha_{t+1} = alpha_t + gamma (alpha - err_t) a cada composto, com err_t = fração de pontos não cobertos no composto; resíduos de
+calibração = últimos 3 anos; gamma fixado antes (0,01 e 0,05). Variante por estação mantém um alpha por faixa de estação. N = 6 métodos.
+| Método (meta 80% / 90%) | Seleção 2010–2021 | Confirmação selada 2022–2024 | Pior estação (conf.) |
+|---|---|---|---|
+| temp_k3 (referência) | 77,9% / 88,4% | 75,6% / 86,6% | 54% / 69% |
+| temp_k3_estacao | 77,5% / 88,0% | 75,3% / 86,7% | 74% / 86% |
+| aci_g05 (global) | 84,2% / 92,5% | 84,6% / 92,8% | 67% / 80% |
+| **aci_estacao_g05** | **79,8% / 89,9%** | **79,9% / 90,0%** | **77% / 89%** |
+O ACI por estação com gamma 0,05 FECHA a cobertura média e a da pior estação, também na janela selada. A cobertura por ano ainda varia (pior ano 71%
+na confirmação, meta 80%; na seleção, 72%): a garantia é de longo prazo, não de cada ano. O ACI global passa da meta (cobre demais). Produção ainda NÃO usa o ACI
+(`preditivo.py`/`cenarios.py` seguem com `cell_split`); integrar é mudança pequena e fica para decisão.

@@ -3,6 +3,7 @@
 __pycache__/
 *.pyc
 data/raw/*
+!data/raw/indices/
 !data/raw/modis_ornl/
 indice/
 .pytest_cache/

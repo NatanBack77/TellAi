@@ -146,3 +146,28 @@ def test_resposta_por_selecao_abaixo_de_5_segundos():
         t0 = time.perf_counter()
         at.selectbox(key=chave).set_value(valor).run()
         assert time.perf_counter() - t0 < 5.0, chave
+
+
+def test_rotacao_3_safras_na_tela_com_entradas_do_agricultor():
+    from streamlit.testing.v1 import AppTest
+    at = AppTest.from_file(APP, default_timeout=120).run()
+    assert not at.exception
+    t = _textos(at)
+    assert any("3b. Rotação em 3 safras" in x.value for x in at.subheader)
+    for k in ("Alternativa 1", "Alternativa 2", "pragas", "técnico local"):
+        assert k.lower() in t.lower(), k
+    at.selectbox(key="textura").set_value("arenoso").run()
+    at.selectbox(key="rot2").set_value("feijao_caupi").run()          # só a 2ª: avisa que falta a 3ª, não quebra
+    assert not at.exception
+    at.selectbox(key="rot3").set_value("milho").run()
+    assert not at.exception
+    assert "rotação informada por você" in _textos(at)
+    at.checkbox(key="zarc").set_value(True).run()
+    assert not at.exception
+
+
+def test_calcular_rotacao_renda_e_lacuna_e_nao_altera():
+    a = M.calcular_rotacao("quixada_ce", "milho", "sem", n_sorteios=800)
+    b = M.calcular_rotacao("quixada_ce", "milho", "renda", n_sorteios=800)
+    assert [e["sequencia"] for e in a["estrategias"]] == [e["sequencia"] for e in b["estrategias"]]
+    assert a["n_simuladas"] <= 81 and a["segundos"] < 5.0

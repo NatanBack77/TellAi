@@ -31,6 +31,12 @@ def calcular_cache(ponto: str, cultura: str, prioridade: str) -> dict:
     return M.calcular(ponto, cultura, prioridade)
 
 
+@st.cache_resource(show_spinner="Montando as rotações de 3 safras...", max_entries=64)
+def rotacao_cache(ponto: str, cultura: str, prioridade: str, rot2: str, rot3: str, textura: str, mo: str, zarc: bool) -> dict:
+    rot = None if rot2 == "-" or rot3 == "-" else [cultura, rot2, rot3]
+    return M.calcular_rotacao(ponto, cultura, prioridade, rot, textura, mo, zarc)
+
+
 @st.cache_resource(show_spinner=False, max_entries=128)
 def cenario_cache(ponto: str, cultura: str, prioridade: str, fator_chuva: float, delta_t: float) -> dict:
     return M.cenario_clima(ponto, cultura, prioridade, fator_chuva, delta_t, base=calcular_cache(ponto, cultura, prioridade))
@@ -288,6 +294,67 @@ def painel_estrategias(lid: str, cultura: str, prio: str, calc: dict):
         st.caption(f"Tempo de cálculo desta seleção: {M.br(calc['segundos'], 2)} s.")
 
 
+# ------------------------------------------------------------------------------------------ 3b. rotação em 3 safras
+def painel_rotacao(lid: str, cultura: str, prio: str):
+    st.subheader("3b. Rotação em 3 safras (uma por ano)")
+    st.caption("Compara sequências de três safras seguidas, começando pela cultura que você já planta. Nenhum número vem de memória: "
+               "tudo sai da tabela de culturas, do clima do local e de regras declaradas; o que falta aparece como lacuna.")
+    culturas = M.culturas_disponiveis()
+    opcoes = ["-"] + list(culturas)
+    rotulo = lambda k: "repetir a cultura atual" if k == "-" else culturas[k]
+    c1, c2, c3, c4 = st.columns(4)
+    r2 = c1.selectbox("Sua rotação atual: 2ª safra (opcional)", opcoes, format_func=rotulo, key="rot2")
+    r3 = c2.selectbox("Sua rotação atual: 3ª safra (opcional)", opcoes, format_func=rotulo, key="rot3")
+    tex = c3.selectbox("Textura do solo (se souber)", M.OPCOES_TEXTURA, key="textura")
+    mo = c4.selectbox("Matéria orgânica (se souber)", M.OPCOES_MO, key="mo")
+    zarc = st.checkbox("Usar as datas de plantio do ZARC (zoneamento oficial do MAPA; só algumas culturas têm ZARC)",
+                       value=False, key="zarc")
+    if (r2 == "-") != (r3 == "-"):
+        st.info("Para usar a sua rotação, escolha a 2ª e a 3ª safra; senão a rotação atual será a repetição da cultura atual.")
+    try:
+        r = rotacao_cache(lid, cultura, prio, r2, r3, tex, mo, zarc)
+    except Exception as e:  # noqa: BLE001
+        lacuna(f"não foi possível montar as rotações ({e.__class__.__name__}: {e}).")
+        return
+    if not r["estrategias"]:
+        for l in r["lacunas"]:
+            lacuna(l)
+        return
+    if r.get("empate_tecnico_todos"):
+        st.warning("As duas alternativas estão em EMPATE TÉCNICO com muitas outras sequências: os dados deste app não separam as melhores. "
+                   "O que separa bem é rotação x repetir a mesma cultura. Quem escolhe entre as alternativas é o agricultor com o técnico.")
+    cols = st.columns(3)
+    rotulos = ["Atual" if e["papel"] == "atual" else f"Alternativa {i}" for i, e in enumerate(r["estrategias"])]
+    for col, e, rot in zip(cols, r["estrategias"], rotulos):
+        with col:
+            st.markdown(f"**{rot}**")
+            st.markdown(" → ".join(e["nomes"]))
+            if e["rotacao_informada_pelo_usuario"]:
+                st.caption("rotação informada por você")
+            st.metric("Pontuação (mediana)", M.br(e["score_mediana"], 1), help="0 a 100; não é produtividade nem lucro")
+            st.caption(f"Faixa de sensibilidade (p10 a p90): {M.br(e['faixa_score'][0], 1)} a {M.br(e['faixa_score'][1], 1)}"
+                       + (f" · chance de ficar entre as 3 melhores: {M.pct(e['p_top'])}" if e["p_top"] is not None else ""))
+            for i, c in enumerate(e["culturas"], start=1):
+                j, ctx = c["janela"], c["no_municipio"]
+                txt = f"Safra {i}: **{c['nome']}**" + (f", melhor início perto de {j['inicio']}" if j else ", sem janela calculada")
+                if ctx:
+                    txt += f" · {M.br(ctx['area_colhida_ha'], 0)} ha colhidos no município em {ctx['ano']} (IBGE)"
+                st.markdown(txt)
+            with st.expander("Critérios, lacunas e riscos"):
+                for k, v in e["criterios"].items():
+                    st.markdown(f"- {k}: " + ("**LACUNA**" if v["lacuna"] else f"nota {M.br(v['nota_media'], 2)}"))
+                for l in e["lacunas"]:
+                    st.markdown(f"- LACUNA: {l}")
+                for rr in e["riscos_revisao_local"]:
+                    st.markdown(f"- Risco a avaliar com técnico: {rr}")
+    with st.expander("Suposições da rotação (a validar)"):
+        for t in r["suposicoes"]:
+            st.markdown(f"- {t}")
+        if zarc:
+            st.markdown("- ZARC ligado: culturas sem ZARC no município não são restringidas (ver lacunas).")
+        st.caption(f"Tempo de cálculo: {M.br(r['segundos'], 1)} s. {r['n_candidatas']} sequências avaliadas.")
+
+
 # ------------------------------------------------------------------------------------------ 4. cenário
 def painel_cenario(lid: str, cultura: str, prio: str):
     st.subheader("4. E se a chuva ou a temperatura forem diferentes?")
@@ -336,6 +403,7 @@ def pagina_meu_local():
         return
     painel_diagnostico(lid, cultura, calc)
     painel_estrategias(lid, cultura, prio, calc)
+    painel_rotacao(lid, cultura, prio)
     painel_cenario(lid, cultura, prio)
 
 
