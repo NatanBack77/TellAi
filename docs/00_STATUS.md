@@ -1,13 +1,15 @@
-> **Atualização 2026-11-13:** rotação em 3 safras (seção 3b do app, `src/culturas/rotacao.py`), indicador da chuva da quadra (seção 2b), ACI por estação integrado ao preditivo (cobertura 80,9% / 90,6%), ZARC opcional, terreno (SRTM) e PAM/IBGE coletados. Terreno e índices Niño/Atlântico não melhoram a previsão do NDVI; NDVI explica pouco do rendimento. Ver `docs/16_PESQUISA.md`, `docs/15_PENDENCIAS.md`, `experimentos/*/RESULTADO.md`. Solo (SoilGrids) bloqueado.
 # Status do projeto SULCO
 
-> **Retomada (2026-11-12, 21h20):** tudo parado e commitado. Passo a passo: `docs/04_RETOMADA.md`; o que falta, em ordem: `docs/15_PENDENCIAS.md`.
-> **Estado:** 195 pontos (184 municípios do CE + 11 de outros estados). Clima POWER, NDVI MODIS (107.583 linhas) e SMAP (195 × 3.564 dias) completos.
-> **Modelo:** a persistência do NDVI é a única melhoria confirmada (skill +0,24 na confirmação selada 2022–2024); o clima sozinho não supera a climatologia;
-> CHIRPS e SMAP (+0,007) não ajudam de forma útil; conformal cobre 76% / 87% para metas de 80% / 90%. Detalhes em `experimentos/avaliacao_195/RESULTADO.md` e `docs/05_EXPERIMENTOS.md`.
-> **Produto:** MVP Streamlit (`src/app`, `docs/11_MVP.md`), motor de culturas com ciclo e incerteza (`docs/10`), RAG com 31 PDFs, API FastAPI (`docs/12`, 6/7 endpoints),
-> camada LLM com verificador testada sem chave (`docs/14`). ZARC não iniciado (`docs/13`). Alternativas de rotação seguem em empate técnico.
-> Pesquisas: `docs/07` (viabilidade), `docs/08` (ranking/incerteza), `docs/09` (previsão NDVI). Decisões: `docs/03`. Pesos: `docs/06`.
+> **Estado em 2026-11-13.** Documentos-chave: `docs/04_RETOMADA.md` (continuar em outro PC e por onde começar), `docs/15_PENDENCIAS.md` (o que falta), `docs/18_ARQUITETURA_TECNICA.md` (como funciona),
+> `docs/17_PITCH.md` (pitch e avaliação honesta), `docs/19_ALINHAMENTO_AO_DESAFIO.md` (comparação com o desafio da NASA).
+>
+> **Dados:** 195 pontos (184 municípios do CE + 11 de outros estados). Clima POWER, NDVI MODIS e SMAP completos; relevo SRTM, solo SoilGrids (195 de 195), produção do IBGE (PAM, 2015–2023, com valor da produção) e ZARC do Ceará coletados.
+> **Modelo (anomalia de NDVI, holdout 2022–2024 selado):** skill +0,28 (XGBoost), erro (RMSE) 0,072 contra 0,100 da média histórica; sem sinal de overfitting ou underfitting; faixa de incerteza ACI por estação cobre 80,9% / 90,6% (metas 80% / 90%; pior ano 72%).
+> O ganho vem da persistência do NDVI; clima, terreno e índices Niño/Atlântico não melhoram a previsão; o NDVI explica só 3% a 10% do rendimento municipal do IBGE, a chuva da quadra explica mais (milho 31%).
+> **Produto:** app Streamlit com diagnóstico, chuva da quadra (2b), 3 estratégias, rotação de 3 safras (3b) com plano MILP, solo estimado e cenários de clima; ZARC **ligado por padrão** (culturas sem ZARC usam janela aproximada);
+> API FastAPI; camada LLM sem chave; RAG de 31 PDFs (acerto 54%, meta 80%). Alternativas de rotação seguem em **empate técnico**.
+> **Alinhamento ao desafio:** ~61% da régua de 46 pontos (núcleo obrigatório 86%). Maiores lacunas: erosão/infiltração, evapotranspiração e balanço hídrico, renda/mercado, calor e chuva extrema, mapa com camadas e linha do tempo, entradas do agricultor (água, equipamento, mercado). Todas estão em `docs/15_PENDENCIAS.md` como pendentes.
+> **Testes:** 324 coletados (`pytest --collect-only -q`); RAG e LLM são pesados e rodam à parte. Decisões e histórico abaixo e em `docs/03_SUPOSICOES_E_DECISOES.md`.
 
 Atualizado em 2026-11-11. Escopo atual: módulo `src/modelos/` (séries temporais e preditivo).
 

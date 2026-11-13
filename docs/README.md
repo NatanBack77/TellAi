@@ -18,3 +18,7 @@
 | 13_ZARC | códigos IBGE (feito) e ZARC (a fazer) |
 | 14_LLM | camada LLM, verificador, DeepSeek |
 | 15_PENDENCIAS | **o que falta, em ordem, com decisões suas** |
+| 16_PESQUISA | literatura sobre previsão, incerteza, escopo, MILP |
+| 17_PITCH | avaliação honesta e pitch |
+| 18_ARQUITETURA_TECNICA | **como o sistema funciona, das bases ao resultado; como reproduzir cada etapa** |
+| 19_ALINHAMENTO_AO_DESAFIO | régua de alinhamento ao desafio e maiores lacunas |

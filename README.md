@@ -1,43 +1,42 @@
 # SULCO — da órbita ao sulco
 
-MVP (NASA Space Apps 2026) de apoio à decisão sobre rotação de culturas e saúde do solo no semiárido do Nordeste.
-A ferramenta **apoia**, não decide: todo cenário é "a avaliar com técnico local".
+MVP (NASA Space Apps 2026) de **apoio à decisão sobre rotação de culturas e saúde do solo no semiárido do Nordeste**.
+A ferramenta **apoia, não decide**: todo cenário é "a avaliar com técnico local". Nenhum número é inventado; o que falta aparece como **lacuna**.
 
-## Documentação
-- **Comece por** [`docs/04_RETOMADA.md`](docs/04_RETOMADA.md) (como continuar em outro computador) e [`docs/15_PENDENCIAS.md`](docs/15_PENDENCIAS.md) (o que falta). Índice completo: [`docs/README.md`](docs/README.md).
-- [`docs/01_VISAO_GERAL.md`](docs/01_VISAO_GERAL.md) — problema, arquitetura, regras, bases de dados
-- [`docs/02_MODULO_MODELOS.md`](docs/02_MODULO_MODELOS.md) — módulo de séries temporais e preditivo
-- [`docs/00_STATUS.md`](docs/00_STATUS.md) — feito, falta e achados
-- [`docs/03_SUPOSICOES_E_DECISOES.md`](docs/03_SUPOSICOES_E_DECISOES.md) — suposições, pendências, decisões
+## O que o sistema faz hoje (2026-11-13)
+- **195 locais** (184 municípios do Ceará e 11 de outros estados) com 24 anos (2001–2024) de dados da NASA: chuva e temperatura (POWER), vegetação (MODIS), mais umidade do solo (SMAP), relevo (SRTM) e solo estimado (SoilGrids); produção agrícola do IBGE (PAM) e zoneamento agrícola de risco climático (ZARC, Ceará).
+- **App Streamlit** (`src/app/app.py`): o agricultor escolhe o local, a cultura atual e a prioridade (água ou solo); opcionalmente informa a rotação atual e a textura do solo. Vê: o que a terra costuma fazer (campo nu, estresse, veranicos), a chuva da quadra e o que significou para o rendimento, **3 estratégias** (atual + 2 alternativas), **rotação de 3 safras**, plano de várias safras (MILP) e cenários de chuva e temperatura.
+- **Previsão da vegetação** (anomalia de NDVI): 28% menos erro que a média histórica no holdout 2022–2024 (skill +0,28, XGBoost); faixa de incerteza adaptativa (ACI) cobre 80,9% / 90,6% para metas de 80% / 90%. O ganho vem da persistência do NDVI, não do clima. Não prevê produtividade.
+- **API** FastAPI (`src/api`), **camada LLM** com verificador (`src/llm`, sem chave ainda) e **RAG** sobre 31 PDFs (`src/rag`).
+- **Rigor:** validação walk-forward ano a ano com placebo, correção por número de testes e confirmação selada em 2022–2024 (`docs/05_EXPERIMENTOS.md`).
 
-## Estado
-- Passo 1 concluído (2026-11-09): esqueleto, `config.yaml`, `requirements.txt`, validador de entrada, gerador sintético, 7 testes passando.
-- Passo 4 concluído: `diagnostico.py` (STL, anomalias, solo nu, tendências, veranicos), 20 testes passando.
-- Passo 5 concluído: `features.py` (janelas anteriores, dias secos, sazonalidade, alvo = anomalia), 37 testes passando.
-- Passo 6 concluído: `preditivo.py` (climatologia, Ridge, XGBoost; GroupKFold por célula + holdout temporal), 54 testes passando.
-- Passos 7–12 concluídos no código: conformal + cobertura, decisão XGBoost vs. Ridge, explicação (`pred_contribs`), `cenarios.py`, `relatorio.py`, 81 testes passando (inclui walk-forward).
-- Coleta POWER feita (13 pontos, 2001–2024): `python -m src.coleta.power`. Faltam MODIS e SMAP (Earthdata).
-- **Estado (2026-11-11):** clima POWER de 59 pontos (Ceará + outros) completo; NDVI MODIS em 34/59 pontos (cache). Walk-forward implementado: a persistência da anomalia de NDVI é a única melhoria validada até agora. Ver [`docs/05_EXPERIMENTOS.md`](docs/05_EXPERIMENTOS.md) e [`docs/04_RETOMADA.md`](docs/04_RETOMADA.md).
-- NDVI (MODIS) coletado para os 13 primeiros pontos; diagnóstico e preditivo rodados com dados reais (ver `relatorio_modelos.md`: o modelo não supera a climatologia no holdout). Retomada em outro PC: [`docs/04_RETOMADA.md`](docs/04_RETOMADA.md).
-- **Estado (2026-11-12):** dados completos para 195 pontos; MVP, API, RAG, motor de culturas e camada LLM prontos (ver `docs/00_STATUS.md`). Antes:  195 pontos (Ceará inteiro); clima e SMAP coletados; NDVI em 85%; novos `src/culturas`, `src/rag`, `src/app`. Para continuar em outro PC: [`docs/04_RETOMADA.md`](docs/04_RETOMADA.md).
-- **Estado (2026-11-12, D52):** `persistencia` (anomalia dos 2 compostos anteriores, validada em walk-forward) integrada a `preditivo.py`/`cenarios.py`/`relatorio.py` e ligada por padrão (`preditivo.usar_persistencia`). Holdout 2022–2024, 195 pontos: skill vs. climatologia Ridge +0,257 / XGBoost +0,284 (só clima, mesmas linhas: −0,025 / +0,003). O relatório mostra as duas linhas lado a lado. O ganho vem da memória do NDVI; cenários de clima reagem pouco (medido em `relatorio_modelos.md`). SMAP fica desligado por padrão (`usar_umidade_solo: false`). Opções de CLI: `--sem-persistencia`, `--com-smap`.
-- Próximo: opções de uso do solo/FUNCEME, decisão do usuário sobre `pers_lags4` (ganho marginal) e sobre a faixa conformal (cobertura real abaixo da meta).
+## Limites que o app declara
+Resolução de município (não de talhão); NDVI não é produtividade (explica só 3% a 10% do rendimento municipal); as alternativas de rotação ficam em **empate técnico** (os dados não separam as melhores); renda, mercado, pragas e erosão ainda são lacunas.
+Alinhamento ao desafio: ~61% dos pontos do texto (núcleo obrigatório 86%): [`docs/19_ALINHAMENTO_AO_DESAFIO.md`](docs/19_ALINHAMENTO_AO_DESAFIO.md).
+
+## Documentação (comece por aqui)
+| Para… | Leia |
+|---|---|
+| continuar em outro computador e saber por onde começar | [`docs/04_RETOMADA.md`](docs/04_RETOMADA.md) |
+| ver tudo o que está pendente | [`docs/15_PENDENCIAS.md`](docs/15_PENDENCIAS.md) |
+| entender o sistema das bases ao resultado | [`docs/18_ARQUITETURA_TECNICA.md`](docs/18_ARQUITETURA_TECNICA.md) |
+| apresentar a solução (pitch e avaliação honesta) | [`docs/17_PITCH.md`](docs/17_PITCH.md) |
+| comparar com o desafio da NASA | [`docs/19_ALINHAMENTO_AO_DESAFIO.md`](docs/19_ALINHAMENTO_AO_DESAFIO.md) |
+| saber o estado e o histórico | [`docs/00_STATUS.md`](docs/00_STATUS.md), [`docs/03_SUPOSICOES_E_DECISOES.md`](docs/03_SUPOSICOES_E_DECISOES.md) |
+| ver os experimentos e a pesquisa | [`docs/05_EXPERIMENTOS.md`](docs/05_EXPERIMENTOS.md), [`docs/16_PESQUISA.md`](docs/16_PESQUISA.md), `experimentos/*/RESULTADO.md` |
+Índice completo: [`docs/README.md`](docs/README.md).
 
 ## Como rodar
 ```
-python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
-.venv/bin/python -m src.modelos.sintetico   # gera data/processed/sintetico/SINTETICO_*.parquet
-.venv/bin/python -m src.modelos.diagnostico --sintetico   # diagnóstico dos pontos sintéticos
-.venv/bin/python -m src.modelos.preditivo --sintetico     # só testa o fluxo; não imprime métricas
-.venv/bin/python -m pytest -q
-# validação walk-forward de variantes (ver docs/05_EXPERIMENTOS.md)
-.venv/bin/python -m src.modelos.walkforward --variantes base,persistencia
-.venv/bin/python -m src.modelos.preditivo   # com dados reais: grava metricas.json e relatorio_modelos.md (com persistência)
-.venv/bin/python -m src.modelos.preditivo --sem-persistencia   # modelo só-clima (comportamento anterior)
-.venv/bin/python -m src.modelos.preditivo --com-smap           # opção desligada por padrão (D52)
+python -m venv .venv
+.venv/Scripts/python -m pip install -r requirements.txt          # Linux/Mac: .venv/bin/python
+.venv/Scripts/python -m streamlit run src/app/app.py             # app em http://localhost:8501
+.venv/Scripts/python -m pytest -q                                # suíte completa (324 testes coletados; RAG e LLM são pesados)
+.venv/Scripts/python -m src.modelos.preditivo                    # previsão com dados reais: metricas.json e relatorio_modelos.md
+.venv/Scripts/python -m src.modelos.walkforward --variantes base,persistencia   # validação de variantes
 ```
-(No Windows use `.venv/Scripts/python`.)
+Coletas (idempotentes, com cache): `python -m src.coleta.power | modis_ornl --workers 16 | zarc | solo | sidra | srtm`. Detalhes e ordem em [`docs/04_RETOMADA.md`](docs/04_RETOMADA.md).
 Dados `SINTETICO_*` servem só para testar formato e fluxo; nenhuma métrica deles é resultado do projeto.
 
 ## Segurança
-`.env` guarda chaves e nunca é commitado.
+`.env` guarda chaves (Earthdata, DeepSeek) e **nunca** é commitado.

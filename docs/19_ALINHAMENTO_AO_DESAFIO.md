@@ -55,7 +55,7 @@ Conferido no código e na tela (`src/app/app.py`, `src/app/mvp.py`) e nos docume
 ## D. Estratégias de rotação
 | # | Pedido | Situação | Nota |
 |---|---|---|---|
-| 29a | Ciclagem de nutrientes | N na biomassa (11 culturas) e N fixado (4 culturas) | 0,5 |
+| 29a | Ciclagem de nutrientes | N na biomassa (10 culturas) e N fixado (3 culturas: amendoim, crotalária, mucuna) | 0,5 |
 | 29b | Risco de erosão | NÃO medido (SRTM e solo coletados, fora do app) | 0 |
 | 29c | Matéria orgânica | Palha como proxy | 0,5 |
 | 29d | Potencial forrageiro | Não pontuado | 0 |

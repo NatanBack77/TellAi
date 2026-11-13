@@ -25,7 +25,7 @@ Todos os números abaixo vêm de resultados validados do projeto (`docs/05`, `do
 | Por quê, evidência, benefícios, lacunas, riscos | Sim; evidências do acervo ainda fracas (acerto de 54%) |
 | Períodos de solo nu e de vulnerabilidade | Sim (diagnóstico real de 195 pontos) |
 | Cenários de chuva e temperatura | Sim, com aviso de extrapolação |
-| Solo, prioridades e restrições do agricultor | Parcial: o agricultor informa solo e rotação; mapa de solo em coleta; renda só com receita bruta do IBGE |
+| Solo, prioridades e restrições do agricultor | Parcial: o agricultor informa solo e rotação; solo estimado pelo mapa SoilGrids (pixel de ~2 km) quando o agricultor não informa; renda só com receita bruta do IBGE |
 | Pragas e doenças | Lacuna declarada (só proxy por diversidade de famílias) |
 
 Pontos fracos reconhecidos: as alternativas de rotação ficam em empate técnico (os dados não separam as melhores; separam bem rotação contra repetir a cultura),
