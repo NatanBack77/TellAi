@@ -17,3 +17,5 @@ data/processed/modelos/*
 experimentos/**/*.pkl
 !data/raw/smap_cache.tar.gz
 !data/raw/power_cache.tar.gz
+
+coleta_*.log

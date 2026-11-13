@@ -10,6 +10,7 @@ Princípio: o produto é apoio à decisão do agricultor (marcar a área, cultur
 4. **[VERIFICAR] Grade do SMAP**: catálogo do Earth Engine diz 11 km, nossa doc diz 9 km. Conferir nos metadados do arquivo.
 5. **[FAZER]** SMAP como feature só vale se houver mais anos (série desde 2015). `pers_lags4` não integrado (ganho +0,005).
 5b. **[FEITO 2026-11-13] Outros algoritmos e ensembles**: 12 candidatos; XGBoost (+0,028) e stack NNLS (+0,028) melhoram o Ridge na confirmação, mas ensemble não supera o XGBoost sozinho (já em produção). Ver `experimentos/ensemble/RESULTADO.md`.
+5c. **[FEITO 2026-11-13] Overfitting/underfitting**: sem evidência de nenhum; parâmetros de produção no fundo plano da curva; erro restante = choques de ano inteiro. Ver `experimentos/overfit_underfit/RESULTADO.md`.
 6. Só 59 células de clima distintas para 195 pontos (amostra efetiva); confirmação com 3 anos.
 
 ## B. Motor de culturas (`src/culturas/`)
