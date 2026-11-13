@@ -130,7 +130,9 @@ def test_rodar_grava_json_no_contrato_e_app_le(tmp_path):
     assert L.resumo_incerteza(cens[1])["disponivel"]
 
 
-def test_parametros_chegam_ao_cenario_e_cli(tmp_path):
+def test_parametros_chegam_ao_cenario_e_cli(tmp_path, monkeypatch):
+    # a CLI usa o RAG real, que depende de indice/ (ignorado pelo git): o teste não pode depender dele
+    monkeypatch.setattr(G.rag, "buscar", lambda q, k=5, **kw: _busca_vazia(q, k))
     pr = G.Parametros(ciclo_modo="min", n_sorteios=200, semente=5)
     cens = G.montar_cenarios(PONTO, "milho", _clima(chuva_dia=6.0), None, carregar(), busca=_busca_vazia, params=pr)
     f = cens[1]["faixa_incerteza"]
