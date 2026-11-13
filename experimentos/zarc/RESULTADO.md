@@ -21,3 +21,12 @@ Suposições a decidir pelo usuário: nível de risco (padrão 30), solo ("qualq
   (algodão, girassol, mandioca: 14 → 11).
 - Limites: ZARC mede risco de perda de produtividade por clima; não substitui técnico local. A janela depende do nível de risco e da
   suposição de solo; não há validação com ciclo real ainda.
+
+## Teste de ponta a ponta (`e2e.py`, `e2e.json`): Quixadá (milho), Crateús (feijão-caupi), Limoeiro do Norte (milho), Ipaumirim (mandioca)
+Motor completo (ciclo + SMAA, 1000 sorteios, prioridade "sem") sem × com ZARC (risco 30, solo "qualquer"). Roda em segundos por município.
+- Nota da cultura atual cai com ZARC: milho Quixadá 71,0 → 66,5; milho Limoeiro 66,6 → 56,8; mandioca Ipaumirim 61,5 → 55,8; caupi Crateús 69,1 → 67,2.
+- Alternativas quase não mudam (guandu, milheto, crotalária, caupi continuam no topo; em Crateús o sorgo entra no lugar do milho).
+- **VIÉS a corrigir antes de ligar por padrão:** com ZARC ligado, culturas SEM ZARC (guandu, crotalária, mucuna, sorgo, feijão-de-porco) não são
+  restringidas e ficam na vantagem sobre as mapeadas. As alternativas que aparecem (guandu, crotalária) são justamente de adubação verde, sem
+  zoneamento. Opções: (a) aplicar ZARC só às culturas mapeadas e avisar na tela; (b) ligar também uma janela de plantio por chuva para as demais;
+  (c) comparar só culturas com ZARC. Decisão do usuário.
