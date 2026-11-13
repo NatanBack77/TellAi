@@ -178,6 +178,79 @@ def test_cenario_entradas_invalidas(mc, base):
         simular(mc, quebrada)
 
 
+# --- faixa ACI por estação ----------------------------------------------------------------
+def test_faixa_aci_por_estacao_formato_e_finita(mc, base):
+    assert mc.metodo_faixa == "aci" and "ACI por estação, gamma" in mc.metodo_descricao
+    assert set(mc.quantis_estacao) == {"80", "90"}
+    for v in mc.quantis_estacao.values():
+        assert set(v) == {0, 1, 2, 3} and all(np.isfinite(q) and q >= 0 for q in v.values())
+    s = simular(mc, base)
+    assert "ACI por estação, gamma" in s["metodo_faixa"] and s["estacoes_base"] and s["faixa_por_estacao"]
+    for k in ("80", "90"):
+        lo, hi = s["faixa_incerteza"][k]
+        assert lo <= s["anomalia_ndvi_prevista"] <= hi
+    larg = {k: s["faixa_incerteza"][k][1] - s["faixa_incerteza"][k][0] for k in ("80", "90")}
+    assert larg["90"] >= larg["80"]
+    assert "causalidade" in s["aviso"] and "não prevê o clima" in s["aviso"]
+
+
+def test_faixa_usa_a_estacao_da_base_e_a_mais_larga_se_mistura(mc, base):
+    est = (base["slot"] // 6).clip(upper=3)
+    uma = est.unique()[0]
+    so_uma = simular(mc, base[est == uma])
+    assert so_uma["estacoes_base"] == [int(uma)]
+    lo, hi = so_uma["faixa_incerteza"]["80"]
+    assert (hi - lo) / 2 == pytest.approx(mc.quantis_estacao["80"][int(uma)])
+    mista = simular(mc, base)
+    meia = (mista["faixa_incerteza"]["80"][1] - mista["faixa_incerteza"]["80"][0]) / 2
+    assert meia == pytest.approx(max(mc.quantis_estacao["80"][f] for f in mista["estacoes_base"]))
+
+
+def test_faixa_aci_reprodutivel_e_extrapolacao_sem_numero(dataset, cfg, mc, base):
+    outro = treinar_para_cenarios(copy.deepcopy(dataset), cfg, "ridge")
+    assert outro.quantis_estacao == mc.quantis_estacao
+    s = simular(mc, base, fator_chuva=50.0)
+    assert s["extrapolacao"] is True and s["faixa_incerteza"] is None and s["anomalia_ndvi_prevista"] is None
+
+
+def test_faixa_aci_nao_depende_de_anos_futuros_ao_de_referencia(dataset, cfg, mc):
+    from src.modelos.conformal_aci import aci_walk_forward
+    a = aci_walk_forward(dataset, cfg, [2012, 2013], [2014], retornar_faixas=True)["faixas_finais"]
+    alt = dataset.copy()
+    alt.loc[alt["ano"] > 2014, "ndvi"] = 0.99
+    b = aci_walk_forward(alt, cfg, [2012, 2013], [2014], retornar_faixas=True)["faixas_finais"]
+    assert a["ano_referencia"] == 2014 and a["alpha_final"] == b["alpha_final"]
+    for f in range(4):
+        np.testing.assert_array_equal(a["residuos_ordenados"][f], b["residuos_ordenados"][f])
+        assert np.all(np.diff(a["residuos_ordenados"][f]) >= 0)
+
+
+def test_aci_com_retornar_faixas_nao_muda_as_metricas(dataset, cfg):
+    from src.modelos.conformal_aci import aci_walk_forward
+    a = aci_walk_forward(dataset, cfg, [2012, 2013], [2014, 2015])
+    b = aci_walk_forward(dataset, cfg, [2012, 2013], [2014, 2015], retornar_faixas=True)
+    assert "faixas_finais" not in a and {k: v for k, v in b.items() if k != "faixas_finais"} == a
+
+
+def test_metodo_antigo_split_ainda_disponivel(dataset, cfg, base):
+    antigo = treinar_para_cenarios(dataset, cfg, "ridge", metodo_faixa="split")
+    s = simular(antigo, base)
+    assert antigo.metodo_faixa == "split" and set(antigo.quantis) == {"80", "90"} and "faixa_por_estacao" not in s
+    assert "split conformal" in s["metodo_faixa"]
+    with pytest.raises(ValueError):
+        treinar_para_cenarios(dataset, cfg, "ridge", metodo_faixa="outro")
+
+
+def test_calibracao_insuficiente_vira_lacuna_sem_numero(cfg, tmp_path):
+    arqs = gerar_sinteticos(tmp_path, n_celulas=8, pontos_por_celula=2, ano_ini=2010, ano_fim=2015)   # poucos anos para o ACI
+    ds = construir_dataset({k: pd.read_parquet(v) for k, v in arqs.items()}, cfg)
+    m = treinar_para_cenarios(ds, cfg, "ridge")
+    assert any("ACI indisponível" in l for l in m.lacunas)
+    d, tr, _, _ = preparar_tabela_modelagem(ds, cfg)
+    s = simular(m, d[d["ano"].isin(tr)].head(20))
+    assert s["extrapolacao"] is False and s["faixa_incerteza"] == {"80": None, "90": None}
+
+
 # --- relatório ---------------------------------------------------------------------------
 def test_relatorio_sintetico_nao_tem_metricas(res, tmp_path):
     caminho = salvar_metricas(res, tmp_path)

@@ -82,3 +82,4 @@ Skill Ridge (XGBoost) contra a climatologia, seleção 2010–2021 / confirmaç�
 SMAP (seleção 2018–2021, 4 anos): +0,007 sobre a persistência; confirmação +0,2374 contra +0,2311. Bonferroni N=4 (NDVI) e N=7 (SMAP).
 Persistência em produção (`preditivo.py`, holdout 2022–2024): Ridge +0,257, XGBoost +0,284; conformal 76% / 87%. Cenários: variação ~0,002 contra RMSE ~0,07.
 Teste de horizonte/estação e ERA5-Land: iniciados e interrompidos (`experimentos/previsao_doc09/`); ver `docs/15_PENDENCIAS.md`.
+Faixa dos cenários (`cenarios.py`): passa do split conformal por células (cobre ~76% / 87%) para o ACI por estação (cobre ~81% / 91% no holdout 2022–2024, `conformal_aci.py`); o método antigo segue com `metodo_faixa="split"`.

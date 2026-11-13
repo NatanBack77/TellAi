@@ -52,13 +52,16 @@ def _tabela_ano(df: pd.DataFrame, cfg: dict, Y: int, usar_persistencia: bool, us
 
 
 def aci_walk_forward(df: pd.DataFrame, cfg: dict, anos_aquecimento: list[int], anos_teste: list[int],
-                     usar_persistencia: bool = True) -> dict:
-    """Roda o ACI por estação em `anos_aquecimento` (só atualiza o estado) e `anos_teste` (mede a cobertura)."""
+                     usar_persistencia: bool = True, retornar_faixas: bool = False) -> dict:
+    """Roda o ACI por estação em `anos_aquecimento` (só atualiza o estado) e `anos_teste` (mede a cobertura).
+
+    `retornar_faixas=True` acrescenta `faixas_finais` (ver `faixas_aci`) sem alterar nenhum outro número."""
     a = cfg["preditivo"].get("conformal_aci", {})
     gamma, k_cal = float(a.get("gamma", 0.05)), int(a.get("anos_calibracao", 3))
     alvos = cfg["preditivo"]["cobertura_alvos"]
     estado = {}
     linhas = []
+    ultimo = None
     for Y in list(anos_aquecimento) + list(anos_teste):
         medir = Y in anos_teste
         d, cf, anos_tr = _tabela_ano(df, cfg, Y, usar_persistencia)
@@ -72,6 +75,7 @@ def aci_walk_forward(df: pd.DataFrame, cfg: dict, anos_aquecimento: list[int], a
         mod, _ = ajustar_modelo("ridge", prop[cf], prop["anomalia_ndvi"].to_numpy(), prop["celula_power"].to_numpy(), cfg)
         r_cal = np.abs(cal["anomalia_ndvi"].to_numpy() - mod.predict(cal[cf]))
         r_faixa = {f: np.sort(r_cal[(cal["faixa"] == f).to_numpy()]) for f in range(N_FAIXAS)}
+        ultimo = (Y, r_faixa)
         te["err"] = np.abs(te["anomalia_ndvi"].to_numpy() - mod.predict(te[cf]))
         for alvo in alvos:
             a0 = 1 - alvo
@@ -98,6 +102,20 @@ def aci_walk_forward(df: pd.DataFrame, cfg: dict, anos_aquecimento: list[int], a
             "meta": float(alvo), "cobertura": float(np.average(x["cobertura"], weights=x["n"])),
             "pior_ano": float(por_ano.min()), "pior_estacao": float(por_faixa.min()),
             "por_ano": {int(k): float(v) for k, v in por_ano.items()}, "por_estacao": {int(k): float(v) for k, v in por_faixa.items()}}
+    if retornar_faixas:
+        saida["faixas_finais"] = {
+            "ano_referencia": int(ultimo[0]),
+            "alpha_final": {f"{int(round(alvo * 100))}": {f: float(estado.get((alvo, f), 1 - alvo)) for f in range(N_FAIXAS)}
+                            for alvo in alvos},
+            "residuos_ordenados": {f: ultimo[1][f] for f in range(N_FAIXAS)}}
     saida["aviso"] = ("Cobertura de longo prazo (média dos anos de teste); anos individuais fogem da meta (ver pior_ano). "
                       "Validado para o Ridge; a mesma faixa vale para a previsão do modelo escolhido apenas como aproximação.")
     return saida
+
+
+def faixas_aci(faixas_finais: dict) -> dict:
+    """Meia-largura da faixa por meta ("80"/"90") e faixa de estação (0..3): q_nivel(resíduos do último ano, alpha final).
+
+    inf = calibração insuficiente (sem número); 0.0 só ocorre se o ACI levou alpha a >= 1."""
+    r = faixas_finais["residuos_ordenados"]
+    return {meta: {f: q_nivel(r[f], al) for f, al in por_faixa.items()} for meta, por_faixa in faixas_finais["alpha_final"].items()}

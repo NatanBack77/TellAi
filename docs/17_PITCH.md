@@ -38,19 +38,24 @@ ciclo e pesos são suposições a validar com técnico, e a resolução é de mu
 No semiárido do Nordeste, só **8,2% dos estabelecimentos têm assistência técnica** (Censo Agropecuário 2017). O agricultor decide o que plantar depois da safra,
 sem ver o que o clima e a vegetação da própria terra dizem.
 
-O SULCO junta **24 anos de dados da NASA** (chuva e temperatura do NASA POWER, vegetação do MODIS, relevo do SRTM) com dados do IBGE e do zoneamento
-agrícola oficial (ZARC) para **195 locais, 184 deles no Ceará**. O agricultor escolhe o município, diz o que planta hoje e o que importa mais: economizar água, proteger o solo ou ter renda.
+O SULCO junta **24 anos de dados da NASA** (chuva e temperatura do NASA POWER e vegetação do MODIS) com dados de produção do IBGE, para **195 locais, 184 deles no Ceará**.
+O relevo (SRTM), o mapa de solo e o zoneamento agrícola oficial (ZARC) já estão coletados ou prontos e entram no app conforme ficam validados. O agricultor escolhe o município, diz o que planta hoje e o que importa mais: economizar água ou proteger o solo (a prioridade renda ainda é uma lacuna declarada).
 
 Em troca, vê três coisas simples:
 1. **O que a terra costuma fazer:** quando o campo fica nu, quando a vegetação mais sofre, o tamanho dos veranicos e o quanto a quadra chuvosa varia de um ano para o outro.
 2. **Três caminhos de rotação para conversar com o técnico:** a rotação atual e duas alternativas de três safras, cada uma com a melhor época de plantio, o motivo, a evidência, o que falta saber e os riscos a avaliar no local.
 3. **E se a chuva falhar?** Controles de chuva e temperatura mostram como cada caminho reage, e o app avisa quando o cenário foge do que já aconteceu.
 
-O que nos diferencia é a **honestidade**: nenhum número é inventado; o que falta aparece como lacuna; e a incerteza é mostrada, não escondida. Nossa previsão da vegetação
-reduz o erro em 28% sobre a média histórica e foi validada em anos que ficaram trancados até o fim. O SULCO **apoia a conversa com o técnico; não decide, nem promete que a rotação rende mais.**
+O que nos diferencia é a **honestidade**: nenhum número é inventado; o que falta aparece como lacuna; e a incerteza é mostrada, não escondida. Por trás, um modelo de
+previsão da vegetação reduz o erro em 28% sobre a média histórica e foi validado em anos que ficaram trancados até o fim (ele sustenta o diagnóstico; não dá nota às rotações). O SULCO **apoia a conversa com o técnico; não decide, nem promete que a rotação rende mais.**
 
 ## C. O que resolve e como (em 4 linhas)
 - **Problema:** decidir rotação sem acesso a assistência técnica e sem ver o que clima e vegetação dizem da própria terra.
 - **Como:** dados da NASA e do IBGE em 195 locais → diagnóstico do local → 3 rotações comparadas com incerteza → cenários de clima.
 - **Valor:** transforma satélite em perguntas práticas (quando o campo fica nu? qual caminho aguenta uma quadra fraca?) para levar ao técnico.
 - **Limite:** NDVI não é produtividade; a previsão da próxima quadra é da FUNCEME; a resolução é de município.
+
+## D. Confiança: não há um único percentual
+Medidas por componente (todas validadas): previsão da vegetação, 28% menos erro que a média histórica; faixa de incerteza, cobertura de 80,9% / 90,6% para metas de
+80% / 90% (pior ano 72%); NDVI explica 3% a 10% da produtividade municipal (não usar como produtividade); chuva da quadra explica até 31% (milho). O selo "alta/média/baixa"
+do diagnóstico é heurística de quantidade de dados, não probabilidade. Nenhuma rotação tem "percentual de acerto": as alternativas ficam em empate técnico.

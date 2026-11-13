@@ -1,7 +1,8 @@
 """Módulo 3: sensibilidade a cenários ("e se a chuva fosse 20% menor?").
 
 Entrada: fatores aplicados às features de um ponto/quinzena. Saída: anomalia de NDVI prevista + faixa de
-incerteza (split conformal). Se alguma feature do cenário sai da faixa vista no treino, NÃO há número:
+incerteza: por padrão o ACI por estação (conformal_aci.py; cobre ~81% / 91% no holdout); o split conformal por
+células (cobre ~76% / 87%) segue disponível com `metodo_faixa="split"`. Se alguma feature do cenário sai da faixa vista no treino, NÃO há número:
 "extrapolação não confiável".
 
 Como o cenário altera as features:
@@ -19,6 +20,7 @@ from dataclasses import dataclass, field
 import numpy as np
 import pandas as pd
 
+from .conformal_aci import N_FAIXAS, aci_walk_forward, faixas_aci
 from .entrada import DadosInvalidos
 from .preditivo import (
     AVISO_ASSOCIACAO, ajustar_modelo, dividir_celulas_calibracao, preparar_tabela_modelagem, quantil_conformal,
@@ -38,20 +40,28 @@ class ModeloCenarios:
     modelo: object
     cols: list[str]
     faixas: dict[str, tuple[float, float]]
-    quantis: dict[str, float]            # meta ("80", "90") -> meia-largura da faixa
+    quantis: dict[str, float]            # método "split": meta ("80", "90") -> meia-largura da faixa
     n_celulas_treino: int
     lacunas: list[str] = field(default_factory=list)
+    metodo_faixa: str = "split"
+    quantis_estacao: dict[str, dict[int, float]] = field(default_factory=dict)   # método "aci": meta -> faixa de estação (0..3) -> meia-largura
+    metodo_descricao: str = "split conformal por células de calibração"
 
 
 def treinar_para_cenarios(df: pd.DataFrame, cfg: dict, nome: str = "ridge",
-                          usar_persistencia: bool | None = None) -> ModeloCenarios:
+                          usar_persistencia: bool | None = None, metodo_faixa: str = "aci") -> ModeloCenarios:
     """Ajusta o modelo escolhido (use `resultado['decisao']['modelo']`) nas células de treino próprio,
     calibra a faixa conformal nas células de calibração e guarda a faixa de cada feature vista no treino.
 
     `usar_persistencia=None` segue o config (padrão: com persistência). A faixa de `anom_lag1/2` também entra
-    na regra de extrapolação: fora de [min, max] do treino => sem número."""
+    na regra de extrapolação: fora de [min, max] do treino => sem número.
+
+    `metodo_faixa="aci"` (padrão): meia-largura = q_nivel(resíduos do último ano, alpha final do ACI) por meta e por
+    estação (aquecimento e anos de teste como em `avaliar`). `"split"`: método antigo (quantis por células de calibração)."""
+    if metodo_faixa not in ("aci", "split"):
+        raise ValueError("metodo_faixa deve ser 'aci' ou 'split'.")
     p = cfg["preditivo"]
-    d, treino_anos, _, cols = preparar_tabela_modelagem(df, cfg, usar_persistencia)
+    d, treino_anos, teste_anos, cols = preparar_tabela_modelagem(df, cfg, usar_persistencia)
     treino = d[d["ano"].isin(treino_anos)]
     if len(treino) < p["min_linhas_treino"]:
         raise DadosInvalidos(f"Linhas de treino insuficientes ({len(treino)}) para cenários.")
@@ -62,13 +72,27 @@ def treinar_para_cenarios(df: pd.DataFrame, cfg: dict, nome: str = "ridge",
     res = np.abs(cal["anomalia_ndvi"].to_numpy() - mod.predict(cal[cols]))
     quantis = {f"{int(round(a * 100))}": quantil_conformal(res, 1 - a) for a in p["cobertura_alvos"]}
     lacunas = []
+    quantis_est, descricao = {}, "split conformal por células de calibração (método antigo; cobre menos que o ACI)"
+    if metodo_faixa == "aci":
+        a = p.get("conformal_aci", {})
+        aquec = [y for y in treino_anos if y >= treino_anos[0] + int(a.get("min_anos_treino_aquecimento", 8))]
+        try:
+            r = aci_walk_forward(df, cfg, aquec, teste_anos, usar_persistencia_cfg(cfg, usar_persistencia), retornar_faixas=True)
+            quantis_est = faixas_aci(r["faixas_finais"])
+            descricao = (f"ACI por estação, gamma {r['gamma']}, resíduos de calibração dos {r['anos_calibracao']} anos anteriores a "
+                         f"{r['faixas_finais']['ano_referencia']} (Ridge)")
+        except ValueError as e:
+            lacunas.append(f"Faixa ACI indisponível ({e}): sem faixa de incerteza.")
+            quantis_est = {f"{int(round(x * 100))}": {f: float("inf") for f in range(N_FAIXAS)} for x in p["cobertura_alvos"]}
+            descricao = "ACI por estação (indisponível: calibração insuficiente)"
+        quantis = {}
     n_cel = int(treino["celula_power"].nunique())
     if n_cel < p["min_celulas_aviso"]:
         lacunas.append(f"Apenas {n_cel} células POWER no treino (< {p['min_celulas_aviso']}): faixas pouco confiáveis.")
-    if any(not np.isfinite(q) for q in quantis.values()):
+    if any(not np.isfinite(q) for q in quantis.values()) or any(not np.isfinite(q) for v in quantis_est.values() for q in v.values()):
         lacunas.append("Calibração com poucas linhas: faixa de incerteza indisponível em alguma meta.")
     faixas = {c: (float(treino[c].min()), float(treino[c].max())) for c in cols}
-    return ModeloCenarios(nome, mod, cols, faixas, quantis, n_cel, lacunas)
+    return ModeloCenarios(nome, mod, cols, faixas, quantis, n_cel, lacunas, metodo_faixa, quantis_est, descricao)
 
 
 def aplicar_cenario(base: pd.DataFrame, cols: list[str], fator_chuva: float = 1.0, delta_tmax_c: float = 0.0) -> pd.DataFrame:
@@ -108,10 +132,31 @@ def simular(mc: ModeloCenarios, base: pd.DataFrame, fator_chuva: float = 1.0, de
                      mensagem="Extrapolação não confiável: o cenário sai da faixa vista no treino. Sem número.")
         return saida
     pred = float(np.mean(mc.modelo.predict(x)))
-    faixa = {k: ([pred - q, pred + q] if np.isfinite(q) else None) for k, q in mc.quantis.items()}
+    saida["metodo_faixa"] = mc.metodo_descricao
+    if mc.metodo_faixa == "aci":
+        est = _estacoes_da_base(base)
+        if not est:
+            saida["lacunas"].append("Base sem coluna `slot`: estação desconhecida; faixa ACI pelo valor mais largo entre as 4 estações.")
+            est = list(range(N_FAIXAS))
+        por_est = {f: {k: v[f] for k, v in mc.quantis_estacao.items()} for f in est}
+        quantis = {k: max(por_est[f][k] for f in est) for k in mc.quantis_estacao}
+        saida["estacoes_base"] = est
+        saida["faixa_por_estacao"] = {f: {k: ([pred - q, pred + q] if np.isfinite(q) else None) for k, q in por_est[f].items()}
+                                      for f in est}
+        saida["faixa_usada"] = ("estação %d" % est[0]) if len(est) == 1 else "a mais larga entre as estações %s" % est
+    else:
+        quantis = mc.quantis
+    faixa = {k: ([pred - q, pred + q] if np.isfinite(q) else None) for k, q in quantis.items()}
     saida.update(extrapolacao=False, anomalia_ndvi_prevista=pred, faixa_incerteza=faixa, features_fora_da_faixa=[],
                  mensagem="Faixa conformal por linha, não da média: a incerteza da média é menor, a da linha é esta.")
     return saida
+
+
+def _estacoes_da_base(base: pd.DataFrame) -> list[int]:
+    """Faixas de estação (slot // 6, no máximo 3) presentes na base; [] se não há `slot` válido."""
+    if "slot" not in base.columns or base["slot"].isna().any():
+        return []
+    return sorted({int(min(int(s) // 6, N_FAIXAS - 1)) for s in base["slot"]})
 
 
 # ----------------------------------------------------------------------------- sensibilidade medida (D52)
