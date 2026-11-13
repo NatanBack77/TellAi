@@ -36,6 +36,7 @@ MIN_ANOS_ESTRESSE = 5      # mínimo de anos por quinzena para falar de frequên
 CHUVA_FATOR_MIN, CHUVA_FATOR_MAX = 0.7, 1.3
 TEMP_DELTA_MIN, TEMP_DELTA_MAX = 0.0, 3.0
 N_SORTEIOS_APP = 10000
+ZARC_PADRAO = True   # decisão do usuário (2026-11-13): ZARC ligado por padrão no app; só se aplica a municípios do Ceará com ZARC
 
 AVISO = "Cenário a avaliar com técnico local. O app apoia a conversa; não decide e não promete que a rotação rende mais."
 
@@ -182,9 +183,9 @@ def limpar_caches() -> None:
 
 
 # ---------------------------------------------------------------------------------------------- estratégias
-def parametros(prioridade: str, n_sorteios: int = N_SORTEIOS_APP) -> Parametros:
+def parametros(prioridade: str, n_sorteios: int = N_SORTEIOS_APP, usar_zarc: bool = ZARC_PADRAO) -> Parametros:
     cfg = PRIORIDADES[prioridade]
-    return Parametros(n_sorteios=n_sorteios, ordem_pesos=cfg["ordem"], bloco_ranking=cfg["bloco"])
+    return Parametros(n_sorteios=n_sorteios, ordem_pesos=cfg["ordem"], bloco_ranking=cfg["bloco"], usar_zarc=usar_zarc)
 
 
 def _anexar_evidencias(c: dict, alvo: str) -> None:
@@ -678,7 +679,7 @@ OPCOES_MO = ["não sei", "baixa", "média", "alta"]
 
 
 def calcular_rotacao(ponto_id: str, cultura_atual: str, prioridade: str = "sem", rotacao_atual: list[str] | None = None,
-                     textura: str = "não sei", materia_organica: str = "não sei", usar_zarc: bool = False,
+                     textura: str = "não sei", materia_organica: str = "não sei", usar_zarc: bool = ZARC_PADRAO,
                      n_sorteios: int = 3000) -> dict:
     """Rotação de 3 safras (atual + 2 alternativas) para o local. `rotacao_atual`: 3 culturas começando pela atual, ou None (repete a atual).
 
@@ -689,7 +690,7 @@ def calcular_rotacao(ponto_id: str, cultura_atual: str, prioridade: str = "sem",
     pts = carregar_pontos().set_index("ponto_id")
     if ponto_id not in pts.index:
         raise KeyError(f"ponto '{ponto_id}' não está em pontos.csv")
-    p = replace(parametros(prioridade, n_sorteios), usar_zarc=usar_zarc)
+    p = parametros(prioridade, n_sorteios, usar_zarc)
     solo = {k: v for k, v in (("textura", textura), ("materia_organica", materia_organica)) if v not in (None, "não sei")} or None
     ibge = pts.loc[ponto_id].get("ibge")
     r = gerar_rotacoes({"local": ponto_id}, cultura_atual, tab, clima_ponto(ponto_id), p, prioridade, rotacao_atual, 2, solo,

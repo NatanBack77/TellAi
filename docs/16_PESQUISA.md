@@ -38,3 +38,15 @@ Resumo da literatura consultada (buscas em 2026-11-13; ver links) e o que foi te
 - Umidade do solo: SMAP SPL4SMGP via AppEEARS, série desde 2015 ([NSIDC](https://nsidc.org/data/SPL4SMGP)).
 - Brasil (equivalentes às bases americanas da lista do desafio): solo (SoilGrids, BDiA/Embrapa), uso do solo (MapBiomas), produção (IBGE PAM/SIDRA, **coletado**),
   preço/mercado (CONAB, CEPEA).
+
+## F. Programação linear inteira mista (MILP) para a rotação
+- MILP é a abordagem clássica para planejar rotações: restrições de família botânica e de intervalo entre cultivos, diversidade e renda, em vários períodos
+  ([modelo de fluxo, Alfandari et al. 2011](https://faculty.essec.edu/en/research/a-mip-flow-model-for-crop-rotation-planning-in-a-context-of-forest-sustainable-development);
+  [modelo binário com famílias e intervalos de demanda, SciTePress 2012](https://www.scitepress.org/Papers/2012/37619/37619.pdf);
+  [modelos multiobjetivo, renda e diversidade](https://ersearch2.cvtisr.sk/vufind/SummonRecord/FETCH-LOGICAL-c333t-4559c202ac6cd1131b1ee7a6a991ccf97dfb23a09c14198b45881c70b49554443/Details)).
+- Versões robustas e estocásticas tratam incerteza de clima e de rendimento ([planejamento robusto, arXiv 2512.10396](https://arxiv.org/pdf/2512.10396);
+  [risco, mão de obra e clima, INRAE](https://prodinra.inra.fr/record/275403); [CVaR com APSIM, arXiv 2208.04840](https://pdf.arxiv.org/pdf/2208.04840)).
+  Um achado relevante: aversão a risco muda pouco a rotação; restrições de mão de obra mudam mais.
+- Em semiárido, rotações com leguminosas retêm mais água do solo que cereal contínuo (campo na Etiópia); não achei MILP multiobjetivo específico de pequenos agricultores do semiárido.
+- **Testado aqui:** `src/culturas/rotacao_milp.py`. Resultado e limites em `experimentos/milp/RESULTADO.md`: ajuda em plano de várias safras com regras duras e em checagem de
+  viabilidade; não reduz o empate técnico e depende dos pesos e das lacunas.

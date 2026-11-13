@@ -340,8 +340,8 @@ def painel_rotacao(lid: str, cultura: str, prio: str):
     r3 = c2.selectbox("Sua rotação atual: 3ª safra (opcional)", opcoes, format_func=rotulo, key="rot3")
     tex = c3.selectbox("Textura do solo (se souber)", M.OPCOES_TEXTURA, key="textura")
     mo = c4.selectbox("Matéria orgânica (se souber)", M.OPCOES_MO, key="mo")
-    zarc = st.checkbox("Usar as datas de plantio do ZARC (zoneamento oficial do MAPA; só algumas culturas têm ZARC)",
-                       value=False, key="zarc")
+    zarc = st.checkbox("Usar as datas de plantio do ZARC (zoneamento oficial do MAPA, risco 30; só no Ceará; culturas sem ZARC usam uma janela aproximada)",
+                       value=M.ZARC_PADRAO, key="zarc")
     if (r2 == "-") != (r3 == "-"):
         st.info("Para usar a sua rotação, escolha a 2ª e a 3ª safra; senão a rotação atual será a repetição da cultura atual.")
     try:
