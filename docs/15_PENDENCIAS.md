@@ -21,7 +21,7 @@ Princípio: o produto é apoio à decisão do agricultor (marcar a área, cultur
 13. Petrolina-PE: milho inviável, motor sem alternativas (tela mostra lacuna). Pontuação central pode cair fora de p10–p90 (ex.: Caridade).
 
 ## C. ZARC (`docs/13_ZARC.md`) — não iniciado
-14. **[FAZER]** Baixar a Tábua de Risco (CKAN `package_show`, id `6d3d141c-885e-41a4-ab7f-dc8ff323b96f`, CC BY), ler como "sem indicação" é marcado em `dec1`..`dec36`, filtrar CE, `src/culturas/zarc.py`, `usar_zarc` desligado por padrão, comparar com/sem.
+14. **[FEITO 2026-11-13] ZARC**: baixado (CE, 108.818 linhas), `src/coleta/zarc.py`, `src/culturas/zarc.py`, `Parametros.usar_zarc` (desligado), 7 testes, comparação sem × com em `experimentos/zarc/RESULTADO.md`. **[DECISÃO SUA]** ligar por padrão? nível de risco (20/30/40), solo (qualquer/todos), `feijao_comum`→"Feijão 2ª Safra", sorgo sem ZARC.
 15. **[DECISÃO SUA]** `sobral_ce`: a coordenada cai fora do polígono de Sobral (183 códigos IBGE únicos no CE, não 184). Corrigir a coordenada (e o clima associado) ou aceitar o código 2312908?
 
 ## D. Back-end (`docs/12_API.md`)

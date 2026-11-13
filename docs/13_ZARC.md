@@ -1,4 +1,8 @@
-# 13. ZARC (Tábua de Risco): estado parcial
+# 13. ZARC (Tábua de Risco)
+
+> **Atualização 2026-11-13: passos 1–5 FEITOS** (download, `zarc_ce.parquet`, `src/culturas/zarc.py`, `usar_zarc` desligado, comparação). Ver `experimentos/zarc/RESULTADO.md`. O texto abaixo é o plano original; `sobral_ce` segue sem código IBGE (decisão sua).
+
+(Histórico) estado parcial
 
 Etapa B do docs/07. **Só o passo 1 (código IBGE) foi feito.** Download do ZARC, `zarc.py` e integração ao motor
 **não foram iniciados** (o tempo acabou); nada foi baixado, então não há versão nem sha256 do ZARC a registrar.
