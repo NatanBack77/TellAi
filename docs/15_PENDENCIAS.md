@@ -4,7 +4,7 @@ Atualizado em 2026-11-12 (21h20). Marcas: **[DECISÃO SUA]** precisa de você; *
 Princípio: o produto é apoio à decisão do agricultor (marcar a área, cultura atual, prioridade; épocas de solo nu e de estresse; 3 caminhos com lacunas; sem fingir certeza). A previsão do NDVI é módulo de apoio.
 
 ## A. Modelos (`src/modelos/`)
-1. **[FAZER] Cobertura do conformal** abaixo da meta: 76% / 87% para 80% / 90% (a climatologia cobre 76% / 87,5%, então o problema parece de método). Ideias: calibração por ano/estação, quantis por célula (Mondrian), calibrar em anos posteriores. Não usar 2022–2024 para escolher.
+1. **[FEITO em parte, 2026-11-13] Cobertura do conformal**: 6 métodos testados, nenhum fecha a marginal (76% / 87% na confirmação; causa: anos deslocam os resíduos juntos). O quantil por estação (`temp_k3_estacao`) sobe a pior estação de 53% para 74% (meta 80%). **[DECISÃO SUA]** adotar na produção? Ver `experimentos/conformal_A1/RESULTADO.md`.
 2. **[FAZER] Teste de horizonte e estação** (+1 a +4 compostos; chuvosa/seca) para `base`, `persistencia`, `pers_lags4`, só 2010–2021. Parcial em `experimentos/previsao_doc09/` (scripts `t1_*.py`; o `t1_linhas.pkl` é ignorado pelo git; o placebo foi interrompido). Mostra onde o clima pode ajudar (a literatura lida indica R² 0,69 → 0,35 → 0,16 em 1, 2, 3 meses).
 3. **[FAZER] Fonte nova de chuva/umidade com série longa** (ERA5-Land ou GLDAS/FLDAS via Earthdata). Scripts iniciais `experimentos/previsao_doc09/t3_*.py` (download não concluído). Earth Engine e CDS exigem cadastro novo. Testar pelo protocolo (só 2010–2021, N no Bonferroni, placebo, pareado contra `pers_lags4`).
 4. **[VERIFICAR] Grade do SMAP**: catálogo do Earth Engine diz 11 km, nossa doc diz 9 km. Conferir nos metadados do arquivo.
