@@ -96,6 +96,8 @@ def test_sem_lat_lon_ou_id_nas_features(cfg):
 
 
 def test_dataset_formato(entradas, cfg):
+    cfg = copy.deepcopy(cfg)
+    cfg["preditivo"]["usar_umidade_solo"] = True        # SMAP é opção (D52); aqui testamos o formato com ele
     ds = construir_dataset(entradas, cfg)
     feats = nomes_features(cfg, com_umidade=True)
     assert set(feats) <= set(ds.columns)

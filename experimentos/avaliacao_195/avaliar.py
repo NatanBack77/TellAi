@@ -75,22 +75,21 @@ def smap_ent():
 
 
 def make_sm(ent, lag):
-    um = ent["umidade_solo"].copy()
+    """sm_raiz: media de 7 dias terminando em t-lag-1 (estritamente passado). Corrigido (rascunho original falhava no rename)."""
+    um = ent["umidade_solo"][["ponto_id", "data", "sm_raiz"]].copy()
     um["data"] = pd.to_datetime(um["data"])
-    um = um.sort_values(["ponto_id", "data"])
+    pedacos = []
+    for pid, g in um.groupby("ponto_id"):
+        s = g.set_index("data")["sm_raiz"].sort_index().asfreq("D")
+        r = s.rolling(7, min_periods=5).mean().shift(lag + 1)
+        pedacos.append(pd.DataFrame({"ponto_id": str(pid), "data": r.index, f"sm_raiz_l{lag}": r.to_numpy()}))
+    tab = pd.concat(pedacos, ignore_index=True)
+    nome = f"sm_raiz_l{lag}"
 
     def ex(d):
         d, c = extra_persistencia(d)
-        out = []
-        for col in ("sm_raiz",):
-            s = um.set_index(["ponto_id", "data"])[col]
-            # media de 7 dias terminando em t-lag-1 (estritamente passado); lag em dias
-            r = (um.groupby("ponto_id").apply(lambda g: g.set_index("data")[col].asfreq("D").rolling(7, min_periods=5).mean().shift(lag + 1)))
-            r = r.rename("v").reset_index()
-            nome = f"sm_raiz_l{lag}"
-            d = d.merge(r.rename(columns={"v": nome}), on=["ponto_id", "data"], how="left", validate="m:1")
-            out.append(nome)
-        return d, c + out
+        d = d.merge(tab, on=["ponto_id", "data"], how="left", validate="m:1")
+        return d, c + [nome]
     return ex
 
 
@@ -115,7 +114,21 @@ def rodar_sm(placebo):
     print(res[res.modelo == "ridge"].groupby("variante")["n"].sum().to_dict())
 
 
+def rodar_sm_conf():
+    """UMA vez: finalista SMAP pers_sm vs controle (mesma amostra), 2022-2024. Treino 2015+ (sm so existe desde 2015)."""
+    ent = smap_ent()
+    cols_sm = [c for c in nomes_features(cfg, True) if c.startswith("sm_")]
+    ctrl = Variante("persistencia", "controle sem SM", extra=extra_persistencia, remover=tuple(cols_sm))
+    v = Variante("pers_sm", "persistencia + sm (media movel padrao)", extra=extra_persistencia)
+    res = walk_forward(ent, cfg, [ctrl, v], CON)
+    res.to_pickle(OUT / "res_sm_confirmacao.pkl")
+    print("== CONFIRMACAO SELADA SMAP 2022-2024 (executada uma vez)")
+    print(res[res.modelo.isin(["ridge", "xgboost", "ingenua"])].groupby(["variante", "modelo"])["skill"].agg(["mean", "min", "max"]).round(4))
+    print(res[res.modelo == "ridge"].pivot(index="ano_teste", columns="variante", values="skill").round(4))
+    print(res[res.modelo == "ridge"].groupby("variante")["n"].sum().to_dict())
+
+
 if __name__ == "__main__":
     a = sys.argv[1]
     pl = "placebo" in sys.argv[2:]
-    {"selecao": lambda: rodar_sel(pl), "confirma": rodar_conf, "sm": lambda: rodar_sm(pl)}[a]()
+    {"selecao": lambda: rodar_sel(pl), "confirma": rodar_conf, "sm": lambda: rodar_sm(pl), "sm_confirma": rodar_sm_conf}[a]()

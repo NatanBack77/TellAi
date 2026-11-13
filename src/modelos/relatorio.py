@@ -26,6 +26,10 @@ def gerar_markdown(r: dict) -> str:
         L += _lacunas(r)
         return "\n".join(L) + "\n"
     d = r["divisao"]
+    pers = r.get("persistencia", {})
+    L += [f"Configuração: persistência **{'ligada' if pers.get('usada') else 'desligada (só clima)'}**; "
+          f"SMAP **{'ligado' if r.get('umidade_solo_smap', {}).get('usada') else 'desligado (opção documentada, D52)'}**. "
+          f"Features: {', '.join(r['features'])}.", ""]
     L += [f"Alvo: {r['alvo']}.", "",
           f"Treino {d['anos_treino'][0]}–{d['anos_treino'][-1]}; holdout {d['anos_teste']}; "
           f"{d['n_celulas_treino']} células POWER no treino; {d['n_folds']} folds. Confiança: **{r['confianca']}** "
@@ -52,6 +56,7 @@ def gerar_markdown(r: dict) -> str:
         for k, v in r["cv_grupos"]["conformal"][n].items():
             h = r["holdout_temporal"]["conformal"][n]["metas"][k]
             L.append(f"| {n} | {k}% | {_f(v['cobertura_media_ponderada'])} | {_f(h['cobertura'])} |")
+    L += _comparativo(r)
     dec = r["decisao"]
     L += ["", "## Decisão XGBoost vs. Ridge", "", f"**Modelo: {dec['modelo']}.** {dec['motivo']}", "",
           f"- Critérios: {dec['criterio']}", f"- Fração de folds com XGBoost melhor: {_f(dec['fracao_folds_xgb_melhor'], 2)}"]
@@ -64,8 +69,68 @@ def gerar_markdown(r: dict) -> str:
     L += ["", "## Explicação (só explicativa, não valida)", ""]
     for k, v in r["explicacao"]["importancia_media_abs"].items():
         L.append(f"- {k}: {_f(v, 4)}")
+    L += _sensibilidade(r)
     L += [""] + _lacunas(r)
     return "\n".join(L) + "\n"
+
+
+ROTULOS_COMP = (("so_clima_todas_as_linhas", "só clima (modelo anterior, todas as linhas)"),
+                ("so_clima_mesmas_linhas", "só clima (mesmas linhas da persistência)"),
+                ("com_persistencia", "com persistência (produção)"))
+
+
+def _comparativo(r: dict) -> list[str]:
+    c = r.get("comparativo")
+    if not c:
+        return []
+    L = ["", "## Só clima × com persistência (lado a lado, holdout temporal)", "", c["nota"], "",
+         "| Configuração | n treino | n teste | RMSE clim. | RMSE Ridge | skill Ridge | RMSE XGB | skill XGB | skill CV Ridge | skill CV XGB |",
+         "|---|---|---|---|---|---|---|---|---|---|"]
+    for k, nome in ROTULOS_COMP:
+        x = c[k]
+        h = x["holdout"]
+        L.append(f"| {nome} | {x['n_treino']} | {x['n_teste']} | {_f(h['climatologia']['rmse'], 4)} | "
+                 f"{_f(h['ridge']['rmse'], 4)} | {_f(h['ridge']['skill_vs_climatologia'])} | "
+                 f"{_f(h['xgboost']['rmse'], 4)} | {_f(h['xgboost']['skill_vs_climatologia'])} | "
+                 f"{_f(x['cv_skill_vs_climatologia']['ridge'])} | {_f(x['cv_skill_vs_climatologia']['xgboost'])} |")
+    anos = sorted(c["com_persistencia"]["holdout_por_ano"])
+    L += ["", "Skill por ano do holdout (vs. climatologia do próprio conjunto):", "",
+          "| Configuração | Modelo | " + " | ".join(anos) + " |", "|---|---|" + "---|" * len(anos)]
+    for k, nome in ROTULOS_COMP:
+        for m in ("ridge", "xgboost"):
+            L.append(f"| {nome} | {m} | " + " | ".join(
+                _f(c[k]["holdout_por_ano"][a][m]["skill_vs_climatologia"]) for a in anos) + " |")
+    L += ["", "Cobertura conformal real no holdout (recalibrada por células como antes; **não ajustada**):", "",
+          "| Configuração | Modelo | 80% (real) | 90% (real) | CV 80% | CV 90% |", "|---|---|---|---|---|---|"]
+    for k, nome in ROTULOS_COMP:
+        x = c[k]
+        for m in ("climatologia", "ridge", "xgboost"):
+            ch, cv = x["conformal_holdout"][m], x["conformal_cv"][m]
+            L.append(f"| {nome} | {m} | {_f(ch['80']['cobertura'])} | {_f(ch['90']['cobertura'])} | "
+                     f"{_f(cv['80'])} | {_f(cv['90'])} |")
+    return L
+
+
+def _sensibilidade(r: dict) -> list[str]:
+    s = r.get("sensibilidade_cenarios")
+    if not s:
+        return []
+    L = ["", "## Sensibilidade a cenários, com e sem persistência (medida)", "",
+         f"Base: {s['base']}. {s['leitura']}", "",
+         "As features de persistência não mudam sob cenário de chuva/temperatura: o ganho vem da memória do NDVI; "
+         "cenários de clima reagem pouco.", "",
+         "| Modelo | Cenário (chuva x, tmax +°C) | linhas usadas / fora da faixa | variação com persistência | variação só clima | razão |",
+         "|---|---|---|---|---|---|"]
+    for nome, lista in s["modelos"].items():
+        for e in lista:
+            cen = f"x{e['fator_chuva']:g}, +{e['delta_tmax_c']:g}"
+            if e.get("sem_numero"):
+                L.append(f"| {nome} | {cen} | 0 / {e['n_linhas_fora_da_faixa']} | sem número (extrapolação) | | |")
+                continue
+            L.append(f"| {nome} | {cen} | {e['n_linhas_usadas']} / {e['n_linhas_fora_da_faixa']} | "
+                     f"{_f(e['com_persistencia']['variacao'], 5)} | {_f(e['so_clima']['variacao'], 5)} | "
+                     f"{_f(e['razao_com_sobre_so_clima'], 2)} |")
+    return L
 
 
 def _lacunas(r: dict) -> list[str]:

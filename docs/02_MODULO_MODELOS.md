@@ -22,8 +22,14 @@ Proibido: Prophet, ARIMA, LSTM, modelos de fundação.
 
 ## Módulo 2 — Preditivo (`features.py`, `preditivo.py`)
 - **Alvo:** anomalia de NDVI no período t.
-- **Features:** chuva acumulada 30/60/90 d, tmax média, dias secos consecutivos, umidade do solo defasada (se houver), quinzena.
-  Latitude/longitude **não** entram.
+- **Features:** chuva acumulada 30/60/90 d, tmax média, dias secos consecutivos, quinzena e, por padrão (D52),
+  **persistência** = anomalia dos 2 compostos anteriores do ponto (`anom_lag1/2`, só se consecutivos ≤ 17 d; a MESMA função
+  validada em `walkforward.py`; lag ausente => linha fora, nunca preenchida). Umidade do solo (SMAP) é opção desligada
+  (`preditivo.usar_umidade_solo`). Latitude/longitude **não** entram.
+- **Opções (config.yaml `preditivo`):** `usar_persistencia` (padrão true; false = só-clima, comportamento anterior),
+  `persistencia_max_gap_dias` (17), `usar_umidade_solo` (false). CLI: `--sem-persistencia`, `--com-smap`.
+- **Relatório:** traz as duas linhas lado a lado (só clima em todas as linhas, só clima nas mesmas linhas, com persistência),
+  skill por ano do holdout e cobertura conformal real. O ganho vem da memória do NDVI, não do clima.
 - **Comparação obrigatória:** climatologia (anomalia = 0), Ridge (mesmas features), XGBoost.
   XGBoost só permanece se superar o Ridge de forma consistente; senão usa-se o Ridge e isso é reportado.
 - **Validação sem vazamento:** `GroupKFold` por `celula_power` + holdout temporal (treino até N-3, teste nos últimos 3 anos).
@@ -37,6 +43,9 @@ Proibido: Prophet, ARIMA, LSTM, modelos de fundação.
 - Entrada: fatores (ex.: chuva ×0,8). Saída: anomalia de NDVI prevista + faixa de incerteza.
 - Fora da faixa vista no treino: aviso "extrapolação não confiável", sem número.
 - Mensagem obrigatória: o modelo captura associações históricas, não causalidade, e não prevê o clima futuro.
+- Com persistência (D52): `anom_lag1/2` não mudam sob cenário (são NDVI observado); `limites` declara que o ganho vem da memória
+  do NDVI e que cenários de clima reagem pouco; a faixa de `anom_lag*` entra na regra de extrapolação.
+  `cenarios.sensibilidade_comparada` mede a variação do cenário com e sem persistência nas mesmas linhas (número de código, no relatório).
 
 ## Não fazer
 Prever chuva/temperatura futuras; prometer que rotação "rende mais"; tratar NDVI como produtividade;

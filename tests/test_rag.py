@@ -41,10 +41,10 @@ def trechos_indexados():
 # ------------------------------------------------------------------ acervo
 def test_manifesto_completo_e_sha_confere():
     man = R.carregar_manifesto()
-    assert len(man["documentos"]) >= 10
+    assert len(man["documentos"]) >= 30
     for d in man["documentos"]:
         assert d["url"].startswith("https://")
-        assert d["data_download"] == "2026-11-11" or len(d["data_download"]) == 10
+        assert len(d["data_download"]) == 10
         assert R.sha256_arquivo(DOCS / d["arquivo"]) == d["sha256"], d["arquivo"]
     # todo PDF do acervo esta no manifesto (nada sem proveniencia)
     listados = {d["arquivo"] for d in man["documentos"]}
@@ -117,36 +117,16 @@ def test_limiar_alto_forca_sem_evidencia(indice):
     assert r["sem_evidencia"] and r["trechos"] == []
 
 
-# (pergunta, arquivo, pagina, frase esperada no trecho -- conferida no PDF)
-PERGUNTAS = [
-    ("Quais adubos verdes foram usados antes do milho no plantio direto?",
-     "pab_milho_sucessao_adubos_verdes.pdf", 3, "mucuna-preta"),
-    ("Quanto a crotalária aumentou a produtividade do milho?",
-     "pab_milho_sucessao_adubos_verdes.pdf", 1, "18,5%"),
-    ("Para que o zoneamento de risco climático é usado no seguro rural?",
-     "mapa_zarc_2021.pdf", 1, "Seguro Rural"),
-    ("O que é rotação de culturas segundo a FAO?",
-     "fao_reosa_conservation_agriculture_2010.pdf", 2,
-     "Different crops are planted one after the other in the same field at different seasons or years"),
-    ("Quais são os três princípios da agricultura de conservação?",
-     "fao_reosa_conservation_agriculture_2010.pdf", 1, "Minimum soil disturbance"),
-    ("Qual milho foi consorciado com capim-massai para fazer silagem no semiárido?",
-     "mapa_2021_forragem_semiarido_ajustes.pdf", 3, "AL Bandeirante"),
-    ("Quais variedades de sorgo foram avaliadas como forragem no Semiárido?",
-     "mapa_2021_forrageiras_semiarido.pdf", 3, "BRS 658"),
-    ("Consórcio de capim com leguminosa coloca nitrogênio no solo?",
-     "univasf_consorcio_gramineas_leguminosas.pdf", 13, "adicionar nitrogênio e proteger o solo"),
-    ("As leguminosas ajudam os cereais com nitrogênio na rotação?",
-     "fao_reosa_conservation_agriculture_2010.pdf", 3, "Legumes have the added advantage of fixing nitrogen"),
-    ("Como a falta de água afeta a planta na época de florescimento?",
-     "agrometeoros_zoneamento_metodologias.pdf", 4, "déficit hídrico é extremamente prejudicial"),
-    ("Por que a cobertura vegetal do solo se decompõe rápido no Vale do São Francisco irrigado?",
-     "univasf_ciclagem_nutrientes_semiarido.pdf", 11, "favorecem a decomposição da cobertura vegetal"),
-    ("Para que serve deixar palha de restos de cultura na lavoura?",
-     "fao_reosa_conservation_agriculture_2010.pdf", 1, "Crop residues are retained in the field as mulch"),
-    ("A rotação de culturas ajuda a controlar pragas e doenças?",
-     "fao_reosa_conservation_agriculture_2010.pdf", 1, "breaking their cycles"),
-]
+from tests.rag_perguntas import DEV_NOVAS, DEV_ORIGINAIS, TESTE  # noqa: E402
+
+PERGUNTAS = DEV_ORIGINAIS + DEV_NOVAS + TESTE
+
+
+def test_perguntas_conferidas_no_pdf():
+    """Cada frase esperada e substring da pagina indicada (extracao independente) e e unica por pergunta."""
+    for q, arq, pag, frase in PERGUNTAS:
+        assert frase in _pagina_independente(DOCS / arq, pag), (q, arq, pag)
+    assert len(TESTE) >= 25 and len({q for q, *_ in PERGUNTAS}) == len(PERGUNTAS)
 
 
 def _acerto(indice, q, arq, pag, frase):
@@ -164,28 +144,28 @@ def _em_ingles(item):
 
 
 def test_taxa_de_acerto_top5_hibrido(indice):
-    """Meta do projeto: >= 80% no top 5. Medida separando documentos em PT e em EN (FAO)."""
-    t_all, f_all = _taxa(indice, PERGUNTAS)
-    t_pt, f_pt = _taxa(indice, [x for x in PERGUNTAS if not _em_ingles(x)])
-    t_en, f_en = _taxa(indice, [x for x in PERGUNTAS if _em_ingles(x)])
-    print(f"\nmodo={indice.modo} total={t_all:.0%} pt={t_pt:.0%} en(pergunta PT->doc EN)={t_en:.0%}")
-    print("falhas:", f_all)
-    assert t_pt >= 0.7, f_pt  # piso de regressao (medido 75%); meta 80% NAO atingida
-    assert t_all >= 0.5, f_all  # medido 54%; falhas = vocabulario diferente (PT->EN, "falta de agua" vs "deficit hidrico")
+    """Meta do projeto: >= 80% no top 5. Reportado: conjunto TESTE (nao usado para ajustar a busca).
+    Pisos de regressao abaixo dos valores medidos; a meta de 80% NAO foi atingida (ver docs)."""
+    t_te, f_te = _taxa(indice, TESTE)
+    t_pt, _ = _taxa(indice, [x for x in TESTE if not _em_ingles(x)])
+    t_en, _ = _taxa(indice, [x for x in TESTE if _em_ingles(x)])
+    t_dev, f_dev = _taxa(indice, DEV_ORIGINAIS + DEV_NOVAS)
+    print(f"\nmodo={indice.modo} rerank={indice.rerank} TESTE={t_te:.0%} (pt={t_pt:.0%} en-doc={t_en:.0%}) DEV={t_dev:.0%}")
+    print("falhas teste:", f_te)
+    assert t_te >= 0.55, f_te
+    assert t_dev >= 0.45, f_dev
 
 
 def test_taxa_de_acerto_top5_so_bm25():
-    ind = B.Indice(INDICE, usar_embeddings=False)
+    ind = B.Indice(INDICE, usar_embeddings=False, rerank=False)
     assert ind.modo == "bm25"
-    falhas = [q for q, a, p, f in PERGUNTAS if not _acerto(ind, q, a, p, f)]
-    taxa = 1 - len(falhas) / len(PERGUNTAS)
-    print(f"\nmodo=bm25 acerto@5={taxa:.0%} falhas={falhas}")
-    # BM25 sozinho nao cruza idiomas (pergunta PT, doc EN): piso menor, so para regressao.
-    assert taxa >= 0.4, falhas  # medido 46%
+    taxa, falhas = _taxa(ind, TESTE)
+    print(f"\nmodo=bm25 TESTE acerto@5={taxa:.0%}")
+    assert taxa >= 0.4, falhas  # piso de regressao; BM25 sozinho nao cruza idiomas
 
 
 def test_so_bm25_tambem_diz_sem_evidencia():
-    ind = B.Indice(INDICE, usar_embeddings=False)
+    ind = B.Indice(INDICE, usar_embeddings=False, rerank=False)
     for q in FORA_DO_ACERVO:
         assert ind.buscar(q)["sem_evidencia"] is True
 

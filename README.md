@@ -19,7 +19,8 @@ A ferramenta **apoia**, não decide: todo cenário é "a avaliar com técnico lo
 - **Estado (2026-11-11):** clima POWER de 59 pontos (Ceará + outros) completo; NDVI MODIS em 34/59 pontos (cache). Walk-forward implementado: a persistência da anomalia de NDVI é a única melhoria validada até agora. Ver [`docs/05_EXPERIMENTOS.md`](docs/05_EXPERIMENTOS.md) e [`docs/04_RETOMADA.md`](docs/04_RETOMADA.md).
 - NDVI (MODIS) coletado para os 13 primeiros pontos; diagnóstico e preditivo rodados com dados reais (ver `relatorio_modelos.md`: o modelo não supera a climatologia no holdout). Retomada em outro PC: [`docs/04_RETOMADA.md`](docs/04_RETOMADA.md).
 - **Estado (2026-11-11, noite):** 195 pontos (Ceará inteiro); clima e SMAP coletados; NDVI em 85%; novos `src/culturas`, `src/rag`, `src/app`. Para continuar em outro PC: [`docs/04_RETOMADA.md`](docs/04_RETOMADA.md).
-- Próximo: terminar o NDVI, avaliar com 195 pontos (protocolo walk-forward), testar SMAP, integrar persistência.
+- **Estado (2026-11-12, D52):** `persistencia` (anomalia dos 2 compostos anteriores, validada em walk-forward) integrada a `preditivo.py`/`cenarios.py`/`relatorio.py` e ligada por padrão (`preditivo.usar_persistencia`). Holdout 2022–2024, 195 pontos: skill vs. climatologia Ridge +0,257 / XGBoost +0,284 (só clima, mesmas linhas: −0,025 / +0,003). O relatório mostra as duas linhas lado a lado. O ganho vem da memória do NDVI; cenários de clima reagem pouco (medido em `relatorio_modelos.md`). SMAP fica desligado por padrão (`usar_umidade_solo: false`). Opções de CLI: `--sem-persistencia`, `--com-smap`.
+- Próximo: opções de uso do solo/FUNCEME, decisão do usuário sobre `pers_lags4` (ganho marginal) e sobre a faixa conformal (cobertura real abaixo da meta).
 
 ## Como rodar
 ```
@@ -30,7 +31,9 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python -m pytest -q
 # validação walk-forward de variantes (ver docs/05_EXPERIMENTOS.md)
 .venv/bin/python -m src.modelos.walkforward --variantes base,persistencia
-.venv/bin/python -m src.modelos.preditivo   # com dados reais: grava metricas.json e relatorio_modelos.md
+.venv/bin/python -m src.modelos.preditivo   # com dados reais: grava metricas.json e relatorio_modelos.md (com persistência)
+.venv/bin/python -m src.modelos.preditivo --sem-persistencia   # modelo só-clima (comportamento anterior)
+.venv/bin/python -m src.modelos.preditivo --com-smap           # opção desligada por padrão (D52)
 ```
 (No Windows use `.venv/Scripts/python`.)
 Dados `SINTETICO_*` servem só para testar formato e fluxo; nenhuma métrica deles é resultado do projeto.

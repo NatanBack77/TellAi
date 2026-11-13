@@ -38,8 +38,16 @@ Total: 71 testes passando (`pytest -q -W error`). Todo o desenvolvimento usou da
 ## Resultado real do preditivo (13 pontos, 2026-11-11)
 Ridge escolhido; **não supera a climatologia no holdout** (skill −0,021; CV +0,033). Conformal cobre ~72%/81% para metas 80%/90% (subcobertura). Ver `relatorio_modelos.md`.
 
+## Persistência na produção (2026-11-12, D52)
+- `preditivo.py`/`cenarios.py`/`relatorio.py` usam por padrão `anom_lag1/2` (a mesma função validada em `walkforward.py`). Só-clima segue disponível (`usar_persistencia: false` / `--sem-persistencia`); SMAP desligado (`usar_umidade_solo: false` / `--com-smap`).
+- `python -m src.modelos.preditivo` com 195 pontos (59 células, confiança "media"; backup antes: `data/processed/modelos/*.bak_pre_D52`). Holdout 2022–2024, skill vs. climatologia (Ridge / XGBoost): **com persistência +0,257 / +0,284** (62.318 linhas de treino, 8.052 de teste); só clima nas mesmas linhas −0,025 / +0,003; só clima em todas as linhas (modelo anterior sem SMAP) −0,013 / +0,023. CV por célula (otimista, D22): +0,278 / +0,309 contra +0,063 / +0,103.
+- Reconciliação com `experimentos/avaliacao_195/RESULTADO.md` (persistência confirmação +0,2385 Ridge): o walk-forward na MESMA amostra daquele resultado (linhas comuns com `pers_lags4`) reproduz +0,2385 / +0,2644; com só a persistência (mais linhas) dá +0,2297 / +0,2568 (média dos anos, treino expansivo); o holdout da produção treina uma vez até 2021 e junta os 3 anos (+0,257 / +0,284). 2022 coincide exatamente com o walk-forward (+0,353 Ridge); 2023–2024 diferem porque o walk-forward re-treina com 2022/2023.
+- Cobertura conformal real no holdout (metas 80% / 90%): com persistência Ridge 76,0% / 87,2%, XGBoost 75,8% / 86,7% (antes, só clima: 70,1% / 82,6%). **Ainda abaixo da meta**; não ajustada.
+- Cenários: variação com persistência ≈ 0,18–0,54 da variação só-clima (Ridge chuva ×0,8: −0,0019 contra −0,0036; tmax +1 °C: −0,0022 contra −0,0091). Em ambos é pequena frente ao RMSE (~0,07). Ver `relatorio_modelos.md`.
+- Testes: `tests/test_persistencia.py` (vazamento, ordem, reprodutibilidade, composto ausente, igualdade com o walk-forward, cenários, relatório).
+
 ## Falta (módulo `src/modelos/`)
-- Terminar NDVI dos 195 pontos (coleta em andamento, 32 workers), reavaliar (walk-forward + preditivo + conformal) e fazer a confirmação selada (2022–2024) de `persistencia` e `pers_lags4`; só então levar a persistência para `preditivo.py`/`cenarios.py`.
+- (Feito em 2026-11-12: NDVI 195 pontos, confirmação selada e integração da persistência; ver acima e `experimentos/avaliacao_195/RESULTADO.md`.) Pendente: decisão sobre `pers_lags4` (ganho marginal, não integrado) e sobre a cobertura conformal abaixo da meta.
 - Testar (agentes interrompidos): CHIRPS, EVI/SAVI; ideias: uso do solo (MapBiomas), SMAP, FUNCEME.
 - Opcional: instalar `shap` se houver wheel para o Python em uso; hoje a explicação usa `pred_contribs`.
 

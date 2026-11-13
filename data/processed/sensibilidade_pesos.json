@@ -1,0 +1,2766 @@
+{
+ "cultura_atual": "milho",
+ "pontos": [
+  "acarau_ce",
+  "ararenda_ce",
+  "baturite_ce",
+  "bela_cruz_ce",
+  "eusebio_ce",
+  "icapui_ce",
+  "maracanau_ce",
+  "pereiro_ce",
+  "tejucuoca_ce",
+  "vicosa_do_ceara_ce"
+ ],
+ "n_pesos_dirichlet": 1000,
+ "n_pesos_grade_0_1": 1001,
+ "pesos_base": {
+  "temperatura": 0.25,
+  "chuva": 0.25,
+  "n_na_biomassa": 0.2,
+  "palha": 0.15,
+  "familia_diferente": 0.15
+ },
+ "semente": 20240601,
+ "n_culturas_tabela": 16,
+ "n_criterios_por_cultura": {
+  "feijao_caupi": 3,
+  "feijao_comum": 3,
+  "sorgo": 3,
+  "milheto": 5,
+  "mandioca": 3,
+  "algodao": 3,
+  "amendoim": 3,
+  "girassol": 5,
+  "mamona": 3,
+  "gergelim": 3,
+  "guandu": 5,
+  "palma_forrageira": 3,
+  "crotalaria_juncea": 5,
+  "feijao_de_porco": 3,
+  "mucuna": 5
+ },
+ "janelas": {
+  "120d_desde_01fev": {
+   "perfis": {
+    "acarau_ce": {
+     "local": "acarau_ce",
+     "temp_media_c": 27.46,
+     "chuva_ciclo_mm": 693.2
+    },
+    "ararenda_ce": {
+     "local": "ararenda_ce",
+     "temp_media_c": 26.17,
+     "chuva_ciclo_mm": 515.6
+    },
+    "baturite_ce": {
+     "local": "baturite_ce",
+     "temp_media_c": 26.91,
+     "chuva_ciclo_mm": 649.4
+    },
+    "bela_cruz_ce": {
+     "local": "bela_cruz_ce",
+     "temp_media_c": 27.46,
+     "chuva_ciclo_mm": 693.2
+    },
+    "eusebio_ce": {
+     "local": "eusebio_ce",
+     "temp_media_c": 26.86,
+     "chuva_ciclo_mm": 761.7
+    },
+    "icapui_ce": {
+     "local": "icapui_ce",
+     "temp_media_c": 27.99,
+     "chuva_ciclo_mm": 571.9
+    },
+    "maracanau_ce": {
+     "local": "maracanau_ce",
+     "temp_media_c": 26.86,
+     "chuva_ciclo_mm": 761.7
+    },
+    "pereiro_ce": {
+     "local": "pereiro_ce",
+     "temp_media_c": 27.17,
+     "chuva_ciclo_mm": 539.4
+    },
+    "tejucuoca_ce": {
+     "local": "tejucuoca_ce",
+     "temp_media_c": 26.74,
+     "chuva_ciclo_mm": 630.0
+    },
+    "vicosa_do_ceara_ce": {
+     "local": "vicosa_do_ceara_ce",
+     "temp_media_c": 25.99,
+     "chuva_ciclo_mm": 794.8
+    }
+   },
+   "por_ponto": {
+    "acarau_ce": {
+     "n_candidatas": 15,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "feijao_de_porco",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "mandioca",
+      "milheto",
+      "mucuna",
+      "palma_forrageira",
+      "sorgo"
+     ],
+     "freq_top3": {
+      "amendoim": 1.0,
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.992,
+      "algodao": 0.008,
+      "feijao_comum": 0.0,
+      "feijao_de_porco": 0.0,
+      "gergelim": 0.0,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mandioca": 0.0,
+      "milheto": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0,
+      "sorgo": 0.0
+     },
+     "top3_base": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ],
+     "top1_igual_base_pct": 99.2,
+     "top3_igual_base_como_conjunto_pct": 99.2,
+     "media_cultura_do_top3_base_que_permanece": 2.99,
+     "spearman_medio_entre_pesos": 0.89,
+     "empate_no_corte_top3_pct": 100.0,
+     "top3_muda_com_desempate_invertido_pct": 100.0,
+     "n_candidatas_com_score_100_nos_pesos_base": 5,
+     "n_top1_distintos": 2,
+     "grade_spearman_medio": 0.802,
+     "grade_top1_igual_base_pct": 71.4
+    },
+    "ararenda_ce": {
+     "n_candidatas": 14,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "mandioca",
+      "milheto",
+      "mucuna",
+      "palma_forrageira",
+      "sorgo"
+     ],
+     "freq_top3": {
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.996,
+      "gergelim": 0.986,
+      "feijao_comum": 0.01,
+      "algodao": 0.004,
+      "amendoim": 0.004,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mandioca": 0.0,
+      "milheto": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0,
+      "sorgo": 0.0
+     },
+     "top3_base": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ],
+     "top1_igual_base_pct": 99.6,
+     "top3_igual_base_como_conjunto_pct": 98.6,
+     "media_cultura_do_top3_base_que_permanece": 2.98,
+     "spearman_medio_entre_pesos": 0.809,
+     "empate_no_corte_top3_pct": 1.4,
+     "top3_muda_com_desempate_invertido_pct": 1.4,
+     "n_candidatas_com_score_100_nos_pesos_base": 3,
+     "n_top1_distintos": 2,
+     "grade_spearman_medio": 0.684,
+     "grade_top1_igual_base_pct": 72.5
+    },
+    "baturite_ce": {
+     "n_candidatas": 15,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "feijao_de_porco",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "mandioca",
+      "milheto",
+      "mucuna",
+      "palma_forrageira",
+      "sorgo"
+     ],
+     "freq_top3": {
+      "amendoim": 1.0,
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.996,
+      "algodao": 0.004,
+      "feijao_comum": 0.0,
+      "feijao_de_porco": 0.0,
+      "gergelim": 0.0,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mandioca": 0.0,
+      "milheto": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0,
+      "sorgo": 0.0
+     },
+     "top3_base": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ],
+     "top1_igual_base_pct": 99.6,
+     "top3_igual_base_como_conjunto_pct": 99.6,
+     "media_cultura_do_top3_base_que_permanece": 3.0,
+     "spearman_medio_entre_pesos": 0.873,
+     "empate_no_corte_top3_pct": 100.0,
+     "top3_muda_com_desempate_invertido_pct": 100.0,
+     "n_candidatas_com_score_100_nos_pesos_base": 5,
+     "n_top1_distintos": 2,
+     "grade_spearman_medio": 0.769,
+     "grade_top1_igual_base_pct": 71.4
+    },
+    "bela_cruz_ce": {
+     "n_candidatas": 15,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "feijao_de_porco",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "mandioca",
+      "milheto",
+      "mucuna",
+      "palma_forrageira",
+      "sorgo"
+     ],
+     "freq_top3": {
+      "amendoim": 1.0,
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.992,
+      "algodao": 0.008,
+      "feijao_comum": 0.0,
+      "feijao_de_porco": 0.0,
+      "gergelim": 0.0,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mandioca": 0.0,
+      "milheto": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0,
+      "sorgo": 0.0
+     },
+     "top3_base": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ],
+     "top1_igual_base_pct": 99.2,
+     "top3_igual_base_como_conjunto_pct": 99.2,
+     "media_cultura_do_top3_base_que_permanece": 2.99,
+     "spearman_medio_entre_pesos": 0.89,
+     "empate_no_corte_top3_pct": 100.0,
+     "top3_muda_com_desempate_invertido_pct": 100.0,
+     "n_candidatas_com_score_100_nos_pesos_base": 5,
+     "n_top1_distintos": 2,
+     "grade_spearman_medio": 0.802,
+     "grade_top1_igual_base_pct": 71.4
+    },
+    "eusebio_ce": {
+     "n_candidatas": 14,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "feijao_de_porco",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "mandioca",
+      "milheto",
+      "mucuna",
+      "palma_forrageira"
+     ],
+     "freq_top3": {
+      "algodao": 1.0,
+      "amendoim": 1.0,
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.0,
+      "feijao_comum": 0.0,
+      "feijao_de_porco": 0.0,
+      "gergelim": 0.0,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mandioca": 0.0,
+      "milheto": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0
+     },
+     "top3_base": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea"
+     ],
+     "top1_igual_base_pct": 100.0,
+     "top3_igual_base_como_conjunto_pct": 100.0,
+     "media_cultura_do_top3_base_que_permanece": 3.0,
+     "spearman_medio_entre_pesos": 0.938,
+     "empate_no_corte_top3_pct": 100.0,
+     "top3_muda_com_desempate_invertido_pct": 100.0,
+     "n_candidatas_com_score_100_nos_pesos_base": 6,
+     "n_top1_distintos": 1,
+     "grade_spearman_medio": 0.879,
+     "grade_top1_igual_base_pct": 98.9
+    },
+    "icapui_ce": {
+     "n_candidatas": 14,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "mandioca",
+      "milheto",
+      "mucuna",
+      "palma_forrageira",
+      "sorgo"
+     ],
+     "freq_top3": {
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.996,
+      "gergelim": 0.983,
+      "amendoim": 0.014,
+      "algodao": 0.004,
+      "feijao_comum": 0.003,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mandioca": 0.0,
+      "milheto": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0,
+      "sorgo": 0.0
+     },
+     "top3_base": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ],
+     "top1_igual_base_pct": 98.6,
+     "top3_igual_base_como_conjunto_pct": 98.3,
+     "media_cultura_do_top3_base_que_permanece": 2.98,
+     "spearman_medio_entre_pesos": 0.819,
+     "empate_no_corte_top3_pct": 1.7,
+     "top3_muda_com_desempate_invertido_pct": 1.7,
+     "n_candidatas_com_score_100_nos_pesos_base": 3,
+     "n_top1_distintos": 3,
+     "grade_spearman_medio": 0.7,
+     "grade_top1_igual_base_pct": 72.5
+    },
+    "maracanau_ce": {
+     "n_candidatas": 14,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "feijao_de_porco",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "mandioca",
+      "milheto",
+      "mucuna",
+      "palma_forrageira"
+     ],
+     "freq_top3": {
+      "algodao": 1.0,
+      "amendoim": 1.0,
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.0,
+      "feijao_comum": 0.0,
+      "feijao_de_porco": 0.0,
+      "gergelim": 0.0,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mandioca": 0.0,
+      "milheto": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0
+     },
+     "top3_base": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea"
+     ],
+     "top1_igual_base_pct": 100.0,
+     "top3_igual_base_como_conjunto_pct": 100.0,
+     "media_cultura_do_top3_base_que_permanece": 3.0,
+     "spearman_medio_entre_pesos": 0.938,
+     "empate_no_corte_top3_pct": 100.0,
+     "top3_muda_com_desempate_invertido_pct": 100.0,
+     "n_candidatas_com_score_100_nos_pesos_base": 6,
+     "n_top1_distintos": 1,
+     "grade_spearman_medio": 0.879,
+     "grade_top1_igual_base_pct": 98.9
+    },
+    "pereiro_ce": {
+     "n_candidatas": 14,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "mandioca",
+      "milheto",
+      "mucuna",
+      "palma_forrageira",
+      "sorgo"
+     ],
+     "freq_top3": {
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.996,
+      "gergelim": 0.993,
+      "algodao": 0.004,
+      "amendoim": 0.004,
+      "feijao_comum": 0.003,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mandioca": 0.0,
+      "milheto": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0,
+      "sorgo": 0.0
+     },
+     "top3_base": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ],
+     "top1_igual_base_pct": 99.6,
+     "top3_igual_base_como_conjunto_pct": 99.3,
+     "media_cultura_do_top3_base_que_permanece": 2.99,
+     "spearman_medio_entre_pesos": 0.797,
+     "empate_no_corte_top3_pct": 0.7,
+     "top3_muda_com_desempate_invertido_pct": 0.7,
+     "n_candidatas_com_score_100_nos_pesos_base": 3,
+     "n_top1_distintos": 2,
+     "grade_spearman_medio": 0.678,
+     "grade_top1_igual_base_pct": 72.5
+    },
+    "tejucuoca_ce": {
+     "n_candidatas": 15,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "feijao_de_porco",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "mandioca",
+      "milheto",
+      "mucuna",
+      "palma_forrageira",
+      "sorgo"
+     ],
+     "freq_top3": {
+      "amendoim": 1.0,
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.996,
+      "algodao": 0.004,
+      "feijao_comum": 0.0,
+      "feijao_de_porco": 0.0,
+      "gergelim": 0.0,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mandioca": 0.0,
+      "milheto": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0,
+      "sorgo": 0.0
+     },
+     "top3_base": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ],
+     "top1_igual_base_pct": 99.6,
+     "top3_igual_base_como_conjunto_pct": 99.6,
+     "media_cultura_do_top3_base_que_permanece": 3.0,
+     "spearman_medio_entre_pesos": 0.864,
+     "empate_no_corte_top3_pct": 100.0,
+     "top3_muda_com_desempate_invertido_pct": 100.0,
+     "n_candidatas_com_score_100_nos_pesos_base": 5,
+     "n_top1_distintos": 2,
+     "grade_spearman_medio": 0.749,
+     "grade_top1_igual_base_pct": 71.4
+    },
+    "vicosa_do_ceara_ce": {
+     "n_candidatas": 14,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "feijao_de_porco",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "mandioca",
+      "milheto",
+      "mucuna",
+      "palma_forrageira"
+     ],
+     "freq_top3": {
+      "algodao": 1.0,
+      "amendoim": 1.0,
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.0,
+      "feijao_comum": 0.0,
+      "feijao_de_porco": 0.0,
+      "gergelim": 0.0,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mandioca": 0.0,
+      "milheto": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0
+     },
+     "top3_base": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea"
+     ],
+     "top1_igual_base_pct": 100.0,
+     "top3_igual_base_como_conjunto_pct": 100.0,
+     "media_cultura_do_top3_base_que_permanece": 3.0,
+     "spearman_medio_entre_pesos": 0.974,
+     "empate_no_corte_top3_pct": 100.0,
+     "top3_muda_com_desempate_invertido_pct": 100.0,
+     "n_candidatas_com_score_100_nos_pesos_base": 7,
+     "n_top1_distintos": 1,
+     "grade_spearman_medio": 0.905,
+     "grade_top1_igual_base_pct": 98.9
+    }
+   },
+   "lacunas": {
+    "acarau_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 10,
+     "spearman_motor_vs_comuns_medio": 0.842,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 11.69,
+     "score_base_medio_culturas_5crit": 75.7,
+     "score_base_medio_culturas_menos_crit": 86.1,
+     "top3_base_motor": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ],
+     "top3_base_comuns": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ]
+    },
+    "ararenda_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 9,
+     "spearman_motor_vs_comuns_medio": 0.846,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 2.06,
+     "score_base_medio_culturas_5crit": 70.7,
+     "score_base_medio_culturas_menos_crit": 83.5,
+     "top3_base_motor": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ],
+     "top3_base_comuns": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ]
+    },
+    "baturite_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 10,
+     "spearman_motor_vs_comuns_medio": 0.843,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 11.68,
+     "score_base_medio_culturas_5crit": 75.4,
+     "score_base_medio_culturas_menos_crit": 86.5,
+     "top3_base_motor": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ],
+     "top3_base_comuns": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ]
+    },
+    "bela_cruz_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 10,
+     "spearman_motor_vs_comuns_medio": 0.842,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 11.69,
+     "score_base_medio_culturas_5crit": 75.7,
+     "score_base_medio_culturas_menos_crit": 86.1,
+     "top3_base_motor": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ],
+     "top3_base_comuns": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ]
+    },
+    "eusebio_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 9,
+     "spearman_motor_vs_comuns_medio": 0.852,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 11.46,
+     "score_base_medio_culturas_5crit": 76.3,
+     "score_base_medio_culturas_menos_crit": 95.1,
+     "top3_base_motor": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea"
+     ],
+     "top3_base_comuns": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea"
+     ]
+    },
+    "icapui_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 9,
+     "spearman_motor_vs_comuns_medio": 0.849,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 2.15,
+     "score_base_medio_culturas_5crit": 73.5,
+     "score_base_medio_culturas_menos_crit": 84.7,
+     "top3_base_motor": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ],
+     "top3_base_comuns": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ]
+    },
+    "maracanau_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 9,
+     "spearman_motor_vs_comuns_medio": 0.852,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 11.46,
+     "score_base_medio_culturas_5crit": 76.3,
+     "score_base_medio_culturas_menos_crit": 95.1,
+     "top3_base_motor": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea"
+     ],
+     "top3_base_comuns": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea"
+     ]
+    },
+    "pereiro_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 9,
+     "spearman_motor_vs_comuns_medio": 0.844,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 2.06,
+     "score_base_medio_culturas_5crit": 71.9,
+     "score_base_medio_culturas_menos_crit": 83.6,
+     "top3_base_motor": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ],
+     "top3_base_comuns": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ]
+    },
+    "tejucuoca_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 10,
+     "spearman_motor_vs_comuns_medio": 0.845,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 11.66,
+     "score_base_medio_culturas_5crit": 75.2,
+     "score_base_medio_culturas_menos_crit": 86.5,
+     "top3_base_motor": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ],
+     "top3_base_comuns": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ]
+    },
+    "vicosa_do_ceara_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 9,
+     "spearman_motor_vs_comuns_medio": 0.849,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 11.63,
+     "score_base_medio_culturas_5crit": 76.6,
+     "score_base_medio_culturas_menos_crit": 97.5,
+     "top3_base_motor": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea"
+     ],
+     "top3_base_comuns": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea"
+     ]
+    }
+   },
+   "resumo": {
+    "freq_top3_media_pct": {
+     "crotalaria_juncea": 100.0,
+     "amendoim": 70.2,
+     "feijao_caupi": 69.6,
+     "algodao": 30.4,
+     "gergelim": 29.6,
+     "feijao_comum": 0.2,
+     "feijao_de_porco": 0.0,
+     "girassol": 0.0,
+     "guandu": 0.0,
+     "mamona": 0.0,
+     "mandioca": 0.0,
+     "milheto": 0.0,
+     "mucuna": 0.0,
+     "palma_forrageira": 0.0,
+     "sorgo": 0.0
+    },
+    "freq_top3_n_pontos_em_que_aparece_candidata": {
+     "amendoim": 10,
+     "crotalaria_juncea": 10,
+     "feijao_caupi": 10,
+     "algodao": 10,
+     "feijao_comum": 10,
+     "feijao_de_porco": 7,
+     "gergelim": 10,
+     "girassol": 10,
+     "guandu": 10,
+     "mamona": 10,
+     "mandioca": 10,
+     "milheto": 10,
+     "mucuna": 10,
+     "palma_forrageira": 10,
+     "sorgo": 7
+    },
+    "spearman_medio": 0.879,
+    "top1_igual_base_pct_medio": 99.5,
+    "top3_conjunto_igual_base_pct_medio": 99.4,
+    "empate_no_corte_top3_pct_medio": 70.4,
+    "top3_muda_com_desempate_invertido_pct_medio": 70.4,
+    "n_pontos_analisados": 10,
+    "lacunas_medias": {
+     "spearman_motor_vs_comuns_medio": 0.85,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 8.75,
+     "score_base_medio_culturas_5crit": 74.73,
+     "score_base_medio_culturas_menos_crit": 88.47
+    }
+   },
+   "nota_N_varia_por_ponto": {
+    "crotalaria_juncea": {
+     "min": 1.0,
+     "max": 1.0,
+     "n_pontos": 10
+    },
+    "girassol": {
+     "min": 0.35,
+     "max": 0.35,
+     "n_pontos": 10
+    },
+    "guandu": {
+     "min": 0.52,
+     "max": 0.52,
+     "n_pontos": 10
+    },
+    "milheto": {
+     "min": 0.0,
+     "max": 0.0,
+     "n_pontos": 10
+    },
+    "mucuna": {
+     "min": 0.23,
+     "max": 0.23,
+     "n_pontos": 10
+    }
+   }
+  },
+  "150d_desde_01jan": {
+   "perfis": {
+    "acarau_ce": {
+     "local": "acarau_ce",
+     "temp_media_c": 27.67,
+     "chuva_ciclo_mm": 800.1
+    },
+    "ararenda_ce": {
+     "local": "ararenda_ce",
+     "temp_media_c": 26.52,
+     "chuva_ciclo_mm": 619.6
+    },
+    "baturite_ce": {
+     "local": "baturite_ce",
+     "temp_media_c": 27.28,
+     "chuva_ciclo_mm": 756.5
+    },
+    "bela_cruz_ce": {
+     "local": "bela_cruz_ce",
+     "temp_media_c": 27.67,
+     "chuva_ciclo_mm": 800.1
+    },
+    "eusebio_ce": {
+     "local": "eusebio_ce",
+     "temp_media_c": 27.12,
+     "chuva_ciclo_mm": 883.8
+    },
+    "icapui_ce": {
+     "local": "icapui_ce",
+     "temp_media_c": 28.0,
+     "chuva_ciclo_mm": 664.2
+    },
+    "maracanau_ce": {
+     "local": "maracanau_ce",
+     "temp_media_c": 27.12,
+     "chuva_ciclo_mm": 883.8
+    },
+    "pereiro_ce": {
+     "local": "pereiro_ce",
+     "temp_media_c": 27.57,
+     "chuva_ciclo_mm": 642.8
+    },
+    "tejucuoca_ce": {
+     "local": "tejucuoca_ce",
+     "temp_media_c": 27.11,
+     "chuva_ciclo_mm": 746.5
+    },
+    "vicosa_do_ceara_ce": {
+     "local": "vicosa_do_ceara_ce",
+     "temp_media_c": 26.29,
+     "chuva_ciclo_mm": 934.0
+    }
+   },
+   "por_ponto": {
+    "acarau_ce": {
+     "n_candidatas": 14,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "feijao_de_porco",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "mandioca",
+      "milheto",
+      "mucuna",
+      "palma_forrageira"
+     ],
+     "freq_top3": {
+      "algodao": 1.0,
+      "amendoim": 1.0,
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.0,
+      "feijao_comum": 0.0,
+      "feijao_de_porco": 0.0,
+      "gergelim": 0.0,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mandioca": 0.0,
+      "milheto": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0
+     },
+     "top3_base": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea"
+     ],
+     "top1_igual_base_pct": 100.0,
+     "top3_igual_base_como_conjunto_pct": 100.0,
+     "media_cultura_do_top3_base_que_permanece": 3.0,
+     "spearman_medio_entre_pesos": 0.948,
+     "empate_no_corte_top3_pct": 100.0,
+     "top3_muda_com_desempate_invertido_pct": 100.0,
+     "n_candidatas_com_score_100_nos_pesos_base": 7,
+     "n_top1_distintos": 1,
+     "grade_spearman_medio": 0.901,
+     "grade_top1_igual_base_pct": 98.9
+    },
+    "ararenda_ce": {
+     "n_candidatas": 15,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "feijao_de_porco",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "mandioca",
+      "milheto",
+      "mucuna",
+      "palma_forrageira",
+      "sorgo"
+     ],
+     "freq_top3": {
+      "amendoim": 1.0,
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.996,
+      "algodao": 0.004,
+      "feijao_comum": 0.0,
+      "feijao_de_porco": 0.0,
+      "gergelim": 0.0,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mandioca": 0.0,
+      "milheto": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0,
+      "sorgo": 0.0
+     },
+     "top3_base": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ],
+     "top1_igual_base_pct": 99.6,
+     "top3_igual_base_como_conjunto_pct": 99.6,
+     "media_cultura_do_top3_base_que_permanece": 3.0,
+     "spearman_medio_entre_pesos": 0.86,
+     "empate_no_corte_top3_pct": 100.0,
+     "top3_muda_com_desempate_invertido_pct": 100.0,
+     "n_candidatas_com_score_100_nos_pesos_base": 5,
+     "n_top1_distintos": 2,
+     "grade_spearman_medio": 0.745,
+     "grade_top1_igual_base_pct": 71.4
+    },
+    "baturite_ce": {
+     "n_candidatas": 14,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "feijao_de_porco",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "mandioca",
+      "milheto",
+      "mucuna",
+      "palma_forrageira"
+     ],
+     "freq_top3": {
+      "algodao": 1.0,
+      "amendoim": 1.0,
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.0,
+      "feijao_comum": 0.0,
+      "feijao_de_porco": 0.0,
+      "gergelim": 0.0,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mandioca": 0.0,
+      "milheto": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0
+     },
+     "top3_base": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea"
+     ],
+     "top1_igual_base_pct": 100.0,
+     "top3_igual_base_como_conjunto_pct": 100.0,
+     "media_cultura_do_top3_base_que_permanece": 3.0,
+     "spearman_medio_entre_pesos": 0.925,
+     "empate_no_corte_top3_pct": 100.0,
+     "top3_muda_com_desempate_invertido_pct": 100.0,
+     "n_candidatas_com_score_100_nos_pesos_base": 6,
+     "n_top1_distintos": 1,
+     "grade_spearman_medio": 0.868,
+     "grade_top1_igual_base_pct": 98.9
+    },
+    "bela_cruz_ce": {
+     "n_candidatas": 14,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "feijao_de_porco",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "mandioca",
+      "milheto",
+      "mucuna",
+      "palma_forrageira"
+     ],
+     "freq_top3": {
+      "algodao": 1.0,
+      "amendoim": 1.0,
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.0,
+      "feijao_comum": 0.0,
+      "feijao_de_porco": 0.0,
+      "gergelim": 0.0,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mandioca": 0.0,
+      "milheto": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0
+     },
+     "top3_base": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea"
+     ],
+     "top1_igual_base_pct": 100.0,
+     "top3_igual_base_como_conjunto_pct": 100.0,
+     "media_cultura_do_top3_base_que_permanece": 3.0,
+     "spearman_medio_entre_pesos": 0.948,
+     "empate_no_corte_top3_pct": 100.0,
+     "top3_muda_com_desempate_invertido_pct": 100.0,
+     "n_candidatas_com_score_100_nos_pesos_base": 7,
+     "n_top1_distintos": 1,
+     "grade_spearman_medio": 0.901,
+     "grade_top1_igual_base_pct": 98.9
+    },
+    "eusebio_ce": {
+     "n_candidatas": 14,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "feijao_de_porco",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "mandioca",
+      "milheto",
+      "mucuna",
+      "palma_forrageira"
+     ],
+     "freq_top3": {
+      "algodao": 1.0,
+      "amendoim": 1.0,
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.0,
+      "feijao_comum": 0.0,
+      "feijao_de_porco": 0.0,
+      "gergelim": 0.0,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mandioca": 0.0,
+      "milheto": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0
+     },
+     "top3_base": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea"
+     ],
+     "top1_igual_base_pct": 100.0,
+     "top3_igual_base_como_conjunto_pct": 100.0,
+     "media_cultura_do_top3_base_que_permanece": 3.0,
+     "spearman_medio_entre_pesos": 0.959,
+     "empate_no_corte_top3_pct": 100.0,
+     "top3_muda_com_desempate_invertido_pct": 100.0,
+     "n_candidatas_com_score_100_nos_pesos_base": 7,
+     "n_top1_distintos": 1,
+     "grade_spearman_medio": 0.902,
+     "grade_top1_igual_base_pct": 98.9
+    },
+    "icapui_ce": {
+     "n_candidatas": 15,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "feijao_de_porco",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "mandioca",
+      "milheto",
+      "mucuna",
+      "palma_forrageira",
+      "sorgo"
+     ],
+     "freq_top3": {
+      "amendoim": 1.0,
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.996,
+      "algodao": 0.004,
+      "feijao_comum": 0.0,
+      "feijao_de_porco": 0.0,
+      "gergelim": 0.0,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mandioca": 0.0,
+      "milheto": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0,
+      "sorgo": 0.0
+     },
+     "top3_base": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ],
+     "top1_igual_base_pct": 99.6,
+     "top3_igual_base_como_conjunto_pct": 99.6,
+     "media_cultura_do_top3_base_que_permanece": 3.0,
+     "spearman_medio_entre_pesos": 0.868,
+     "empate_no_corte_top3_pct": 100.0,
+     "top3_muda_com_desempate_invertido_pct": 100.0,
+     "n_candidatas_com_score_100_nos_pesos_base": 5,
+     "n_top1_distintos": 2,
+     "grade_spearman_medio": 0.766,
+     "grade_top1_igual_base_pct": 71.4
+    },
+    "maracanau_ce": {
+     "n_candidatas": 14,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "feijao_de_porco",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "mandioca",
+      "milheto",
+      "mucuna",
+      "palma_forrageira"
+     ],
+     "freq_top3": {
+      "algodao": 1.0,
+      "amendoim": 1.0,
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.0,
+      "feijao_comum": 0.0,
+      "feijao_de_porco": 0.0,
+      "gergelim": 0.0,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mandioca": 0.0,
+      "milheto": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0
+     },
+     "top3_base": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea"
+     ],
+     "top1_igual_base_pct": 100.0,
+     "top3_igual_base_como_conjunto_pct": 100.0,
+     "media_cultura_do_top3_base_que_permanece": 3.0,
+     "spearman_medio_entre_pesos": 0.959,
+     "empate_no_corte_top3_pct": 100.0,
+     "top3_muda_com_desempate_invertido_pct": 100.0,
+     "n_candidatas_com_score_100_nos_pesos_base": 7,
+     "n_top1_distintos": 1,
+     "grade_spearman_medio": 0.902,
+     "grade_top1_igual_base_pct": 98.9
+    },
+    "pereiro_ce": {
+     "n_candidatas": 15,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "feijao_de_porco",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "mandioca",
+      "milheto",
+      "mucuna",
+      "palma_forrageira",
+      "sorgo"
+     ],
+     "freq_top3": {
+      "amendoim": 1.0,
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.996,
+      "algodao": 0.004,
+      "feijao_comum": 0.0,
+      "feijao_de_porco": 0.0,
+      "gergelim": 0.0,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mandioca": 0.0,
+      "milheto": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0,
+      "sorgo": 0.0
+     },
+     "top3_base": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ],
+     "top1_igual_base_pct": 99.6,
+     "top3_igual_base_como_conjunto_pct": 99.6,
+     "media_cultura_do_top3_base_que_permanece": 3.0,
+     "spearman_medio_entre_pesos": 0.856,
+     "empate_no_corte_top3_pct": 100.0,
+     "top3_muda_com_desempate_invertido_pct": 100.0,
+     "n_candidatas_com_score_100_nos_pesos_base": 5,
+     "n_top1_distintos": 2,
+     "grade_spearman_medio": 0.758,
+     "grade_top1_igual_base_pct": 71.4
+    },
+    "tejucuoca_ce": {
+     "n_candidatas": 14,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "feijao_de_porco",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "mandioca",
+      "milheto",
+      "mucuna",
+      "palma_forrageira"
+     ],
+     "freq_top3": {
+      "amendoim": 1.0,
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.901,
+      "algodao": 0.099,
+      "feijao_comum": 0.0,
+      "feijao_de_porco": 0.0,
+      "gergelim": 0.0,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mandioca": 0.0,
+      "milheto": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0
+     },
+     "top3_base": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ],
+     "top1_igual_base_pct": 90.1,
+     "top3_igual_base_como_conjunto_pct": 90.1,
+     "media_cultura_do_top3_base_que_permanece": 2.9,
+     "spearman_medio_entre_pesos": 0.913,
+     "empate_no_corte_top3_pct": 100.0,
+     "top3_muda_com_desempate_invertido_pct": 100.0,
+     "n_candidatas_com_score_100_nos_pesos_base": 5,
+     "n_top1_distintos": 2,
+     "grade_spearman_medio": 0.817,
+     "grade_top1_igual_base_pct": 71.4
+    },
+    "vicosa_do_ceara_ce": {
+     "n_candidatas": 14,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "feijao_de_porco",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "mandioca",
+      "milheto",
+      "mucuna",
+      "palma_forrageira"
+     ],
+     "freq_top3": {
+      "algodao": 1.0,
+      "amendoim": 1.0,
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.0,
+      "feijao_comum": 0.0,
+      "feijao_de_porco": 0.0,
+      "gergelim": 0.0,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mandioca": 0.0,
+      "milheto": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0
+     },
+     "top3_base": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea"
+     ],
+     "top1_igual_base_pct": 100.0,
+     "top3_igual_base_como_conjunto_pct": 100.0,
+     "media_cultura_do_top3_base_que_permanece": 3.0,
+     "spearman_medio_entre_pesos": 0.98,
+     "empate_no_corte_top3_pct": 100.0,
+     "top3_muda_com_desempate_invertido_pct": 100.0,
+     "n_candidatas_com_score_100_nos_pesos_base": 7,
+     "n_top1_distintos": 1,
+     "grade_spearman_medio": 0.921,
+     "grade_top1_igual_base_pct": 98.9
+    }
+   },
+   "lacunas": {
+    "acarau_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 9,
+     "spearman_motor_vs_comuns_medio": 0.895,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 11.5,
+     "score_base_medio_culturas_5crit": 76.6,
+     "score_base_medio_culturas_menos_crit": 94.9,
+     "top3_base_motor": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea"
+     ],
+     "top3_base_comuns": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea"
+     ]
+    },
+    "ararenda_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 10,
+     "spearman_motor_vs_comuns_medio": 0.844,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 11.66,
+     "score_base_medio_culturas_5crit": 75.1,
+     "score_base_medio_culturas_menos_crit": 86.8,
+     "top3_base_motor": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ],
+     "top3_base_comuns": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ]
+    },
+    "baturite_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 9,
+     "spearman_motor_vs_comuns_medio": 0.857,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 11.41,
+     "score_base_medio_culturas_5crit": 76.3,
+     "score_base_medio_culturas_menos_crit": 94.2,
+     "top3_base_motor": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea"
+     ],
+     "top3_base_comuns": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea"
+     ]
+    },
+    "bela_cruz_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 9,
+     "spearman_motor_vs_comuns_medio": 0.895,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 11.5,
+     "score_base_medio_culturas_5crit": 76.6,
+     "score_base_medio_culturas_menos_crit": 94.9,
+     "top3_base_motor": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea"
+     ],
+     "top3_base_comuns": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea"
+     ]
+    },
+    "eusebio_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 9,
+     "spearman_motor_vs_comuns_medio": 0.876,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 11.71,
+     "score_base_medio_culturas_5crit": 77.3,
+     "score_base_medio_culturas_menos_crit": 96.5,
+     "top3_base_motor": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea"
+     ],
+     "top3_base_comuns": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea"
+     ]
+    },
+    "icapui_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 10,
+     "spearman_motor_vs_comuns_medio": 0.853,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 11.58,
+     "score_base_medio_culturas_5crit": 75.5,
+     "score_base_medio_culturas_menos_crit": 85.0,
+     "top3_base_motor": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ],
+     "top3_base_comuns": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ]
+    },
+    "maracanau_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 9,
+     "spearman_motor_vs_comuns_medio": 0.876,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 11.71,
+     "score_base_medio_culturas_5crit": 77.3,
+     "score_base_medio_culturas_menos_crit": 96.5,
+     "top3_base_motor": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea"
+     ],
+     "top3_base_comuns": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea"
+     ]
+    },
+    "pereiro_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 10,
+     "spearman_motor_vs_comuns_medio": 0.851,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 11.59,
+     "score_base_medio_culturas_5crit": 75.3,
+     "score_base_medio_culturas_menos_crit": 85.4,
+     "top3_base_motor": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ],
+     "top3_base_comuns": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ]
+    },
+    "tejucuoca_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 9,
+     "spearman_motor_vs_comuns_medio": 0.815,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 11.4,
+     "score_base_medio_culturas_5crit": 76.2,
+     "score_base_medio_culturas_menos_crit": 94.2,
+     "top3_base_motor": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ],
+     "top3_base_comuns": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ]
+    },
+    "vicosa_do_ceara_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 9,
+     "spearman_motor_vs_comuns_medio": 0.867,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 11.91,
+     "score_base_medio_culturas_5crit": 77.5,
+     "score_base_medio_culturas_menos_crit": 98.3,
+     "top3_base_motor": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea"
+     ],
+     "top3_base_comuns": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea"
+     ]
+    }
+   },
+   "resumo": {
+    "freq_top3_media_pct": {
+     "amendoim": 100.0,
+     "crotalaria_juncea": 100.0,
+     "algodao": 61.1,
+     "feijao_caupi": 38.9,
+     "feijao_comum": 0.0,
+     "feijao_de_porco": 0.0,
+     "gergelim": 0.0,
+     "girassol": 0.0,
+     "guandu": 0.0,
+     "mamona": 0.0,
+     "mandioca": 0.0,
+     "milheto": 0.0,
+     "mucuna": 0.0,
+     "palma_forrageira": 0.0,
+     "sorgo": 0.0
+    },
+    "freq_top3_n_pontos_em_que_aparece_candidata": {
+     "algodao": 10,
+     "amendoim": 10,
+     "crotalaria_juncea": 10,
+     "feijao_caupi": 10,
+     "feijao_comum": 10,
+     "feijao_de_porco": 10,
+     "gergelim": 10,
+     "girassol": 10,
+     "guandu": 10,
+     "mamona": 10,
+     "mandioca": 10,
+     "milheto": 10,
+     "mucuna": 10,
+     "palma_forrageira": 10,
+     "sorgo": 3
+    },
+    "spearman_medio": 0.922,
+    "top1_igual_base_pct_medio": 98.9,
+    "top3_conjunto_igual_base_pct_medio": 98.9,
+    "empate_no_corte_top3_pct_medio": 100.0,
+    "top3_muda_com_desempate_invertido_pct_medio": 100.0,
+    "n_pontos_analisados": 10,
+    "lacunas_medias": {
+     "spearman_motor_vs_comuns_medio": 0.86,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 11.6,
+     "score_base_medio_culturas_5crit": 76.37,
+     "score_base_medio_culturas_menos_crit": 92.67
+    }
+   },
+   "nota_N_varia_por_ponto": {
+    "crotalaria_juncea": {
+     "min": 1.0,
+     "max": 1.0,
+     "n_pontos": 10
+    },
+    "girassol": {
+     "min": 0.35,
+     "max": 0.35,
+     "n_pontos": 10
+    },
+    "guandu": {
+     "min": 0.52,
+     "max": 0.52,
+     "n_pontos": 10
+    },
+    "milheto": {
+     "min": 0.0,
+     "max": 0.0,
+     "n_pontos": 10
+    },
+    "mucuna": {
+     "min": 0.23,
+     "max": 0.23,
+     "n_pontos": 10
+    }
+   }
+  },
+  "90d_desde_01mar": {
+   "perfis": {
+    "acarau_ce": {
+     "local": "acarau_ce",
+     "temp_media_c": 27.32,
+     "chuva_ciclo_mm": 534.4
+    },
+    "ararenda_ce": {
+     "local": "ararenda_ce",
+     "temp_media_c": 25.92,
+     "chuva_ciclo_mm": 387.0
+    },
+    "baturite_ce": {
+     "local": "baturite_ce",
+     "temp_media_c": 26.6,
+     "chuva_ciclo_mm": 511.7
+    },
+    "bela_cruz_ce": {
+     "local": "bela_cruz_ce",
+     "temp_media_c": 27.32,
+     "chuva_ciclo_mm": 534.4
+    },
+    "eusebio_ce": {
+     "local": "eusebio_ce",
+     "temp_media_c": 26.65,
+     "chuva_ciclo_mm": 602.1
+    },
+    "icapui_ce": {
+     "local": "icapui_ce",
+     "temp_media_c": 27.97,
+     "chuva_ciclo_mm": 450.3
+    },
+    "maracanau_ce": {
+     "local": "maracanau_ce",
+     "temp_media_c": 26.65,
+     "chuva_ciclo_mm": 602.1
+    },
+    "pereiro_ce": {
+     "local": "pereiro_ce",
+     "temp_media_c": 26.89,
+     "chuva_ciclo_mm": 411.1
+    },
+    "tejucuoca_ce": {
+     "local": "tejucuoca_ce",
+     "temp_media_c": 26.45,
+     "chuva_ciclo_mm": 485.6
+    },
+    "vicosa_do_ceara_ce": {
+     "local": "vicosa_do_ceara_ce",
+     "temp_media_c": 25.82,
+     "chuva_ciclo_mm": 601.7
+    }
+   },
+   "por_ponto": {
+    "acarau_ce": {
+     "n_candidatas": 14,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "mandioca",
+      "milheto",
+      "mucuna",
+      "palma_forrageira",
+      "sorgo"
+     ],
+     "freq_top3": {
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.996,
+      "gergelim": 0.993,
+      "algodao": 0.004,
+      "amendoim": 0.004,
+      "feijao_comum": 0.003,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mandioca": 0.0,
+      "milheto": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0,
+      "sorgo": 0.0
+     },
+     "top3_base": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ],
+     "top1_igual_base_pct": 99.6,
+     "top3_igual_base_como_conjunto_pct": 99.3,
+     "media_cultura_do_top3_base_que_permanece": 2.99,
+     "spearman_medio_entre_pesos": 0.793,
+     "empate_no_corte_top3_pct": 0.7,
+     "top3_muda_com_desempate_invertido_pct": 0.7,
+     "n_candidatas_com_score_100_nos_pesos_base": 3,
+     "n_top1_distintos": 2,
+     "grade_spearman_medio": 0.677,
+     "grade_top1_igual_base_pct": 72.5
+    },
+    "ararenda_ce": {
+     "n_candidatas": 8,
+     "candidatas": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "gergelim",
+      "girassol",
+      "milheto",
+      "palma_forrageira",
+      "sorgo"
+     ],
+     "freq_top3": {
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.91,
+      "gergelim": 0.672,
+      "sorgo": 0.323,
+      "milheto": 0.075,
+      "girassol": 0.016,
+      "feijao_comum": 0.004,
+      "palma_forrageira": 0.0
+     },
+     "top3_base": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ],
+     "top1_igual_base_pct": 90.8,
+     "top3_igual_base_como_conjunto_pct": 67.2,
+     "media_cultura_do_top3_base_que_permanece": 2.58,
+     "spearman_medio_entre_pesos": 0.7,
+     "empate_no_corte_top3_pct": 24.9,
+     "top3_muda_com_desempate_invertido_pct": 24.9,
+     "n_candidatas_com_score_100_nos_pesos_base": 0,
+     "n_top1_distintos": 3,
+     "grade_spearman_medio": 0.608,
+     "grade_top1_igual_base_pct": 81.0
+    },
+    "baturite_ce": {
+     "n_candidatas": 14,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "mandioca",
+      "milheto",
+      "mucuna",
+      "palma_forrageira",
+      "sorgo"
+     ],
+     "freq_top3": {
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.996,
+      "gergelim": 0.992,
+      "algodao": 0.004,
+      "amendoim": 0.004,
+      "feijao_comum": 0.004,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mandioca": 0.0,
+      "milheto": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0,
+      "sorgo": 0.0
+     },
+     "top3_base": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ],
+     "top1_igual_base_pct": 99.6,
+     "top3_igual_base_como_conjunto_pct": 99.2,
+     "media_cultura_do_top3_base_que_permanece": 2.99,
+     "spearman_medio_entre_pesos": 0.793,
+     "empate_no_corte_top3_pct": 0.8,
+     "top3_muda_com_desempate_invertido_pct": 0.8,
+     "n_candidatas_com_score_100_nos_pesos_base": 3,
+     "n_top1_distintos": 2,
+     "grade_spearman_medio": 0.673,
+     "grade_top1_igual_base_pct": 72.5
+    },
+    "bela_cruz_ce": {
+     "n_candidatas": 14,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "mandioca",
+      "milheto",
+      "mucuna",
+      "palma_forrageira",
+      "sorgo"
+     ],
+     "freq_top3": {
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.996,
+      "gergelim": 0.993,
+      "algodao": 0.004,
+      "amendoim": 0.004,
+      "feijao_comum": 0.003,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mandioca": 0.0,
+      "milheto": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0,
+      "sorgo": 0.0
+     },
+     "top3_base": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ],
+     "top1_igual_base_pct": 99.6,
+     "top3_igual_base_como_conjunto_pct": 99.3,
+     "media_cultura_do_top3_base_que_permanece": 2.99,
+     "spearman_medio_entre_pesos": 0.793,
+     "empate_no_corte_top3_pct": 0.7,
+     "top3_muda_com_desempate_invertido_pct": 0.7,
+     "n_candidatas_com_score_100_nos_pesos_base": 3,
+     "n_top1_distintos": 2,
+     "grade_spearman_medio": 0.677,
+     "grade_top1_igual_base_pct": 72.5
+    },
+    "eusebio_ce": {
+     "n_candidatas": 15,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "feijao_de_porco",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "mandioca",
+      "milheto",
+      "mucuna",
+      "palma_forrageira",
+      "sorgo"
+     ],
+     "freq_top3": {
+      "amendoim": 1.0,
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.996,
+      "algodao": 0.004,
+      "feijao_comum": 0.0,
+      "feijao_de_porco": 0.0,
+      "gergelim": 0.0,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mandioca": 0.0,
+      "milheto": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0,
+      "sorgo": 0.0
+     },
+     "top3_base": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ],
+     "top1_igual_base_pct": 99.6,
+     "top3_igual_base_como_conjunto_pct": 99.6,
+     "media_cultura_do_top3_base_que_permanece": 3.0,
+     "spearman_medio_entre_pesos": 0.844,
+     "empate_no_corte_top3_pct": 100.0,
+     "top3_muda_com_desempate_invertido_pct": 100.0,
+     "n_candidatas_com_score_100_nos_pesos_base": 5,
+     "n_top1_distintos": 2,
+     "grade_spearman_medio": 0.733,
+     "grade_top1_igual_base_pct": 71.4
+    },
+    "icapui_ce": {
+     "n_candidatas": 13,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "milheto",
+      "mucuna",
+      "palma_forrageira",
+      "sorgo"
+     ],
+     "freq_top3": {
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.975,
+      "gergelim": 0.783,
+      "sorgo": 0.211,
+      "milheto": 0.021,
+      "algodao": 0.004,
+      "amendoim": 0.004,
+      "feijao_comum": 0.002,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0
+     },
+     "top3_base": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ],
+     "top1_igual_base_pct": 91.1,
+     "top3_igual_base_como_conjunto_pct": 78.3,
+     "media_cultura_do_top3_base_que_permanece": 2.76,
+     "spearman_medio_entre_pesos": 0.693,
+     "empate_no_corte_top3_pct": 19.8,
+     "top3_muda_com_desempate_invertido_pct": 19.8,
+     "n_candidatas_com_score_100_nos_pesos_base": 0,
+     "n_top1_distintos": 3,
+     "grade_spearman_medio": 0.537,
+     "grade_top1_igual_base_pct": 49.9
+    },
+    "maracanau_ce": {
+     "n_candidatas": 15,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "feijao_de_porco",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "mandioca",
+      "milheto",
+      "mucuna",
+      "palma_forrageira",
+      "sorgo"
+     ],
+     "freq_top3": {
+      "amendoim": 1.0,
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.996,
+      "algodao": 0.004,
+      "feijao_comum": 0.0,
+      "feijao_de_porco": 0.0,
+      "gergelim": 0.0,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mandioca": 0.0,
+      "milheto": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0,
+      "sorgo": 0.0
+     },
+     "top3_base": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ],
+     "top1_igual_base_pct": 99.6,
+     "top3_igual_base_como_conjunto_pct": 99.6,
+     "media_cultura_do_top3_base_que_permanece": 3.0,
+     "spearman_medio_entre_pesos": 0.844,
+     "empate_no_corte_top3_pct": 100.0,
+     "top3_muda_com_desempate_invertido_pct": 100.0,
+     "n_candidatas_com_score_100_nos_pesos_base": 5,
+     "n_top1_distintos": 2,
+     "grade_spearman_medio": 0.733,
+     "grade_top1_igual_base_pct": 71.4
+    },
+    "pereiro_ce": {
+     "n_candidatas": 12,
+     "candidatas": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "milheto",
+      "mucuna",
+      "palma_forrageira",
+      "sorgo"
+     ],
+     "freq_top3": {
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.903,
+      "gergelim": 0.664,
+      "sorgo": 0.326,
+      "milheto": 0.088,
+      "girassol": 0.012,
+      "amendoim": 0.004,
+      "feijao_comum": 0.003,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0
+     },
+     "top3_base": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ],
+     "top1_igual_base_pct": 84.3,
+     "top3_igual_base_como_conjunto_pct": 66.4,
+     "media_cultura_do_top3_base_que_permanece": 2.57,
+     "spearman_medio_entre_pesos": 0.669,
+     "empate_no_corte_top3_pct": 24.2,
+     "top3_muda_com_desempate_invertido_pct": 24.2,
+     "n_candidatas_com_score_100_nos_pesos_base": 0,
+     "n_top1_distintos": 3,
+     "grade_spearman_medio": 0.564,
+     "grade_top1_igual_base_pct": 47.1
+    },
+    "tejucuoca_ce": {
+     "n_candidatas": 13,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "milheto",
+      "mucuna",
+      "palma_forrageira",
+      "sorgo"
+     ],
+     "freq_top3": {
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.994,
+      "gergelim": 0.935,
+      "sorgo": 0.057,
+      "algodao": 0.004,
+      "amendoim": 0.004,
+      "feijao_comum": 0.004,
+      "milheto": 0.002,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0
+     },
+     "top3_base": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ],
+     "top1_igual_base_pct": 97.3,
+     "top3_igual_base_como_conjunto_pct": 93.5,
+     "media_cultura_do_top3_base_que_permanece": 2.93,
+     "spearman_medio_entre_pesos": 0.781,
+     "empate_no_corte_top3_pct": 6.4,
+     "top3_muda_com_desempate_invertido_pct": 6.4,
+     "n_candidatas_com_score_100_nos_pesos_base": 0,
+     "n_top1_distintos": 3,
+     "grade_spearman_medio": 0.592,
+     "grade_top1_igual_base_pct": 50.5
+    },
+    "vicosa_do_ceara_ce": {
+     "n_candidatas": 15,
+     "candidatas": [
+      "algodao",
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "feijao_comum",
+      "feijao_de_porco",
+      "gergelim",
+      "girassol",
+      "guandu",
+      "mamona",
+      "mandioca",
+      "milheto",
+      "mucuna",
+      "palma_forrageira",
+      "sorgo"
+     ],
+     "freq_top3": {
+      "amendoim": 1.0,
+      "crotalaria_juncea": 1.0,
+      "feijao_caupi": 0.996,
+      "algodao": 0.004,
+      "feijao_comum": 0.0,
+      "feijao_de_porco": 0.0,
+      "gergelim": 0.0,
+      "girassol": 0.0,
+      "guandu": 0.0,
+      "mamona": 0.0,
+      "mandioca": 0.0,
+      "milheto": 0.0,
+      "mucuna": 0.0,
+      "palma_forrageira": 0.0,
+      "sorgo": 0.0
+     },
+     "top3_base": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ],
+     "top1_igual_base_pct": 99.6,
+     "top3_igual_base_como_conjunto_pct": 99.6,
+     "media_cultura_do_top3_base_que_permanece": 3.0,
+     "spearman_medio_entre_pesos": 0.877,
+     "empate_no_corte_top3_pct": 100.0,
+     "top3_muda_com_desempate_invertido_pct": 100.0,
+     "n_candidatas_com_score_100_nos_pesos_base": 5,
+     "n_top1_distintos": 2,
+     "grade_spearman_medio": 0.747,
+     "grade_top1_igual_base_pct": 71.4
+    }
+   },
+   "lacunas": {
+    "acarau_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 9,
+     "spearman_motor_vs_comuns_medio": 0.847,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 2.06,
+     "score_base_medio_culturas_5crit": 71.7,
+     "score_base_medio_culturas_menos_crit": 83.0,
+     "top3_base_motor": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ],
+     "top3_base_comuns": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ]
+    },
+    "ararenda_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 3,
+     "n_com_menos_criterios": 5,
+     "spearman_motor_vs_comuns_medio": 0.772,
+     "top3_motor_pct_vagas_culturas_5crit": 36.4,
+     "top3_comuns_pct_vagas_culturas_5crit": 45.1,
+     "top1_igual_motor_vs_comuns_pct": 76.2,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 72.2,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 0.58,
+     "score_base_medio_culturas_5crit": 68.1,
+     "score_base_medio_culturas_menos_crit": 74.3,
+     "top3_base_motor": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ],
+     "top3_base_comuns": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ]
+    },
+    "baturite_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 9,
+     "spearman_motor_vs_comuns_medio": 0.845,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 2.06,
+     "score_base_medio_culturas_5crit": 70.5,
+     "score_base_medio_culturas_menos_crit": 82.4,
+     "top3_base_motor": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ],
+     "top3_base_comuns": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ]
+    },
+    "bela_cruz_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 9,
+     "spearman_motor_vs_comuns_medio": 0.847,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 2.06,
+     "score_base_medio_culturas_5crit": 71.7,
+     "score_base_medio_culturas_menos_crit": 83.0,
+     "top3_base_motor": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ],
+     "top3_base_comuns": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ]
+    },
+    "eusebio_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 10,
+     "spearman_motor_vs_comuns_medio": 0.846,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 11.62,
+     "score_base_medio_culturas_5crit": 75.0,
+     "score_base_medio_culturas_menos_crit": 86.4,
+     "top3_base_motor": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ],
+     "top3_base_comuns": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ]
+    },
+    "icapui_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 8,
+     "spearman_motor_vs_comuns_medio": 0.848,
+     "top3_motor_pct_vagas_culturas_5crit": 34.0,
+     "top3_comuns_pct_vagas_culturas_5crit": 40.4,
+     "top1_igual_motor_vs_comuns_pct": 86.1,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 81.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 0.74,
+     "score_base_medio_culturas_5crit": 66.6,
+     "score_base_medio_culturas_menos_crit": 74.1,
+     "top3_base_motor": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ],
+     "top3_base_comuns": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ]
+    },
+    "maracanau_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 10,
+     "spearman_motor_vs_comuns_medio": 0.846,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 11.62,
+     "score_base_medio_culturas_5crit": 75.0,
+     "score_base_medio_culturas_menos_crit": 86.4,
+     "top3_base_motor": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ],
+     "top3_base_comuns": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ]
+    },
+    "pereiro_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 7,
+     "spearman_motor_vs_comuns_medio": 0.85,
+     "top3_motor_pct_vagas_culturas_5crit": 36.7,
+     "top3_comuns_pct_vagas_culturas_5crit": 44.2,
+     "top1_igual_motor_vs_comuns_pct": 76.2,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 75.9,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 1.08,
+     "score_base_medio_culturas_5crit": 64.0,
+     "score_base_medio_culturas_menos_crit": 72.3,
+     "top3_base_motor": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ],
+     "top3_base_comuns": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ]
+    },
+    "tejucuoca_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 8,
+     "spearman_motor_vs_comuns_medio": 0.841,
+     "top3_motor_pct_vagas_culturas_5crit": 33.4,
+     "top3_comuns_pct_vagas_culturas_5crit": 35.2,
+     "top1_igual_motor_vs_comuns_pct": 96.5,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 94.5,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 0.4,
+     "score_base_medio_culturas_5crit": 69.0,
+     "score_base_medio_culturas_menos_crit": 82.2,
+     "top3_base_motor": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ],
+     "top3_base_comuns": [
+      "crotalaria_juncea",
+      "feijao_caupi",
+      "gergelim"
+     ]
+    },
+    "vicosa_do_ceara_ce": {
+     "criterios_comuns": [
+      "temperatura",
+      "chuva",
+      "familia_diferente"
+     ],
+     "n_com_5_criterios": 5,
+     "n_com_menos_criterios": 10,
+     "spearman_motor_vs_comuns_medio": 0.848,
+     "top3_motor_pct_vagas_culturas_5crit": 33.3,
+     "top3_comuns_pct_vagas_culturas_5crit": 33.3,
+     "top1_igual_motor_vs_comuns_pct": 100.0,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 100.0,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 11.68,
+     "score_base_medio_culturas_5crit": 75.0,
+     "score_base_medio_culturas_menos_crit": 87.5,
+     "top3_base_motor": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ],
+     "top3_base_comuns": [
+      "amendoim",
+      "crotalaria_juncea",
+      "feijao_caupi"
+     ]
+    }
+   },
+   "resumo": {
+    "freq_top3_media_pct": {
+     "crotalaria_juncea": 100.0,
+     "feijao_caupi": 97.6,
+     "gergelim": 60.3,
+     "amendoim": 33.6,
+     "sorgo": 9.2,
+     "milheto": 1.9,
+     "algodao": 0.4,
+     "girassol": 0.3,
+     "feijao_comum": 0.2,
+     "guandu": 0.0,
+     "mamona": 0.0,
+     "mandioca": 0.0,
+     "mucuna": 0.0,
+     "palma_forrageira": 0.0,
+     "feijao_de_porco": 0.0
+    },
+    "freq_top3_n_pontos_em_que_aparece_candidata": {
+     "crotalaria_juncea": 10,
+     "feijao_caupi": 10,
+     "gergelim": 10,
+     "algodao": 8,
+     "amendoim": 9,
+     "feijao_comum": 10,
+     "girassol": 10,
+     "guandu": 9,
+     "mamona": 9,
+     "mandioca": 6,
+     "milheto": 10,
+     "mucuna": 9,
+     "palma_forrageira": 10,
+     "sorgo": 10,
+     "feijao_de_porco": 3
+    },
+    "spearman_medio": 0.779,
+    "top1_igual_base_pct_medio": 96.1,
+    "top3_conjunto_igual_base_pct_medio": 90.2,
+    "empate_no_corte_top3_pct_medio": 37.8,
+    "top3_muda_com_desempate_invertido_pct_medio": 37.8,
+    "n_pontos_analisados": 10,
+    "lacunas_medias": {
+     "spearman_motor_vs_comuns_medio": 0.84,
+     "top3_motor_pct_vagas_culturas_5crit": 34.03,
+     "top3_comuns_pct_vagas_culturas_5crit": 36.47,
+     "top1_igual_motor_vs_comuns_pct": 93.5,
+     "top3_igual_motor_vs_comuns_como_conjunto_pct": 92.36,
+     "media_candidatas_com_intervalo_sobreposto_ao_1o": 4.39,
+     "score_base_medio_culturas_5crit": 70.66,
+     "score_base_medio_culturas_menos_crit": 81.16
+    }
+   },
+   "nota_N_varia_por_ponto": {
+    "crotalaria_juncea": {
+     "min": 1.0,
+     "max": 1.0,
+     "n_pontos": 10
+    },
+    "girassol": {
+     "min": 0.35,
+     "max": 0.35,
+     "n_pontos": 10
+    },
+    "guandu": {
+     "min": 0.52,
+     "max": 0.52,
+     "n_pontos": 9
+    },
+    "milheto": {
+     "min": 0.0,
+     "max": 0.0,
+     "n_pontos": 10
+    },
+    "mucuna": {
+     "min": 0.23,
+     "max": 0.23,
+     "n_pontos": 9
+    }
+   }
+  }
+ }
+}

@@ -160,6 +160,76 @@ def faixa(c: dict) -> tuple[float, float] | None:
     return (lo, hi)
 
 
+def _num_ou_none(v):
+    return float(v) if isinstance(v, (int, float)) and not isinstance(v, bool) else None
+
+
+def _pct(x) -> str:
+    x = _num_ou_none(x)
+    return LACUNA if x is None else f"{x * 100:.0f}%"
+
+
+def resumo_incerteza(c: dict) -> dict:
+    """Frases simples sobre a faixa de incerteza, P(top-N), cobertura, empate e janela (só com o que está no JSON).
+
+    Funciona só quando `faixa_incerteza` é um dict do Monte Carlo do motor (tem `p_topN` ou `cobertura`);
+    nos outros formatos devolve {'disponivel': False} e o app mantém a exibição antiga.
+    """
+    f = c.get("faixa_incerteza")
+    if not isinstance(f, dict):
+        return {"disponivel": False}
+    chave_top = next((k for k in f if re.fullmatch(r"p_top\d+", k)), None)
+    if chave_top is None and "cobertura" not in f:
+        return {"disponivel": False}
+    lo, hi = _num_ou_none(f.get("score_p10", f.get("min"))), _num_ou_none(f.get("score_p90", f.get("max")))
+    pcs = f.get("percentis") if isinstance(f.get("percentis"), list) and len(f.get("percentis")) == 2 else None
+    nome_pc = f"{fmt_num(pcs[0])}% a {fmt_num(pcs[1])}%" if pcs else "faixa central"
+    linhas = []
+    if lo is not None and hi is not None:
+        linhas.append(f"Faixa da pontuação nos sorteios ({nome_pc}): de {fmt_num(lo)} a {fmt_num(hi)}.")
+    else:
+        linhas.append(f"Faixa da pontuação: {LACUNA}.")
+    out = {"disponivel": True, "faixa": (lo, hi), "linhas": linhas, "empate": [], "cobertura": [], "janela": []}
+    if chave_top:
+        n = chave_top[len("p_top"):]
+        p3 = f.get(chave_top)
+        p10, p90 = f.get("posicao_p10"), f.get("posicao_p90")
+        linhas.append(f"Ficou entre as {n} primeiras em {_pct(p3)} dos sorteios; posição típica entre {fmt_num(p10)}º e "
+                      f"{fmt_num(p90)}º lugar (quanto menor a faixa de posições, mais firme).")
+    else:
+        linhas.append("Estratégia atual: serve de comparação e não entra no ranking das alternativas.")
+    emp = f.get("empate_tecnico_com")
+    if isinstance(emp, list) and emp:
+        out["empate"].append(f"Empate técnico com {len(emp)} outras culturas candidatas (as faixas de pontuação se "
+                             "sobrepõem): os dados não separam estas opções. Quem decide entre elas é o técnico local.")
+    cob = f.get("cobertura") if isinstance(f.get("cobertura"), dict) else {}
+    rp, cp = cob.get("ranking_principal"), cob.get("completa")
+    if isinstance(rp, dict):
+        crit = ", ".join(str(x) for x in rp.get("criterios", [])) or LACUNA
+        ptot = _num_ou_none(rp.get("peso_total")) or 0
+        frac = (_num_ou_none(rp.get("peso_coberto")) or 0) / ptot if ptot else None
+        out["cobertura"].append(f"Ranking feito só com os critérios que todas as culturas têm ({crit}), cobrindo "
+                                f"{_pct(frac)} do peso total.")
+    if isinstance(cp, dict):
+        ptot = _num_ou_none(cp.get("peso_total")) or 0
+        frac = (_num_ou_none(cp.get("peso_coberto")) or 0) / ptot if ptot else None
+        sem = cp.get("criterios_sem_dado") or []
+        txt = f"Dados disponíveis para esta cultura: {_pct(frac)} do peso total."
+        if sem:
+            txt += " Sem dado (lacuna, mostrada à parte): " + ", ".join(str(x) for x in sem) + "."
+        out["cobertura"].append(txt)
+    j = c.get("janela_plantio")
+    if isinstance(j, dict):
+        anos = j.get("anos") or [None, None, None]
+        ae = j.get("adequacao_entre_anos") or {}
+        out["janela"].append(
+            f"Melhor época de plantio no clima de {fmt_num(anos[0])} a {fmt_num(anos[1])}: início por volta de "
+            f"{fmt_num(j.get('melhor_inicio'))}, ciclo de {fmt_num(j.get('duracao_dias'))} dias (duração suposta: o ciclo real "
+            f"precisa ser confirmado). Adequação entre anos: típica {fmt_num(ae.get('p50'))}, em anos ruins "
+            f"{fmt_num(ae.get('p10'))} (0 a 1).")
+    return out
+
+
 def fmt_num(x) -> str:
     if isinstance(x, bool) or x is None or x == "":
         return LACUNA

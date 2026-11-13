@@ -30,6 +30,11 @@ MODELO_EMB = "intfloat/multilingual-e5-small"
 LIM_COBERTURA = 0.6   # fracao dos radicais da pergunta presentes no trecho
 LIM_COS = 0.87        # cosseno minimo; e5 comprime scores em ~0.76-0.92. Calibrado em poucas perguntas (negativas atingem max 0.862): margem pequena
 K_PADRAO = 5
+PESO_EXP = 0.5        # peso do voto da consulta expandida (sinonimos/EN) na fusao RRF
+PASSA_EXP = False
+N_RERANK = 30
+W_FUSAO = 1.0
+MODELO_CROSS = "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1"
 RRF_K = 60
 MSG_SEM_EVIDENCIA = "sem evidência"
 
@@ -86,6 +91,54 @@ class BM25:
         return s
 
 
+# ------------------------------------------------- vocabulario (sinonimos PT e termos EN)
+# Regras (regex sobre a pergunta sem acento, minuscula) -> termos extras anexados a consulta.
+# Sao sinonimos/traducoes de vocabulario agronomico geral; NAO contem fatos nem respostas.
+# Servem para: (a) "falta de agua" x "deficit hidrico"; (b) pergunta PT x documento EN (FAO).
+SINONIMOS: list[tuple[str, str]] = [
+    (r"falta d.? ?agua|escassez (hidrica|de agua)|seca\b|estiagem|sem agua|pouca agua",
+     "déficit hídrico deficiência hídrica estresse hídrico water stress drought"),
+    (r"deficit hidric|deficiencia hidric|estresse hidric",
+     "falta de água seca water stress drought"),
+    (r"rotacao de cultura|rotacao",
+     "rotação de culturas sucessão de culturas crop rotation"),
+    (r"palha|restos? de cultura|residuo|cobertura morta",
+     "palhada cobertura morta resíduos vegetais mulch crop residues"),
+    (r"cobertura (do solo|vegetal)|planta.{0,3} de cobertura",
+     "cobertura do solo plantas de cobertura cover crops soil cover mulch"),
+    (r"adub[oa].{0,3} verde|adubacao verde",
+     "adubação verde adubos verdes plantas de cobertura leguminosas green manure cover crops"),
+    (r"leguminos",
+     "leguminosas fixação biológica de nitrogênio legumes nitrogen fixation"),
+    (r"nitrogenio",
+     "nitrogênio nitrogen fixação biológica"),
+    (r"praga|doenca",
+     "pragas doenças pests diseases"),
+    (r"seguro rural|risco climatico|zoneamento",
+     "zoneamento agrícola de risco climático ZARC"),
+    (r"plantio direto|semeadura direta|sistema de plantio",
+     "sistema plantio direto SPD no-till zero tillage direct seeding"),
+    (r"agricultura de conservacao",
+     "conservation agriculture CA"),
+    (r"principio|pilar",
+     "princípios pilares principles"),
+    (r"erosao", "erosão erosion"),
+    (r"chuva|vento", "chuva vento rain wind"),
+    (r"consorci", "consórcio consorciado intercropping"),
+    (r"semiarid", "Semi-Árido semiárido Caatinga Nordeste"),
+    (r"eventos? climatic|mudanca.{0,3} clim", "climate change extreme climatic events"),
+    (r"subsolador|escarificador", "ripper subsoiler"),
+]
+_SIN_RE = [(re.compile(r), extra) for r, extra in SINONIMOS]
+
+
+def expandir_consulta(pergunta: str) -> str:
+    """Termos extras (sinonimos/EN) a anexar a consulta; string vazia se nenhuma regra casar."""
+    base = _sem_acento(pergunta.lower())
+    extras = [e for r, e in _SIN_RE if r.search(base)]
+    return " ".join(extras)
+
+
 # ---------------------------------------------------------------- embeddings
 _modelo = None
 
@@ -96,6 +149,17 @@ def _carregar_modelo():
         from sentence_transformers import SentenceTransformer  # import tardio: opcional
         _modelo = SentenceTransformer(MODELO_EMB, device="cpu")
     return _modelo
+
+
+_cross = None
+
+
+def _carregar_cross():
+    global _cross
+    if _cross is None:
+        from sentence_transformers import CrossEncoder  # import tardio: opcional
+        _cross = CrossEncoder(MODELO_CROSS, device="cpu")
+    return _cross
 
 
 def calcular_embeddings(textos: list[str], dir_indice: Path = DIR_INDICE) -> dict:
@@ -115,8 +179,11 @@ def calcular_embeddings(textos: list[str], dir_indice: Path = DIR_INDICE) -> dic
 
 # -------------------------------------------------------------------- indice
 class Indice:
-    def __init__(self, dir_indice: Path = DIR_INDICE, usar_embeddings: bool = True):
+    def __init__(self, dir_indice: Path = DIR_INDICE, usar_embeddings: bool = True, expandir: bool = False,
+                 rerank: bool = True):
         self.dir = Path(dir_indice)
+        self.expandir = expandir
+        self.rerank = rerank
         self.trechos = [json.loads(l) for l in (self.dir / "trechos.jsonl").read_text(encoding="utf-8").splitlines() if l]
         self.tok = [tokenizar(t["texto"]) for t in self.trechos]
         self.sets = [set(t) for t in self.tok]
@@ -129,7 +196,19 @@ class Indice:
                 self.emb = e
         self.modo = "hibrido" if self.emb is not None else "bm25"
 
-    def _cos(self, pergunta: str) -> np.ndarray | None:
+    def _reordenar(self, pergunta: str, cand: list[int]) -> list[int]:
+        """Reranking por cross-encoder multilingue sobre os candidatos da fusao (ordem estavel em empate)."""
+        try:
+            ce = _carregar_cross()
+            sc = ce.predict([(pergunta, self.trechos[i]["texto"]) for i in cand], show_progress_bar=False)
+        except Exception:
+            return cand  # modelo indisponivel: mantem a ordem da fusao
+        fus = {i: 1.0 / (r + 1) for r, i in enumerate(cand)}
+        # combina o score do cross-encoder (z-score) com a posicao da fusao (peso pequeno)
+        z = (sc - sc.mean()) / (sc.std() + 1e-9)
+        return sorted(cand, key=lambda i: -(z[cand.index(i)] + W_FUSAO * fus[i]))
+
+    def _cos(self, pergunta: str) -> np.ndarray | None:  # `pergunta` ja pode vir expandida
         if self.emb is None:
             return None
         try:
@@ -144,26 +223,39 @@ class Indice:
         if not q:
             return _sem_evidencia()
         qset = set(q)
+        extra = expandir_consulta(pergunta) if self.expandir else ""
         bm = self.bm25.scores(q)
         cos = self._cos(pergunta)
-        rank_bm = {i: r for r, i in enumerate(np.argsort(-bm)[:50]) if bm[i] > 0}
-        rank_cos = {} if cos is None else {i: r for r, i in enumerate(np.argsort(-cos)[:50])}
-        cand = set(rank_bm) | set(rank_cos)
+        # listas ordenadas: (pontuacoes, peso). A consulta expandida entra como voto extra (peso menor)
+        listas = [(bm, 1.0), (cos, 1.0)]
+        extoks = set(tokenizar(extra)) if extra else set()
+        if extra:
+            listas.append((self.bm25.scores(q + sorted(extoks)), PESO_EXP))
+            ce = self._cos(pergunta + " " + extra)
+            listas.append((ce, PESO_EXP))
+        ranks = []
+        for sc, w in listas:
+            if sc is None:
+                ranks.append(({}, w))
+            else:
+                ranks.append(({i: r for r, i in enumerate(np.argsort(-sc)[:50]) if sc[i] > 0}, w))
+        cand = set().union(*[set(r) for r, _ in ranks])
         pont = {}
         for i in cand:
             cobertura = len(qset & self.sets[i]) / len(qset)
             passa = cobertura >= lim_cobertura or (cos is not None and cos[i] >= lim_cos)
+            if not passa and extoks and PASSA_EXP:
+                cob_exp = len((qset | extoks) & self.sets[i]) / len(qset | extoks)
+                passa = cob_exp >= lim_cobertura
             if not passa:
                 continue
-            s = 0.0
-            if i in rank_bm:
-                s += 1 / (RRF_K + rank_bm[i])
-            if i in rank_cos:
-                s += 1 / (RRF_K + rank_cos[i])
-            pont[i] = s
+            pont[i] = sum(w / (RRF_K + r[i]) for r, w in ranks if i in r)
         if not pont:
             return _sem_evidencia()
-        top = sorted(pont, key=lambda i: -pont[i])[:k]
+        ordem = sorted(pont, key=lambda i: -pont[i])
+        if self.rerank:
+            ordem = self._reordenar(pergunta, ordem[:N_RERANK]) + ordem[N_RERANK:]
+        top = ordem[:k]
         return {"sem_evidencia": False, "mensagem": "", "modo": self.modo,
                 "trechos": [{"n": n, "arquivo": self.trechos[i]["arquivo"],
                              "pagina": self.trechos[i]["pagina"], "texto": self.trechos[i]["texto"]}

@@ -9,6 +9,11 @@ Regras anti-vazamento:
 - O alvo (anomalia de NDVI) é calculado à parte em `adicionar_anomalia`, com a climatologia vinda só dos
   `anos_referencia` informados. No holdout temporal, passe apenas os anos de TREINO.
 - Só observações de NDVI originais e confiáveis viram linha (interpoladas não são alvo).
+- Persistência (`adicionar_persistencia`, D41/D52): anomalia dos 1 e 2 compostos ANTERIORES do mesmo ponto, só se
+  consecutivos (<= `persistencia_max_gap_dias`). Falta/buraco => NaN, e a linha sai do treino (nunca preenchida).
+  A anomalia vem de `adicionar_anomalia` com a climatologia dos anos de treino; esta função é a MESMA usada em
+  `walkforward.py` (que a reexporta como `extra_persistencia`), para a produção não divergir do que foi validado.
+- Umidade do solo (SMAP) só entra se `preditivo.usar_umidade_solo: true` (padrão false, D52).
 """
 from __future__ import annotations
 
@@ -19,6 +24,8 @@ from .diagnostico import _quinzena, preparar_ndvi
 from .entrada import DadosInvalidos
 
 N_QUINZENAS = 24
+NOMES_PERSISTENCIA = ["anom_lag1", "anom_lag2"]
+MAX_GAP_PERSISTENCIA_DIAS = 17   # 16 d do composto + 1 d de folga
 
 
 def nomes_features(cfg: dict, com_umidade: bool) -> list[str]:
@@ -85,8 +92,14 @@ def features_diarias_ponto(
 
 
 def construir_dataset(entradas: dict, cfg: dict) -> pd.DataFrame:
-    """Uma linha por (ponto, período de NDVI observado). Sem alvo ainda (ver `adicionar_anomalia`)."""
+    """Uma linha por (ponto, período de NDVI observado). Sem alvo ainda (ver `adicionar_anomalia`).
+
+    A umidade do solo (SMAP) só vira feature com `preditivo.usar_umidade_solo: true` (padrão false: ganho ~+0,007,
+    poder baixo, e o SMAP começa em 2015, o que descartaria ~60% das linhas).
+    """
     clima, ndvi, umid = entradas["clima"], entradas["ndvi"], entradas["umidade_solo"]
+    if not cfg["preditivo"].get("usar_umidade_solo", False):
+        umid = None
     linhas = []
     for pid, cl in clima.groupby("ponto_id"):
         nd = ndvi[ndvi["ponto_id"] == pid]
@@ -127,6 +140,23 @@ def adicionar_anomalia(df: pd.DataFrame, anos_referencia, cfg: dict) -> pd.DataF
     return out
 
 
+def adicionar_persistencia(d: pd.DataFrame, max_gap_dias: int = MAX_GAP_PERSISTENCIA_DIAS) -> tuple[pd.DataFrame, list[str]]:
+    """Anomalia dos 1 e 2 compostos anteriores do mesmo ponto (conhecidos em t; só se forem consecutivos).
+
+    Entrada: tabela já com `anomalia_ndvi` (climatologia só dos anos de treino). Ordena por (ponto_id, data) e
+    devolve (tabela, ["anom_lag1", "anom_lag2"]). Lag ausente ou com buraco > `max_gap_dias` => NaN (não preenche).
+    A linha t só usa linhas de data < t do mesmo ponto: alterar NDVI/clima de t em diante não muda a feature de t.
+    """
+    d = d.sort_values(["ponto_id", "data"]).reset_index(drop=True)
+    g = d.groupby("ponto_id")
+    gap1 = g["data"].diff().dt.days
+    d["anom_lag1"] = g["anomalia_ndvi"].shift(1).where(gap1 <= max_gap_dias)
+    gap2 = g["data"].diff().shift(1)
+    gap2 = gap2.where(d["ponto_id"].eq(d["ponto_id"].shift(1))).dt.days
+    d["anom_lag2"] = g["anomalia_ndvi"].shift(2).where((gap1 <= max_gap_dias) & (gap2 <= max_gap_dias))
+    return d, list(NOMES_PERSISTENCIA)
+
+
 def resumir_dataset(df: pd.DataFrame, cfg: dict) -> dict:
     """Contagens e avisos (lacunas) do dataset, para o relatório e para o preditivo."""
     p = cfg["preditivo"]
@@ -140,7 +170,8 @@ def resumir_dataset(df: pd.DataFrame, cfg: dict) -> dict:
         lacunas.append(f"{nao_completas} períodos de NDVI sem alguma feature (janela incompleta ou dado ausente); "
                        "ficam fora do treino, não são preenchidos.")
     if not any(c.startswith("sm_raiz") for c in df.columns):
-        lacunas.append("Umidade do solo (SMAP) ausente: modelo sem features de umidade.")
+        lacunas.append("Umidade do solo (SMAP) fora do modelo (desligada por padrão em `preditivo.usar_umidade_solo`, "
+                       "D52, ou ausente): modelo sem features de umidade.")
     return {"n_linhas": int(len(df)), "n_completas": int(df["completo"].sum()), "n_pontos": int(df["ponto_id"].nunique()),
             "n_celulas": n_cel, "anos": [int(df["ano"].min()), int(df["ano"].max())], "lacunas": lacunas}
 

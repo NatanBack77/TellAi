@@ -1,0 +1,12352 @@
+{
+ "resumo": {
+  "cultura_atual": "milho",
+  "n_pontos": 195,
+  "por_prioridade": {
+   "agua": {
+    "alternativas_mostradas": 388,
+    "com_empate_tecnico": 388,
+    "frac_com_empate_tecnico": 1.0,
+    "mediana_n_empatadas": 13.0,
+    "p_top3_min": 0.372,
+    "p_top3_max": 1.0,
+    "mais_escolhidas": [
+     [
+      "guandu",
+      188
+     ],
+     [
+      "feijao_caupi",
+      135
+     ],
+     [
+      "crotalaria_juncea",
+      54
+     ],
+     [
+      "feijao_comum",
+      5
+     ],
+     [
+      "palma_forrageira",
+      3
+     ]
+    ],
+    "pontos_com_cultura_atual_inviavel": 2
+   },
+   "sem": {
+    "alternativas_mostradas": 388,
+    "com_empate_tecnico": 388,
+    "frac_com_empate_tecnico": 1.0,
+    "mediana_n_empatadas": 12.0,
+    "p_top3_min": 0.383,
+    "p_top3_max": 1.0,
+    "mais_escolhidas": [
+     [
+      "guandu",
+      189
+     ],
+     [
+      "feijao_caupi",
+      129
+     ],
+     [
+      "crotalaria_juncea",
+      62
+     ],
+     [
+      "feijao_comum",
+      5
+     ],
+     [
+      "mamona",
+      2
+     ]
+    ],
+    "pontos_com_cultura_atual_inviavel": 2
+   },
+   "solo": {
+    "alternativas_mostradas": 388,
+    "com_empate_tecnico": 194,
+    "frac_com_empate_tecnico": 0.5,
+    "mediana_n_empatadas": 0.5,
+    "p_top3_min": 0.32,
+    "p_top3_max": 1.0,
+    "mais_escolhidas": [
+     [
+      "palma_forrageira",
+      194
+     ],
+     [
+      "crotalaria_juncea",
+      163
+     ],
+     [
+      "feijao_caupi",
+      28
+     ],
+     [
+      "feijao_comum",
+      2
+     ],
+     [
+      "guandu",
+      1
+     ]
+    ],
+    "pontos_com_cultura_atual_inviavel": 2
+   }
+  }
+ },
+ "linhas": [
+  {
+   "ponto_id": "euclides_da_cunha_ba",
+   "prioridade": "sem",
+   "alternativas": [
+    "palma_forrageira",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    1,
+    2
+   ],
+   "p_top3": [
+    1.0,
+    1.0
+   ],
+   "viabilidade_atual": "inviavel"
+  },
+  {
+   "ponto_id": "euclides_da_cunha_ba",
+   "prioridade": "agua",
+   "alternativas": [
+    "palma_forrageira",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    2,
+    2
+   ],
+   "p_top3": [
+    1.0,
+    1.0
+   ],
+   "viabilidade_atual": "inviavel"
+  },
+  {
+   "ponto_id": "euclides_da_cunha_ba",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    1
+   ],
+   "p_top3": [
+    1.0,
+    1.0
+   ],
+   "viabilidade_atual": "inviavel"
+  },
+  {
+   "ponto_id": "irece_ba",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_comum"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.77,
+    0.406
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "irece_ba",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_comum"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.713,
+    0.526
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "irece_ba",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_comum"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.388
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "senhor_do_bonfim_ba",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    4,
+    4
+   ],
+   "p_top3": [
+    0.95,
+    0.785
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "senhor_do_bonfim_ba",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "sorgo"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    4,
+    4
+   ],
+   "p_top3": [
+    0.883,
+    0.832
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "senhor_do_bonfim_ba",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    1
+   ],
+   "p_top3": [
+    1.0,
+    1.0
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "abaiara_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.531,
+    0.515
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "abaiara_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.526,
+    0.462
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "abaiara_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.345
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "acarape_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "acarape_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "acarape_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.328
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "acarau_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.409,
+    0.398
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "acarau_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.409,
+    0.372
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "acarau_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.336
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "acopiara_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.517,
+    0.452
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "acopiara_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.517,
+    0.423
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "acopiara_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.361
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "aiuaba_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.445,
+    0.427
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "aiuaba_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.433,
+    0.41
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "aiuaba_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.362
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "alcantaras_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    12
+   ],
+   "p_top3": [
+    0.428,
+    0.384
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "alcantaras_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    14
+   ],
+   "p_top3": [
+    0.428,
+    0.384
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "alcantaras_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.338
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "altaneira_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.51,
+    0.422
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "altaneira_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.501,
+    0.388
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "altaneira_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.36
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "alto_santo_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.566,
+    0.509
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "alto_santo_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.556,
+    0.491
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "alto_santo_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    8
+   ],
+   "p_top3": [
+    1.0,
+    0.326
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "amontada_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.409,
+    0.398
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "amontada_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.409,
+    0.372
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "amontada_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.336
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "antonina_do_norte_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.51,
+    0.422
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "antonina_do_norte_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.501,
+    0.388
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "antonina_do_norte_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.36
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "apuiares_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    11
+   ],
+   "p_top3": [
+    0.447,
+    0.445
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "apuiares_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    14
+   ],
+   "p_top3": [
+    0.445,
+    0.432
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "apuiares_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.334
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "aquiraz_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    13
+   ],
+   "p_top3": [
+    0.489,
+    0.45
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "aquiraz_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.489,
+    0.421
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "aquiraz_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.335
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "aracati_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.479,
+    0.449
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "aracati_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.456,
+    0.435
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "aracati_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.357
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "aracoiaba_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    12
+   ],
+   "p_top3": [
+    0.473,
+    0.456
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "aracoiaba_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    14
+   ],
+   "p_top3": [
+    0.473,
+    0.437
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "aracoiaba_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.326
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ararenda_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.476,
+    0.439
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ararenda_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.433,
+    0.402
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ararenda_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    0.999,
+    0.364
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "araripe_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.51,
+    0.422
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "araripe_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.501,
+    0.388
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "araripe_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.36
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "aratuba_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    12
+   ],
+   "p_top3": [
+    0.473,
+    0.456
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "aratuba_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    14
+   ],
+   "p_top3": [
+    0.473,
+    0.437
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "aratuba_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.326
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "arneiroz_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.47,
+    0.445
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "arneiroz_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.466,
+    0.41
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "arneiroz_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.356
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "assare_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.51,
+    0.422
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "assare_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.501,
+    0.388
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "assare_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.36
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "aurora_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    13
+   ],
+   "p_top3": [
+    0.496,
+    0.403
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "aurora_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.47,
+    0.403
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "aurora_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.347
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "baixio_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    12
+   ],
+   "p_top3": [
+    0.469,
+    0.424
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "baixio_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.457,
+    0.403
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "baixio_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.346
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "banabuiu_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.599,
+    0.53
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "banabuiu_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.576,
+    0.491
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "banabuiu_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    8
+   ],
+   "p_top3": [
+    1.0,
+    0.325
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "barbalha_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_comum",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.444,
+    0.415
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "barbalha_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_comum",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.461,
+    0.415
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "barbalha_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.339
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "barreira_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    12
+   ],
+   "p_top3": [
+    0.473,
+    0.456
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "barreira_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    14
+   ],
+   "p_top3": [
+    0.473,
+    0.437
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "barreira_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.326
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "barro_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    13
+   ],
+   "p_top3": [
+    0.496,
+    0.403
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "barro_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.47,
+    0.403
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "barro_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.347
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "barroquinha_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.419,
+    0.383
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "barroquinha_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.419,
+    0.383
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "barroquinha_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.332
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "baturite_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    12
+   ],
+   "p_top3": [
+    0.473,
+    0.456
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "baturite_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    14
+   ],
+   "p_top3": [
+    0.473,
+    0.437
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "baturite_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.326
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "beberibe_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.516,
+    0.414
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "beberibe_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.518,
+    0.398
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "beberibe_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.348
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "bela_cruz_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.409,
+    0.398
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "bela_cruz_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.409,
+    0.372
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "bela_cruz_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.336
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "boa_viagem_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.505,
+    0.432
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "boa_viagem_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.502,
+    0.383
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "boa_viagem_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    8
+   ],
+   "p_top3": [
+    1.0,
+    0.32
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "brejo_santo_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.531,
+    0.515
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "brejo_santo_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.526,
+    0.462
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "brejo_santo_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.345
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "camocim_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.395,
+    0.393
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "camocim_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    11
+   ],
+   "p_top3": [
+    0.395,
+    0.387
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "camocim_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.341
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "campos_sales_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.51,
+    0.422
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "campos_sales_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.501,
+    0.388
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "campos_sales_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.36
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "caninde_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    13
+   ],
+   "p_top3": [
+    0.539,
+    0.506
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "caninde_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.523,
+    0.481
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "caninde_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.341
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "capistrano_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    12
+   ],
+   "p_top3": [
+    0.473,
+    0.456
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "capistrano_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    14
+   ],
+   "p_top3": [
+    0.473,
+    0.437
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "capistrano_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.326
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "caridade_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    11
+   ],
+   "p_top3": [
+    0.447,
+    0.445
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "caridade_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    14
+   ],
+   "p_top3": [
+    0.445,
+    0.432
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "caridade_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.334
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "carire_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.477,
+    0.453
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "carire_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.472,
+    0.453
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "carire_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.337
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "caririacu_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.442,
+    0.39
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "caririacu_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.439,
+    0.39
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "caririacu_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.341
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "carius_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.476,
+    0.449
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "carius_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.431,
+    0.431
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "carius_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.363
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "carnaubal_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.41,
+    0.383
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "carnaubal_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.41,
+    0.383
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "carnaubal_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.331
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "cascavel_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    13
+   ],
+   "p_top3": [
+    0.489,
+    0.45
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "cascavel_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.489,
+    0.421
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "cascavel_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.335
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "catarina_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.445,
+    0.427
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "catarina_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.433,
+    0.41
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "catarina_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.362
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "catunda_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "mamona"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    12
+   ],
+   "p_top3": [
+    0.575,
+    0.48
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "catunda_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "mamona"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    13
+   ],
+   "p_top3": [
+    0.575,
+    0.452
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "catunda_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.33
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "caucaia_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "caucaia_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "caucaia_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.328
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "cedro_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.476,
+    0.449
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "cedro_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.431,
+    0.431
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "cedro_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.363
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "chaval_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.419,
+    0.383
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "chaval_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.419,
+    0.383
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "chaval_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.332
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "choro_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.553,
+    0.496
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "choro_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.535,
+    0.479
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "choro_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    8
+   ],
+   "p_top3": [
+    1.0,
+    0.324
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "chorozinho_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    12
+   ],
+   "p_top3": [
+    0.473,
+    0.456
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "chorozinho_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    14
+   ],
+   "p_top3": [
+    0.473,
+    0.437
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "chorozinho_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.326
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "coreau_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    12
+   ],
+   "p_top3": [
+    0.428,
+    0.384
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "coreau_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    14
+   ],
+   "p_top3": [
+    0.428,
+    0.384
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "coreau_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.338
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "crateus_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.476,
+    0.439
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "crateus_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.433,
+    0.402
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "crateus_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    0.999,
+    0.364
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "crato_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.442,
+    0.39
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "crato_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.439,
+    0.39
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "crato_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.341
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "croata_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.432,
+    0.401
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "croata_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.431,
+    0.401
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "croata_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.339
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "cruz_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.395,
+    0.393
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "cruz_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    11
+   ],
+   "p_top3": [
+    0.395,
+    0.387
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "cruz_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.341
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "deputado_irapuan_pinheiro_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.517,
+    0.452
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "deputado_irapuan_pinheiro_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.517,
+    0.423
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "deputado_irapuan_pinheiro_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.361
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "erere_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.556,
+    0.422
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "erere_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.539,
+    0.411
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "erere_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.361
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "eusebio_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "eusebio_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "eusebio_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.328
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "farias_brito_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.442,
+    0.39
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "farias_brito_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.439,
+    0.39
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "farias_brito_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.341
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "forquilha_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.444,
+    0.436
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "forquilha_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    12
+   ],
+   "p_top3": [
+    0.436,
+    0.435
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "forquilha_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.328
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "fortaleza_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "fortaleza_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "fortaleza_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.328
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "fortim_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.516,
+    0.414
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "fortim_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.518,
+    0.398
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "fortim_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.348
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "frecheirinha_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    12
+   ],
+   "p_top3": [
+    0.428,
+    0.384
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "frecheirinha_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    14
+   ],
+   "p_top3": [
+    0.428,
+    0.384
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "frecheirinha_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.338
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "general_sampaio_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    11
+   ],
+   "p_top3": [
+    0.447,
+    0.445
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "general_sampaio_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    14
+   ],
+   "p_top3": [
+    0.445,
+    0.432
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "general_sampaio_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.334
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "graca_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.477,
+    0.453
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "graca_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.472,
+    0.453
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "graca_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.337
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "granja_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.419,
+    0.383
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "granja_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.419,
+    0.383
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "granja_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.332
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "granjeiro_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.442,
+    0.39
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "granjeiro_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.439,
+    0.39
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "granjeiro_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.341
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "groairas_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.477,
+    0.453
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "groairas_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.472,
+    0.453
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "groairas_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.337
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "guaiuba_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "guaiuba_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "guaiuba_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.328
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "guaraciaba_do_norte_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.477,
+    0.453
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "guaraciaba_do_norte_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.472,
+    0.453
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "guaraciaba_do_norte_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.337
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "guaramiranga_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    12
+   ],
+   "p_top3": [
+    0.473,
+    0.456
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "guaramiranga_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    14
+   ],
+   "p_top3": [
+    0.473,
+    0.437
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "guaramiranga_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.326
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "hidrolandia_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    13
+   ],
+   "p_top3": [
+    0.539,
+    0.471
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "hidrolandia_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.525,
+    0.471
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "hidrolandia_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.35
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "horizonte_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "horizonte_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "horizonte_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.328
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ibaretama_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.545,
+    0.523
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ibaretama_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.529,
+    0.488
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ibaretama_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.349
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ibiapina_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.41,
+    0.383
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ibiapina_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.41,
+    0.383
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ibiapina_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.331
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ibicuitinga_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.545,
+    0.523
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ibicuitinga_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.529,
+    0.488
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ibicuitinga_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.349
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "icapui_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.479,
+    0.449
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "icapui_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.456,
+    0.435
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "icapui_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.357
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ico_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    12
+   ],
+   "p_top3": [
+    0.469,
+    0.424
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ico_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.457,
+    0.403
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ico_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.346
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "iguatu_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.476,
+    0.449
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "iguatu_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.431,
+    0.431
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "iguatu_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.363
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "independencia_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.533,
+    0.482
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "independencia_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.509,
+    0.439
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "independencia_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    8
+   ],
+   "p_top3": [
+    1.0,
+    0.326
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ipaporanga_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.476,
+    0.439
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ipaporanga_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.433,
+    0.402
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ipaporanga_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    0.999,
+    0.364
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ipaumirim_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    13
+   ],
+   "p_top3": [
+    0.496,
+    0.403
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ipaumirim_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.47,
+    0.403
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ipaumirim_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.347
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ipu_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    13
+   ],
+   "p_top3": [
+    0.539,
+    0.471
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ipu_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.525,
+    0.471
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ipu_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.35
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ipueiras_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    13
+   ],
+   "p_top3": [
+    0.539,
+    0.471
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ipueiras_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.525,
+    0.471
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ipueiras_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.35
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "iracema_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.556,
+    0.422
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "iracema_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.539,
+    0.411
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "iracema_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.361
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "iraucuba_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.444,
+    0.436
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "iraucuba_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    12
+   ],
+   "p_top3": [
+    0.436,
+    0.435
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "iraucuba_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.328
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "itaicaba_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.516,
+    0.414
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "itaicaba_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.518,
+    0.398
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "itaicaba_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.348
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "itaitinga_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "itaitinga_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "itaitinga_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.328
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "itapaje_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.466,
+    0.427
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "itapaje_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.452,
+    0.427
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "itapaje_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.334
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "itapipoca_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.466,
+    0.427
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "itapipoca_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.452,
+    0.427
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "itapipoca_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.334
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "itapiuna_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    12
+   ],
+   "p_top3": [
+    0.473,
+    0.456
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "itapiuna_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    14
+   ],
+   "p_top3": [
+    0.473,
+    0.437
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "itapiuna_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.326
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "itarema_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.409,
+    0.398
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "itarema_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.409,
+    0.372
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "itarema_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.336
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "itatira_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    13
+   ],
+   "p_top3": [
+    0.539,
+    0.506
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "itatira_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.523,
+    0.481
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "itatira_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.341
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "jaguaretama_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.599,
+    0.53
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "jaguaretama_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.576,
+    0.491
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "jaguaretama_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    8
+   ],
+   "p_top3": [
+    1.0,
+    0.325
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "jaguaribara_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.599,
+    0.53
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "jaguaribara_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.576,
+    0.491
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "jaguaribara_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    8
+   ],
+   "p_top3": [
+    1.0,
+    0.325
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "jaguaribe_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.529,
+    0.453
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "jaguaribe_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.529,
+    0.426
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "jaguaribe_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.354
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "jaguaruana_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.491,
+    0.475
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "jaguaruana_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.47,
+    0.467
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "jaguaruana_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    8
+   ],
+   "p_top3": [
+    0.999,
+    0.324
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "jardim_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_comum",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.444,
+    0.415
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "jardim_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_comum",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.461,
+    0.415
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "jardim_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.339
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "jati_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.531,
+    0.515
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "jati_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.526,
+    0.462
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "jati_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.345
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "jijoca_de_jericoacoara_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.395,
+    0.393
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "jijoca_de_jericoacoara_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    11
+   ],
+   "p_top3": [
+    0.395,
+    0.387
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "jijoca_de_jericoacoara_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.341
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "juazeiro_do_norte_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.442,
+    0.39
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "juazeiro_do_norte_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.439,
+    0.39
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "juazeiro_do_norte_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.341
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "jucas_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.476,
+    0.449
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "jucas_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.431,
+    0.431
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "jucas_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.363
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "lavras_da_mangabeira_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    13
+   ],
+   "p_top3": [
+    0.496,
+    0.403
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "lavras_da_mangabeira_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.47,
+    0.403
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "lavras_da_mangabeira_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.347
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "limoeiro_do_norte_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.531,
+    0.485
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "limoeiro_do_norte_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.507,
+    0.472
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "limoeiro_do_norte_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    8
+   ],
+   "p_top3": [
+    0.999,
+    0.324
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "madalena_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.553,
+    0.496
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "madalena_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.535,
+    0.479
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "madalena_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    8
+   ],
+   "p_top3": [
+    1.0,
+    0.324
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "maracanau_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "maracanau_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "maracanau_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.328
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "maranguape_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "maranguape_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "maranguape_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.328
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "marco_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.409,
+    0.398
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "marco_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.409,
+    0.372
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "marco_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.336
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "martinopole_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.395,
+    0.393
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "martinopole_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    11
+   ],
+   "p_top3": [
+    0.395,
+    0.387
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "martinopole_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.341
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "massape_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    12
+   ],
+   "p_top3": [
+    0.428,
+    0.384
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "massape_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    14
+   ],
+   "p_top3": [
+    0.428,
+    0.384
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "massape_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.338
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "mauriti_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.531,
+    0.515
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "mauriti_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.526,
+    0.462
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "mauriti_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.345
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "meruoca_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    12
+   ],
+   "p_top3": [
+    0.428,
+    0.384
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "meruoca_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    14
+   ],
+   "p_top3": [
+    0.428,
+    0.384
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "meruoca_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.338
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "milagres_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.531,
+    0.515
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "milagres_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.526,
+    0.462
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "milagres_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.345
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "milha_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.531,
+    0.506
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "milha_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.497,
+    0.486
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "milha_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    8
+   ],
+   "p_top3": [
+    1.0,
+    0.325
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "miraima_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.445,
+    0.411
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "miraima_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.427,
+    0.411
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "miraima_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.332
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "missao_velha_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_comum",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.444,
+    0.415
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "missao_velha_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_comum",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.461,
+    0.415
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "missao_velha_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.339
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "mombaca_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.47,
+    0.445
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "mombaca_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.466,
+    0.41
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "mombaca_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.356
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "monsenhor_tabosa_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.505,
+    0.432
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "monsenhor_tabosa_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.502,
+    0.383
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "monsenhor_tabosa_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    8
+   ],
+   "p_top3": [
+    1.0,
+    0.32
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "morada_nova_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.531,
+    0.485
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "morada_nova_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.507,
+    0.472
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "morada_nova_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    8
+   ],
+   "p_top3": [
+    0.999,
+    0.324
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "moraujo_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    12
+   ],
+   "p_top3": [
+    0.428,
+    0.384
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "moraujo_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    14
+   ],
+   "p_top3": [
+    0.428,
+    0.384
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "moraujo_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.338
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "morrinhos_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.445,
+    0.411
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "morrinhos_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.427,
+    0.411
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "morrinhos_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.332
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "mucambo_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.477,
+    0.453
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "mucambo_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.472,
+    0.453
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "mucambo_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.337
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "mulungu_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    12
+   ],
+   "p_top3": [
+    0.473,
+    0.456
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "mulungu_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    14
+   ],
+   "p_top3": [
+    0.473,
+    0.437
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "mulungu_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.326
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "nova_olinda_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.442,
+    0.39
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "nova_olinda_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.439,
+    0.39
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "nova_olinda_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.341
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "nova_russas_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    13
+   ],
+   "p_top3": [
+    0.539,
+    0.471
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "nova_russas_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.525,
+    0.471
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "nova_russas_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.35
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "novo_oriente_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.533,
+    0.482
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "novo_oriente_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.509,
+    0.439
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "novo_oriente_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    8
+   ],
+   "p_top3": [
+    1.0,
+    0.326
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ocara_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    12
+   ],
+   "p_top3": [
+    0.473,
+    0.456
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ocara_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    14
+   ],
+   "p_top3": [
+    0.473,
+    0.437
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ocara_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.326
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "oros_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.529,
+    0.453
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "oros_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.529,
+    0.426
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "oros_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.354
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "pacajus_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "pacajus_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "pacajus_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.328
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "pacatuba_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "pacatuba_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "pacatuba_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.328
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "pacoti_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "pacoti_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "pacoti_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.328
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "pacuja_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.477,
+    0.453
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "pacuja_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.472,
+    0.453
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "pacuja_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.337
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "palhano_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.516,
+    0.414
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "palhano_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.518,
+    0.398
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "palhano_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.348
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "palmacia_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "palmacia_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "palmacia_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.328
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "paracuru_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.426,
+    0.426
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "paracuru_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.426,
+    0.426
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "paracuru_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.338
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "paraipaba_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.466,
+    0.427
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "paraipaba_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.452,
+    0.427
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "paraipaba_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.334
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "parambu_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "crotalaria_juncea",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.44,
+    0.438
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "parambu_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.397,
+    0.378
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "parambu_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    5
+   ],
+   "p_top3": [
+    1.0,
+    0.449
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "paramoti_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    11
+   ],
+   "p_top3": [
+    0.447,
+    0.445
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "paramoti_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    14
+   ],
+   "p_top3": [
+    0.445,
+    0.432
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "paramoti_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.334
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "pedra_branca_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.516,
+    0.408
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "pedra_branca_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "palma_forrageira"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.503,
+    0.418
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "pedra_branca_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_comum"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    8
+   ],
+   "p_top3": [
+    1.0,
+    0.323
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "penaforte_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.642,
+    0.63
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "penaforte_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.599,
+    0.492
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "penaforte_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.371
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "pentecoste_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    11
+   ],
+   "p_top3": [
+    0.447,
+    0.445
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "pentecoste_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    14
+   ],
+   "p_top3": [
+    0.445,
+    0.432
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "pentecoste_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.334
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "pereiro_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.529,
+    0.453
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "pereiro_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.529,
+    0.426
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "pereiro_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.354
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "pindoretama_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    13
+   ],
+   "p_top3": [
+    0.489,
+    0.45
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "pindoretama_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.489,
+    0.421
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "pindoretama_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.335
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "piquet_carneiro_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.517,
+    0.452
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "piquet_carneiro_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.517,
+    0.423
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "piquet_carneiro_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.361
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "pires_ferreira_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    13
+   ],
+   "p_top3": [
+    0.539,
+    0.471
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "pires_ferreira_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.525,
+    0.471
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "pires_ferreira_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.35
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "poranga_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    13
+   ],
+   "p_top3": [
+    0.513,
+    0.451
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "poranga_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.512,
+    0.443
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "poranga_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.357
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "porteiras_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_comum",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.444,
+    0.415
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "porteiras_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_comum",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.461,
+    0.415
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "porteiras_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.339
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "potengi_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.51,
+    0.422
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "potengi_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.501,
+    0.388
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "potengi_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.36
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "potiretama_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.566,
+    0.509
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "potiretama_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.556,
+    0.491
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "potiretama_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    8
+   ],
+   "p_top3": [
+    1.0,
+    0.326
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "quiterianopolis_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.444,
+    0.428
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "quiterianopolis_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.391,
+    0.379
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "quiterianopolis_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.444
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "quixada_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.545,
+    0.523
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "quixada_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.529,
+    0.488
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "quixada_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.349
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "quixelo_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.517,
+    0.452
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "quixelo_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.517,
+    0.423
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "quixelo_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.361
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "quixeramobim_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.553,
+    0.496
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "quixeramobim_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.535,
+    0.479
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "quixeramobim_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    8
+   ],
+   "p_top3": [
+    1.0,
+    0.324
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "quixere_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.531,
+    0.485
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "quixere_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.507,
+    0.472
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "quixere_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    8
+   ],
+   "p_top3": [
+    0.999,
+    0.324
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "redencao_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "redencao_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.409,
+    0.409
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "redencao_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.328
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "reriutaba_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.477,
+    0.453
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "reriutaba_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.472,
+    0.453
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "reriutaba_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.337
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "russas_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.531,
+    0.485
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "russas_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.507,
+    0.472
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "russas_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    8
+   ],
+   "p_top3": [
+    0.999,
+    0.324
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "saboeiro_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.445,
+    0.427
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "saboeiro_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.433,
+    0.41
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "saboeiro_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.362
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "salitre_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.525,
+    0.51
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "salitre_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.495,
+    0.465
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "salitre_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.36
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "santa_quiteria_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "mamona"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    12
+   ],
+   "p_top3": [
+    0.575,
+    0.48
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "santa_quiteria_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "mamona"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    13
+   ],
+   "p_top3": [
+    0.575,
+    0.452
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "santa_quiteria_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.33
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "santana_do_acarau_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.445,
+    0.411
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "santana_do_acarau_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.427,
+    0.411
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "santana_do_acarau_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.332
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "santana_do_cariri_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.51,
+    0.422
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "santana_do_cariri_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.501,
+    0.388
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "santana_do_cariri_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.36
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "sao_benedito_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.41,
+    0.383
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "sao_benedito_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.41,
+    0.383
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "sao_benedito_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.331
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "sao_goncalo_do_amarante_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.426,
+    0.426
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "sao_goncalo_do_amarante_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.426,
+    0.426
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "sao_goncalo_do_amarante_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.338
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "sao_joao_do_jaguaribe_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.566,
+    0.509
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "sao_joao_do_jaguaribe_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.556,
+    0.491
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "sao_joao_do_jaguaribe_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    8
+   ],
+   "p_top3": [
+    1.0,
+    0.326
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "sao_luis_do_curu_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.466,
+    0.427
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "sao_luis_do_curu_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.452,
+    0.427
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "sao_luis_do_curu_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.334
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "senador_pompeu_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.531,
+    0.506
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "senador_pompeu_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.497,
+    0.486
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "senador_pompeu_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    8
+   ],
+   "p_top3": [
+    1.0,
+    0.325
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "senador_sa_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    12
+   ],
+   "p_top3": [
+    0.428,
+    0.384
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "senador_sa_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    14
+   ],
+   "p_top3": [
+    0.428,
+    0.384
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "senador_sa_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.338
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "sobral_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.444,
+    0.436
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "sobral_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    12
+   ],
+   "p_top3": [
+    0.436,
+    0.435
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "sobral_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.328
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "solonopole_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.529,
+    0.453
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "solonopole_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.529,
+    0.426
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "solonopole_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.354
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "tabuleiro_do_norte_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.566,
+    0.509
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "tabuleiro_do_norte_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.556,
+    0.491
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "tabuleiro_do_norte_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    8
+   ],
+   "p_top3": [
+    1.0,
+    0.326
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "tamboril_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.476,
+    0.439
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "tamboril_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.433,
+    0.402
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "tamboril_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    0.999,
+    0.364
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "tarrafas_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.445,
+    0.427
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "tarrafas_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.433,
+    0.41
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "tarrafas_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.362
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "taua_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.47,
+    0.445
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "taua_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.466,
+    0.41
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "taua_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.356
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "tejucuoca_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    11
+   ],
+   "p_top3": [
+    0.447,
+    0.445
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "tejucuoca_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    14
+   ],
+   "p_top3": [
+    0.445,
+    0.432
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "tejucuoca_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.334
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "tiangua_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.428,
+    0.408
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "tiangua_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.428,
+    0.408
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "tiangua_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.329
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "trairi_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.466,
+    0.427
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "trairi_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.452,
+    0.427
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "trairi_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.334
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "tururu_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.466,
+    0.427
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "tururu_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.452,
+    0.427
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "tururu_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.334
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ubajara_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.41,
+    0.383
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ubajara_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.41,
+    0.383
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "ubajara_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.331
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "umari_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    12
+   ],
+   "p_top3": [
+    0.469,
+    0.424
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "umari_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.457,
+    0.403
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "umari_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.346
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "umirim_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.466,
+    0.427
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "umirim_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.452,
+    0.427
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "umirim_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.334
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "uruburetama_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.466,
+    0.427
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "uruburetama_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    10,
+    10
+   ],
+   "p_top3": [
+    0.452,
+    0.427
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "uruburetama_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.334
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "uruoca_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    12
+   ],
+   "p_top3": [
+    0.428,
+    0.384
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "uruoca_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    14
+   ],
+   "p_top3": [
+    0.428,
+    0.384
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "uruoca_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.338
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "varjota_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.477,
+    0.453
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "varjota_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.472,
+    0.453
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "varjota_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.337
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "varzea_alegre_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.442,
+    0.39
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "varzea_alegre_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    14,
+    14
+   ],
+   "p_top3": [
+    0.439,
+    0.39
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "varzea_alegre_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.341
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "vicosa_do_ceara_ce",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.428,
+    0.408
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "vicosa_do_ceara_ce",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.428,
+    0.408
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "vicosa_do_ceara_ce",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.329
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "patos_pb",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.514,
+    0.472
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "patos_pb",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.481,
+    0.456
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "patos_pb",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.363
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "sousa_pb",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.537,
+    0.515
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "sousa_pb",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.514,
+    0.467
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "sousa_pb",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    6
+   ],
+   "p_top3": [
+    1.0,
+    0.362
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "araripina_pe",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.705,
+    0.522
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "araripina_pe",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    12,
+    12
+   ],
+   "p_top3": [
+    0.597,
+    0.49
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "araripina_pe",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    8
+   ],
+   "p_top3": [
+    1.0,
+    0.336
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "petrolina_pe",
+   "prioridade": "sem",
+   "alternativas": [],
+   "empate_tecnico": [],
+   "n_empatadas": [],
+   "p_top3": [],
+   "viabilidade_atual": "inviavel"
+  },
+  {
+   "ponto_id": "petrolina_pe",
+   "prioridade": "agua",
+   "alternativas": [],
+   "empate_tecnico": [],
+   "n_empatadas": [],
+   "p_top3": [],
+   "viabilidade_atual": "inviavel"
+  },
+  {
+   "ponto_id": "petrolina_pe",
+   "prioridade": "solo",
+   "alternativas": [],
+   "empate_tecnico": [],
+   "n_empatadas": [],
+   "p_top3": [],
+   "viabilidade_atual": "inviavel"
+  },
+  {
+   "ponto_id": "serra_talhada_pe",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    9,
+    9
+   ],
+   "p_top3": [
+    0.766,
+    0.583
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "serra_talhada_pe",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    9,
+    9
+   ],
+   "p_top3": [
+    0.662,
+    0.46
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "serra_talhada_pe",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    3
+   ],
+   "p_top3": [
+    1.0,
+    0.591
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "sertania_pe",
+   "prioridade": "sem",
+   "alternativas": [
+    "guandu",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    5,
+    5
+   ],
+   "p_top3": [
+    0.893,
+    0.728
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "sertania_pe",
+   "prioridade": "agua",
+   "alternativas": [
+    "guandu",
+    "palma_forrageira"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    5,
+    5
+   ],
+   "p_top3": [
+    0.752,
+    0.563
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "sertania_pe",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    1
+   ],
+   "p_top3": [
+    1.0,
+    1.0
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "picos_pi",
+   "prioridade": "sem",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.703,
+    0.605
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "picos_pi",
+   "prioridade": "agua",
+   "alternativas": [
+    "feijao_caupi",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    13,
+    13
+   ],
+   "p_top3": [
+    0.624,
+    0.578
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "picos_pi",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "crotalaria_juncea"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    7
+   ],
+   "p_top3": [
+    1.0,
+    0.365
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "mossoro_rn",
+   "prioridade": "sem",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.491,
+    0.475
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "mossoro_rn",
+   "prioridade": "agua",
+   "alternativas": [
+    "crotalaria_juncea",
+    "guandu"
+   ],
+   "empate_tecnico": [
+    true,
+    true
+   ],
+   "n_empatadas": [
+    11,
+    11
+   ],
+   "p_top3": [
+    0.47,
+    0.467
+   ],
+   "viabilidade_atual": "viavel"
+  },
+  {
+   "ponto_id": "mossoro_rn",
+   "prioridade": "solo",
+   "alternativas": [
+    "palma_forrageira",
+    "feijao_caupi"
+   ],
+   "empate_tecnico": [
+    false,
+    true
+   ],
+   "n_empatadas": [
+    0,
+    8
+   ],
+   "p_top3": [
+    0.999,
+    0.324
+   ],
+   "viabilidade_atual": "viavel"
+  }
+ ]
+}

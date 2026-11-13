@@ -60,6 +60,12 @@ preditivo:
   cobertura_alvos: [0.8, 0.9]
   conformal_fracao_calibracao: 0.25   # fração das CÉLULAS do treino reservada à calibração
   min_celulas_aviso: 15
+  # D52: persistência = anomalia dos 2 compostos anteriores (validada em walk-forward, D41). Padrão: ligada.
+  # false => modelo só-clima (comportamento anterior), mantido como opção e como linha de comparação no relatório.
+  usar_persistencia: true
+  persistencia_max_gap_dias: 17     # compostos só contam como consecutivos se separados por <= 17 dias
+  # D52: SMAP desligado por padrão (ganho ~+0,007 sobre a persistência, poder baixo, perde ~60% das linhas por começar em 2015).
+  usar_umidade_solo: false
 
 # Coleta (src/coleta). PONTOS = PROPOSTA a revisar (S2): semiárido do Nordeste, uma célula POWER por ponto.
 coleta:

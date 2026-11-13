@@ -1,0 +1,833 @@
+{
+ "_meta": {
+  "fonte": "src.rag.busca via src.pipeline.gerar_cenarios.evidencias (K=2 por critério; o trecho só é mantido se citar a cultura e um termo do critério)",
+  "acervo": "docs_rag/manifesto.json"
+ },
+ "milho": {
+  "temperatura": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "agrometeoros_zoneamento_metodologias.pdf",
+     "pagina": 9,
+     "texto": "Probabilidade de ocorrência de temperaturas superiores a 30 oC no florescimento do feijoeiro (Phaseolus vulgaris L.), cultivado na safra das águas no estado do Paraná. Revista Brasileira de Agrometeorologia, Santa Maria, v. 5, n.1, p. 99-107, 1997. GONÇALVES, S.L.; WREGE, M.S.; CARAMORI, P.H.; SHIOGA, P.; GERAGE, A.C. Épocas de semeadura do milho safrinha no Paraná com menores riscos climáticos. Acta Scientiarum (UEM), Maringá, v. 24, n.5, p. 12871290, 2002. SANS, L.M.A; ASSAD, E.D.; GUIMARÃES, D.P. Zoneamento de riscos climáticos para a cultura do milho na Região Centro-Oeste do Brasil e para o estado de Minas Gerais."
+    }
+   ]
+  },
+  "chuva": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "pab_milho_sucessao_adubos_verdes.pdf",
+     "pagina": 6,
+     "texto": "Porém, no segundo ano de cultivo, após o florescimento da cultura, houve ocorrência de poucas chuvas e grandes períodos de estiagem (Figura 1), o que prejudicou sensivelmente o enchimento dos grãos, em todos os tratamentos, já que, de acordo com Eck (1986), as fases mais sensíveis à deficiência hídrica na cultura do milho, em ordem decrescente, são: florescimento, enchimento de grãos e desenvolvimento vegetativo. Conclusões 1. A crotalária cultivada na primavera proporciona maior produtividade do milho em sucessão comparada à área de pousio, em ano com precipitação normal, tanto em plantio direto, quanto no sistema de preparo convencional do solo."
+    },
+    {
+     "n": 2,
+     "arquivo": "pab_milho_sucessao_adubos_verdes.pdf",
+     "pagina": 6,
+     "texto": "No ano agrícola de 1998/1999, os valores de massa da espiga sem palha, número de grãos por espiga, massa de 100 grãos e produtividade de grãos, em todos os tratamentos, foram menores do que no ano anterior. Durante o ciclo da cultura do milho, foram registrados 672 mm de chuva em 1997/1998 e 788 mm em 1998/ 1999. Porém, no segundo ano de cultivo, após o florescimento da cultura, houve ocorrência de poucas chuvas e grandes períodos de estiagem (Figura 1), o que prejudicou sensivelmente o enchimento dos grãos, em todos os tratamentos, já que, de acordo com Eck (1986), as fases mais sensíveis à deficiência hídrica na cultura do milho, em ordem decrescente, são: florescimento, enchimento de grãos e desenvolvimento vegetativo."
+    }
+   ]
+  },
+  "n_na_biomassa": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 2,
+     "arquivo": "embrapa_semiarido_adubacao_verde_videira_meloeiro.pdf",
+     "pagina": 11,
+     "texto": "A dosagem de 40 kg ha' de N mineral junto com adubação verde foi tão boa quanto a de 120 kg ha 1 de N mineral sem adubação verde, no que se refere a produção de grãos e acumulação de nutrientes na planta e no solo (Tiwari et ai., 1980). Bruulsema & Christie (1987) verificaram que o rendimento do milho que sucedeu a adubação verde foi influenciado positivamente pelo aumento do nitrogênio disponível e, também, por outros fatores decorrentes da incorporação dos adubos verdes ao solo. Contudo, em trabalho sobre rotação de adubo verde com trigo conduzido por cinco anos, em solo franco-arenoso com menos de 1% de C orgânico, em uma região semi-árida, Pikul Jr. et aI."
+    }
+   ]
+  },
+  "palha": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_bogiani_rotacao_palhada_spd.pdf",
+     "pagina": 1,
+     "texto": "Entretanto, neste sistema de rotação, em virtude do longo período que o algodoeiro permanece no campo, a persistência da palhada formada no ano anterior deve ser alta, para que haja proteção do solo durante tod o este ano de culti vo do algodoeiro e no início da próxima safra de soja, e assim que os beneficios da palhada sejam e fetivos. Neste cenário, para o conSórcio de Milho+braquiária, torna-se necessário a escolha de espécies de gramíneas de maior relação CIN , com boa persistência sobre o solo, que tenham rápido crescimento e potencial para produzir graode quan tidade de biomassa, e também tenha um crescimento radicular vigoroso a fim de recuperar os nutrientes nas camadas mais profundas do solo, principalmente os de maior facilid ade de lixiviação como o potáss io."
+    },
+    {
+     "n": 2,
+     "arquivo": "embrapa_cap3_sistema_plantio_direto.pdf",
+     "pagina": 4,
+     "texto": "64 Agricultura de baixo carbono: tecnologias e estratégias de implantação gerando maior probabilidade de erosão, principalmente porque interfere negativamente na estrutura e teores de matéria orgânica do solo, entre outros fatores (Franzluebbers, 2010). com maquinários e combustível. Geralmente o preparo de solo, convencional, é realizado por meio da aração (arado de disco ou aiveca dependendo das condições do solo) e gradagem. Palhada A palhada é oriunda de plantas de cobertura semeadas que são cultivadas anteriormente (resteva). Ou mesmo pela Brasil, atualmente, a principal cultura geradora de palhada é o milho, que é cultivado em sucessão à cultura da soja, semeado chuvoso no cerrado brasileiro."
+    }
+   ]
+  },
+  "familia_diferente": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_microrganismos_feijoeiro_milho.pdf",
+     "pagina": 1,
+     "texto": "4 INTRODUÇÃO O consórcio de culturas, como feijoeiro/milho, feijoeiro/cana-de-açúcar, soja/milho, e a rotação de culturas, como soja/trigo, soja/milho e feijoeiro/milho, são utilizadas em larga escala. Os benefícios da associação de culturas compreendem o suprimento energético e de nutrientes balanceado, maximização das fontes protéicas, utilização eficiente da água, controle de ervas daninhas e doenças a um baixo custo, controle"
+    },
+    {
+     "n": 2,
+     "arquivo": "embrapa_bogiani_rotacao_palhada_spd.pdf",
+     "pagina": 1,
+     "texto": "A lém destes, proporcionam a produção diversificada de alimentos e outros produtos agrícolas, se adotada e conduzida de modo adequado e por um período sufi c ientemente longo. A rotação de cu ltura com soja! milho+braquiária!a lgodào tem sido a alternativa mai s utilizada na região, pois favorece uma boa formação e manutenção de palhada e aproveitamento da reciclagem de nutrientes no sistema, com excelentes resultados para o potássio e para o nitrogênio. Entretanto, neste sistema de rotação, em virtude do longo período que o algodoeiro permanece no campo, a persistência da palhada formada no ano anterior deve ser alta, para que haja proteção do solo durante tod o este ano de culti vo do algodoeiro e no início da próxima safra de soja, e assim que os beneficios da palhada sejam e fetivos."
+    }
+   ]
+  }
+ },
+ "feijao_caupi": {
+  "temperatura": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 17,
+     "texto": "1 Que elementos climáticos mais influenciam a produtividade de grãos do feijão-caupi? Os principais elementos climáticos que influenciam a produ­ tividade de grãos do feijão-caupi são precipitação pluviométrica, temperatura do ar e radiação solar. 2 Como a temperatura do ar afeta a cultura do feijão-caupi? A temperatura do ar é um dos elementos climáticos de maior importância para o crescimento, o desenvolvimento e a produtividade de grãos da cultura do feijão-caupi. Em geral, para que essa cultura atinja elevada produtividade, os valores de temperatura do ar devem estar em torno de 30 °C durante o dia e 22 °C durante a noite."
+    },
+    {
+     "n": 2,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 17,
+     "texto": "Em geral, para que essa cultura atinja elevada produtividade, os valores de temperatura do ar devem estar em torno de 30 °C durante o dia e 22 °C durante a noite. Temperaturas do ar ao redor de 35 °C podem ocasionar o abortamento de flores e afetar negativamente o vingamento de vagens, principalmente se a cultura estiver submetida a limitado suprimento de água. 3 Qual a fase do ciclo do feijão-caupi mais crítica sob altas temperaturas? A fase mais crítica sob altas temperaturas estende-se do período imediatamente anterior à floração até o início da formação das vagens. Nessa fase, a incidência de altas temperaturas, princi­ palmente à noite, pode provocar grande abortamento de flores e vagens, chegando até a afetar o processo de fecundação."
+    }
+   ]
+  },
+  "chuva": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 27,
+     "texto": "de precipitação. O ideal é que as séries tenham mais de 30 anos de dados diários de chuva. Isso é importante porque se calcula o Isna para uma frequência de ocorrência de 80%, ou seja, 8 anos em cada 10 anos de registros, o que assegura certa margem de segurança ao zoneamento de risco climático. As classes de Isna usadas no zoneamento do feijão-caupi são as seguintes: • Baixo risco (época favorável à semeadura): Isna ≥ 0,50. • Médio risco (época intermediária): 0,40 < Isna < 0,50. • Alto risco (época desfavorável à semeadura): Isna ≤ 0,40. Isso significa que uma determinada data de semeadura é considerada apta ao cultivo de feijão-caupi (baixo risco climático) quando, no mínimo, metade da exigência hídrica da cultura é atendida pela disponibilidade de água no solo."
+    },
+    {
+     "n": 2,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 203,
+     "texto": "No Cerrado brasileiro, a cultura do feijão-caupi pode ser utilizada com sucesso na segunda safra, ou seja, na safrinha. Nessa região, as características da segunda safra enquadram-se bem com as características da planta de feijão-caupi e com as exigências da cultura quanto às condições climáticas. Na safrinha, o plantio é feito no final do período chuvoso; assim, a colheita do feijão-caupi se dá em período seco, quando as chuvas já estão terminando. Essa condição é ideal para o feijão-caupi, pois os grãos perdem qualidade rapidamente quando ocorrem chuvas durante a colheita. O feijão-caupi possui boa eficiência no uso da água, condição muito favorável ao cultivo na safrinha que, como se sabe, ocorre no final do período chuvoso, período em que pode ocorrer estresse hídrico."
+    }
+   ]
+  },
+  "n_na_biomassa": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 95,
+     "texto": "Além da sua importância alimentar, o feijão-caupi tem alto potencial de utilização na adubação verde, por apresentar algumas das características desejáveis para um bom adubo verde, tais como: rápido crescimento inicial, elevado potencial de fixação biológica do nitrogênio (N), produção de biomassa e acúmulo de N na parte aérea, adaptação local e possibilidade de uso na alimentação animal. Considerado uma opção de fonte de matéria orgânica, o feijão-caupi produz elevada quantidade de biomassa, contribuindo com um aporte de nitrogênio de até 90 kg ha-1 de N. Esse aporte, associado à exploração da FBN e à eficiência desse processo, propicia a introdução do feijão-caupi em solos com baixos teores de matéria orgânica, com bons resultados."
+    },
+    {
+     "n": 2,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 95,
+     "texto": "proporcionando aumento de 39% e de 23% na produtividade de grãos de milho e feijão-caupi, respectivamente, em comparação com o tratamento sem adubo verde. 168 Qual é o potencial do feijão-caupi para a adubação verde? Além da sua importância alimentar, o feijão-caupi tem alto potencial de utilização na adubação verde, por apresentar algumas das características desejáveis para um bom adubo verde, tais como: rápido crescimento inicial, elevado potencial de fixação biológica do nitrogênio (N), produção de biomassa e acúmulo de N na parte aérea, adaptação local e possibilidade de uso na alimentação animal."
+    }
+   ]
+  },
+  "palha": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 74,
+     "texto": "Para diminuir o escoamento superficial em lavouras de feijão-caupi, deve-se agir em duas direções: aumentar a cobertura do solo e criar barreiras físicas ao escoamento. 73"
+    },
+    {
+     "n": 2,
+     "arquivo": "pesagro_rio_rural_rotacao_culturas.pdf",
+     "pagina": 9,
+     "texto": "De acordo com Boller e Caldato (2001), a palhada de centeio chega a cobrir 78% da superfície do solo, proporcionando maior proteção contra a erosão. A palhada de mucuna preta proporcionou benefícios na nodulação mais eficientes na cultura do feijão e, consequentemente, maior acúmulo de N e matéria seca nas plantas de feijão (ABBOUD; DUQUE, 1986). Esse fato, certamente, está relacionado com as condições favoráveis de temperatura e umidade no solo promovido pela palha em cobertura. As diferentes palhadas das plantas de cobertura influenciam diretamente o rendimento de grãos da cultura do feijoeiro, sendo mais afetado pela espécie produtora de palha que pela sua forma de cultivo (OLIVEIRA et al., 2002)."
+    }
+   ]
+  },
+  "familia_diferente": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 136,
+     "texto": "Considerando os aspectos fitossanitários, econômicos, de ocu­ pação de espaços, de aproveitamento de resíduos para fertilização, e considerando ainda que o sistema de irrigação mais indicado para o feijão-caupi é a aspersão convencional, as culturas preferenciais para rotação são gramíneas, como milho, sorgo e milheto. As culturas de girassol, gergelim e algodão também podem ser rotacionadas com o feijão-caupi. 135"
+    },
+    {
+     "n": 2,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 136,
+     "texto": "Em pesquisas conduzidas na Embrapa Meio-Norte (Teresina, PI), em solo Argissolo Amarelo, constatou-se que a população de plantas de feijão-caupi que permite a obtenção de elevadas produtividades de grãos (acima de 1.500 kg ha-1), para a cultivar BRS Itaim (porte ereto) sob irrigação, é de 240 mil plantas por hectare (OLIVEIRA, 2013). 248 Que culturas podem ser utilizadas em rotação para alcan­ çar um melhor aproveitamento da área irrigada com feijão-caupi? Considerando os aspectos fitossanitários, econômicos, de ocu­ pação de espaços, de aproveitamento de resíduos para fertilização, e considerando ainda que o sistema de irrigação mais indicado para o feijão-caupi é a aspersão convencional, as culturas preferenciais para rotação são gramíneas, como milho, sorgo e milheto."
+    }
+   ]
+  }
+ },
+ "feijao_comum": {
+  "temperatura": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 204,
+     "texto": "Na safrinha, é comum a ocorrência de altas temperaturas, por isso, recomendam-se variedades de feijão-caupi selecionadas para regiões quentes, adaptadas, portanto, às condições de altas temperaturas durante a safrinha no Cerrado brasileiro. Essas variedades recomendadas de feijão-caupi possuem ciclo curto (entre 70 e 75 dias), condição favorável para o cultivo na segunda safra, em que o período chuvoso é curto. 403 O feijão-caupi safrinha pode ser semeado em todo o Brasil? Não, apenas em regiões onde o período chuvoso permite a semeadura da segunda safra e onde não há ocorrência de tem­ peraturas baixas."
+    },
+    {
+     "n": 2,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 17,
+     "texto": "1 Que elementos climáticos mais influenciam a produtividade de grãos do feijão-caupi? Os principais elementos climáticos que influenciam a produ­ tividade de grãos do feijão-caupi são precipitação pluviométrica, temperatura do ar e radiação solar. 2 Como a temperatura do ar afeta a cultura do feijão-caupi? A temperatura do ar é um dos elementos climáticos de maior importância para o crescimento, o desenvolvimento e a produtividade de grãos da cultura do feijão-caupi. Em geral, para que essa cultura atinja elevada produtividade, os valores de temperatura do ar devem estar em torno de 30 °C durante o dia e 22 °C durante a noite."
+    }
+   ]
+  },
+  "chuva": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 27,
+     "texto": "de precipitação. O ideal é que as séries tenham mais de 30 anos de dados diários de chuva. Isso é importante porque se calcula o Isna para uma frequência de ocorrência de 80%, ou seja, 8 anos em cada 10 anos de registros, o que assegura certa margem de segurança ao zoneamento de risco climático. As classes de Isna usadas no zoneamento do feijão-caupi são as seguintes: • Baixo risco (época favorável à semeadura): Isna ≥ 0,50. • Médio risco (época intermediária): 0,40 < Isna < 0,50. • Alto risco (época desfavorável à semeadura): Isna ≤ 0,40. Isso significa que uma determinada data de semeadura é considerada apta ao cultivo de feijão-caupi (baixo risco climático) quando, no mínimo, metade da exigência hídrica da cultura é atendida pela disponibilidade de água no solo."
+    },
+    {
+     "n": 2,
+     "arquivo": "agrometeoros_zoneamento_metodologias.pdf",
+     "pagina": 4,
+     "texto": "O mesmo ocorre na me2016a, 2016b e 2018a). tade Sul do Rio Grande do Sul, onde o clima é de transição para o clima do Uruguai e as chuvas tendem a se concenRiscos de excessos de chuva na colheita trar ligeiramente mais no inverno e um pouco menos no O excesso hídrico no período previsto para a colheita verão. Nas demais regiões do País, a chuvas na colheita são pode ser calculado baseando-se na série histórica de dados mais raras, sendo mais comum ocorrer déficit hídrico. de chuva. Algumas culturas são mais sensíveis que outras. O risco de chuva na colheita (rcc) pode ser determinado A exemplo, podemos citar a cultura do feijão em ponto de 278 Agrometeoros, Passo Fundo, v.26, n.2, p.275-285, dez 2018."
+    }
+   ]
+  },
+  "n_na_biomassa": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 95,
+     "texto": "Além da sua importância alimentar, o feijão-caupi tem alto potencial de utilização na adubação verde, por apresentar algumas das características desejáveis para um bom adubo verde, tais como: rápido crescimento inicial, elevado potencial de fixação biológica do nitrogênio (N), produção de biomassa e acúmulo de N na parte aérea, adaptação local e possibilidade de uso na alimentação animal. Considerado uma opção de fonte de matéria orgânica, o feijão-caupi produz elevada quantidade de biomassa, contribuindo com um aporte de nitrogênio de até 90 kg ha-1 de N. Esse aporte, associado à exploração da FBN e à eficiência desse processo, propicia a introdução do feijão-caupi em solos com baixos teores de matéria orgânica, com bons resultados."
+    },
+    {
+     "n": 2,
+     "arquivo": "embrapa_semiarido_adubacao_verde_videira_meloeiro.pdf",
+     "pagina": 10,
+     "texto": "As plantas mais utilizadas como adubo verde são as leguminosas, pois além de adicionarem carbono ao solo, adicionam quantidades novas de nitrogênio por meio do processo de fixação simbiótica de N, realizado por bactérias do gênero Rhizobium, que ocorrem associadas a suas raízes, beneficiando, assim, a cultura comercial que esteja consorciada com a leguminosa ou a que sucede o seu cultivo. Entre as leguminosas avaliadas como adubo verde no Submédio São Francisco, a mucuna preta, o guandu, a crotalária júncea e o feijão de porco foram consideradas as mais promissoras, com produções de biomassa seca acima de 5.000 kg ha' (Choudhury et al., 1991)."
+    }
+   ]
+  },
+  "palha": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "pesagro_rio_rural_rotacao_culturas.pdf",
+     "pagina": 9,
+     "texto": "De acordo com Boller e Caldato (2001), a palhada de centeio chega a cobrir 78% da superfície do solo, proporcionando maior proteção contra a erosão. A palhada de mucuna preta proporcionou benefícios na nodulação mais eficientes na cultura do feijão e, consequentemente, maior acúmulo de N e matéria seca nas plantas de feijão (ABBOUD; DUQUE, 1986). Esse fato, certamente, está relacionado com as condições favoráveis de temperatura e umidade no solo promovido pela palha em cobertura. As diferentes palhadas das plantas de cobertura influenciam diretamente o rendimento de grãos da cultura do feijoeiro, sendo mais afetado pela espécie produtora de palha que pela sua forma de cultivo (OLIVEIRA et al., 2002)."
+    },
+    {
+     "n": 2,
+     "arquivo": "pesagro_rio_rural_rotacao_culturas.pdf",
+     "pagina": 14,
+     "texto": "24, p. 417-425, 2000. BOLLER, W.; CALDATO, D. E. Desenvolvimento da cultura do feijão (Phaseolus vulgaris L.) em diferentes condições de cobertura e de preparo do solo. Revista Engenharia Agrícola, v. 21, n. 2, p. 167-173. 2001. BORTULUZZI, E. C.; ELTZ, F. L. F. Efeito do manejo mecânico da palhada de aveia preta sobre a cobertura, temperatura, teor de água no solo e emergência da soja em sistema de plantio direto. Revista Brasileira da Ciência do Solo, v. 24: p. 449457, 2000. DERPSCH, R.; SIDIRAS, N.; HEINZMANN, F. X. Manejo do solo com coberturas verdes de inverno. Pesquisa Agropecuária Brasileira, v."
+    }
+   ]
+  },
+  "familia_diferente": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "pesagro_rio_rural_rotacao_culturas.pdf",
+     "pagina": 12,
+     "texto": "Avaliando o esquema de rotação de culturas para as culturas do feijão e do milho em Campos dos Goyta- cazes-RJ, constatou-se que os teores foliares de N, K, S, Mn, Fe e Cu na cultura do milho e de N, K, Ca e Mn na cultura do feijão comum foram maiores quando se utilizou o esquema de sucessão feijão-deporco/feijão comum/ feijão-de-porco/milho em SSD, quando cultivado sobre palhada remanescente de três cultivos consecutivos com leguminosas. As maiores produtividades do milho e do feijão comum foram obtidas com as sucessões feijão-de-porco/ milho/feijão-de-porco/milho e feijão-de-porco/ feijão comum/feijão-de-porco/milho em SSD."
+    },
+    {
+     "n": 2,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 136,
+     "texto": "Considerando os aspectos fitossanitários, econômicos, de ocu­ pação de espaços, de aproveitamento de resíduos para fertilização, e considerando ainda que o sistema de irrigação mais indicado para o feijão-caupi é a aspersão convencional, as culturas preferenciais para rotação são gramíneas, como milho, sorgo e milheto. As culturas de girassol, gergelim e algodão também podem ser rotacionadas com o feijão-caupi. 135"
+    }
+   ]
+  }
+ },
+ "sorgo": {
+  "temperatura": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_meionorte_caupi_plantio_direto_semiarido_piaui.pdf",
+     "pagina": 3,
+     "texto": "O experimento foi conduzido em duas etapas: a primeira constou do plantio do sorgo (Sorgum bicolor L.) no período de 22 de abril de 2015 a 27 de julho de 2015, quando a massa verde produzida foi cortada, com rolofaca, e deixada no solo para secagem e formação da palhada, ficando assim pronta para uso em plantio direto (Figura 1). Posteriormente, no dia 17 de setembro de 2015, foi implantado o feijão-caupi ‘BRS Imponente’, que foi conduzido desta data até a colheita no dia 2 de dezembro de 2015. As temperaturas médias mensais do ar durante o ciclo da cultura foram 29,5°C, 29,8°C, 29,4°C e 29,8°C nos meses de setembro, outubro, novembro e dezembro, respectivamente."
+    }
+   ]
+  },
+  "chuva": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "n_na_biomassa": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "palha": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "familia_diferente": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 2,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 136,
+     "texto": "Considerando os aspectos fitossanitários, econômicos, de ocu­ pação de espaços, de aproveitamento de resíduos para fertilização, e considerando ainda que o sistema de irrigação mais indicado para o feijão-caupi é a aspersão convencional, as culturas preferenciais para rotação são gramíneas, como milho, sorgo e milheto. As culturas de girassol, gergelim e algodão também podem ser rotacionadas com o feijão-caupi. 135"
+    }
+   ]
+  }
+ },
+ "milheto": {
+  "temperatura": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 2,
+     "arquivo": "univasf_ciclagem_nutrientes_semiarido.pdf",
+     "pagina": 47,
+     "texto": "Figura 1 Precipitação pluviométrica mensal acumulada (mm), temperaturas máxima (T máxima), mínima (T mínima) e média (T média) do ar em °C durante os meses de realização do experimento, de novembro de 2016 a março de 2018. Dados da estação meteorológica de Petrolina, PE. FONTE: http://www.labmet.univasf.edu.br O experimento foi conduzido em parcelas subdivididas, com três repetições, sendo as parcelas representadas por diferentes composições de plantas de cobertura: Guandu (Cajanus cajan L.); Milheto (Pennisetum americanum L.); Guandu + Milheto"
+    }
+   ]
+  },
+  "chuva": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_alvarenga_plantas_cobertura_spd.pdf",
+     "pagina": 7,
+     "texto": "Cultivo em sucessão à cultura principal Esta prática é usada quando não há chuvas suficientes para cultivo de uma cultura comercial. É importante que a cultura principal seja instalada o mais cedo possível e que esta seja de ciclo precoce para que o plantio, na sucessão, das plantas de cobertura seja feito, quando ainda houver possibilidade de eventos de chuva, para que elas se estabeleçam. Outro fator importante a ser considerado é a escolha da espécie, devendo ser dada preferência àquelas de maior tolerância ao déficit hídrico. Neste particular destacam-se o milheto e o sorgo dentre as gramíneas e o guandu dentre as leguminosas."
+    }
+   ]
+  },
+  "n_na_biomassa": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "palha": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_bogiani_rotacao_palhada_spd.pdf",
+     "pagina": 1,
+     "texto": "Piatã, MG4, MG5 e Paiaguás mostraram excelentes resultados nas pesquisas realizadas em ensaio desta finalidade. Outra opção de inserção de palhada neste sistema de rotação e que vem mostrando bons resultados nas pesquisas é aplicação de sementes de gram íneas em sobressemeadura na soja, ou semeada em linha após a colheita da soja. Esta alterna tiva possibilita o aproveitamento das últimas cbuvas para manutenção da cobertura do solo com boa formação de biomassa. O mais tradicional desta prática na região é a sobressemeadura de milheto para formação de biomassa após a co lheita da soja, porém o cultivo de B. brizantha cv."
+    },
+    {
+     "n": 2,
+     "arquivo": "embrapa_alvarenga_plantas_cobertura_spd.pdf",
+     "pagina": 9,
+     "texto": "O manejo das plantas de cobertura é outro fator que pode regular a permanência da palha na superfície do solo. Sabe-se que a relação C/N torna-se mais larga à medida que a planta se desenvolve. Além do caso do milheto,já citado, com a aveia preta foi verificado que a relação CIN variou de 1720 no estádio vegetativo, 41-50 na floração plena e foi superior a 70 na colheita (Igue et al, ,1984). Em razão desta característica, o manejo das plantas de cobertura pode ser retardado ao máximo, visando dotarlhe de maior resistência à decomposição, entretanto, não se pode perder de vista que a produção de sementes viáveis poderá infestar a área e aumentar os gastos com herbicidas."
+    }
+   ]
+  },
+  "familia_diferente": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 2,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 136,
+     "texto": "Considerando os aspectos fitossanitários, econômicos, de ocu­ pação de espaços, de aproveitamento de resíduos para fertilização, e considerando ainda que o sistema de irrigação mais indicado para o feijão-caupi é a aspersão convencional, as culturas preferenciais para rotação são gramíneas, como milho, sorgo e milheto. As culturas de girassol, gergelim e algodão também podem ser rotacionadas com o feijão-caupi. 135"
+    }
+   ]
+  }
+ },
+ "mandioca": {
+  "temperatura": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "chuva": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "n_na_biomassa": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "palha": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "familia_diferente": {
+   "sem_evidencia": true,
+   "trechos": []
+  }
+ },
+ "algodao": {
+  "temperatura": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "chuva": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "n_na_biomassa": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "palha": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "familia_diferente": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_bogiani_rotacao_palhada_spd.pdf",
+     "pagina": 1,
+     "texto": "Boletim Pns .. arela da SoJa .. do Milho 2014 Março/2015 - Ano 07 - N° 07 Página 15 Rotação de Culturas e Manejo para Formação de Palhada no Sistema Plantio Direto Julio Cesar Bogiani Engenheiro Agrônomo, Doutor em Fitotecnia, Pesquisador da Embrapa Algodão. Na região oeste da Bahia, é crescente á área culti vada com a soja, o algodão e o milho, passado de 1163 mil bões de hectares na safra 2003/04 para 1,883 milhões na safra 20 13/ 14. Nestes 10 anos a produção destas três culturas também cresceu de 4, 13 para 6,92 milhões de toneladas, porém a produtividade pouco se alterou, pois na safra 2003/04 era de 3,55 toneladas enquanto que na 201 3/15 foi de 3,68 toneladas (Aiba, 2014)."
+    },
+    {
+     "n": 2,
+     "arquivo": "embrapa_debiasi_diversificacao_especies.pdf",
+     "pagina": 19,
+     "texto": "Assim, em áreas com altas populações e que apresentam condições edafoclimáticas favoráveis ao aumentos dos danos de nematoides, a rotação da soja com espécies de crotalárias no verão pode ser necessária para viabilizar economicamente a oleaginosa. Em regiões com melhor distribuição de chuvas ao longo do ano, como algumas áreas do centro-sul, oeste e médio-norte do Mato Grosso, o algodão pode ser utilizado em rotação com o milho na 2ª safra. Nesse caso, a cultura de verão antecedendo o algodão pode ser a soja (cultivares superprecoces, com ciclo ao redor de 100 dias), o feijão-caupi (Vigna unguiculata) ou espécies para cobertura do solo, como milheto e as crotalárias, em cultivo solteiro ou consorciado."
+    }
+   ]
+  }
+ },
+ "amendoim": {
+  "temperatura": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "chuva": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "n_na_biomassa": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "palha": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "familia_diferente": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "uepb_estirpe_bradyrhizobium_amendoim.pdf",
+     "pagina": 2,
+     "texto": "RAPHAEL SILVA JOVINO EFICIÊNCIA AGRONÔMICA DA ESTIRPE ESA 123 DE Bradyrhizobium sp. PARA CULTURA DO AMENDOIM (Arachis hypogaea) EM DIFERENTES CONDIÇÕES EDAFOCLIMÁTICAS DO SEMIÁRIDO BRASILEIRO Dissertação apresentada ao Programa de PósGraduação em Ciências Agrárias da Universidade Estadual da Paraíba/Embrapa Algodão, como parte das exigências para obtenção do título de Mestre em Ciências Agrárias. Área de concentração: Agrobioenergia e Agricultura Familiar Orientador: Dr. Paulo Ivan Fernandes Júnior CAMPINA GRANDE – PB 2021"
+    },
+    {
+     "n": 2,
+     "arquivo": "uepb_estirpe_bradyrhizobium_amendoim.pdf",
+     "pagina": 18,
+     "texto": "O constante melhoramento genético de variedades rasteiras, que proporcionam maior produtividade das lavouras, tem sido um dos motivos fundamentais para o salto na produção do amendoim produzido em São Paulo (CONAB, 2021). Os produtores de cana de açúcar promovem a reforma do canavial para recuperar a produtividade da área, utilizando o amendoim como cultura de rotação, por ser uma leguminosa beneficia o solo para o próximo ciclo da cana (MASSAFERA, 2020)."
+    }
+   ]
+  }
+ },
+ "girassol": {
+  "temperatura": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "chuva": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "n_na_biomassa": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "palha": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "familia_diferente": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 136,
+     "texto": "Considerando os aspectos fitossanitários, econômicos, de ocu­ pação de espaços, de aproveitamento de resíduos para fertilização, e considerando ainda que o sistema de irrigação mais indicado para o feijão-caupi é a aspersão convencional, as culturas preferenciais para rotação são gramíneas, como milho, sorgo e milheto. As culturas de girassol, gergelim e algodão também podem ser rotacionadas com o feijão-caupi. 135"
+    }
+   ]
+  }
+ },
+ "mamona": {
+  "temperatura": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "chuva": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "n_na_biomassa": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "palha": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "familia_diferente": {
+   "sem_evidencia": true,
+   "trechos": []
+  }
+ },
+ "gergelim": {
+  "temperatura": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "chuva": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "n_na_biomassa": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "palha": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "familia_diferente": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 136,
+     "texto": "Considerando os aspectos fitossanitários, econômicos, de ocu­ pação de espaços, de aproveitamento de resíduos para fertilização, e considerando ainda que o sistema de irrigação mais indicado para o feijão-caupi é a aspersão convencional, as culturas preferenciais para rotação são gramíneas, como milho, sorgo e milheto. As culturas de girassol, gergelim e algodão também podem ser rotacionadas com o feijão-caupi. 135"
+    }
+   ]
+  }
+ },
+ "guandu": {
+  "temperatura": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 17,
+     "texto": "1 Que elementos climáticos mais influenciam a produtividade de grãos do feijão-caupi? Os principais elementos climáticos que influenciam a produ­ tividade de grãos do feijão-caupi são precipitação pluviométrica, temperatura do ar e radiação solar. 2 Como a temperatura do ar afeta a cultura do feijão-caupi? A temperatura do ar é um dos elementos climáticos de maior importância para o crescimento, o desenvolvimento e a produtividade de grãos da cultura do feijão-caupi. Em geral, para que essa cultura atinja elevada produtividade, os valores de temperatura do ar devem estar em torno de 30 °C durante o dia e 22 °C durante a noite."
+    },
+    {
+     "n": 2,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 26,
+     "texto": "épocas de semeadura, ao longo da estação chuvosa. Dessa forma, são quantificados os riscos climáticos envolvidos na condução das lavouras que podem ocasionar perdas na produção. Esse estudo resulta numa relação de municípios indicados ao plantio das diversas culturas, acompanhada dos respectivos calendários de semeadura. 20 Quais são os parâmetros de clima utilizados no zoneamento de risco climático para a cultura do feijão-caupi? Em termos climáticos, os parâmetros usados são a temperatura do ar e a precipitação. De forma direta, é utilizada a temperatura média anual do ar (T, em °C), definida em duas: a) de baixo risco – quando a região apresenta T ≥ 18 °C e T ≤ 34 °C; e b) de alto risco – quando a região apresenta T < 18 °C e T > 34 °C."
+    }
+   ]
+  },
+  "chuva": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 27,
+     "texto": "de precipitação. O ideal é que as séries tenham mais de 30 anos de dados diários de chuva. Isso é importante porque se calcula o Isna para uma frequência de ocorrência de 80%, ou seja, 8 anos em cada 10 anos de registros, o que assegura certa margem de segurança ao zoneamento de risco climático. As classes de Isna usadas no zoneamento do feijão-caupi são as seguintes: • Baixo risco (época favorável à semeadura): Isna ≥ 0,50. • Médio risco (época intermediária): 0,40 < Isna < 0,50. • Alto risco (época desfavorável à semeadura): Isna ≤ 0,40. Isso significa que uma determinada data de semeadura é considerada apta ao cultivo de feijão-caupi (baixo risco climático) quando, no mínimo, metade da exigência hídrica da cultura é atendida pela disponibilidade de água no solo."
+    },
+    {
+     "n": 2,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 203,
+     "texto": "No Cerrado brasileiro, a cultura do feijão-caupi pode ser utilizada com sucesso na segunda safra, ou seja, na safrinha. Nessa região, as características da segunda safra enquadram-se bem com as características da planta de feijão-caupi e com as exigências da cultura quanto às condições climáticas. Na safrinha, o plantio é feito no final do período chuvoso; assim, a colheita do feijão-caupi se dá em período seco, quando as chuvas já estão terminando. Essa condição é ideal para o feijão-caupi, pois os grãos perdem qualidade rapidamente quando ocorrem chuvas durante a colheita. O feijão-caupi possui boa eficiência no uso da água, condição muito favorável ao cultivo na safrinha que, como se sabe, ocorre no final do período chuvoso, período em que pode ocorrer estresse hídrico."
+    }
+   ]
+  },
+  "n_na_biomassa": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_semiarido_adubacao_verde_videira_meloeiro.pdf",
+     "pagina": 10,
+     "texto": "As plantas mais utilizadas como adubo verde são as leguminosas, pois além de adicionarem carbono ao solo, adicionam quantidades novas de nitrogênio por meio do processo de fixação simbiótica de N, realizado por bactérias do gênero Rhizobium, que ocorrem associadas a suas raízes, beneficiando, assim, a cultura comercial que esteja consorciada com a leguminosa ou a que sucede o seu cultivo. Entre as leguminosas avaliadas como adubo verde no Submédio São Francisco, a mucuna preta, o guandu, a crotalária júncea e o feijão de porco foram consideradas as mais promissoras, com produções de biomassa seca acima de 5.000 kg ha' (Choudhury et al., 1991)."
+    },
+    {
+     "n": 2,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 95,
+     "texto": "Além da sua importância alimentar, o feijão-caupi tem alto potencial de utilização na adubação verde, por apresentar algumas das características desejáveis para um bom adubo verde, tais como: rápido crescimento inicial, elevado potencial de fixação biológica do nitrogênio (N), produção de biomassa e acúmulo de N na parte aérea, adaptação local e possibilidade de uso na alimentação animal. Considerado uma opção de fonte de matéria orgânica, o feijão-caupi produz elevada quantidade de biomassa, contribuindo com um aporte de nitrogênio de até 90 kg ha-1 de N. Esse aporte, associado à exploração da FBN e à eficiência desse processo, propicia a introdução do feijão-caupi em solos com baixos teores de matéria orgânica, com bons resultados."
+    }
+   ]
+  },
+  "palha": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "pesagro_rio_rural_rotacao_culturas.pdf",
+     "pagina": 9,
+     "texto": "De acordo com Boller e Caldato (2001), a palhada de centeio chega a cobrir 78% da superfície do solo, proporcionando maior proteção contra a erosão. A palhada de mucuna preta proporcionou benefícios na nodulação mais eficientes na cultura do feijão e, consequentemente, maior acúmulo de N e matéria seca nas plantas de feijão (ABBOUD; DUQUE, 1986). Esse fato, certamente, está relacionado com as condições favoráveis de temperatura e umidade no solo promovido pela palha em cobertura. As diferentes palhadas das plantas de cobertura influenciam diretamente o rendimento de grãos da cultura do feijoeiro, sendo mais afetado pela espécie produtora de palha que pela sua forma de cultivo (OLIVEIRA et al., 2002)."
+    },
+    {
+     "n": 2,
+     "arquivo": "univasf_ciclagem_nutrientes_semiarido.pdf",
+     "pagina": 43,
+     "texto": "O experimento foi conduzido em parcelas subdivididas, com três repetições, e parcelas representadas por sete combinações de plantas de cobertura: Guandu (Cajanus cajan L.); Milheto (Pennisetum americanum L.); Guandu + Milheto; Guandu + Milheto + Sorgo (Sorghum bicolor L.) + Crotalária (Crotalaria juncea); Milho (Zea mays L.) + Milheto + Sorgo + Guandu; Guandu + Crotalária + Milheto + Feijão de porco (Canavalia ensiformes); Vegetação espontânea (VE), e as subparcelas pelos tempos de coleta do material ( 7, 15, 30, 45, 60, 90, 120, 150, 180 e 412) dias após a deposição do material no solo (DAD), adotando o método dos “litter bags”."
+    }
+   ]
+  },
+  "familia_diferente": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "pesagro_rio_rural_rotacao_culturas.pdf",
+     "pagina": 12,
+     "texto": "Avaliando o esquema de rotação de culturas para as culturas do feijão e do milho em Campos dos Goyta- cazes-RJ, constatou-se que os teores foliares de N, K, S, Mn, Fe e Cu na cultura do milho e de N, K, Ca e Mn na cultura do feijão comum foram maiores quando se utilizou o esquema de sucessão feijão-deporco/feijão comum/ feijão-de-porco/milho em SSD, quando cultivado sobre palhada remanescente de três cultivos consecutivos com leguminosas. As maiores produtividades do milho e do feijão comum foram obtidas com as sucessões feijão-de-porco/ milho/feijão-de-porco/milho e feijão-de-porco/ feijão comum/feijão-de-porco/milho em SSD."
+    },
+    {
+     "n": 2,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 136,
+     "texto": "Considerando os aspectos fitossanitários, econômicos, de ocu­ pação de espaços, de aproveitamento de resíduos para fertilização, e considerando ainda que o sistema de irrigação mais indicado para o feijão-caupi é a aspersão convencional, as culturas preferenciais para rotação são gramíneas, como milho, sorgo e milheto. As culturas de girassol, gergelim e algodão também podem ser rotacionadas com o feijão-caupi. 135"
+    }
+   ]
+  }
+ },
+ "palma_forrageira": {
+  "temperatura": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "chuva": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_caprinos_cardapio_forrageiro.pdf",
+     "pagina": 10,
+     "texto": "Giovani Rodrigues Chagas Foto: Lucas Fonseca Menezes Oliveira Existem diversos relatos de melhoria na produção de alimento e de reserva estratégica nas localidades onde foi implantado o cardápio forrageiro, dentre eles destacamos que:  As gramíneas perenes apresentaram sobrevivência acima de 80% e com produção de até 15 t de matéria seca por hectare (ha) plantado.  Reserva estratégica para silagem com potencial para encher um silo de 20 t usando apenas um hectare em condição de sequeiro e com chuvas abaixo de 600 mm (Figura 3).  A palma forrageira adicionou água e alimento de qualidade aos sistemas produtivos desde locais com baixa precipitação, até locais que apresentam maiores médias de chuvas, como o Maranhão e Minas Gerais.  Os bancos de proteínas compostos por árvores de leucena e gliricídia forneceram até 500 kg de nitrogênio por ha plantado para alimentação animal."
+    },
+    {
+     "n": 2,
+     "arquivo": "embrapa_caprinos_cardapio_forrageiro.pdf",
+     "pagina": 10,
+     "texto": "Lucas Fonseca Menezes Oliveira Existem diversos relatos de melhoria na produção de alimento e de reserva estratégica nas localidades onde foi implantado o cardápio forrageiro, dentre eles destacamos que:  As gramíneas perenes apresentaram sobrevivência acima de 80% e com produção de até 15 t de matéria seca por hectare (ha) plantado.  Reserva estratégica para silagem com potencial para encher um silo de 20 t usando apenas um hectare em condição de sequeiro e com chuvas abaixo de 600 mm (Figura 3).  A palma forrageira adicionou água e alimento de qualidade aos sistemas produtivos desde locais com baixa precipitação, até locais que apresentam maiores médias de chuvas, como o Maranhão e Minas Gerais.  Os bancos de proteínas compostos por árvores de leucena e gliricídia forneceram até 500 kg de nitrogênio por ha plantado para alimentação animal."
+    }
+   ]
+  },
+  "n_na_biomassa": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_semiarido_biomassa_leguminosas_milheto.pdf",
+     "pagina": 2,
+     "texto": "A família das leguminosas se destaca para ser utilizada como adubo verde devido ao elevado potencial de produção de biomassa; a capacidade de se associar com microrganismos do solo e ﬁxar nitrogênio atmosférico; possuir uma baixa relação C/N em comparação a outras espécies; ser de fácil decomposição e mineralização por microrganismos. Além disso, essas plantas mobilizam nutrientes até das camadas mais profundas do solo, por possuírem raízes profundas e ramiﬁcadas (Ferreira et al., 2011). As gramíneas também são recomendadas para serem cultivadas em consórcios, principalmente as espécies com maior capacidade de proteção do solo (alta relação C/N) e com elevado potencial de produção de matéria seca (Menezes et al., 2009), além disso, algumas podem ser utilizadas como forrageiras."
+    }
+   ]
+  },
+  "palha": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "familia_diferente": {
+   "sem_evidencia": true,
+   "trechos": []
+  }
+ },
+ "crotalaria_juncea": {
+  "temperatura": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "chuva": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "pab_milho_sucessao_adubos_verdes.pdf",
+     "pagina": 6,
+     "texto": "Porém, no segundo ano de cultivo, após o florescimento da cultura, houve ocorrência de poucas chuvas e grandes períodos de estiagem (Figura 1), o que prejudicou sensivelmente o enchimento dos grãos, em todos os tratamentos, já que, de acordo com Eck (1986), as fases mais sensíveis à deficiência hídrica na cultura do milho, em ordem decrescente, são: florescimento, enchimento de grãos e desenvolvimento vegetativo. Conclusões 1. A crotalária cultivada na primavera proporciona maior produtividade do milho em sucessão comparada à área de pousio, em ano com precipitação normal, tanto em plantio direto, quanto no sistema de preparo convencional do solo."
+    },
+    {
+     "n": 2,
+     "arquivo": "rbcs_faria_adubacao_verde_videira.pdf",
+     "pagina": 4,
+     "texto": "Em 18/06/1996, foram transplantadas as mudas de videira do porta-enxerto IAC-572 no espaçamento de 4 x 2 m e, em 27/06/1997, foi realizada a enxertia com o cultivar Itália, no sistema de latada. A irrigação foi feita por microaspersão, com freqüência diária. A lâmina de água aplicada baseou-se na evaporação do tanque classe A, no coeficiente da cultura e no coeficiente de uniformidade de precipitação. O delineamento experimental foi em blocos ao acaso com esquema de subparcela em faixa. O primeiro experimento foi realizado até à quarta safra de uva, com cinco tratamentos e cinco repetições. Os tratamentos foram representados por duas leguminosas: crotalária (Crotalaria juncea) e feijãode-porco (Canavalia ensiformis), submetidas a dois manejos (subtratamentos): a) ceifada e deixada na superfície do terreno e b) ceifada e incorporada ao 643 solo, havendo ainda uma testemunha sem leguminosa."
+    }
+   ]
+  },
+  "n_na_biomassa": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_semiarido_adubacao_verde_videira_meloeiro.pdf",
+     "pagina": 10,
+     "texto": "As plantas mais utilizadas como adubo verde são as leguminosas, pois além de adicionarem carbono ao solo, adicionam quantidades novas de nitrogênio por meio do processo de fixação simbiótica de N, realizado por bactérias do gênero Rhizobium, que ocorrem associadas a suas raízes, beneficiando, assim, a cultura comercial que esteja consorciada com a leguminosa ou a que sucede o seu cultivo. Entre as leguminosas avaliadas como adubo verde no Submédio São Francisco, a mucuna preta, o guandu, a crotalária júncea e o feijão de porco foram consideradas as mais promissoras, com produções de biomassa seca acima de 5.000 kg ha' (Choudhury et al., 1991)."
+    }
+   ]
+  },
+  "palha": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "univasf_ciclagem_nutrientes_semiarido.pdf",
+     "pagina": 43,
+     "texto": "O experimento foi conduzido em parcelas subdivididas, com três repetições, e parcelas representadas por sete combinações de plantas de cobertura: Guandu (Cajanus cajan L.); Milheto (Pennisetum americanum L.); Guandu + Milheto; Guandu + Milheto + Sorgo (Sorghum bicolor L.) + Crotalária (Crotalaria juncea); Milho (Zea mays L.) + Milheto + Sorgo + Guandu; Guandu + Crotalária + Milheto + Feijão de porco (Canavalia ensiformes); Vegetação espontânea (VE), e as subparcelas pelos tempos de coleta do material ( 7, 15, 30, 45, 60, 90, 120, 150, 180 e 412) dias após a deposição do material no solo (DAD), adotando o método dos “litter bags”."
+    },
+    {
+     "n": 2,
+     "arquivo": "univasf_ciclagem_nutrientes_semiarido.pdf",
+     "pagina": 39,
+     "texto": "Agric Ecosyst Environ, 254: 50–59 CRUSCIOL CAC, MORO E, LIMA E, ANDREOTTI M (2008) Taxas de decomposição e de liberação de macronutrientes da palhada de aveia preta em plantio direto. Bragantia, 67 (02): 261-266 CRUZ-SILVA CTA, MATIAZZO EB, PACHECO FP, NÓBREGA LHP (2015) Allelopathy of Crotalaria juncea L. aqueous extracts on germination and initial development of maize. Idesia Arica, 33: 27–32 EO J, PARK K-C, KIM M-H (2015) Plant-specific effects of sunn hemp (Crotalaria juncea) and sudex (Sorghum bicolor var. sudanense) on the abundance and composition of soil microbial community. Agric Ecosyst Environ, 213:"
+    }
+   ]
+  },
+  "familia_diferente": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_debiasi_diversificacao_especies.pdf",
+     "pagina": 6,
+     "texto": "Entre essas espécies, destacam-se as pertencentes ao gênero Crotalaria, como C. spectabilis e C. ochroleuca (Dias et al., 2010). Doenças ocasionadas por agentes biotróficos (que necessitam de hospedeiros vivos para sobreviver), como o oídio (Erysiphe diffusa) e a ferrugem-asiática (Phakopsora pachyrhizi) não são afetadas pela rotação de culturas. A rotação de culturas é menos eficiente no controle de doenças causadas por fitopatógenos de solo que apresentem estruturas de resistência (escleródios, clamidosporos e oósporos) em comparação aqueles que não possuem essas estruturas, pois o tempo necessário sem culturas hospedeiras para redução expressiva desses patógenos é grande (Santos;"
+    }
+   ]
+  }
+ },
+ "feijao_de_porco": {
+  "temperatura": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 17,
+     "texto": "Em geral, para que essa cultura atinja elevada produtividade, os valores de temperatura do ar devem estar em torno de 30 °C durante o dia e 22 °C durante a noite. Temperaturas do ar ao redor de 35 °C podem ocasionar o abortamento de flores e afetar negativamente o vingamento de vagens, principalmente se a cultura estiver submetida a limitado suprimento de água. 3 Qual a fase do ciclo do feijão-caupi mais crítica sob altas temperaturas? A fase mais crítica sob altas temperaturas estende-se do período imediatamente anterior à floração até o início da formação das vagens. Nessa fase, a incidência de altas temperaturas, princi­ palmente à noite, pode provocar grande abortamento de flores e vagens, chegando até a afetar o processo de fecundação."
+    },
+    {
+     "n": 2,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 240,
+     "texto": "Em seguida, a embalagem e o conteúdo são submetidos ao processamento térmico programado, que é calculado para garantir a esterilidade comercial do produto e para que possa ser comercializado à temperatura ambiente. No processamento térmico, ocorrerá também o cozimento do produto. 490 Por que, para o feijão-caupi comercializado na forma pron­ ta para consumo (cozida), em embalagem hermética, exige-se tratamento térmico que proporcione no mínimo 12 reduções decimais de esporos de Clostridium botulinum? A alta acidez (pH ≤ 4,6) proporciona um habitat inóspito à bactéria de Clostridium botulinum, e seus esporos também não germinarão nessa condição."
+    }
+   ]
+  },
+  "chuva": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 27,
+     "texto": "de precipitação. O ideal é que as séries tenham mais de 30 anos de dados diários de chuva. Isso é importante porque se calcula o Isna para uma frequência de ocorrência de 80%, ou seja, 8 anos em cada 10 anos de registros, o que assegura certa margem de segurança ao zoneamento de risco climático. As classes de Isna usadas no zoneamento do feijão-caupi são as seguintes: • Baixo risco (época favorável à semeadura): Isna ≥ 0,50. • Médio risco (época intermediária): 0,40 < Isna < 0,50. • Alto risco (época desfavorável à semeadura): Isna ≤ 0,40. Isso significa que uma determinada data de semeadura é considerada apta ao cultivo de feijão-caupi (baixo risco climático) quando, no mínimo, metade da exigência hídrica da cultura é atendida pela disponibilidade de água no solo."
+    },
+    {
+     "n": 2,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 203,
+     "texto": "No Cerrado brasileiro, a cultura do feijão-caupi pode ser utilizada com sucesso na segunda safra, ou seja, na safrinha. Nessa região, as características da segunda safra enquadram-se bem com as características da planta de feijão-caupi e com as exigências da cultura quanto às condições climáticas. Na safrinha, o plantio é feito no final do período chuvoso; assim, a colheita do feijão-caupi se dá em período seco, quando as chuvas já estão terminando. Essa condição é ideal para o feijão-caupi, pois os grãos perdem qualidade rapidamente quando ocorrem chuvas durante a colheita. O feijão-caupi possui boa eficiência no uso da água, condição muito favorável ao cultivo na safrinha que, como se sabe, ocorre no final do período chuvoso, período em que pode ocorrer estresse hídrico."
+    }
+   ]
+  },
+  "n_na_biomassa": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_semiarido_adubacao_verde_videira_meloeiro.pdf",
+     "pagina": 10,
+     "texto": "As plantas mais utilizadas como adubo verde são as leguminosas, pois além de adicionarem carbono ao solo, adicionam quantidades novas de nitrogênio por meio do processo de fixação simbiótica de N, realizado por bactérias do gênero Rhizobium, que ocorrem associadas a suas raízes, beneficiando, assim, a cultura comercial que esteja consorciada com a leguminosa ou a que sucede o seu cultivo. Entre as leguminosas avaliadas como adubo verde no Submédio São Francisco, a mucuna preta, o guandu, a crotalária júncea e o feijão de porco foram consideradas as mais promissoras, com produções de biomassa seca acima de 5.000 kg ha' (Choudhury et al., 1991)."
+    },
+    {
+     "n": 2,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 95,
+     "texto": "Além da sua importância alimentar, o feijão-caupi tem alto potencial de utilização na adubação verde, por apresentar algumas das características desejáveis para um bom adubo verde, tais como: rápido crescimento inicial, elevado potencial de fixação biológica do nitrogênio (N), produção de biomassa e acúmulo de N na parte aérea, adaptação local e possibilidade de uso na alimentação animal. Considerado uma opção de fonte de matéria orgânica, o feijão-caupi produz elevada quantidade de biomassa, contribuindo com um aporte de nitrogênio de até 90 kg ha-1 de N. Esse aporte, associado à exploração da FBN e à eficiência desse processo, propicia a introdução do feijão-caupi em solos com baixos teores de matéria orgânica, com bons resultados."
+    }
+   ]
+  },
+  "palha": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "pesagro_rio_rural_rotacao_culturas.pdf",
+     "pagina": 14,
+     "texto": "24, p. 417-425, 2000. BOLLER, W.; CALDATO, D. E. Desenvolvimento da cultura do feijão (Phaseolus vulgaris L.) em diferentes condições de cobertura e de preparo do solo. Revista Engenharia Agrícola, v. 21, n. 2, p. 167-173. 2001. BORTULUZZI, E. C.; ELTZ, F. L. F. Efeito do manejo mecânico da palhada de aveia preta sobre a cobertura, temperatura, teor de água no solo e emergência da soja em sistema de plantio direto. Revista Brasileira da Ciência do Solo, v. 24: p. 449457, 2000. DERPSCH, R.; SIDIRAS, N.; HEINZMANN, F. X. Manejo do solo com coberturas verdes de inverno. Pesquisa Agropecuária Brasileira, v."
+    },
+    {
+     "n": 2,
+     "arquivo": "pesagro_rio_rural_rotacao_culturas.pdf",
+     "pagina": 9,
+     "texto": "De acordo com Boller e Caldato (2001), a palhada de centeio chega a cobrir 78% da superfície do solo, proporcionando maior proteção contra a erosão. A palhada de mucuna preta proporcionou benefícios na nodulação mais eficientes na cultura do feijão e, consequentemente, maior acúmulo de N e matéria seca nas plantas de feijão (ABBOUD; DUQUE, 1986). Esse fato, certamente, está relacionado com as condições favoráveis de temperatura e umidade no solo promovido pela palha em cobertura. As diferentes palhadas das plantas de cobertura influenciam diretamente o rendimento de grãos da cultura do feijoeiro, sendo mais afetado pela espécie produtora de palha que pela sua forma de cultivo (OLIVEIRA et al., 2002)."
+    }
+   ]
+  },
+  "familia_diferente": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "pesagro_rio_rural_rotacao_culturas.pdf",
+     "pagina": 12,
+     "texto": "Avaliando o esquema de rotação de culturas para as culturas do feijão e do milho em Campos dos Goyta- cazes-RJ, constatou-se que os teores foliares de N, K, S, Mn, Fe e Cu na cultura do milho e de N, K, Ca e Mn na cultura do feijão comum foram maiores quando se utilizou o esquema de sucessão feijão-deporco/feijão comum/ feijão-de-porco/milho em SSD, quando cultivado sobre palhada remanescente de três cultivos consecutivos com leguminosas. As maiores produtividades do milho e do feijão comum foram obtidas com as sucessões feijão-de-porco/ milho/feijão-de-porco/milho e feijão-de-porco/ feijão comum/feijão-de-porco/milho em SSD."
+    },
+    {
+     "n": 2,
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 136,
+     "texto": "Em pesquisas conduzidas na Embrapa Meio-Norte (Teresina, PI), em solo Argissolo Amarelo, constatou-se que a população de plantas de feijão-caupi que permite a obtenção de elevadas produtividades de grãos (acima de 1.500 kg ha-1), para a cultivar BRS Itaim (porte ereto) sob irrigação, é de 240 mil plantas por hectare (OLIVEIRA, 2013). 248 Que culturas podem ser utilizadas em rotação para alcan­ çar um melhor aproveitamento da área irrigada com feijão-caupi? Considerando os aspectos fitossanitários, econômicos, de ocu­ pação de espaços, de aproveitamento de resíduos para fertilização, e considerando ainda que o sistema de irrigação mais indicado para o feijão-caupi é a aspersão convencional, as culturas preferenciais para rotação são gramíneas, como milho, sorgo e milheto."
+    }
+   ]
+  }
+ },
+ "mucuna": {
+  "temperatura": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "chuva": {
+   "sem_evidencia": true,
+   "trechos": []
+  },
+  "n_na_biomassa": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_semiarido_adubacao_verde_videira_meloeiro.pdf",
+     "pagina": 10,
+     "texto": "As plantas mais utilizadas como adubo verde são as leguminosas, pois além de adicionarem carbono ao solo, adicionam quantidades novas de nitrogênio por meio do processo de fixação simbiótica de N, realizado por bactérias do gênero Rhizobium, que ocorrem associadas a suas raízes, beneficiando, assim, a cultura comercial que esteja consorciada com a leguminosa ou a que sucede o seu cultivo. Entre as leguminosas avaliadas como adubo verde no Submédio São Francisco, a mucuna preta, o guandu, a crotalária júncea e o feijão de porco foram consideradas as mais promissoras, com produções de biomassa seca acima de 5.000 kg ha' (Choudhury et al., 1991)."
+    }
+   ]
+  },
+  "palha": {
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "pesagro_rio_rural_rotacao_culturas.pdf",
+     "pagina": 9,
+     "texto": "De acordo com Boller e Caldato (2001), a palhada de centeio chega a cobrir 78% da superfície do solo, proporcionando maior proteção contra a erosão. A palhada de mucuna preta proporcionou benefícios na nodulação mais eficientes na cultura do feijão e, consequentemente, maior acúmulo de N e matéria seca nas plantas de feijão (ABBOUD; DUQUE, 1986). Esse fato, certamente, está relacionado com as condições favoráveis de temperatura e umidade no solo promovido pela palha em cobertura. As diferentes palhadas das plantas de cobertura influenciam diretamente o rendimento de grãos da cultura do feijoeiro, sendo mais afetado pela espécie produtora de palha que pela sua forma de cultivo (OLIVEIRA et al., 2002)."
+    }
+   ]
+  },
+  "familia_diferente": {
+   "sem_evidencia": true,
+   "trechos": []
+  }
+ }
+}

@@ -26,7 +26,7 @@ import numpy as np
 import pandas as pd
 
 from .entrada import DadosInvalidos
-from .features import adicionar_anomalia, construir_dataset, nomes_features
+from .features import adicionar_anomalia, adicionar_persistencia, construir_dataset, nomes_features
 from .preditivo import ajustar_modelo, skill
 
 MODELOS_WF = ("ridge", "xgboost")
@@ -52,16 +52,8 @@ def _merge(base: dict, patch: dict) -> dict:
     return base
 
 
-def extra_persistencia(d: pd.DataFrame, max_gap_dias: int = 17) -> tuple[pd.DataFrame, list[str]]:
-    """Anomalia dos 1 e 2 compostos anteriores do mesmo ponto (conhecidos em t; só se forem consecutivos)."""
-    d = d.sort_values(["ponto_id", "data"]).reset_index(drop=True)
-    g = d.groupby("ponto_id")
-    gap1 = g["data"].diff().dt.days
-    d["anom_lag1"] = g["anomalia_ndvi"].shift(1).where(gap1 <= max_gap_dias)
-    gap2 = g["data"].diff().shift(1)
-    gap2 = gap2.where(d["ponto_id"].eq(d["ponto_id"].shift(1))).dt.days
-    d["anom_lag2"] = g["anomalia_ndvi"].shift(2).where((gap1 <= max_gap_dias) & (gap2 <= max_gap_dias))
-    return d, ["anom_lag1", "anom_lag2"]
+# MESMA função da produção (features.adicionar_persistencia): validação e produção não podem divergir.
+extra_persistencia = adicionar_persistencia
 
 
 VARIANTES = {

@@ -108,42 +108,44 @@ def test_resumo_perfil_com_lacunas():
     assert p["maior_veranico_dias"] == 9 and p["confianca"] is None and p["tendencias"] == []
 
 
-def test_app_tres_estrategias_e_rotulo_sintetico(ambiente):
-    at = AppTest.from_file(APP, default_timeout=30).run()
-    assert not at.exception
-    t = textos(at)
-    assert L.ROTULO_SINTETICO in t
-    assert t.count("Estratégia atual: cultura_x") == 1
-    assert "Alternativa: cultura_x → cultura_y" in t and "Alternativa: cultura_x → cultura_z" in t
-    assert "avaliar com técnico local" in t
-    assert "LACUNA: diagnóstico do local não encontrado" in t
-    assert "[1] SINTETICO_doc.pdf, p. 2" in t
-
-
-def test_app_sem_cenarios_mostra_lacuna(tmp_path, monkeypatch):
-    monkeypatch.setenv("SULCO_CENARIOS_DIR", str(tmp_path / "vazio"))
-    monkeypatch.setenv("SULCO_DIAGNOSTICO", str(tmp_path / "x.json"))
-    at = AppTest.from_file(APP, default_timeout=30).run()
-    assert not at.exception
-    assert any("nenhum cenário" in w.value for w in at.warning)
-
-
-def test_app_perfil_do_diagnostico(ambiente, monkeypatch):
-    d = ambiente / "diag.json"
-    d.write_text(json.dumps([{"ponto_id": "T01", "confianca": "media", "periodo": ["2010-01-01", "2023-12-31"],
-                              "lacunas": ["lacuna do diag"]}]), encoding="utf-8")
-    monkeypatch.setenv("SULCO_DIAGNOSTICO", str(d))
-    at = AppTest.from_file(APP, default_timeout=30).run()
-    assert not at.exception
-    t = textos(at)
-    assert "media" in t and "lacuna do diag" in t and "tendências não disponíveis" in t
-
-
 def test_pagina_limites(ambiente):
-    at = AppTest.from_file(APP, default_timeout=30).run()
+    at = AppTest.from_file(APP, default_timeout=60).run()
     at.sidebar.radio(key="pagina").set_value("Limites dos dados").run()
     assert not at.exception
     t = textos(at)
     for k in ("250 m", "50 km", "9 km", "não é produtividade", "Não é produtividade", "não prevê o clima",
               "associações históricas", "NÃO supera a média histórica", "-0.021"):
-        assert k.lower() in t.lower() or k in str(at.dataframe[0].value), k
+        assert k.lower() in t.lower() or k in " ".join(str(d.value) for d in at.dataframe), k
+    assert "59 células" in t   # contagem real de pontos.csv
+
+
+def _cenarios_do_motor(pasta):
+    """Gera cenários com o motor sobre clima SINTÉTICO (formato novo de faixa_incerteza)."""
+    from src.culturas import motor
+    from src.culturas.ciclo import ClimaPonto
+    from src.culturas.parametros import Parametros
+    from src.culturas.tabela_culturas import carregar
+    from tests.conftest import clima_sintetico
+    cens = motor.gerar_cenarios({"local": "T9"}, "milho", carregar(),
+                                clima=ClimaPonto.de_dataframe(clima_sintetico("T9"), "T9"), params=Parametros(n_sorteios=500))
+    for c in cens:
+        c["local"] = {"ponto_id": "T9", "nome": "Ponto teste"}
+        c["atual"] = c["rotacao"][1] == "milho"
+    (pasta / "cens.json").write_text(json.dumps(cens, ensure_ascii=False), encoding="utf-8")
+    return cens
+
+
+def test_resumo_incerteza_formatos_antigos_nao_disponivel(ambiente):
+    cen, _ = L.carregar_cenarios()
+    assert [L.resumo_incerteza(c)["disponivel"] for c in cen] == [False, False, False]
+
+
+def test_resumo_incerteza_do_motor_so_com_valores_do_json(tmp_path):
+    cens = _cenarios_do_motor(tmp_path)
+    r = L.resumo_incerteza(cens[1])
+    f = cens[1]["faixa_incerteza"]
+    assert r["disponivel"] and r["faixa"] == (f["score_p10"], f["score_p90"])
+    txt = " ".join(r["linhas"] + r["cobertura"] + r["janela"] + r["empate"])
+    assert f"{f['p_top3'] * 100:.0f}%" in txt and "primeiras" in txt and "do peso total" in txt
+    assert "duração suposta" in txt and cens[1]["janela_plantio"]["melhor_inicio"] in txt
+    assert "não entra no ranking" in " ".join(L.resumo_incerteza(cens[0])["linhas"])

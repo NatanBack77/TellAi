@@ -88,6 +88,166 @@
       "url": "https://www.fao.org/fileadmin/user_upload/emergencies/docs/FAO_REOSA_Technical_Brief_1__July_2010_.pdf",
       "data_download": "2026-11-11",
       "sha256": "b99f0965caa979df31b2044c749ec1897cf17bde270776e53753ea3295e2ccb3"
+    },
+    {
+      "arquivo": "embrapa_bogiani_rotacao_palhada_spd.pdf",
+      "titulo": "Rotação de Culturas e Manejo para Formação de Palhada no Sistema Plantio Direto (Bogiani, Embrapa Algodão; Boletim Pesquisa de Soja e Milho 2014, Março/2015, Ano 07 N° 07, p. 15)",
+      "tipo": "literatura_tecnica",
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1041872/1/Rotacaodeculturasemanejo.pdf",
+      "data_download": "2026-11-12",
+      "sha256": "2163a9221af1dbc5799c1a4183ae7657900c2f79fd4add141ebc927341b451f6"
+    },
+    {
+      "arquivo": "embrapa_cap3_sistema_plantio_direto.pdf",
+      "titulo": "Capítulo 3 Sistema de Plantio Direto (Passos, Alvarenga, Santos)",
+      "tipo": "literatura_tecnica",
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1101765/1/Sistemaplantio.pdf",
+      "data_download": "2026-11-12",
+      "sha256": "811ca06c07b055af47bd3a8abb72a488d28ad5f7b8a4cef91f388b48f5c7dff8"
+    },
+    {
+      "arquivo": "embrapa_cruz_plantio_direto_sustentabilidade.pdf",
+      "titulo": "Plantio direto e sustentabilidade do sistema agrícola (Cruz, Pereira Filho, Alvarenga, Santana; Informe Agropecuário 2001, p. 13)",
+      "tipo": "literatura_tecnica",
+      "url": "https://www.alice.cnptia.embrapa.br/alice/bitstream/doc/485004/1/Plantiodireto3.pdf",
+      "data_download": "2026-11-12",
+      "sha256": "395ab43a0ea0c1c0bb0dcf30b91a3166ae2a2308216aec86ec8b3eaea12b8f8e"
+    },
+    {
+      "arquivo": "embrapa_alvarenga_plantas_cobertura_spd.pdf",
+      "titulo": "Plantas de cobertura de solo para sistema plantio direto (Alvarenga, Cabezas, Cruz, Santana; Informe Agropecuário 2001, p. 25)",
+      "tipo": "literatura_tecnica",
+      "url": "https://www.alice.cnptia.embrapa.br/alice/bitstream/doc/485005/1/Plantascobertura.pdf",
+      "data_download": "2026-11-12",
+      "sha256": "494b75c85cbf6ddd09180e94f66dda0021b42967f8b5dbd44b13854948e90889"
+    },
+    {
+      "arquivo": "embrapa_debiasi_diversificacao_especies.pdf",
+      "titulo": "Capítulo 5 Diversificação de espécies vegetais em sistemas de produção (Debiasi, Franchini, Balbinot Junior, Conte; Embrapa Soja)",
+      "tipo": "literatura_tecnica",
+      "url": "https://www.alice.cnptia.embrapa.br/alice/bitstream/doc/1128399/1/p.-93-118-de-SP-17-2020-online.pdf",
+      "data_download": "2026-11-12",
+      "sha256": "10e64f3957b87579e839d8294ce754d58e456e405705807f7e4fd833a738dd48"
+    },
+    {
+      "arquivo": "embrapa_semiarido_adubacao_verde_videira_meloeiro.pdf",
+      "titulo": "Adubação verde em videira e meloeiro no Submédio São Francisco (Boletim de Pesquisa e Desenvolvimento, ISSN 1516-1641, Novembro 2004; Ministério da Agricultura, Pecuária e Abastecimento)",
+      "tipo": "literatura_tecnica",
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/154728/1/Adubacao-verde-n67.pdf",
+      "data_download": "2026-11-12",
+      "sha256": "e193a2e94a8858cc49a39dd8d645402bb1d2292033ae78579baec4ca5dd1edf8"
+    },
+    {
+      "arquivo": "embrapa_semiarido_fitomassa_adubacao_verde.pdf",
+      "titulo": "PRODUÇÃO DE FITOMASSA DE ESPÉCIES VEGETAIS PARA ADUBAÇÃO VERDE NO SUBMÉDIO SÃO FRANCISCO (Petrolina-PE, dezembro de 2005; instrução técnica no repositório Embrapa, arquivo INT71.pdf)",
+      "tipo": "literatura_tecnica",
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/157007/1/INT71.pdf",
+      "data_download": "2026-11-12",
+      "sha256": "60fd820c19f70904959e8f788e304eca8dd6991ea1bc34fe6eae889996adc9a4"
+    },
+    {
+      "arquivo": "embrapa_semiarido_coqueteis_vegetais.pdf",
+      "titulo": "Uso de coquetéis vegetais em sistemas agrícolas irrigados no Semiárido brasileiro (Giongo, Salviano, Silva, Cunha; Embrapa Semiárido, Comunicado Técnico 166, Junho 2016)",
+      "tipo": "literatura_tecnica",
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1048481/1/COT166.pdf",
+      "data_download": "2026-11-12",
+      "sha256": "a88f153f900dd32751c50ec7032d86c921bdde0054b8fab6473bdb1edc9b0a52"
+    },
+    {
+      "arquivo": "embrapa_semiarido_agroecossistemas_olericolas.pdf",
+      "titulo": "Desenhos de agroecossistemas multifuncionais para o cultivo de olerícolas (Giongo et al.; Embrapa Semiárido, Comunicado Técnico 183, Maio 2021)",
+      "tipo": "literatura_tecnica",
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1131788/1/Desenhos-de-agroecossistemas-CT-183-2021.pdf",
+      "data_download": "2026-11-12",
+      "sha256": "380d307caf9d210798a7c6e0d88abfbb2d490696c0f85988c3826370fd0a1058"
+    },
+    {
+      "arquivo": "embrapa_solos_manejo_solo_agua_caprinos_semiarido.pdf",
+      "titulo": "Práticas de manejo de solo e água para agroecossistemas de caprinos leiteiros do Semiárido do Nordeste Brasileiro (Silva et al.; Embrapa Solos, Comunicado Técnico 81, Dezembro 2022)",
+      "tipo": "literatura_tecnica",
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1148982/1/CNPS-CT-81-2022.pdf",
+      "data_download": "2026-11-12",
+      "sha256": "36035581ac83bbc1b65520a57309ce4b1136d7aa326c55fdb6e04739b44a77e1"
+    },
+    {
+      "arquivo": "embrapa_semiarido_biomassa_leguminosas_milheto.pdf",
+      "titulo": "Produção de biomassa de leguminosas em cultivo consorciado com milheto no Vale do São Francisco (Gut, Emerenciano Neto, Melo, Nogueira, Santana)",
+      "tipo": "literatura_tecnica",
+      "url": "https://www.alice.cnptia.embrapa.br/alice/bitstream/doc/1102290/1/Guilherme.pdf",
+      "data_download": "2026-11-12",
+      "sha256": "4844ebe4945d5d0bfd8b9104bfa99465fd2b4e7b0805be3ded437e149574d111"
+    },
+    {
+      "arquivo": "embrapa_semiarido_culturas_intercalares_mangueira.pdf",
+      "titulo": "Sistemas de Culturas Intercalares e Manejo de Solo Alterando as Características Químicas de Argissolo Cultivado com Mangueiras (Giongo, Mendes, Silva, Cunha, Brandão; Embrapa Semiárido)",
+      "tipo": "literatura_tecnica",
+      "url": "https://www.alice.cnptia.embrapa.br/alice/bitstream/doc/936854/1/Vanderlise1.pdf",
+      "data_download": "2026-11-12",
+      "sha256": "65f881d014bbac87bf11a6dc3cc30730b8d94eab73e01dcd668ef174478e6aea"
+    },
+    {
+      "arquivo": "embrapa_semiarido_melao_adubos_verdes.pdf",
+      "titulo": "Produção de melão em Vertissolo cultivado com adubos verdes em dois sistemas de manejo de solo (Giongo, Brandão, Mendes, Costa, Petrere; Embrapa Semiárido)",
+      "tipo": "literatura_tecnica",
+      "url": "https://www.alice.cnptia.embrapa.br/alice/bitstream/doc/967776/1/Vanderlise.pdf",
+      "data_download": "2026-11-12",
+      "sha256": "351a3a8a406a775da4e1b5913b6c67a60a285cac7df1ba16c5ac9d4ba1212a3c"
+    },
+    {
+      "arquivo": "rbcs_faria_adubacao_verde_videira.pdf",
+      "titulo": "ADUBAÇÃO VERDE COM LEGUMINOSAS EM VIDEIRA NO SUBMÉDIO SÃO FRANCISCO (Faria, Soares, Leão; Revista Brasileira de Ciência do Solo, vol. 28, núm. 4, 2004, pp. 641-648)",
+      "tipo": "literatura_tecnica",
+      "url": "https://www.redalyc.org/pdf/1802/180214040006.pdf",
+      "data_download": "2026-11-12",
+      "sha256": "dccbc5a3067200609704bd2db4476f554f6ff230db2dac54b97240a74a474452"
+    },
+    {
+      "arquivo": "rbcs_goncalves_sucessoes_cobertura_milho.pdf",
+      "titulo": "SUCESSÕES DE CULTURAS COM PLANTAS DE COBERTURA E MILHO EM PLANTIO DIRETO E SUA INFLUÊNCIA SOBRE O NITROGÊNIO NO SOLO (Gonçalves, Ceretta, Basso; Revista Brasileira de Ciência do Solo)",
+      "tipo": "literatura_tecnica",
+      "url": "https://www.redalyc.org/pdf/1802/180218272018.pdf",
+      "data_download": "2026-11-12",
+      "sha256": "e1ac930536dbbdb46a3de4be1de4a70382ab9da7c8875dc4ae83bc3747a7b097"
+    },
+    {
+      "arquivo": "pesagro_rio_rural_rotacao_culturas.pdf",
+      "titulo": "ROTAÇÃO DE CULTURAS (Duarte Júnior, Coelho; Rio Rural Manual Técnico 22, ISSN 1983-5671, Niterói-RJ, julho de 2010)",
+      "tipo": "literatura_tecnica",
+      "url": "https://www.rj.gov.br/pesagro/sites/default/files/arquivos_paginas/22.%20Rota%C3%A7%C3%A3o%20de%20culturas.pdf",
+      "data_download": "2026-11-12",
+      "sha256": "00370e07ea9518836ac5a175de1e0cbca3ab8ab173cf6407f79c6232d3bfa67c"
+    },
+    {
+      "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+      "titulo": "O produtor pergunta, a Embrapa responde (Feijão-caupi; Coleção 500 Perguntas 500 Respostas; Cardoso, Bastos, Andrade Júnior, Athayde Sobrinho; Embrapa Meio-Norte, Brasília, 2017)",
+      "tipo": "literatura_tecnica",
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1075578/1/500P500RFeijaocaupi.pdf",
+      "data_download": "2026-11-12",
+      "sha256": "4facd227d13536b1c15929b3749ec7f8d0d6a5c46a7b3be1e84d466882aaa08c"
+    },
+    {
+      "arquivo": "embrapa_meionorte_caupi_plantio_direto_semiarido_piaui.pdf",
+      "titulo": "Produtividade de feijão-caupi 'BRS Imponente' cultivado em plantio direto, em diferentes regimes hídricos no Semiárido piauiense (Rodrigues et al.; Embrapa Meio-Norte, Comunicado Técnico 247, Teresina, Novembro 2018)",
+      "tipo": "literatura_tecnica",
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1100944/1/Comunicado247.pdf",
+      "data_download": "2026-11-12",
+      "sha256": "9d0eaacaea06b845d03d82b7d60f6b355bf8c6652d0f6ecb10896800bf9798ba"
+    },
+    {
+      "arquivo": "embrapa_caprinos_cardapio_forrageiro.pdf",
+      "titulo": "Cardápio forrageiro reserva estratégica de alimento (Cavalcante, Oliveira; Embrapa Caprinos e Ovinos, Brasília, 2023)",
+      "tipo": "literatura_tecnica",
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1148943/1/CNPC-2023-Cardapio-forrageiro.pdf",
+      "data_download": "2026-11-12",
+      "sha256": "9677b395eff0d49dd51f691ab7f74620bf8dd613245acb3cbcca46c8d5e73eb8"
+    },
+    {
+      "arquivo": "embrapa_plantio_direto_areas_alteradas_agric_familiar.pdf",
+      "titulo": "PLANTIO DIRETO EM ÁREAS ALTERADAS NA AGRICULTURA FAMILIAR (Embrapa Amazônia Oriental)",
+      "tipo": "literatura_tecnica",
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/630866/1/PlantioDireto.pdf",
+      "data_download": "2026-11-12",
+      "sha256": "624c90900583f2b1f825b8301f4d289816e4d388a2e6ef9ae9cc40b1afe95246"
     }
   ],
   "tentativas_falhas_ou_descartadas": [
@@ -98,7 +258,15 @@
     "ainfo item/86652 (praticas agricolas sustentaveis, horticultura de montanha): baixado e descartado por irrelevancia (nao e semiarido).",
     "ainfo doc/94556 (O meio ambiente e o plantio direto, 123 pp.): OCR muito corrompido; descartado para nao indexar texto ilegivel.",
     "FAO EcoCrop (ecocrop.apps.fao.org): so paginas HTML sem paginacao; fora do escopo deste indice paginado. A tabela de culturas/EcoCrop e tratada em outro modulo.",
-    "ZARC portarias/tabelas por municipio (gov.br/MAPA): nao baixadas; nao ha portaria ZARC no acervo, apenas texto metodologico."
+    "ZARC portarias/tabelas por municipio (gov.br/MAPA): nao baixadas; nao ha portaria ZARC no acervo, apenas texto metodologico.",
+    "2026-11-12: infoteca.cnptia.embrapa.br (sem www) segue sem resolver DNS; o host www.infoteca.cnptia.embrapa.br RESOLVE e serve os PDFs (bitstream/doc/<id>/1/<arquivo>) -- usado para os documentos novos. Os mesmos ids em www.alice.cnptia.embrapa.br dao 404 (ids de infoteca nao existem no alice, e vice-versa).",
+    "2026-11-12: busca do DSpace do alice (open-search, simple-search, discover) retornou 400/403/404 para curl; documentos foram localizados por busca web e baixados por URL direta.",
+    "2026-11-12: core.ac.uk/download/440365572.pdf (INSA/Holos sorgo + palma) HTTP 403; gc.aksaam.ufv.br (cartilha palma INSA/UFV) sem resposta (curl 000). Nao incluidos.",
+    "2026-11-12: alice doc/132906 Porto.pdf (Manejo de solo e agua para o tropico semi-arido, CPATSA): OCR muito corrompido ('~CNICAS', 'UTILIZA<;:AoE'); descartado.",
+    "2026-11-12: alice doc/984401 (Difusao de Tecnologias Apropriadas para o Desenvolvimento Sustentavel do Semiarido, livro UFCG, foco em forragem da Caatinga): baixado, fora do foco (rotacao/adubacao verde/solo); nao indexado.",
+    "2026-11-12: redalyc 445744116005 (Pedra et al. 2012, estoques de C e N, milho doce, tabuleiros costeiros de Sergipe): baixado; nao e semiarido; nao indexado.",
+    "2026-11-12: redalyc 180214040006 e 180218272018 e demais artigos de revista foram obtidos via redalyc (espelho das revistas SciELO/SBCS); scielo.br respondeu 200 na raiz mas nao foi usado para download direto de PDF.",
+    "2026-11-12: nao foram encontrados PDFs de Emater/INSA/ZARC-portaria novos que passassem na checagem; Emater-MG/Emater-PA apareceram na busca apenas como paginas/cartilhas nao verificadas (nao baixadas)."
   ],
   "embedding": {
     "modelo": "intfloat/multilingual-e5-small",
