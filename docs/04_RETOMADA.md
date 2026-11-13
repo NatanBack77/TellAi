@@ -39,6 +39,58 @@ A senha do Earthdata foi digitada numa conversa com o assistente: **troque-a** n
 
 Como refazer os caches ignorados (tempos só quando documentados): POWER `python -m src.coleta.power` (cache em `data/raw/power/`, ou extraia `power_cache.tar.gz`); NDVI `python -m src.coleta.modis_ornl --workers 16` (já vem no git; a coleta de 195 pontos teve fase de listagem de ~10 min e ~190 a 250 janelas/min; para 59 pontos estimou-se 35 a 60 min); SMAP extraia `smap_cache.tar.gz` (recoletar exige Earthdata; tempo não documentado); SRTM `python -m src.coleta.srtm` e SoilGrids `python -m src.coleta.solo` (tempos não documentados; os `.parquet` já vêm no git, então só refaça se precisar); ZARC `python -m src.coleta.zarc` (o parquet já vem no git).
 
+## 3b. Inventário dos dados no repositório (conferido em 2026-11-13, arquivo por arquivo contra o git)
+Conferência feita com `git ls-files` contra o disco do computador onde o push foi feito (commit `ed5af7df`). Contagens iguais = tudo enviado.
+
+**Enviado ao GitHub (disco = git):**
+| Pasta ou arquivo | Arquivos | O que é |
+|---|---|---|
+| `data/processed/clima_diario.parquet` | 1 | clima POWER diário, 195 pontos, 2001–2024 |
+| `data/processed/ndvi_16d.parquet` | 1 | NDVI MODIS 16 dias, 195 pontos |
+| `data/processed/umidade_solo.parquet` | 1 | SMAP, 195 pontos |
+| `data/processed/solo.parquet` | 1 | SoilGrids por ponto (areia, silte, argila, carbono orgânico, pH; 3 camadas até 30 cm) |
+| `data/processed/terreno.parquet` | 1 | SRTM: altitude e declive por ponto |
+| `data/processed/pam_ce.parquet` | 1 | IBGE PAM 2015–2023 (área, quantidade, rendimento, valor da produção) |
+| `data/processed/zarc_ce.parquet`, `zarc_manifesto.json` | 2 | ZARC do Ceará e manifesto (URLs, sha256) |
+| `data/processed/pontos.csv`, `sensibilidade_pesos.json` | 2 | pontos (com `ibge`) e sensibilidade dos pesos |
+| `data/processed/cenarios/`, `diagnostico/`, `modelos/`, `mvp/` | 10, 2, 4, 2 | saídas lidas pelo app e pela API |
+| `data/raw/modis_ornl/` | 21.840 | NDVI bruto (respostas do ORNL DAAC) |
+| `data/raw/soilgrids/` | 15 | solo bruto, uma camada por arquivo |
+| `data/raw/power/` | 59 | clima bruto do POWER (cache por ponto) |
+| `data/raw/indices/` | 3 | Niño 3.4, TNA, TSA (NOAA) |
+| `data/raw/zarc/` | 1 | dicionário de dados do ZARC (PDF) |
+| `data/raw/srtm_tiles.tar.gz.part-00..02` | 3 | 28 tiles SRTM (709 MB) compactados em 231 MB; restaurar: `cat data/raw/srtm_tiles.tar.gz.part-* \| tar -xz -C data/raw` (testado: idêntico ao original) |
+| `data/raw/power_cache.tar.gz`, `smap_cache.tar.gz` | 2 | caches compactados da rodada anterior (`scripts/setup.sh` extrai) |
+| `data/culturas/tabela_culturas.csv` | 1 | tabela de culturas com fonte |
+| `docs_rag/` | 31 PDFs + `manifesto.json` | acervo do RAG |
+
+**Não enviado, de propósito (e como refazer):**
+| Item | Motivo | Como refazer |
+|---|---|---|
+| `.env` | tem senha e chaves; nunca vai ao repositório | criar à mão (seção 2) |
+| `.venv/` | 1,7 GB; é o ambiente Python | `python -m venv .venv` e `pip install -r requirements.txt` |
+| `data/raw/srtm/` (28 `.hgt` soltos) | duplicado das 3 partes compactadas | comando de restauração acima |
+| `data/processed/sintetico/` | dados de teste, não são resultado | `python -m src.modelos.sintetico` |
+| `data/raw/modis/` | só o id de uma tarefa antiga do AppEEARS, sem uso | descartar |
+| `__pycache__/`, `.pytest_cache/`, `coleta_*.log` | lixo local | não precisa |
+
+**Não existiam no computador do push (portanto NÃO estão no GitHub):** conferir no outro computador, que fez a rodada anterior.
+| Item | Para que serve | O que fazer lá |
+|---|---|---|
+| `indice/` (índice do RAG: embeddings e BM25) | busca nos PDFs | não precisa subir; reconstruir com `python -m src.rag.rag_docs` (precisa de `pdftotext`) |
+| `experimentos/previsao_doc09/t1_linhas.pkl` (46 MB) | intermediário do teste de horizonte e estação, interrompido | só subir se quiser retomar M1 (`docs/15`); é regerável pelos scripts `t1_*.py` |
+| `data/raw/smap/` (HDF5 brutos do SMAP) | origem de `umidade_solo.parquet` | não precisa subir: o resultado processado e o cache compactado já estão no git |
+| qualquer coleta feita depois do último push de lá | | rodar `git status` e `git ls-files` lá |
+
+**Como conferir e completar a partir do outro computador (antes de trabalhar):**
+```
+git pull --rebase origin main                      # traz tudo o que está acima
+git status --short                                 # o que existe lá e ainda não foi versionado
+git status --ignored --short | grep '^!!'          # o que existe lá e é ignorado de propósito
+du -sh data/raw/* data/processed/* 2>/dev/null     # tamanhos
+```
+Se algo valioso aparecer em `git status` ou na lista de ignorados (e tiver menos de 100 MB por arquivo), adicione, comite e envie; acima de 100 MB, compacte e divida como foi feito com o SRTM: `tar -czf - -C data/raw <pasta> | split -b 90M -d - data/raw/<nome>.tar.gz.part-` (e acrescente a exceção em `.gitignore`). O GitHub avisou (GH001) que há arquivos grandes; nada passou do limite, mas, se os dados crescerem muito, considerar Git LFS ou guardar os dados fora do git.
+
 ## 4. Rodar o que existe
 ```
 streamlit run src/app/app.py                 # MVP (abra uma vez antes da demo: a 1ª abertura leva ~6 s)

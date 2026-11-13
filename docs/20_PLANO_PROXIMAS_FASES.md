@@ -29,6 +29,8 @@ python -m venv .venv
 | ZARC: dicionário de dados | `data/raw/zarc/` | já está pronto (o CSV do ZARC é filtrado do site oficial; o resultado do Ceará já está em `data/processed/zarc_ce.parquet`) |
 | **Tiles do relevo (SRTM), 28 arquivos `.hgt`, 709 MB** | `data/raw/srtm_tiles.tar.gz.part-00 .. part-02` (231 MB, divididos porque o GitHub rejeita arquivo > 100 MB) | `cat data/raw/srtm_tiles.tar.gz.part-* \| tar -xz -C data/raw` recria `data/raw/srtm/`. Só é preciso para recalcular terreno com outra janela; o resultado atual já está em `data/processed/terreno.parquet`. |
 
+**Inventário completo e conferido** (o que está no GitHub, o que não está e por quê, e como completar a partir do outro computador): `docs/04_RETOMADA.md`, seção 3b. Itens que existiam só no computador da rodada anterior (`indice/` do RAG, `t1_linhas.pkl`, SMAP bruto) devem ser conferidos lá com `git status`.
+
 **O que NÃO vem (e como refazer):** `.env` (nunca; crie à mão, ver `docs/04`), `.venv/` (recria com o `pip install`), `indice/` do RAG (`python -m src.rag.rag_docs`, precisa de `pdftotext`), `data/processed/sintetico/` (`python -m src.modelos.sintetico`).
 
 **Antes de codar, conferir que o outro PC reproduz o estado:**
