@@ -125,7 +125,13 @@ def notas_ciclo(tab: dict, cid: str, clima: ClimaPonto, p: Parametros) -> dict:
     zinfo = None
     if p.usar_zarc:
         from . import zarc
-        z = zarc.janela(zarc.geocodigo_do_ponto(clima.ponto_id), cid, p.zarc_risco, p.zarc_solo)
+        geo = zarc.geocodigo_do_ponto(clima.ponto_id)
+        z = zarc.janela(geo, cid, p.zarc_risco, p.zarc_solo)
+        aprox = False
+        if z["permitido"] is None and cid not in zarc.MAPA_CULTURAS and geo is not None:    # sem ZARC: janela aproximada (anuais)
+            za = zarc.janela_aproximada_anuais(geo, p.zarc_risco, p.zarc_solo)
+            if za["permitido"] is not None:
+                z, aprox = {**za, "recurso": "aproximada pelas culturas anuais"}, True
         if z["permitido"] is None:
             zinfo = {"aplicado": False, "motivo": z["motivo"]}
         else:
@@ -134,7 +140,8 @@ def notas_ciclo(tab: dict, cid: str, clima: ClimaPonto, p: Parametros) -> dict:
             nt = np.where(ok_ini[None, :] | np.isnan(nt), nt, 0.0)           # fora da janela: nota 0 (NaN segue NaN)
             nr = np.where(ok_ini[None, :] | np.isnan(nr), nr, 0.0)
             zinfo = {"aplicado": True, "recurso": z["recurso"], "risco": z["risco"], "solo": z["solo"],
-                     "decendios_permitidos": z["n_decendios"], "inicios_permitidos": int(ok_ini.sum())}
+                     "decendios_permitidos": z["n_decendios"], "inicios_permitidos": int(ok_ini.sum()), "aproximada": aprox,
+                     "aviso": z.get("aviso")}
     return {"estado": "avaliavel", "lacunas": [], "zarc": zinfo, "dur": dur, "dur_chuva": dur_r, "tmedia": tmedia, "chuva": soma_r,
             "nt": nt, "nr": nr, "valido": vt & vr}
 

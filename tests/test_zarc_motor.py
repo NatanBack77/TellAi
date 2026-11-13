@@ -84,8 +84,33 @@ def test_zarc_zera_so_inicios_fora_da_janela(tab, clima, geo):
     assert b["zarc"]["aplicado"] and b["zarc"]["inicios_permitidos"] == int(ok.sum())
 
 
-def test_cultura_sem_zarc_nao_e_restringida(tab, clima):
-    p = Parametros(usar_zarc=True)
-    a, b = ciclo.notas_ciclo(tab, "mucuna", clima, Parametros()), ciclo.notas_ciclo(tab, "mucuna", clima, p)
-    np.testing.assert_array_equal(a["nt"], b["nt"])
-    assert b["zarc"]["aplicado"] is False and "sem correspondência" in b["zarc"]["motivo"]
+def test_cultura_sem_zarc_usa_janela_aproximada_das_anuais(tab, clima, geo):
+    """Sem isso, as culturas sem ZARC (adubação verde, sorgo) levariam vantagem sobre as zoneadas."""
+    a = ciclo.notas_ciclo(tab, "mucuna", clima, Parametros())
+    b = ciclo.notas_ciclo(tab, "mucuna", clima, Parametros(usar_zarc=True))
+    z = b["zarc"]
+    assert z["aplicado"] is True and z["aproximada"] is True and "anuais" in z["aviso"]
+    ap = zarc.janela_aproximada_anuais(geo, 30)["permitido"]
+    ok = ap[zarc.decendios_do_inicio(np.arange(0, 365, 10))]
+    np.testing.assert_array_equal(b["nt"][:, ok], a["nt"][:, ok])
+    assert np.nansum(b["nt"][:, ~ok]) == 0
+    assert zarc.janela_aproximada_anuais(None)["permitido"] is None          # sem IBGE: sem janela, sem inventar
+
+
+def test_aproximada_cobre_ao_menos_cada_cultura_anual(geo):
+    ap = zarc.janela_aproximada_anuais(geo, 30)
+    for c in zarc.ANUAIS:
+        j = zarc.janela(geo, c, 30)["permitido"]
+        if j is not None:
+            assert not (j & ~ap["permitido"]).any()                         # a união contém cada janela
+
+
+def test_solo_especifico_e_subconjunto_de_qualquer_e_cai_em_qualquer_sem_linhas(geo):
+    q = zarc.janela(geo, "milho", 30, "qualquer")["permitido"]
+    for s in ("arenoso", "medio", "argiloso"):
+        j = zarc.janela(geo, "milho", 30, s)
+        assert j["permitido"] is not None and not (j["permitido"] & ~q).any()
+    assert Parametros(zarc_solo="arenoso").zarc_solo == "arenoso"
+    with pytest.raises(ValueError):
+        Parametros(zarc_solo="rochoso")
+

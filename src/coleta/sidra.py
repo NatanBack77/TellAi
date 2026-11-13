@@ -1,6 +1,6 @@
 """Produção agrícola municipal (PAM/IBGE, SIDRA tabela 1612, lavouras temporárias) do Ceará -> data/processed/pam_ce.parquet.
 
-API pública do IBGE (sem login). Variáveis: 216 área colhida (ha), 214 quantidade produzida, 112 rendimento médio. Anos 2015-2023.
+API pública do IBGE (sem login). Variáveis: 216 área colhida (ha), 214 quantidade produzida, 112 rendimento médio, 215 valor da produção (mil reais correntes; receita bruta, não lucro). Anos 2015-2023.
 Valores não numéricos do IBGE (traço, reticências, X) viram NaN; nunca são preenchidos. Uso: saber quais culturas são relevantes no
 município e dar contexto de produtividade (não é preço nem mercado).
 """
@@ -15,7 +15,7 @@ import pandas as pd
 from src.modelos.entrada import RAIZ
 
 URL = "https://apisidra.ibge.gov.br/values/t/1612/n6/in%20n3%2023/v/{v}/p/{ano}/c81/all"
-VARS = {"216": "area_colhida_ha", "214": "quantidade_produzida", "112": "rendimento_medio"}
+VARS = {"216": "area_colhida_ha", "214": "quantidade_produzida", "112": "rendimento_medio", "215": "valor_producao_mil_reais"}
 
 
 def _get(url, tentativas=4):

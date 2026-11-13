@@ -34,7 +34,7 @@ class Parametros:
     # --- ZARC (docs/13): restringe os inícios de plantio aos decêndios indicados; DESLIGADO por padrão ---
     usar_zarc: bool = False
     zarc_risco: int = 30             # nível de risco do ZARC aceito (20, 30 ou 40); SUPOSIÇÃO a decidir
-    zarc_solo: str = "qualquer"      # 'qualquer' (algum solo indica) ou 'todos' (todos os solos indicam)
+    zarc_solo: str = "qualquer"      # 'qualquer', 'todos', ou solo específico: 'arenoso', 'medio', 'argiloso'
 
     def __post_init__(self):
         if self.ciclo_modo not in CICLO_MODOS:
@@ -51,8 +51,8 @@ class Parametros:
             raise ValueError("percentis inválidos")
         if self.zarc_risco not in (20, 30, 40):
             raise ValueError("zarc_risco deve ser 20, 30 ou 40")
-        if self.zarc_solo not in ("qualquer", "todos"):
-            raise ValueError("zarc_solo deve ser 'qualquer' ou 'todos'")
+        if self.zarc_solo not in ("qualquer", "todos", "arenoso", "medio", "argiloso"):
+            raise ValueError("zarc_solo deve ser 'qualquer', 'todos', 'arenoso', 'medio' ou 'argiloso'")
         if self.dirichlet_alfa <= 0:
             raise ValueError("dirichlet_alfa deve ser > 0")
 
@@ -79,7 +79,7 @@ class Parametros:
             "lacunas (nota desconhecida ~ Uniforme[0,1], não removida nem premiada) e o ano do clima. Não é intervalo de "
             "confiança nem chance de dar certo na roça.",
             *( [f"SUPOSIÇÃO (decisão do usuário): ZARC LIGADO (risco {self.zarc_risco}, solo '{self.zarc_solo}'): início de plantio "
-                "fora dos decêndios indicados recebe nota 0; cultura sem ZARC no município não é restringida (lacuna)."]
+                "fora dos decêndios indicados recebe nota 0; cultura sem ZARC usa janela APROXIMADA (união das culturas anuais com ZARC no município)."]
                if self.usar_zarc else [] ),
             "SUPOSIÇÃO: pesos sorteados NÃO são preferência de ninguém; os pesos-base do motor são proposta de projeto.",
             *([f"SUPOSIÇÃO (prioridade do agricultor): as alternativas foram escolhidas pelo bloco '{self.bloco_ranking}'."]
