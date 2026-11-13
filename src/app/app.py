@@ -38,6 +38,11 @@ def rotacao_cache(ponto: str, cultura: str, prioridade: str, rot2: str, rot3: st
     return M.calcular_rotacao(ponto, cultura, prioridade, rot, textura, mo, zarc)
 
 
+@st.cache_resource(show_spinner="Montando o plano de várias safras (MILP)...", max_entries=32)
+def plano_cache(ponto: str, cultura: str, prioridade: str, horizonte: int, sem_repetir: bool, min_leg: int, zarc: bool) -> dict:
+    return M.calcular_plano(ponto, cultura, prioridade, horizonte, sem_repetir, min_leg, zarc)
+
+
 @st.cache_resource(show_spinner=False, max_entries=128)
 def cenario_cache(ponto: str, cultura: str, prioridade: str, fator_chuva: float, delta_t: float) -> dict:
     return M.cenario_clima(ponto, cultura, prioridade, fator_chuva, delta_t, base=calcular_cache(ponto, cultura, prioridade))
@@ -340,6 +345,13 @@ def painel_rotacao(lid: str, cultura: str, prio: str):
     r3 = c2.selectbox("Sua rotação atual: 3ª safra (opcional)", opcoes, format_func=rotulo, key="rot3")
     tex = c3.selectbox("Textura do solo (se souber)", M.OPCOES_TEXTURA, key="textura")
     mo = c4.selectbox("Matéria orgânica (se souber)", M.OPCOES_MO, key="mo")
+    est = M.solo_estimado(lid)
+    if est:
+        st.caption(f"Solo estimado pelo mapa SoilGrids para este local (camadas 0–30 cm): argila {M.br(est['argila_pct'], 0)}%, areia {M.br(est['areia_pct'], 0)}%, "
+                   f"carbono orgânico {M.br(est['carbono_organico_g_kg'], 0)} g/kg, pH {M.br(est['ph_agua'], 1)} (textura {est['textura']}). "
+                   "Se você não informar a textura, esta estimativa é usada. " + est["aviso"])
+    else:
+        lacuna("solo estimado indisponível para este local; informe a textura se souber.")
     zarc = st.checkbox("Usar as datas de plantio do ZARC (zoneamento oficial do MAPA, risco 30; só no Ceará; culturas sem ZARC usam uma janela aproximada)",
                        value=M.ZARC_PADRAO, key="zarc")
     if (r2 == "-") != (r3 == "-"):
@@ -380,6 +392,26 @@ def painel_rotacao(lid: str, cultura: str, prio: str):
                     st.markdown(f"- LACUNA: {l}")
                 for rr in e["riscos_revisao_local"]:
                     st.markdown(f"- Risco a avaliar com técnico: {rr}")
+    with st.expander("Plano de várias safras com regras (programação linear inteira mista, MILP)"):
+        st.caption("Para horizontes longos. Você escolhe as regras; o app resolve o melhor plano muitas vezes, sorteando pesos, ano de clima e lacunas, e conta com que "
+                   "frequência cada sequência sai como a melhor. É uma PROPOSTA para conversar com o técnico: se nenhuma sequência domina, não há vencedora clara.")
+        h1, h2, h3 = st.columns(3)
+        hor = h1.slider("Quantas safras (uma por ano)", 3, 8, 5, key="plano_h")
+        semrep = h2.checkbox("Nunca repetir a mesma cultura em seguida", value=True, key="plano_semrep")
+        minleg = h3.slider("Mínimo de safras com leguminosa", 0, 3, 1, key="plano_leg")
+        if st.button("Calcular o plano", key="plano_btn"):
+            st.session_state["plano_pedido"] = (lid, cultura, prio, hor, semrep, minleg, zarc)
+        ped = st.session_state.get("plano_pedido")
+        if ped and ped[:3] == (lid, cultura, prio):
+            pl = plano_cache(*ped)
+            if pl.get("lacuna"):
+                lacuna(pl["lacuna"])
+            else:
+                st.markdown(f"**{pl['n_sequencias_distintas']} sequências diferentes** saíram como a melhor em {pl['n_resolvidos']} sorteios. "
+                            f"A mais frequente foi a melhor em **{M.pct(pl['p_otima_top1'])}** deles: nenhuma domina.")
+                for x in pl["top"][:3]:
+                    st.markdown(f"- {M.pct(x['p_otima'])} dos sorteios: " + " → ".join(x["nomes"]))
+                st.caption(pl["aviso"] + f" Regras: {pl['regras']}. Tempo: {M.br(pl['segundos'], 1)} s.")
     with st.expander("Suposições da rotação (a validar)"):
         for t in r["suposicoes"]:
             st.markdown(f"- {t}")

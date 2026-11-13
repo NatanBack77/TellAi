@@ -171,3 +171,18 @@ def test_calcular_rotacao_renda_e_lacuna_e_nao_altera():
     b = M.calcular_rotacao("quixada_ce", "milho", "renda", n_sorteios=800)
     assert [e["sequencia"] for e in a["estrategias"]] == [e["sequencia"] for e in b["estrategias"]]
     assert a["n_simuladas"] <= 81 and a["segundos"] < 5.0
+
+
+def test_solo_estimado_plausivel_e_rotulado():
+    e = M.solo_estimado("quixada_ce")
+    assert e is not None and 0 < e["argila_pct"] < 60 and 0 < e["areia_pct"] < 100 and 3.5 < e["ph_agua"] < 9.5
+    assert e["textura"] in ("arenoso", "médio", "argiloso") and "Não é análise de solo" in e["aviso"]
+    assert M.solo_estimado("ponto_que_nao_existe") is None
+
+
+def test_rotacao_usa_solo_estimado_se_nao_informado_e_o_informado_prevalece():
+    a = M.calcular_rotacao("quixada_ce", "milho", "sem", n_sorteios=500)
+    assert a["solo_informado"]["origem"].startswith("estimado") and a["solo_estimado"] is not None
+    b = M.calcular_rotacao("quixada_ce", "milho", "sem", textura="arenoso", n_sorteios=500)
+    assert b["solo_informado"]["origem"] == "informado" and b["solo_informado"]["textura"] == "arenoso"
+    assert any("arenoso informado" in r for r in b["estrategias"][1]["riscos_revisao_local"])

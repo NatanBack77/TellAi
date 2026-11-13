@@ -28,7 +28,8 @@ def _indices(T: int, C: int):
 
 
 def otimizar(culturas: list[str], atual: str, adeq_por_ano: dict[str, np.ndarray], familia: dict[str, str | None], palha: dict[str, float | None],
-             T: int = 3, pesos: dict | None = None, regras: dict | None = None, robusto_beta: float | None = None, limite_s: float = 30.0) -> dict:
+             T: int = 3, pesos: dict | None = None, regras: dict | None = None, robusto_beta: float | None = None, limite_s: float = 30.0,
+             nota_palha: dict[str, float] | None = None) -> dict:
     """Melhor sequência de T safras. `adeq_por_ano[c]`: adequação (0-1) de c em cada ano de clima. Devolve sequência, nota e status do solver."""
     if atual not in culturas:
         raise ValueError("a cultura atual precisa estar entre as candidatas")
@@ -45,6 +46,8 @@ def otimizar(culturas: list[str], atual: str, adeq_por_ano: dict[str, np.ndarray
     else:
         s_pal = (pal - np.nanmin(pal)) / (np.nanmax(pal) - np.nanmin(pal))
     s_pal = np.where(np.isnan(s_pal), 0.5, s_pal)                       # lacuna = 0,5 neutro (declarado)
+    if nota_palha is not None:                                          # notas 0-1 já dadas (ex.: sorteadas, com lacuna ~ U[0,1])
+        s_pal = np.array([nota_palha[c] for c in culturas], float)
     leg = np.array([familia.get(c) == LEGUMINOSA for c in culturas])
     div = np.array([[0.0 if (familia.get(a) is None or familia.get(a) == familia.get(b)) else 1.0 for b in culturas] for a in culturas])
     legt = np.array([[1.0 if (leg[a] and not leg[b]) else 0.0 for b in range(C)] for a in range(C)])
@@ -150,3 +153,46 @@ def melhor_por_enumeracao(culturas, atual, adeq_por_ano, familia, palha, T=3, pe
         if v > nota + 1e-12:
             melhor, nota = s, v
     return list(melhor) if melhor else None, float(nota)
+
+
+def otimizar_com_incerteza(culturas: list[str], atual: str, adeq_por_ano: dict[str, np.ndarray], familia: dict[str, str | None],
+                           palha: dict[str, float | None], T: int = 5, regras: dict | None = None, n: int = 200, ordem_pesos: tuple | None = None,
+                           semente: int = 20241112, top: int = 5) -> dict:
+    """Roda o MILP `n` vezes, cada vez com pesos, ano de clima e lacunas SORTEADOS, e conta com que frequência cada sequência é a ótima.
+
+    Mesma ideia do SMAA de rotacao.py (pesos Dirichlet, ordenados se `ordem_pesos`; um ano de clima por sorteio; lacuna de palha ~ U[0,1]), mas com o
+    MILP no lugar da enumeração: vale para horizontes longos e respeita as regras duras. `ordem_pesos`: nomes entre adeq, palha, div, leg (maior peso primeiro).
+    Devolve as sequências mais frequentes com `p_otima` (fração dos sorteios em que foi a ótima). NÃO é chance de dar certo na roça.
+    """
+    rng = np.random.default_rng(semente)
+    nomes = ["adeq", "palha", "div", "leg"]
+    K = len(next(iter(adeq_por_ano.values())))
+    pal = {c: palha.get(c) for c in culturas}
+    com_dado = [v for v in pal.values() if v is not None]
+    contagem: dict[tuple, int] = {}
+    inviaveis = 0
+    for _ in range(n):
+        w = rng.dirichlet(np.ones(4))
+        if ordem_pesos:
+            ordem = [nomes.index(x) for x in ordem_pesos] + [i for i in range(4) if nomes[i] not in ordem_pesos]
+            ws = -np.sort(-w)
+            w = np.empty(4)
+            w[ordem] = ws
+        k = int(rng.integers(0, K))
+        adeq_k = {c: adeq_por_ano[c][k:k + 1] for c in culturas}
+        if com_dado and max(com_dado) > min(com_dado):
+            lo, hi = min(com_dado), max(com_dado)
+            np_ = {c: (rng.random() if pal[c] is None else (pal[c] - lo) / (hi - lo)) for c in culturas}
+        else:
+            np_ = {c: rng.random() for c in culturas}
+        r = otimizar(culturas, atual, adeq_k, familia, palha, T=T, pesos=dict(zip(nomes, w)), regras=regras, nota_palha=np_)
+        if not r["viavel"]:
+            inviaveis += 1
+            continue
+        contagem[tuple(r["sequencia"])] = contagem.get(tuple(r["sequencia"]), 0) + 1
+    ok = n - inviaveis
+    ordem_seq = sorted(contagem.items(), key=lambda kv: -kv[1])
+    return {"n_sorteios": n, "n_resolvidos": ok, "n_sequencias_distintas": len(contagem), "horizonte": T, "regras": regras or {},
+            "top": [{"sequencia": list(s_), "p_otima": v / ok} for s_, v in ordem_seq[:top]] if ok else [],
+            "p_otima_top1": (ordem_seq[0][1] / ok) if ok else None,
+            "aviso": "Fração dos sorteios (pesos, ano de clima e lacunas) em que a sequência foi a ótima do MILP; não é chance de dar certo na roça."}

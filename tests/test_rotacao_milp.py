@@ -53,3 +53,28 @@ def test_cultura_atual_fora_das_candidatas_falha():
     cult, adeq, fam, pal = _dados()
     with pytest.raises(ValueError):
         otimizar(cult, "nao_existe", adeq, fam, pal)
+
+
+def test_incerteza_conta_frequencias_e_e_reprodutivel():
+    from src.culturas.rotacao_milp import otimizar_com_incerteza
+    cult, adeq, fam, pal = _dados(5, C=10)
+    kw = dict(T=4, n=60, regras={"sem_repetir_seguida": True, "min_leguminosas": 1})
+    a, b = otimizar_com_incerteza(cult, "c1", adeq, fam, pal, **kw), otimizar_com_incerteza(cult, "c1", adeq, fam, pal, **kw)
+    assert a["top"] == b["top"] and a["n_resolvidos"] == 60
+    assert sum(x["p_otima"] for x in a["top"]) <= 1.0 + 1e-9 and a["top"][0]["p_otima"] >= a["top"][-1]["p_otima"]
+    assert all(x["sequencia"][0] == "c1" and len(x["sequencia"]) == 4 for x in a["top"]) and "roça" in a["aviso"]
+
+
+def test_incerteza_com_regra_impossivel_nao_inventa():
+    from src.culturas.rotacao_milp import otimizar_com_incerteza
+    cult, adeq, fam, pal = _dados(0, C=4)
+    r = otimizar_com_incerteza(cult, "c1", adeq, fam, pal, T=3, n=10, regras={"min_leguminosas": 3, "max_repeticoes": 1})
+    assert r["top"] == [] and r["p_otima_top1"] is None
+
+
+def test_plano_do_app_usa_o_motor_e_devolve_frequencias():
+    from src.app import mvp as M
+    r = M.calcular_plano("quixada_ce", "milho", "solo", horizonte=5, n_sorteios=40)
+    assert r["top"] and len(r["top"][0]["sequencia"]) == 5 and r["top"][0]["sequencia"][0] == "milho"
+    assert all(a != b for a, b in zip(r["top"][0]["sequencia"][:-1], r["top"][0]["sequencia"][1:]))
+    assert 0 < r["p_otima_top1"] <= 1 and r["segundos"] < 30

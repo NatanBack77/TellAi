@@ -24,6 +24,7 @@ from src.culturas import ciclo as ciclo_mod
 from src.culturas.motor import avaliar_local, gerar_cenarios
 from src.culturas.parametros import Parametros
 from src.culturas.rotacao import gerar_rotacoes
+from src.culturas.rotacao_milp import otimizar_com_incerteza
 from src.culturas.tabela_culturas import carregar as carregar_tabela_culturas
 
 RAIZ = Path(__file__).resolve().parents[2]
@@ -692,9 +693,75 @@ def calcular_rotacao(ponto_id: str, cultura_atual: str, prioridade: str = "sem",
         raise KeyError(f"ponto '{ponto_id}' não está em pontos.csv")
     p = parametros(prioridade, n_sorteios, usar_zarc)
     solo = {k: v for k, v in (("textura", textura), ("materia_organica", materia_organica)) if v not in (None, "não sei")} or None
+    est = solo_estimado(ponto_id)
+    if solo is not None and "textura" in solo:
+        solo["origem"] = "informado"
+    elif est is not None:                                  # agricultor não informou a textura: usa a estimada (rotulada)
+        solo = {**(solo or {}), "textura": est["textura"], "origem": "estimado pelo mapa SoilGrids (~2 km)"}
+    if solo and solo.get("textura") in ("arenoso", "argiloso", "médio"):
+        p = replace(p, zarc_solo={"arenoso": "arenoso", "argiloso": "argiloso", "médio": "medio"}[solo["textura"]])
     ibge = pts.loc[ponto_id].get("ibge")
     r = gerar_rotacoes({"local": ponto_id}, cultura_atual, tab, clima_ponto(ponto_id), p, prioridade, rotacao_atual, 2, solo,
                        None if pd.isna(ibge) else int(ibge))
-    r["usar_zarc"], r["solo_informado"], r["segundos"] = usar_zarc, solo, time.perf_counter() - t0
+    r["usar_zarc"], r["solo_informado"], r["solo_estimado"], r["segundos"] = usar_zarc, solo, est, time.perf_counter() - t0
     r["local"] = {"ponto_id": ponto_id, "nome": pts.loc[ponto_id]["nome"]}
     return r
+
+
+# ------------------------------------------------------------------------------------------ plano de várias safras (MILP)
+ORDEM_MILP = {"sem": None, "renda": None, "agua": ("adeq", "div", "leg", "palha"), "solo": ("palha", "leg", "div", "adeq")}
+
+
+def calcular_plano(ponto_id: str, cultura_atual: str, prioridade: str = "sem", horizonte: int = 5, nunca_repetir_seguida: bool = True,
+                   min_leguminosas: int = 2, usar_zarc: bool = ZARC_PADRAO, n_sorteios: int = 150) -> dict:
+    """Plano de `horizonte` safras por MILP com regras duras, repetido com pesos/ano de clima/lacunas sorteados (frequência de cada sequência ser a ótima).
+
+    PROPOSTA, não decisão: o MILP devolve um ótimo por sorteio; a frequência mostra que nenhuma sequência domina (empate técnico).
+    """
+    t0 = time.perf_counter()
+    tab = carregar_tabela()
+    if ponto_id not in carregar_pontos().set_index("ponto_id").index:
+        raise KeyError(f"ponto '{ponto_id}' não está em pontos.csv")
+    p = parametros(prioridade, 1000, usar_zarc)
+    av = avaliar_local(tab, clima_ponto(ponto_id), p)
+    cult = [c for c in tab if av["culturas"][c]["res"] is not None and (av["culturas"][c]["estado"] == "viavel" or c == cultura_atual)]
+    if cultura_atual not in cult:
+        return {"lacuna": f"cultura atual '{cultura_atual}' sem avaliação climática neste local; plano não calculado.", "top": []}
+    adeq = {c: np.asarray(av["culturas"][c]["res"]["adeq_por_ano"], float) for c in cult}
+    fam = {c: (tab[c]["atributos"].get("familia_botanica") or {}).get("valor") for c in cult}
+    pal = {c: (tab[c]["atributos"].get("palha_ms_kg_ha") or {}).get("valor") for c in cult}
+    regras = {}
+    if nunca_repetir_seguida:
+        regras["sem_repetir_seguida"] = True
+    if min_leguminosas:
+        regras["min_leguminosas"] = int(min_leguminosas)
+    r = otimizar_com_incerteza(cult, cultura_atual, adeq, fam, pal, T=horizonte, regras=regras, n=n_sorteios, ordem_pesos=ORDEM_MILP[prioridade])
+    r["top"] = [{**x, "nomes": [tab[c]["cultura_pt"] for c in x["sequencia"]]} for x in r["top"]]
+    r["segundos"], r["usar_zarc"], r["prioridade"], r["n_culturas"] = time.perf_counter() - t0, usar_zarc, prioridade, len(cult)
+    if not r["top"]:
+        r["lacuna"] = "nenhuma sequência atende às regras escolhidas; afrouxe as regras (ex.: menos leguminosas)."
+    return r
+
+
+# ------------------------------------------------------------------------------------------ solo estimado (SoilGrids)
+@lru_cache(maxsize=1)
+def _solo_df() -> pd.DataFrame | None:
+    arq = RAIZ / "data/processed/solo.parquet"
+    return pd.read_parquet(arq).set_index("ponto_id") if arq.exists() else None
+
+
+def solo_estimado(ponto_id: str) -> dict | None:
+    """Solo do ponto estimado pelo SoilGrids (mapa global de 250 m; mediana de ~2 km; média das camadas 0-30 cm). NÃO é análise de solo.
+
+    Classe de textura pelo teor de argila (agrupamento simples: < 15% arenoso, 15 a 35% médio, > 35% argiloso). Sem dado: None (lacuna).
+    """
+    d = _solo_df()
+    if d is None or ponto_id not in d.index or pd.isna(d.loc[ponto_id].get("clay_0-5cm")):
+        return None
+    r = d.loc[ponto_id]
+    media = lambda p: float(np.mean([r[f"{p}_{x}"] for x in ("0-5cm", "5-15cm", "15-30cm")]))
+    argila, areia, soc, ph = media("clay"), media("sand"), media("soc"), media("phh2o")
+    classe = "arenoso" if argila < 15 else ("argiloso" if argila > 35 else "médio")
+    return {"argila_pct": argila, "areia_pct": areia, "silte_pct": media("silt"), "carbono_organico_g_kg": soc, "ph_agua": ph, "textura": classe,
+            "pixel_central_valido": bool(r.get("pixel_central_valido", True)),
+            "aviso": "Estimativa de um mapa global (250 m; mediana de ~2 km em volta do ponto), camadas 0-30 cm. Não é análise de solo; confirme com o técnico."}

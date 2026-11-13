@@ -195,12 +195,13 @@ def gerar_rotacoes(perfil: dict, cultura_atual: str, tabela: dict, clima: ciclo.
                                        "Culturas fora da prática local ou sem semente/mercado podem não ser viáveis na prática."]
         if solo_usuario:
             tex = str(solo_usuario.get("textura", "")).lower()
+            org = solo_usuario.get("origem", "informado")
             if tex.startswith("aren"):
-                riscos.append("Solo arenoso informado: baixa retenção de água e de matéria orgânica; palha e cobertura pesam mais, e a seca é mais crítica. Avaliar com técnico.")
+                riscos.append(f"Solo arenoso {org}: baixa retenção de água e de matéria orgânica; palha e cobertura pesam mais, e a seca é mais crítica. Avaliar com técnico.")
             if tex.startswith("argil"):
-                riscos.append("Solo argiloso informado: risco de encharcamento e compactação em chuva forte; avaliar drenagem com técnico.")
+                riscos.append(f"Solo argiloso {org}: risco de encharcamento e compactação em chuva forte; avaliar drenagem com técnico.")
             if str(solo_usuario.get("materia_organica", "")).lower().startswith("baix"):
-                riscos.append("Matéria orgânica baixa informada: favorece sequências com mais palha e leguminosa, mas o app não mede o efeito.")
+                riscos.append("Matéria orgânica baixa informada pelo agricultor: favorece sequências com mais palha e leguminosa, mas o app não mede o efeito.")
         estrategias.append({
             "papel": papel, "sequencia": list(s), "nomes": [tabela[c]["cultura_pt"] for c in s],
             "rotacao_informada_pelo_usuario": bool(papel == "atual" and rotacao_atual is not None),

@@ -56,22 +56,32 @@ def _norm(s: str) -> str:
 
 @functools.lru_cache(maxsize=1)
 def _indice() -> dict:
-    """{(geocodigo, nome_norm, recurso): (risco_uniao[36], risco_todos[36])} só para sequeiro."""
+    """{(geocodigo, nome_norm, recurso): (risco_uniao[36], risco_todos[36])} e, por solo, {(geo, nome, recurso, solo): (...)}; só sequeiro.
+
+    Vetorizado (a versão em laço levava ~50 s): filtra só as culturas mapeadas, troca 0 por 99 e agrega min/max em bloco.
+    """
     if not CAMINHO.exists():
         return {}
     d = pd.read_parquet(CAMINHO)
-    d = d[d["Cod_Outros_Manejos"] == 1].copy()
-    d["_n"] = d["Nome_cultura"].map(_norm)
+    d = d[d["Cod_Outros_Manejos"] == 1]
+    nomes_uteis = {n for v in MAPA_CULTURAS.values() for n in v}
+    norm = {n: _norm(n) for n in d["Nome_cultura"].unique()}              # normaliza só os nomes distintos
+    d = d.assign(_n=d["Nome_cultura"].map(norm))
+    d = d[d["_n"].isin(nomes_uteis)]
+    X = d[DEC].astype(float)
+    d2 = pd.concat([d[["geocodigo", "_n", "recurso", "Cod_Solo"]], X.where(X > 0, SEM_INDICACAO)], axis=1)
+    chave = ["geocodigo", "_n", "recurso"]
     out = {}
-    for (geo, n, rec), g in d.groupby(["geocodigo", "_n", "recurso"]):
-        m = g[DEC].to_numpy(float)
-        m = np.where(m > 0, m, SEM_INDICACAO)
-        out[(int(geo), n, rec)] = (m.min(axis=0), m.max(axis=0))
-        for nome, cod in SOLOS.items():
-            gs = g[g["Cod_Solo"] == cod]
-            if not gs.empty:
-                ms = np.where(gs[DEC].to_numpy(float) > 0, gs[DEC].to_numpy(float), SEM_INDICACAO)
-                out[(int(geo), n, rec, nome)] = (ms.min(axis=0), ms.max(axis=0))
+    mn, mx = d2.groupby(chave)[DEC].min(), d2.groupby(chave)[DEC].max()
+    for k in mn.index:
+        out[(int(k[0]), k[1], k[2])] = (mn.loc[k].to_numpy(float), mx.loc[k].to_numpy(float))
+    for nome, cod in SOLOS.items():
+        sub = d2[d2["Cod_Solo"] == cod]
+        if sub.empty:
+            continue
+        smn, smx = sub.groupby(chave)[DEC].min(), sub.groupby(chave)[DEC].max()
+        for k in smn.index:
+            out[(int(k[0]), k[1], k[2], nome)] = (smn.loc[k].to_numpy(float), smx.loc[k].to_numpy(float))
     return out
 
 
