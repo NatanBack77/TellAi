@@ -1,0 +1,41 @@
+linhas 62318 celulas 59
+placebo 11
+placebo 12
+placebo 13
+  cenario  modelo variante  skill_media_anos  dif_vs_base  ic_inf_5pct  frac_anos_pos
+     real   ridge  v1_solo            0.2602       0.0003      -0.0000         0.6190
+     real   ridge    v2_ad            0.2598      -0.0000      -0.0001         0.2857
+     real   ridge v3_inter            0.2605       0.0006       0.0003         0.7619
+     real   ridge  v4_solo            0.2602       0.0003      -0.0000         0.6190
+     real xgboost  v1_solo            0.2918       0.0006       0.0001         0.6667
+     real xgboost    v2_ad            0.2911      -0.0001      -0.0004         0.4762
+     real xgboost v3_inter            0.2915       0.0003      -0.0002         0.5714
+     real xgboost  v4_solo            0.2913       0.0002       0.0000         0.5714
+placebo11   ridge  v1_solo            0.2598      -0.0001      -0.0001         0.0952
+placebo11   ridge    v2_ad            0.2599       0.0000      -0.0000         0.4762
+placebo11   ridge v3_inter            0.2599      -0.0000      -0.0002         0.3810
+placebo11   ridge  v4_solo            0.2598      -0.0001      -0.0002         0.4762
+placebo11 xgboost  v1_solo            0.2915       0.0003      -0.0002         0.5238
+placebo11 xgboost    v2_ad            0.2911      -0.0001      -0.0005         0.4286
+placebo11 xgboost v3_inter            0.2912      -0.0000      -0.0003         0.5238
+placebo11 xgboost  v4_solo            0.2912      -0.0000      -0.0001         0.4286
+placebo12   ridge  v1_solo            0.2599      -0.0000      -0.0001         0.4762
+placebo12   ridge    v2_ad            0.2599      -0.0000      -0.0000         0.2381
+placebo12   ridge v3_inter            0.2597      -0.0002      -0.0003         0.2381
+placebo12   ridge  v4_solo            0.2599      -0.0000      -0.0002         0.4762
+placebo12 xgboost  v1_solo            0.2913       0.0001      -0.0003         0.4762
+placebo12 xgboost    v2_ad            0.2911      -0.0001      -0.0004         0.3810
+placebo12 xgboost v3_inter            0.2911      -0.0001      -0.0005         0.3333
+placebo12 xgboost  v4_solo            0.2912      -0.0000      -0.0001         0.5238
+placebo13   ridge  v1_solo            0.2598      -0.0001      -0.0001         0.2857
+placebo13   ridge    v2_ad            0.2599       0.0000      -0.0000         0.6190
+placebo13   ridge v3_inter            0.2598      -0.0001      -0.0002         0.2857
+placebo13   ridge  v4_solo            0.2598      -0.0001      -0.0003         0.4762
+placebo13 xgboost  v1_solo            0.2914       0.0002      -0.0002         0.5238
+placebo13 xgboost    v2_ad            0.2910      -0.0001      -0.0006         0.3810
+placebo13 xgboost v3_inter            0.2911      -0.0000      -0.0005         0.2857
+placebo13 xgboost  v4_solo            0.2912      -0.0000      -0.0001         0.4762
+cenario  modelo variante  skill_media_anos  dif_vs_base  ic_inf_5pct  frac_anos_pos
+   real   ridge     base            0.2599          0.0          0.0            0.0
+   real xgboost     base            0.2912          0.0          0.0            0.0
+.venv/bin/python experimentos/soilgrids/celulas_novas.py  250,41s user 4,35s system 134% cpu 3:08,91 total

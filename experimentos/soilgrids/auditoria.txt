@@ -1,0 +1,62 @@
+N pontos 195 | NaN em qualquer coluna: 0
+pixel central valido: 181 | invalido: 14
+fracao de pixels validos nos 14 invalidos:
+ ponto_id
+petrolina_pe            0.05
+araripina_pe            0.64
+serra_talhada_pe        0.36
+sertania_pe             0.68
+sousa_pb                0.40
+mossoro_rn              0.14
+quixada_ce              0.53
+picos_pi                0.31
+irece_ba                0.42
+senhor_do_bonfim_ba     0.36
+euclides_da_cunha_ba    0.63
+fortaleza_ce            0.52
+maracanau_ce            0.43
+oros_ce                 0.20
+pontos com fracao<0,5: ['petrolina_pe', 'serra_talhada_pe', 'patos_pb', 'sousa_pb', 'mossoro_rn', 'picos_pi', 'irece_ba', 'senhor_do_bonfim_ba', 'maracanau_ce', 'oros_ce']
+soma areia+silte+argila 0-5cm: min 98.10 max 101.30 (mediana de cada propriedade na janela => soma pode desviar de 100)
+soma areia+silte+argila 5-15cm: min 98.30 max 101.40 (mediana de cada propriedade na janela => soma pode desviar de 100)
+soma areia+silte+argila 15-30cm: min 98.50 max 101.10 (mediana de cada propriedade na janela => soma pode desviar de 100)
+sand_0-5cm: min 38.9 p50 58.1 max 74.1
+sand_5-15cm: min 39.9 p50 57.2 max 72.4
+sand_15-30cm: min 38.6 p50 52.4 max 64.9
+silt_0-5cm: min 8.4 p50 21.5 max 34.0
+silt_5-15cm: min 8.1 p50 21.7 max 33.5
+silt_15-30cm: min 8.2 p50 20.3 max 32.2
+clay_0-5cm: min 11.6 p50 20.4 max 34.9
+clay_5-15cm: min 12.7 p50 21.4 max 35.4
+clay_15-30cm: min 20.6 p50 28.0 max 40.0
+soc_0-5cm: min 9.2 p50 15.8 max 62.2
+soc_5-15cm: min 7.0 p50 10.2 max 39.5
+soc_15-30cm: min 5.3 p50 8.3 max 28.0
+phh2o_0-5cm: min 4.8 p50 6.0 max 7.0
+phh2o_5-15cm: min 4.8 p50 5.9 max 7.0
+phh2o_15-30cm: min 4.8 p50 5.9 max 6.9
+soc 0-5cm acima de Q3+3IQR (48.4): {'camocim_ce': 62.2}
+clay 0-30: media simples - ponderada (5/10/15 cm): media -1.19 min -2.70 max +0.04
+sand 0-30: media simples - ponderada (5/10/15 cm): media +1.00 min -0.24 max +2.28
+soc 0-30: media simples - ponderada (5/10/15 cm): media +1.62 min +0.42 max +5.71
+rotulo do app (argila<15/15-35/>35) x SiBCS (risco_solo.classe_textura), media simples 0-30 cm:
+SiBCS     argilosa  média
+app                      
+argiloso         2      0
+medio            0    193
+classe SiBCS com media ponderada: mudam de classe 1 pontos
+argila 0-30 (media simples): min 15.1 p50 23.3 max 36.1; pontos com argila<15: 0; >35: 2
+areia 0-30: min 39.2 max 70.5; arenosa SiBCS (areia-argila>70): 0
+pares de vizinhos mais proximos <10 km: 12 | distancia mediana (todos) 19.8 km
+  |d argila| mediana 2.90 p90 3.40 max 3.57 ; |d soc| mediana 0.95 max 3.90
+5 pares <10 km com maior diferenca de argila:
+          ponto         vizinho  km  argila  argila_viz  areia  areia_viz  soc  soc_viz  d_argila  d_soc
+     mulungu_ce guaramiranga_ce 9.0    32.6        36.1   43.6       41.4 26.6     28.4       3.6    1.8
+guaramiranga_ce       pacoti_ce 8.2    36.1        32.7   41.4       42.6 28.4     26.8       3.4    1.6
+      pacoti_ce guaramiranga_ce 8.2    32.7        36.1   42.6       41.4 26.8     28.4       3.4    1.6
+    pacatuba_ce    itaitinga_ce 7.2    20.9        17.9   59.1       64.6 19.6     18.9       3.0    0.7
+   itaitinga_ce     pacatuba_ce 7.2    17.9        20.9   64.6       59.1 18.9     19.6       3.0    0.7
+soc medio 0-5: pixel central valido 18.9 vs invalido 19.6
+argila 0-30: valido 23.5 vs invalido 24.2
+argila 0-30: variancia total 15.1, dentro de celula 8.9 (fracao 59% da variancia esta DENTRO da celula de clima)
+pH 0-5 min/max: 4.800000000000001 7.0

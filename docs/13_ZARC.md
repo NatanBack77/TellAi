@@ -1,5 +1,13 @@
 # 13. ZARC (Tábua de Risco)
 
+> **Estado real (Fase 5, 2026-11-13):** o ZARC está integrado. Código: `src/culturas/zarc.py` (`janela`, `decendios_do_inicio`, `janela_aproximada_anuais`), dados em
+> `data/processed/zarc_ce.parquet` + `zarc_manifesto.json`. `Parametros.usar_zarc` é False por padrão; o app liga por padrão (`mvp.ZARC_PADRAO = True`, decisão do usuário).
+> Nível de risco aceito: 30 no app (20/30/40 possíveis em `Parametros.zarc_risco`); o solo (arenoso/médio/argiloso) vem do informado ou do estimado pelo SoilGrids, e sem linhas
+> para aquele solo o código cai em "qualquer" e avisa. Culturas sem ZARC no município NÃO são restringidas (lacuna explícita; viés a favor delas).
+> **Na API:** `GET /zarc/{ponto_id}/{cultura_id}?risco=20|30|40&solo=qualquer|todos|arenoso|medio|argiloso` devolve os 36 decêndios permitidos, o código IBGE, a safra do ZARC usada e o
+> `motivo` quando não há janela (sem IBGE, cultura sem correspondência, ZARC ausente); `POST /cenarios` e `POST /rotacao` aceitam `usar_zarc`. `sobral_ce` segue sem IBGE (lacuna).
+> O coletor POWER passou a preservar a coluna `ibge` (D5; `tests/test_coleta_power.py`), então rodar `python -m src.coleta.power` não apaga mais os códigos.
+>
 > **Atualização 2026-11-13: passos 1–5 FEITOS** (download, `zarc_ce.parquet`, `src/culturas/zarc.py`, `usar_zarc` desligado, comparação). Ver `experimentos/zarc/RESULTADO.md`. O texto abaixo é o plano original; `sobral_ce` segue sem código IBGE (decisão sua).
 
 (Histórico) estado parcial

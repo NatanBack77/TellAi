@@ -46,7 +46,9 @@ if __name__ == "__main__":
     pl = "placebo" in sys.argv
     ent = carregar_entradas(cfg); ent["umidade_solo"] = None
     res = []
-    for h in (1, 2, 3, 4):
+    hs = [int(x) for x in sys.argv[sys.argv.index('--h') + 1].split(',')] if '--h' in sys.argv else (1, 2, 3, 4)
+    for h in hs:
         r = prever_linhas(ent, cfg, vs(h), list(range(2010, 2022)), placebo=pl)
         r["h"] = h; res.append(r); print("h", h, len(r), flush=True)
+        pd.concat(res).to_pickle(OUT / f"t1_linhas{'_placebo' if pl else ''}_parcial.pkl")
     pd.concat(res).to_pickle(OUT / f"t1_linhas{'_placebo' if pl else ''}.pkl")

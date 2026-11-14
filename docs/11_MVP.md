@@ -98,10 +98,12 @@ Segundo local (se sobrar tempo): **Limoeiro do Norte (CE)** com a mesma cultura:
 1. Alternativas sem separação: ver pergunta acima; é consequência de notas climáticas que saturam em 1 e de 5 culturas com todos os critérios.
 2. Prioridade "solo": palma forrageira é escolhida como alternativa em todos os 194 locais em que o motor devolve alternativas (auditoria, milho), por ter os maiores valores de palha e nitrogênio na tabela (estudos diferentes, min-max entre 10 culturas). O app avisa, mas o resultado reflete o dado, não a cultura.
 3. Nomes dos municípios saem do identificador (sem acentos); `pontos.csv` não guarda o nome oficial.
-4. O cenário de clima aplica variação uniforme (todos os dias); não representa veranicos nem início da estação. O módulo `src/modelos/cenarios.py` não é usado: ele reage pouco ao clima porque o ganho do modelo vem da persistência do NDVI.
+4. O cenário de clima aplica variação uniforme (todos os dias); não representa veranicos nem início da estação. O módulo `src/modelos/cenarios.py` não alimenta o cenário do app (reage pouco ao clima: o ganho do modelo vem da persistência do NDVI); desde a Fase 5 ele é usado só pela API em `GET /modelo/previsao/{ponto_id}` (1 composto à frente, faixa ACI; ver docs/12_API.md).
 5. Ciclo, risco aceitável, pesos-base e mapeamento das prioridades são suposições do projeto (docs/06, docs/10).
 6. Diagnóstico com confiança *baixa* em 14 locais; o app mostra um alerta.
 7. Primeira abertura (carregar clima e bibliotecas) é mais lenta que as seleções seguintes: abra o app antes da demo.
+8. (Fase 5, 2026-11-13) ZARC vem LIGADO por padrão no app (`mvp.ZARC_PADRAO = True`, decisão do usuário); no motor (`Parametros.usar_zarc`) o padrão continua desligado. Culturas sem ZARC no município (adubação verde, sorgo) não são restringidas: viés a favor delas, registrado em `experimentos/zarc/RESULTADO.md`. `sobral_ce` não tem código IBGE (sem ZARC, lacuna explícita).
+9. (Fase 5) Contagens de nitrogênio na tabela de culturas (conferidas no CSV): N na biomassa em 10 das 16 culturas; N fixado medido em 3 (amendoim, crotalária, mucuna). Textos antigos que diziam 4 e 11 estavam errados e foram corrigidos em `src/culturas/rotacao.py`.
 
 ## 7. Estado ao encerrar (2026-11-12, ~21:15)
 
@@ -123,6 +125,11 @@ Rode a suíte inteira de novo antes do commit.
 **Decisões pendentes do usuário:** ciclo real das culturas; pesos-base; mapeamento prioridade -> ordem de critérios (seção 3) e validação com técnico;
 fonte de preço/mercado para "renda"; incluir mais culturas; aceitar `bloco_ranking` no motor (mudança pequena em `src/culturas/motor.py` e `parametros.py`);
 `altair` e `pydeck` fixados em `requirements.txt`.
+
+**Atualização Fase 5 (2026-11-13):** o que o app calcula agora também está na API (`docs/12_API.md`): rotação de 3 safras (`POST /rotacao`), cenário de clima
+(`POST /cenarios/clima`), plano MILP como proposta (`POST /plano`), solo estimado SoilGrids (`GET /solo/{id}`), ZARC (`GET /zarc/{id}/{cultura}`) e previsão de 1 composto
+(`GET /modelo/previsao/{id}`), todos por import de `src/app/mvp.py` e `src/culturas`. Testes: `tests/test_api.py` (13 passam com `-W error`). Teste de equivalência
+app x API não existe; as duas camadas chamam as mesmas funções.
 
 ## 8. Próximos passos (em ordem)
 
