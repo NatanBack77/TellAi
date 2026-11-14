@@ -2,40 +2,64 @@
 from __future__ import annotations
 
 import json
+import math
+import os
 import re
+import threading
 import time
+from contextlib import asynccontextmanager
 from functools import lru_cache
 from pathlib import Path
 from typing import Literal
 
+import numpy as np
 import pandas as pd
 from fastapi import FastAPI, HTTPException, Query, Request
 from pydantic import BaseModel, ConfigDict, Field
 
+from src.app import mvp as M   # lógica do app (sem Streamlit): reutilizada por import, não copiada
 from src.culturas import ciclo as ciclo_mod
+from src.culturas import zarc as zarc_mod
 from src.culturas.motor import gerar_cenarios
 from src.culturas.parametros import Parametros
 from src.culturas.tabela_culturas import carregar as carregar_tabela
+from src.modelos import previsao as _prev
 
 RAIZ = Path(__file__).resolve().parents[2]
 DADOS = RAIZ / "data/processed"
 AVISO = "Cenário a avaliar com técnico local. Não decide e não promete que a rotação rende mais."
 
 # Prioridades: ORDEM ordinal entre critérios (faixas), nunca pesos exatos. SUPOSIÇÃO a validar com técnico.
-PRIORIDADES = {
-    "sem": {"ordem": None, "bloco": "principal", "regra": "Sem ordem entre critérios (pesos livres)."},
-    "agua": {"ordem": ("chuva", "temperatura", "familia_diferente"), "bloco": "principal",
-             "regra": "SUPOSIÇÃO: chuva > temperatura > família. Não mede consumo de água nem irrigação."},
-    "solo": {"ordem": ("palha", "n_na_biomassa", "familia_diferente", "chuva", "temperatura"), "bloco": "completo",
-             "regra": "SUPOSIÇÃO: palha > N > família > chuva > temperatura. Dado ausente de N/palha entra como incerteza."},
-    "renda": {"ordem": None, "bloco": "principal",
-              "regra": "LACUNA: sem dado de preço/custo/mercado; não altera o ranking.",
-              "lacuna": "renda: sem dado de preço/custo/mercado; prioridade não altera o ranking"},
-}
+# Definição única em src/app/mvp.py (mesma do app): a API não mantém cópia.
+PRIORIDADES = M.PRIORIDADES
 
-app = FastAPI(title="SULCO API", version="0.1.0",
-              description="Back-end offline do SULCO. Apoia a conversa com o técnico; não decide.")
 LATENCIAS: dict[str, list[float]] = {}
+AQUECIMENTO: dict[str, str] = {}   # etapa -> "pendente" | "ok" | "erro: ..." (preenchido pela thread de pré-aquecimento)
+PERGUNTA_AQUECIMENTO = "feijao caupi palha"   # consulta real: passa por embeddings E reranker
+
+
+def _aquecer() -> None:
+    """Carrega RAG (embeddings + reranker) e o modelo de previsão em segundo plano, para a 1ª chamada real não pagar o custo."""
+    for etapa, fn in (("rag", lambda: _buscar_rag(PERGUNTA_AQUECIMENTO, 1)), ("previsao", contexto_previsao)):
+        t0 = time.perf_counter()
+        try:
+            fn()
+            AQUECIMENTO[etapa] = f"ok ({time.perf_counter() - t0:.1f} s)"
+        except Exception as e:
+            AQUECIMENTO[etapa] = f"erro: {e.__class__.__name__}"
+
+
+@asynccontextmanager
+async def _vida(_app):
+    # SULCO_PREAQUECER=0 desliga. Só roda quando o servidor sobe de fato (TestClient sem `with` não dispara).
+    if os.environ.get("SULCO_PREAQUECER", "1") != "0":
+        AQUECIMENTO.update(rag="pendente", previsao="pendente")
+        threading.Thread(target=_aquecer, daemon=True, name="aquecimento").start()
+    yield
+
+
+app = FastAPI(title="SULCO API", version="0.2.0", lifespan=_vida,
+              description="Back-end offline do SULCO. Apoia a conversa com o técnico; não decide.")
 
 
 @app.middleware("http")
@@ -91,13 +115,32 @@ def exigir_ponto(pid: str):
     return pontos().loc[pid]
 
 
+def _limpo(x):
+    """JSON-seguro: numpy -> python, NaN/inf -> None (lacuna), tuplas -> listas. Nunca preenche valor."""
+    if isinstance(x, dict):
+        return {str(k): _limpo(v) for k, v in x.items()}
+    if isinstance(x, (list, tuple, set)):
+        return [_limpo(v) for v in x]
+    if isinstance(x, np.ndarray):
+        return _limpo(x.tolist())
+    if isinstance(x, (np.bool_,)):
+        return bool(x)
+    if isinstance(x, (np.integer,)):
+        return int(x)
+    if isinstance(x, (float, np.floating)):
+        return None if not math.isfinite(float(x)) else float(x)
+    return x
+
+
 # ------------------------------------------------------------------ schemas
 class Municipio(BaseModel):
     model_config = ConfigDict(extra="forbid")
     ponto_id: str
+    nome: str = Field(description="Derivado do ponto_id, sem acentos (pontos.csv não guarda o nome oficial).")
     lat: float
     lon: float
     celula_power: str
+    ibge: int | None = Field(None, description="Código IBGE; null = LACUNA (ex.: sobral_ce, coordenada fora do polígono).")
 
 
 class Saude(BaseModel):
@@ -106,6 +149,8 @@ class Saude(BaseModel):
     arquivos: dict[str, bool]
     n_pontos: int | None
     latencias_ms: dict[str, dict[str, float]]
+    aquecimento: dict[str, str] = Field(description="Pré-aquecimento em segundo plano (rag, previsao); vazio se desligado.")
+    cache_modelo_previsao: bool
 
 
 class CenarioIn(BaseModel):
@@ -119,6 +164,8 @@ class CenarioIn(BaseModel):
     risco_max: float | None = Field(None, ge=0, lt=1)
     n_sorteios: int | None = Field(None, ge=100, le=20000)
     com_evidencias: bool = True
+    usar_zarc: bool = Field(M.ZARC_PADRAO, description="Restringe o início do plantio ao ZARC (só municípios do CE com ZARC). "
+                            "Padrão = o do app.")
 
 
 class CenarioOut(BaseModel):
@@ -133,12 +180,6 @@ class CenarioOut(BaseModel):
     segundos: float
 
 
-class Previsao501(BaseModel):
-    model_config = ConfigDict(extra="forbid")
-    status: str
-    lacuna: str
-
-
 # ------------------------------------------------------------------ endpoints
 @app.get("/saude", response_model=Saude)
 def saude():
@@ -149,13 +190,15 @@ def saude():
     ok = {k: v.exists() for k, v in arqs.items()}
     lat = {r: {"n": len(v), "media": round(sum(v) / len(v), 1), "max": round(max(v), 1)} for r, v in LATENCIAS.items()}
     return Saude(status="ok" if all(ok.values()) else "parcial", arquivos=ok,
-                 n_pontos=len(pontos()) if ok["pontos.csv"] else None, latencias_ms=lat)
+                 n_pontos=len(pontos()) if ok["pontos.csv"] else None, latencias_ms=lat,
+                 aquecimento=dict(AQUECIMENTO), cache_modelo_previsao=_prev.ARQ_CACHE.is_file())
 
 
 @app.get("/municipios", response_model=list[Municipio])
 def municipios():
     p = pontos()
-    return [Municipio(ponto_id=r.ponto_id, lat=r.lat, lon=r.lon, celula_power=str(r.celula_power)) for r in p.itertuples()]
+    return [Municipio(ponto_id=r.ponto_id, nome=M.nome_do_ponto(r.ponto_id), lat=r.lat, lon=r.lon,
+                      celula_power=str(r.celula_power), ibge=None if pd.isna(r.ibge) else int(r.ibge)) for r in p.itertuples()]
 
 
 @app.get("/diagnostico/{ponto_id}")
@@ -192,7 +235,7 @@ def cenarios(req: CenarioIn):
     kw = {k: v for k, v in (("ciclo_modo", req.ciclo_modo), ("chuva_modo", req.chuva_modo), ("risco_max", req.risco_max),
                             ("n_sorteios", req.n_sorteios)) if v is not None}
     try:
-        p = Parametros(ordem_pesos=pr["ordem"], bloco_ranking=pr["bloco"], **kw)
+        p = Parametros(ordem_pesos=pr["ordem"], bloco_ranking=pr["bloco"], usar_zarc=req.usar_zarc, **kw)
     except ValueError as e:
         raise HTTPException(422, str(e))
     cens = gerar_cenarios({"local": req.ponto_id}, req.cultura_atual, tab, clima=clima_ponto(req.ponto_id), params=p)
@@ -222,23 +265,79 @@ def cenarios(req: CenarioIn):
                       segundos=time.perf_counter() - t0)
 
 
+@lru_cache(maxsize=256)
+def _buscar_rag(q: str, k: int) -> str:
+    """Busca no acervo, com cache de respostas (mesma pergunta = ~0 ms). Devolve JSON (imutável p/ o cache)."""
+    from src.rag.busca import buscar   # índice, embeddings e reranker carregam uma vez (lazy, cache do módulo)
+    return json.dumps(buscar(q, k=k), ensure_ascii=False)
+
+
 @app.get("/evidencias")
 def evidencias(q: str = Query(min_length=3), k: int = Query(5, ge=1, le=10)):
     try:
-        from src.rag.busca import buscar   # carrega índice/modelos de forma lazy e uma única vez (cache do módulo)
-        return buscar(q, k=k)
+        return json.loads(_buscar_rag(" ".join(q.split()), k))
     except Exception as e:   # índice ou modelo ausente => lacuna explícita
         raise HTTPException(503, f"LACUNA: RAG indisponível ({e.__class__.__name__}); sem evidência")
 
 
-@app.get("/modelo/previsao/{ponto_id}", response_model=Previsao501, status_code=501)
+# ---- previsão de 1 composto (modelo persistido em disco; ver src/modelos/previsao.py)
+_TRAVA_PREVISAO = threading.Lock()
+_CTX_PREVISAO: dict = {}
+
+
+def contexto_previsao() -> dict:
+    """Modelo + dataset em memória; o modelo vem do cache em disco (treina e grava só se faltar ou se os dados mudaram)."""
+    with _TRAVA_PREVISAO:
+        if not _CTX_PREVISAO:
+            _CTX_PREVISAO.update(_prev.carregar_ou_treinar())
+        return _CTX_PREVISAO
+
+
+class PrevisaoOut(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    ponto_id: str
+    modelo: str
+    horizonte: str
+    anos_treino: list[int]
+    ultimo_composto_observado: str | None = None
+    anomalia_observada_ultimo: float | None = None
+    composto_alvo: str | None = None
+    clima_ate: str | None = None
+    anomalia_ndvi_prevista: float | None = Field(None, description="Anomalia de NDVI (NDVI - climatologia do slot). null = sem número (ver `lacuna`).")
+    faixa_incerteza: dict[str, list[float] | None] | None = Field(None, description="Faixa ACI por cobertura ('80', '90'): [inferior, superior].")
+    metodo_faixa: str | None = None
+    extrapolacao: bool | None = None
+    features_fora_da_faixa: list[dict] = []
+    lacuna: str | None = None
+    lacunas: list[str] = []
+    limites_declarados: list[str]
+    origem_modelo: str
+    aviso: str
+
+
+LIMITES_PREVISAO = [
+    "Vale só 1 composto de 16 dias à frente do último composto válido: sem previsão de clima, o composto seguinte é o único cujas "
+    "features (clima observado até o dia anterior + anomalia dos 2 compostos anteriores) existem. Além disso, sem número.",
+    "A anomalia prevista vem em grande parte da persistência (NDVI dos compostos anteriores); a chuva/temperatura contribuem pouco.",
+    "A faixa ACI calibra a cobertura média por estação nos anos de teste (alvo 80%/90%); não garante a cobertura de um ponto isolado.",
+    "NDVI de 250 m e clima de ~50 km não enxergam o talhão. Não é previsão de produtividade, de safra nem de renda.",
+    M.AVISO,
+]
+
+
+@app.get("/modelo/previsao/{ponto_id}", response_model=PrevisaoOut)
 def previsao(ponto_id: str):
     exigir_ponto(ponto_id)
-    from fastapi.responses import JSONResponse
-    return JSONResponse(status_code=501, content={
-        "status": "nao_implementado",
-        "lacuna": "previsão por persistência com faixa conformal ainda não exposta pela API (requer treinar/cachear "
-                  "o modelo de src/modelos). Limites reais do modelo: GET /limites."})
+    try:
+        ctx = contexto_previsao()
+        r = _prev.prever_um_composto(ponto_id, ctx)
+    except Exception as e:
+        raise HTTPException(503, f"LACUNA: modelo de previsão indisponível ({e.__class__.__name__}: {e})")
+    campos = set(PrevisaoOut.model_fields)
+    out = _limpo({k: v for k, v in r.items() if k in campos and k not in ("lacunas", "aviso", "limites")})
+    return PrevisaoOut(**out, lacunas=r.get("lacunas", []), limites_declarados=LIMITES_PREVISAO,
+                       origem_modelo=f"{ctx['origem']} ({ctx['nome']}; treino {ctx['treino_anos'][0]}–{ctx['treino_anos'][-1]})",
+                       aviso=r.get("aviso") or M.AVISO)
 
 
 def _tabela_md(txt: str, titulo: str) -> list[list[str]]:
@@ -276,3 +375,181 @@ def limites():
         "limites_fixos": ["Satélite não enxerga o talhão (NDVI 250 m, clima ~50 km, SMAP ~9 km).",
                           "Renda: sem dado de mercado (lacuna).", AVISO],
     }
+
+
+# ================================================================== Fase 5: o que o app calcula e a API ainda não expunha
+# Tudo abaixo chama as funções de src/app/mvp.py e src/culturas por import; a API só valida, serializa e rotula.
+def _exigir_cultura(cid: str) -> None:
+    if cid not in tabela():
+        raise HTTPException(422, f"cultura '{cid}' fora da tabela: {sorted(tabela())}")
+
+
+class SoloOut(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    ponto_id: str
+    estimado: dict | None = Field(description="null = LACUNA (ponto sem dado SoilGrids).")
+    lacuna: str | None = None
+    aviso: str
+
+
+@app.get("/solo/{ponto_id}", response_model=SoloOut)
+def solo(ponto_id: str):
+    """Solo ESTIMADO pelo mapa global SoilGrids (250 m, mediana ~2 km, 0–30 cm). Não é análise de solo."""
+    exigir_ponto(ponto_id)
+    est = M.solo_estimado(ponto_id)
+    return SoloOut(ponto_id=ponto_id, estimado=_limpo(est), lacuna=None if est else "LACUNA: sem dado SoilGrids para este ponto",
+                   aviso="Estimativa do mapa global SoilGrids; confirme com o técnico. " + M.AVISO)
+
+
+class ZarcOut(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    ponto_id: str
+    cultura_id: str
+    geocodigo_ibge: int | None
+    risco_max_aceito: int
+    solo: str
+    decendios_permitidos: list[bool] | None = Field(description="36 decêndios a partir de 1º jan; null = sem ZARC (ver `motivo`).")
+    n_decendios_permitidos: int | None
+    recurso_zarc: str | None = Field(None, description="Safra/portaria do ZARC usada (a mais recente com linhas).")
+    motivo: str | None = Field(None, description="Por que não há janela (lacuna explícita).")
+    aviso_solo: str | None = None
+    aviso: str
+
+
+@app.get("/zarc/{ponto_id}/{cultura_id}", response_model=ZarcOut)
+def zarc(ponto_id: str, cultura_id: str, risco: int = Query(30, description="Risco máximo aceito: 20, 30 ou 40 (%)."),
+         solo: Literal["qualquer", "todos", "arenoso", "medio", "argiloso"] = "qualquer"):
+    """Janela de plantio do ZARC (Zoneamento Agrícola de Risco Climático, sequeiro) por município, cultura, risco e solo."""
+    exigir_ponto(ponto_id)
+    _exigir_cultura(cultura_id)
+    if risco not in (20, 30, 40):
+        raise HTTPException(422, "risco deve ser 20, 30 ou 40")
+    geo = zarc_mod.geocodigo_do_ponto(ponto_id)
+    j = zarc_mod.janela(geo, cultura_id, risco, solo)
+    perm = j.get("permitido")
+    return ZarcOut(ponto_id=ponto_id, cultura_id=cultura_id, geocodigo_ibge=geo, risco_max_aceito=risco,
+                   solo=j.get("solo", solo), decendios_permitidos=None if perm is None else [bool(x) for x in perm],
+                   n_decendios_permitidos=j.get("n_decendios"), recurso_zarc=j.get("recurso"), motivo=j.get("motivo"),
+                   aviso_solo=j.get("aviso"),
+                   aviso="O ZARC é do MAPA/Embrapa (sequeiro); aqui só restringe o início do plantio. " + M.AVISO)
+
+
+class RotacaoIn(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    ponto_id: str
+    cultura_atual: str
+    prioridade: Literal["sem", "agua", "solo", "renda"] = "sem"
+    rotacao_atual: list[str] | None = Field(None, min_length=3, max_length=3,
+                                            description="Rotação que o agricultor já faz: 3 culturas, a 1ª = cultura_atual. Sem ela, repete a atual.")
+    textura: Literal["não sei", "arenoso", "médio", "argiloso"] = "não sei"
+    materia_organica: Literal["não sei", "baixa", "média", "alta"] = "não sei"
+    usar_zarc: bool = M.ZARC_PADRAO
+    n_sorteios: int = Field(1000, ge=100, le=5000)
+
+
+class RotacaoOut(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    ponto_id: str
+    estrategias: list[dict] = Field(description="Atual/rotação do agricultor + alternativas de 3 safras, com faixa de incerteza e lacunas.")
+    lacunas: list[str]
+    suposicoes: list[str]
+    horizonte_safras: int
+    prioridade: str
+    usar_zarc: bool
+    solo_informado: dict | None
+    solo_estimado: dict | None
+    empate_tecnico_todos: bool | None = None
+    aviso: str
+    segundos: float
+    detalhes: dict = Field(description="Demais campos do motor de rotação (critérios, anos de clima, contagens).")
+
+
+@app.post("/rotacao", response_model=RotacaoOut)
+def rotacao(req: RotacaoIn):
+    """Rotação de 3 safras (SMAA sobre critérios com dado e fonte). Cenário a avaliar com técnico, não recomendação."""
+    exigir_ponto(req.ponto_id)
+    _exigir_cultura(req.cultura_atual)
+    if req.rotacao_atual is not None:
+        for c in req.rotacao_atual:
+            _exigir_cultura(c)
+        if req.rotacao_atual[0] != req.cultura_atual:
+            raise HTTPException(422, "rotacao_atual deve começar pela cultura_atual")
+    r = M.calcular_rotacao(req.ponto_id, req.cultura_atual, req.prioridade, req.rotacao_atual, req.textura,
+                           req.materia_organica, req.usar_zarc, req.n_sorteios)
+    r = _limpo(r)
+    topo = {"estrategias", "lacunas", "suposicoes", "horizonte_safras", "prioridade", "usar_zarc", "solo_informado",
+            "solo_estimado", "empate_tecnico_todos", "aviso", "segundos", "local"}
+    return RotacaoOut(ponto_id=req.ponto_id, detalhes={k: v for k, v in r.items() if k not in topo},
+                      **{k: r.get(k) for k in topo - {"local"} if k in RotacaoOut.model_fields and k != "detalhes"})
+
+
+class ClimaIn(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    ponto_id: str
+    cultura_atual: str
+    prioridade: Literal["sem", "agua", "solo", "renda"] = "sem"
+    fator_chuva: float = Field(1.0, ge=M.CHUVA_FATOR_MIN, le=M.CHUVA_FATOR_MAX,
+                               description="Multiplica a chuva diária (limites de apresentação do app, não previsão).")
+    delta_t: float = Field(0.0, ge=M.TEMP_DELTA_MIN, le=M.TEMP_DELTA_MAX, description="Soma °C às temperaturas.")
+
+
+class ClimaOut(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    ponto_id: str
+    fator_chuva: float
+    delta_t: float
+    extrapolacao: bool = Field(description="true = o cenário sai do que ocorreu no local (2001–2024); ver `avisos`.")
+    avisos: list[str]
+    mudou_alternativas: bool
+    alternativas_base: list[str]
+    alternativas_cenario: list[str]
+    linhas: list[dict]
+    aviso: str
+
+
+@app.post("/cenarios/clima", response_model=ClimaOut)
+def cenario_de_clima(req: ClimaIn):
+    """"E se chover X% menos / fizer Y °C a mais?": mesmo motor, clima perturbado, comparando as MESMAS estratégias. Não é previsão."""
+    exigir_ponto(req.ponto_id)
+    _exigir_cultura(req.cultura_atual)
+    r = _limpo(M.cenario_clima(req.ponto_id, req.cultura_atual, req.prioridade, req.fator_chuva, req.delta_t))
+    return ClimaOut(ponto_id=req.ponto_id, aviso="Cenário hipotético, não previsão de clima. " + M.AVISO,
+                    **{k: r[k] for k in ("fator_chuva", "delta_t", "extrapolacao", "avisos", "mudou_alternativas",
+                                         "alternativas_base", "alternativas_cenario", "linhas")})
+
+
+class PlanoIn(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    ponto_id: str
+    cultura_atual: str
+    prioridade: Literal["sem", "agua", "solo", "renda"] = "sem"
+    horizonte: int = Field(5, ge=2, le=8, description="Nº de safras do plano.")
+    nunca_repetir_seguida: bool = True
+    min_leguminosas: int = Field(2, ge=0, le=4)
+    usar_zarc: bool = M.ZARC_PADRAO
+    n_sorteios: int = Field(150, ge=20, le=500)
+
+
+class PlanoOut(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    ponto_id: str
+    status: Literal["proposta", "sem_plano"] = Field(description="Sempre 'proposta' (nunca decisão) ou 'sem_plano' (lacuna).")
+    lacuna: str | None = None
+    top: list[dict] = Field(description="Sequências mais frequentes como ótimas sob incerteza; a frequência mostra que nenhuma domina.")
+    detalhes: dict
+    aviso: str
+
+
+@app.post("/plano", response_model=PlanoOut)
+def plano(req: PlanoIn):
+    """Plano de várias safras por MILP com regras duras, repetido sob incerteza. PROPOSTA a conversar com o técnico."""
+    exigir_ponto(req.ponto_id)
+    _exigir_cultura(req.cultura_atual)
+    r = _limpo(M.calcular_plano(req.ponto_id, req.cultura_atual, req.prioridade, req.horizonte, req.nunca_repetir_seguida,
+                                req.min_leguminosas, req.usar_zarc, req.n_sorteios))
+    top = r.pop("top", [])
+    lac = r.pop("lacuna", None)
+    return PlanoOut(ponto_id=req.ponto_id, status="sem_plano" if lac else "proposta", lacuna=lac, top=top,
+                    detalhes={k: v for k, v in r.items() if k != "aviso"},
+                    aviso="PROPOSTA, não decisão: cada sequência é a ótima em uma fração dos sorteios; "
+                          "sem dado de renda/pragas. " + M.AVISO)

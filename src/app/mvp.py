@@ -69,8 +69,9 @@ PRIORIDADES: dict[str, dict] = {
     "renda": {
         "rotulo": "Renda extra",
         "ordem": None, "bloco": "principal",
-        "regra": ("LACUNA: o projeto não tem dado de preço, custo nem mercado. Escolher 'renda extra' NÃO altera o ranking e "
-                  "NÃO gera número de renda. O resultado é o mesmo de 'sem prioridade'."),
+        "regra": ("Nos três caminhos (seção 3), escolher 'renda extra' NÃO altera o ranking: o projeto não tem preço, custo nem mercado, e o "
+                  "resultado é o mesmo de 'sem prioridade' (LACUNA). Só na rotação de 3 safras (3b) a prioridade usa a receita BRUTA por hectare do "
+                  "IBGE (não é lucro); cultura sem esse valor vira lacuna."),
         "lacuna": "sem dado de preço/custo/mercado: o app não consegue falar de renda",
     },
 }
@@ -626,7 +627,83 @@ GLOSSARIO = [
                        "Nesse caso o app NÃO mostra 1º, 2º e 3º lugar."),
     ("Faixa de incerteza", "O quanto a pontuação muda se os pesos dos critérios, os dados que faltam e o ano de chuva mudarem. "
                            "Não é chance de dar certo na roça."),
+    ("Fixadoras de nitrogênio", "Plantas da família do feijão (leguminosas) que, junto com bactérias que vivem nas raízes, pegam o "
+                                "nitrogênio do ar e o deixam disponível para a planta. Por isso o app dá ponto a leguminosa na "
+                                "rotação. Quanto de nitrogênio cada uma deixa na sua terra varia muito: o app só usa o valor "
+                                "quando a tabela de culturas tem fonte; senão é lacuna."),
+    ("Adubação verde", "Plantar uma cobertura (como crotalária, feijão-de-porco ou guandu) para cortar e deixar sobre a terra ou "
+                       "misturar nela, em vez de colher. Ajuda a cobrir o solo e a trazer matéria orgânica. O resultado depende "
+                       "de chuva e de espécie: a avaliar com técnico local."),
+    ("Raízes profundas", "Raízes que descem fundo no solo e buscam água e nutriente que as plantas de raiz rasa não alcançam; "
+                         "também ajudam a soltar camadas duras. O app NÃO mede a profundidade da raiz: usa só o que a tabela de "
+                         "culturas e o acervo trazem, e o que falta aparece como lacuna."),
+    ("Balanço hídrico", "Conta de água do solo: o que entra (chuva e irrigação) menos o que sai (evaporação e uso pela planta). "
+                        "O app ainda não faz essa conta; hoje compara a chuva do ciclo com uma demanda de referência."),
+    ("Risco de erosão", "Chance de a chuva levar a terra embora. Cresce com terreno inclinado, solo descoberto e chuva forte. "
+                        "No mapa, o declive e o solo nu são INDICADORES desse risco, não uma medida de quanta terra se perde."),
 ]
+
+# Trechos REAIS do acervo (docs_rag/*.pdf) que sustentam cada explicação. `pagina` = página do PDF (a 1ª página do arquivo é a 1).
+# O teste tests/test_mvp.py confere que o trecho aparece nessa página (quando o pdftotext existe); não escreva trecho de memória.
+TRECHOS_GLOSSARIO = {
+    "Fixadoras de nitrogênio": {
+        "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf", "pagina": 97,
+        "trecho": "Fixação biológica do nitrogênio (FBN) é um processo natural que ocorre pela associação simbiótica entre plantas e "
+                  "microrganismos do solo."},
+    "Adubação verde": {
+        "arquivo": "embrapa_semiarido_biomassa_leguminosas_milheto.pdf", "pagina": 1,
+        "trecho": "uso de plantas, em cultivo rotacionado, sucessivo ou consorciado com outras culturas, com a finalidade de "
+                  "incorporá-las ou depositá-las sobre o solo, a fim de melhorar a cobertura e suas características físicas, "
+                  "químicas e biológicas, é chamado de adubação verde"},
+    "Raízes profundas": {
+        "arquivo": "embrapa_debiasi_diversificacao_especies.pdf", "pagina": 9,
+        "trecho": "culturas caracterizadas por alta produção de fitomassa e sistema radicular profundo e vigoroso, visando melhorar "
+                  "a qualidade do solo"},
+    "Evapotranspiração": {
+        "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf", "pagina": 27,
+        "trecho": "Evapotranspiração representa a perda de água da cultura para a atmosfera, por meio dos processos de transpiração "
+                  "da planta e evaporação direta de água do solo."},
+    "Balanço hídrico": {
+        "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf", "pagina": 28,
+        "trecho": "Para o processamento do balanço hídrico da cultura, na escala diária, são requeridos dados de clima, de solo e "
+                  "da cultura."},
+    "Risco de erosão": {
+        "arquivo": "embrapa_cap3_sistema_plantio_direto.pdf", "pagina": 2,
+        "trecho": "A ausência de cobertura do solo, viva ou morta, aumenta a suscetibilidade do solo à erosão"},
+}
+
+
+# True SÓ porque a seção de ETo e "chuva menos ETo" está desenhada na tela (app.painel_balanco). Se for False, o glossário e a página
+# "Limites dos dados" voltam a dizer que o app não calcula ET nem balanço hídrico.
+BALANCO_NA_TELA = True
+
+
+def balanco_na_tela() -> bool:
+    return BALANCO_NA_TELA and _modulo_opcional("src.app.secao_balanco_renda") is not None
+
+
+def _modulo_opcional(nome: str):
+    import importlib
+    try:
+        return importlib.import_module(nome)
+    except ImportError:
+        return None
+
+
+def glossario_atual() -> list[tuple[str, str, dict | None]]:
+    """(termo, texto, trecho do acervo). O texto de ET/balanço hídrico só diz que o app calcula se o módulo de balanço existir."""
+    tem_balanco = balanco_na_tela()
+    out = []
+    for termo, texto in GLOSSARIO:
+        if tem_balanco and termo == "Evapotranspiração":
+            texto = ("Água que sai do solo e das plantas para o ar. O app estima só a evapotranspiração de REFERÊNCIA (ETo, equação de "
+                     "Hargreaves-Samani, com temperatura do satélite): NÃO é o quanto a sua cultura gasta, porque falta o coeficiente da "
+                     "cultura (Kc), que é lacuna. Estimativa para a região, a avaliar com técnico local.")
+        if tem_balanco and termo == "Balanço hídrico":
+            texto = ("Conta de água do solo: o que entra (chuva e irrigação) menos o que sai (evaporação e uso pela planta). O app mostra só "
+                     "'chuva menos ETo' por quinzena: NÃO é o balanço do solo (sem armazenamento, escoamento nem irrigação).")
+        out.append((termo, texto, TRECHOS_GLOSSARIO.get(termo)))
+    return out
 
 
 def _ler(caminho: Path) -> str | None:
@@ -681,7 +758,7 @@ OPCOES_MO = ["não sei", "baixa", "média", "alta"]
 
 def calcular_rotacao(ponto_id: str, cultura_atual: str, prioridade: str = "sem", rotacao_atual: list[str] | None = None,
                      textura: str = "não sei", materia_organica: str = "não sei", usar_zarc: bool = ZARC_PADRAO,
-                     n_sorteios: int = 3000) -> dict:
+                     n_sorteios: int = 3000, renda_por_cultura: dict | None = None) -> dict:
     """Rotação de 3 safras (atual + 2 alternativas) para o local. `rotacao_atual`: 3 culturas começando pela atual, ou None (repete a atual).
 
     Solo informado pelo usuário só gera avisos de risco (não altera nota). ZARC (opcional) restringe os inícios de plantio.
@@ -701,8 +778,15 @@ def calcular_rotacao(ponto_id: str, cultura_atual: str, prioridade: str = "sem",
     if solo and solo.get("textura") in ("arenoso", "argiloso", "médio"):
         p = replace(p, zarc_solo={"arenoso": "arenoso", "argiloso": "argiloso", "médio": "medio"}[solo["textura"]])
     ibge = pts.loc[ponto_id].get("ibge")
+    ibge = None if pd.isna(ibge) else int(ibge)
+    if prioridade == "renda" and renda_por_cultura is None:        # receita bruta/ha (IBGE/PAM): módulo opcional, sem ele = lacuna
+        try:
+            from src.app.secao_balanco_renda import secao_renda
+            renda_por_cultura = secao_renda(ibge, list(tab))["renda_por_cultura"]
+        except ImportError:
+            renda_por_cultura = None
     r = gerar_rotacoes({"local": ponto_id}, cultura_atual, tab, clima_ponto(ponto_id), p, prioridade, rotacao_atual, 2, solo,
-                       None if pd.isna(ibge) else int(ibge))
+                       ibge, renda_por_cultura)
     r["usar_zarc"], r["solo_informado"], r["solo_estimado"], r["segundos"] = usar_zarc, solo, est, time.perf_counter() - t0
     r["local"] = {"ponto_id": ponto_id, "nome": pts.loc[ponto_id]["nome"]}
     return r

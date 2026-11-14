@@ -195,6 +195,16 @@ def resumir(res: pd.DataFrame, anos_selecao, anos_confirmacao, n_variantes: int 
     return pd.DataFrame(out).sort_values("skill_media", ascending=False).reset_index(drop=True)
 
 
+def anos_da_execucao(w: dict, so_selecao: bool = True) -> tuple[list[int], list[int], list[int]]:
+    """(anos avaliados, anos de seleção, anos de confirmação). M13: padrão SEGURO = só seleção (2010-2021 no config);
+    os anos selados de confirmação (2022-2024) só entram com `--incluir-confirmacao`. O cálculo não muda."""
+    sel = list(range(w["anos_selecao"][0], w["anos_selecao"][1] + 1))
+    con = list(range(w["anos_confirmacao"][0], w["anos_confirmacao"][1] + 1))
+    if so_selecao:
+        return sel, sel, []
+    return sel + con, sel, con
+
+
 if __name__ == "__main__":
     import sys
 
@@ -213,10 +223,14 @@ if __name__ == "__main__":
     w = cfg["walkforward"]
     nomes = sys.argv[sys.argv.index("--variantes") + 1].split(",") if "--variantes" in sys.argv else list(VARIANTES)
     ent = carregar_entradas(cfg)   # caminho absoluto em --dados sobrepõe a raiz (pathlib)
-    anos = list(range(w["anos_selecao"][0], w["anos_confirmacao"][1] + 1))
+    # --so-selecao (padrão): só os anos de seleção. --incluir-confirmacao: também os anos selados (usar 1 vez, ao final).
+    if "--so-selecao" in sys.argv and "--incluir-confirmacao" in sys.argv:
+        raise SystemExit("--so-selecao e --incluir-confirmacao são excludentes.")
+    so_sel = "--incluir-confirmacao" not in sys.argv
+    anos, sel, con = anos_da_execucao(w, so_sel)
+    print(("Avaliando só os anos de seleção %d-%d (confirmação %d-%d NÃO tocada)." % (sel[0], sel[-1], w["anos_confirmacao"][0], w["anos_confirmacao"][1]))
+          if so_sel else "ATENÇÃO: incluindo os anos selados de confirmação.")
     res = walk_forward(ent, cfg, [VARIANTES[n] for n in nomes], anos, placebo="--placebo" in sys.argv)
-    sel = list(range(w["anos_selecao"][0], w["anos_selecao"][1] + 1))
-    con = list(range(w["anos_confirmacao"][0], w["anos_confirmacao"][1] + 1))
     tab = resumir(res, sel, con, n_variantes=len(nomes))
     if sint:
         print("Fluxo OK (sintético): métricas omitidas.")

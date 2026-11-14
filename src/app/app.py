@@ -4,6 +4,9 @@ Só lê arquivos locais (data/processed/...). Não chama API de dados. Sem LLM: 
 Nenhum número vem do texto da tela: tudo vem de arquivo ou de código rodado; o que falta aparece como LACUNA.
 Como usar e roteiro de demo: docs/11_MVP.md.
 """
+import importlib
+import inspect
+import pkgutil
 import sys
 from pathlib import Path
 
@@ -13,9 +16,20 @@ import pydeck as pdk
 import streamlit as st
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from src.app import camadas as C  # noqa: E402
+from src.app import filtros as F  # noqa: E402
 from src.app import logica as L  # noqa: E402
 from src.app import mvp as M  # noqa: E402
 from src.app import quadra as Q  # noqa: E402
+
+try:  # seções de outros módulos: se o arquivo faltar, a seção some sem quebrar o app
+    from src.app import secao_balanco_renda as SBR  # noqa: E402
+except ImportError:
+    SBR = None
+try:
+    from src.app import secao_risco_solo as SRS  # noqa: E402
+except ImportError:
+    SRS = None
 
 AVISO = M.AVISO
 LOCAL_PADRAO, CULTURA_PADRAO = "quixada_ce", "milho"
@@ -43,12 +57,63 @@ def plano_cache(ponto: str, cultura: str, prioridade: str, horizonte: int, sem_r
     return M.calcular_plano(ponto, cultura, prioridade, horizonte, sem_repetir, min_leg, zarc)
 
 
+@st.cache_resource(show_spinner=False, max_entries=64)
+def risco_cache(ponto: str) -> dict:
+    return SRS.secao_risco_solo(ponto)
+
+
+@st.cache_resource(show_spinner=False, max_entries=64)
+def extremos_cache(ponto: str) -> dict:
+    return SRS.secao_extremos(ponto)
+
+
+@st.cache_resource(show_spinner=False, max_entries=64)
+def balanco_cache(ponto: str) -> dict:
+    import pandas as _pd
+    clima = _pd.read_parquet(M.dir_dados() / "clima_diario.parquet", filters=[("ponto_id", "==", ponto)])    # só o ponto (leitura rápida)
+    return SBR.secao_balanco_hidrico(ponto, clima)
+
+
+@st.cache_resource(show_spinner=False, max_entries=64)
+def renda_cache(ibge: int | None, ids: tuple) -> dict:
+    return SBR.secao_renda(ibge, list(ids))
+
+
 @st.cache_resource(show_spinner=False, max_entries=128)
 def cenario_cache(ponto: str, cultura: str, prioridade: str, fator_chuva: float, delta_t: float) -> dict:
     return M.cenario_clima(ponto, cultura, prioridade, fator_chuva, delta_t, base=calcular_cache(ponto, cultura, prioridade))
 
 
 # ------------------------------------------------------------------------------------------ 1. entrada
+def _controles_camada() -> tuple[str | None, int | None]:
+    """Seletor de camada e de ano do mapa. Camada sem dado (ex.: erosão sem módulo) aparece rotulada, sem quebrar."""
+    c1, c2 = st.columns([2, 3])
+    nomes = {k: v["rotulo"] + ("" if k != "erosao" or C.erosao_disponivel() else " (ainda sem dado)") for k, v in C.CAMADAS.items()}
+    opcoes = [None] + list(C.CAMADAS)
+    camada = c1.selectbox("Colorir os pontos por", opcoes, format_func=lambda k: "Só a localização (sem cor)" if k is None else nomes[k],
+                          key="camada")
+    ano = None
+    if camada is not None and C.CAMADAS[camada]["tem_ano"]:
+        anos = C.anos_disponiveis()
+        escolha = c2.select_slider("Ano (linha do tempo)", ["todos os anos"] + anos, value="todos os anos", key="ano_mapa")
+        ano = None if escolha == "todos os anos" else int(escolha)
+    elif camada is not None:
+        c2.caption("Esta camada não muda de ano para ano; o controle de ano não se aplica.")
+    return camada, ano
+
+
+def _legenda(camada: str, ano: int | None, v: dict, info: dict):
+    if not v["disponivel"]:
+        lacuna(f"camada '{C.CAMADAS[camada]['rotulo']}' sem dado: {v['nota']}. Os pontos ficam cinza.")
+        return
+    rampa = ", ".join(f"rgb({r},{g},{b})" for r, g, b in C.RAMPA)
+    un = f" {v['unidade']}" if v["unidade"] and v["unidade"] != "cv" else ""
+    st.markdown(f"<div style='display:flex;align-items:center;gap:8px;font-size:0.85rem'>menor ({M.br(info['min'], 1)}{un})"
+                f"<div style='flex:0 0 160px;height:12px;border-radius:3px;background:linear-gradient(90deg,{rampa})'></div>"
+                f"maior ({M.br(info['max'], 1)}{un}) · cinza = sem dado ({info['n_sem_dado']} pontos)</div>", unsafe_allow_html=True)
+    st.caption(v["nota"] + " A cor usa a faixa entre os percentis 5 e 95 dos pontos, para um valor extremo não apagar o resto.")
+
+
 def mapa_e_local() -> str:
     pts = M.carregar_pontos()
     ids = list(pts["ponto_id"])
@@ -56,15 +121,29 @@ def mapa_e_local() -> str:
         st.session_state["local"] = LOCAL_PADRAO if LOCAL_PADRAO in ids else ids[0]
     atual = st.session_state["local"]
     st.info(AVISO_KM)
+    camada, ano = _controles_camada()
     df = pts[["ponto_id", "nome", "lat", "lon"]].copy()
-    df["cor"] = [[220, 60, 40, 255] if i == atual else [40, 110, 160, 150] for i in df["ponto_id"]]
+    if camada is None:
+        df["cor"] = [[40, 110, 160, 150] for _ in ids]
+        df["texto"] = df["nome"]
+        v = info = None
+    else:
+        v = C.valores(camada, ano)
+        df["cor"], info = C.cores(v["serie"], ids)
+        un = f" {v['unidade']}" if v["unidade"] and v["unidade"] != "cv" else ""
+        df["texto"] = [f"{n}: " + (M.br(v["serie"].get(i), 1) + un if pd.notna(v["serie"].get(i)) else "sem dado")
+                       for i, n in zip(df["ponto_id"], df["nome"])]
+    df["linha"] = [[220, 30, 30, 255] if i == atual else [0, 0, 0, 0] for i in df["ponto_id"]]
     df["raio"] = [11 if i == atual else 6 for i in df["ponto_id"]]
-    camada = pdk.Layer("ScatterplotLayer", data=df, id="pontos", get_position="[lon, lat]", get_fill_color="cor",
-                       get_radius="raio", radius_units="pixels", pickable=True)
+    camada_mapa = pdk.Layer("ScatterplotLayer", data=df, id="pontos", get_position="[lon, lat]", get_fill_color="cor",
+                            get_line_color="linha", stroked=True, line_width_min_pixels=3, get_radius="raio", radius_units="pixels",
+                            pickable=True)
     vista = pdk.ViewState(latitude=float(pts["lat"].mean()), longitude=float(pts["lon"].mean()), zoom=5.6)
-    deck = pdk.Deck(layers=[camada], initial_view_state=vista, tooltip={"text": "{nome}"})
+    deck = pdk.Deck(layers=[camada_mapa], initial_view_state=vista, tooltip={"text": "{texto}"})
     ev = st.pydeck_chart(deck, on_select="rerun", selection_mode="single-object", key="mapa", height=380,
-                         alt="Mapa com os 195 locais; clique em um ponto para escolher")
+                         alt="Mapa com os 195 locais, coloridos pela camada escolhida; clique em um ponto para escolhê-lo")
+    if camada is not None:
+        _legenda(camada, ano, v, info)
     clicado = None
     try:
         objs = (ev.selection.objects or {}).get("pontos") or []
@@ -76,7 +155,8 @@ def mapa_e_local() -> str:
         if clicado != atual:
             st.session_state["local"] = clicado
             st.rerun()
-    st.caption("Clique num ponto do mapa ou use a lista abaixo (sem internet o mapa pode ficar sem fundo; os pontos aparecem).")
+    st.caption("Clique num ponto do mapa ou use a lista abaixo. SEM INTERNET o mapa fica sem fundo (só os pontos aparecem): o resto do "
+               "app funciona igual. O ponto escolhido tem contorno vermelho.")
     nomes = dict(zip(pts["ponto_id"], pts["nome"]))
     return st.selectbox("Município / local (195 pontos; 184 do Ceará)", ids, format_func=lambda k: nomes[k], key="local")
 
@@ -97,7 +177,63 @@ def entradas() -> tuple[str, str, str]:
         lacuna(cfg["regra"])
     else:
         st.caption(f"Como a prioridade foi usada: {cfg['regra']}")
+    entradas_agricultor()
     return lid, cultura, prio
+
+
+def entradas_agricultor():
+    """A6: manejo, água, equipamento e mercado. São FILTROS sobre as alternativas: não mudam nota nem ranking."""
+    with st.expander("Condições da sua área (opcional): filtros sobre as alternativas", expanded=False):
+        c1, c2, c3, c4 = st.columns(4)
+        c1.radio("Como você planta", list(F.MANEJOS), format_func=lambda k: F.MANEJOS[k], key="manejo")
+        irrigado = st.session_state.get("manejo") == "irrigado"
+        c2.number_input("Água de irrigação que você consegue aplicar por ciclo (mm; 0 = só a chuva)", 0, 3000, 0, 50, key="agua_irrig",
+                        disabled=not irrigado, help="Só vale no manejo irrigado. 1 mm = 1 litro por metro quadrado.")
+        c3.selectbox("Equipamento que você tem", F.EQUIPAMENTOS, key="equip")
+        c4.selectbox("Preferência de mercado", F.MERCADOS, key="mercado")
+        st.caption("Os filtros só MARCAM cada alternativa como 'atende', 'não atende' ou LACUNA, com dado de arquivo. Não mudam a pontuação, "
+                   "não apagam alternativas e não dizem que uma rende mais. Equipamento e mercado não têm dado de preço nem de máquina: "
+                   "viram lacuna e vão para a conversa com o técnico local.")
+
+
+def filtros_atuais() -> "F.Filtros":
+    ss = st.session_state
+    irr = ss.get("manejo", "sequeiro") == "irrigado"
+    return F.Filtros(manejo=ss.get("manejo", "sequeiro"), agua_irrigacao_mm=float(ss.get("agua_irrig", 0) or 0) if irr else 0.0,
+                     equipamento=ss.get("equip", F.EQUIPAMENTOS[0]), mercado=ss.get("mercado", F.MERCADOS[0]))
+
+
+def _demanda_mm(cid: str) -> float | None:
+    d = (M.carregar_tabela().get(cid) or {}).get("atributos", {}).get("demanda_hidrica_mm_ciclo")
+    return None if not d else d.get("valor")
+
+
+_ICONE = {"atende": "atende", "nao_atende": "NÃO atende", "lacuna": "LACUNA"}
+
+
+def painel_filtros(lid: str, cens: list[dict]):
+    f = filtros_atuais()
+    if not f.ativos():
+        return
+    st.markdown("#### Seus filtros sobre os três caminhos")
+    if f.manejo == "irrigado":
+        st.warning("LACUNA: o cálculo dos três caminhos (pontuação, faixa e janelas) segue com a chuva e o ZARC de sequeiro. O efeito da "
+                   "irrigação sobre a nota não é modelado. O filtro abaixo só consulta o ZARC irrigado e compara água; confirme com o técnico local.")
+    linhas, detalhes = [], []
+    for c in cens:
+        cid = c["rotacao"][1]
+        j = c.get("janela_plantio") or {}
+        res = F.avaliar(f, lid, cid, j.get("chuva_ciclo_mm"), _demanda_mm(cid))
+        nome = ("Atual: " if c["atual"] else "Alternativa: ") + _nome(cid)
+        linhas.append({"Estratégia": nome, "Resultado dos filtros": F.resumo(res)})
+        detalhes.append((nome, res))
+    st.dataframe(pd.DataFrame(linhas), hide_index=True)
+    with st.expander("Detalhe de cada filtro"):
+        for nome, res in detalhes:
+            st.markdown(f"**{nome}**")
+            for i in res["itens"]:
+                st.markdown(f"- {i['filtro']} ({_ICONE[i['status']]}): {i['texto']}")
+    st.caption("Alternativa que 'não atende' continua na lista (os filtros não apagam nem reordenam). A decisão é sua, com o técnico local.")
 
 
 # ------------------------------------------------------------------------------------------ 2. diagnóstico
@@ -281,6 +417,7 @@ def painel_estrategias(lid: str, cultura: str, prio: str, calc: dict):
     if len(cens) < 3:
         lacuna(f"só {len(cens)} estratégia(s) disponível(is) com os dados; o mínimo é 3, incluindo a atual.")
     tabela_comparativa(cens, prio)
+    painel_filtros(lid, cens)
     emp = [c for c in alts if M.bloco_ranking(c, prio).get("empate_tecnico")]
     if emp:
         st.warning("Estas alternativas estão em EMPATE TÉCNICO: os dados deste app não dizem qual é melhor, então não há "
@@ -315,14 +452,14 @@ def painel_quadra(lid: str):
     s = ind["serie"].assign(ano=lambda d: d["ano"].astype(str))
     st.altair_chart(alt.Chart(s).mark_bar(color="#3b7ea1").encode(
         x=alt.X("ano:O", title=None), y=alt.Y("fma_mm:Q", title="Chuva de fev–mai (mm)"),
-        tooltip=[alt.Tooltip("ano:O"), alt.Tooltip("fma_mm:Q", format=".0f")]).properties(height=180), use_container_width=True)
+        tooltip=[alt.Tooltip("ano:O"), alt.Tooltip("fma_mm:Q", format=".0f")]).properties(height=180), width="stretch")
     ef = Q.efeito_rendimento()
     if ef:
         st.markdown("**O que isso significou para o rendimento nos dados do IBGE (municípios do Ceará, 2015–2023)**")
         linhas = [{"Cultura": k.capitalize(), "Rendimento em quadra seca (<80% da média)": f"{M.br(v['rend_ano_seco_pct'], 0)}%",
                    "Rendimento em quadra úmida (>120%)": f"+{M.br(v['rend_ano_umido_pct'], 0)}%", "Quanto a chuva explica (R²)": M.br(v["r2"], 2),
                    "Observações": v["n_obs"]} for k, v in ef.items()]
-        st.dataframe(pd.DataFrame(linhas), hide_index=True, use_container_width=True)
+        st.dataframe(pd.DataFrame(linhas), hide_index=True, width="stretch")
         st.caption("Variação do rendimento em relação à média do próprio município. É associação histórica, não causa nem previsão. O rendimento do IBGE "
                    "é estimado por agentes (não medido por parcela). Para comparação: o NDVI explica menos da produtividade (R² de 0,03 a 0,10), por isso "
                    "este app usa a chuva da quadra, e não o NDVI, como indicador de risco para a lavoura.")
@@ -333,6 +470,18 @@ def painel_quadra(lid: str):
 
 
 # ------------------------------------------------------------------------------------------ 3b. rotação em 3 safras
+def _nota_textura(est: dict) -> str:
+    """Declara a divergência entre o rótulo de textura do motor/ZARC e a classe do SiBCS usada na seção de risco de solo."""
+    try:
+        from src.culturas.risco_solo import classe_textura
+        sib = classe_textura(est["argila_pct"], est["areia_pct"])
+    except ImportError:
+        sib = None
+    return (f"Atenção ao rótulo: aqui 'arenoso, médio, argiloso' é um agrupamento simples do app (argila abaixo de 15%, de 15 a 35%, acima de 35%) "
+            f"usado para escolher o tipo de solo do ZARC; a fonte desses cortes NÃO foi verificada no acervo. Pelo critério do SiBCS da seção 5, "
+            f"este ponto seria '{sib or M.LACUNA}'. Os dois rótulos podem diferir; confirme com o técnico local.")
+
+
 def painel_rotacao(lid: str, cultura: str, prio: str):
     st.subheader("3b. Rotação em 3 safras (uma por ano)")
     st.caption("Compara sequências de três safras seguidas, começando pela cultura que você já planta. Nenhum número vem de memória: "
@@ -349,7 +498,7 @@ def painel_rotacao(lid: str, cultura: str, prio: str):
     if est:
         st.caption(f"Solo estimado pelo mapa SoilGrids para este local (camadas 0–30 cm): argila {M.br(est['argila_pct'], 0)}%, areia {M.br(est['areia_pct'], 0)}%, "
                    f"carbono orgânico {M.br(est['carbono_organico_g_kg'], 0)} g/kg, pH {M.br(est['ph_agua'], 1)} (textura {est['textura']}). "
-                   "Se você não informar a textura, esta estimativa é usada. " + est["aviso"])
+                   "Se você não informar a textura, esta estimativa é usada. " + est["aviso"] + " " + _nota_textura(est))
     else:
         lacuna("solo estimado indisponível para este local; informe a textura se souber.")
     zarc = st.checkbox("Usar as datas de plantio do ZARC (zoneamento oficial do MAPA, risco 30; só no Ceará; culturas sem ZARC usam uma janela aproximada)",
@@ -368,6 +517,7 @@ def painel_rotacao(lid: str, cultura: str, prio: str):
     if r.get("empate_tecnico_todos"):
         st.warning("As duas alternativas estão em EMPATE TÉCNICO com muitas outras sequências: os dados deste app não separam as melhores. "
                    "O que separa bem é rotação x repetir a mesma cultura. Quem escolhe entre as alternativas é o agricultor com o técnico.")
+    fil = filtros_atuais()
     cols = st.columns(3)
     rotulos = ["Atual" if e["papel"] == "atual" else f"Alternativa {i}" for i, e in enumerate(r["estrategias"])]
     for col, e, rot in zip(cols, r["estrategias"], rotulos):
@@ -385,6 +535,10 @@ def painel_rotacao(lid: str, cultura: str, prio: str):
                 if ctx:
                     txt += f" · {M.br(ctx['area_colhida_ha'], 0)} ha colhidos no município em {ctx['ano']} (IBGE)"
                 st.markdown(txt)
+            if fil.ativos():
+                for c in e["culturas"]:
+                    st.caption(f"Filtros para {c['nome']}: {F.resumo(F.avaliar(fil, lid, c['cultura'], com_agua=False))}"
+                               + (" (água: só na seção 3)" if fil.manejo == "irrigado" else ""))
             with st.expander("Critérios, lacunas e riscos"):
                 for k, v in e["criterios"].items():
                     st.markdown(f"- {k}: " + ("**LACUNA**" if v["lacuna"] else f"nota {M.br(v['nota_media'], 2)}"))
@@ -456,6 +610,144 @@ def painel_cenario(lid: str, cultura: str, prio: str):
                "memória do NDVI não muda quando o clima muda, então um cenário de clima quase não o move (ver Limites dos dados).")
 
 
+# ------------------------------------------------------------------------------------------ 5. solo, extremos, balanço, renda
+def _avisos_e_lacunas(d: dict):
+    for t in d.get("lacunas") or []:
+        lacuna(t)
+    for t in d.get("avisos") or []:
+        st.caption(t)
+
+
+def painel_risco_solo(lid: str):
+    st.subheader("5. Risco de erosão e escoamento (indicador)")
+    if SRS is None:
+        lacuna("módulo de risco de solo não encontrado.")
+        return
+    d = risco_cache(lid)
+    if not d["disponivel"]:
+        lacuna("risco não classificado: falta pelo menos um componente (ver abaixo).")
+    st.markdown(f"Classe do indicador neste local: **{d['classe']}** (soma de notas {d['soma_notas']} de {d['soma_maxima']}). "
+                f"Cortes da soma: médio a partir de {d['limiares']['cortes_da_soma']['medio_a_partir_de']}, alto a partir de "
+                f"{d['limiares']['cortes_da_soma']['alto_a_partir_de']} (SUPOSIÇÃO do projeto).")
+    linhas = []
+    for e in d["entradas"]:
+        v = e["valor"]
+        if isinstance(v, dict):
+            v = ", ".join(f"{k.replace('_pct', '')} {M.br(x, 0)}%" for k, x in v.items() if x is not None)
+        elif isinstance(v, (int, float)):
+            v = M.br(v, 1)
+        corte = e.get("corte")
+        linhas.append({"Componente": e["componente"], "Valor de entrada": f"{v} {e.get('unidade') or ''}".strip() if v is not None else M.LACUNA,
+                       "Classe": e.get("classe") or "-", "Nota": str(e["nota"]) if e["nota"] is not None else "LACUNA",
+                       "Corte usado": (f"tercis entre os {corte['n_pontos']} pontos: {M.br(corte['c1'], 1)} e {M.br(corte['c2'], 1)}"
+                                       if corte else (e.get("regra") or "faixa da fonte")),
+                       "Fonte da faixa": e.get("fonte_faixa") or "relativo entre os pontos do projeto"})
+    st.dataframe(pd.DataFrame(linhas), hide_index=True)
+    st.warning("Os cortes de carbono orgânico e de dias de chuva erosiva são RELATIVOS entre os 195 pontos do projeto (tercis): 'alto' quer dizer "
+               "'alto em comparação com os outros pontos', não risco absoluto. As notas são suposição do projeto, ainda sem validação com técnico.")
+    with st.expander("Fontes das faixas"):
+        for f in d["fontes"]:
+            st.markdown(f"- {f['o_que']}: {f['fonte']} ({f['url']})")
+    _avisos_e_lacunas({"lacunas": d["lacunas"], "avisos": d["avisos"]})
+
+
+def painel_extremos(lid: str):
+    st.subheader("5b. Calor e chuva extrema, ano a ano")
+    if SRS is None:
+        lacuna("módulo de extremos não encontrado.")
+        return
+    d = extremos_cache(lid)
+    if not d["disponivel"]:
+        lacuna("sem série diária de clima para este local; extremos não calculados.")
+        _avisos_e_lacunas(d)
+        return
+    df = d["tabela_por_ano"]
+    df = df.assign(ano=df["ano"].astype(str))
+    c1, c2 = st.columns(2)
+    for col, y, tit, cor in ((c1, "dias_quentes", "Dias quentes por ano", "#c0392b"), (c2, "dias_chuva_extrema", "Dias de chuva extrema por ano", "#2471a3")):
+        col.altair_chart(alt.Chart(df, title=tit).mark_bar(color=cor).encode(
+            x=alt.X("ano:O", title=None), y=alt.Y(f"{y}:Q", title="dias"), tooltip=["ano", alt.Tooltip(f"{y}:Q")]).properties(height=170),
+            width="stretch")
+    df_ = d["definicoes"]
+    st.caption(f"Dia quente: {df_['calor']} (limiar entre {M.br(df_['limiar_tmax_c_min'], 1)} e {M.br(df_['limiar_tmax_c_max'], 1)} °C ao longo do ano). "
+               f"Chuva extrema: {df_['chuva_extrema']} (limiar {M.br(df_['limiar_chuva_extrema_mm'], 1)} mm/dia). Período-base: {df_['periodo_base']}. "
+               f"Fonte da definição: {df_['fonte_definicao']}.")
+    nomes = {"dias_quentes": "Dias quentes", "dias_chuva_extrema": "Dias de chuva extrema", "rx1day_mm": "Maior chuva em 1 dia (mm)"}
+    lin = []
+    for k, t in d["tendencias"].items():
+        if t.get("resultado") == "calculada":
+            lin.append({"Índice": nomes.get(k, k), "Anos": str(t["n_anos"]), "Mudança por ano": M.br(t["inclinacao_por_ano"], 2),
+                        "Intervalo de 95%": f"{M.br(t['ic95'][0], 2)} a {M.br(t['ic95'][1], 2)}",
+                        "Tendência clara?": "não" if t["mann_kendall"] == "no trend" else "sim", "p": M.br(t["p_valor"], 2)})
+        else:
+            lin.append({"Índice": nomes.get(k, k), "Anos": str(t.get("n_anos", M.LACUNA)), "Mudança por ano": M.LACUNA})
+    if lin:
+        st.dataframe(pd.DataFrame(lin), hide_index=True)
+    st.caption("'Tendência clara? não' = o teste (Mann-Kendall) não achou mudança segura; não quer dizer que nada muda.")
+    _avisos_e_lacunas({"lacunas": d["lacunas"], "avisos": d["avisos"]})
+
+
+def painel_balanco(lid: str):
+    st.subheader("5c. Chuva menos evapotranspiração de referência (ETo), por quinzena")
+    if SBR is None:
+        lacuna("módulo de balanço hídrico não encontrado.")
+        return
+    d = balanco_cache(lid)
+    q = [x for x in d["quinzenas"] if x["saldo_mm"] is not None]
+    if not q:
+        lacuna("balanço não calculado para este local.")
+        _avisos_e_lacunas(d)
+        return
+    df = pd.DataFrame(q)
+    ordem = list(df["rotulo"])
+    base = alt.Chart(df, title="Chuva − ETo (mm por quinzena; média 2001–2024 e faixa p10–p90 entre os anos)")
+    faixa = base.mark_area(opacity=0.25, color="#7f8c8d").encode(x=alt.X("rotulo:N", sort=ordem, title=None, axis=alt.Axis(labelAngle=-60)),
+                                                                 y=alt.Y("saldo_p10:Q", title="mm"), y2="saldo_p90:Q")
+    linha = base.mark_line(point=True, color="#1f618d").encode(x=alt.X("rotulo:N", sort=ordem), y="saldo_mm:Q",
+                                                                  tooltip=["rotulo", "chuva_mm", "eto_mm", "saldo_mm", "saldo_p10", "saldo_p90", "n_anos"])
+    zero = alt.Chart(pd.DataFrame({"z": [0]})).mark_rule(color="#444", strokeDash=[4, 3]).encode(y="z:Q")
+    st.altair_chart((faixa + linha + zero).properties(height=240), width="stretch")
+    st.info(d["aviso"])
+    st.caption(f"{d.get('definicao_quinzena', '')}. Fonte: {d['fonte']['nome'] if isinstance(d['fonte'], dict) else d['fonte']}. Abaixo da linha tracejada, "
+               "a atmosfera 'pede' mais água do que a chuva da quinzena traz (para uma superfície de referência, não para a sua lavoura).")
+    for t in d["lacunas"]:
+        lacuna(t)
+    conf = d.get("conferencia_radiacao")
+    if conf and conf.get("disponivel") is not False:
+        with st.expander("Conferência da radiação (sanidade, não entra no cálculo)"):
+            st.json({k: v for k, v in conf.items()})
+
+
+def painel_renda(lid: str, cultura: str):
+    st.subheader("5d. Receita bruta por hectare no município (IBGE)")
+    if SBR is None:
+        lacuna("módulo de renda não encontrado.")
+        return
+    ibge = M.carregar_pontos().set_index("ponto_id").loc[lid].get("ibge")
+    ibge = None if pd.isna(ibge) else int(ibge)
+    d = renda_cache(ibge, tuple(M.culturas_disponiveis()))
+    st.info(d["aviso"])
+    linhas = [{"Cultura": _nome(i["cultura"]), "Receita bruta (R$/ha)": M.br(i["receita_bruta_r_ha"], 0) if not i["lacuna"] else M.LACUNA,
+               "Anos usados": ", ".join(str(a) for a in i["anos_usados"]) or "-", "Produto no IBGE": i["produto_pam"] or "sem correspondência",
+               "Motivo da lacuna / nota": i["motivo_lacuna"] or i["nota"] or ""} for i in d["itens"]]
+    st.dataframe(pd.DataFrame(linhas), hide_index=True)
+    st.caption(f"{d['titulo']}. Receita bruta NÃO é lucro (sem custo nem mercado) e não é previsão. O IBGE estima o valor por agentes, "
+               "e o mesmo número vale para feijão-caupi e feijão comum. Na rotação de 3 safras (3b), a prioridade 'renda extra' usa estes valores; "
+               "cultura sem valor vira lacuna. A avaliar com técnico local.")
+
+
+def painel_forragem():
+    if SBR is None:
+        return
+    d = SBR.secao_forragem()
+    with st.expander("Valor forrageiro (palma, sorgo, milheto): LACUNA declarada"):
+        lacuna(d["aviso"])
+        for i in d["itens"]:
+            st.markdown(f"- **{i['cultura']}**: {i['motivo']}.")
+            for x in i.get("lido", [])[:2]:
+                st.caption(f"Lido em {x['arquivo']}, p. {x['pagina']}: \"{str(x['trecho'])[:250]}\" ({x['observacao']})")
+
+
 # ------------------------------------------------------------------------------------------ páginas
 def pagina_meu_local():
     st.header("Meu local: o que o satélite diz e três caminhos para conversar com o técnico")
@@ -471,12 +763,50 @@ def pagina_meu_local():
     painel_estrategias(lid, cultura, prio, calc)
     painel_rotacao(lid, cultura, prio)
     painel_cenario(lid, cultura, prio)
+    for nome, f in (("risco de solo", lambda: painel_risco_solo(lid)), ("extremos", lambda: painel_extremos(lid)),
+                    ("balanço hídrico", lambda: painel_balanco(lid)), ("renda", lambda: painel_renda(lid, cultura)), ("forragem", painel_forragem)):
+        try:
+            f()
+        except Exception as e:  # noqa: BLE001 - uma seção com defeito vira lacuna, não derruba o app
+            lacuna(f"seção '{nome}' não pôde ser montada ({e.__class__.__name__}: {e}).")
+    secoes_opcionais(lid, cultura, prio)
+
+
+def secoes_opcionais(lid: str, cultura: str, prio: str):
+    """Seções de outros módulos: qualquer função `secao_*` de src/app/secao_*.py. Módulo ausente = a seção some; erro = LACUNA, sem quebrar.
+
+    Contrato: `secao_xxx(ponto_id, cultura, prioridade)` desenha com `streamlit` (aceita menos argumentos posicionais, na mesma ordem) e
+    traz o atributo `secao_xxx.desenha_streamlit = True`. Sem o atributo a função é ignorada (as que só devolvem dict esperam a integração).
+    """
+    pacote = [str(Path(__file__).parent)]
+    for info in sorted(pkgutil.iter_modules(pacote), key=lambda m: m.name):
+        if not info.name.startswith("secao_"):
+            continue
+        try:
+            mod = importlib.import_module(f"src.app.{info.name}")
+        except ImportError:
+            continue
+        except Exception as e:  # noqa: BLE001 - módulo com defeito não derruba o app
+            lacuna(f"seção '{info.name}' não carregou ({e.__class__.__name__}: {e}).")
+            continue
+        for nome, fn in sorted(vars(mod).items()):
+            if not (nome.startswith("secao_") and callable(fn) and getattr(fn, "desenha_streamlit", False)):
+                continue            # funções `secao_*` que só devolvem dados (dict) não são chamadas aqui: a integração final as desenha
+            n = len(inspect.signature(fn).parameters)
+            try:
+                fn(*(lid, cultura, prio)[:n])
+            except Exception as e:  # noqa: BLE001
+                lacuna(f"seção '{nome}' falhou ({e.__class__.__name__}: {e}).")
 
 
 def pagina_glossario():
     st.header("Glossário")
-    for termo, texto in M.GLOSSARIO:
+    st.caption("Explicações curtas, em linguagem simples. Onde há trecho do acervo, ele foi copiado do PDF indicado (página do arquivo PDF). "
+               "Confira o PDF e converse com o técnico local.")
+    for termo, texto, trecho in M.glossario_atual():
         st.markdown(f"**{termo}.** {texto}")
+        if trecho:
+            st.caption(f"Do acervo ({trecho['arquivo']}, p. {trecho['pagina']}): \"{trecho['trecho']}\"")
 
 
 def pagina_limites():
@@ -512,8 +842,14 @@ def pagina_limites():
         st.caption(f"Citado de `{a['arquivo']}`. Poucas células de clima (59), só 3 anos de confirmação: ressalvas do próprio arquivo.")
     rel = L.ler_relatorio()
     if rel["disponivel"]:
-        st.markdown("**Último relatório do modelo preditivo (relatorio_modelos.md)**")
+        st.markdown("**Último relatório do modelo preditivo** (`data/processed/modelos/relatorio_modelos.md`)")
         st.dataframe(pd.DataFrame([m["linha"] for m in rel["holdout"]]), hide_index=True)
+        try:
+            if "persistência **ligada**" in L.caminho_relatorio().read_text(encoding="utf-8"):
+                st.caption("Este relatório usa a persistência (o verdor da quinzena anterior) como variável: o ganho sobre a média histórica "
+                           "vem dela, não do clima sozinho (ver a seção acima).")
+        except OSError:
+            pass
         if rel["sem_ganho_no_holdout"]:
             st.error("No holdout de 2022-2024 o modelo preditivo NÃO supera a média histórica (climatologia): "
                      f"{', '.join(rel['sem_ganho_no_holdout'])}.")
@@ -529,8 +865,19 @@ def pagina_limites():
                 f"só {n['com_demanda']} têm demanda de água do ciclo.")
     st.markdown("- A duração do ciclo é SUPOSIÇÃO (ponto médio do EcoCrop); o ciclo real depende da cultivar. Pesos e prioridades "
                 "são proposta do projeto, ainda sem validação com técnico.")
-    st.markdown("- Não há dado de preço, custo, mercado, pragas, doenças, solo, evapotranspiração nem zoneamento (ZARC). "
-                "'Renda extra' é uma lacuna: não altera o ranking.")
+    est_ok = M.solo_estimado(M.carregar_pontos()["ponto_id"].iloc[0]) is not None
+    st.markdown("- Solo: " + ("só uma ESTIMATIVA do mapa SoilGrids (250 m, camadas 0 a 30 cm), não análise do seu talhão; se você informar a "
+                "textura, a sua prevalece." if est_ok else "LACUNA, o arquivo de solo estimado não foi encontrado."))
+    st.markdown(f"- ZARC (zoneamento do MAPA): só o Ceará; entra como filtro das datas de plantio de sequeiro (risco até {F.RISCO_ZARC}%); "
+                "culturas sem ZARC usam uma janela aproximada declarada; o manejo irrigado do ZARC só é consultado nos filtros da tela 1, "
+                "sem efeito na pontuação.")
+    if M.balanco_na_tela():
+        st.markdown("- Evapotranspiração, balanço hídrico, preço e renda: veja a seção própria em 'Meu local' e as lacunas dela; são estimativas "
+                    "a avaliar com técnico local. Custo, mercado, pragas e doenças continuam sem dado.")
+    else:
+        st.markdown("- Não há dado de preço, custo, mercado, pragas, doenças nem evapotranspiração (o app ainda não calcula balanço hídrico). "
+                    "'Renda extra' é uma lacuna: não altera o ranking.")
+    st.markdown("- Equipamento e preferência de mercado (tela 1) não têm dado por trás: viram lacuna, não filtro.")
     aud = M.carregar_auditoria()
     if aud:
         for prio, r in aud["por_prioridade"].items():

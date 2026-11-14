@@ -59,6 +59,19 @@ def para_dataframe(bruto: dict, ponto_id: str, celula: str, cfg: dict) -> pd.Dat
     return df
 
 
+def gravar_pontos(pontos: list[dict], celulas: dict, destino) -> pd.DataFrame:
+    """Grava pontos.csv PRESERVANDO colunas que o coletor não produz (ex.: `ibge`, D5): lê o arquivo existente
+    e junta por ponto_id as colunas extras. Ponto novo fica com a coluna vazia (lacuna), nunca com valor inventado."""
+    novo = pd.DataFrame(pontos).assign(celula_power=lambda d: d["ponto_id"].map(celulas))
+    if destino.exists():
+        antigo = pd.read_csv(destino, dtype={"ibge": "Int64"} if "ibge" in pd.read_csv(destino, nrows=0).columns else None)
+        extras = [c for c in antigo.columns if c not in novo.columns]
+        if extras:
+            novo = novo.merge(antigo[["ponto_id", *extras]].drop_duplicates("ponto_id"), on="ponto_id", how="left")
+    novo.to_csv(destino, index=False)
+    return novo
+
+
 def coletar(cfg: dict | None = None, forcar: bool = False) -> dict:
     cfg = cfg or carregar_config()
     c = cfg["coleta"]
@@ -80,8 +93,7 @@ def coletar(cfg: dict | None = None, forcar: bool = False) -> dict:
     saida = RAIZ / cfg["caminhos"]["clima"]
     saida.parent.mkdir(parents=True, exist_ok=True)
     df.to_parquet(saida, index=False)
-    pd.DataFrame(pontos).assign(celula_power=lambda d: d["ponto_id"].map(celulas)).to_csv(
-        saida.parent / "pontos.csv", index=False)
+    gravar_pontos(pontos, celulas, saida.parent / "pontos.csv")
     resumo = {"arquivo": str(saida), "linhas": int(len(df)), "pontos": len(pontos),
               "celulas": len(set(celulas.values())),
               "ausentes_por_coluna": {k: int(df[k].isna().sum()) for k in c["power"]["parametros"]}, "avisos": avisos}

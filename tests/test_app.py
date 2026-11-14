@@ -94,9 +94,14 @@ def test_relatorio_numeros_reais_do_arquivo(ambiente):
     assert r["sem_ganho_no_holdout"] == ["ridge"]
 
 
-def test_relatorio_real_do_projeto_nao_supera():
-    r = L.ler_relatorio(L.RAIZ / "relatorio_modelos.md")
-    assert r["disponivel"] and "ridge" in r["sem_ganho_no_holdout"]
+def test_relatorio_real_do_projeto_e_o_de_data_processed_modelos():
+    """M12/AP3: a página lê o relatório atual (data/processed/modelos), não o antigo da raiz. Nada de número fixo: confere coerência."""
+    assert L.caminho_relatorio() == L.RAIZ / "data/processed/modelos/relatorio_modelos.md"
+    r = L.ler_relatorio(L.RAIZ / "data/processed/modelos/relatorio_modelos.md")
+    assert r["disponivel"] and r["holdout"]
+    for m in r["holdout"]:                      # sem_ganho = modelos (não a climatologia) com skill <= 0 no holdout
+        if m["linha"]["Modelo"] != "climatologia":
+            assert (m["linha"]["Modelo"] in r["sem_ganho_no_holdout"]) == (m["skill"] <= 0)
 
 
 def test_relatorio_ausente(tmp_path):

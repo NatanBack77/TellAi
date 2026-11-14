@@ -25,3 +25,7 @@ experimentos/**/*.pkl
 
 coleta_*.log
 preditivo_real.log
+experimentos/**/*.pq
+experimentos/**/*.parquet.tmp
+*.bak
+*.bak_pre_D52

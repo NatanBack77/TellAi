@@ -10,7 +10,8 @@ Critérios (nota 0-1):
   diversidade_familia fração das transições entre safras com família botânica diferente. É só um PROXY de quebra de ciclo de pragas e doenças:
                      NÃO há dado de pragas no projeto (lacuna declarada);
   leguminosa_antes   fração das transições em que uma leguminosa (família Leguminosae) precede uma não leguminosa. Regra agronômica geral
-                     (SUPOSIÇÃO, a confirmar com o acervo/técnico); o N fixado medido só existe para 4 culturas e é mostrado à parte;
+                     (SUPOSIÇÃO, a confirmar com o acervo/técnico); o N fixado medido só existe para 3 culturas (amendoim, crotalária, mucuna; conferido em data/culturas/tabela_culturas.csv) e é mostrado à parte;
+                     o N acumulado na biomassa existe para 10 das 16 culturas;
   palha              média da palha (kg MS/ha) das 3 culturas, min-max entre as candidatas; sem dado em alguma = lacuna;
   agua               1 - demanda hídrica média (mm/ciclo), min-max; sem dado em alguma = lacuna.
 Renda: lacuna (não há dado de preço, custo nem mercado). Solo: o que o agricultor informa só gera avisos de risco; não altera nota.
@@ -39,8 +40,11 @@ ORDEM_PRIORIDADE = {
     "sem": None,
     "agua": ("agua", "adeq_clima", "diversidade_familia", "leguminosa_antes", "palha"),
     "solo": ("palha", "leguminosa_antes", "diversidade_familia", "adeq_clima", "agua"),
-    "renda": None,   # LACUNA: sem dado de preço/custo/mercado; não altera o ranking
+    "renda": None,   # sem dado de renda (renda_por_cultura=None) não altera o ranking; com dado, ver ORDEM_RENDA
 }
+# Com `renda_por_cultura` informado e prioridade 'renda': critério extra 'renda' (receita bruta/ha do IBGE/PAM, NÃO é lucro) vira o mais
+# importante. SUPOSIÇÃO a validar com técnico (como as demais ordens).
+ORDEM_RENDA = ("renda", "adeq_clima", "diversidade_familia", "leguminosa_antes", "palha", "agua")
 
 # cultura da tabela -> produto do PAM/IBGE (contexto local; o PAM não separa caupi de feijão comum)
 PAM_PRODUTO = {"milho": "Milho (em grão)", "feijao_caupi": "Feijão (em grão)", "feijao_comum": "Feijão (em grão)",
@@ -88,7 +92,8 @@ def _janela(res: dict) -> dict:
 
 def gerar_rotacoes(perfil: dict, cultura_atual: str, tabela: dict, clima: ciclo.ClimaPonto, params: Parametros | None = None,
                    prioridade: str = "sem", rotacao_atual: list[str] | None = None, n_alternativas: int = 2,
-                   solo_usuario: dict | None = None, ibge: int | None = None) -> dict[str, Any]:
+                   solo_usuario: dict | None = None, ibge: int | None = None,
+                   renda_por_cultura: dict[str, float | None] | None = None) -> dict[str, Any]:
     """Estratégia atual + `n_alternativas` sequências de 3 safras. Devolve {'estrategias': [...], 'lacunas', 'suposicoes', 'aviso', ...}."""
     p = params or Parametros()
     if cultura_atual not in tabela:
@@ -96,6 +101,11 @@ def gerar_rotacoes(perfil: dict, cultura_atual: str, tabela: dict, clima: ciclo.
     if prioridade not in ORDEM_PRIORIDADE:
         raise ValueError(f"prioridade deve ser uma de {list(ORDEM_PRIORIDADE)}")
     ordem = ORDEM_PRIORIDADE[prioridade]
+    usa_renda = bool(prioridade == "renda" and renda_por_cultura and any(v is not None for v in renda_por_cultura.values()))
+    criterios = CRITERIOS + ["renda"] if usa_renda else CRITERIOS
+    principais = PRINCIPAIS_PADRAO + ["renda"] if usa_renda else PRINCIPAIS_PADRAO
+    if usa_renda:
+        ordem = ORDEM_RENDA
     bloco = "completo" if prioridade == "solo" else "principal"
     import dataclasses
     p = dataclasses.replace(p, ordem_pesos=ordem, bloco_ranking=bloco)
@@ -118,12 +128,13 @@ def gerar_rotacoes(perfil: dict, cultura_atual: str, tabela: dict, clima: ciclo.
     cand = [base] + [s for s in itertools.product([cultura_atual], resto, resto) if s != base and len(set(s)) > 1]
     n_anos = av["anos"][2]
     adq = {c: np.asarray(cs[c]["res"]["adeq_por_ano"], float) for c in set(itertools.chain(*cand)) if cs[c]["res"] is not None}
-    C, K = len(cand), len(CRITERIOS)
+    C, K = len(cand), len(criterios)
     T = np.full((C, K, n_anos), np.nan)
     fam = {c: _v(tabela, c, "familia_botanica") for c in tabela}
     palha = {c: _v(tabela, c, "palha_ms_kg_ha") for c in tabela}
     agua = {c: _v(tabela, c, "demanda_hidrica_mm_ciclo") for c in tabela}
-    pal_m, agu_m = np.full(C, np.nan), np.full(C, np.nan)
+    pal_m, agu_m, ren_m = np.full(C, np.nan), np.full(C, np.nan), np.full(C, np.nan)
+    rend = renda_por_cultura or {}
     for i, s in enumerate(cand):
         if all(c in adq for c in s):
             T[i, 0, :] = np.mean([adq[c] for c in s], axis=0)
@@ -135,8 +146,12 @@ def gerar_rotacoes(perfil: dict, cultura_atual: str, tabela: dict, clima: ciclo.
             pal_m[i] = np.mean([palha[c] for c in s])
         if all(agua[c] is not None for c in s):
             agu_m[i] = np.mean([agua[c] for c in s])
+        if usa_renda and all(rend.get(c) is not None for c in s):
+            ren_m[i] = np.mean([rend[c] for c in s])
     T[:, 3, :] = _minmax(pal_m)[:, None]
     T[:, 4, :] = _minmax(agu_m, maior_melhor=False)[:, None]
+    if usa_renda:
+        T[:, 5, :] = _minmax(ren_m)[:, None]
     n_total = C
     if C > MAX_CANDIDATAS + 1:          # pré-seleção determinística: pesos iguais nos critérios com dado; a base (índice 0) fica sempre
         por_crit = np.where(np.isnan(T).all(axis=2), np.nan, np.nansum(T, axis=2) / np.maximum((~np.isnan(T)).sum(axis=2), 1))
@@ -147,7 +162,7 @@ def gerar_rotacoes(perfil: dict, cultura_atual: str, tabela: dict, clima: ciclo.
         cand, T = [cand[i] for i in manter], T[manter]
         C = len(cand)
     ranqueia = np.array([i > 0 for i in range(C)])
-    sim = incerteza.simular(T, CRITERIOS, PRINCIPAIS_PADRAO, ranqueia, p)[bloco]
+    sim = incerteza.simular(T, criterios, principais, ranqueia, p)[bloco]
     rk, r_idx = sim["ranking"], sim["r_idx"]
     rng = np.random.default_rng(p.semente)
     ordem_idx = sorted(range(len(r_idx)), key=lambda j: (-round(rk["p_topo"][j], 9), round(rk["pos_media"][j], 9), rng.random()))
@@ -172,7 +187,7 @@ def gerar_rotacoes(perfil: dict, cultura_atual: str, tabela: dict, clima: ciclo.
         pos = {int(r): j for j, r in enumerate(r_idx)}.get(i)
         emp = [] if pos is None else [[cand[int(r_idx[o])] for o in sim["empates"][pos]]]
         crit = {}
-        for k, nome in enumerate(CRITERIOS):
+        for k, nome in enumerate(criterios):
             v = T[i, k, :]
             crit[nome] = {"nota_media": None if np.isnan(v).all() else round(float(np.nanmean(v)), 3), "lacuna": bool(np.isnan(v).all())}
         det = [{"cultura": c, "nome": tabela[c]["cultura_pt"], "familia": fam[c],
@@ -181,6 +196,10 @@ def gerar_rotacoes(perfil: dict, cultura_atual: str, tabela: dict, clima: ciclo.
                 "n_fixado_kg_ha": _v(tabela, c, "n_fixado_kg_ha"), "fonte_n_fixado": _fonte(tabela, c, "n_fixado_kg_ha"),
                 "janela": _janela(cs[c]["res"]) if cs[c]["res"] is not None else None,
                 "no_municipio": ctx.get(c)} for c in s]
+        if usa_renda:
+            for x in det:
+                x["renda_bruta_r_ha"] = rend.get(x["cultura"])
+
         lac = []
         sem_dado = [k for k, v in crit.items() if v["lacuna"]]
         if sem_dado:
@@ -189,8 +208,13 @@ def gerar_rotacoes(perfil: dict, cultura_atual: str, tabela: dict, clima: ciclo.
             faltam = [a for a, v in (("palha", palha[c]), ("demanda hídrica", agua[c])) if v is None]
             if faltam:
                 lac.append(f"{tabela[c]['cultura_pt']}: sem {', '.join(faltam)} na tabela de culturas")
-        lac += ["pragas e doenças: sem dado; a diversidade de famílias é só um proxy de quebra de ciclo",
-                "renda e mercado: sem dado de preço, custo ou demanda"]
+        lac += ["pragas e doenças: sem dado; a diversidade de famílias é só um proxy de quebra de ciclo"]
+        if usa_renda:
+            lac.append("renda: só receita BRUTA por hectare (IBGE/PAM, valores correntes); NÃO é lucro; sem custo, preço futuro nem mercado")
+            lac += [f"{tabela[c]['cultura_pt']}: sem receita bruta no PAM (lacuna visível; entra como incerteza, não como nota)"
+                    for c in dict.fromkeys(s) if rend.get(c) is None]
+        else:
+            lac.append("renda e mercado: sem dado de preço, custo ou demanda")
         riscos = list(RISCOS_FIXOS) + ["Cada safra usa o mesmo ano de clima da simulação; o clima real de cada ano seguinte não é conhecido.",
                                        "Culturas fora da prática local ou sem semente/mercado podem não ser viáveis na prática."]
         if solo_usuario:
@@ -213,11 +237,12 @@ def gerar_rotacoes(perfil: dict, cultura_atual: str, tabela: dict, clima: ciclo.
     sup = p.suposicoes() + [
         f"SUPOSIÇÃO: horizonte de {HORIZONTE} safras, uma por ano (uma estação chuvosa por ano no semiárido); a primeira é a cultura atual.",
         "SUPOSIÇÃO: leguminosa antes de não leguminosa é benéfica (regra agronômica geral); a diversidade de famílias é proxy de quebra de ciclo de pragas.",
-        f"SUPOSIÇÃO: prioridade '{prioridade}' vira ordem de critérios (a validar com técnico)." + (" 'renda' é lacuna: não altera nada." if prioridade == "renda" else ""),
+        f"SUPOSIÇÃO: prioridade '{prioridade}' vira ordem de critérios (a validar com técnico)." + (" 'renda' sem dado de receita: não altera nada." if prioridade == "renda" and not usa_renda else "")
+        + (" Com 'renda': critério extra = receita bruta/ha média das culturas da sequência (PAM, correntes, NÃO é lucro); sequência com cultura sem dado = lacuna." if usa_renda else ""),
         "O mesmo ano de clima vale para as 3 safras de cada sorteio.",
         f"Para limitar o tempo de cálculo, só as {MAX_CANDIDATAS} sequências de maior nota média (pesos iguais, critérios com dado) entram na "
         "simulação de incerteza; as demais ficam de fora.",
     ]
     return {"estrategias": estrategias, "lacunas": lacunas, "suposicoes": sup, "aviso": AVISO, "horizonte_safras": HORIZONTE,
-            "n_candidatas": n_total, "n_simuladas": C, "prioridade": prioridade, "bloco": bloco, "criterios": CRITERIOS, "anos_clima": av["anos"],
+            "n_candidatas": n_total, "n_simuladas": C, "prioridade": prioridade, "bloco": bloco, "criterios": criterios, "usa_renda": usa_renda, "anos_clima": av["anos"],
             "empate_tecnico_todos": bool(all(len(e["empate_tecnico_com"]) > 0 for e in estrategias[1:])) if len(estrategias) > 1 else False}

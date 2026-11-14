@@ -39,7 +39,7 @@ def caminhos_diagnostico() -> list[Path]:
 
 
 def caminho_relatorio() -> Path:
-    return Path(os.environ.get("SULCO_RELATORIO", RAIZ / "relatorio_modelos.md"))
+    return Path(os.environ.get("SULCO_RELATORIO", RAIZ / "data/processed/modelos/relatorio_modelos.md"))
 
 
 # ---------- cenários ----------

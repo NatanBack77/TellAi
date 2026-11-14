@@ -32,6 +32,8 @@ LIM_COS = 0.87        # cosseno minimo; e5 comprime scores em ~0.76-0.92. Calibr
 K_PADRAO = 5
 PESO_EXP = 0.5        # peso do voto da consulta expandida (sinonimos/EN) na fusao RRF
 PASSA_EXP = False
+FRAC_TRAD_MIN = 0.5   # fracao minima das palavras de conteudo da pergunta com traducao no lexico para usar a traducao
+MIN_TERMOS_EN = 3     # minimo de termos EN distintos para o portao lexical em ingles
 N_RERANK = 30
 W_FUSAO = 1.0
 MODELO_CROSS = "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1"
@@ -180,9 +182,10 @@ def calcular_embeddings(textos: list[str], dir_indice: Path = DIR_INDICE) -> dic
 # -------------------------------------------------------------------- indice
 class Indice:
     def __init__(self, dir_indice: Path = DIR_INDICE, usar_embeddings: bool = True, expandir: bool = False,
-                 rerank: bool = True):
+                 rerank: bool = True, traduzir: bool = True):
         self.dir = Path(dir_indice)
         self.expandir = expandir
+        self.traduzir = traduzir  # PT->EN por lexico controlado (src/rag/lexico_pt_en.py), sem LLM
         self.rerank = rerank
         self.trechos = [json.loads(l) for l in (self.dir / "trechos.jsonl").read_text(encoding="utf-8").splitlines() if l]
         self.tok = [tokenizar(t["texto"]) for t in self.trechos]
@@ -226,6 +229,14 @@ class Indice:
         extra = expandir_consulta(pergunta) if self.expandir else ""
         bm = self.bm25.scores(q)
         cos = self._cos(pergunta)
+        en_toks: set[str] = set()
+        en_txt = ""
+        if self.traduzir:
+            from .lexico_pt_en import traduzir as _trad
+            en_txt, frac = _trad(pergunta)
+            en_toks = set(tokenizar(en_txt)) if frac >= FRAC_TRAD_MIN else set()
+            if len(en_toks) < MIN_TERMOS_EN:
+                en_toks, en_txt = set(), ""
         # listas ordenadas: (pontuacoes, peso). A consulta expandida entra como voto extra (peso menor)
         listas = [(bm, 1.0), (cos, 1.0)]
         extoks = set(tokenizar(extra)) if extra else set()
@@ -233,6 +244,9 @@ class Indice:
             listas.append((self.bm25.scores(q + sorted(extoks)), PESO_EXP))
             ce = self._cos(pergunta + " " + extra)
             listas.append((ce, PESO_EXP))
+        if en_toks:
+            listas.append((self.bm25.scores(sorted(en_toks)), PESO_EXP))
+            listas.append((self._cos(pergunta + " " + en_txt), PESO_EXP))
         ranks = []
         for sc, w in listas:
             if sc is None:
@@ -244,6 +258,8 @@ class Indice:
         for i in cand:
             cobertura = len(qset & self.sets[i]) / len(qset)
             passa = cobertura >= lim_cobertura or (cos is not None and cos[i] >= lim_cos)
+            if not passa and en_toks and len(en_toks & self.sets[i]) / len(en_toks) >= lim_cobertura:
+                passa = True  # portao lexical sobre os termos traduzidos (trecho em ingles)
             if not passa and extoks and PASSA_EXP:
                 cob_exp = len((qset | extoks) & self.sets[i]) / len(qset | extoks)
                 passa = cob_exp >= lim_cobertura

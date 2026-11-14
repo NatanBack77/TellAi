@@ -166,11 +166,12 @@ def test_rotacao_3_safras_na_tela_com_entradas_do_agricultor():
     assert not at.exception
 
 
-def test_calcular_rotacao_renda_e_lacuna_e_nao_altera():
+def test_calcular_rotacao_renda_usa_receita_bruta_do_ibge_e_nao_mexe_nas_outras_prioridades():
     a = M.calcular_rotacao("quixada_ce", "milho", "sem", n_sorteios=800)
     b = M.calcular_rotacao("quixada_ce", "milho", "renda", n_sorteios=800)
-    assert [e["sequencia"] for e in a["estrategias"]] == [e["sequencia"] for e in b["estrategias"]]
     assert a["n_simuladas"] <= 81 and a["segundos"] < 5.0
+    assert not a["usa_renda"] and b["usa_renda"]                     # renda só entra na prioridade 'renda' e se houver valor do IBGE
+    assert any("renda" in k for e in b["estrategias"] for k in e["criterios"])
 
 
 def test_solo_estimado_plausivel_e_rotulado():
@@ -186,3 +187,131 @@ def test_rotacao_usa_solo_estimado_se_nao_informado_e_o_informado_prevalece():
     b = M.calcular_rotacao("quixada_ce", "milho", "sem", textura="arenoso", n_sorteios=500)
     assert b["solo_informado"]["origem"] == "informado" and b["solo_informado"]["textura"] == "arenoso"
     assert any("arenoso informado" in r for r in b["estrategias"][1]["riscos_revisao_local"])
+
+
+# ------------------------------------------------------------------------------ AP3, A5, A6, A7
+def test_limites_nao_diz_mais_que_nao_ha_solo_nem_zarc_e_cita_o_relatorio_atual():
+    from streamlit.testing.v1 import AppTest
+    at = AppTest.from_file(APP, default_timeout=120).run()
+    at.sidebar.radio(key="pagina").set_value("Limites dos dados").run()
+    assert not at.exception
+    t = _textos(at).lower()
+    assert "solo, evapotranspiração nem zoneamento" not in t and "não há dado de preço, custo, mercado, pragas, doenças, solo" not in t
+    assert "soilgrids" in t and "zarc" in t and "data/processed/modelos/relatorio_modelos.md" in t
+    assert any("modelo preditivo" in x.value.lower() for x in at.markdown)
+
+
+def test_camadas_do_mapa_so_com_dado_de_arquivo_e_lacuna_cinza():
+    import numpy as np
+
+    from src.app import camadas as C
+    ids = list(M.carregar_pontos()["ponto_id"])
+    assert len(ids) == 195
+    for cam, ano in (("solo_nu", None), ("solo_nu", 2015), ("declive", None), ("quadra", None), ("quadra", 2012)):
+        v = C.valores(cam, ano)
+        assert v["disponivel"] and v["serie"].reindex(ids).notna().sum() > 150, (cam, ano)
+        cores, info = C.cores(v["serie"], ids)
+        assert len(cores) == 195 and info["min"] <= info["max"]
+    assert C.valores("declive", 2015)["ano_usado"] is None            # camada sem ano ignora o ano
+    nan = C.valores("solo_nu", 1900)                                   # ano sem dado: tudo cinza, nada inventado
+    assert nan["serie"].reindex(ids).isna().all()
+    assert all(c == C.COR_SEM_DADO for c in C.cores(nan["serie"], ids)[0])
+    ev = C.valores("erosao", None)
+    assert ev["disponivel"] == C.erosao_disponivel()                  # sem módulo: lacuna; com módulo: soma de notas 0 a 8 por ponto
+    if ev["disponivel"]:
+        assert 0 <= ev["serie"].min() and ev["serie"].max() <= 8
+
+
+def test_mapa_troca_de_camada_e_ano_sem_excecao_e_rapido():
+    import time
+
+    from streamlit.testing.v1 import AppTest
+    at = AppTest.from_file(APP, default_timeout=120).run()
+    assert not at.exception
+    for camada, ano in (("solo_nu", None), ("declive", None), ("quadra", 2012), ("erosao", None)):
+        t0 = time.perf_counter()
+        at.selectbox(key="camada").set_value(camada).run()
+        if camada in ("solo_nu", "quadra"):
+            at.select_slider(key="ano_mapa").set_value(ano if ano else "todos os anos").run()
+        assert not at.exception, camada
+        assert time.perf_counter() - t0 < 5.0, camada
+    assert any("sem dado" in x.value.lower() or "lacuna" in x.value.lower() for x in list(at.warning) + list(at.caption))
+
+
+def test_filtros_do_agricultor_nao_inventam_efeito():
+    from src.app import filtros as F
+    f = F.Filtros(manejo="irrigado", agua_irrigacao_mm=100, equipamento=F.EQUIPAMENTOS[1], mercado=F.MERCADOS[1])
+    r = F.avaliar(f, "quixada_ce", "feijao_comum", chuva_ciclo_mm=300.0, demanda_mm=500.0)
+    st_ = {i["filtro"]: i["status"] for i in r["itens"]}
+    assert st_["Equipamento"] == "lacuna"                              # sem dado de máquina: nunca atende nem reprova
+    assert st_["Água disponível"] == "nao_atende" and "faltam cerca de 100 mm" in [i for i in r["itens"] if i["filtro"] == "Água disponível"][0]["texto"]
+    assert F.zarc_irrigado(F.geocodigo("quixada_ce"), "feijao_comum")["tem"] is True
+    assert F.zarc_irrigado(F.geocodigo("quixada_ce"), "milho")["tem"] is None   # ZARC irrigado não traz: lacuna, não "proibido"
+    assert F.avaliar(f, "quixada_ce", "milho", None, None)["itens"][1]["status"] == "lacuna"
+    assert not F.Filtros().ativos()
+
+
+def test_tela_com_filtros_ligados():
+    from streamlit.testing.v1 import AppTest
+    at = AppTest.from_file(APP, default_timeout=120).run()
+    at.radio(key="manejo").set_value("irrigado").run()
+    at.number_input(key="agua_irrig").set_value(300).run()
+    at.selectbox(key="equip").set_value("trator e implementos").run()
+    at.selectbox(key="mercado").set_value("só culturas já colhidas no meu município (IBGE)").run()
+    assert not at.exception
+    t = _textos(at)
+    assert "Seus filtros sobre os três caminhos" in t and "não é modelado" in t and "LACUNA" in t
+
+
+def test_glossario_novos_termos_e_trechos_verdadeiros_do_acervo():
+    import re
+    import shutil
+    import subprocess
+    import unicodedata
+    termos = {t for t, _ in M.GLOSSARIO}
+    for k in ("Fixadoras de nitrogênio", "Adubação verde", "Raízes profundas", "Evapotranspiração", "Balanço hídrico", "Risco de erosão"):
+        assert k in termos and k in M.TRECHOS_GLOSSARIO, k
+    antes = M.BALANCO_NA_TELA
+    try:
+        M.BALANCO_NA_TELA = False                                   # sem a seção na tela: o glossário não pode dizer que o app calcula ET
+        txt = dict((a, b) for a, b, _ in M.glossario_atual())
+        assert "NÃO calcula" in txt["Evapotranspiração"] and "ainda não faz" in txt["Balanço hídrico"]
+        M.BALANCO_NA_TELA = True                                    # com a seção: só ETo de REFERÊNCIA, Kc é lacuna
+        txt = dict((a, b) for a, b, _ in M.glossario_atual())
+        assert "REFERÊNCIA" in txt["Evapotranspiração"] and "Kc" in txt["Evapotranspiração"] and "NÃO é o balanço do solo" in txt["Balanço hídrico"]
+    finally:
+        M.BALANCO_NA_TELA = antes
+    if shutil.which("pdftotext") is None:
+        return
+    norm = lambda s: re.sub(r"\s+", "", re.sub(r"-\s+", "", unicodedata.normalize("NFKC", s).replace("\xad", ""))).lower()
+    for k, v in M.TRECHOS_GLOSSARIO.items():
+        pdf = RAIZ / "docs_rag" / v["arquivo"]
+        pg = str(v["pagina"])
+        out = subprocess.run(["pdftotext", "-f", pg, "-l", pg, "-layout", str(pdf), "-"], capture_output=True, text=True).stdout
+        assert norm(v["trecho"]) in norm(out), f"trecho de '{k}' não está em {v['arquivo']} p.{pg}"
+
+
+def test_pagina_glossario_mostra_trechos():
+    from streamlit.testing.v1 import AppTest
+    at = AppTest.from_file(APP, default_timeout=120).run()
+    at.sidebar.radio(key="pagina").set_value("Glossário").run()
+    assert not at.exception
+    t = _textos(at)
+    assert "Fixadoras de nitrogênio" in t and "embrapa_cap3_sistema_plantio_direto.pdf, p. 2" in t
+
+
+def test_secoes_integradas_aparecem_com_avisos_e_lacunas():
+    from streamlit.testing.v1 import AppTest
+    at = AppTest.from_file(APP, default_timeout=120).run()
+    assert not at.exception
+    tx = _textos(at)
+    for k in ("5. Risco de erosão", "RELATIVOS entre os 195 pontos", "5b. Calor e chuva extrema", "5c. Chuva menos evapotranspiração",
+              "NÃO o consumo da cultura", "Kc", "5d. Receita bruta por hectare", "NÃO é lucro", "valores correntes", "técnico local"):
+        assert k.lower() in tx.lower() or k.lower() in " ".join(x.value.lower() for x in at.subheader), k
+    assert any("Valor forrageiro" in e.label for e in at.expander)
+    assert "Atenção ao rótulo" in tx and "SiBCS" in tx
+    at.radio(key="prioridade").set_value("renda").run()
+    assert not at.exception
+    at.sidebar.radio(key="pagina").set_value("Limites dos dados").run()
+    lim = _textos(at).lower()
+    assert not at.exception and "o app ainda não calcula balanço hídrico" not in lim and "veja a seção própria" in lim

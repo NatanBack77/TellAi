@@ -96,3 +96,14 @@ def test_contexto_pam_so_informa(tab):
     c = contexto_pam(int(pts.loc["quixada_ce", "ibge"]))
     assert "milho" in c and c["milho"]["area_colhida_ha"] >= 0
     assert contexto_pam(None) == {}
+
+
+def test_contagens_de_n_na_tabela_batem_com_o_texto_do_modulo():
+    """C2: rotacao.py diz que N fixado existe para 3 culturas e N na biomassa para 10 (16 culturas). Conta o CSV."""
+    import pandas as pd
+    d = pd.read_csv("data/culturas/tabela_culturas.csv")
+    com = lambda a: d[(d["atributo"] == a) & d["valor"].notna()]["cultura_id"].nunique()
+    assert d["cultura_id"].nunique() == 16
+    assert com("n_fixado_kg_ha") == 3 and com("n_acumulado_parte_aerea_kg_ha") == 10
+    from src.culturas import rotacao
+    assert "3 culturas" in rotacao.__doc__ and "10 das 16" in rotacao.__doc__

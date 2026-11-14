@@ -127,6 +127,7 @@ class DeepSeek(Provedor):
         self.base_url = base_url.rstrip("/")
         self._transporte = transporte or _transporte_http
         self.timeout = timeout
+        self.ultimo_uso: dict | None = None  # usage da ultima resposta (prompt/completion/total_tokens), p/ medir custo
 
     def gerar(self, sistema: str, usuario: str, max_tokens: int = 900) -> str:
         if not self._chave:
@@ -141,7 +142,11 @@ class DeepSeek(Provedor):
         if status != 200:
             raise ProvedorErro(f"DeepSeek HTTP {status}: {ERROS_HTTP.get(status, 'erro desconhecido')}")
         try:
-            out = json.loads(txt)["choices"][0]["message"]["content"]
+            dados = json.loads(txt)
+            out = dados["choices"][0]["message"]["content"]
+            u = dados.get("usage")
+            self.ultimo_uso = {k: u.get(k) for k in ("prompt_tokens", "completion_tokens", "total_tokens")} \
+                if isinstance(u, dict) else None
         except (ValueError, KeyError, IndexError, TypeError):
             raise ProvedorErro("resposta do DeepSeek em formato inesperado") from None
         if not isinstance(out, str) or not out.strip():

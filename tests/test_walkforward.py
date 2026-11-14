@@ -4,7 +4,7 @@ import pytest
 
 from src.modelos.entrada import DadosInvalidos, carregar_config
 from src.modelos.sintetico import gerar_sinteticos
-from src.modelos.walkforward import VARIANTES, Variante, extra_persistencia, resumir, walk_forward
+from src.modelos.walkforward import VARIANTES, Variante, anos_da_execucao, extra_persistencia, resumir, walk_forward
 
 
 @pytest.fixture(scope="module")
@@ -111,3 +111,19 @@ def test_correcao_por_numero_de_variantes_endurece_o_criterio():
     poucas = resumir(r, anos, [], n_variantes=2).set_index("variante").loc["v", "skill_ic_inf_corrigido"]
     muitas = resumir(r, anos, [], n_variantes=40).set_index("variante").loc["v", "skill_ic_inf_corrigido"]
     assert muitas <= poucas
+
+
+def test_anos_da_execucao_padrao_seguro_nao_inclui_confirmacao(cfg):
+    w = cfg["walkforward"]
+    anos, sel, con = anos_da_execucao(w)            # padrão = só seleção
+    assert con == [] and anos == sel
+    assert max(sel) == w["anos_selecao"][1] and max(anos) < w["anos_confirmacao"][0]
+    anos2, sel2, con2 = anos_da_execucao(w, so_selecao=False)
+    assert sel2 == sel and con2 and anos2 == sel + con2
+
+
+def test_resumir_sem_confirmacao_nao_declara_melhoria_valida(entradas, cfg):
+    res = _rodar(entradas, cfg, [2014, 2015])
+    tab = resumir(res, [2014, 2015], [], n_variantes=2)
+    assert (tab["anos_confirmacao"] == 0).all() and tab["skill_confirmacao"].isna().all()
+    assert not tab["melhoria_valida"].any()
