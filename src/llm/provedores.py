@@ -18,8 +18,10 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parents[2]
 DEEPSEEK_BASE_URL = "https://api.deepseek.com"
 DEEPSEEK_MODELO = "deepseek-flash"  # ID da doc oficial (pagina inicial e de precos); sobrescreva com DEEPSEEK_MODEL
-ERROS_HTTP = {400: "formato invalido", 401: "chave de API invalida", 402: "saldo insuficiente",
-              422: "parametros invalidos", 429: "limite de taxa", 500: "erro do servidor", 503: "servidor sobrecarregado"}
+# Codigos conforme https://api-docs.deepseek.com/quick_start/error_codes (lido em 2026-11-14); a doc NAO mostra o corpo do erro.
+ERROS_HTTP = {400: "formato invalido", 401: "chave de API invalida", 402: "saldo insuficiente", 408: "tempo esgotado no envio",
+              413: "requisicao grande demais", 422: "parametros invalidos", 429: "limite de taxa", 500: "erro do servidor",
+              503: "servidor sobrecarregado", 504: "tempo esgotado no servidor"}
 
 
 class ProvedorIndisponivel(RuntimeError):
@@ -43,6 +45,8 @@ def ler_chave_env(caminho_env: Path | None = None) -> str | None:
     v = os.environ.get("DEEPSEEK_API_KEY")
     if v and v.strip():
         return v.strip()
+    if caminho_env is None and os.environ.get("SULCO_CARREGAR_ENV", "1") == "0":
+        return None
     p = caminho_env or (RAIZ / ".env")
     try:
         for ln in p.read_text(encoding="utf-8").splitlines():
@@ -52,6 +56,77 @@ def ler_chave_env(caminho_env: Path | None = None) -> str | None:
     except OSError:
         pass
     return None
+
+
+MAX_TOKENS_TETO = 600          # teto duro de tokens de SAIDA por chamada (trava de gasto)
+CHAMADAS_DIA_PADRAO = 100      # teto de chamadas reais por dia (SULCO_LLM_MAX_CHAMADAS_DIA)
+
+
+def _arq_gasto() -> Path:
+    return Path(os.environ.get("SULCO_GASTO_ARQ") or RAIZ / "data" / "processed" / "llm_cache" / "gasto.json")
+
+
+def _ler_gasto() -> dict:
+    try:
+        d = json.loads(_arq_gasto().read_text(encoding="utf-8"))
+        return d if isinstance(d, dict) else {}
+    except (OSError, ValueError):
+        return {}
+
+
+def _gravar_gasto(d: dict) -> None:
+    try:
+        a = _arq_gasto()
+        a.parent.mkdir(parents=True, exist_ok=True)
+        a.write_text(json.dumps(d, ensure_ascii=False, indent=1), encoding="utf-8")
+    except OSError:
+        pass  # disco somente leitura: o teto fica so por processo (declarado em docs/21_resultados_fases/CHAT_DEEPSEEK.md)
+
+
+def _teto_dia() -> int:
+    try:
+        v = int(os.environ.get("SULCO_LLM_MAX_CHAMADAS_DIA", ""))
+        return v if v >= 0 else CHAMADAS_DIA_PADRAO
+    except ValueError:
+        return CHAMADAS_DIA_PADRAO
+
+
+def reservar_chamada() -> None:
+    """Conta UMA chamada real do dia; estourou o teto => ProvedorIndisponivel (o chamador cai no template). Sem chave no arquivo."""
+    import datetime
+    hoje = datetime.date.today().isoformat()
+    d = _ler_gasto()
+    if d.get("data") != hoje:
+        d = {"data": hoje, "chamadas_dia": 0, "tokens_entrada_dia": 0, "tokens_saida_dia": 0, "total_chamadas": d.get("total_chamadas", 0),
+             "total_tokens": d.get("total_tokens", 0)}
+    if d["chamadas_dia"] >= _teto_dia():
+        raise ProvedorIndisponivel(f"limite diário de chamadas à IA atingido ({_teto_dia()}); usando o texto padrão. "
+                                   "Mude com SULCO_LLM_MAX_CHAMADAS_DIA.")
+    d["chamadas_dia"] += 1
+    d["total_chamadas"] = d.get("total_chamadas", 0) + 1
+    _gravar_gasto(d)
+
+
+def registrar_uso(uso: dict | None) -> None:
+    """Soma os tokens do campo `usage` ao contador persistido."""
+    if not isinstance(uso, dict):
+        return
+    d = _ler_gasto()
+    if not d:
+        return
+    pt, ct = uso.get("prompt_tokens") or 0, uso.get("completion_tokens") or 0
+    d["tokens_entrada_dia"] = d.get("tokens_entrada_dia", 0) + int(pt)
+    d["tokens_saida_dia"] = d.get("tokens_saida_dia", 0) + int(ct)
+    d["total_tokens"] = d.get("total_tokens", 0) + int(pt) + int(ct)
+    _gravar_gasto(d)
+
+
+def _timeout_env(padrao: float = 30.0) -> float:
+    try:
+        v = float(os.environ.get("DEEPSEEK_TIMEOUT", ""))
+        return v if v > 0 else padrao
+    except ValueError:
+        return padrao
 
 
 def _cortar(txt: str, n: int) -> str:
@@ -121,20 +196,22 @@ class DeepSeek(Provedor):
     nome = "deepseek"
 
     def __init__(self, chave: str | None = None, modelo: str | None = None, base_url: str = DEEPSEEK_BASE_URL,
-                 transporte=None, timeout: float = 60.0, caminho_env: Path | None = None):
+                 transporte=None, timeout: float | None = None, caminho_env: Path | None = None):
         self._chave = chave if chave is not None else ler_chave_env(caminho_env)
         self.modelo = modelo or os.environ.get("DEEPSEEK_MODEL") or DEEPSEEK_MODELO
         self.base_url = base_url.rstrip("/")
         self._transporte = transporte or _transporte_http
-        self.timeout = timeout
+        self.timeout = timeout if timeout is not None else _timeout_env()
         self.ultimo_uso: dict | None = None  # usage da ultima resposta (prompt/completion/total_tokens), p/ medir custo
 
     def gerar(self, sistema: str, usuario: str, max_tokens: int = 900) -> str:
         if not self._chave:
             raise ProvedorIndisponivel("DEEPSEEK_API_KEY não configurada (defina no .env ou no ambiente). "
                                        "Usando a explicação em template.")
-        corpo = json.dumps({"model": self.modelo, "messages": [{"role": "system", "content": sistema},
-                                                                {"role": "user", "content": usuario}],
+        max_tokens = max(1, min(int(max_tokens), MAX_TOKENS_TETO))
+        msgs = ([{"role": "system", "content": sistema}] if sistema else []) + [{"role": "user", "content": usuario}]
+        reservar_chamada()
+        corpo = json.dumps({"model": self.modelo, "messages": msgs,
                             "temperature": 0, "max_tokens": max_tokens, "stream": False,
                             "thinking": {"type": "disabled"}}).encode("utf-8")
         headers = {"Content-Type": "application/json", "Authorization": f"Bearer {self._chave}"}
@@ -147,6 +224,7 @@ class DeepSeek(Provedor):
             u = dados.get("usage")
             self.ultimo_uso = {k: u.get(k) for k in ("prompt_tokens", "completion_tokens", "total_tokens")} \
                 if isinstance(u, dict) else None
+            registrar_uso(self.ultimo_uso)
         except (ValueError, KeyError, IndexError, TypeError):
             raise ProvedorErro("resposta do DeepSeek em formato inesperado") from None
         if not isinstance(out, str) or not out.strip():

@@ -21,3 +21,10 @@ def test_gravar_pontos_sem_arquivo_previo(tmp_path):
     dest = tmp_path / "pontos.csv"
     d = gravar_pontos([{"ponto_id": "a_ce", "lat": 1.0, "lon": 3.0}], {"a_ce": "x"}, dest)
     assert list(d.columns) == ["ponto_id", "lat", "lon", "celula_power"]
+
+
+def test_gravar_pontos_preserva_nome(tmp_path):
+    dest = tmp_path / "pontos.csv"
+    pd.DataFrame({"ponto_id": ["a_ce"], "lat": [1.0], "lon": [3.0], "celula_power": ["x"], "ibge": [2300001], "nome": ["Á (CE)"]}).to_csv(dest, index=False)
+    gravar_pontos([{"ponto_id": "a_ce", "lat": 1.0, "lon": 3.0}], {"a_ce": "x"}, dest)
+    assert pd.read_csv(dest).loc[0, "nome"] == "Á (CE)"

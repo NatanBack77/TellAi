@@ -1,0 +1,4 @@
+# RAG SEMÂNTICO (opcional). Sem estes dois pacotes a busca cai para BM25 (acerto menor).
+# torch é a versão CPU: instale com  --extra-index-url https://download.pytorch.org/whl/cpu  (o Dockerfile já faz isso)
+sentence-transformers==6.3.0
+torch==2.15.0

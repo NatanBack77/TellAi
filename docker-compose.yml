@@ -1,0 +1,68 @@
+# SULCO em Docker: API (8000) e app (8501) a partir da MESMA imagem.
+#   docker compose up --build          # sobe os dois
+#   docker compose up api              # só a API
+# O LLM fica desligado (template) até haver DEEPSEEK_API_KEY e SULCO_LLM_MODO=online (ou offline com cache).
+x-sulco: &sulco
+  image: sulco:latest
+  build:
+    context: .
+    target: final
+    args:
+      WITH_RAG: "1"        # 0 = sem torch (RAG só BM25, imagem menor)
+  init: true               # encerra processos filhos direito (PID 1)
+  restart: unless-stopped
+  read_only: true          # sistema de arquivos raiz somente leitura
+  tmpfs:
+    - /tmp
+  cap_drop: [ALL]
+  security_opt:
+    - no-new-privileges:true
+  environment: &env
+    HOME: /tmp
+    SULCO_LLM_MODO: ${SULCO_LLM_MODO:-template}
+    DEEPSEEK_API_KEY: ${DEEPSEEK_API_KEY:-}
+    DEEPSEEK_MODEL: ${DEEPSEEK_MODEL:-}
+    DEEPSEEK_TIMEOUT: ${DEEPSEEK_TIMEOUT:-30}
+    SULCO_CHAT_CACHE_DIR: /app/data/processed/llm_cache/chat   # dentro do volume sulco_llm
+
+services:
+  api:
+    <<: *sulco
+    command: ["api"]
+    ports:
+      - "8000:8000"
+    volumes:
+      - sulco_modelos:/app/data/processed/modelos      # cache do modelo de previsão
+      - sulco_llm:/app/data/processed/llm_cache        # cache das respostas do LLM
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8000/saude', timeout=5).status == 200 else 1)"]
+      interval: 30s
+      timeout: 10s
+      start_period: 90s     # a API aquece o RAG (~22 s) e a previsão (~10 s) ao subir
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          memory: 3g        # medido: ~2,0 GB (pico 2,2 GB) com RAG semântico aquecido
+
+  app:
+    <<: *sulco
+    command: ["app"]
+    ports:
+      - "8501:8501"
+    volumes:
+      - sulco_llm:/app/data/processed/llm_cache
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request,sys; sys.exit(0 if urllib.request.urlopen('http://127.0.0.1:8501/_stcore/health', timeout=5).status == 200 else 1)"]
+      interval: 30s
+      timeout: 10s
+      start_period: 60s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          memory: 2g        # NÃO medido: ajustar depois de medir
+
+volumes:
+  sulco_modelos:
+  sulco_llm:

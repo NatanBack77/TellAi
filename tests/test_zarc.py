@@ -12,7 +12,8 @@ def _df():
 
 
 def test_colunas_originais_preservadas():
-    assert list(_df().columns) == ["ponto_id", "lat", "lon", "celula_power", "ibge"]
+    # as 5 colunas originais continuam, na mesma ordem; colunas novas (ex.: `nome`, de src/coleta/nomes_ibge.py) só podem vir DEPOIS
+    assert list(_df().columns)[:5] == ["ponto_id", "lat", "lon", "celula_power", "ibge"]
 
 
 def test_ibge_unicos_e_validos_no_ce():

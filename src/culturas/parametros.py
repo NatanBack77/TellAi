@@ -17,6 +17,7 @@ class Parametros:
     passo_inicio_dias: int = 10      # grade de inícios: a cada N dias a partir de 1º/jan (10 = 36 decêndios)
     ciclo_modo: str = "medio"        # duração: 'min', 'medio' (ponto médio) ou 'max' de ciclo_min/max_dias (EcoCrop)
     chuva_modo: str = "ciclo"        # 'ciclo' = chuva acumulada no ciclo; 'anual' = 365 dias desde o início
+    ciclo_override: tuple = ()       # opcional: ((cultura_id, dias), ...) substitui a duração do ciclo dessas culturas (padrão () = nada muda)
     risco_max: float = 0.30          # fração de anos que pode falhar (nota 0) para a cultura seguir 'viável'
     ano_ini: int = 2001
     ano_fim: int = 2024
@@ -41,6 +42,9 @@ class Parametros:
             raise ValueError(f"ciclo_modo deve ser um de {CICLO_MODOS}")
         if self.chuva_modo not in CHUVA_MODOS:
             raise ValueError(f"chuva_modo deve ser um de {CHUVA_MODOS}")
+        for par in self.ciclo_override:
+            if len(par) != 2 or not isinstance(par[0], str) or int(par[1]) < 1:
+                raise ValueError("ciclo_override deve ser ((cultura_id, dias>=1), ...)")
         if self.bloco_ranking not in ("principal", "completo"):
             raise ValueError("bloco_ranking deve ser 'principal' ou 'completo'")
         if not 0 <= self.risco_max < 1:

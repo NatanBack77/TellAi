@@ -1,0 +1,27 @@
+# Fora da imagem: histórico, ambientes, segredos, dados brutos, experimentos e testes
+.git
+.gitignore
+.venv
+**/__pycache__
+**/*.pyc
+.pytest_cache
+.env
+.env.*
+data/raw
+data/processed/sintetico
+experimentos/**
+# a página 'Limites dos dados' lê este arquivo em execução
+!experimentos/avaliacao_195/RESULTADO.md
+docs/**
+# lido em execução (mvp.acerto_rag)
+!docs/04_RETOMADA.md
+scripts
+**/*.pkl
+**/*.pq
+**/*.bak
+**/*.bak_pre_D52
+indice
+*.md
+!docs_rag/manifesto.json
+Dockerfile
+docker-compose*.yml

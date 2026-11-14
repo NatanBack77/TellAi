@@ -114,6 +114,9 @@ def notas_ciclo(tab: dict, cid: str, clima: ClimaPonto, p: Parametros) -> dict:
         lac.append(f"EcoCrop sem faixa completa de chuva para {cid}: lacuna")
     dur, l2 = duracao_ciclo(tab, cid, p.ciclo_modo)
     lac += l2
+    ov = dict(p.ciclo_override)
+    if cid in ov and not l2:      # injeção opcional da duração (padrão: vazio, nada muda)
+        dur = int(ov[cid])
     if lac:
         return {"estado": "indeterminada", "lacunas": lac, "dur": dur}
     ini = indices_inicio(clima, p.passo_inicio_dias)

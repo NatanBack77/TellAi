@@ -13,6 +13,7 @@ import json
 import os
 import re
 import time
+import unicodedata
 from dataclasses import replace
 from functools import lru_cache
 from pathlib import Path
@@ -20,10 +21,12 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
+from src.coleta.nomes_ibge import nome_derivado
 from src.culturas import ciclo as ciclo_mod
 from src.culturas.motor import avaliar_local, gerar_cenarios
 from src.culturas.parametros import Parametros
 from src.culturas.rotacao import gerar_rotacoes
+from src.culturas.risco_solo import solo_de_linha
 from src.culturas.rotacao_milp import otimizar_com_incerteza
 from src.culturas.tabela_culturas import carregar as carregar_tabela_culturas
 
@@ -106,14 +109,21 @@ def pct(x, nd: int = 0) -> str:
 
 
 # ---------------------------------------------------------------------------------------------- carga (com cache)
-_MIUDAS = {"do", "da", "de", "dos", "das"}
+@lru_cache(maxsize=4)
+def _nomes_do_csv(caminho: str) -> dict[str, str]:
+    """`nome` oficial (com acento, IBGE) gravado em pontos.csv por src/coleta/nomes_ibge.py; sem a coluna = vazio."""
+    arq = Path(caminho)
+    if not arq.exists():
+        return {}
+    p = pd.read_csv(arq)
+    if "nome" not in p.columns:
+        return {}
+    return {i: n for i, n in zip(p["ponto_id"], p["nome"]) if isinstance(n, str) and n.strip()}
 
 
 def nome_do_ponto(ponto_id: str) -> str:
-    """Nome derivado do identificador (sem acentos: o arquivo de pontos não guarda o nome oficial do IBGE)."""
-    base, uf = ponto_id.rsplit("_", 1)
-    palavras = [p if p in _MIUDAS else p.capitalize() for p in base.split("_")]
-    return " ".join(palavras) + f" ({uf.upper()})"
+    """Nome do ponto: o oficial de pontos.csv (coluna `nome`, IBGE) quando existe; senão o derivado do id (sem acento)."""
+    return _nomes_do_csv(str(dir_dados() / "pontos.csv")).get(ponto_id) or nome_derivado(ponto_id)
 
 
 @lru_cache(maxsize=1)
@@ -121,7 +131,8 @@ def carregar_pontos() -> pd.DataFrame:
     p = pd.read_csv(dir_dados() / "pontos.csv")
     p["nome"] = [nome_do_ponto(x) for x in p["ponto_id"]]
     p["uf"] = p["ponto_id"].str.rsplit("_", n=1).str[1].str.upper()
-    return p.sort_values(["uf", "nome"]).reset_index(drop=True)
+    p["_ordem"] = p["nome"].map(lambda n: unicodedata.normalize("NFKD", n).encode("ascii", "ignore").decode().lower())
+    return p.sort_values(["uf", "_ordem"]).drop(columns="_ordem").reset_index(drop=True)
 
 
 @lru_cache(maxsize=1)
@@ -751,6 +762,64 @@ def contagens_dados() -> dict:
             "confianca": conf, "culturas": len(tab), "com_n": com_n, "com_palha": com_palha, "com_demanda": com_dem}
 
 
+def limites_linhas() -> dict[str, list[str]]:
+    """Frases da página 'Limites dos dados' (números lidos de arquivo). A página do app e a fonte 'sobre o Sulco' do chat usam esta função.
+
+    Chaves: `visao_geral` (o que o satélite e o clima veem), `previsao` (o que a previsão de NDVI consegue; vazia se o RESULTADO.md da
+    avaliação não existir) e `motor` (o que o motor de estratégias não sabe). Linha que começa com 'LACUNA' é lacuna declarada.
+    """
+    from src.app import filtros as F
+    from src.app import logica as L
+    n = contagens_dados()
+    visao = list(L.LIMITES_FIXOS)
+    visao.append(f"São {n['pontos']} locais ({n['pontos_ce']} municípios do Ceará), mas só {n['celulas_power']} células de clima "
+                 "distintas: locais na mesma célula têm exatamente o mesmo clima. O NDVI é novo em cada local; a chuva não.")
+    visao.append("Confiança do diagnóstico por local (heurística de cobertura de dados, não é probabilidade): "
+                 f"{', '.join(f'{k} = {v}' for k, v in n['confianca'].items())}.")
+    prev = []
+    a = numeros_avaliacao_195()
+    if a["disponivel"]:
+        if a["persistencia_confirmacao_ridge"] is not None:
+            prev.append(f"Com 195 pontos, o ganho vem da persistência (o verdor da quinzena anterior): skill de "
+                        f"{br(a['persistencia_confirmacao_ridge'], 2)} sobre a média histórica na confirmação selada de 2022-2024. "
+                        "'Skill' acima de 0 = melhor que repetir a média histórica.")
+        prev.append("O clima sozinho não supera a média histórica fora da amostra. O app, por isso, não usa previsão de NDVI para dar nota.")
+    motor = [f"Faixas de temperatura e chuva vêm do EcoCrop (genéricas por espécie, não por cultivar nem por solo). "
+             f"Só {n['com_n']} de {n['culturas']} culturas têm nitrogênio e palha na tabela, e esses valores vêm de estudos pontuais; "
+             f"só {n['com_demanda']} têm demanda de água do ciclo.",
+             "A duração do ciclo é SUPOSIÇÃO (ponto médio do EcoCrop); o ciclo real depende da cultivar. Pesos e prioridades "
+             "são proposta do projeto, ainda sem validação com técnico."]
+    pts = carregar_pontos()
+    est_ok = solo_estimado(pts["ponto_id"].iloc[0]) is not None
+    motor.append("Solo: " + ("só uma ESTIMATIVA do mapa SoilGrids (250 m, camadas 0 a 30 cm), não análise do seu talhão; se você informar a "
+                             "textura, a sua prevalece." if est_ok else "LACUNA, o arquivo de solo estimado não foi encontrado."))
+    motor.append(f"ZARC (zoneamento do MAPA): só o Ceará; entra como filtro das datas de plantio de sequeiro (risco até {F.RISCO_ZARC}%); "
+                 "culturas sem ZARC usam uma janela aproximada declarada; o manejo irrigado do ZARC só é consultado nos filtros da tela 1, "
+                 "sem efeito na pontuação.")
+    if balanco_na_tela():
+        motor.append("Evapotranspiração, balanço hídrico, preço e renda: veja a seção própria em 'Meu local' e as lacunas dela; são estimativas "
+                     "a avaliar com técnico local. Custo, mercado, pragas e doenças continuam sem dado.")
+    else:
+        motor.append("Não há dado de preço, custo, mercado, pragas, doenças nem evapotranspiração (o app ainda não calcula balanço hídrico). "
+                     "'Renda extra' é uma lacuna: não altera o ranking.")
+    motor.append("Equipamento e preferência de mercado (tela 1) não têm dado por trás: viram lacuna, não filtro.")
+    aud = carregar_auditoria()
+    if aud:
+        for prio, r in aud["por_prioridade"].items():
+            motor.append(f"Auditoria (cultura atual = {aud['cultura_atual']}, {aud['n_pontos']} locais, prioridade "
+                         f"'{PRIORIDADES[prio]['rotulo']}'): {r['com_empate_tecnico']} de {r['alternativas_mostradas']} alternativas "
+                         f"mostradas ({pct(r['frac_com_empate_tecnico'])}) estão em empate técnico; mediana de "
+                         f"{br(r['mediana_n_empatadas'], 0)} candidatas empatadas; chance de ficar entre as 3 primeiras de "
+                         f"{pct(r['p_top3_min'])} a {pct(r['p_top3_max'])}.")
+    else:
+        motor.append("LACUNA: auditoria das alternativas não gerada (python -m src.app.precalculo auditoria).")
+    rag = acerto_rag()
+    motor.append(f"Evidência do acervo (RAG): {rag if rag else 'LACUNA (número de acerto não encontrado)'}. Muitos critérios ficam "
+                 "'sem evidência'; o app mostra isso em vez de inventar fonte.")
+    motor.append("O diagnóstico descreve o passado. O app não prevê chuva, não prevê colheita e não prova que uma rotação rende mais.")
+    return {"visao_geral": visao, "previsao": prev, "motor": motor}
+
+
 # ------------------------------------------------------------------------------------------ rotação em 3 safras
 OPCOES_TEXTURA = ["não sei", "arenoso", "médio", "argiloso"]
 OPCOES_MO = ["não sei", "baixa", "média", "alta"]
@@ -834,18 +903,28 @@ def _solo_df() -> pd.DataFrame | None:
     return pd.read_parquet(arq).set_index("ponto_id") if arq.exists() else None
 
 
+LIMITE_FRACAO_PIXELS = 0.5   # abaixo disso, menos da metade da janela de ~2 km tem dado válido (critério da auditoria do SoilGrids)
+
+
 def solo_estimado(ponto_id: str) -> dict | None:
-    """Solo do ponto estimado pelo SoilGrids (mapa global de 250 m; mediana de ~2 km; média das camadas 0-30 cm). NÃO é análise de solo.
+    """Solo do ponto estimado pelo SoilGrids (mapa global de 250 m; mediana de ~2 km; média 0-30 cm PONDERADA pela espessura das camadas). NÃO é análise de solo.
 
     Classe de textura pelo teor de argila (agrupamento simples: < 15% arenoso, 15 a 35% médio, > 35% argiloso). Sem dado: None (lacuna).
+    `aviso_pixels`: texto próprio quando o pixel central é inválido ou menos da metade da janela tem dado (None quando a cobertura é boa).
     """
     d = _solo_df()
     if d is None or ponto_id not in d.index or pd.isna(d.loc[ponto_id].get("clay_0-5cm")):
         return None
-    r = d.loc[ponto_id]
-    media = lambda p: float(np.mean([r[f"{p}_{x}"] for x in ("0-5cm", "5-15cm", "15-30cm")]))
-    argila, areia, soc, ph = media("clay"), media("sand"), media("soc"), media("phh2o")
+    s = solo_de_linha(d.loc[ponto_id])
+    argila = s["argila_pct"]
     classe = "arenoso" if argila < 15 else ("argiloso" if argila > 35 else "médio")
-    return {"argila_pct": argila, "areia_pct": areia, "silte_pct": media("silt"), "carbono_organico_g_kg": soc, "ph_agua": ph, "textura": classe,
-            "pixel_central_valido": bool(r.get("pixel_central_valido", True)),
-            "aviso": "Estimativa de um mapa global (250 m; mediana de ~2 km em volta do ponto), camadas 0-30 cm. Não é análise de solo; confirme com o técnico."}
+    fr, central = s["fracao_pixels_validos"], s["pixel_central_valido"]
+    aviso_pixels = None
+    if fr is not None and fr < LIMITE_FRACAO_PIXELS:
+        aviso_pixels = (f"Poucos pixels do mapa de solo têm dado em volta deste ponto ({pct(fr)} da janela de ~2 km"
+                        + ("; o pixel central não tem dado" if not central else "") + "): estimativa de baixa confiança, confirme com o técnico.")
+    elif not central:
+        aviso_pixels = "O pixel central do mapa de solo não tem dado; o valor vem dos pixels vizinhos. Confirme com o técnico."
+    return {"argila_pct": argila, "areia_pct": s["areia_pct"], "silte_pct": s["silte_pct"], "carbono_organico_g_kg": s["carbono_g_kg"],
+            "ph_agua": s["ph_agua"], "textura": classe, "pixel_central_valido": central, "fracao_pixels_validos": fr, "aviso_pixels": aviso_pixels,
+            "aviso": "Estimativa de um mapa global (250 m; mediana de ~2 km em volta do ponto), camadas 0-30 cm (média ponderada pela espessura). Não é análise de solo; confirme com o técnico."}

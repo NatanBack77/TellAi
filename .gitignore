@@ -30,3 +30,10 @@ experimentos/**/*.parquet.tmp
 *.bak
 *.bak_pre_D52
 !data/raw/era5land_cache.tar.gz
+data/processed/llm_cache_chat/
+data/processed/llm_cache/gasto.json
+
+# caches e contadores locais
+experimentos/fao_melhorias/.cache/
+data/processed/llm_cache/
+data/processed/llm_cache_chat/

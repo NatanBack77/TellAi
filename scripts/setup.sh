@@ -10,11 +10,10 @@ PY="${PYTHON:-python3}"
 [ -d .venv ] || "$PY" -m venv .venv
 PIP=".venv/bin/python -m pip"
 $PIP install --upgrade pip >/dev/null
-# torch CPU (só o RAG usa); se falhar, o resto segue e a busca cai para BM25
-$PIP install -r requirements.txt || {
-  echo "AVISO: falha ao instalar tudo; tentando sem torch/sentence-transformers";
-  grep -v -E '^(torch|sentence-transformers)' requirements.txt > /tmp/req_sem_torch.txt
-  $PIP install -r /tmp/req_sem_torch.txt
+# Tudo (runtime + RAG + coleta + testes). torch CPU (só o RAG usa); se falhar, o resto segue e a busca cai para BM25
+$PIP install --extra-index-url https://download.pytorch.org/whl/cpu -r requirements.txt || {
+  echo "AVISO: falha ao instalar tudo; tentando sem torch/sentence-transformers (RAG só BM25)";
+  $PIP install -r requirements-runtime.txt -r requirements-coleta.txt -r requirements-dev.txt
 }
 
 # Caches pesados versionados como tar.gz (evita baixar de novo)

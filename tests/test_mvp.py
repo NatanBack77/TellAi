@@ -14,8 +14,10 @@ LOCAL = "quixada_ce"
 
 
 def test_nome_do_ponto_e_lista():
-    assert M.nome_do_ponto("varzea_alegre_ce") == "Varzea Alegre (CE)"
-    assert M.nome_do_ponto("sao_joao_do_jaguaribe_ce") == "Sao Joao do Jaguaribe (CE)"
+    assert M.nome_do_ponto("varzea_alegre_ce") == "Várzea Alegre (CE)"          # nome oficial (coluna `nome` de pontos.csv, D4)
+    assert M.nome_do_ponto("sao_joao_do_jaguaribe_ce") == "São João do Jaguaribe (CE)"
+    assert M.nome_do_ponto("sobral_ce") == "Sobral (CE)" and M.nome_do_ponto("petrolina_pe") == "Petrolina (PE)"
+    assert M.nome_do_ponto("ponto_sem_csv_ce") == "Ponto Sem Csv (CE)"          # fora de pontos.csv: derivado do id
     p = M.carregar_pontos()
     assert len(p) == 195 and (p["uf"] == "CE").sum() == 184 and p["celula_power"].nunique() == 59
 
@@ -179,6 +181,21 @@ def test_solo_estimado_plausivel_e_rotulado():
     assert e is not None and 0 < e["argila_pct"] < 60 and 0 < e["areia_pct"] < 100 and 3.5 < e["ph_agua"] < 9.5
     assert e["textura"] in ("arenoso", "médio", "argiloso") and "Não é análise de solo" in e["aviso"]
     assert M.solo_estimado("ponto_que_nao_existe") is None
+
+
+def test_solo_estimado_media_ponderada_pela_espessura_e_aviso_de_pixels():
+    import pandas as pd
+    d = pd.read_parquet(RAIZ / "data/processed/solo.parquet").set_index("ponto_id")
+    r = d.loc["quixada_ce"]
+    esperado = (r["clay_0-5cm"] * 5 + r["clay_5-15cm"] * 10 + r["clay_15-30cm"] * 15) / 30       # espessuras 5, 10 e 15 cm
+    e = M.solo_estimado("quixada_ce")
+    assert abs(e["argila_pct"] - esperado) < 1e-9
+    assert abs(e["argila_pct"] - (r["clay_0-5cm"] + r["clay_5-15cm"] + r["clay_15-30cm"]) / 3) > 1e-3     # não é a média simples
+    assert e["fracao_pixels_validos"] == pytest.approx(float(r["fracao_pixels_validos"]))
+    p = M.solo_estimado("petrolina_pe")                     # 5% da janela com dado: aviso próprio
+    assert p["fracao_pixels_validos"] < M.LIMITE_FRACAO_PIXELS and p["aviso_pixels"] and "Poucos pixels" in p["aviso_pixels"]
+    ok = d[(d["fracao_pixels_validos"] >= M.LIMITE_FRACAO_PIXELS) & d["pixel_central_valido"]].index[0]
+    assert M.solo_estimado(ok)["aviso_pixels"] is None
 
 
 def test_rotacao_usa_solo_estimado_se_nao_informado_e_o_informado_prevalece():

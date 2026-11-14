@@ -1,6 +1,7 @@
 """A1: risco de erosão/escoamento. Dados SINTÉTICOS: testam só a lógica."""
 import numpy as np
 import pandas as pd
+import pytest
 
 from src.app.secao_risco_solo import secao_risco_solo
 from src.culturas import risco_solo as rs
@@ -85,3 +86,14 @@ def test_secao_ponto_ausente_e_presente():
     vazio = secao_risco_solo("nao_existe", tab)
     assert not vazio["disponivel"] and vazio["classe"] == "sem dados suficientes" and vazio["lacunas"]
     assert any("técnico local" in a for a in vazio["avisos"])
+
+
+def test_solo_de_linha_unico_e_ponderado_pela_espessura():
+    import pandas as pd
+    r = pd.Series({**{f"{p}_{c}": v for p, vs in {"clay": (10.0, 20.0, 40.0), "sand": (60.0, 50.0, 30.0), "silt": (30.0, 30.0, 30.0),
+                                                   "soc": (10.0, 8.0, 4.0), "phh2o": (6.0, 6.0, 7.0)}.items()
+                      for c, v in zip(("0-5cm", "5-15cm", "15-30cm"), vs)}, "fracao_pixels_validos": 0.4, "pixel_central_valido": False})
+    s = rs.solo_de_linha(r)
+    assert s["argila_pct"] == pytest.approx((10 * 5 + 20 * 10 + 40 * 15) / 30) and s["carbono_g_kg"] == pytest.approx((50 + 80 + 60) / 30)
+    assert s["pixel_central_valido"] is False and s["fracao_pixels_validos"] == 0.4
+    assert not hasattr(rs, "_solo_de_linha")          # sem duplicação: mvp e risco_solo usam esta função

@@ -93,7 +93,7 @@ def _janela(res: dict) -> dict:
 def gerar_rotacoes(perfil: dict, cultura_atual: str, tabela: dict, clima: ciclo.ClimaPonto, params: Parametros | None = None,
                    prioridade: str = "sem", rotacao_atual: list[str] | None = None, n_alternativas: int = 2,
                    solo_usuario: dict | None = None, ibge: int | None = None,
-                   renda_por_cultura: dict[str, float | None] | None = None) -> dict[str, Any]:
+                   renda_por_cultura: dict[str, float | None] | None = None, regras=None) -> dict[str, Any]:
     """Estratégia atual + `n_alternativas` sequências de 3 safras. Devolve {'estrategias': [...], 'lacunas', 'suposicoes', 'aviso', ...}."""
     p = params or Parametros()
     if cultura_atual not in tabela:
@@ -126,6 +126,18 @@ def gerar_rotacoes(perfil: dict, cultura_atual: str, tabela: dict, clima: ciclo.
         base = (cultura_atual,) * HORIZONTE
     resto = [c for c in viaveis if c in tabela]
     cand = [base] + [s for s in itertools.product([cultura_atual], resto, resto) if s != base and len(set(s)) > 1]
+    descartadas: list[dict] = []
+    viola_base: list[str] = []
+    if regras is not None:       # regras duras do agricultor (regras_duras.py): a base é a realidade dele, fica e é marcada; as alternativas não violam
+        from . import regras_duras as rd
+        rd.validar(regras, tabela)
+        fam0 = {c: _v(tabela, c, "familia_botanica") for c in tabela}
+        viola_base = rd.verificar(base, fam0, regras)
+        ok_, descartadas = rd.separar(cand[1:], fam0, regras)
+        cand = [base] + ok_
+        if len(cand) == 1:
+            return {"estrategias": [], "lacunas": lacunas + ["as regras duras do agricultor eliminaram todas as alternativas: nenhuma sequência calculada."],
+                    "suposicoes": p.suposicoes(), "aviso": AVISO, "horizonte_safras": HORIZONTE, "regras_duras": rd.descrever(regras, descartadas, viola_base)}
     n_anos = av["anos"][2]
     adq = {c: np.asarray(cs[c]["res"]["adeq_por_ano"], float) for c in set(itertools.chain(*cand)) if cs[c]["res"] is not None}
     C, K = len(cand), len(criterios)
@@ -226,6 +238,8 @@ def gerar_rotacoes(perfil: dict, cultura_atual: str, tabela: dict, clima: ciclo.
                 riscos.append(f"Solo argiloso {org}: risco de encharcamento e compactação em chuva forte; avaliar drenagem com técnico.")
             if str(solo_usuario.get("materia_organica", "")).lower().startswith("baix"):
                 riscos.append("Matéria orgânica baixa informada pelo agricultor: favorece sequências com mais palha e leguminosa, mas o app não mede o efeito.")
+        if papel == "atual" and viola_base:
+            lac.append("a rotação atual viola regra dura do agricultor: " + "; ".join(viola_base) + " (mantida só como referência)")
         estrategias.append({
             "papel": papel, "sequencia": list(s), "nomes": [tabela[c]["cultura_pt"] for c in s],
             "rotacao_informada_pelo_usuario": bool(papel == "atual" and rotacao_atual is not None),
@@ -244,5 +258,6 @@ def gerar_rotacoes(perfil: dict, cultura_atual: str, tabela: dict, clima: ciclo.
         "simulação de incerteza; as demais ficam de fora.",
     ]
     return {"estrategias": estrategias, "lacunas": lacunas, "suposicoes": sup, "aviso": AVISO, "horizonte_safras": HORIZONTE,
+            "regras_duras": None if regras is None else rd.descrever(regras, descartadas, viola_base),
             "n_candidatas": n_total, "n_simuladas": C, "prioridade": prioridade, "bloco": bloco, "criterios": criterios, "usa_renda": usa_renda, "anos_clima": av["anos"],
             "empate_tecnico_todos": bool(all(len(e["empate_tecnico_com"]) > 0 for e in estrategias[1:])) if len(estrategias) > 1 else False}

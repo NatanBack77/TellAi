@@ -1,0 +1,4 @@
+# Só para COLETAR dados (Earthdata, SMAP, SoilGrids). NÃO entra na imagem de produção.
+earthaccess==0.19.0
+h5py==3.16.0
+rasterio==1.5.2

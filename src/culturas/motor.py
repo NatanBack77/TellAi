@@ -280,7 +280,7 @@ def _faixa_json(i_sim: int, cid: str, sim: dict, ids_sim: list[str], cobertura: 
 
 
 def gerar_cenarios(perfil: dict, cultura_atual: str, tabela: dict | None = None, n_alternativas: int = 2,
-                   clima: ciclo.ClimaPonto | None = None, params: Parametros | None = None) -> list[dict]:
+                   clima: ciclo.ClimaPonto | None = None, params: Parametros | None = None, regras=None) -> list[dict]:
     """[cenário da cultura atual] + as `n_alternativas` melhores viáveis (contrato JSON, seção 7).
 
     perfil: {"local": str, ...} (informativo). clima: série diária do ponto (obrigatória): chuva e temperatura são
@@ -296,9 +296,19 @@ def gerar_cenarios(perfil: dict, cultura_atual: str, tabela: dict | None = None,
     av = avaliar_local(tab, clima, p)
     cs = av["culturas"]
     cand = [c for c in tab if c != cultura_atual and cs[c]["estado"] == "viavel"]
+    lac_regras: list[str] = []
+    if regras is not None:       # regras duras do agricultor (src/culturas/regras_duras.py): o caminho [atual, c] precisa respeitá-las
+        from . import regras_duras as rd
+        fam = {c: _v(tab, c, "familia_botanica") for c in tab}
+        rd.validar(regras, tab)
+        ok_, fora_ = rd.separar([(cultura_atual, c) for c in cand], fam, regras)
+        cand = [s[1] for s in ok_]
+        if fora_:
+            lac_regras.append("Regras do agricultor (duras) tiraram %d caminho(s): %s" % (
+                len(fora_), "; ".join(f"{d['sequencia'][1]} ({', '.join(d['motivos'])})" for d in fora_)))
     atual_ok = cs[cultura_atual]["res"] is not None
     ids_sim = ([cultura_atual] if atual_ok else []) + cand
-    lacunas_gerais = list(clima.lacunas)
+    lacunas_gerais = list(clima.lacunas) + lac_regras
     excl_ind = [c for c in tab if c != cultura_atual and cs[c]["estado"] == "indeterminada"]
     if excl_ind:
         lacunas_gerais.append("Não avaliáveis por falta de dado/clima (fora do ranking, visíveis como indeterminadas): "

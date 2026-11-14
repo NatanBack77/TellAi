@@ -1,6 +1,6 @@
 """App SULCO (Streamlit). Iniciar: .venv/bin/streamlit run src/app/app.py
 
-Só lê arquivos locais (data/processed/...). Não chama API de dados. Sem LLM: explicações em template.
+Só lê arquivos locais (data/processed/...). Não chama API de dados. Chat 'Pergunte ao Sulco' usa IA só com chave (DEEPSEEK_API_KEY); sem ela, texto padrão.
 Nenhum número vem do texto da tela: tudo vem de arquivo ou de código rodado; o que falta aparece como LACUNA.
 Como usar e roteiro de demo: docs/11_MVP.md.
 """
@@ -16,9 +16,13 @@ import pydeck as pdk
 import streamlit as st
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
+from src.llm.ambiente import carregar_env  # noqa: E402
+
+carregar_env()  # .env da raiz: só SULCO_*, DEEPSEEK_*, API_*, APP_* (nunca EARTHDATA_*); não sobrescreve o ambiente
 from src.app import camadas as C  # noqa: E402
 from src.app import filtros as F  # noqa: E402
 from src.app import logica as L  # noqa: E402
+from src.app import mapa_vista as MV  # noqa: E402
 from src.app import mvp as M  # noqa: E402
 from src.app import quadra as Q  # noqa: E402
 
@@ -79,6 +83,13 @@ def renda_cache(ibge: int | None, ids: tuple) -> dict:
     return SBR.secao_renda(ibge, list(ids))
 
 
+@st.cache_resource(show_spinner="Reunindo os dados do seu local para o chat...", max_entries=32)
+def folha_cache(ponto: str, cultura: str, prioridade: str) -> dict:
+    """Folha de fatos do local (src/llm/fatos.py): as mesmas funções da tela e da API, sem número novo."""
+    from src.llm import fatos as FT
+    return FT.montar_folha(ponto, cultura, prioridade, calc=calcular_cache(ponto, cultura, prioridade))
+
+
 @st.cache_resource(show_spinner=False, max_entries=128)
 def cenario_cache(ponto: str, cultura: str, prioridade: str, fator_chuva: float, delta_t: float) -> dict:
     return M.cenario_clima(ponto, cultura, prioridade, fator_chuva, delta_t, base=calcular_cache(ponto, cultura, prioridade))
@@ -122,6 +133,11 @@ def mapa_e_local() -> str:
     atual = st.session_state["local"]
     st.info(AVISO_KM)
     camada, ano = _controles_camada()
+    o1, o2 = st.columns(2)
+    aproximar = o1.checkbox("Aproximar do município escolhido (animação do mapa)", value=MV.abertura_padrao(), key="mapa_zoom",
+                            help="Só visual: o mapa se aproxima do município escolhido. Não muda nenhum número.")
+    sem_internet = o2.checkbox("Estou sem internet (fundo liso)", value=False, key="mapa_offline",
+                               help="O fundo do mapa vem da internet. Sem ela, os pontos continuam aparecendo; este botão põe um fundo liso para dar contraste.")
     df = pts[["ponto_id", "nome", "lat", "lon"]].copy()
     if camada is None:
         df["cor"] = [[40, 110, 160, 150] for _ in ids]
@@ -138,8 +154,8 @@ def mapa_e_local() -> str:
     camada_mapa = pdk.Layer("ScatterplotLayer", data=df, id="pontos", get_position="[lon, lat]", get_fill_color="cor",
                             get_line_color="linha", stroked=True, line_width_min_pixels=3, get_radius="raio", radius_units="pixels",
                             pickable=True)
-    vista = pdk.ViewState(latitude=float(pts["lat"].mean()), longitude=float(pts["lon"].mean()), zoom=5.6)
-    deck = pdk.Deck(layers=[camada_mapa], initial_view_state=vista, tooltip={"text": "{texto}"})
+    camadas_mapa = ([MV.camada_fundo_liso()] if sem_internet else []) + [camada_mapa]
+    deck = pdk.Deck(layers=camadas_mapa, initial_view_state=MV.vista(pts, atual, aproximar), tooltip={"text": "{texto}"})
     ev = st.pydeck_chart(deck, on_select="rerun", selection_mode="single-object", key="mapa", height=380,
                          alt="Mapa com os 195 locais, coloridos pela camada escolhida; clique em um ponto para escolhê-lo")
     if camada is not None:
@@ -155,7 +171,7 @@ def mapa_e_local() -> str:
         if clicado != atual:
             st.session_state["local"] = clicado
             st.rerun()
-    st.caption("Clique num ponto do mapa ou use a lista abaixo. SEM INTERNET o mapa fica sem fundo (só os pontos aparecem): o resto do "
+    st.caption("Clique num ponto do mapa ou use a lista abaixo. SEM INTERNET o mapa fica sem fundo (só os pontos aparecem; marque \"Estou sem internet\" para um fundo liso): o resto do "
                "app funciona igual. O ponto escolhido tem contorno vermelho.")
     nomes = dict(zip(pts["ponto_id"], pts["nome"]))
     return st.selectbox("Município / local (195 pontos; 184 do Ceará)", ids, format_func=lambda k: nomes[k], key="local")
@@ -499,6 +515,8 @@ def painel_rotacao(lid: str, cultura: str, prio: str):
         st.caption(f"Solo estimado pelo mapa SoilGrids para este local (camadas 0–30 cm): argila {M.br(est['argila_pct'], 0)}%, areia {M.br(est['areia_pct'], 0)}%, "
                    f"carbono orgânico {M.br(est['carbono_organico_g_kg'], 0)} g/kg, pH {M.br(est['ph_agua'], 1)} (textura {est['textura']}). "
                    "Se você não informar a textura, esta estimativa é usada. " + est["aviso"] + " " + _nota_textura(est))
+        if est.get("aviso_pixels"):
+            st.warning(est["aviso_pixels"])
     else:
         lacuna("solo estimado indisponível para este local; informe a textura se souber.")
     zarc = st.checkbox("Usar as datas de plantio do ZARC (zoneamento oficial do MAPA, risco 30; só no Ceará; culturas sem ZARC usam uma janela aproximada)",
@@ -753,6 +771,7 @@ def pagina_meu_local():
     st.header("Meu local: o que o satélite diz e três caminhos para conversar com o técnico")
     st.info(AVISO)
     lid, cultura, prio = entradas()
+    st.session_state["_cenario_atual"] = (lid, cultura, prio)   # os widgets somem do estado em outras páginas; o chat lê esta cópia
     try:
         calc = calcular_cache(lid, cultura, prio)
     except Exception as e:  # noqa: BLE001 - a tela deve mostrar a lacuna em vez de quebrar
@@ -764,12 +783,33 @@ def pagina_meu_local():
     painel_rotacao(lid, cultura, prio)
     painel_cenario(lid, cultura, prio)
     for nome, f in (("risco de solo", lambda: painel_risco_solo(lid)), ("extremos", lambda: painel_extremos(lid)),
-                    ("balanço hídrico", lambda: painel_balanco(lid)), ("renda", lambda: painel_renda(lid, cultura)), ("forragem", painel_forragem)):
+                    ("balanço hídrico", lambda: painel_balanco(lid)), ("renda", lambda: painel_renda(lid, cultura)), ("forragem", painel_forragem),
+                    ("cartão do município", lambda: painel_cartao(lid, cultura, prio, calc))):
         try:
             f()
         except Exception as e:  # noqa: BLE001 - uma seção com defeito vira lacuna, não derruba o app
             lacuna(f"seção '{nome}' não pôde ser montada ({e.__class__.__name__}: {e}).")
     secoes_opcionais(lid, cultura, prio)
+
+
+def painel_cartao(lid: str, cultura: str, prio: str, calc: dict):
+    """AP1: cartão de uma folha do município, com os mesmos dados da tela (sem número novo)."""
+    from src.app import cartao as CT
+    st.subheader("6. Cartão do município (uma folha, para levar ao técnico)")
+    ss = st.session_state
+    rot = rotacao_cache(lid, cultura, prio, ss.get("rot2", "-"), ss.get("rot3", "-"), ss.get("textura", "não sei"), ss.get("mo", "não sei"),
+                        bool(ss.get("zarc", M.ZARC_PADRAO)))
+    c = CT.montar_cartao(lid, cultura, prio, calc=calc, rotacao=rot)
+    c1, c2 = st.columns(2)
+    nome_arq = f"cartao_sulco_{lid}"
+    c1.download_button("Baixar cartão (HTML, para imprimir)", CT.cartao_html(c).encode("utf-8"), file_name=nome_arq + ".html",
+                       mime="text/html", key="cartao_html")
+    pdf = CT.cartao_pdf(c)
+    if pdf is not None:
+        c2.download_button("Baixar cartão (PDF)", pdf, file_name=nome_arq + ".pdf", mime="application/pdf", key="cartao_pdf")
+    else:
+        c2.caption("PDF indisponível (biblioteca fpdf2 não instalada); use o HTML e imprima pelo navegador.")
+    st.caption(CT.AVISO_FINAL + " O cartão repete o que está nesta tela: nenhum número novo.")
 
 
 def secoes_opcionais(lid: str, cultura: str, prio: str):
@@ -812,25 +852,17 @@ def pagina_glossario():
 def pagina_limites():
     st.header("Limites dos dados")
     st.info(AVISO)
-    n = M.contagens_dados()
+    lin = M.limites_linhas()
     st.subheader("O que o satélite e o clima conseguem ver")
-    for t in L.LIMITES_FIXOS:
+    for t in lin["visao_geral"]:
         st.markdown(f"- {t}")
-    st.markdown(f"- São {n['pontos']} locais ({n['pontos_ce']} municípios do Ceará), mas só {n['celulas_power']} células de clima "
-                "distintas: locais na mesma célula têm exatamente o mesmo clima. O NDVI é novo em cada local; a chuva não.")
-    st.markdown(f"- Confiança do diagnóstico por local (heurística de cobertura de dados, não é probabilidade): "
-                f"{', '.join(f'{k} = {v}' for k, v in n['confianca'].items())}.")
     st.subheader("O que a previsão de NDVI consegue (e por que ela não dá nota)")
     a = M.numeros_avaliacao_195()
     if not a["disponivel"]:
         lacuna("RESULTADO.md da avaliação com 195 pontos não encontrado.")
     else:
-        if a["persistencia_confirmacao_ridge"] is not None:
-            st.markdown(f"- Com 195 pontos, o ganho vem da **persistência** (o verdor da quinzena anterior): skill de "
-                        f"{M.br(a['persistencia_confirmacao_ridge'], 2)} sobre a média histórica na confirmação selada de 2022-2024. "
-                        "'Skill' acima de 0 = melhor que repetir a média histórica.")
-        st.markdown("- O **clima sozinho** não supera a média histórica fora da amostra (linha 'base' abaixo, confirmação). O "
-                    "app, por isso, **não usa previsão de NDVI para dar nota**.")
+        for t in lin["previsao"]:
+            st.markdown(f"- {t}")
         if a["confirmacao"] is not None:
             st.markdown("**Confirmação selada 2022-2024** (rodada uma vez; skill vs. média histórica)")
             st.dataframe(a["confirmacao"], hide_index=True)
@@ -860,46 +892,109 @@ def pagina_limites():
     else:
         lacuna(f"relatório do modelo preditivo: {rel['motivo']}")
     st.subheader("O que o motor de estratégias não sabe")
-    st.markdown(f"- Faixas de temperatura e chuva vêm do EcoCrop (genéricas por espécie, não por cultivar nem por solo). "
-                f"Só {n['com_n']} de {n['culturas']} culturas têm nitrogênio e palha na tabela, e esses valores vêm de estudos pontuais; "
-                f"só {n['com_demanda']} têm demanda de água do ciclo.")
-    st.markdown("- A duração do ciclo é SUPOSIÇÃO (ponto médio do EcoCrop); o ciclo real depende da cultivar. Pesos e prioridades "
-                "são proposta do projeto, ainda sem validação com técnico.")
-    est_ok = M.solo_estimado(M.carregar_pontos()["ponto_id"].iloc[0]) is not None
-    st.markdown("- Solo: " + ("só uma ESTIMATIVA do mapa SoilGrids (250 m, camadas 0 a 30 cm), não análise do seu talhão; se você informar a "
-                "textura, a sua prevalece." if est_ok else "LACUNA, o arquivo de solo estimado não foi encontrado."))
-    st.markdown(f"- ZARC (zoneamento do MAPA): só o Ceará; entra como filtro das datas de plantio de sequeiro (risco até {F.RISCO_ZARC}%); "
-                "culturas sem ZARC usam uma janela aproximada declarada; o manejo irrigado do ZARC só é consultado nos filtros da tela 1, "
-                "sem efeito na pontuação.")
-    if M.balanco_na_tela():
-        st.markdown("- Evapotranspiração, balanço hídrico, preço e renda: veja a seção própria em 'Meu local' e as lacunas dela; são estimativas "
-                    "a avaliar com técnico local. Custo, mercado, pragas e doenças continuam sem dado.")
+    for t in lin["motor"]:
+        (lacuna if t.startswith("LACUNA") else st.markdown)(t if t.startswith("LACUNA") else f"- {t}")
+
+
+EXEMPLOS_CHAT = ["Como vai ficar a vegetação nas próximas semanas?",
+                 "Por que o Sulco sugeriu esses caminhos?",
+                 "O que é empate técnico?",
+                 "Quantos milímetros de chuva o feijão-caupi precisa durante o ciclo?"]
+ROTULO_ORIGEM_CHAT = {"llm": "Gerado por IA a partir dos fatos do seu local e dos trechos do acervo (números e citações conferidos)",
+                      "template": "Texto padrão, sem IA",
+                      "sem_evidencia": "Sem evidência nos dados nem no acervo",
+                      "recusa": "Pedido fora do que a ferramenta faz"}
+
+
+def _folha_do_local_visto():
+    """Folha de fatos do local que o usuário escolheu em 'Meu local' (sem nome, lat/lon, ponto_id nem IBGE nos textos)."""
+    ref = st.session_state.get("_cenario_atual")
+    return folha_cache(*ref) if ref else None
+
+
+def _mostrar_resposta_chat(item: dict):
+    r = item["resposta"]
+    st.markdown(f"**Você perguntou:** {item['pergunta']}")
+    sel = ROTULO_ORIGEM_CHAT.get(r["origem"], r["origem"])
+    (st.success if r["origem"] == "llm" else st.info)(f"{sel}.")
+    st.markdown(r["resposta"])
+    if r["origem"] != "llm" and r.get("motivo") and r["origem"] in ("template", "sem_evidencia"):
+        st.caption(f"Por quê: {r['motivo']}")
+    if r["verificacao"]["ok"] is False:
+        st.caption("O texto da IA foi barrado pelo verificador: " + "; ".join(r["verificacao"]["motivos"]))
+    if r.get("uso"):
+        st.caption(f"Tokens usados: {r['uso'].get('total_tokens')}")
+    if r.get("fatos") or r["trechos"] or r.get("resposta_com_citacoes"):
+        with st.expander("De onde veio esta resposta", expanded=False):
+            if r.get("resposta_com_citacoes") and r["resposta_com_citacoes"] != r["resposta"]:
+                st.caption("Texto com as citações (o que o verificador conferiu):")
+                st.write(r["resposta_com_citacoes"])
+            if r.get("fatos"):
+                st.markdown("**Fatos do seu local usados** (cada um mostra a frase simples, o texto técnico e de onde veio):")
+                for f in r["fatos"]:
+                    marca = " (citado no texto)" if f["id"] in r.get("citados_fatos", []) else ""
+                    st.markdown(f"**[{f['id']}] {f['rotulo']}{' (lacuna)' if f['lacuna'] else ''}{marca}**")
+                    st.write(f.get("texto_simples") or "(sem frase simples)")
+                    st.caption(f"Texto técnico: {f['texto']}  |  Origem: {f['origem']}")
+            if r["trechos"]:
+                st.markdown("**Trechos do acervo** (confira no PDF):")
+                for t in r["trechos"]:
+                    marca = " (citado no texto)" if t["n"] in r.get("citados", []) else ""
+                    st.markdown(f"**[{t['n']}] {t['arquivo']}, p. {t['pagina']}{marca}**")
+                    st.write(t["texto"])
+    st.caption(r["aviso"])
+
+
+def pagina_pergunte():
+    from src.llm import chat as CH
+    st.header("Pergunte ao Sulco")
+    st.info("Perguntas sobre cultivo e rotação (documentos do acervo: ZARC, Embrapa, cartilhas), sobre o próprio Sulco e sobre os dados do local "
+            "que você escolheu em 'Meu local' (previsão do verdor, diagnóstico, caminhos, solo, risco, ETo, receita bruta, ZARC). "
+            "Aqui não se escolhe rotação, não se prevê chuva nem colheita e não se promete lucro. " + AVISO)
+    est = CH.estado()
+    if est["ia_ativa"]:
+        st.success(f"IA ligada ({est['provedor']}, modelo {est['modelo']}). Só a pergunta e os fatos e trechos relevantes são enviados; nunca o nome do "
+                   "município, as coordenadas, o código do município nem o identificador do local.")
     else:
-        st.markdown("- Não há dado de preço, custo, mercado, pragas, doenças nem evapotranspiração (o app ainda não calcula balanço hídrico). "
-                    "'Renda extra' é uma lacuna: não altera o ranking.")
-    st.markdown("- Equipamento e preferência de mercado (tela 1) não têm dado por trás: viram lacuna, não filtro.")
-    aud = M.carregar_auditoria()
-    if aud:
-        for prio, r in aud["por_prioridade"].items():
-            st.markdown(f"- Auditoria (cultura atual = {aud['cultura_atual']}, {aud['n_pontos']} locais, prioridade "
-                        f"'{M.PRIORIDADES[prio]['rotulo']}'): {r['com_empate_tecnico']} de {r['alternativas_mostradas']} alternativas "
-                        f"mostradas ({M.pct(r['frac_com_empate_tecnico'])}) estão em empate técnico; mediana de "
-                        f"{M.br(r['mediana_n_empatadas'], 0)} candidatas empatadas; chance de ficar entre as 3 primeiras de "
-                        f"{M.pct(r['p_top3_min'])} a {M.pct(r['p_top3_max'])}.")
-    else:
-        lacuna("auditoria das alternativas não gerada (python -m src.app.precalculo auditoria).")
-    rag = M.acerto_rag()
-    st.markdown(f"- Evidência do acervo (RAG): {rag if rag else 'LACUNA (número de acerto não encontrado)'}. Muitos critérios ficam "
-                "'sem evidência'; o app mostra isso em vez de inventar fonte.")
-    st.markdown("- O diagnóstico descreve o passado. O app não prevê chuva, não prevê colheita e não prova que uma rotação rende mais.")
+        st.warning(f"IA desligada. {est['mensagem']} Você ainda recebe os trechos do acervo, em texto padrão, sem internet.")
+    ss = st.session_state
+    ss.setdefault("chat_hist", [])
+    st.caption("Exemplos (clique para preencher):")
+    cols = st.columns(len(EXEMPLOS_CHAT))
+    for i, ex in enumerate(EXEMPLOS_CHAT):
+        if cols[i].button(ex, key=f"chat_ex_{i}"):
+            ss["chat_pergunta"] = ex
+    tem_cen = bool(ss.get("_cenario_atual"))
+    with st.form("form_chat", clear_on_submit=False):
+        pergunta = st.text_input("Sua pergunta (em português simples)", key="chat_pergunta", max_chars=CH.MAX_PERGUNTA)
+        usar_ctx = st.checkbox("Usar os dados do local que escolhi em 'Meu local' (previsão, diagnóstico, caminhos, solo...)",
+                               value=tem_cen, disabled=not tem_cen, key="chat_usar_ctx",
+                               help=None if tem_cen else "Abra a página 'Meu local' e escolha um município antes.")
+        enviar = st.form_submit_button("Perguntar")
+    if enviar:
+        folha = None
+        from src.llm import fatos as FT
+        if usar_ctx and tem_cen and FT.temas_da_pergunta(pergunta or ""):   # só monta os dados do local se a pergunta é sobre eles
+            try:
+                folha = _folha_do_local_visto()
+            except Exception as e:  # noqa: BLE001 - sem os dados do local o chat segue só com o acervo e o 'sobre o Sulco'
+                lacuna(f"não foi possível reunir os dados do local para o chat ({e.__class__.__name__}).")
+        with st.spinner("Buscando nos dados e no acervo..."):
+            r = CH.responder_chat(pergunta, folha=folha)
+        ss["chat_hist"] = ([{"pergunta": pergunta, "resposta": r}] + ss["chat_hist"])[:10]
+    for item in ss["chat_hist"]:
+        st.divider()
+        _mostrar_resposta_chat(item)
+    if not ss["chat_hist"]:
+        st.caption("Ainda não há perguntas. Cada resposta é independente das anteriores (o histórico é só para você rever).")
 
 
 def main():
     st.set_page_config(page_title="SULCO", layout="wide")
     st.title("SULCO: da órbita ao sulco")
-    pagina = st.sidebar.radio("Página", ["Meu local", "Glossário", "Limites dos dados"], key="pagina")
+    pagina = st.sidebar.radio("Página", ["Meu local", "Pergunte ao Sulco", "Glossário", "Limites dos dados"], key="pagina")
     st.sidebar.caption(AVISO)
-    {"Meu local": pagina_meu_local, "Glossário": pagina_glossario, "Limites dos dados": pagina_limites}[pagina]()
+    {"Meu local": pagina_meu_local, "Pergunte ao Sulco": pagina_pergunte, "Glossário": pagina_glossario, "Limites dos dados": pagina_limites}[pagina]()
 
 
 main()

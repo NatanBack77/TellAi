@@ -138,13 +138,28 @@ def avaliar_risco(declive_pct: float | None, argila_pct: float | None, areia_pct
 
 
 # ----------------------------------------------------------------------------- carga de dados (arquivos do projeto)
-def _solo_de_linha(r: pd.Series) -> dict:
-    m = lambda p: float(np.mean([r[f"{p}_{x}"] for x in ("0-5cm", "5-15cm", "15-30cm")]))
-    return {"argila_pct": m("clay"), "areia_pct": m("sand"), "carbono_g_kg": m("soc")}
+ESPESSURAS_CM = {"0-5cm": 5, "5-15cm": 10, "15-30cm": 15}   # espessura de cada camada do SoilGrids (cm)
+
+
+def media_ponderada_camadas(r, prefixo: str) -> float:
+    """Média 0-30 cm de uma propriedade do SoilGrids, ponderada pela espessura das camadas (5, 10 e 15 cm). Lugar único desta conta."""
+    pesos = np.array(list(ESPESSURAS_CM.values()), float)
+    v = np.array([r[f"{prefixo}_{x}"] for x in ESPESSURAS_CM], float)
+    return float(np.sum(v * pesos) / pesos.sum())
+
+
+def solo_de_linha(r) -> dict:
+    """Solo 0-30 cm de uma linha de solo.parquet (média ponderada pela espessura) + qualidade espacial do pixel."""
+    fr = r.get("fracao_pixels_validos")
+    return {"argila_pct": media_ponderada_camadas(r, "clay"), "areia_pct": media_ponderada_camadas(r, "sand"),
+            "silte_pct": media_ponderada_camadas(r, "silt"), "carbono_g_kg": media_ponderada_camadas(r, "soc"),
+            "ph_agua": media_ponderada_camadas(r, "phh2o"),
+            "pixel_central_valido": bool(r.get("pixel_central_valido", True)),
+            "fracao_pixels_validos": None if fr is None or pd.isna(fr) else float(fr)}
 
 
 def montar_tabela_pontos(raiz: Path = RAIZ) -> pd.DataFrame:
-    """Uma linha por ponto: declive, argila, areia, carbono (média 0-30 cm) e dias de chuva erosiva/ano. Falta de arquivo = colunas NaN."""
+    """Uma linha por ponto: declive, argila, areia, carbono (média 0-30 cm ponderada pela espessura) e dias de chuva erosiva/ano. Falta de arquivo = colunas NaN."""
     ter, solo, clima = raiz / "data/processed/terreno.parquet", raiz / "data/processed/solo.parquet", raiz / "data/processed/clima_diario.parquet"
     base = pd.DataFrame(columns=["ponto_id", "declive_pct", "declive_p90_pct", "argila_pct", "areia_pct", "carbono_g_kg", "dias_chuva_erosiva_ano"]).set_index("ponto_id")
     ids = set()
@@ -163,7 +178,7 @@ def montar_tabela_pontos(raiz: Path = RAIZ) -> pd.DataFrame:
         df[c] = np.nan
     if s is not None:
         ok = s.dropna(subset=["clay_0-5cm"])
-        ext = pd.DataFrame([_solo_de_linha(r) for _, r in ok.iterrows()], index=ok.index)
+        ext = pd.DataFrame([solo_de_linha(r) for _, r in ok.iterrows()], index=ok.index)[["argila_pct", "areia_pct", "carbono_g_kg"]]
         df.loc[ext.index, ext.columns] = ext
     df["dias_chuva_erosiva_ano"] = np.nan
     if clima.exists():

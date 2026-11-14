@@ -18,6 +18,8 @@ import itertools
 import numpy as np
 from scipy.optimize import Bounds, LinearConstraint, milp
 
+from . import regras_duras as rd
+
 LEGUMINOSA = "Leguminosae"
 
 
@@ -34,7 +36,9 @@ def otimizar(culturas: list[str], atual: str, adeq_por_ano: dict[str, np.ndarray
     if atual not in culturas:
         raise ValueError("a cultura atual precisa estar entre as candidatas")
     w = {"adeq": 1.0, "palha": 1.0, "div": 1.0, "leg": 1.0, **(pesos or {})}
-    regras = regras or {}
+    regras_in = regras or {}
+    regras = rd.normalizar(regras)     # aceita dict antigo, RegrasDuras ou None; inclui as regras do agricultor (regras_duras.py)
+    rd.validar(regras, culturas)
     C = len(culturas)
     pos = {c: i for i, c in enumerate(culturas)}
     A = np.array([adeq_por_ano[c] for c in culturas], float)          # [C, anos]
@@ -90,6 +94,28 @@ def otimizar(culturas: list[str], atual: str, adeq_por_ano: dict[str, np.ndarray
     if regras.get("max_repeticoes"):
         for c in range(C):
             r = np.zeros(n); r[[X(t, c) for t in range(T)]] = 1; A_ub.append(r); b_ub.append(regras["max_repeticoes"])
+    for c in culturas:                                                 # regras duras do agricultor (regras_duras.py)
+        if c in regras["proibidas"]:
+            for t in range(1, T):                                      # safra 1 = cultura atual, já plantada
+                r = np.zeros(n); r[X(t, pos[c])] = 1; A_ub.append(r); b_ub.append(0)
+        if c in regras["obrigatorias"]:
+            r = np.zeros(n); r[[X(t, pos[c]) for t in range(T)]] = -1; A_ub.append(r); b_ub.append(-1)
+    if regras["exigir_alguma_de"]:
+        r = np.zeros(n)
+        for c in regras["exigir_alguma_de"]:
+            r[[X(t, pos[c]) for t in range(T)]] = -1
+        A_ub.append(r); b_ub.append(-1)
+    m = regras["max_seguidas_cultura"]
+    if m:
+        for c in range(C):
+            for t0 in range(T - m):
+                r = np.zeros(n); r[[X(t, c) for t in range(t0, t0 + m + 1)]] = 1; A_ub.append(r); b_ub.append(m)
+    m = regras["max_seguidas_familia"]
+    if m:
+        for f in {familia.get(c) for c in culturas} - {None}:
+            idx = [i for i, c in enumerate(culturas) if familia.get(c) == f]
+            for t0 in range(T - m):
+                r = np.zeros(n); r[[X(t, i) for t in range(t0, t0 + m + 1) for i in idx]] = 1; A_ub.append(r); b_ub.append(m)
     if robusto_beta:                                                   # u_k >= eta - S_k ; S_k = soma de adeq no ano k
         for k in range(K):
             r = np.zeros(n); r[nx + nz + 1 + k] = -1; r[nx + nz] = 1
@@ -112,7 +138,8 @@ def otimizar(culturas: list[str], atual: str, adeq_por_ano: dict[str, np.ndarray
     xs = np.round(res.x[:nx]).reshape(T, C)
     seq = [culturas[int(np.argmax(xs[t]))] for t in range(T)]
     return {"status": res.message, "viavel": True, "sequencia": seq, "objetivo": float(-res.fun), "otimo_provado": bool(res.status == 0),
-            "robusto_beta": robusto_beta, "horizonte": T, "regras": regras}
+            "robusto_beta": robusto_beta, "horizonte": T, "regras": regras_in,
+            "violacoes_regras": rd.verificar(seq, familia, regras)}
 
 
 def nota_sequencia(seq, culturas, adeq_por_ano, familia, palha, pesos=None, robusto_beta=None) -> float:
@@ -139,15 +166,11 @@ def nota_sequencia(seq, culturas, adeq_por_ano, familia, palha, pesos=None, robu
 
 
 def melhor_por_enumeracao(culturas, atual, adeq_por_ano, familia, palha, T=3, pesos=None, regras=None, robusto_beta=None):
-    regras = regras or {}
+    rd.validar(regras, culturas)
     melhor, nota = None, -np.inf
     for resto in itertools.product(culturas, repeat=T - 1):
         s = (atual,) + resto
-        if regras.get("sem_repetir_seguida") and any(a == b for a, b in zip(s[:-1], s[1:])):
-            continue
-        if regras.get("min_leguminosas") and sum(familia.get(c) == LEGUMINOSA for c in s) < regras["min_leguminosas"]:
-            continue
-        if regras.get("max_repeticoes") and max(s.count(c) for c in set(s)) > regras["max_repeticoes"]:
+        if not rd.permite(s, familia, regras):
             continue
         v = nota_sequencia(s, culturas, adeq_por_ano, familia, palha, pesos, robusto_beta)
         if v > nota + 1e-12:

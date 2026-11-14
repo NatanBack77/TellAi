@@ -15,8 +15,14 @@ from typing import Literal
 import numpy as np
 import pandas as pd
 from fastapi import FastAPI, HTTPException, Query, Request
+from fastapi.responses import HTMLResponse, JSONResponse
 from pydantic import BaseModel, ConfigDict, Field
 
+from src.llm.ambiente import carregar_env
+
+carregar_env()  # .env da raiz (só SULCO_*, DEEPSEEK_*, API_*, APP_*); antes de LimiteTaxa.do_ambiente()
+
+from src.api.limite_taxa import LimiteTaxa, cabecalhos  # noqa: E402
 from src.app import mvp as M   # lógica do app (sem Streamlit): reutilizada por import, não copiada
 from src.culturas import ciclo as ciclo_mod
 from src.culturas import zarc as zarc_mod
@@ -71,6 +77,28 @@ async def medir(request: Request, call_next):
     LATENCIAS.setdefault(getattr(rota, "path", request.url.path), []).append(ms)
     resp.headers["X-Latencia-ms"] = f"{ms:.1f}"
     return resp
+
+
+LIMITE = LimiteTaxa.do_ambiente()   # SULCO_RATE_LIMIT / SULCO_RATE_GERAL / SULCO_RATE_PESADO / SULCO_CONFIAR_PROXY (ver limite_taxa.py)
+
+
+@app.middleware("http")
+async def limitar_taxa(request: Request, call_next):
+    """Janela deslizante por cliente. 429 + Retry-After ao estourar; /saude é isenta. O contador é do processo (ver limite_taxa.py)."""
+    grupo = LIMITE.grupo(request.url.path) if LIMITE.ligado else None
+    if grupo is None:
+        return await call_next(request)
+    ip = request.client.host if request.client else None
+    r = LIMITE.verificar(LIMITE.cliente(ip, request.headers.get("x-forwarded-for")), grupo)
+    if not r["ok"]:
+        return JSONResponse(status_code=429, headers=cabecalhos(r),
+                            content={"detail": f"Muitas requisições ({r['limite']} por janela, grupo '{grupo}'). Tente de novo em {r['retry_after']} s.",
+                                     "lacuna": "limite de taxa: a resposta não foi calculada", "grupo": grupo})
+    resp = await call_next(request)
+    for k, v in cabecalhos(r).items():
+        resp.headers[k] = v
+    return resp
+
 
 
 # ------------------------------------------------------------------ dados (cache em memória)
@@ -553,3 +581,118 @@ def plano(req: PlanoIn):
                     detalhes={k: v for k, v in r.items() if k != "aviso"},
                     aviso="PROPOSTA, não decisão: cada sequência é a ótima em uma fração dos sorteios; "
                           "sem dado de renda/pragas. " + M.AVISO)
+
+
+# ================================================================== Chat com RAG (DeepSeek opcional; ver src/llm/chat.py e docs/14_LLM.md)
+from src.llm import chat as chat_mod  # noqa: E402
+
+
+class ChatIn(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    pergunta: str = Field(min_length=1, max_length=2000, description=f"Máx. {chat_mod.MAX_PERGUNTA} letras úteis (acima, a resposta é uma recusa).")
+    ponto_id: str | None = Field(None, description="Com `cultura_atual`: usa o cenário deste local como contexto (sem lat/lon na API externa).")
+    cultura_atual: str | None = None
+    prioridade: Literal["sem", "agua", "solo", "renda"] = "sem"
+
+
+class ChatTrecho(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    n: int
+    arquivo: str
+    pagina: int | str | None = None
+    texto: str
+
+
+class ChatFato(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    id: str = Field(description="Id do fato na folha do local, citado no texto como [F3].")
+    tema: str
+    rotulo: str
+    texto: str = Field(description="Texto TÉCNICO do fato (para conferência), números em pt-BR; sem nome do município, ponto_id, IBGE, lat nem lon.")
+    texto_simples: str = Field("", description="Frase em linguagem simples para o agricultor: é a que vai ao prompt da IA e ao texto padrão. Vazia = fato sem frase simples.")
+    origem: str = Field(description="Função/arquivo e campo de onde o fato veio (para conferir).")
+    lacuna: bool
+
+
+class ChatVerificacao(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    ok: bool | None = Field(description="true = texto da IA aprovado; false = rejeitado (veja `motivos`); null = não houve texto de IA.")
+    motivos: list[str]
+
+
+class ChatOut(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+    resposta: str = Field(description="Texto LIMPO para exibir ao agricultor: sem marcadores [F#] nem [n] (removidos DEPOIS da verificação).")
+    resposta_com_citacoes: str = Field(description="Texto original (verificado) com os marcadores [F#] e [n], para conferência.")
+    origem: Literal["llm", "template", "sem_evidencia", "recusa"]
+    trechos: list[ChatTrecho]
+    fatos: list[ChatFato] = Field(description="Fatos do local enviados como fonte ([F#]); vazio se a pergunta não é sobre os dados do local.")
+    citados: list[int]
+    citados_fatos: list[str] = Field(description="Ids [F#] que o texto da IA citou.")
+    sem_evidencia: bool
+    verificacao: ChatVerificacao
+    aviso: str
+    motivo: str
+    uso: dict | None = Field(None, description="`usage` do provedor (tokens), quando houve chamada.")
+    provedor: str
+    modelo: str
+    em_cache: bool
+    modo: str
+
+
+@lru_cache(maxsize=64)
+def _folha_chat(ponto_id: str, cultura: str, prioridade: str) -> dict:
+    """Folha de fatos do local (src/llm/fatos.py); usa as mesmas funções desta API e do app. Em cache por (local, cultura, prioridade)."""
+    from src.llm import fatos as fatos_mod
+    return fatos_mod.montar_folha(ponto_id, cultura, prioridade)
+
+
+@lru_cache(maxsize=64)
+def _contexto_chat(ponto_id: str, cultura: str, prioridade: str) -> dict | None:
+    calc = M.calcular(ponto_id, cultura, prioridade)
+    return chat_mod.montar_contexto(calc["cenarios"], cultura, prioridade)
+
+
+@app.post("/chat", response_model=ChatOut)
+def chat(req: ChatIn):
+    """Pergunta ao acervo (RAG), à fonte 'sobre o Sulco' e, com `ponto_id`, à folha de fatos do local. A IA só reescreve fontes citadas
+    ([F#] e [n]); sem chave ou sem evidência, devolve texto padrão. Nenhum identificador do local vai à API externa."""
+    folha = ctx = None
+    if (req.ponto_id is None) != (req.cultura_atual is None):
+        raise HTTPException(422, "informe `ponto_id` e `cultura_atual` juntos (ou nenhum dos dois)")
+    if req.ponto_id is not None:
+        exigir_ponto(req.ponto_id)
+        _exigir_cultura(req.cultura_atual)
+        try:
+            folha = _folha_chat(req.ponto_id, req.cultura_atual, req.prioridade)
+        except Exception:   # noqa: BLE001 - sem a folha o chat tenta o contexto do cenário e, sem ele, segue só com o acervo
+            folha = None
+        if folha is None:
+            try:
+                ctx = _contexto_chat(req.ponto_id, req.cultura_atual, req.prioridade)
+            except Exception:   # noqa: BLE001
+                ctx = None
+    return chat_mod.responder_chat(req.pergunta, contexto=ctx, folha=folha)
+
+
+@app.get("/chat/gasto")
+def chat_gasto():
+    """Contador de gasto do dia da camada LLM (chamadas e tokens; nunca a chave). Serve à página /teste."""
+    from src.llm import provedores as prov_mod
+    d = prov_mod._ler_gasto()
+    return {"data": d.get("data"), "chamadas_dia": d.get("chamadas_dia", 0), "teto_chamadas_dia": prov_mod._teto_dia(),
+            "tokens_entrada_dia": d.get("tokens_entrada_dia", 0), "tokens_saida_dia": d.get("tokens_saida_dia", 0),
+            "total_chamadas": d.get("total_chamadas", 0)}
+
+
+@app.get("/teste", response_class=HTMLResponse, include_in_schema=False)
+def pagina_teste():
+    """Página de teste do chat (HTML puro). Ferramenta de desenvolvimento; ver src/api/pagina_teste.py."""
+    from src.api import pagina_teste as pt
+    return HTMLResponse(pt.renderizar(M.culturas_disponiveis()))
+
+
+@app.get("/chat/estado")
+def chat_estado():
+    """Modo, provedor, modelo e se há chave configurada (a chave nunca é devolvida)."""
+    return chat_mod.estado()
