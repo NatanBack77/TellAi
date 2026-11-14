@@ -9,9 +9,15 @@
    "trechos": [
     {
      "n": 1,
-     "arquivo": "agrometeoros_zoneamento_metodologias.pdf",
-     "pagina": 9,
-     "texto": "Probabilidade de ocorrência de temperaturas superiores a 30 oC no florescimento do feijoeiro (Phaseolus vulgaris L.), cultivado na safra das águas no estado do Paraná. Revista Brasileira de Agrometeorologia, Santa Maria, v. 5, n.1, p. 99-107, 1997. GONÇALVES, S.L.; WREGE, M.S.; CARAMORI, P.H.; SHIOGA, P.; GERAGE, A.C. Épocas de semeadura do milho safrinha no Paraná com menores riscos climáticos. Acta Scientiarum (UEM), Maringá, v. 24, n.5, p. 12871290, 2002. SANS, L.M.A; ASSAD, E.D.; GUIMARÃES, D.P. Zoneamento de riscos climáticos para a cultura do milho na Região Centro-Oeste do Brasil e para o estado de Minas Gerais."
+     "arquivo": "mapa_zarc_ce_milho_1safra_port218_2026.pdf",
+     "pagina": 2,
+     "texto": "Os períodos de plantio e a relação dos municípios favoráveis para o cultivo do milho foram avaliadas e classificadas, de acordo com o nível de risco climático de 20, 30 ou 40%, em função dos seguintes critérios: a) O risco de deficiência hídrica severa ao não atingir o limite mínimo do Índice de satisfação das necessidades de água (ISNA) que deve ser igual ou menor a 0,70 na fase I, e igual ou menor a 0,55 na fase III. b) O risco de ocorrência de temperaturas muito baixas e deletérias à cultura, por meio da probabilidade de ocorrência de temperatura média menor que 18°C na fase 3 no florescimento; c) O risco de ocorrência de temperaturas muito baixas e deletérias à cultura, por meio da probabilidade de ocorrência de temperaturas mínimas menores que 2°C observadas no abrigo meteorológico nas fases 1, 2 e 3; d) O risco de ocorrência de excesso hídrico quando o índice de satisfação das necessidades de água (ISNA) é maior ou igual a 0,90 na fase IV."
+    },
+    {
+     "n": 2,
+     "arquivo": "mapa_zarc_ce_milho_1safra_port218_2026.pdf",
+     "pagina": 1,
+     "texto": "A temperatura é o principal fator ambiental que regula o desenvolvimento fenológico embora também haja influência da radiação solar, disponibilidade de água e nutrientes. 1.3. O milho apresenta ampla faixa de tolerância térmica, com a germinação ocorrendo de forma adequada acima de 10°C, sendo essa comprometida abaixo desse limiar. O desenvolvimento ideal do milho ocorre na temperatura diurna em torno de 30 a 33 °C e à noite entre 17°C e 23°C, noites frias. Noites quentes e dias quentes não são favoráveis pois aceleram demais o ciclo, causando perdas de rendimento. Em adição, temperaturas superiores a 24oC durante a noite prejudicam o enchimento de grãos."
     }
    ]
   },
@@ -23,18 +29,18 @@
      "arquivo": "pab_milho_sucessao_adubos_verdes.pdf",
      "pagina": 6,
      "texto": "Porém, no segundo ano de cultivo, após o florescimento da cultura, houve ocorrência de poucas chuvas e grandes períodos de estiagem (Figura 1), o que prejudicou sensivelmente o enchimento dos grãos, em todos os tratamentos, já que, de acordo com Eck (1986), as fases mais sensíveis à deficiência hídrica na cultura do milho, em ordem decrescente, são: florescimento, enchimento de grãos e desenvolvimento vegetativo. Conclusões 1. A crotalária cultivada na primavera proporciona maior produtividade do milho em sucessão comparada à área de pousio, em ano com precipitação normal, tanto em plantio direto, quanto no sistema de preparo convencional do solo."
-    },
-    {
-     "n": 2,
-     "arquivo": "pab_milho_sucessao_adubos_verdes.pdf",
-     "pagina": 6,
-     "texto": "No ano agrícola de 1998/1999, os valores de massa da espiga sem palha, número de grãos por espiga, massa de 100 grãos e produtividade de grãos, em todos os tratamentos, foram menores do que no ano anterior. Durante o ciclo da cultura do milho, foram registrados 672 mm de chuva em 1997/1998 e 788 mm em 1998/ 1999. Porém, no segundo ano de cultivo, após o florescimento da cultura, houve ocorrência de poucas chuvas e grandes períodos de estiagem (Figura 1), o que prejudicou sensivelmente o enchimento dos grãos, em todos os tratamentos, já que, de acordo com Eck (1986), as fases mais sensíveis à deficiência hídrica na cultura do milho, em ordem decrescente, são: florescimento, enchimento de grãos e desenvolvimento vegetativo."
     }
    ]
   },
   "n_na_biomassa": {
    "sem_evidencia": false,
    "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_semiarido_adubacao_verde_videira_meloeiro.pdf",
+     "pagina": 11,
+     "texto": "10 Adubação verde em videira e meloeiro no Submédio São Francisco Amado et aI. (2001) observaram que o sistema de rotação de milho com culturas de cobertura em Argissolo Vermelho distrófico, em Santa Maria - RS, apresentou um aumento de 5,4 t ha' de C e 1,3 t ha' de N em relação ao sistema milho/pousio, na camada 0-20cm, no oitavo ano de cultivo. Embora tenha sido constatado incremento na capacidade de suprimento de N do solo pelo uso de leguminosas por longo prazo, a presença dos resíduos recentes antes da cultura econômica foi a principal responsável pela nutrição do milho, na ausência da adubação com nitrogênio mineral (Amado et al., 1999)."
+    },
     {
      "n": 2,
      "arquivo": "embrapa_semiarido_adubacao_verde_videira_meloeiro.pdf",
@@ -54,9 +60,9 @@
     },
     {
      "n": 2,
-     "arquivo": "embrapa_cap3_sistema_plantio_direto.pdf",
-     "pagina": 4,
-     "texto": "64 Agricultura de baixo carbono: tecnologias e estratégias de implantação gerando maior probabilidade de erosão, principalmente porque interfere negativamente na estrutura e teores de matéria orgânica do solo, entre outros fatores (Franzluebbers, 2010). com maquinários e combustível. Geralmente o preparo de solo, convencional, é realizado por meio da aração (arado de disco ou aiveca dependendo das condições do solo) e gradagem. Palhada A palhada é oriunda de plantas de cobertura semeadas que são cultivadas anteriormente (resteva). Ou mesmo pela Brasil, atualmente, a principal cultura geradora de palhada é o milho, que é cultivado em sucessão à cultura da soja, semeado chuvoso no cerrado brasileiro."
+     "arquivo": "mapa_zarc_ce_milho_braquiaria_port245_2026.pdf",
+     "pagina": 1,
+     "texto": "No consórcio do milho com braquiária, a forrageira pode ter dupla finalidade, servindo como alimento para a exploração pecuária, a partir do final do verão até início da primavera, e, posteriormente, para formação de palhada no sistema plantio direto. Existe a possibilidade também da utilização da forrageira exclusivamente como planta produtora de palhada, proporcionando cobertura permanente do solo até a semeadura da safra de verão subsequente. 1.7. O consórcio do milho com a braquiária é possível graças ao diferencial de tempo e espaço no acúmulo de biomassa entre as espécies. Os resultados de pesquisas envolvendo o cultivo consorciado de milho com Brachiaria brizantha demonstram a viabilidade deste sistema de produção."
     }
    ]
   },
@@ -90,9 +96,9 @@
     },
     {
      "n": 2,
-     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
-     "pagina": 17,
-     "texto": "Em geral, para que essa cultura atinja elevada produtividade, os valores de temperatura do ar devem estar em torno de 30 °C durante o dia e 22 °C durante a noite. Temperaturas do ar ao redor de 35 °C podem ocasionar o abortamento de flores e afetar negativamente o vingamento de vagens, principalmente se a cultura estiver submetida a limitado suprimento de água. 3 Qual a fase do ciclo do feijão-caupi mais crítica sob altas temperaturas? A fase mais crítica sob altas temperaturas estende-se do período imediatamente anterior à floração até o início da formação das vagens. Nessa fase, a incidência de altas temperaturas, princi­ palmente à noite, pode provocar grande abortamento de flores e vagens, chegando até a afetar o processo de fecundação."
+     "arquivo": "mapa_zarc_ce_feijao_caupi_port121_2026.pdf",
+     "pagina": 1,
+     "texto": "Temperaturas elevadas prejudicam o crescimento e o desenvolvimento da cultura, exercendo influência sobre o abortamento de flores, o vingamento e a retenção final de vagens, afetando também o número de sementes por vagem. 1.4. O feijão caupi exige um mínimo de 300 mm de precipitação ao longo do ciclo. As limitações hídricas estão mais relacionadas à distribuição pluvial do que à quantidade total de chuvas ocorridas durante o ciclo. O déficit hídrico, da semeadura à emergência e no florescimento/enchimento de vagens, pode ocasionar severa retração do crescimento vegetativo, limitando a produção."
     }
    ]
   },
@@ -101,15 +107,15 @@
    "trechos": [
     {
      "n": 1,
-     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
-     "pagina": 27,
-     "texto": "de precipitação. O ideal é que as séries tenham mais de 30 anos de dados diários de chuva. Isso é importante porque se calcula o Isna para uma frequência de ocorrência de 80%, ou seja, 8 anos em cada 10 anos de registros, o que assegura certa margem de segurança ao zoneamento de risco climático. As classes de Isna usadas no zoneamento do feijão-caupi são as seguintes: • Baixo risco (época favorável à semeadura): Isna ≥ 0,50. • Médio risco (época intermediária): 0,40 < Isna < 0,50. • Alto risco (época desfavorável à semeadura): Isna ≤ 0,40. Isso significa que uma determinada data de semeadura é considerada apta ao cultivo de feijão-caupi (baixo risco climático) quando, no mínimo, metade da exigência hídrica da cultura é atendida pela disponibilidade de água no solo."
+     "arquivo": "mapa_zarc_ce_feijao_caupi_port121_2026.pdf",
+     "pagina": 1,
+     "texto": "Temperaturas elevadas prejudicam o crescimento e o desenvolvimento da cultura, exercendo influência sobre o abortamento de flores, o vingamento e a retenção final de vagens, afetando também o número de sementes por vagem. 1.4. O feijão caupi exige um mínimo de 300 mm de precipitação ao longo do ciclo. As limitações hídricas estão mais relacionadas à distribuição pluvial do que à quantidade total de chuvas ocorridas durante o ciclo. O déficit hídrico, da semeadura à emergência e no florescimento/enchimento de vagens, pode ocasionar severa retração do crescimento vegetativo, limitando a produção."
     },
     {
      "n": 2,
-     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
-     "pagina": 203,
-     "texto": "No Cerrado brasileiro, a cultura do feijão-caupi pode ser utilizada com sucesso na segunda safra, ou seja, na safrinha. Nessa região, as características da segunda safra enquadram-se bem com as características da planta de feijão-caupi e com as exigências da cultura quanto às condições climáticas. Na safrinha, o plantio é feito no final do período chuvoso; assim, a colheita do feijão-caupi se dá em período seco, quando as chuvas já estão terminando. Essa condição é ideal para o feijão-caupi, pois os grãos perdem qualidade rapidamente quando ocorrem chuvas durante a colheita. O feijão-caupi possui boa eficiência no uso da água, condição muito favorável ao cultivo na safrinha que, como se sabe, ocorre no final do período chuvoso, período em que pode ocorrer estresse hídrico."
+     "arquivo": "mapa_zarc_ce_feijao_caupi_port121_2026.pdf",
+     "pagina": 1,
+     "texto": "Neste modelo são consideradas as exigências hídrica e térmica, duração do ciclo, das fases fenológicas e da reserva útil de água dos solos para cultivo desta espécie, bem como dados de precipitação pluviométrica e evapotranspiração de referência de séries com, no mínimo, 15 anos de dados diários registrados em 3.750 estações pluviométricas selecionadas no país. 1.8. Por se tratar de um modelo agroclimático, parte-se do pressuposto que não ocorrerão limitações quanto à fertilidade dos solos e danos às plantas devido à ocorrência de pragas e doenças. 1.9. Para delimitação das áreas aptas ao cultivo do feijão caupi em condições de baixo risco, foram adotados os seguintes parâmetros e variáveis:"
     }
    ]
   },
@@ -135,15 +141,15 @@
    "trechos": [
     {
      "n": 1,
-     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
-     "pagina": 74,
-     "texto": "Para diminuir o escoamento superficial em lavouras de feijão-caupi, deve-se agir em duas direções: aumentar a cobertura do solo e criar barreiras físicas ao escoamento. 73"
+     "arquivo": "pesagro_rio_rural_rotacao_culturas.pdf",
+     "pagina": 9,
+     "texto": "De acordo com Boller e Caldato (2001), a palhada de centeio chega a cobrir 78% da superfície do solo, proporcionando maior proteção contra a erosão. A palhada de mucuna preta proporcionou benefícios na nodulação mais eficientes na cultura do feijão e, consequentemente, maior acúmulo de N e matéria seca nas plantas de feijão (ABBOUD; DUQUE, 1986). Esse fato, certamente, está relacionado com as condições favoráveis de temperatura e umidade no solo promovido pela palha em cobertura. As diferentes palhadas das plantas de cobertura influenciam diretamente o rendimento de grãos da cultura do feijoeiro, sendo mais afetado pela espécie produtora de palha que pela sua forma de cultivo (OLIVEIRA et al., 2002)."
     },
     {
      "n": 2,
      "arquivo": "pesagro_rio_rural_rotacao_culturas.pdf",
-     "pagina": 9,
-     "texto": "De acordo com Boller e Caldato (2001), a palhada de centeio chega a cobrir 78% da superfície do solo, proporcionando maior proteção contra a erosão. A palhada de mucuna preta proporcionou benefícios na nodulação mais eficientes na cultura do feijão e, consequentemente, maior acúmulo de N e matéria seca nas plantas de feijão (ABBOUD; DUQUE, 1986). Esse fato, certamente, está relacionado com as condições favoráveis de temperatura e umidade no solo promovido pela palha em cobertura. As diferentes palhadas das plantas de cobertura influenciam diretamente o rendimento de grãos da cultura do feijoeiro, sendo mais afetado pela espécie produtora de palha que pela sua forma de cultivo (OLIVEIRA et al., 2002)."
+     "pagina": 14,
+     "texto": "24, p. 417-425, 2000. BOLLER, W.; CALDATO, D. E. Desenvolvimento da cultura do feijão (Phaseolus vulgaris L.) em diferentes condições de cobertura e de preparo do solo. Revista Engenharia Agrícola, v. 21, n. 2, p. 167-173. 2001. BORTULUZZI, E. C.; ELTZ, F. L. F. Efeito do manejo mecânico da palhada de aveia preta sobre a cobertura, temperatura, teor de água no solo e emergência da soja em sistema de plantio direto. Revista Brasileira da Ciência do Solo, v. 24: p. 449457, 2000. DERPSCH, R.; SIDIRAS, N.; HEINZMANN, F. X. Manejo do solo com coberturas verdes de inverno. Pesquisa Agropecuária Brasileira, v."
     }
    ]
   },
@@ -174,12 +180,6 @@
      "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
      "pagina": 204,
      "texto": "Na safrinha, é comum a ocorrência de altas temperaturas, por isso, recomendam-se variedades de feijão-caupi selecionadas para regiões quentes, adaptadas, portanto, às condições de altas temperaturas durante a safrinha no Cerrado brasileiro. Essas variedades recomendadas de feijão-caupi possuem ciclo curto (entre 70 e 75 dias), condição favorável para o cultivo na segunda safra, em que o período chuvoso é curto. 403 O feijão-caupi safrinha pode ser semeado em todo o Brasil? Não, apenas em regiões onde o período chuvoso permite a semeadura da segunda safra e onde não há ocorrência de tem­ peraturas baixas."
-    },
-    {
-     "n": 2,
-     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
-     "pagina": 17,
-     "texto": "1 Que elementos climáticos mais influenciam a produtividade de grãos do feijão-caupi? Os principais elementos climáticos que influenciam a produ­ tividade de grãos do feijão-caupi são precipitação pluviométrica, temperatura do ar e radiação solar. 2 Como a temperatura do ar afeta a cultura do feijão-caupi? A temperatura do ar é um dos elementos climáticos de maior importância para o crescimento, o desenvolvimento e a produtividade de grãos da cultura do feijão-caupi. Em geral, para que essa cultura atinja elevada produtividade, os valores de temperatura do ar devem estar em torno de 30 °C durante o dia e 22 °C durante a noite."
     }
    ]
   },
@@ -188,15 +188,15 @@
    "trechos": [
     {
      "n": 1,
-     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
-     "pagina": 27,
-     "texto": "de precipitação. O ideal é que as séries tenham mais de 30 anos de dados diários de chuva. Isso é importante porque se calcula o Isna para uma frequência de ocorrência de 80%, ou seja, 8 anos em cada 10 anos de registros, o que assegura certa margem de segurança ao zoneamento de risco climático. As classes de Isna usadas no zoneamento do feijão-caupi são as seguintes: • Baixo risco (época favorável à semeadura): Isna ≥ 0,50. • Médio risco (época intermediária): 0,40 < Isna < 0,50. • Alto risco (época desfavorável à semeadura): Isna ≤ 0,40. Isso significa que uma determinada data de semeadura é considerada apta ao cultivo de feijão-caupi (baixo risco climático) quando, no mínimo, metade da exigência hídrica da cultura é atendida pela disponibilidade de água no solo."
+     "arquivo": "mapa_zarc_ce_feijao_caupi_port121_2026.pdf",
+     "pagina": 1,
+     "texto": "Temperaturas elevadas prejudicam o crescimento e o desenvolvimento da cultura, exercendo influência sobre o abortamento de flores, o vingamento e a retenção final de vagens, afetando também o número de sementes por vagem. 1.4. O feijão caupi exige um mínimo de 300 mm de precipitação ao longo do ciclo. As limitações hídricas estão mais relacionadas à distribuição pluvial do que à quantidade total de chuvas ocorridas durante o ciclo. O déficit hídrico, da semeadura à emergência e no florescimento/enchimento de vagens, pode ocasionar severa retração do crescimento vegetativo, limitando a produção."
     },
     {
      "n": 2,
-     "arquivo": "agrometeoros_zoneamento_metodologias.pdf",
-     "pagina": 4,
-     "texto": "O mesmo ocorre na me2016a, 2016b e 2018a). tade Sul do Rio Grande do Sul, onde o clima é de transição para o clima do Uruguai e as chuvas tendem a se concenRiscos de excessos de chuva na colheita trar ligeiramente mais no inverno e um pouco menos no O excesso hídrico no período previsto para a colheita verão. Nas demais regiões do País, a chuvas na colheita são pode ser calculado baseando-se na série histórica de dados mais raras, sendo mais comum ocorrer déficit hídrico. de chuva. Algumas culturas são mais sensíveis que outras. O risco de chuva na colheita (rcc) pode ser determinado A exemplo, podemos citar a cultura do feijão em ponto de 278 Agrometeoros, Passo Fundo, v.26, n.2, p.275-285, dez 2018."
+     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
+     "pagina": 27,
+     "texto": "de precipitação. O ideal é que as séries tenham mais de 30 anos de dados diários de chuva. Isso é importante porque se calcula o Isna para uma frequência de ocorrência de 80%, ou seja, 8 anos em cada 10 anos de registros, o que assegura certa margem de segurança ao zoneamento de risco climático. As classes de Isna usadas no zoneamento do feijão-caupi são as seguintes: • Baixo risco (época favorável à semeadura): Isna ≥ 0,50. • Médio risco (época intermediária): 0,40 < Isna < 0,50. • Alto risco (época desfavorável à semeadura): Isna ≤ 0,40. Isso significa que uma determinada data de semeadura é considerada apta ao cultivo de feijão-caupi (baixo risco climático) quando, no mínimo, metade da exigência hídrica da cultura é atendida pela disponibilidade de água no solo."
     }
    ]
   },
@@ -258,15 +258,34 @@
    "trechos": [
     {
      "n": 1,
-     "arquivo": "embrapa_meionorte_caupi_plantio_direto_semiarido_piaui.pdf",
-     "pagina": 3,
-     "texto": "O experimento foi conduzido em duas etapas: a primeira constou do plantio do sorgo (Sorgum bicolor L.) no período de 22 de abril de 2015 a 27 de julho de 2015, quando a massa verde produzida foi cortada, com rolofaca, e deixada no solo para secagem e formação da palhada, ficando assim pronta para uso em plantio direto (Figura 1). Posteriormente, no dia 17 de setembro de 2015, foi implantado o feijão-caupi ‘BRS Imponente’, que foi conduzido desta data até a colheita no dia 2 de dezembro de 2015. As temperaturas médias mensais do ar durante o ciclo da cultura foram 29,5°C, 29,8°C, 29,4°C e 29,8°C nos meses de setembro, outubro, novembro e dezembro, respectivamente."
+     "arquivo": "mapa_zarc_ce_sorgo_granifero_port270_2026.pdf",
+     "pagina": 1,
+     "texto": "Esta Portaria tem vigência específica para o ano-safra definido no caput. Art. 2º Esta Portaria entra em vigor na data da sua publicação. GUILHERME CAMPOS JÚNIOR ANEXO 1. Zoneamento agrícola de risco climático para a cultura do sorgo granífero (Sorghum bicolor L. Moench) 1.1. O sorgo (Sorghum bicolor L. Moench) é uma planta de origem tropical, de dias curtos e com altas taxas fotossintéticas, exigindo, por isso, um clima quente para poder expressar seu potencial de produção. A temperatura do ar ótima para o desenvolvimento da cultura varia com a cultivar. A grande maioria dos materiais genéticos de sorgo requer temperaturas superiores a 21°C para um bom crescimento e desenvolvimento, não suportando, normalmente, temperaturas abaixo de 16°C, sendo que temperaturas superiores a 38°C também reduzem a produtividade."
+    },
+    {
+     "n": 2,
+     "arquivo": "mapa_zarc_ce_sorgo_granifero_port270_2026.pdf",
+     "pagina": 1,
+     "texto": "A grande maioria dos materiais genéticos de sorgo requer temperaturas superiores a 21°C para um bom crescimento e desenvolvimento, não suportando, normalmente, temperaturas abaixo de 16°C, sendo que temperaturas superiores a 38°C também reduzem a produtividade. 1.2. O sorgo apresenta metabolismo do tipo C4, com alta capacidade fotossintética e características que contribuem para a resistência à seca, como o sistema radicular profundo, a alta concentração de pelos absorventes, presença de sílica na endoderme e lignificação no periciclo. 1.3. Apesar de resistente à seca, a ocorrência de déficit hídrico, principalmente na fase de florescimento e de enchimento de grãos, pode provocar redução acentuada na produção."
     }
    ]
   },
   "chuva": {
-   "sem_evidencia": true,
-   "trechos": []
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "mapa_zarc_ce_sorgo_granifero_port270_2026.pdf",
+     "pagina": 1,
+     "texto": "Nas semeaduras tardias e nos cultivos após uma safra de verão a produtividade do sorgo é bastante afetada pelo regime de chuvas, pelas limitações de radiação solar e pelas temperaturas baixas durante o final do ciclo. 1.5. O objetivo do estudo do Zoneamento Agrícola de Risco Climático para a cultura do sorgo foi identificar as áreas de menor risco climático e definir os melhores períodos de semeadura no estado, classificado em níveis de risco (20%, 30%, 40% e >40% ou inviável). 1.6. Essa identificação foi realizada com a aplicação de um modelo de balanço hídrico da cultura. Neste modelo são consideradas as exigências hídrica e térmica, duração do ciclo, das fases fenológicas e da reserva útil de água dos solos para cultivo desta espécie, bem como dados de precipitação pluviométrica e evapotranspiração de referência de séries com, no mínimo, 15 anos de dados diários registrados em 3.750 estações pluviométricas selecionadas no país."
+    },
+    {
+     "n": 2,
+     "arquivo": "mapa_zarc_ce_sorgo_forrageiro_port297_2026.pdf",
+     "pagina": 1,
+     "texto": "O objetivo do estudo do Zoneamento Agrícola de Risco Climático para a cultura do sorgo foi identificar as áreas de menor risco climático e definir os melhores períodos de semeadura no estado, classificado em níveis de risco (20%, 30%, 40% e >40% ou inviável). 1.7. Essa identificação foi realizada com a aplicação de um modelo de balanço hídrico da cultura. Neste modelo são consideradas as exigências hídrica e térmica, duração do ciclo, das fases fenológicas e da reserva útil de água dos solos para cultivo desta espécie, bem como dados de precipitação pluviométrica e evapotranspiração de referência de séries com, no mínimo, 15 anos de dados diários registrados em 3.750 estações pluviométricas selecionadas no país."
+    }
+   ]
   },
   "n_na_biomassa": {
    "sem_evidencia": true,
@@ -280,36 +299,28 @@
    "sem_evidencia": false,
    "trechos": [
     {
-     "n": 2,
+     "n": 1,
      "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
      "pagina": 136,
      "texto": "Considerando os aspectos fitossanitários, econômicos, de ocu­ pação de espaços, de aproveitamento de resíduos para fertilização, e considerando ainda que o sistema de irrigação mais indicado para o feijão-caupi é a aspersão convencional, as culturas preferenciais para rotação são gramíneas, como milho, sorgo e milheto. As culturas de girassol, gergelim e algodão também podem ser rotacionadas com o feijão-caupi. 135"
+    },
+    {
+     "n": 2,
+     "arquivo": "mapa_zarc_ce_sorgo_forrageiro_port297_2026.pdf",
+     "pagina": 1,
+     "texto": "Esta Portaria tem vigência específica para o ano-safra definido no caput. Art. 2º Esta Portaria entra em vigor na data da sua publicação. GUILHERME CAMPOS JÚNIOR ANEXO 1. Zoneamento agrícola de risco climático para a cultura do sorgo forrageiro (Sorghum bicolor L. Moench) 1.1. O sorgo (Sorghum bicolor L. Moench) é um gênero botânico pertencente à família Poaceae de origem africana, sendo o quinto cereal mais produzido no globo, superado apenas por trigo, arroz, milho e cevada. Agronomicamente, os sorgos são classificados em cinco grupos: granífero, sacarino, forrageiro, vassoura e biomassa. Embora se trate da mesma cultura (Sorghum bicolor), os sistemas de produção orientados para a produção de grãos (sorgo granífero) são distintos dos sistemas que visam a produção de forragem (sorgo forrageiro) destinada à alimentação animal ou a geração de energia, em que o foco principal é a produção de biomassa."
     }
    ]
   }
  },
  "milheto": {
   "temperatura": {
-   "sem_evidencia": false,
-   "trechos": [
-    {
-     "n": 2,
-     "arquivo": "univasf_ciclagem_nutrientes_semiarido.pdf",
-     "pagina": 47,
-     "texto": "Figura 1 Precipitação pluviométrica mensal acumulada (mm), temperaturas máxima (T máxima), mínima (T mínima) e média (T média) do ar em °C durante os meses de realização do experimento, de novembro de 2016 a março de 2018. Dados da estação meteorológica de Petrolina, PE. FONTE: http://www.labmet.univasf.edu.br O experimento foi conduzido em parcelas subdivididas, com três repetições, sendo as parcelas representadas por diferentes composições de plantas de cobertura: Guandu (Cajanus cajan L.); Milheto (Pennisetum americanum L.); Guandu + Milheto"
-    }
-   ]
+   "sem_evidencia": true,
+   "trechos": []
   },
   "chuva": {
-   "sem_evidencia": false,
-   "trechos": [
-    {
-     "n": 1,
-     "arquivo": "embrapa_alvarenga_plantas_cobertura_spd.pdf",
-     "pagina": 7,
-     "texto": "Cultivo em sucessão à cultura principal Esta prática é usada quando não há chuvas suficientes para cultivo de uma cultura comercial. É importante que a cultura principal seja instalada o mais cedo possível e que esta seja de ciclo precoce para que o plantio, na sucessão, das plantas de cobertura seja feito, quando ainda houver possibilidade de eventos de chuva, para que elas se estabeleçam. Outro fator importante a ser considerado é a escolha da espécie, devendo ser dada preferência àquelas de maior tolerância ao déficit hídrico. Neste particular destacam-se o milheto e o sorgo dentre as gramíneas e o guandu dentre as leguminosas."
-    }
-   ]
+   "sem_evidencia": true,
+   "trechos": []
   },
   "n_na_biomassa": {
    "sem_evidencia": true,
@@ -326,32 +337,39 @@
     },
     {
      "n": 2,
-     "arquivo": "embrapa_alvarenga_plantas_cobertura_spd.pdf",
-     "pagina": 9,
-     "texto": "O manejo das plantas de cobertura é outro fator que pode regular a permanência da palha na superfície do solo. Sabe-se que a relação C/N torna-se mais larga à medida que a planta se desenvolve. Além do caso do milheto,já citado, com a aveia preta foi verificado que a relação CIN variou de 1720 no estádio vegetativo, 41-50 na floração plena e foi superior a 70 na colheita (Igue et al, ,1984). Em razão desta característica, o manejo das plantas de cobertura pode ser retardado ao máximo, visando dotarlhe de maior resistência à decomposição, entretanto, não se pode perder de vista que a produção de sementes viáveis poderá infestar a área e aumentar os gastos com herbicidas."
+     "arquivo": "univasf_ciclagem_nutrientes_semiarido.pdf",
+     "pagina": 43,
+     "texto": "O experimento foi conduzido em parcelas subdivididas, com três repetições, e parcelas representadas por sete combinações de plantas de cobertura: Guandu (Cajanus cajan L.); Milheto (Pennisetum americanum L.); Guandu + Milheto; Guandu + Milheto + Sorgo (Sorghum bicolor L.) + Crotalária (Crotalaria juncea); Milho (Zea mays L.) + Milheto + Sorgo + Guandu; Guandu + Crotalária + Milheto + Feijão de porco (Canavalia ensiformes); Vegetação espontânea (VE), e as subparcelas pelos tempos de coleta do material ( 7, 15, 30, 45, 60, 90, 120, 150, 180 e 412) dias após a deposição do material no solo (DAD), adotando o método dos “litter bags”."
     }
    ]
   },
   "familia_diferente": {
-   "sem_evidencia": false,
-   "trechos": [
-    {
-     "n": 2,
-     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
-     "pagina": 136,
-     "texto": "Considerando os aspectos fitossanitários, econômicos, de ocu­ pação de espaços, de aproveitamento de resíduos para fertilização, e considerando ainda que o sistema de irrigação mais indicado para o feijão-caupi é a aspersão convencional, as culturas preferenciais para rotação são gramíneas, como milho, sorgo e milheto. As culturas de girassol, gergelim e algodão também podem ser rotacionadas com o feijão-caupi. 135"
-    }
-   ]
+   "sem_evidencia": true,
+   "trechos": []
   }
  },
  "mandioca": {
   "temperatura": {
-   "sem_evidencia": true,
-   "trechos": []
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "mapa_zarc_ce_mandioca_port11.pdf",
+     "pagina": 1,
+     "texto": "O seu desenvolvimento é influenciado pelo genótipo, qualidade do material propagativo, clima da região, época de plantio, espaçamento de plantio, sistema de cultivo (consórcio ou solteiro), disponibilidade de água no solo, fertilidade do solo, adubação e manejo. A faixa ideal de temperatura média anual situa-se entre 20 a 27 oC. A planta cresce relativamente bem nos limites entre 16 ºC e 38 ºC de temperatura. Temperaturas inferiores a 15 oC retardam a brotação e diminuem ou até mesmo paralisam sua atividade vegetativa, entrando em fase de repouso. Para uma elevada produção, a mandioca necessita de altas quantidades de energia luminosa para atingir seu potencial fotossintético, é uma planta pouco tolerante ao sombreamento."
+    }
+   ]
   },
   "chuva": {
-   "sem_evidencia": true,
-   "trechos": []
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "mapa_zarc_ce_mandioca_port11.pdf",
+     "pagina": 1,
+     "texto": "Essa identificação foi realizada com a aplicação de um modelo de balanço hídrico da cultura. Neste modelo são consideradas as exigências hídrica e térmica, duração do ciclo, das fases fenológicas e da reserva útil de água dos solos para cultivo desta espécie, bem como dados de precipitação pluviométrica e evapotranspiração de referência de séries com, no mínimo, 15 anos de dados diários registrados em 3.500 estações pluviométricas selecionadas no país. Para delimitação das áreas aptas ao cultivo da mandioca e classificação do risco, foram adotados os seguintes parâmetros e variáveis: a) Ciclo e fases fenológicas:"
+    }
+   ]
   },
   "n_na_biomassa": {
    "sem_evidencia": true,
@@ -362,18 +380,45 @@
    "trechos": []
   },
   "familia_diferente": {
-   "sem_evidencia": true,
-   "trechos": []
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 2,
+     "arquivo": "mapa_zarc_ce_mandioca_port11.pdf",
+     "pagina": 1,
+     "texto": "Revogar a Portaria nº 466 de 30 de novembro de 2011, publicada no Diário Oficial da União de 5 de dezembro de 2011. Art. 2º. Aprovar o Zoneamento Agrícola de Risco Climático para a cultura da mandioca no Estado do Ceará conforme anexo. Art. 3º. Esta Portaria entra em vigor na data de sua publicação. EDUARDO SAMPAIO MARQUES ANEXO 1. NOTA TÉCNICA A mandioca - Manihot esculenta Crantz é uma planta perene e tropical que pertence à família botânica das Euforbiáceas, cultivada nas mais variadas condições edafoclimáticas, entre as latitudes de 30°N e 30°S, em altitudes que variam do nível do mar a mais de 2.000m."
+    }
+   ]
   }
  },
  "algodao": {
   "temperatura": {
-   "sem_evidencia": true,
-   "trechos": []
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "mapa_zarc_ce_algodao_port169_2026.pdf",
+     "pagina": 1,
+     "texto": "Esta Portaria tem vigência específica para o ano-safra definido no caput. Art. 2º Esta Portaria entra em vigor na data da sua publicação. GUILHERME CAMPOS JÚNIOR ANEXO 1. Zoneamento agrícola de risco climático para a cultura do algodão (Gossypium hirsutun L. r latifolium Hutch) 1.1. A cultura do algodão necessita, para seu desenvolvimento e boa produtividade, de condições adequadas de temperatura, umidade do solo e luminosidade. 1.2. Temperaturas entre 18oC e 30oC, com mínimas superiores a 14oC e máximas inferiores a 35oC, proporcionam boas condições para a germinação. Para o crescimento inicial, as temperaturas ideais são sempre superiores a 20oC, sendo ideais temperaturas em torno de 30oC."
+    }
+   ]
   },
   "chuva": {
-   "sem_evidencia": true,
-   "trechos": []
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "mapa_zarc_ce_algodao_port169_2026.pdf",
+     "pagina": 1,
+     "texto": "Objetivou-se, com o Zoneamento Agrícola de Risco Climático, identificar os municípios aptos e os períodos de semeadura para o cultivo do algodão no estado em três níveis de risco: 20%, 30%, 40%. 1.6. Essa identificação foi realizada com a aplicação de um modelo de balanço hídrico da cultura. Neste modelo são consideradas as exigências hídrica e térmica, duração do ciclo, das fases fenológicas e da reserva útil de água dos solos para cultivo desta espécie, bem como dados de precipitação pluviométrica e evapotranspiração de referência de séries com, no mínimo, 15 anos de dados diários registrados em 3.500 estações pluviométricas selecionadas no país."
+    },
+    {
+     "n": 2,
+     "arquivo": "mapa_zarc_ce_algodao_port169_2026.pdf",
+     "pagina": 1,
+     "texto": "Dependendo do clima e da duração do ciclo, o algodoeiro necessita de 700 mm a 1300 mm de precipitação pluvial para seu bom desenvolvimento, sendo que 50% a 60% de suas necessidades hídricas ocorrem no período de floração e formação do capulho. 1.4. O déficit hídrico e o excesso de umidade no período compreendido entre 60 e 100 dias após a emergência podem induzir a queda das estruturas frutíferas e comprometer a produção, pois aproximadamente 80% das estruturas responsáveis pela produção do algodoeiro são emitidas neste período. 1.5. Objetivou-se, com o Zoneamento Agrícola de Risco Climático, identificar os municípios aptos e os períodos de semeadura para o cultivo do algodão no estado em três níveis de risco:"
+    }
+   ]
   },
   "n_na_biomassa": {
    "sem_evidencia": true,
@@ -391,24 +436,44 @@
      "arquivo": "embrapa_bogiani_rotacao_palhada_spd.pdf",
      "pagina": 1,
      "texto": "Boletim Pns .. arela da SoJa .. do Milho 2014 Março/2015 - Ano 07 - N° 07 Página 15 Rotação de Culturas e Manejo para Formação de Palhada no Sistema Plantio Direto Julio Cesar Bogiani Engenheiro Agrônomo, Doutor em Fitotecnia, Pesquisador da Embrapa Algodão. Na região oeste da Bahia, é crescente á área culti vada com a soja, o algodão e o milho, passado de 1163 mil bões de hectares na safra 2003/04 para 1,883 milhões na safra 20 13/ 14. Nestes 10 anos a produção destas três culturas também cresceu de 4, 13 para 6,92 milhões de toneladas, porém a produtividade pouco se alterou, pois na safra 2003/04 era de 3,55 toneladas enquanto que na 201 3/15 foi de 3,68 toneladas (Aiba, 2014)."
-    },
-    {
-     "n": 2,
-     "arquivo": "embrapa_debiasi_diversificacao_especies.pdf",
-     "pagina": 19,
-     "texto": "Assim, em áreas com altas populações e que apresentam condições edafoclimáticas favoráveis ao aumentos dos danos de nematoides, a rotação da soja com espécies de crotalárias no verão pode ser necessária para viabilizar economicamente a oleaginosa. Em regiões com melhor distribuição de chuvas ao longo do ano, como algumas áreas do centro-sul, oeste e médio-norte do Mato Grosso, o algodão pode ser utilizado em rotação com o milho na 2ª safra. Nesse caso, a cultura de verão antecedendo o algodão pode ser a soja (cultivares superprecoces, com ciclo ao redor de 100 dias), o feijão-caupi (Vigna unguiculata) ou espécies para cobertura do solo, como milheto e as crotalárias, em cultivo solteiro ou consorciado."
     }
    ]
   }
  },
  "amendoim": {
   "temperatura": {
-   "sem_evidencia": true,
-   "trechos": []
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "mapa_zarc_ce_amendoim_port73_2026.pdf",
+     "pagina": 1,
+     "texto": "Art. 2º Esta Portaria entra em vigor na data da sua publicação. GUILHERME CAMPOS JÚNIOR ANEXO 1. Zoneamento agrícola de risco climático para a cultura do amendoim (Arachis hypogaea L.) 1.1. O amendoim (Arachis hypogaea L.) se adapta a uma larga faixa de climas, desde os equatoriais até os temperados. A cultura se desenvolve melhor, com produtividade mais elevada, em climas quentes. Temperaturas de 30°C ou ligeiramente superiores são as mais benéficas para a germinação, desenvolvimento inicial das plantas e formação do óleo. 1.2. Temperaturas médias diárias na faixa de 25ºC a 30ºC são as indicadas para obtenção de produtividades elevadas."
+    },
+    {
+     "n": 2,
+     "arquivo": "mapa_zarc_ce_amendoim_port73_2026.pdf",
+     "pagina": 1,
+     "texto": "Temperaturas médias diárias na faixa de 25ºC a 30ºC são as indicadas para obtenção de produtividades elevadas. Ocorrências de temperaturas acima dos 33ºC e abaixo dos 18ºC, principalmente na fase da germinação e desenvolvimento inicial, são prejudiciais à cultura. 1.3. Em cultivo de sequeiro, o amendoim necessita de uma precipitação pluvial acima de 500 mm, bem distribuída ao longo do período total de crescimento, e de umidade suficiente nos dois primeiros meses do período vegetativo, sem deficiência hídrica no solo. 1.4. O cultivo do amendoinzeiro não é indicado para regiões muito úmidas ou com períodos de chuvas muito prolongados que propiciam o aparecimento de doenças, além de prejudicar a colheita e a qualidade do produto."
+    }
+   ]
   },
   "chuva": {
-   "sem_evidencia": true,
-   "trechos": []
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "mapa_zarc_ce_amendoim_port73_2026.pdf",
+     "pagina": 1,
+     "texto": "O cultivo do amendoinzeiro não é indicado para regiões muito úmidas ou com períodos de chuvas muito prolongados que propiciam o aparecimento de doenças, além de prejudicar a colheita e a qualidade do produto. 1.5. Objetivou-se, com o Zoneamento Agrícola de Risco Climático, identificar o período de semeadura nas regiões e municípios aptos para o cultivo do amendoim em três níveis de risco: 20%, 30%, 40%. 1.6. Essa identificação foi realizada com a aplicação de um modelo de balanço hídrico da cultura. Neste modelo são consideradas as exigências hídrica e térmica, duração do ciclo, das fases fenológicas e da reserva útil de água dos solos para cultivo desta espécie, bem como dados de precipitação pluviométrica e evapotranspiração de referência de séries com, no mínimo, 15 anos de dados diários registrados em 3.750 estações pluviométricas selecionadas no país."
+    },
+    {
+     "n": 2,
+     "arquivo": "mapa_zarc_ce_amendoim_port73_2026.pdf",
+     "pagina": 1,
+     "texto": "Neste modelo são consideradas as exigências hídrica e térmica, duração do ciclo, das fases fenológicas e da reserva útil de água dos solos para cultivo desta espécie, bem como dados de precipitação pluviométrica e evapotranspiração de referência de séries com, no mínimo, 15 anos de dados diários registrados em 3.750 estações pluviométricas selecionadas no país. 1.7. Considerou-se apto para o cultivo do amendoim o município que apresentou, em no mínimo 20% de sua área, condições climáticas dentro dos critérios considerados. 1.8. Para as avaliações de risco climático desta cultura, parte-se do pressuposto que não ocorrerão limitações quanto à fertilidade dos solos e danos às plantas devido à ocorrência de pragas e doenças."
+    }
+   ]
   },
   "n_na_biomassa": {
    "sem_evidencia": true,
@@ -423,9 +488,9 @@
    "trechos": [
     {
      "n": 1,
-     "arquivo": "uepb_estirpe_bradyrhizobium_amendoim.pdf",
-     "pagina": 2,
-     "texto": "RAPHAEL SILVA JOVINO EFICIÊNCIA AGRONÔMICA DA ESTIRPE ESA 123 DE Bradyrhizobium sp. PARA CULTURA DO AMENDOIM (Arachis hypogaea) EM DIFERENTES CONDIÇÕES EDAFOCLIMÁTICAS DO SEMIÁRIDO BRASILEIRO Dissertação apresentada ao Programa de PósGraduação em Ciências Agrárias da Universidade Estadual da Paraíba/Embrapa Algodão, como parte das exigências para obtenção do título de Mestre em Ciências Agrárias. Área de concentração: Agrobioenergia e Agricultura Familiar Orientador: Dr. Paulo Ivan Fernandes Júnior CAMPINA GRANDE – PB 2021"
+     "arquivo": "embrapa_semiarido_dia_de_campo_unidades_demonstrativas.pdf",
+     "pagina": 38,
+     "texto": "57,06p, 2004 SILVA, J.F deA.F. da, et ai. Amendoim BR1- Cultivo Intercalar no Marajó. EmbrapaAmazônia Oriental. Belém. Comunicado Técnico 127.02p.2004. SILVA,O.R.R.F.da. Cultivo do Algodão Herbáceo na Agricultura Familiar. Embrapa Algodão. Campina Grande. Sistema de Produção, 1 2° edição,07 p, 2006 SILVA,A.F; MOREIRA,J.N. Pornunça: aspectos técnicos de produção. Embrapa SemiáridoPetrolina-goiasense,2007. SOARES,J.B.B; SALVIANO,L.M.C. Cultivo da Maniçoba para Produção de Forragem no Semiárido Brasileiro. Embrapa Semiárido-Petrolina. Instrução Técnica 33, 06p, 2000 SMIDERLE,O.J. Amendoim BRS 151 L-7 para cultivo em Cerrado de Roraima, Embrapa Roraima-Boa Vista."
     },
     {
      "n": 2,
@@ -438,12 +503,38 @@
  },
  "girassol": {
   "temperatura": {
-   "sem_evidencia": true,
-   "trechos": []
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "mapa_zarc_ce_girassol_port97_2026.pdf",
+     "pagina": 1,
+     "texto": "A faixa de temperatura entre 10ºC a 34ºC é tolerada pelo girassol sem redução significativa da produção, indicando a adaptação a regiões com dias quentes e noites frias. 1.4. A planta desenvolve-se bem em temperaturas variando entre 20ºC e 25ºC, embora a temperatura ótima para seu desenvolvimento situa-se na faixa de 27ºC a 28ºC. Altas temperaturas do ar verificadas nos períodos de florescimento, enchimento de aquênios e de colheita têm sido um dos maiores condicionantes para o sucesso da exploração agrícola. Com relação à reação da planta ao fotoperíodo, o girassol é classificado como espécie insensível."
+    },
+    {
+     "n": 2,
+     "arquivo": "mapa_zarc_ce_girassol_port97_2026.pdf",
+     "pagina": 2,
+     "texto": "Os períodos de plantio e a relação dos municípios favoráveis para o cultivo do girassol foram avaliadas e classificadas, de acordo com o nível de risco climático de 20, 30 ou 40%, em função dos seguintes critérios: a) O risco de deficiência hídrica severa ao não atingir o limite mínimo do Índice de satisfação das necessidades de água (ISNA) que deve ser igual ou menor a 0,70 na fase I, e igual ou menor a 0,50 na fase III; b) O risco de ocorrência de temperaturas muito baixas (geadas) e deletérias à cultura, por meio da probabilidade de ocorrência de temperaturas mínimas menores ou igual a 3°C observadas no abrigo meteorológico; c) O risco de ocorrência de temperaturas muito elevadas, deletérias à cultura e favoráveis às doenças (mancha de Alternaria - Alternariaster helianthi), por meio da probabilidade de ocorrência de valores de temperaturas médias maiores ou igual a 26°C, observadas no abrigo meteorológico, a partir do quarto decêndio após à semeadura; d) O risco de ocorrência de"
+    }
+   ]
   },
   "chuva": {
-   "sem_evidencia": true,
-   "trechos": []
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "mapa_zarc_ce_girassol_port97_2026.pdf",
+     "pagina": 1,
+     "texto": "Com relação à reação da planta ao fotoperíodo, o girassol é classificado como espécie insensível. 1.5. Para a obtenção de boas produtividades, na maioria dos casos, as necessidades hídricas do girassol giram em torno de 500 a 700 mm de água, bem distribuídos durante o ciclo. O consumo de água pela cultura do girassol varia em funçãodas condições climáticas, da duração do seu ciclo e do manejo do solo e da cultura. Adequada disponibilidade de água durante o período da germinação à emergência é necessária para a obtenção de uma boa uniformidade na população de plantas. As fases do desenvolvimento da planta mais sensíveis ao déficit hídrico são do início da formação do capítulo ao começo da floração seguida da formação e enchimento de grãos."
+    },
+    {
+     "n": 2,
+     "arquivo": "mapa_zarc_ce_girassol_port97_2026.pdf",
+     "pagina": 2,
+     "texto": "Os períodos de plantio e a relação dos municípios favoráveis para o cultivo do girassol foram avaliadas e classificadas, de acordo com o nível de risco climático de 20, 30 ou 40%, em função dos seguintes critérios: a) O risco de deficiência hídrica severa ao não atingir o limite mínimo do Índice de satisfação das necessidades de água (ISNA) que deve ser igual ou menor a 0,70 na fase I, e igual ou menor a 0,50 na fase III; b) O risco de ocorrência de temperaturas muito baixas (geadas) e deletérias à cultura, por meio da probabilidade de ocorrência de temperaturas mínimas menores ou igual a 3°C observadas no abrigo meteorológico; c) O risco de ocorrência de temperaturas muito elevadas, deletérias à cultura e favoráveis às doenças (mancha de Alternaria - Alternariaster helianthi), por meio da probabilidade de ocorrência de valores de temperaturas médias maiores ou igual a 26°C, observadas no abrigo meteorológico, a partir do quarto decêndio após à semeadura; d) O risco de ocorrência de"
+    }
+   ]
   },
   "n_na_biomassa": {
    "sem_evidencia": true,
@@ -467,12 +558,32 @@
  },
  "mamona": {
   "temperatura": {
-   "sem_evidencia": true,
-   "trechos": []
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 2,
+     "arquivo": "mapa_zarc_ce_mamona_port143_2026.pdf",
+     "pagina": 1,
+     "texto": "Art. 2º Esta Portaria entra em vigor na data da sua publicação. GUILHERME CAMPOS JÚNIOR ANEXO 1. Zoneamento agrícola de risco climático para a cultura da mamona (Ricinus communis L.) 1.1. A cultura da mamoneira (Ricinus communis L.) reveste-se de importância pelas várias aplicações do óleo extraído de suas amêndoas, cujos teores variam de 43% a 49%, dependendo da variedade e da região. 1.2. A faixa de temperatura para obtenção de produções economicamente viáveis situa-se entre 20ºC a 35ºC, com ótimo em torno de 28ºC. Temperaturas superiores a 40ºC provocam abortamento das flores, reversão sexual das flores femininas e masculinas e redução substancial do teor de óleo das sementes."
+    }
+   ]
   },
   "chuva": {
-   "sem_evidencia": true,
-   "trechos": []
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "mapa_zarc_ce_mamona_port143_2026.pdf",
+     "pagina": 1,
+     "texto": "Em cultivo de sequeiro, a mamoneira necessita de uma precipitação pluvial acima de 350 mm, bem distribuída ao longo do período total de crescimento, e de umidade suficiente. O cultivo da mamoneira não é indicado para regiões com períodos de chuvas muito prolongados, que propiciam o aparecimento de doenças (como o mofo cinzento), além de prejudicar a colheita e a qualidade do produto. 1.6. Objetivou-se, com o Zoneamento Agrícola de Risco Climático, identificar os municípios aptos e os períodos de semeadura para o cultivo da mamona no estado em três níveis de risco: 20%, 30%, 40%. 1.7. Essa identificação foi realizada com a aplicação de um modelo de balanço hídrico da cultura."
+    },
+    {
+     "n": 2,
+     "arquivo": "mapa_zarc_ce_mamona_port143_2026.pdf",
+     "pagina": 2,
+     "texto": "O Zarc Mamona Clima Semiárido se diferencia do Zarc Mamona tradicional por admitir uma disponibilidade hídrica muito mais baixa no período produtivo, o que pressupõe produtividades esperadas igualmente mais baixas. Isso se adequa aos sistemas de produção da mamona tradicionalmente adotados no semiárido brasileiro, de baixa produtividade, mas ainda assim, viáveis, devido ao baixo custo de produção. 2. Tipos de solos aptos ao cultivo 2.1. São aptos ao cultivo da cultura no estado os solos dos tipos 1, 2 e 3, observadas as especificações e recomendações contidas na Instrução Normativa nº 2, de 9 de novembro de 2021."
+    }
+   ]
   },
   "n_na_biomassa": {
    "sem_evidencia": true,
@@ -489,8 +600,15 @@
  },
  "gergelim": {
   "temperatura": {
-   "sem_evidencia": true,
-   "trechos": []
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "embrapa_semiarido_dia_de_campo_unidades_demonstrativas.pdf",
+     "pagina": 11,
+     "texto": "Cultivar adaptada às condições de cultivo da região Nordeste e Cerrados de Goiás. Áreas Aptas ao Plantio Áreas com altitude média de 250m, temperaturas médias do ar entre 25° a 27° C, precipitações pluviais de 400 a 650mm, bem distribuídas. O gergelim se desenvolve bem em diversos tipos de solo, atingindo seu máximo desenvolvimento em solos profundos (>760), de textura franco bem drenados e de boa fertilidade natural; sua preferência é por solos de reação neutra, pH próximo de 7, sendo que não tolera acidez elevada, pH abaixo de 5,5, nem alcalinidade excessiva, ou seja, pH acima de 8. Preparo do 5010 Como as sementes de gergelim são muito pequenas, devem ser semeadas em solo bem preparado para facilitar a emergência das plântulas."
+    }
+   ]
   },
   "chuva": {
    "sem_evidencia": true,
@@ -539,15 +657,15 @@
    "trechos": [
     {
      "n": 1,
-     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
-     "pagina": 27,
-     "texto": "de precipitação. O ideal é que as séries tenham mais de 30 anos de dados diários de chuva. Isso é importante porque se calcula o Isna para uma frequência de ocorrência de 80%, ou seja, 8 anos em cada 10 anos de registros, o que assegura certa margem de segurança ao zoneamento de risco climático. As classes de Isna usadas no zoneamento do feijão-caupi são as seguintes: • Baixo risco (época favorável à semeadura): Isna ≥ 0,50. • Médio risco (época intermediária): 0,40 < Isna < 0,50. • Alto risco (época desfavorável à semeadura): Isna ≤ 0,40. Isso significa que uma determinada data de semeadura é considerada apta ao cultivo de feijão-caupi (baixo risco climático) quando, no mínimo, metade da exigência hídrica da cultura é atendida pela disponibilidade de água no solo."
+     "arquivo": "mapa_zarc_ce_feijao_caupi_port121_2026.pdf",
+     "pagina": 1,
+     "texto": "Temperaturas elevadas prejudicam o crescimento e o desenvolvimento da cultura, exercendo influência sobre o abortamento de flores, o vingamento e a retenção final de vagens, afetando também o número de sementes por vagem. 1.4. O feijão caupi exige um mínimo de 300 mm de precipitação ao longo do ciclo. As limitações hídricas estão mais relacionadas à distribuição pluvial do que à quantidade total de chuvas ocorridas durante o ciclo. O déficit hídrico, da semeadura à emergência e no florescimento/enchimento de vagens, pode ocasionar severa retração do crescimento vegetativo, limitando a produção."
     },
     {
      "n": 2,
-     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
-     "pagina": 203,
-     "texto": "No Cerrado brasileiro, a cultura do feijão-caupi pode ser utilizada com sucesso na segunda safra, ou seja, na safrinha. Nessa região, as características da segunda safra enquadram-se bem com as características da planta de feijão-caupi e com as exigências da cultura quanto às condições climáticas. Na safrinha, o plantio é feito no final do período chuvoso; assim, a colheita do feijão-caupi se dá em período seco, quando as chuvas já estão terminando. Essa condição é ideal para o feijão-caupi, pois os grãos perdem qualidade rapidamente quando ocorrem chuvas durante a colheita. O feijão-caupi possui boa eficiência no uso da água, condição muito favorável ao cultivo na safrinha que, como se sabe, ocorre no final do período chuvoso, período em que pode ocorrer estresse hídrico."
+     "arquivo": "embrapa_semiarido_dia_de_campo_unidades_demonstrativas.pdf",
+     "pagina": 17,
+     "texto": "GUANDU PETROLlNA INTRODUÇÃO No Semiárido, o guandu tem uma longa história e a sua habilidade em produzir economicamente em solos com déficits hídricos o torna muito importante para a agricultura dependente de chuva. A altura média dessa variedade é de 64 cm, com altura do primeiro ramo a 5 cm do solo. A vagem apresenta 6,2 cm de comprimento, bastante superior ao comprimento da vagem do material cultivado pelos agricultores nordestinos, possuindo, em média, cinco P sementes de cor branca. A maturação dos grãos dessa variedade ocorre, em média, aos 103 dias após a semeadura. A produtividade média de grãos é de 555 kg/ha, atingindo em ano ds, ~ maior precipitação 910 kg/ha."
     }
    ]
   },
@@ -579,9 +697,9 @@
     },
     {
      "n": 2,
-     "arquivo": "univasf_ciclagem_nutrientes_semiarido.pdf",
-     "pagina": 43,
-     "texto": "O experimento foi conduzido em parcelas subdivididas, com três repetições, e parcelas representadas por sete combinações de plantas de cobertura: Guandu (Cajanus cajan L.); Milheto (Pennisetum americanum L.); Guandu + Milheto; Guandu + Milheto + Sorgo (Sorghum bicolor L.) + Crotalária (Crotalaria juncea); Milho (Zea mays L.) + Milheto + Sorgo + Guandu; Guandu + Crotalária + Milheto + Feijão de porco (Canavalia ensiformes); Vegetação espontânea (VE), e as subparcelas pelos tempos de coleta do material ( 7, 15, 30, 45, 60, 90, 120, 150, 180 e 412) dias após a deposição do material no solo (DAD), adotando o método dos “litter bags”."
+     "arquivo": "pesagro_rio_rural_rotacao_culturas.pdf",
+     "pagina": 6,
+     "texto": "Além disso, constataram que as espécies capazes de se destacar em relação ao seu efeito na receita líquida da cultura do milho foram a mucuna cinza, o feijão-de-porco e o guandu anão. Outro problema são as restrições impostas pelo déficit hídrico, que dificulta, até mesmo, a produção da palha para a cobertura do solo, requisito básico para a implantação e manutenção do sistema de plantio direto (SALTON; MIELNICZUK, 1995). De maneira geral, a escolha das espécies que apresentam rápido desen-volvimento inicial, tolerância ao Al tóxico, sistema radicular profundo e produção de massa suficiente para a cobertura do solo, baixa taxa de decomposição e a relação C/N apropriada às culturas sucessoras é que favorecerá o grau de sucesso obtido com a utilização dessa prática (FERNANDES et al., 1999;"
     }
    ]
   },
@@ -605,23 +723,36 @@
  },
  "palma_forrageira": {
   "temperatura": {
-   "sem_evidencia": true,
-   "trechos": []
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "mapa_zarc_ce_palma_forrageira_port284_2019.pdf",
+     "pagina": 1,
+     "texto": "Objetivou-se, com o Zoneamento Agrícola de Risco Climático, identificar os municípios aptos e o calendário agrícola de plantio, para o cultivo da palma forrageira no Estado em três níveis de risco: 20%, 30%, 40%. Essa identificação foi realizada com a aplicação de um modelo de balanço hídrico da cultura. Neste modelo são consideradas as exigências hídrica e térmica, duração do ciclo, das fases fenológicas e da reserva útil de água dos solos para cultivo desta espécie, bem como dados de precipitação pluviométrica e evapotranspiração de referência de séries com, no mínimo, 15 anos de dados diários registrados em 3.500 estações pluviométricas selecionadas no país."
+    },
+    {
+     "n": 2,
+     "arquivo": "mapa_zarc_ce_palma_forrageira_port284_2019.pdf",
+     "pagina": 1,
+     "texto": "Neste modelo são consideradas as exigências hídrica e térmica, duração do ciclo, das fases fenológicas e da reserva útil de água dos solos para cultivo desta espécie, bem como dados de precipitação pluviométrica e evapotranspiração de referência de séries com, no mínimo, 15 anos de dados diários registrados em 3.500 estações pluviométricas selecionadas no país. Por se tratar de um modelo agroclimático, parte-se do pressuposto que não ocorrerão limitações quanto à fertilidade dos solos e danos às plantas devido à ocorrência de pragas e doenças. Para delimitação das áreas aptas ao cultivo da palma forrageira em condições de baixo risco, foram adotados os seguintes parâmetros e variáveis:"
+    }
+   ]
   },
   "chuva": {
    "sem_evidencia": false,
    "trechos": [
     {
      "n": 1,
-     "arquivo": "embrapa_caprinos_cardapio_forrageiro.pdf",
-     "pagina": 10,
-     "texto": "Giovani Rodrigues Chagas Foto: Lucas Fonseca Menezes Oliveira Existem diversos relatos de melhoria na produção de alimento e de reserva estratégica nas localidades onde foi implantado o cardápio forrageiro, dentre eles destacamos que:  As gramíneas perenes apresentaram sobrevivência acima de 80% e com produção de até 15 t de matéria seca por hectare (ha) plantado.  Reserva estratégica para silagem com potencial para encher um silo de 20 t usando apenas um hectare em condição de sequeiro e com chuvas abaixo de 600 mm (Figura 3).  A palma forrageira adicionou água e alimento de qualidade aos sistemas produtivos desde locais com baixa precipitação, até locais que apresentam maiores médias de chuvas, como o Maranhão e Minas Gerais.  Os bancos de proteínas compostos por árvores de leucena e gliricídia forneceram até 500 kg de nitrogênio por ha plantado para alimentação animal."
+     "arquivo": "mapa_zarc_ce_palma_forrageira_port284_2019.pdf",
+     "pagina": 1,
+     "texto": "Objetivou-se, com o Zoneamento Agrícola de Risco Climático, identificar os municípios aptos e o calendário agrícola de plantio, para o cultivo da palma forrageira no Estado em três níveis de risco: 20%, 30%, 40%. Essa identificação foi realizada com a aplicação de um modelo de balanço hídrico da cultura. Neste modelo são consideradas as exigências hídrica e térmica, duração do ciclo, das fases fenológicas e da reserva útil de água dos solos para cultivo desta espécie, bem como dados de precipitação pluviométrica e evapotranspiração de referência de séries com, no mínimo, 15 anos de dados diários registrados em 3.500 estações pluviométricas selecionadas no país."
     },
     {
      "n": 2,
-     "arquivo": "embrapa_caprinos_cardapio_forrageiro.pdf",
-     "pagina": 10,
-     "texto": "Lucas Fonseca Menezes Oliveira Existem diversos relatos de melhoria na produção de alimento e de reserva estratégica nas localidades onde foi implantado o cardápio forrageiro, dentre eles destacamos que:  As gramíneas perenes apresentaram sobrevivência acima de 80% e com produção de até 15 t de matéria seca por hectare (ha) plantado.  Reserva estratégica para silagem com potencial para encher um silo de 20 t usando apenas um hectare em condição de sequeiro e com chuvas abaixo de 600 mm (Figura 3).  A palma forrageira adicionou água e alimento de qualidade aos sistemas produtivos desde locais com baixa precipitação, até locais que apresentam maiores médias de chuvas, como o Maranhão e Minas Gerais.  Os bancos de proteínas compostos por árvores de leucena e gliricídia forneceram até 500 kg de nitrogênio por ha plantado para alimentação animal."
+     "arquivo": "mapa_zarc_ce_palma_forrageira_port284_2019.pdf",
+     "pagina": 1,
+     "texto": "Neste modelo são consideradas as exigências hídrica e térmica, duração do ciclo, das fases fenológicas e da reserva útil de água dos solos para cultivo desta espécie, bem como dados de precipitação pluviométrica e evapotranspiração de referência de séries com, no mínimo, 15 anos de dados diários registrados em 3.500 estações pluviométricas selecionadas no país. Por se tratar de um modelo agroclimático, parte-se do pressuposto que não ocorrerão limitações quanto à fertilidade dos solos e danos às plantas devido à ocorrência de pragas e doenças. Para delimitação das áreas aptas ao cultivo da palma forrageira em condições de baixo risco, foram adotados os seguintes parâmetros e variáveis:"
     }
    ]
   },
@@ -629,7 +760,7 @@
    "sem_evidencia": false,
    "trechos": [
     {
-     "n": 1,
+     "n": 2,
      "arquivo": "embrapa_semiarido_biomassa_leguminosas_milheto.pdf",
      "pagina": 2,
      "texto": "A família das leguminosas se destaca para ser utilizada como adubo verde devido ao elevado potencial de produção de biomassa; a capacidade de se associar com microrganismos do solo e ﬁxar nitrogênio atmosférico; possuir uma baixa relação C/N em comparação a outras espécies; ser de fácil decomposição e mineralização por microrganismos. Além disso, essas plantas mobilizam nutrientes até das camadas mais profundas do solo, por possuírem raízes profundas e ramiﬁcadas (Ferreira et al., 2011). As gramíneas também são recomendadas para serem cultivadas em consórcios, principalmente as espécies com maior capacidade de proteção do solo (alta relação C/N) e com elevado potencial de produção de matéria seca (Menezes et al., 2009), além disso, algumas podem ser utilizadas como forrageiras."
@@ -641,8 +772,15 @@
    "trechos": []
   },
   "familia_diferente": {
-   "sem_evidencia": true,
-   "trechos": []
+   "sem_evidencia": false,
+   "trechos": [
+    {
+     "n": 1,
+     "arquivo": "propagapalma_cartilha6_tratos_culturais.pdf",
+     "pagina": 4,
+     "texto": "APRESENTAÇÃO O Projeto Propaga Palma atua na área de abrangência do Projeto Dom Helder Câmara (PDHC) e é resultado da parceria entre o Fundo Internacional de Desenvolvimento Agrícola (FIDA), o Ministério da Agricultura, Pecuária e Abastecimento (MAPA) e a Companhia de Desenvolvimento dos Vales do São Francisco e do Parnaíba (Codevasf ). O objetivo principal do Projeto é reduzir a pobreza rural, aumentar a produção da agricultura familiar e ampliar as inovações tecnológicas do Semiárido brasileiro via disseminação da palma forrageira. Nesta cartilha descreve-se a importância dos tratos culturais da palma forrageira e o impacto que essas podem exercer sob a cultura e desenvolvimento da lavoura."
+    }
+   ]
   }
  },
  "crotalaria_juncea": {
@@ -712,16 +850,10 @@
    "sem_evidencia": false,
    "trechos": [
     {
-     "n": 1,
-     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
-     "pagina": 17,
-     "texto": "Em geral, para que essa cultura atinja elevada produtividade, os valores de temperatura do ar devem estar em torno de 30 °C durante o dia e 22 °C durante a noite. Temperaturas do ar ao redor de 35 °C podem ocasionar o abortamento de flores e afetar negativamente o vingamento de vagens, principalmente se a cultura estiver submetida a limitado suprimento de água. 3 Qual a fase do ciclo do feijão-caupi mais crítica sob altas temperaturas? A fase mais crítica sob altas temperaturas estende-se do período imediatamente anterior à floração até o início da formação das vagens. Nessa fase, a incidência de altas temperaturas, princi­ palmente à noite, pode provocar grande abortamento de flores e vagens, chegando até a afetar o processo de fecundação."
-    },
-    {
      "n": 2,
      "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
-     "pagina": 240,
-     "texto": "Em seguida, a embalagem e o conteúdo são submetidos ao processamento térmico programado, que é calculado para garantir a esterilidade comercial do produto e para que possa ser comercializado à temperatura ambiente. No processamento térmico, ocorrerá também o cozimento do produto. 490 Por que, para o feijão-caupi comercializado na forma pron­ ta para consumo (cozida), em embalagem hermética, exige-se tratamento térmico que proporcione no mínimo 12 reduções decimais de esporos de Clostridium botulinum? A alta acidez (pH ≤ 4,6) proporciona um habitat inóspito à bactéria de Clostridium botulinum, e seus esporos também não germinarão nessa condição."
+     "pagina": 17,
+     "texto": "1 Que elementos climáticos mais influenciam a produtividade de grãos do feijão-caupi? Os principais elementos climáticos que influenciam a produ­ tividade de grãos do feijão-caupi são precipitação pluviométrica, temperatura do ar e radiação solar. 2 Como a temperatura do ar afeta a cultura do feijão-caupi? A temperatura do ar é um dos elementos climáticos de maior importância para o crescimento, o desenvolvimento e a produtividade de grãos da cultura do feijão-caupi. Em geral, para que essa cultura atinja elevada produtividade, os valores de temperatura do ar devem estar em torno de 30 °C durante o dia e 22 °C durante a noite."
     }
    ]
   },
@@ -730,15 +862,15 @@
    "trechos": [
     {
      "n": 1,
-     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
-     "pagina": 27,
-     "texto": "de precipitação. O ideal é que as séries tenham mais de 30 anos de dados diários de chuva. Isso é importante porque se calcula o Isna para uma frequência de ocorrência de 80%, ou seja, 8 anos em cada 10 anos de registros, o que assegura certa margem de segurança ao zoneamento de risco climático. As classes de Isna usadas no zoneamento do feijão-caupi são as seguintes: • Baixo risco (época favorável à semeadura): Isna ≥ 0,50. • Médio risco (época intermediária): 0,40 < Isna < 0,50. • Alto risco (época desfavorável à semeadura): Isna ≤ 0,40. Isso significa que uma determinada data de semeadura é considerada apta ao cultivo de feijão-caupi (baixo risco climático) quando, no mínimo, metade da exigência hídrica da cultura é atendida pela disponibilidade de água no solo."
+     "arquivo": "mapa_zarc_ce_feijao_caupi_port121_2026.pdf",
+     "pagina": 1,
+     "texto": "Temperaturas elevadas prejudicam o crescimento e o desenvolvimento da cultura, exercendo influência sobre o abortamento de flores, o vingamento e a retenção final de vagens, afetando também o número de sementes por vagem. 1.4. O feijão caupi exige um mínimo de 300 mm de precipitação ao longo do ciclo. As limitações hídricas estão mais relacionadas à distribuição pluvial do que à quantidade total de chuvas ocorridas durante o ciclo. O déficit hídrico, da semeadura à emergência e no florescimento/enchimento de vagens, pode ocasionar severa retração do crescimento vegetativo, limitando a produção."
     },
     {
      "n": 2,
-     "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
-     "pagina": 203,
-     "texto": "No Cerrado brasileiro, a cultura do feijão-caupi pode ser utilizada com sucesso na segunda safra, ou seja, na safrinha. Nessa região, as características da segunda safra enquadram-se bem com as características da planta de feijão-caupi e com as exigências da cultura quanto às condições climáticas. Na safrinha, o plantio é feito no final do período chuvoso; assim, a colheita do feijão-caupi se dá em período seco, quando as chuvas já estão terminando. Essa condição é ideal para o feijão-caupi, pois os grãos perdem qualidade rapidamente quando ocorrem chuvas durante a colheita. O feijão-caupi possui boa eficiência no uso da água, condição muito favorável ao cultivo na safrinha que, como se sabe, ocorre no final do período chuvoso, período em que pode ocorrer estresse hídrico."
+     "arquivo": "mapa_zarc_ce_feijao_caupi_port121_2026.pdf",
+     "pagina": 1,
+     "texto": "Neste modelo são consideradas as exigências hídrica e térmica, duração do ciclo, das fases fenológicas e da reserva útil de água dos solos para cultivo desta espécie, bem como dados de precipitação pluviométrica e evapotranspiração de referência de séries com, no mínimo, 15 anos de dados diários registrados em 3.750 estações pluviométricas selecionadas no país. 1.8. Por se tratar de um modelo agroclimático, parte-se do pressuposto que não ocorrerão limitações quanto à fertilidade dos solos e danos às plantas devido à ocorrência de pragas e doenças. 1.9. Para delimitação das áreas aptas ao cultivo do feijão caupi em condições de baixo risco, foram adotados os seguintes parâmetros e variáveis:"
     }
    ]
   },
@@ -765,14 +897,14 @@
     {
      "n": 1,
      "arquivo": "pesagro_rio_rural_rotacao_culturas.pdf",
-     "pagina": 14,
-     "texto": "24, p. 417-425, 2000. BOLLER, W.; CALDATO, D. E. Desenvolvimento da cultura do feijão (Phaseolus vulgaris L.) em diferentes condições de cobertura e de preparo do solo. Revista Engenharia Agrícola, v. 21, n. 2, p. 167-173. 2001. BORTULUZZI, E. C.; ELTZ, F. L. F. Efeito do manejo mecânico da palhada de aveia preta sobre a cobertura, temperatura, teor de água no solo e emergência da soja em sistema de plantio direto. Revista Brasileira da Ciência do Solo, v. 24: p. 449457, 2000. DERPSCH, R.; SIDIRAS, N.; HEINZMANN, F. X. Manejo do solo com coberturas verdes de inverno. Pesquisa Agropecuária Brasileira, v."
+     "pagina": 9,
+     "texto": "De acordo com Boller e Caldato (2001), a palhada de centeio chega a cobrir 78% da superfície do solo, proporcionando maior proteção contra a erosão. A palhada de mucuna preta proporcionou benefícios na nodulação mais eficientes na cultura do feijão e, consequentemente, maior acúmulo de N e matéria seca nas plantas de feijão (ABBOUD; DUQUE, 1986). Esse fato, certamente, está relacionado com as condições favoráveis de temperatura e umidade no solo promovido pela palha em cobertura. As diferentes palhadas das plantas de cobertura influenciam diretamente o rendimento de grãos da cultura do feijoeiro, sendo mais afetado pela espécie produtora de palha que pela sua forma de cultivo (OLIVEIRA et al., 2002)."
     },
     {
      "n": 2,
      "arquivo": "pesagro_rio_rural_rotacao_culturas.pdf",
-     "pagina": 9,
-     "texto": "De acordo com Boller e Caldato (2001), a palhada de centeio chega a cobrir 78% da superfície do solo, proporcionando maior proteção contra a erosão. A palhada de mucuna preta proporcionou benefícios na nodulação mais eficientes na cultura do feijão e, consequentemente, maior acúmulo de N e matéria seca nas plantas de feijão (ABBOUD; DUQUE, 1986). Esse fato, certamente, está relacionado com as condições favoráveis de temperatura e umidade no solo promovido pela palha em cobertura. As diferentes palhadas das plantas de cobertura influenciam diretamente o rendimento de grãos da cultura do feijoeiro, sendo mais afetado pela espécie produtora de palha que pela sua forma de cultivo (OLIVEIRA et al., 2002)."
+     "pagina": 14,
+     "texto": "24, p. 417-425, 2000. BOLLER, W.; CALDATO, D. E. Desenvolvimento da cultura do feijão (Phaseolus vulgaris L.) em diferentes condições de cobertura e de preparo do solo. Revista Engenharia Agrícola, v. 21, n. 2, p. 167-173. 2001. BORTULUZZI, E. C.; ELTZ, F. L. F. Efeito do manejo mecânico da palhada de aveia preta sobre a cobertura, temperatura, teor de água no solo e emergência da soja em sistema de plantio direto. Revista Brasileira da Ciência do Solo, v. 24: p. 449457, 2000. DERPSCH, R.; SIDIRAS, N.; HEINZMANN, F. X. Manejo do solo com coberturas verdes de inverno. Pesquisa Agropecuária Brasileira, v."
     }
    ]
   },
