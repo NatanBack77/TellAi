@@ -29,3 +29,4 @@ experimentos/**/*.pq
 experimentos/**/*.parquet.tmp
 *.bak
 *.bak_pre_D52
+!data/raw/era5land_cache.tar.gz

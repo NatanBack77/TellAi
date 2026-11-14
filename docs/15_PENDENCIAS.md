@@ -1,5 +1,8 @@
 # Pendências do SULCO (lista completa e organizada)
 
+> **Atualização 2026-11-13 (noite):** concluídos nesta rodada (detalhes em `docs/21_resultados_fases/`): A1 erosão/infiltração, A2 ETo e saldo chuva−ETo, A3 renda (receita bruta/ha), A4 calor e chuva extrema, A5 mapa por camadas, A6 filtros do agricultor, A7 glossário, AP3 página de limites, Fase 5 (API: /rotacao, /cenarios/clima, /plano, /solo, /zarc, /modelo/previsao; D5; M13; C2), L2/L3/L4 e R1/R2 (LLM sem chave, 20 perguntas, RAG 88% em 25 perguntas de teste), SoilGrids testado (sem evidência), teste prospectivo 2025+ (skill +0,254), régua do docs/19 recalculada (71%), pesquisa da rotação (docs/22). **Ainda abertos:** A8 forragem (lacuna: PDFs só trazem gráfico de barras), M1 e M3 incompletos (`experimentos/previsao_doc09/RESULTADO.md`: sem placebo, 30 pontos, nenhuma variante passa), BL1/BL2/BL5 e as decisões DU1–DU15, AP1 cartão do município, AP4 teste com técnico, D7 solo brasileiro (BDiA), melhorias da rotação (docs/22: regras duras + Pareto; matriz cultura anterior→seguinte; revisão cega por técnicos). Correção de solo pendente: média das camadas de solo deve ser ponderada pela espessura (5/10/15 cm) e o app deve usar `pixel_central_valido`/`fracao_pixels_validos` (achado do agente do SoilGrids).
+
+
 Reescrito em 2026-11-13 consolidando a versão de 2026-11-12 (21h20) e o que foi feito depois. Nenhum item anterior foi removido: os já feitos estão em "Concluído (com data)" no fim; o mapa "item antigo → novo ID" está no final.
 Marcas: **[DECISÃO SUA]** precisa de você; **[FAZER]** trabalho técnico; **[VERIFICAR]** conferir antes de afirmar; **[BLOQUEADO]** depende de algo externo.
 Princípio: o produto é apoio à decisão do agricultor (marcar a área, cultura atual, prioridade; épocas de solo nu e de estresse; 3 caminhos com lacunas; sem fingir certeza). A previsão do NDVI é módulo de apoio.
@@ -194,3 +197,10 @@ Contexto: `docs/18_ARQUITETURA_TECNICA.md` (como tudo funciona), `docs/04_RETOMA
 | B12 | C4 | D18 | D4 |
 | B13 | C5 | C14 | Concluído + DU7 |
 | C15 | DU8 | | |
+
+| 2026-11-13 | Fases 2 a 5: A1 A2 A3 A4 A5 A6 A7, AP3, API completa, LLM sem chave (integração, cache, 20 perguntas), RAG com ZARC e léxico PT-EN (50 PDFs, 88% no TESTE de 25) | `docs/21_resultados_fases/`, `src/culturas`, `src/app`, `src/api`, `src/llm`, `src/rag` |
+| 2026-11-13 | SoilGrids testado no modelo: sem evidência (placebo = ganho); auditoria do solo | `experimentos/soilgrids/RESULTADO.md` |
+| 2026-11-13 | Teste prospectivo 2025+ (modelo congelado): skill +0,254; cobertura ACI 85,7%/93,6% | `experimentos/prospectivo_2025/RESULTADO.md` |
+| 2026-11-13 | Régua do desafio recalculada: 61% → 71% (núcleo 91%, opcionais 65%) | `docs/19` |
+| 2026-11-13 | Pesquisa de melhoria da rotação (empate pode ser real; MapBiomas não serve no NE) | `docs/22_PESQUISA_ROTACAO.md` |
+| 2026-11-13 | M1/M3 parciais, documentados como incompletos | `experimentos/previsao_doc09/RESULTADO.md` |

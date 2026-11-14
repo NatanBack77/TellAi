@@ -1,5 +1,11 @@
 # Status do projeto SULCO
 
+> **Atualização 2026-11-13 (noite):** MVP com erosão, ETo, renda, calor/chuva extrema, mapa por camadas e filtros; API com rotação, ZARC, plano e previsão; LLM integrado sem chave; RAG 88% no teste (25 perguntas).
+> **Modelo:** teste prospectivo 2025+ (modelo congelado, dados nunca vistos): skill +0,254 a +1 composto, +0,065 a +4; cobertura ACI 85,7%/93,6%; vence a climatologia em 85,5% dos pontos; fraco de dez a fev. SoilGrids: sem evidência. ERA5/horizonte: incompleto.
+> **Desafio:** régua própria 71% (núcleo 91%). Lacunas maiores: nenhum teste com agricultor/técnico; seções novas fora da nota dos 3 caminhos; sem Kc/ETc; sem preço/mercado. **Rotação:** empate técnico em todos os locais; ver `docs/22`.
+> Suíte: 395 testes passam (321 + 74 de LLM/RAG; `tests/test_rag.py` leva ~7 min). Pendências: `docs/15`. Retomada: `docs/04`.
+
+
 > **Estado em 2026-11-13.** Documentos-chave: `docs/04_RETOMADA.md` (continuar em outro PC e por onde começar), `docs/15_PENDENCIAS.md` (o que falta), `docs/18_ARQUITETURA_TECNICA.md` (como funciona),
 > `docs/17_PITCH.md` (pitch e avaliação honesta), `docs/19_ALINHAMENTO_AO_DESAFIO.md` (comparação com o desafio da NASA).
 >

@@ -1,5 +1,7 @@
 # Como retomar o trabalho em outro computador
 
+> **Nota 2026-11-13 (noite):** tudo da rodada está commitado e no GitHub. Para o estado atual e o que falta, leia `docs/00_STATUS.md` e `docs/15_PENDENCIAS.md` (nota de topo); resultados por fase em `docs/21_resultados_fases/`. Arquivos que NÃO vêm no clone: `.env`, `.venv/`, `indice/` (reconstruir: `python -m src.rag.rag_docs`), `experimentos/**/*.pkl` e `*.pq`. O cache do ERA5 vem como `data/raw/era5land_cache.tar.gz` (extrair: `tar xzf data/raw/era5land_cache.tar.gz -C data/raw`); os caches brutos de 2025+ (`data/raw/modis_ornl_2025plus/`, `power_2025plus/`) não vão ao git (os parquets processados vão).
+
 Atualizado em 2026-11-13. Nada fica rodando em segundo plano. Leia junto: `docs/18_ARQUITETURA_TECNICA.md` (como tudo funciona), `docs/15_PENDENCIAS.md` (o que falta), `docs/00_STATUS.md` (estado), `docs/19_ALINHAMENTO_AO_DESAFIO.md` (lacunas frente ao desafio).
 
 ## 1. Pré-requisitos

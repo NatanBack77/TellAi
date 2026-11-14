@@ -23,3 +23,10 @@
 | 18_ARQUITETURA_TECNICA | **como o sistema funciona, das bases ao resultado; como reproduzir cada etapa** |
 | 19_ALINHAMENTO_AO_DESAFIO | régua de alinhamento ao desafio e maiores lacunas |
 | 20_PLANO_PROXIMAS_FASES | **plano das próximas fases (0 a 7) para continuar em outro computador; dados já no repositório; prompts prontos** |
+| 16_PESQUISA | pesquisas do projeto (MILP, conformal, fontes) |
+| 17_PITCH | pitch e avaliação honesta |
+| 18_ARQUITETURA_TECNICA | como tudo funciona |
+| 19_ALINHAMENTO_AO_DESAFIO | régua de 46 pontos (71%) e o que não dizer ao júri |
+| 20_PLANO_PROXIMAS_FASES | plano por fases |
+| 21_resultados_fases/ | resultado de cada fase (A1–A8, API, LLM/RAG, SoilGrids, prospectivo 2025, M1/M3) |
+| 22_PESQUISA_ROTACAO | como melhorar a rotação (empate técnico, validação, 3 melhorias) |
