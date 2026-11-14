@@ -1,5 +1,15 @@
 # Status do projeto SULCO
 
+> **Estado em 2026-11-14 (fim do dia):** tudo da rodada está commitado. Resumo do que mudou desde 2026-11-13:
+> - **Chat com RAG ligado à DeepSeek** (`src/llm/`): folha de fatos do local (70 fatos com origem), fonte "sobre o Sulco", acervo de 50 PDFs; resposta em **linguagem simples**, sem siglas e sem marcadores [F#]/[n] no texto (as fontes ficam em "De onde veio esta resposta"); verificador de números, promessas, tom e repetição; recusa de pedidos de lucro/escolha de rotação; **trava de gasto** (100 chamadas/dia, 600 tokens de saída, contador em `data/processed/llm_cache/gasto.json`, ignorado pelo git). Testado com a API real: 31 chamadas, ~55 mil tokens de entrada, **~US$ 0,01 a 0,02** (o usuário tem US$ 5). Última rodada: 5 de 5 respostas da IA aprovadas.
+> - **Página de teste do chat:** `GET /teste` (HTML puro) e `GET /chat/gasto`. **Limite de taxa** na API (`src/api/limite_taxa.py`).
+> - **Docker:** `Dockerfile` multi-stage, `docker-compose.yml`, `.dockerignore`, `requirements-*.txt` separados, `docs/23`. Imagem `sulco:teste` (5 GB) construída; **o contêiner nunca foi subido** para teste e o proxy (Nginx) não foi escrito.
+> - **Rotação:** regras duras do agricultor + comparação por dominância, matriz com fonte (34 pares; 55 no experimento da FAO), cartão do município, nomes oficiais (IBGE), FAO em staging (`docs/25`).
+> - **Suíte:** a suíte BLOQUEIA rede e usa chave falsa (`tests/conftest.py`). Nenhum teste gasta dinheiro.
+> **Segredos:** `.env` NÃO vai ao git. Modelo em `.env.example`. A chave DeepSeek existe só no `.env` da máquina onde foi colocada; em outro computador crie o seu.
+> **Por onde continuar, em ordem:** (1) decisões abaixo; (2) ligar os dados de 2025–2026 ao modelo (a previsão do app é para janeiro de 2025); (3) subir o contêiner e conferir API e app dentro dele; (4) Censo Agropecuário por município (dados sociais); (5) validar com técnico local.
+> **Decisões suas pendentes:** a faixa de chuva do EcoCrop é anual ou do ciclo? usar o ciclo da FAO-56 (milho 215 → 140 dias) e qual linha da Tabela 11; aceitar ciclo de outras regiões; trocar a senha do Earthdata; voz (adiada, ver 3.11); Censo Agropecuário.
+
 > **Atualização 2026-11-13 (noite):** MVP com erosão, ETo, renda, calor/chuva extrema, mapa por camadas e filtros; API com rotação, ZARC, plano e previsão; LLM integrado sem chave; RAG 88% no teste (25 perguntas).
 > **Modelo:** teste prospectivo 2025+ (modelo congelado, dados nunca vistos): skill +0,254 a +1 composto, +0,065 a +4; cobertura ACI 85,7%/93,6%; vence a climatologia em 85,5% dos pontos; fraco de dez a fev. SoilGrids: sem evidência. ERA5/horizonte: incompleto.
 > **Desafio:** régua própria 71% (núcleo 91%). Lacunas maiores: nenhum teste com agricultor/técnico; seções novas fora da nota dos 3 caminhos; sem Kc/ETc; sem preço/mercado. **Rotação:** empate técnico em todos os locais; ver `docs/22`.

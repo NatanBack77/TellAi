@@ -1,6 +1,6 @@
 # SULCO — Visão geral ("da órbita ao sulco")
 
-NASA Space Apps Challenge 2026 · MVP em 48h · Última atualização: 2026-11-09
+NASA Space Apps Challenge 2026 · MVP em 48h · Última atualização: 2026-11-09; seção 5 revisada em 2026-11-14 (estado das bases)
 
 ## 1. Problema
 Agricultores do semiárido do Nordeste decidem o que plantar após a safra sem ver o que clima,
@@ -36,12 +36,16 @@ ponderada → seleção (atual + 2 melhores) → incerteza → busca de evidênc
 |---|---|---|
 | NASA POWER | chuva, temperatura, radiação | API REST por ponto |
 | MODIS MOD13Q1 v061 | NDVI + confiabilidade | Earthdata + earthaccess |
-| SMAP L4 SPL4SMGP | umidade do solo (~9 km) | Earthdata + earthaccess |
+| SMAP L4 SPL4SMGP | umidade do solo (~9 km); coletado, só informativo | Earthdata + earthaccess |
 | FAO EcoCrop | faixas climáticas por cultura | CSV exportado |
 | Tabela de culturas (própria) | N fixado, palha, demanda hídrica, família | CSV com fonte e página |
 | Acervo (Embrapa, FAO, ZARC) | evidência citada | pasta local |
 
-Plano B do SMAP: SoilGrids (baixar uma vez). Fora do MVP: IMERG, SRTM, Landsat/HLS, GRACE, ECOSTRESS, GEDI.
+**Estado das bases em 2026-11-14** (fontes: `docs/18_ARQUITETURA_TECNICA.md` seção de bases, `docs/19_ALINHAMENTO_AO_DESAFIO.md`, `docs/21_resultados_fases/`):
+- Em uso no app: NASA POWER (clima, ~50 km, 2001-2024 + 2025+), MODIS MOD13Q1 (NDVI, 250 m, 2001-2024 + 2025+), SRTM (declive, entra no risco de erosão), SoilGrids (solo estimado, 250 m, mediana ~2 km), ZARC do Ceará (MAPA), IBGE PAM (receita bruta), EcoCrop + tabela própria de 16 culturas, acervo RAG (50 PDFs no manifesto, 3.203 trechos).
+- SMAP: coletado (2015-2024), **informativo**: não melhorou o modelo (ganho ~+0,006 a +0,007 de skill, poder baixo); desligado por padrão.
+- **SoilGrids não é "plano B do SMAP"** (redação antiga, errada): são coisas diferentes (SoilGrids é solo estimado por mapa global, não umidade). Foi coletado para a textura/solo do local e para o risco de erosão; como feature do modelo de NDVI NÃO deu ganho (`experimentos/soilgrids/RESULTADO.md`).
+- Não usadas: IMERG/GPM, Landsat/HLS, GRACE, ECOSTRESS, GEDI. Motivo de cada uma: `docs/16_PESQUISA.md` seção G.
 
 ## 6. Ordem de trabalho
 1 Earthdata/POWER/MODIS (1 ponto) → 2 diagnóstico mínimo → 3 tabela de culturas + motor → 4 Streamlit

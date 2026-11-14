@@ -1,5 +1,15 @@
 # Pendências do SULCO (lista completa e organizada)
 
+> **Estado em 2026-11-14 (fim do dia):** tudo da rodada está commitado. Resumo do que mudou desde 2026-11-13:
+> - **Chat com RAG ligado à DeepSeek** (`src/llm/`): folha de fatos do local (70 fatos com origem), fonte "sobre o Sulco", acervo de 50 PDFs; resposta em **linguagem simples**, sem siglas e sem marcadores [F#]/[n] no texto (as fontes ficam em "De onde veio esta resposta"); verificador de números, promessas, tom e repetição; recusa de pedidos de lucro/escolha de rotação; **trava de gasto** (100 chamadas/dia, 600 tokens de saída, contador em `data/processed/llm_cache/gasto.json`, ignorado pelo git). Testado com a API real: 31 chamadas, ~55 mil tokens de entrada, **~US$ 0,01 a 0,02** (o usuário tem US$ 5). Última rodada: 5 de 5 respostas da IA aprovadas.
+> - **Página de teste do chat:** `GET /teste` (HTML puro) e `GET /chat/gasto`. **Limite de taxa** na API (`src/api/limite_taxa.py`).
+> - **Docker:** `Dockerfile` multi-stage, `docker-compose.yml`, `.dockerignore`, `requirements-*.txt` separados, `docs/23`. Imagem `sulco:teste` (5 GB) construída; **o contêiner nunca foi subido** para teste e o proxy (Nginx) não foi escrito.
+> - **Rotação:** regras duras do agricultor + comparação por dominância, matriz com fonte (34 pares; 55 no experimento da FAO), cartão do município, nomes oficiais (IBGE), FAO em staging (`docs/25`).
+> - **Suíte:** a suíte BLOQUEIA rede e usa chave falsa (`tests/conftest.py`). Nenhum teste gasta dinheiro.
+> **Segredos:** `.env` NÃO vai ao git. Modelo em `.env.example`. A chave DeepSeek existe só no `.env` da máquina onde foi colocada; em outro computador crie o seu.
+> **Por onde continuar, em ordem:** (1) decisões abaixo; (2) ligar os dados de 2025–2026 ao modelo (a previsão do app é para janeiro de 2025); (3) subir o contêiner e conferir API e app dentro dele; (4) Censo Agropecuário por município (dados sociais); (5) validar com técnico local.
+> **Decisões suas pendentes:** a faixa de chuva do EcoCrop é anual ou do ciclo? usar o ciclo da FAO-56 (milho 215 → 140 dias) e qual linha da Tabela 11; aceitar ciclo de outras regiões; trocar a senha do Earthdata; voz (adiada, ver 3.11); Censo Agropecuário.
+
 > **Atualização 2026-11-13 (noite):** concluídos nesta rodada (detalhes em `docs/21_resultados_fases/`): A1 erosão/infiltração, A2 ETo e saldo chuva−ETo, A3 renda (receita bruta/ha), A4 calor e chuva extrema, A5 mapa por camadas, A6 filtros do agricultor, A7 glossário, AP3 página de limites, Fase 5 (API: /rotacao, /cenarios/clima, /plano, /solo, /zarc, /modelo/previsao; D5; M13; C2), L2/L3/L4 e R1/R2 (LLM sem chave, 20 perguntas, RAG 88% em 25 perguntas de teste), SoilGrids testado (sem evidência), teste prospectivo 2025+ (skill +0,254), régua do docs/19 recalculada (71%), pesquisa da rotação (docs/22). **Ainda abertos:** A8 forragem (lacuna: PDFs só trazem gráfico de barras), M1 e M3 incompletos (`experimentos/previsao_doc09/RESULTADO.md`: sem placebo, 30 pontos, nenhuma variante passa), BL1/BL2/BL5 e as decisões DU1–DU15, AP1 cartão do município, AP4 teste com técnico, D7 solo brasileiro (BDiA), melhorias da rotação (docs/22: regras duras + Pareto; matriz cultura anterior→seguinte; revisão cega por técnicos). Correção de solo pendente: média das camadas de solo deve ser ponderada pela espessura (5/10/15 cm) e o app deve usar `pixel_central_valido`/`fracao_pixels_validos` (achado do agente do SoilGrids).
 
 
@@ -127,6 +137,14 @@ Contexto: `docs/18_ARQUITETURA_TECNICA.md` (como tudo funciona), `docs/04_RETOMA
 - **I4 [FAZER] `scripts/setup.sh` é bash** e usa `.venv/bin/python`; no Windows precisa de Git Bash/WSL ou comandos manuais.
 - **I5 [FAZER] Docs defasados**: `docs/13_ZARC.md` (plano original; cabeçalho já avisa), `docs/12_API.md` ("ZARC não integrado"), `docs/17_PITCH.md` (tabela diz "mapa de solo em coleta"; agora está coletado e no app), `docs/06` (motor antigo), `docs/01_VISAO_GERAL.md` (SoilGrids como "plano B do SMAP").
 - **I6 [VERIFICAR] Contagem de testes**: 324 coletados em 2026-11-13; os números "35 testes"/"16 testes" de docs 14 e experimentos/milp mudaram com parametrização.
+
+## 3.11 Voz (entrada por áudio): ADIADO por decisão do usuário (2026-11-14)
+Objetivo: o agricultor fala e o texto entra na caixa de pergunta do RAG (a voz só alimenta a pergunta; regras do LLM e do RAG não mudam). Levantamento (fontes abertas em 2026-11-14; nada foi testado):
+- **OpenWhispr** (docs.openwhispr.com/api/overview): `POST /transcribe` na nuvem, em beta, **exige plano Pro ou Business** (pago); preço, idiomas e formato do áudio não confirmados; app de ditado local é MIT e gratuito, mas a API não. Não recomendado para o SULCO.
+- **VoiceStudio** (github.com/debpalash/VoiceStudio): STT/TTS local, AGPL-3.0 (risco de licença se usar o código), português não confirmado, estúdio grande demais para a necessidade.
+- **Opções sem modelo no nosso servidor:** (1) ditado do teclado do celular, zero código (não pesquisado em fonte); (2) Web Speech API do navegador com `lang="pt-BR"` (MDN: por padrão o áudio vai a um serviço remoto; modo `processLocally` exige baixar pacote de idioma; suporte por navegador não verificado); (3) `streamlit-mic-recorder` (MIT, mas último changelog em março de 2024 e sem pt-BR documentado); (4) Groq Whisper na camada gratuita (~7.200 s de áudio/hora, ~28.800 s/dia; limites divergem entre fontes: conferir em console.groq.com; envia o áudio a um terceiro).
+- **Alternativa local e gratuita:** `faster-whisper` (já há `faster-whisper-small` no cache do Hugging Face da máquina de desenvolvimento): precisa teste de qualidade em português, tempo e memória, e conferir a licença.
+- Antes de qualquer integração: decidir se o áudio pode sair do aparelho (regra 6), testar em português e manter o aviso de que dá para digitar.
 
 ## 4. Ideias pesquisadas e não testadas
 - **EnbPI** (conformal para séries sem divisão de dados; Xu e Xie, ICML 2021): não testado (`docs/16` B).

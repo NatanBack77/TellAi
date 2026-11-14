@@ -1,20 +1,36 @@
 # 14. Camada LLM (`src/llm/`)
 
-Atualizado em 2026-11-12. Sem LangChain. Regras 3, 4 e 6 do docs/01: o LLM só reescreve JSON + trechos [n]; nunca calcula, escolhe rotação nem prevê clima; sem trechos => "sem evidência"; nenhum dado sensível a API externa.
+Atualizado em 2026-11-12; estado da integração e contagens revisados em 2026-11-14. Sem LangChain. Regras 3, 4 e 6 do docs/01: o LLM só reescreve JSON + trechos [n]; nunca calcula, escolhe rotação nem prevê clima; sem trechos => "sem evidência"; nenhum dado sensível a API externa.
+
+## 0. Chat "Pergunte ao Sulco" (2026-11-14)
+Núcleo `src/llm/chat.py` (`responder_chat`), rotas `POST /chat` e `GET /chat/estado`, página do app, `src/llm/ambiente.py` (carrega o `.env`), `python -m src.llm.testar_chave`. Detalhes, verificação na doc oficial e riscos: `docs/21_resultados_fases/CHAT_DEEPSEEK.md`. Isto SUPERA os itens "app e API NÃO importam `src.llm`" e "nenhuma integração" da seção 1 abaixo. Trava de gasto: teto de 600 tokens de saída, 100 chamadas reais/dia (`SULCO_LLM_MAX_CHAMADAS_DIA`), contador em `data/processed/llm_cache/gasto.json`.
+
+### 0.1 Folha de fatos do local e fonte "sobre o Sulco" (2026-11-14)
+O chat tem TRÊS fontes, todas montadas por código (nenhum texto digitado de memória):
+- **Folha de fatos do local** (`src/llm/fatos.py`, ids `[F1]`, `[F2]`...): previsão do NDVI do próximo composto (anomalia, faixa 80/90%, data do composto, último composto observado, fim do clima), skill histórico do modelo (seleção 2010-2021, confirmação selada 2022-2024, prospectivo 2025+, horizonte +1 a +4, cobertura real da faixa; lidos de `metricas.json`, `experimentos/prospectivo_2025/resultados.json` e `RESULTADO.md`), os LIMITES declarados da previsão, diagnóstico do local, os 3 caminhos do motor (faixa, P(top-3), empate técnico, cobertura de critérios, janela de plantio, lacunas e riscos), risco de solo, extremos, ETo e saldo chuva menos ETo, receita bruta por hectare (IBGE; "não é lucro"), ZARC por cultura, solo estimado (SoilGrids) e limites globais. Usa as MESMAS funções do app e da API (`src.api.main.previsao/limites`, `src.app.mvp`, `src.app.secao_*`, `src.culturas.zarc`); só formata (pt-BR, unidade) e declara a ORIGEM de cada fato. Sem dado = fato de LACUNA com o motivo (ex.: previsão ausente por "compostos anteriores não consecutivos"). Não há LLM nem cálculo novo nessa etapa.
+- **Trechos do acervo** `[n]` (RAG, como antes) e **"sobre o Sulco"** (`src/llm/sobre_sulco.py`): glossário (`mvp.glossario_atual()` com os trechos de PDF que ele cita), página "Limites dos dados" (`mvp.limites_linhas()`, números lidos de arquivo; a página do app usa a mesma função), prioridades (`mvp.PRIORIDADES`), fluxo do cálculo (docstring de `mvp`) e títulos/docstrings das páginas e seções lidos de `app.py` por `ast`. Rótulo `arquivo = "sobre o Sulco: ..."`. Entra no chat junto com o RAG, em índice léxico próprio (não dentro do índice BM25/embeddings dos PDFs); portão estrito: termo do glossário só vale se todas as suas palavras estão na pergunta; documentos gerais só se a pergunta é sobre o próprio Sulco.
+Roteamento (determinístico): pergunta de definição ("o que é...") ou sobre o app => "sobre o Sulco"; pergunta sobre dados do local (palavras-chave por tema em `fatos.PADROES`; palavras comuns como "chuva"/"solo" só contam se a pergunta fala do SEU local) => só os fatos relevantes, até 1.400 tokens (estimativa 3 caracteres por token); senão => RAG; sem nada => "sem evidência" sem chamar a IA. Sem `ponto_id` (usuário só conversa), só acervo e "sobre o Sulco". O LLM só REESCREVE citando `[F#]`/`[n]`; o verificador valida os dois tipos de citação e exige que todo número do texto exista nos fatos/trechos CITADOS (pt-BR tolerado). Pergunta de previsão ("como vai ficar a vegetação nas próximas semanas?") é respondida com os fatos da previsão e seus limites; lucro/rotação a escolher continuam recusados. Texto padrão (IA desligada ou rejeitada pelo verificador) = os próprios fatos em frases, sem JSON nem rótulos técnicos.
+Privacidade: os fatos não têm nome do município, `ponto_id`, IBGE, latitude nem longitude (dizem "este local"); o nome na pergunta vira "o seu município"; antes de enviar há uma trava (`fatos.vazou`) e, se algo escapar, não há envio. Custo e tamanho: ver `docs/21_resultados_fases/CHAT_DEEPSEEK.md`.
+
+### 0.2 Respostas simples e texto sem marcadores (2026-11-14, rodada 3)
+O público é o agricultor do semiárido: a resposta tem de ser SIMPLES, CURTA e OBJETIVA. `fatos.py`: cada fato tem `texto_simples` (modelo de frase, sem LLM, sem número novo) que vai ao prompt e ao texto padrão; `texto` técnico e `origem` seguem na API para conferência. `chat.py`: prompt `chat-v3` (até ~70 palavras, sem siglas, tabela de tradução, fecho "converse com o técnico"). `verificador.py`: `verificar(..., tom=True)` barra mais de 110 palavras e termos técnicos sem tradução (NDVI, anomalia, composto, faixa de incerteza, skill, RMSE, ACI, sorteios, persistência, empate técnico...), aceita "duas semanas"/"três caminhos" quando o item está nas fontes e "cerca de 600" para número redondo da fonte; `limpar_citacoes` remove [F#]/[n] DEPOIS da verificação: a API devolve `resposta` (limpa) e `resposta_com_citacoes` (verificada). Texto padrão: no máximo 5 linhas. Guia de estilo, tabela termo técnico => palavra simples e exemplos antes/depois: `docs/21_resultados_fases/CHAT_DEEPSEEK.md` (última seção). Testes: `tests/test_chat_simples.py`.
 
 ## 1. Estado
-**Pronto (35 testes em `tests/test_llm.py`, sem rede, sem reranker):**
-- `provedores.py`: interface `gerar(sistema, usuario)`; `Stub` (determinístico) e `DeepSeek` (sem chave => `ProvedorIndisponivel`, mensagem clara; erros HTTP mapeados sem vazar a chave).
+**Pronto (sem rede, sem reranker; contagem de testes COLETADOS por `.venv/bin/python -m pytest --collect-only -q` em 2026-11-14: `tests/test_llm.py` 35, `tests/test_llm_integracao.py` 14, `tests/test_rag_lexico.py` 4):**
+- `provedores.py`: interface `gerar(sistema, usuario)`; `Stub` (determinístico) e `DeepSeek` (sem chave => `ProvedorIndisponivel`, mensagem clara; erros HTTP mapeados sem vazar a chave; `ultimo_uso` guarda o `usage`).
 - `servico.reescrever(cenario_json, trechos)` e `servico.responder(pergunta)`; ambos devolvem `{texto, origem: llm|template|sem_evidencia|recusa, motivos, provedor, em_cache}`.
 - `verificador.py`, `seguranca.py`, `cache.py`.
+- `integracao.py` (L2/L3, `docs/21_resultados_fases/L_R.md` seção 1): `explicar_cenario(cenario, modo)`, `responder_pergunta(pergunta, modo)` e `rotulo_origem(r)`. Modo por `SULCO_LLM_MODO` = `template` (padrão) | `offline` (lê só o cache de demo; sem cache cai no template) | `online` (provedor real com chave). O template é sempre o padrão; o stub nunca vira texto de tela; qualquer exceção vira template. `pregerar.py` (`python -m src.llm.pregerar`) grava o cache só com chave; sem chave imprime `{"feito": false}` e não chama nada.
+- L4 (`tests/l4_perguntas.py`, `python -m src.llm.avaliar_l4`): 15 perguntas positivas e 5 negativas. Medido só com stub + BM25: recuperação@5 47% (7/15), "sem evidência" 5/5; híbrido sem LLM: 73% (11/15). Fonte: `docs/21_resultados_fases/L_R.md` seção 2. Não mede LLM.
 
-**Parcial:**
-- DeepSeek só testado com transporte falso (nenhuma chamada real: a chave não existe). Formato real do corpo de erro NÃO está na doc (a página de erros só lista códigos); o código usa só o código HTTP.
-- `responder` usa por padrão `Indice(usar_embeddings=False, rerank=False)` (BM25 + portão lexical; poupa RAM). Com embeddings o portão de cosseno muda de comportamento: não foi reavaliado aqui.
-- Não rodei `responder` contra o índice real (só com busca simulada).
+**Estado da integração (conferido em 2026-11-14 por busca no código):**
+- (SUPERADO pela seção 0: o app e a API importam `src.llm.chat`; o item abaixo vale só para `integracao.explicar_cenario`, que o app ainda não usa.) `src/app/*.py` e `src/api/main.py` NÃO usavam `explicar_cenario`.
+- `data/processed/llm_cache/` NÃO existe (depende da chave); portanto o modo `offline` hoje cai sempre no template.
+- Nenhuma chamada real ao DeepSeek foi feita (a chave não existe). Só testado com transporte falso. Formato real do corpo de erro NÃO está na doc (a página de erros só lista códigos); o código usa só o código HTTP.
+- `responder` usa por padrão `Indice(usar_embeddings=False, rerank=False)` na camada de serviço (BM25 + portão lexical; poupa RAM); com embeddings o portão de cosseno muda de comportamento e não foi reavaliado aqui.
 - Latência e custo reais não medidos.
 
-**Faltando:** integração ao app (src/app não foi tocado) e à API; geração de cache para o demo; avaliação das 20 perguntas com LLM real.
+**Faltando:** ligar `integracao` ao app e à API; gerar o cache para o demo (precisa da chave); avaliação das 20 perguntas com LLM real; decisões DU9/DU10 antes de qualquer envio.
 
 ## 2. DeepSeek: o que foi verificado
 Lido em 2026-11-12 (via ferramenta de leitura de páginas, que resume o conteúdo):
@@ -58,7 +74,7 @@ Limitação: verifica forma e números, não a verdade semântica de uma frase (
 ## 7. Próximos passos (em ordem)
 1. Criar a chave, pôr no `.env`, rodar 5 cenários reais com `deepseek` e ver quantos são rejeitados (`motivos`).
 2. Rodar as 20 perguntas estilo agricultor com `responder` + índice real; medir citações corretas.
-3. Integrar ao app: em `src/app` chamar `servico.reescrever(cenario, provedor=obter(), cache=Cache(), offline=True)` e mostrar `origem`; manter o template como padrão.
+3. Integrar ao app (NÃO feito): em `src/app` chamar `integracao.explicar_cenario(cenario)` e mostrar `integracao.rotulo_origem(r)`; manter o template como padrão.
 4. API: expor `responder` e `reescrever` com o mesmo contrato `{texto, origem, motivos}`.
 5. Pré-gerar o cache dos cenários do demo (fase A6) e commitar `data/processed/llm_cache/`.
 6. Medir latência/custo reais e registrar aqui.

@@ -30,3 +30,6 @@
 | 20_PLANO_PROXIMAS_FASES | plano por fases |
 | 21_resultados_fases/ | resultado de cada fase (A1–A8, API, LLM/RAG, SoilGrids, prospectivo 2025, M1/M3) |
 | 22_PESQUISA_ROTACAO | como melhorar a rotação (empate técnico, validação, 3 melhorias) |
+| 23_REQUISITOS_PRODUCAO_DOCKER | stack, recursos medidos, segurança e decisões para produção em Docker |
+| 24_FUNCIONALIDADES_E_INFORMACOES_PITCH | o que o Sulco entrega (funcionalidades e informações) para o pitch |
+| 25_PESQUISA_FAO | bases da FAO: o que abre, o que fecha das lacunas, testes de ciclo, Kc e matriz |

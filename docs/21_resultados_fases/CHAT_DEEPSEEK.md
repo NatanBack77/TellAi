@@ -1,0 +1,74 @@
+# Chat com RAG ligado ao DeepSeek (2026-11-14)
+
+Nenhuma chamada real foi feita por mim: tudo validado com provedor falso e transporte HTTP falso. A suíte bloqueia rede externa e usa chave falsa (`tests/conftest.py`).
+
+## Como ligar
+1. `.env` na raiz: `DEEPSEEK_API_KEY=<chave>`, `SULCO_LLM_MODO=online` (opcional: `DEEPSEEK_MODEL`, `DEEPSEEK_TIMEOUT`, `SULCO_LLM_MAX_CHAMADAS_DIA`). O `.env` é carregado por `src/llm/ambiente.py` (só `SULCO_*`, `DEEPSEEK_*`, `API_*`, `APP_*`; nunca `EARTHDATA_*`; não sobrescreve o ambiente). No Docker, as variáveis entram por `environment` do compose; o `.env` não é copiado.
+2. Teste de fumaça (UMA chamada, entrada `diga ok`, 5 tokens de saída): `.venv/bin/python -m src.llm.testar_chave`. Imprime status, modelo, latência, `usage` e custo estimado (só para `deepseek-flash`). Nunca imprime a chave.
+3. App: `.venv/bin/streamlit run src/app/app.py` > página "Pergunte ao Sulco". API: `POST /chat`, `GET /chat/estado`.
+
+## Verificado na doc oficial (lido em 2026-11-14, resumos de ferramenta)
+- https://api-docs.deepseek.com/ : base_url `https://api.deepseek.com`; `POST /chat/completions`; `Authorization: Bearer`; modelos `deepseek-flash` e `deepseek-v4-pro`; `deepseek-v4-flash` aceito mas aposentado (servido pelo Flash). A página não diz qual é "de chat"; todos os exemplos usam `deepseek-flash`, que é o padrão do código (troque por `DEEPSEEK_MODEL`).
+- https://api-docs.deepseek.com/api/create-chat-completion : `temperature` 0 a 2 (sem efeito em thinking), `max_tokens` 1 a 393216, `thinking: {"type": "enabled"|"disabled"}`, `usage` com `prompt_tokens`, `completion_tokens`, `total_tokens`. O corpo de erro NÃO está definido na doc: o código usa só o código HTTP.
+- https://api-docs.deepseek.com/quick_start/error_codes : 400, 401, 402, 408, 413, 422, 429, 500, 503, 504. Divergência corrigida: o mapa tinha só 7 códigos; entraram 408, 413 e 504.
+- https://api-docs.deepseek.com/quick_start/pricing : `deepseek-flash` por 1M tokens: entrada (cache miss) US$0,15 fora do pico / 0,30 pico; saída 0,60 / 1,20. Pico: 01-04 e 06-10 UTC, seg-sex, exceto feriados chineses. Sem divergência de ID.
+
+## Comportamento
+Pergunta validada (vazia, >400 letras, injeção, fora do escopo: escolher rotação, clima, produtividade, lucro => recusa sem busca e sem LLM). Busca no RAG (portão de relevância da própria busca); vazio => "sem evidência" sem LLM. Prompt só com os trechos (delimitados, como dados). Saída passa pelo verificador (números, [n], promessas, aviso); falhou => texto padrão. Sem chave, modo template/offline, erro de rede/HTTP, timeout ou teto de gasto => texto padrão com o motivo; nunca exceção. Com contexto do cenário e pergunta do tipo "por que sugeriu...", a IA só reescreve o JSON (sem lat/lon, sem ponto_id, sem nome do município salvo `SULCO_LLM_ENVIAR_MUNICIPIO=1`). Cache por hash em `data/processed/llm_cache_chat/` (ou `SULCO_CHAT_CACHE_DIR`). Cada resposta é independente do histórico.
+
+## Folha de fatos do local, "sobre o Sulco" e custo (2026-11-14, rodada 2)
+**Como funciona.** `POST /chat` com `ponto_id` + `cultura_atual` (+ `prioridade`) monta (uma vez por local, em cache) a FOLHA DE FATOS (`src/llm/fatos.py`): dezenas de fatos `[F1]`... com tema, frase em pt-BR, ORIGEM (função/arquivo e campo) e marca de lacuna, tudo vindo das funções que o app/API já usam. A pergunta escolhe, por palavras-chave de tema, só os fatos relevantes (teto 1.400 tokens); a IA reescreve citando `[F#]`/`[n]`; o verificador confere os dois tipos de citação e os números. O app envia o local escolhido em "Meu local" (caixa marcada por padrão na página do chat; a folha só é montada se a pergunta é sobre o local). A resposta traz `fatos` (com origem) e `citados_fatos`. Perguntas de definição ou sobre o app usam a fonte "sobre o Sulco" (sem IA no modo template). Texto padrão legível: os fatos em frases (sem `{...}`, sem `nota 0.8466...`).
+**O que vai à API externa:** a pergunta (e-mail/CPF/telefone e o nome do município trocados por "o seu município"), o prompt fixo, os fatos selecionados (só o texto, sem origem, sem ids técnicos, sem nome, `ponto_id`, IBGE, lat, lon nem célula POWER), os trechos do acervo ou do "sobre o Sulco" (máx. 800 caracteres cada) e, no caminho antigo sem folha, o JSON enxuto do cenário. NÃO vai: coordenadas, nome do município, código IBGE, `ponto_id`, cache, `.env`. Há teste que monta os prompts e procura esses valores.
+**Tamanho e custo por pergunta (estimativa minha, sem chamada real; 3 caracteres por token, conservador; tokenizador da DeepSeek não medido).** Prompt do sistema ~500 tokens + pergunta ~30 + fatos/trechos: previsão ~1.700; "por que sugeriu" ~1.800; solo + erosão ~2.000; balanço de água ~1.200; receita bruta ~700 (medido em caracteres do prompt montado para um local de teste). Teto verificado em teste: 2.500 tokens por pergunta. O contexto antigo do cenário tinha ~8.300 tokens de entrada; agora fica em ~2.000 (JSON só com critérios com dado, valores arredondados, lacunas/riscos comuns uma vez, no máximo 5 trechos de 240 caracteres). Saída: até 500 tokens (teto de 600 na API). Com os preços da doc lida (deepseek-flash: entrada US$ 0,15 a 0,30 por 1M, saída US$ 0,60 a 1,20): pergunta de 2.000 tokens de entrada e 400 de saída = US$ 0,0005 (fora do pico) a US$ 0,0011 (pico). Com US$ 5 de saldo: da ordem de milhares de perguntas, desde que o cache (hash do prompt) e o teto de 100 chamadas/dia sigam ligados. Cálculo de aritmética sobre estimativas, não medição.
+
+## NÃO testado com a API real
+Qualquer chamada real: latência, custo real, aceitação do `thinking: disabled`, taxa de respostas rejeitadas pelo verificador (agora mais exigente: número só vale se estiver no fato/trecho CITADO), qualidade em português, busca real (RAG completo) dentro do chat, se a IA respeita "só 1 composto, sem prometer produtividade" na pergunta de previsão, e quantos tokens o tokenizador da DeepSeek realmente conta.
+
+## Riscos
+- Custo: saldo pequeno. Trava: 600 tokens de saída, 100 chamadas/dia, contador em `data/processed/llm_cache/gasto.json` (se o disco for somente leitura, o teto vale só por processo). Rate limit da API: `/chat` é rota pesada.
+- Privacidade: vão à API externa a pergunta (e-mail/CPF/telefone redigidos; o nome de um município escrito na pergunta vai junto), os trechos do acervo e, com contexto, o JSON do cenário sem coordenadas.
+- Fidelidade: o verificador confere forma (números, [n], promessas), não a verdade semântica; o modelo pode citar [1] para algo que o trecho não diz. Por isso há a lista de trechos para conferir e o aviso de técnico local.
+
+## Respostas em linguagem SIMPLES e texto limpo (2026-11-14, rodada 3)
+Nenhuma chamada real à API: tudo validado com provedor falso (suíte bloqueia rede e usa chave falsa). Motivo: em teste real o chat respondeu técnico demais (anomalia, composto de 16 dias, faixa de incerteza, skill, RMSE, persistência, ACI, sorteios, empate técnico). O público é o agricultor do semiárido, com pouca escolaridade e uso de celular.
+
+**Guia de estilo (vale para o prompt, os `texto_simples` e o texto padrão):** português do dia a dia; frases curtas; no máximo ~70 palavras (4 a 5 frases; o verificador barra mais de 110); começar pela RESPOSTA em uma frase e dar no máximo 2 detalhes; no máximo 3 números, só com unidade conhecida (mm de chuva, graus, dias, meses), arredondados com "cerca de" quando redondos; nunca coeficientes; previsão fecha com UMA frase de limite ("vale só para as próximas duas semanas"); decisão fecha com "converse com o técnico"; sem prometer rendimento, lucro ou clima; só fatos [F#] e trechos [n] fornecidos.
+
+| Termo técnico (proibido sem tradução) | Palavra simples |
+|---|---|
+| NDVI, anomalia | o verde das plantas visto do satélite |
+| abaixo do normal | mais fraco / mais seco que o normal para a época |
+| composto de 16 dias | as próximas duas semanas |
+| faixa de incerteza, intervalo | pode variar para mais ou para menos; não dá para ter certeza |
+| empate técnico | os dados não mostram qual é melhor |
+| skill, RMSE, R² | "acerta mais do que usar só a média dos anos anteriores" (sem número do modelo) |
+| persistência | o verde das plantas muda devagar: o que vem se parece com o que já foi visto |
+| percentil, ACI, conformal, Monte Carlo, sorteios, climatologia | (não aparecem) |
+| MODIS, POWER, SMAP | "o satélite", "o clima vem de uma área grande" |
+| solo nu | a terra fica descoberta, com pouco verde |
+| veranico | período seco no meio da época de chuva |
+| ZARC | zoneamento do Ministério da Agricultura |
+| receita bruta | venda bruta por hectare (não é lucro) |
+| ETo / chuva menos ETo | se a chuva dá conta da água que o calor tira da terra |
+
+**Como foi feito.** (1) `SISTEMA_CHAT` (`src/llm/chat.py`, `VERSAO_PROMPT = chat-v3`, saída até 300 tokens) exige o estilo acima. (2) Cada fato da folha ganha `texto_simples` (`src/llm/fatos.py`): modelo de frase determinístico, sem LLM, só com números que já estão no fato técnico; é o que vai ao prompt e ao texto padrão. O `texto` técnico e a `origem` continuam na resposta da API (`fatos[]`) só para conferência. Fato sem frase simples (detalhe técnico) não vai ao chat. Limiares de redação da previsão (suposição de texto, NÃO critério científico): `LIMIAR_PARECIDO = 0,02` e `LIMIAR_BEM = 0,06` na anomalia; se a faixa de 80% cruza o zero a frase diz "parecido com o normal; os dados não mostram se vai ficar mais forte ou mais fraco". Chuva/temperatura dos caminhos: nota >= 0,7 "serve bem", >= 0,4 "serve em parte" (também suposição de redação). (3) Verificador (`verificar(..., tom=True, pergunta=...)`, só no chat): rejeita mais de 110 palavras e os termos proibidos (os que o agricultor escreveu na pergunta são permitidos); aceita contagens "dois/duas/três" seguidas de caminhos, alternativas, semanas, culturas quando o item existe nas fontes (antes 'dois' derrubava boa resposta); aceita "cerca de 600" para um número redondo até 5% de um número da fonte; os números são conferidos contra o `texto_simples` (o que o modelo viu). Basta "converse com o técnico" OU "a avaliar com técnico local". (4) Texto padrão sem IA: máx. 5 linhas (até 3 fatos, 1 lacuna e o fecho), sem nota, sem faixas, sem termo técnico. (5) "Sobre o Sulco": cada termo do glossário e cada limite tem frase simples (`sobre_sulco.py`: `GLOSSARIO_SIMPLES`, `GLOSSARIO_EXTRA` para skill e composto). O trecho técnico continua na lista de trechos.
+
+**Texto exibido sem marcadores.** Depois da verificação, `limpar_citacoes` remove [F7], [3], [1][4], [F2, F5], o espaço antes da pontuação e frases vazias. A resposta da API traz `resposta` (limpa, para exibir) e `resposta_com_citacoes` (a verificada, para conferência); `citados`, `citados_fatos`, `fatos` e `trechos` não mudaram (`fatos[]` ganhou `texto_simples`). A página de teste (`/teste`) e a página "Pergunte ao Sulco" mostram a resposta limpa e, num bloco fechado "De onde veio esta resposta", o texto com citações, as frases simples, os textos técnicos, a origem e os trechos.
+
+**Antes (técnico) x depois (simples)** (textos padrão e `texto_simples`, gerados por código para Quixadá e Fortaleza; não é saída de IA real):
+- Previsão. Antes: "Previsão do verdor (NDVI) para o próximo composto de satélite, de 16 dias... ele deve ficar 0,012 abaixo do normal da época (anomalia = ...)". Depois: "Para as próximas duas semanas, o verde das plantas deve ficar parecido com o normal para esta época; os dados não mostram se vai ficar mais forte ou mais fraco."
+- Faixa. Antes: "A faixa de incerteza da previsão vai de -0,138 a 0,114 na faixa de 80%... o sinal da anomalia pode mudar dentro dela." Depois: "Esta previsão pode variar para mais ou para menos; não dá para ter certeza."
+- Métricas. Antes: "O ganho do modelo sobre a média histórica (skill) em três fases: seleção 2010 a 2021, +0,322; ... (intervalo de 95%: 0,187 a 0,311)." Depois: "Nos testes, o modelo acerta melhor que usar só a média dos anos anteriores, mas só olhando as próximas duas semanas; quanto mais longe, menos confiável."
+- Caminho. Antes: "Caminho 2 (alternativa): Milho seguida de Feijão-caupi. Faixa da pontuação nos sorteios (10% a 90%): de 77,5 a 100,0... Empate técnico com 13 outras culturas". Depois: "Caminho 2: depois de milho, plantar feijão-caupi. Os dados não mostram qual é melhor."
+- Sem previsão (Fortaleza). Antes: "Sem previsão do verdor (NDVI) para este local: compostos anteriores não consecutivos... Isso é uma lacuna". Depois: "Para o seu local, ainda não temos previsão do verde das plantas: faltam dados de satélite."
+- Renda. Antes: "Receita bruta por hectare (IBGE/PAM, média 2021-2023, valores correntes)... Milho R$ 485 por hectare". Depois: "Nos dados do IBGE, a venda bruta por hectare neste município foi: Milho R$ 485; Feijão-caupi R$ 1.203. Isso não é lucro, porque não desconta os custos."
+
+**Não testado com a API real:** se o modelo obedece ao limite de ~70 palavras e à tradução dos termos; a taxa de respostas rejeitadas pelo novo tom (termos proibidos e 110 palavras) é desconhecida; o custo por pergunta deve cair (prompt com frases curtas, no máximo 12 fatos, teto de 900 tokens de fatos e 300 de saída), mas não foi medido.
+
+### Ajustes após os testes reais (2026-11-14, rodadas 4 e 5)
+- Fecho: o verificador do chat não exige mais "a avaliar com técnico local" da IA; o código anexa depois da verificação "Converse com o técnico." (ou, SÓ em previsão/métricas, "Isso vale só para as próximas duas semanas; converse com o técnico."), sem duplicar.
+- Números por extenso: um a dez, flexões (um/uma, dois/duas) e ordinais (primeiro/a, segunda, terceiro/a) só exigem fonte quando ligados a unidade, R$, por cento, dias, anos, meses, vezes etc. (e então a MESMA expressão precisa estar nos fatos); "duas semanas" é livre. Onze ou mais continua exigindo fonte.
+- Promessas: só formas afirmativas (garante, garantido, garantia de lucro/rendimento/colheita, rende mais...); negações ("não é garantia", "sem garantia", "não prometo") passam.
+- Métricas: "Quanto o modelo acerta?" seleciona os fatos de métricas (não a previsão do local), e o texto padrão usa esses mesmos fatos.
+- Acervo: o prompt manda começar com "Segundo o material consultado"; o nome curto da fonte (Embrapa, Ministério da Agricultura, FAO...) só entra se vier do prefixo do nome do arquivo (manifesto do acervo). O texto padrão limpa os trechos de PDF (hifenização, número de página, cabeçalho, reticências; até 2 frases e 2 trechos) e, se nenhum cobre a pergunta (>= 2 radicais e >= 50%; limiar de redação, não calibrado), diz "Não achei no material do Sulco uma resposta direta; converse com o técnico." com o nome do documento.
+- Caminhos: cada caminho tem um fato "resumo" de uma linha (ação, melhor época em mês, lacuna principal); texto padrão = Caminho 1 (o que você faz hoje, só para comparar), 2 e 3, linha de empate e fecho (máx. 6 linhas).

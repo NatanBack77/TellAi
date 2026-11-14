@@ -1,5 +1,13 @@
 # Como retomar o trabalho em outro computador
 
+> **Para continuar (2026-11-14):**
+> 1. `bash scripts/setup.sh` e crie o `.env` a partir de `.env.example` (chave DeepSeek, `SULCO_LLM_MODO=online`). Nunca commitar o `.env`.
+> 2. Subir o back-end: `.venv/bin/uvicorn src.api.main:app --port 8000` e abrir **`http://localhost:8000/teste`** (chat de teste com estado e gasto do dia). App: `.venv/bin/streamlit run src/app/app.py`.
+> 3. Conferir a chave sem gastar: `.venv/bin/python -m src.llm.testar_chave` (1 chamada, ~8 tokens). O contador de gasto está em `GET /chat/gasto`. **Não rode** `pregerar` nem `avaliar_l4 --provedor deepseek` sem decidir o gasto (US$ 5 de orçamento).
+> 4. Testes: `.venv/bin/python -m pytest -q -W error --ignore=tests/test_rag.py` (a suíte não usa rede nem a chave real); `tests/test_rag.py` (~7 min) sozinho.
+> 5. Docker: `docker build --target final -t sulco:teste .` e `docker compose up` (ainda NÃO testado rodando; ver `docs/23`).
+> 6. Leia `docs/15_PENDENCIAS.md` (nota de topo) e `docs/25_PESQUISA_FAO.md`.
+
 > **Nota 2026-11-13 (noite):** tudo da rodada está commitado e no GitHub. Para o estado atual e o que falta, leia `docs/00_STATUS.md` e `docs/15_PENDENCIAS.md` (nota de topo); resultados por fase em `docs/21_resultados_fases/`. Arquivos que NÃO vêm no clone: `.env`, `.venv/`, `indice/` (reconstruir: `python -m src.rag.rag_docs`), `experimentos/**/*.pkl` e `*.pq`. O cache do ERA5 vem como `data/raw/era5land_cache.tar.gz` (extrair: `tar xzf data/raw/era5land_cache.tar.gz -C data/raw`); os caches brutos de 2025+ (`data/raw/modis_ornl_2025plus/`, `power_2025plus/`) não vão ao git (os parquets processados vão).
 
 Atualizado em 2026-11-13. Nada fica rodando em segundo plano. Leia junto: `docs/18_ARQUITETURA_TECNICA.md` (como tudo funciona), `docs/15_PENDENCIAS.md` (o que falta), `docs/00_STATUS.md` (estado), `docs/19_ALINHAMENTO_AO_DESAFIO.md` (lacunas frente ao desafio).

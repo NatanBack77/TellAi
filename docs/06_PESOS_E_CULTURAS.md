@@ -1,5 +1,7 @@
 # 06. Pesos do score e lista de culturas (para o usuário decidir)
 
+> **HISTÓRICO (revisado em 2026-11-14).** Este texto descreve o motor ANTIGO (perfil anual de clima, desempate alfabético, 10 pontos, janelas de ciclo sorteadas por mim). Foi superado: o motor atual usa ciclo de plantio, ranking com incerteza e empate declarado em vez de ordem alfabética; ver `docs/10_MOTOR_CICLO_E_INCERTEZA.md` (e `docs/22_PESQUISA_ROTACAO.md` para a rotação de 3 safras). Os números abaixo foram gerados por `python -m src.culturas.sensibilidade` com aquele motor e NÃO descrevem o app de hoje; `docs/15_PENDENCIAS.md` C4 registra que `sensibilidade.py` ainda reflete o motor antigo (e que no ciclo só entram 23 anos de clima, porque a janela de 2024 passa do fim da série). As perguntas ao usuário (seção final) seguem como registro de decisões, não como pendências abertas: confira `docs/15` e `docs/03`. Não use este arquivo para afirmar nada sobre a recomendação atual.
+
 Este texto **não escolhe pesos**. Mostra o que muda e o que não muda quando os pesos mudam, para você decidir.
 Todos os números vêm de `python -m src.culturas.sensibilidade` (resultado completo em
 `data/processed/sensibilidade_pesos.json`; testes em `tests/test_sensibilidade.py`).
