@@ -1,5 +1,6 @@
 import { CaretDown, Info } from "@phosphor-icons/react";
 import { LogoMark } from "@/shared/components/brand/Logo";
+import { AiCard } from "@/shared/components/ui/AiCard";
 import { Button } from "@/shared/components/ui/Button";
 import { ErrorState } from "@/shared/components/ui/StatusMessage";
 import { cn } from "@/shared/lib/cn";
@@ -16,10 +17,15 @@ function Esqueleto({ municipio }: { municipio: string | null }) {
   return (
     <div className="max-w-prose space-y-3 rounded-2xl border border-dashed border-bg-border bg-white/60 p-4">
       <div className="flex items-center gap-2 font-geist text-sm text-text-body">
-        <LogoMark className="h-[18px] w-[16px]" />A Maíra vai explicar esta etapa para {municipio ?? "o seu município"}.
+        <LogoMark className="h-[18px] w-[16px]" />A Maíra vai explicar esta etapa para{" "}
+        {municipio ?? "o seu município"}.
       </div>
       {[92, 78, 85, 60].map((w) => (
-        <span key={w} className="block h-3 animate-pulse rounded-full bg-bg-border/80" style={{ width: `${w}%` }} />
+        <span
+          key={w}
+          className="block h-3 animate-pulse rounded-full bg-bg-border/80"
+          style={{ width: `${w}%` }}
+        />
       ))}
     </div>
   );
@@ -36,7 +42,9 @@ function Selos({ selos }: { selos: Selo[] }) {
           title={s.dica}
           className={cn(
             "inline-flex items-center gap-1 rounded-full border px-2 py-0.5 font-geist text-[11px] leading-none",
-            s.tipo === "tecnico" ? "border-alert/30 bg-alert/10 text-alert" : "border-bg-border bg-bg-soft text-text-body",
+            s.tipo === "tecnico"
+              ? "border-alert/30 bg-alert/10 text-alert"
+              : "border-bg-border bg-bg-soft text-text-body",
           )}
         >
           <Info size={11} weight="bold" aria-hidden /> {s.rotulo}
@@ -57,14 +65,18 @@ function Fonte({ linha }: { linha: LinhaTexto }) {
   );
 }
 
-/** Resposta objetiva: rótulo curto + valor em destaque. */
+/** Resposta objetiva no formato do "ai-card" do Figma: rótulo como título, valor como texto. */
 function Resposta({ linha }: { linha: LinhaTexto }) {
   return (
-    <li className="rounded-2xl border border-bg-border bg-white p-3.5">
-      <p className="font-geist text-[11px] font-medium tracking-wide text-text-body uppercase">{linha.rotulo}</p>
-      <p className="mt-0.5 font-geist text-[17px] leading-snug font-semibold text-text-subtitle">{linha.valor}</p>
-      <Selos selos={linha.selos} />
-      <Fonte linha={linha} />
+    <li>
+      <AiCard titulo={linha.rotulo} texto={linha.valor}>
+        {(linha.selos.length > 0 || linha.fonte || linha.origem) && (
+          <div>
+            <Selos selos={linha.selos} />
+            <Fonte linha={linha} />
+          </div>
+        )}
+      </AiCard>
     </li>
   );
 }
@@ -83,17 +95,25 @@ function Detalhe({ linha }: { linha: LinhaTexto }) {
 /** Texto da etapa (lado esquerdo): resposta objetiva primeiro, detalhes recolhidos, o que falta sempre visível. */
 export function ConteudoEtapa({ plano, municipio }: Props) {
   if (plano.semLocal) {
-    return <p className="max-w-prose font-geist text-sm text-text-body">Escolha o seu município nas perguntas iniciais para ver o plano.</p>;
+    return (
+      <p className="max-w-prose font-geist text-sm text-text-body">
+        Escolha o seu município nas perguntas iniciais para ver o plano.
+      </p>
+    );
   }
   if (plano.carregando) {
-    return (
-      <Esqueleto municipio={municipio} />
-    );
+    return <Esqueleto municipio={municipio} />;
   }
   if (plano.erro || !plano.texto) {
     return (
       <div className="max-w-prose space-y-3">
-        <ErrorState action={<Button variant="brandDark" onClick={plano.tentarDeNovo}>Tentar de novo</Button>}>
+        <ErrorState
+          action={
+            <Button variant="brandDark" onClick={plano.tentarDeNovo}>
+              Tentar de novo
+            </Button>
+          }
+        >
           Não consegui montar esta etapa agora. Tente de novo em instantes.
         </ErrorState>
       </div>
@@ -106,17 +126,24 @@ export function ConteudoEtapa({ plano, municipio }: Props) {
     <div className="max-w-prose space-y-4 font-geist text-text-body">
       {plano.culturaNome && (
         <p className="text-sm">
-          Plano para <strong className="font-semibold text-text-subtitle">{plano.culturaNome}</strong>
+          Plano para{" "}
+          <strong className="font-semibold text-text-subtitle">{plano.culturaNome}</strong>
         </p>
       )}
 
-      {naoSeAplica && <p className="rounded-2xl border border-bg-border bg-bg-soft p-3 text-sm">Esta etapa não se aplica a esta cultura.</p>}
+      {naoSeAplica && (
+        <p className="rounded-2xl border border-bg-border bg-bg-soft p-3 text-sm">
+          Esta etapa não se aplica a esta cultura.
+        </p>
+      )}
       {semDados && !naoSeAplica && (
-        <p className="rounded-2xl border border-bg-border bg-bg-soft p-3 text-sm">Para esta etapa, converse com o técnico local.</p>
+        <p className="rounded-2xl border border-bg-border bg-bg-soft p-3 text-sm">
+          Para esta etapa, converse com o técnico local.
+        </p>
       )}
 
       {destaques.length > 0 && (
-        <ul aria-label="Resposta objetiva" className="space-y-2">
+        <ul aria-label="Resposta objetiva" className="space-y-2.5">
           {destaques.map((l, i) => (
             <Resposta key={`${l.rotulo}-${i}`} linha={l} />
           ))}
@@ -127,7 +154,11 @@ export function ConteudoEtapa({ plano, municipio }: Props) {
         <details className="group rounded-2xl border border-bg-border bg-white/60 px-3.5">
           <summary className="flex cursor-pointer list-none items-center justify-between py-2.5 text-sm font-medium text-text-subtitle">
             Mais detalhes ({detalhes.length})
-            <CaretDown size={16} className="transition-transform group-open:rotate-180" aria-hidden />
+            <CaretDown
+              size={16}
+              className="transition-transform group-open:rotate-180"
+              aria-hidden
+            />
           </summary>
           <ul className="divide-y divide-bg-border border-t border-bg-border">
             {detalhes.map((l, i) => (
