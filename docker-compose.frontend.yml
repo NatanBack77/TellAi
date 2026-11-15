@@ -1,0 +1,25 @@
+# SULCO — Frontend Web Container (React 19 + Three.js + Nginx)
+# Uso:
+#   docker compose -f docker-compose.frontend.yml up --build -d
+#
+# Para acessar:
+#   http://localhost:3000
+
+services:
+  web:
+    image: sulco-web:latest
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    container_name: sulco-web
+    restart: unless-stopped
+    ports:
+      - "${WEB_PORT:-3000}:80"
+    environment:
+      - SULCO_API_PROXY=http://api:8000
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost/healthz"]
+      interval: 30s
+      timeout: 5s
+      start_period: 5s
+      retries: 3

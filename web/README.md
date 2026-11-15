@@ -84,3 +84,17 @@ src/
 - `/municipios` — lista de `GET /municipios` com busca na URL (`?q=`), sem acento/caixa, e mapa 3D dos pontos por lat/lon (clique seleciona). `ibge: null` aparece como "sem dado".
 
 As regras do produto em `docs/32_FRONTEND_HANDOFF.md` (seção 4) valem aqui também: texto da API só como texto, nada de número inventado, nenhum caminho/chave em tela.
+
+## Docker
+
+Build e execução da imagem de produção em contêiner Nginx:
+
+```sh
+# A partir da pasta web:
+docker build -t sulco-web .
+docker run -d -p 3000:80 sulco-web
+
+# Ou a partir da raiz do repositório:
+docker compose -f docker-compose.frontend.yml up --build -d
+```
+Acesse em `http://localhost:3000`. O endpoint `/healthz` responde `healthy`.
