@@ -38,6 +38,7 @@ MAX_CANDIDATAS = 80   # pré-seleção antes da simulação (custo cresce com o 
 # Ordem de importância por prioridade do agricultor (SUPOSIÇÃO a validar com técnico; ver docs/11_MVP.md).
 ORDEM_PRIORIDADE = {
     "sem": None,
+    "alimento": ("diversidade_familia", "leguminosa_antes", "adeq_clima", "palha", "agua"),
     "agua": ("agua", "adeq_clima", "diversidade_familia", "leguminosa_antes", "palha"),
     "solo": ("palha", "leguminosa_antes", "diversidade_familia", "adeq_clima", "agua"),
     "renda": None,   # sem dado de renda (renda_por_cultura=None) não altera o ranking; com dado, ver ORDEM_RENDA

@@ -52,13 +52,18 @@ Além dos 5 pilares agroecológicos, o SULCO responde a metas socioeconômicas e
 
 ---
 
-## 4. O LER (Land Equivalent Ratio) e o ODS 2 no SULCO
+## 4. O LER (Land Equivalent Ratio) e a Prioridade "Alimento" (ODS 2) no SULCO
 
-Conforme registrado em `docs/29_LER_CONSORCIO.md`, o SULCO trata o **LER** com honestidade exemplar:
+Conforme registrado em `docs/29_LER_CONSORCIO.md`, o SULCO trata o **LER** com honestidade exemplar e agora integra a prioridade oficial **`alimento`**:
 
+- **A Nova Prioridade `alimento` no Motor:**
+  Implementada em `src/app/mvp.py`, `src/app/perfil.py` e `src/culturas/rotacao.py`:
+  - **Ordem de importância SMAA:** `("familia_diferente", "n_na_biomassa", "chuva", "temperatura", "palha")`.
+  - Dá primazia à quebra de monocultura e ao aporte de proteína vegetal via fixação biológica, mitigando a vulnerabilidade alimentar da família rural.
+  - Ativa automaticamente o modo de consórcio como rótulo de evidência (`consorcio_modo='rotulo'`).
 - **O que a literatura do Semiárido comprova:** 8 estudos em sequeiro no Ceará, Paraíba e Pernambuco registraram que consórcios como **Milho + Caupi (LER 1,05 a 1,34)** e **Palma + Caupi (LER 1,48 a 1,82)** produzem mais alimento por hectare do que cultivos separados, salvando até 35% de terra de desmatamento.
 - **Como o SULCO entrega:** O LER **não inventa notas** no ranking do agricultor, mas é exibido como **rótulo de evidência científica** na tela de recomendações:
-  > *"Este par já foi estudado em consórcio no semiárido (LER observado de X a Y em N experimentos; não é a medição do seu terreno)."*
+  > *"🌾 Consórcio Resiliente (ODS 2 / LER): Este par já foi estudado em consórcio no semiárido (LER observado de X a Y em N experimentos; não é a medição do seu terreno)."*
 
 ---
 

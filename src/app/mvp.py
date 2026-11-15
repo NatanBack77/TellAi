@@ -53,6 +53,15 @@ PRIORIDADES: dict[str, dict] = {
         "ordem": None, "bloco": "principal",
         "regra": "Nenhuma ordem de importância entre os critérios: o motor sorteia pesos livres (sem preferência).",
     },
+    "alimento": {
+        "rotulo": "Garantir alimento e diversificação (ODS 2)",
+        "ordem": ("familia_diferente", "n_na_biomassa", "chuva", "temperatura", "palha"), "bloco": "completo",
+        "consorcio_modo": "rotulo",
+        "regra": ("Foco no ODS 2 (Fome Zero e Agricultura Sustentável - Meta 2.4): prioriza a quebra de monocultura "
+                  "(família botânica diferente) para diversificar nutrientes (carboidrato + proteína vegetal) e reduzir o risco "
+                  "de quebra de safra familiar por estiagem, valorizando espécies fixadoras de nitrogênio (n_na_biomassa) e "
+                  "ativando evidências científicas de Land Equivalent Ratio (LER > 1) para consórcios no Semiárido."),
+    },
     "agua": {
         "rotulo": "Economizar água",
         "ordem": ("chuva", "temperatura", "familia_diferente"), "bloco": "principal",
@@ -78,7 +87,7 @@ PRIORIDADES: dict[str, dict] = {
         "lacuna": "sem dado de preço/custo/mercado: o app não consegue falar de renda",
     },
 }
-PRIORIDADES_AUDITORIA = ("sem", "agua", "solo")   # 'renda' = 'sem' por construção
+PRIORIDADES_AUDITORIA = ("sem", "alimento", "agua", "solo")   # 'renda' = 'sem' por construção
 
 
 def dir_mvp() -> Path:
@@ -198,7 +207,9 @@ def limpar_caches() -> None:
 # ---------------------------------------------------------------------------------------------- estratégias
 def parametros(prioridade: str, n_sorteios: int = N_SORTEIOS_APP, usar_zarc: bool = ZARC_PADRAO) -> Parametros:
     cfg = PRIORIDADES[prioridade]
-    return Parametros(n_sorteios=n_sorteios, ordem_pesos=cfg["ordem"], bloco_ranking=cfg["bloco"], usar_zarc=usar_zarc)
+    consorcio_modo = cfg.get("consorcio_modo", "sem")
+    return Parametros(n_sorteios=n_sorteios, ordem_pesos=cfg["ordem"], bloco_ranking=cfg["bloco"],
+                      usar_zarc=usar_zarc, consorcio_modo=consorcio_modo)
 
 
 def _anexar_evidencias(c: dict, alvo: str) -> None:
@@ -451,6 +462,7 @@ def descricao_estrategia(c: dict, prioridade: str) -> dict:
         "lacunas": lacunas_estrategia(c), "epoca": epoca, "incerteza": inc, "empatadas": list(empatadas),
         "p_top3": fx.get("p_top3"), "faixa": (fx.get("score_p10"), fx.get("score_p90")),
         "demanda": demanda_hidrica(c) if prioridade == "agua" else None,
+        "consorcio": c.get("consorcio"),
         "trechos": [t for t in (c.get("trechos") or []) if isinstance(t, dict)],
     }
 
@@ -879,7 +891,13 @@ def calcular_rotacao(ponto_id: str, cultura_atual: str, prioridade: str = "sem",
 
 
 # ------------------------------------------------------------------------------------------ plano de várias safras (MILP)
-ORDEM_MILP = {"sem": None, "renda": None, "agua": ("adeq", "div", "leg", "palha"), "solo": ("palha", "leg", "div", "adeq")}
+ORDEM_MILP = {
+    "sem": None,
+    "renda": None,
+    "agua": ("adeq", "div", "leg", "palha"),
+    "solo": ("palha", "leg", "div", "adeq"),
+    "alimento": ("div", "leg", "adeq", "palha"),
+}
 
 
 def calcular_plano(ponto_id: str, cultura_atual: str, prioridade: str = "sem", horizonte: int = 5, nunca_repetir_seguida: bool = True,
