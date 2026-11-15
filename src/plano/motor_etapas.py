@@ -114,7 +114,10 @@ def recomendacao(ponto_id: str, cultura_id: str, solo: str = "qualquer") -> dict
     if cultura_id not in {c["cultura"] for c in linhas}:   # cultura pedida fora do top: aparece primeiro, com o que o motor diz dela
         j = atual.get("janela_plantio") or {}
         frac = j.get("fracao_anos_viaveis")
+        from src.culturas import zarc as Z
+        perm = Z.janela(Z.geocodigo_do_ponto(ponto_id), cultura_id, 30, solo).get("permitido")   # a época da cultura pedida também sai (mesma regra das outras)
         linhas = [{"cultura": cultura_id, "nome": nome(cultura_id), "fracao": frac if isinstance(frac, (int, float)) else None, "janela": None,
+                   "janela_datas": datas_decendios(perm) if perm is not None and any(perm) else None,
                    "viavel": atual.get("viabilidade") == "viavel"}] + linhas[:5]
     for n, c in enumerate(linhas, 1):
         if c.get("viavel") is False:
@@ -127,7 +130,7 @@ def recomendacao(ponto_id: str, cultura_id: str, solo: str = "qualquer") -> dict
                 frases.append(f"Época de plantio{'' if solo == 'qualquer' else ' (solo ' + solo.replace('medio', 'médio') + ')'}: {c['janela_datas']}")
             valor = (". ".join(frases) + ".") if frases else "Pode ser plantada aqui."
         itens.append(_item(f"cultura_recomendada_{n}", c["nome"], valor, FONTE_MOTOR,
-                           "Pelo clima daqui nos últimos anos e pelo zoneamento do Ministério da Agricultura. Confirme com o técnico."))
+                           "Olha só chuva e temperatura (e o zoneamento do Ministério da Agricultura): não conta solo, praga nem preço e não garante colheita. Confirme com o técnico."))
     lacunas.append("Não há preço, custo nem mercado: a comparação não considera renda.")
     return {"itens": itens, "lacunas": lacunas}
 

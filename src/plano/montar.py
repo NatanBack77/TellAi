@@ -12,6 +12,7 @@ from typing import Callable
 
 from src.plano import dados
 from src.plano.etapas import ETAPAS, limpar_caminhos, marcar_destaques, rotulo
+from src.plano.texto_simples import simplificar
 
 VERSAO = "plano-1"
 AVISO = "Apoio à decisão: converse com o técnico antes de decidir. O plano mostra o que as fontes e os dados dizem; não promete colheita, lucro nem clima futuro."
@@ -32,7 +33,7 @@ def _fonte(ln: dados.Linha) -> dict | None:
 
 def _item(ln: dados.Linha) -> dict:
     proib = dados.termo_proibido(ln.trecho) is not None
-    return {"atributo": ln.atributo, "rotulo": rotulo(ln.atributo), "valor": ln.valor, "unidade": ln.unidade, "status": "verificado",
+    return {"atributo": ln.atributo, "rotulo": rotulo(ln.atributo), "valor": simplificar(ln.valor), "unidade": simplificar(ln.unidade), "status": "verificado",
             "fonte": _fonte(ln), "trecho": None if proib else ln.trecho, "contexto": ln.contexto, "requer_tecnico": ln.requer_tecnico or proib,
             "referencia_da_fonte": ln.etapa == 7 or "referencia" in ln.atributo,
             "experimento": "experimento" in ln.atributo or "ATENÇÃO" in ln.contexto}

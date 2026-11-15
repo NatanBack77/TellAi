@@ -331,3 +331,34 @@ def test_etapa_2_destaca_as_tres_plantas_mais_indicadas(cli):
     e2 = cli.post("/plano-plantio", json={"ponto_id": PID}).json()["etapas"][1]
     dest = [i["atributo"] for i in e2["itens"] if i["destaque"]]
     assert dest == ["cultura_recomendada_1", "cultura_recomendada_2", "cultura_recomendada_3"]
+
+
+# ---------------------------------------------------------------- linguagem simples nos valores curados
+@pytest.mark.parametrize("entrada, esperado", [
+    ("6 a 10", "6 a 10"),
+    ("0,75 m x 0,20 m (66.667 plantas/ha)", "0,75 m x 0,20 m (66.667 plantas por hectare)"),
+    ("40 a 80 kg/ha de P2O5, sendo 40", "40 a 80 kg por hectare de fósforo (P2O5), sendo 40"),
+    ("20 t/ha de esterco", "20 toneladas por hectare de esterco"),
+    ("0.60-0.35 (nota 6)", "0.60-0.35"),
+])
+def test_simplificar_troca_so_a_forma_e_nao_mexe_nos_numeros(entrada, esperado):
+    import re as _re
+    from src.plano.texto_simples import simplificar
+    assert simplificar(entrada) == esperado
+    def numeros(t):   # os números do texto, sem as fórmulas químicas e sem a nota de rodapé
+        return _re.findall(r"\d[\d.,]*", _re.sub(r"P2O5|K2O|\(nota \d+\)", "", t))
+    assert numeros(simplificar(entrada)) == numeros(entrada)
+
+
+def test_resposta_real_nao_tem_sigla_por_ha(cli):
+    for cult in ("milho", "feijao_caupi", "mandioca", "algodao"):
+        p = cli.post("/plano-plantio", json={"ponto_id": PID, "cultura": cult}).json()
+        # só o que aparece na tela (o trecho é a citação literal da fonte e não é mostrado)
+        txt = json.dumps([[(i["rotulo"], i["valor"], i["unidade"], i["contexto"]) for i in e["itens"]] for e in p["etapas"]], ensure_ascii=False)
+        assert "/ha" not in txt and "(nota " not in txt, cult
+
+
+def test_cultura_pedida_pelo_nome_tambem_mostra_a_epoca_de_plantio(cli):
+    e2 = cli.post("/plano-plantio", json={"ponto_id": PID, "cultura": "algodao", "solo": "medio"}).json()["etapas"][1]
+    primeira = next(i for i in e2["itens"] if i["atributo"] == "cultura_recomendada_1")
+    assert primeira["rotulo"] == "Algodão" and "Época de plantio" in primeira["valor"]

@@ -33,3 +33,6 @@
 | 23_REQUISITOS_PRODUCAO_DOCKER | stack, recursos medidos, segurança e decisões para produção em Docker |
 | 24_FUNCIONALIDADES_E_INFORMACOES_PITCH | o que o Sulco entrega (funcionalidades e informações) para o pitch |
 | 25_PESQUISA_FAO | bases da FAO: o que abre, o que fecha das lacunas, testes de ciclo, Kc e matriz |
+
+| Plano de plantio em 10 etapas (contrato, API, front) | [`34_PLANO_DE_PLANTIO.md`](34_PLANO_DE_PLANTIO.md) |
+| Registro do dia 2026-11-15 (curadoria, chat da Maíra, como rodar, pendências) | [`35_REGISTRO_2026-11-15.md`](35_REGISTRO_2026-11-15.md) |
