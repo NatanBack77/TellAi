@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project tellai | NASA Space Apps Challenge Submission</title>
+  <meta name="description" content="Official NASA Space Apps Challenge submission package for Project tellai - Big Space Creative.">
+  <style>
+    :root {
+      --bg-main: #080c14;
+      --bg-card: rgba(17, 24, 39, 0.85);
+      --bg-card-hover: rgba(30, 41, 59, 0.9);
+      --border-color: rgba(255, 255, 255, 0.1);
+      --border-accent: rgba(16, 185, 129, 0.4);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --primary: #10b981;
+      --primary-glow: rgba(16, 185, 129, 0.25);
+      --cyan-nasa: #06b6d4;
+      --solar-gold: #f59e0b;
+      --space-indigo: #6366f1;
+      --radius-lg: 16px;
+      --radius-md: 10px;
+      --radius-sm: 6px;
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-stack: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: var(--font-stack);
+      line-height: 1.6;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(6, 182, 212, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 85% 85%, rgba(16, 185, 129, 0.12) 0%, transparent 45%);
+      background-attachment: fixed;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      background: rgba(8, 12, 20, 0.85);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--cyan-nasa), var(--primary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 20px;
+      color: #000;
+    }
+
+    .brand-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .brand-sub {
+      font-size: 0.72rem;
+      color: var(--cyan-nasa);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      display: block;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      margin-left: 14px;
+      transition: var(--transition);
+      padding: 6px 12px;
+      border-radius: 8px;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 50px 0 30px;
+      text-align: center;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(6, 182, 212, 0.15);
+      border: 1px solid rgba(6, 182, 212, 0.3);
+      padding: 6px 18px;
+      border-radius: 50px;
+      color: var(--cyan-nasa);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #ffffff 40%, #a7f3d0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-bottom: 28px;
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .section-card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .section-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 14px;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--primary);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .copy-btn {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border-color);
+      color: #fff;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+
+    .copy-btn:hover {
+      background: var(--primary);
+      color: #000;
+      border-color: var(--primary);
+    }
+
+    .text-content {
+      color: var(--text-main);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .highlight-box {
+      background: rgba(16, 185, 129, 0.08);
+      border-left: 4px solid var(--primary);
+      padding: 16px 20px;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin: 16px 0;
+      font-size: 1.05rem;
+    }
+
+    .sub-heading {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--cyan-nasa);
+      margin: 22px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    ul.feature-list, ol.feature-list {
+      padding-left: 20px;
+      margin-bottom: 16px;
+    }
+
+    ul.feature-list li, ol.feature-list li {
+      margin-bottom: 10px;
+      color: var(--text-main);
+    }
+
+    ul.feature-list li strong, ol.feature-list li strong {
+      color: #fff;
+    }
+
+    /* Checkbox list */
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-md);
+    }
+
+    .check-icon {
+      color: var(--primary);
+      font-size: 1.2rem;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .check-label {
+      font-weight: 700;
+      color: #fff;
+      font-size: 0.95rem;
+    }
+
+    .check-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Links Table */
+    .link-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+    }
+
+    .link-table th {
+      text-align: left;
+      padding: 12px 16px;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .link-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.92rem;
+    }
+
+    .link-name {
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .link-url {
+      color: var(--cyan-nasa);
+      text-decoration: none;
+      word-break: break-all;
+    }
+
+    .link-url:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 40px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="container nav-bar">
+      <a href="index.html" class="brand">
+        <div class="brand-logo">🛰️</div>
+        <div>
+          <span class="brand-title">tellai</span>
+          <span class="brand-sub">NASA Space Apps Challenge 2026</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">← Briefing</a>
+        <a href="kpis.html">📊 KPIs</a>
+        <a href="ods-policultura.html">🌾 ODS</a>
+        <a href="#summary">Summary</a>
+        <a href="#details">Details</a>
+        <a href="#si">Super Intelligence</a>
+        <a href="#data">NASA Data</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="badge-pill">
+        <span>🚀</span> Official Hackathon Submission Package
+      </div>
+      <h1 class="hero-title">Project tellai</h1>
+      <p class="hero-subtitle">
+        NASA Space Apps Challenge 2026 • Local Event: Juazeiro do Norte, CE, Brazil <br>
+        Challenge: <strong>Field Shift: Adapting Farms with NASA Data</strong>
+      </p>
+    </section>
+
+    <!-- 1. Project Name & Repository -->
+    <section class="section-card">
+      <div class="section-header-row">
+        <div class="section-title"><span>🏷️</span> Project Name & Code Repository</div>
+        <button class="copy-btn" onclick="copyText('Project tellai', this)">Copy Name</button>
+      </div>
+      <div class="text-content">
+        <p><strong>Official Project Name:</strong> <code>Project tellai</code></p>
+        <p style="margin-top: 8px;"><strong>Public GitHub Repository:</strong> <a href="https://github.com/NatanBack77/sulco-nasa" target="_blank" class="link-url">https://github.com/NatanBack77/sulco-nasa</a></p>
+        <p style="margin-top: 8px;"><strong>Project Demonstration Video:</strong> <span style="color: var(--solar-gold); font-weight: 700;">[FALTANDO]</span></p>
+      </div>
+    </section>
+
+    <!-- 2. Project Summary -->
+    <section id="summary" class="section-card">
+      <div class="section-header-row">
+        <div class="section-title">
+          <span>📋</span> Project Summary *
+          <span class="section-tag">184 Words (50-200 Words Rule)</span>
+        </div>
+        <button class="copy-btn" onclick="copyText(document.getElementById('summary-text').innerText, this)">Copy Summary</button>
+      </div>
+      <div id="summary-text" class="text-content highlight-box">
+        Project tellai is an AI-augmented decision-support platform developed to help smallholder farmers and extensionists transition from vulnerable monocultures to resilient, regenerative crop rotations and polycultures. 
+        Addressing the "Field Shift" challenge, tellai integrates 24 years of NASA Earth Observations—including NASA POWER agroclimatology (precipitation, temperature, and clear-sky solar radiation), SMAP root-zone soil moisture, MODIS vegetation persistence, and SRTM topography—with local soil data, ZARC agroclimatic risk zoning, and municipal agricultural statistics from IBGE. 
+        By calculating the Land Equivalent Ratio (LER > 1.35) and modeling multi-season rotations through mixed-integer optimization, tellai evaluates soil cover during the dry season, mitigates thermal stress, and recommends companion planting strategies that biologically fix nitrogen. 
+        tellai is vital because smallholder farmers produce over 70% of Brazil’s staple food, yet only 8.2% in the semi-arid region receive regular technical assistance. Under erratic rainfall and extreme heat, monoculture failure threatens community food security. tellai bridges cutting-edge space science with traditional agroecological wisdom, empowering farmers to conserve up to 45% of soil moisture, restore soil organic carbon, and safeguard livelihoods against climate change (directly advancing UN SDGs 2, 6, 12, 13, and 15).
+      </div>
+    </section>
+
+    <!-- 3. Project Details -->
+    <section id="details" class="section-card">
+      <div class="section-header-row">
+        <div class="section-title"><span>🔬</span> Project Details *</div>
+        <button class="copy-btn" onclick="copyText(document.getElementById('details-text').innerText, this)">Copy Details</button>
+      </div>
+      <div id="details-text" class="text-content">
+
+        <h3 class="sub-heading">🛰️ What does tellai do and how does it work?</h3>
+        <p>
+          tellai is an open-source, intelligent decision-support platform designed to help smallholder farmers and agricultural extensionists in semi-arid and drought-prone regions transition from vulnerable monocultures to climate-resilient, regenerative crop rotations and polycultures.
+        </p>
+        <p style="margin-top: 8px;">
+          Operating under the guiding philosophy <em>"supports, does not decide"</em>, tellai works by harmonizing 24 years of NASA Earth Observations across 195 semi-arid locations with local soil parameters, official Brazilian agricultural statistics (IBGE), and agroclimatic risk zoning (ZARC):
+        </p>
+        <ol class="feature-list" style="margin-top: 10px;">
+          <li><strong>Satellite Diagnostic Pipeline:</strong> Ingests daily NASA POWER agroclimatology (rainfall, extreme temperatures, and all-sky vs. clear-sky solar irradiance), NASA SMAP root-zone soil moisture, NASA SRTM topographical slope, and MODIS vegetation indices (NDVI) to identify historical dry spells (<em>veranicos</em>) and critical bare-soil exposure windows (<em>Campo Nu</em>).</li>
+          <li><strong>Machine Learning & Uncertainty Modeling:</strong> Deploys an XGBoost predictive model calibrated with Adaptive Conformal Inference (ACI 80% and 90% coverage), achieving a 28% error reduction over historical climatology in forecasting vegetation anomalies.</li>
+          <li><strong>Agroecological Optimization:</strong> Uses multi-criteria stochastic sorting (SMAA-O) and Mixed-Integer Linear Programming (MILP) to generate multi-season crop rotation plans and intercropping strategies based on peer-reviewed Land Equivalent Ratio (LER > 1.35) studies.</li>
+          <li><strong>Accessible Interfaces:</strong> Delivers insights through two tailored interfaces: an interactive diagnostic dashboard (Streamlit) for detailed technical simulation, and Maíra, an accessible, voice-enabled conversational AI (React 19 + FastAPI + DeepSeek) grounded in a strict Retrieval-Augmented Generation (RAG) system with automated fact-checking guardrails.</li>
+        </ol>
+
+        <h3 class="sub-heading">🌱 What benefits does it have?</h3>
+        <ul class="feature-list">
+          <li><strong>Food & Income Security:</strong> Replaces single-crop failure risks with diversified year-round harvests (proteins from cowpea/pigeon pea, energy from corn/cassava, and forage from spineless cactus).</li>
+          <li><strong>Soil Water Conservation:</strong> Living mulches (such as squash and spreading legumes) cut direct soil evaporation by 40% to 60% under intense solar radiation (>20 MJ/m²/day).</li>
+          <li><strong>Zero Synthetic Nitrogen Dependency:</strong> Integrates biological nitrogen fixation (BNF) through symbiotic <em>Rhizobium</em> legumes, reducing costly and polluting fossil-fuel fertilizers.</li>
+          <li><strong>Extensionist Empowerment:</strong> Empowers local extension agents with automated, longitudinal environmental profiles for farms, preparing high-quality on-field technical recommendations.</li>
+        </ul>
+
+        <h3 class="sub-heading">🎯 What is the intended impact of the project?</h3>
+        <p>
+          In the Brazilian Semi-Arid region, smallholder farming accounts for more than 70% of staple food production, yet only 8.2% of rural establishments receive regular technical assistance (IBGE Agricultural Census). Climate change has intensified rainfall irregularities and topsoil degradation, pushing vulnerable communities toward food insecurity.
+        </p>
+        <p style="margin-top: 8px;">tellai directly addresses this crisis by advancing five UN Sustainable Development Goals:</p>
+        <ul class="feature-list" style="margin-top: 10px;">
+          <li><strong>SDG 2 (Zero Hunger - Target 2.4):</strong> Increases harvest yield per hectare with Land Equivalent Ratio (LER > 1.35) without requiring deforestation.</li>
+          <li><strong>SDG 6 (Clean Water - Target 6.4):</strong> Preserves precious root-zone moisture measured by NASA SMAP and relieves pressure on regional aquifers.</li>
+          <li><strong>SDG 12 (Responsible Production - Target 12.4):</strong> Eliminates chemical fertilizer runoff and promotes closed-loop organic cycling.</li>
+          <li><strong>SDG 13 (Climate Action - Target 13.1):</strong> Sequesters Soil Organic Carbon (SOC) and buffers canopy temperatures by up to 3.8°C (monitored by ECOSTRESS).</li>
+          <li><strong>SDG 15 (Life on Land - Target 15.3):</strong> Halts Caatinga desertification and topsoil runoff on fragile slopes.</li>
+        </ul>
+
+        <h3 class="sub-heading">💻 What tools, coding languages, hardware, or software did you use?</h3>
+        <ul class="feature-list">
+          <li><strong>Backend & Scientific Computing:</strong> Python 3.14, FastAPI, Uvicorn, XGBoost, Scikit-learn, Scipy, Pandas, NumPy, PyArrow, PyTorch (CPU).</li>
+          <li><strong>Machine Learning & Time Series:</strong> Adaptive Conformal Inference (ACI), GroupKFold cross-validation by geographic cell, and walk-forward backtesting.</li>
+          <li><strong>Natural Language Processing & RAG:</strong> DeepSeek LLM, Hugging Face transformers (multilingual-e5-small), custom hybrid semantic-lexical search (BM25) over 50 regional agronomic manuals, and strict anti-hallucination verification filters.</li>
+          <li><strong>Frontend Web & UI:</strong> React 19, TypeScript, Vite, TanStack Router & Query, Tailwind CSS v4, Three.js / React Three Fiber (3D interactive field and topographical scenes), and Streamlit.</li>
+          <li><strong>Platform Engineering, SRE & GitOps:</strong> Multi-stage Docker builds, Nginx Alpine, Docker Compose, automated pre-commit security pipelines, and non-root read-only container hardening.</li>
+          <li><strong>Data Sources & APIs:</strong> NASA POWER API, NASA SMAP, NASA/USGS MODIS (ORNL DAAC), NASA SRTM, ISRIC SoilGrids, Brazilian IBGE SIDRA (PAM API), and MAPA ZARC.</li>
+        </ul>
+
+        <h3 class="sub-heading">💡 How is tellai creative?</h3>
+        <ul class="feature-list">
+          <li><strong>Prescriptive, Not Just Descriptive:</strong> Most environmental tools are passive data viewers. tellai acts as a prescriptive recommendation engine that translates orbital physics into actionable farming practices.</li>
+          <li><strong>Fusing Orbital Tech with Ancestral Knowledge:</strong> It unites modern satellite radiometry with proven indigenous polyculture systems (such as the 4,000-year-old Milpa and Cactus CAM metabolism).</li>
+          <li><strong>Radical Scientific Honesty:</strong> In an era of black-box AI, tellai refuses to hallucinate precision. It transparently communicates data resolution limits, highlights empirical ties, and explicitly lists data gaps (e.g., market price volatility or seed availability).</li>
+          <li><strong>Voice-First Rural Accessibility:</strong> By integrating natural voice interaction in local Brazilian Portuguese, tellai removes technological barriers for farmers with limited literacy.</li>
+        </ul>
+
+        <h3 class="sub-heading">🔍 What factors did your team consider?</h3>
+        <ol class="feature-list">
+          <li><strong>Semi-Arid Biophysical Constraints:</strong> The strict 4-month wet season (<em>Quadra Chuvosa</em>, Feb–May), unpredictable multi-week dry spells (<em>veranicos</em>), and the severe <em>Campo Nu</em> dry period.</li>
+          <li><strong>Edaphic Heterogeneity:</strong> Marked soil contrasts across the Cariri region—from shallow, rocky <em>Neossolos</em> susceptible to rapid erosion to deeper <em>Latossolos</em> on the Araripe Plateau.</li>
+          <li><strong>Socioeconomic Reality:</strong> Low capital reserves of smallholders, making expensive synthetic inputs unviable and multi-functional crops (food + animal forage) essential.</li>
+          <li><strong>Data Sovereignty & Offline Resilience:</strong> Ensuring all algorithms can run locally inside containerized environments without perpetual internet dependencies.</li>
+        </ol>
+
+      </div>
+    </section>
+
+    <!-- 4. Use of Super Intelligence (SI) -->
+    <section id="si" class="section-card">
+      <div class="section-header-row">
+        <div class="section-title"><span>🤖</span> Use of Super Intelligence (SI) *</div>
+      </div>
+      <div class="text-content">
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+          Select all that apply on the NASA Space Apps submission form:
+        </p>
+
+        <div class="checkbox-grid">
+          <div class="checkbox-item">
+            <span class="check-icon">☑</span>
+            <div>
+              <div class="check-label">Ideation or Brainstorming</div>
+              <div class="check-desc">Concepção do nome tellai, estruturação de hipóteses e conexão ODS.</div>
+            </div>
+          </div>
+
+          <div class="checkbox-item">
+            <span class="check-icon">☑</span>
+            <div>
+              <div class="check-label">Research or Information Gathering</div>
+              <div class="check-desc">Pesquisa sobre APIs da NASA POWER, sensores SMAP, metas da ONU e LER.</div>
+            </div>
+          </div>
+
+          <div class="checkbox-item">
+            <span class="check-icon">☑</span>
+            <div>
+              <div class="check-label">Data Analysis and Interpretation</div>
+              <div class="check-desc">Interpretação de séries temporais de 24 anos da NASA e dados IBGE.</div>
+            </div>
+          </div>
+
+          <div class="checkbox-item">
+            <span class="check-icon">☑</span>
+            <div>
+              <div class="check-label">Building SI/ML Into the Project</div>
+              <div class="check-desc">Modelo XGBoost/ACI e assistente Maíra com LLM DeepSeek e RAG vetorial.</div>
+            </div>
+          </div>
+
+          <div class="checkbox-item">
+            <span class="check-icon">☑</span>
+            <div>
+              <div class="check-label">Coding, Debugging, or Troubleshooting</div>
+              <div class="check-desc">Desenvolvimento e depuração de FastAPI, React 19/Three.js e Docker.</div>
+            </div>
+          </div>
+
+          <div class="checkbox-item">
+            <span class="check-icon">☑</span>
+            <div>
+              <div class="check-label">Writing, Editing, or Translation</div>
+              <div class="check-desc">Elaboração da documentação técnica e tradução rigorosa para inglês.</div>
+            </div>
+          </div>
+
+          <div class="checkbox-item">
+            <span class="check-icon">☑</span>
+            <div>
+              <div class="check-label">Presentation, Video, or Audio</div>
+              <div class="check-desc">Estruturação do roteiro de pitch em vídeo de 4 minutos e assistente de voz.</div>
+            </div>
+          </div>
+
+          <div class="checkbox-item">
+            <span class="check-icon">☑</span>
+            <div>
+              <div class="check-label">Visual Design or Image Creation</div>
+              <div class="check-desc">Geração de arte conceitual e mockups visuais do pitch.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. NASA Data -->
+    <section id="data" class="section-card">
+      <div class="section-header-row">
+        <div class="section-title"><span>🛰️</span> NASA Data * (Eligible for Global Award)</div>
+      </div>
+      <div class="text-content">
+        <p style="color: var(--text-muted); font-size: 0.95rem;">
+          Mandatory links required by the NASA Space Apps Challenge portal:
+        </p>
+
+        <table class="link-table">
+          <thead>
+            <tr>
+              <th>Link Text (Name of Resource)</th>
+              <th>Full Link URL</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="link-name">NASA POWER Agroclimatology Daily API</td>
+              <td><a href="https://power.larc.nasa.gov/" target="_blank" class="link-url">https://power.larc.nasa.gov/</a></td>
+              <td><button class="copy-btn" onclick="copyText('https://power.larc.nasa.gov/', this)">Copy</button></td>
+            </tr>
+            <tr>
+              <td class="link-name">NASA SMAP Soil Moisture Active Passive Mission</td>
+              <td><a href="https://smap.jpl.nasa.gov/" target="_blank" class="link-url">https://smap.jpl.nasa.gov/</a></td>
+              <td><button class="copy-btn" onclick="copyText('https://smap.jpl.nasa.gov/', this)">Copy</button></td>
+            </tr>
+            <tr>
+              <td class="link-name">MODIS Surface Reflectance & NDVI - ORNL DAAC</td>
+              <td><a href="https://modis.ornl.gov/" target="_blank" class="link-url">https://modis.ornl.gov/</a></td>
+              <td><button class="copy-btn" onclick="copyText('https://modis.ornl.gov/', this)">Copy</button></td>
+            </tr>
+            <tr>
+              <td class="link-name">NASA Shuttle Radar Topography Mission (SRTM) Global DEM</td>
+              <td><a href="https://www.earthdata.nasa.gov/sensors/srtm" target="_blank" class="link-url">https://www.earthdata.nasa.gov/sensors/srtm</a></td>
+              <td><button class="copy-btn" onclick="copyText('https://www.earthdata.nasa.gov/sensors/srtm', this)">Copy</button></td>
+            </tr>
+            <tr>
+              <td class="link-name">NASA Earthdata Search & Common Metadata Repository (CMR)</td>
+              <td><a href="https://search.earthdata.nasa.gov/" target="_blank" class="link-url">https://search.earthdata.nasa.gov/</a></td>
+              <td><button class="copy-btn" onclick="copyText('https://search.earthdata.nasa.gov/', this)">Copy</button></td>
+            </tr>
+            <tr>
+              <td class="link-name">NASA Global Imagery Browse Services (GIBS)</td>
+              <td><a href="https://www.earthdata.nasa.gov/eosdis/science-system-description/eosdis-components/gibs" target="_blank" class="link-url">https://www.earthdata.nasa.gov/eosdis/science-system-description/eosdis-components/gibs</a></td>
+              <td><button class="copy-btn" onclick="copyText('https://www.earthdata.nasa.gov/eosdis/science-system-description/eosdis-components/gibs', this)">Copy</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 6. Space Agency Partner & Other Data -->
+    <section class="section-card">
+      <div class="section-header-row">
+        <div class="section-title"><span>🌐</span> Space Agency Partner & Other Data</div>
+      </div>
+      <div class="text-content">
+        <table class="link-table">
+          <thead>
+            <tr>
+              <th>Link Text (Name of Resource)</th>
+              <th>Full Link URL</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="link-name">IBGE SIDRA - Municipal Agricultural Production (PAM Table 5457)</td>
+              <td><a href="https://sidra.ibge.gov.br/tabela/5457" target="_blank" class="link-url">https://sidra.ibge.gov.br/tabela/5457</a></td>
+              <td><button class="copy-btn" onclick="copyText('https://sidra.ibge.gov.br/tabela/5457', this)">Copy</button></td>
+            </tr>
+            <tr>
+              <td class="link-name">IBGE Localities & Territorial Data Services API</td>
+              <td><a href="https://servicodados.ibge.gov.br/api/docs/localidades" target="_blank" class="link-url">https://servicodados.ibge.gov.br/api/docs/localidades</a></td>
+              <td><button class="copy-btn" onclick="copyText('https://servicodados.ibge.gov.br/api/docs/localidades', this)">Copy</button></td>
+            </tr>
+            <tr>
+              <td class="link-name">MAPA - Agricultural Climate Risk Zoning (ZARC Ceará)</td>
+              <td><a href="https://www.gov.br/agricultura/pt-br/assuntos/riscos-seguro/programa-nacional-de-zoneamento-agricola-de-risco-climatico" target="_blank" class="link-url">https://www.gov.br/agricultura/pt-br/assuntos/riscos-seguro/programa-nacional-de-zoneamento-agricola-de-risco-climatico</a></td>
+              <td><button class="copy-btn" onclick="copyText('https://www.gov.br/agricultura/pt-br/assuntos/riscos-seguro/programa-nacional-de-zoneamento-agricola-de-risco-climatico', this)">Copy</button></td>
+            </tr>
+            <tr>
+              <td class="link-name">ISRIC World Soil Information - SoilGrids REST API</td>
+              <td><a href="https://www.isric.org/explore/soilgrids" target="_blank" class="link-url">https://www.isric.org/explore/soilgrids</a></td>
+              <td><button class="copy-btn" onclick="copyText('https://www.isric.org/explore/soilgrids', this)">Copy</button></td>
+            </tr>
+            <tr>
+              <td class="link-name">United Nations Sustainable Development Goals Knowledge Platform</td>
+              <td><a href="https://sdgs.un.org/goals" target="_blank" class="link-url">https://sdgs.un.org/goals</a></td>
+              <td><button class="copy-btn" onclick="copyText('https://sdgs.un.org/goals', this)">Copy</button></td>
+            </tr>
+            <tr>
+              <td class="link-name">FAO Land & Water Division - Crop Information and FAO-56 Parameters</td>
+              <td><a href="https://www.fao.org/land-water/databases-and-software/crop-information/en/" target="_blank" class="link-url">https://www.fao.org/land-water/databases-and-software/crop-information/en/</a></td>
+              <td><button class="copy-btn" onclick="copyText('https://www.fao.org/land-water/databases-and-software/crop-information/en/', this)">Copy</button></td>
+            </tr>
+            <tr>
+              <td class="link-name">Embrapa Solos - Brazilian Soil Classification System (SiBCS)</td>
+              <td><a href="https://www.embrapa.br/solos" target="_blank" class="link-url">https://www.embrapa.br/solos</a></td>
+              <td><button class="copy-btn" onclick="copyText('https://www.embrapa.br/solos', this)">Copy</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Developed by <strong>Big Space Creative</strong> • Juazeiro do Norte, Ceará, Brazil</p>
+      <p style="margin-top: 6px; font-size: 0.8rem;">NASA Space Apps Challenge 2026 • Field Shift: Adapting Farms with NASA Data</p>
+    </div>
+  </footer>
+
+  <script>
+    function copyText(str, btn) {
+      navigator.clipboard.writeText(str).then(() => {
+        const originalText = btn.innerText;
+        btn.innerText = 'Copied!';
+        btn.style.background = '#10b981';
+        btn.style.color = '#000';
+        setTimeout(() => {
+          btn.innerText = originalText;
+          btn.style.background = '';
+          btn.style.color = '';
+        }, 2000);
+      });
+    }
+  </script>
+
+</body>
+</html>
