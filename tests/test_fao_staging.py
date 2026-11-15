@@ -68,17 +68,19 @@ def test_ciclo_override_padrao_nao_muda_resultado():
     n = 24 * 366
     rng = np.random.default_rng(1)
     clima = ciclo.ClimaPonto("t", 2001, 2024, 26 + rng.normal(0, 1, n), np.maximum(rng.normal(2, 4, n), 0))
-    p0, p1 = Parametros(), Parametros(ciclo_override=())
+    # opção anterior (ciclo_fonte='ecocrop'): ponto médio do EcoCrop; o padrão novo ('fao') é testado em test_ciclo_fao.py
+    p0, p1 = Parametros(ciclo_fonte="ecocrop"), Parametros(ciclo_fonte="ecocrop", ciclo_override=())
     a0, a1 = ciclo.notas_ciclo(tab, "milho", clima, p0), ciclo.notas_ciclo(tab, "milho", clima, p1)
     assert a0["dur"] == a1["dur"] == 215
+    assert ciclo.notas_ciclo(tab, "milho", clima, Parametros(ciclo_override=()))["dur"] == 140   # padrão novo: FAO
     assert np.array_equal(a0["nt"], a1["nt"], equal_nan=True) and np.array_equal(a0["nr"], a1["nr"], equal_nan=True)
     # injetar exatamente o ponto médio também não muda nada
-    a2 = ciclo.notas_ciclo(tab, "milho", clima, Parametros(ciclo_override=(("milho", 215),)))
+    a2 = ciclo.notas_ciclo(tab, "milho", clima, Parametros(ciclo_fonte="ecocrop", ciclo_override=(("milho", 215),)))
     assert np.array_equal(a0["nr"], a2["nr"], equal_nan=True)
     # injetar outro valor muda a duração só dessa cultura
-    a3 = ciclo.notas_ciclo(tab, "milho", clima, Parametros(ciclo_override=(("milho", 125),)))
+    a3 = ciclo.notas_ciclo(tab, "milho", clima, Parametros(ciclo_fonte="ecocrop", ciclo_override=(("milho", 125),)))
     assert a3["dur"] == 125
-    assert ciclo.notas_ciclo(tab, "sorgo", clima, Parametros(ciclo_override=(("milho", 125),)))["dur"] == 195
+    assert ciclo.notas_ciclo(tab, "sorgo", clima, Parametros(ciclo_fonte="ecocrop", ciclo_override=(("milho", 125),)))["dur"] == 195
 
 
 def test_ciclo_override_invalido():

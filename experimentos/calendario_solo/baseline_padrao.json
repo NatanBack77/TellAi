@@ -1,0 +1,590 @@
+{
+ "crato_ce|zarc=False": {
+  "algodao": {
+   "adeq_media": 0.834468116,
+   "decendio": 1,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "amendoim": {
+   "adeq_media": 0.954782609,
+   "decendio": 1,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "crotalaria_juncea": {
+   "adeq_media": 0.998494203,
+   "decendio": 1,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "feijao_caupi": {
+   "adeq_media": 0.981032174,
+   "decendio": 2,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "feijao_comum": {
+   "adeq_media": 0.920558385,
+   "decendio": 5,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "feijao_de_porco": {
+   "adeq_media": 0.767830435,
+   "decendio": 33,
+   "estado": "viavel",
+   "p_ano_viavel": 0.869565217
+  },
+  "gergelim": {
+   "adeq_media": 0.86897,
+   "decendio": 2,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "girassol": {
+   "adeq_media": 0.861774638,
+   "decendio": 1,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "guandu": {
+   "adeq_media": 0.96443913,
+   "decendio": 30,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "mamona": {
+   "adeq_media": 0.882816957,
+   "decendio": 36,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "mandioca": {
+   "adeq_media": 0.687646957,
+   "decendio": 2,
+   "estado": "viavel",
+   "p_ano_viavel": 0.956521739
+  },
+  "milheto": {
+   "adeq_media": 0.874041482,
+   "decendio": 2,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "milho": {
+   "adeq_media": 0.931265942,
+   "decendio": 1,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "mucuna": {
+   "adeq_media": 0.728865217,
+   "decendio": 1,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "palma_forrageira": {
+   "adeq_media": 0.883932529,
+   "decendio": 36,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "sorgo": {
+   "adeq_media": 0.191734783,
+   "decendio": 3,
+   "estado": "inviavel",
+   "p_ano_viavel": 0.217391304
+  }
+ },
+ "crato_ce|zarc=True": {
+  "algodao": {
+   "adeq_media": 0.825518841,
+   "decendio": 2,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "amendoim": {
+   "adeq_media": 0.954782609,
+   "decendio": 1,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "crotalaria_juncea": {
+   "adeq_media": 0.998494203,
+   "decendio": 1,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "feijao_caupi": {
+   "adeq_media": 0.978077391,
+   "decendio": 4,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "feijao_comum": {
+   "adeq_media": 0.920558385,
+   "decendio": 5,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "feijao_de_porco": {
+   "adeq_media": 0.767830435,
+   "decendio": 33,
+   "estado": "viavel",
+   "p_ano_viavel": 0.869565217
+  },
+  "gergelim": {
+   "adeq_media": 0.86897,
+   "decendio": 2,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "girassol": {
+   "adeq_media": 0.863632609,
+   "decendio": 2,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "guandu": {
+   "adeq_media": 0.96443913,
+   "decendio": 30,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "mamona": {
+   "adeq_media": 0.886646957,
+   "decendio": 2,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "mandioca": {
+   "adeq_media": 0.687646957,
+   "decendio": 2,
+   "estado": "viavel",
+   "p_ano_viavel": 0.956521739
+  },
+  "milheto": {
+   "adeq_media": 0.874041482,
+   "decendio": 2,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "milho": {
+   "adeq_media": 0.922063043,
+   "decendio": 2,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "mucuna": {
+   "adeq_media": 0.728865217,
+   "decendio": 1,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "palma_forrageira": {
+   "adeq_media": 0.883932529,
+   "decendio": 36,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "sorgo": {
+   "adeq_media": 0.191734783,
+   "decendio": 3,
+   "estado": "inviavel",
+   "p_ano_viavel": 0.217391304
+  }
+ },
+ "limoeiro_do_norte_ce|zarc=False": {
+  "algodao": {
+   "adeq_media": 0.667747826,
+   "decendio": 37,
+   "estado": "viavel",
+   "p_ano_viavel": 0.826086957
+  },
+  "amendoim": {
+   "adeq_media": 0.817145652,
+   "decendio": 4,
+   "estado": "viavel",
+   "p_ano_viavel": 0.869565217
+  },
+  "crotalaria_juncea": {
+   "adeq_media": 0.925458762,
+   "decendio": 2,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "feijao_caupi": {
+   "adeq_media": 0.88663913,
+   "decendio": 3,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "feijao_comum": {
+   "adeq_media": 0.619081677,
+   "decendio": 10,
+   "estado": "viavel",
+   "p_ano_viavel": 0.956521739
+  },
+  "feijao_de_porco": {
+   "adeq_media": 0.528672454,
+   "decendio": 37,
+   "estado": "viavel",
+   "p_ano_viavel": 0.739130435
+  },
+  "gergelim": {
+   "adeq_media": 0.853239051,
+   "decendio": 2,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "girassol": {
+   "adeq_media": 0.822163043,
+   "decendio": 3,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "guandu": {
+   "adeq_media": 0.792380435,
+   "decendio": 37,
+   "estado": "viavel",
+   "p_ano_viavel": 0.869565217
+  },
+  "mamona": {
+   "adeq_media": 0.774211739,
+   "decendio": 37,
+   "estado": "viavel",
+   "p_ano_viavel": 0.869565217
+  },
+  "mandioca": {
+   "adeq_media": 0.474526087,
+   "decendio": 36,
+   "estado": "viavel",
+   "p_ano_viavel": 0.782608696
+  },
+  "milheto": {
+   "adeq_media": 0.938783696,
+   "decendio": 3,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "milho": {
+   "adeq_media": 0.817145652,
+   "decendio": 4,
+   "estado": "viavel",
+   "p_ano_viavel": 0.869565217
+  },
+  "mucuna": {
+   "adeq_media": 0.532207246,
+   "decendio": 37,
+   "estado": "viavel",
+   "p_ano_viavel": 0.869565217
+  },
+  "palma_forrageira": {
+   "adeq_media": 0.472674735,
+   "decendio": 3,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "sorgo": {
+   "adeq_media": 0.395386957,
+   "decendio": 1,
+   "estado": "inviavel",
+   "p_ano_viavel": 0.47826087
+  }
+ },
+ "limoeiro_do_norte_ce|zarc=True": {
+  "algodao": {
+   "adeq_media": 0.674807246,
+   "decendio": 5,
+   "estado": "viavel",
+   "p_ano_viavel": 0.869565217
+  },
+  "amendoim": {
+   "adeq_media": 0.818065217,
+   "decendio": 5,
+   "estado": "viavel",
+   "p_ano_viavel": 0.869565217
+  },
+  "crotalaria_juncea": {
+   "adeq_media": 0.925458762,
+   "decendio": 2,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "feijao_caupi": {
+   "adeq_media": 0.883373913,
+   "decendio": 5,
+   "estado": "viavel",
+   "p_ano_viavel": 0.913043478
+  },
+  "feijao_comum": {
+   "adeq_media": 0.57096677,
+   "decendio": 6,
+   "estado": "viavel",
+   "p_ano_viavel": 0.956521739
+  },
+  "feijao_de_porco": {
+   "adeq_media": 0.528672454,
+   "decendio": 37,
+   "estado": "viavel",
+   "p_ano_viavel": 0.739130435
+  },
+  "gergelim": {
+   "adeq_media": 0.843627391,
+   "decendio": 4,
+   "estado": "viavel",
+   "p_ano_viavel": 0.913043478
+  },
+  "girassol": {
+   "adeq_media": 0.815947826,
+   "decendio": 9,
+   "estado": "viavel",
+   "p_ano_viavel": 0.956521739
+  },
+  "guandu": {
+   "adeq_media": 0.792380435,
+   "decendio": 37,
+   "estado": "viavel",
+   "p_ano_viavel": 0.869565217
+  },
+  "mamona": {
+   "adeq_media": 0.795123913,
+   "decendio": 5,
+   "estado": "viavel",
+   "p_ano_viavel": 0.869565217
+  },
+  "mandioca": {
+   "adeq_media": 0.454213913,
+   "decendio": 4,
+   "estado": "viavel",
+   "p_ano_viavel": 0.826086957
+  },
+  "milheto": {
+   "adeq_media": 0.897608696,
+   "decendio": 5,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "milho": {
+   "adeq_media": 0.799988406,
+   "decendio": 6,
+   "estado": "viavel",
+   "p_ano_viavel": 0.869565217
+  },
+  "mucuna": {
+   "adeq_media": 0.532207246,
+   "decendio": 37,
+   "estado": "viavel",
+   "p_ano_viavel": 0.869565217
+  },
+  "palma_forrageira": {
+   "adeq_media": 0.472674735,
+   "decendio": 3,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "sorgo": {
+   "adeq_media": 0.395386957,
+   "decendio": 1,
+   "estado": "inviavel",
+   "p_ano_viavel": 0.47826087
+  }
+ },
+ "quixada_ce|zarc=False": {
+  "algodao": {
+   "adeq_media": 0.786543478,
+   "decendio": 37,
+   "estado": "viavel",
+   "p_ano_viavel": 0.956521739
+  },
+  "amendoim": {
+   "adeq_media": 0.889086957,
+   "decendio": 5,
+   "estado": "viavel",
+   "p_ano_viavel": 0.913043478
+  },
+  "crotalaria_juncea": {
+   "adeq_media": 0.963337681,
+   "decendio": 5,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "feijao_caupi": {
+   "adeq_media": 0.959517391,
+   "decendio": 3,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "feijao_comum": {
+   "adeq_media": 0.710665528,
+   "decendio": 9,
+   "estado": "viavel",
+   "p_ano_viavel": 0.956521739
+  },
+  "feijao_de_porco": {
+   "adeq_media": 0.689743478,
+   "decendio": 37,
+   "estado": "viavel",
+   "p_ano_viavel": 0.826086957
+  },
+  "gergelim": {
+   "adeq_media": 0.916862609,
+   "decendio": 3,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "girassol": {
+   "adeq_media": 0.885158696,
+   "decendio": 2,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "guandu": {
+   "adeq_media": 0.882773913,
+   "decendio": 36,
+   "estado": "viavel",
+   "p_ano_viavel": 0.956521739
+  },
+  "mamona": {
+   "adeq_media": 0.860604783,
+   "decendio": 37,
+   "estado": "viavel",
+   "p_ano_viavel": 0.956521739
+  },
+  "mandioca": {
+   "adeq_media": 0.55906087,
+   "decendio": 37,
+   "estado": "viavel",
+   "p_ano_viavel": 0.826086957
+  },
+  "milheto": {
+   "adeq_media": 0.948810326,
+   "decendio": 3,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "milho": {
+   "adeq_media": 0.882167391,
+   "decendio": 5,
+   "estado": "viavel",
+   "p_ano_viavel": 0.913043478
+  },
+  "mucuna": {
+   "adeq_media": 0.622491304,
+   "decendio": 37,
+   "estado": "viavel",
+   "p_ano_viavel": 0.956521739
+  },
+  "palma_forrageira": {
+   "adeq_media": 0.62602492,
+   "decendio": 3,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "sorgo": {
+   "adeq_media": 0.243213043,
+   "decendio": 1,
+   "estado": "inviavel",
+   "p_ano_viavel": 0.347826087
+  }
+ },
+ "quixada_ce|zarc=True": {
+  "algodao": {
+   "adeq_media": 0.805785507,
+   "decendio": 4,
+   "estado": "viavel",
+   "p_ano_viavel": 0.913043478
+  },
+  "amendoim": {
+   "adeq_media": 0.889086957,
+   "decendio": 5,
+   "estado": "viavel",
+   "p_ano_viavel": 0.913043478
+  },
+  "crotalaria_juncea": {
+   "adeq_media": 0.963337681,
+   "decendio": 5,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "feijao_caupi": {
+   "adeq_media": 0.945006522,
+   "decendio": 5,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "feijao_comum": {
+   "adeq_media": 0.700181366,
+   "decendio": 8,
+   "estado": "viavel",
+   "p_ano_viavel": 0.956521739
+  },
+  "feijao_de_porco": {
+   "adeq_media": 0.689743478,
+   "decendio": 37,
+   "estado": "viavel",
+   "p_ano_viavel": 0.826086957
+  },
+  "gergelim": {
+   "adeq_media": 0.894478261,
+   "decendio": 4,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "girassol": {
+   "adeq_media": 0.871019565,
+   "decendio": 5,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "guandu": {
+   "adeq_media": 0.882773913,
+   "decendio": 36,
+   "estado": "viavel",
+   "p_ano_viavel": 0.956521739
+  },
+  "mamona": {
+   "adeq_media": 0.869397391,
+   "decendio": 6,
+   "estado": "viavel",
+   "p_ano_viavel": 0.956521739
+  },
+  "mandioca": {
+   "adeq_media": 0.535048696,
+   "decendio": 4,
+   "estado": "viavel",
+   "p_ano_viavel": 0.913043478
+  },
+  "milheto": {
+   "adeq_media": 0.930388043,
+   "decendio": 5,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "milho": {
+   "adeq_media": 0.882167391,
+   "decendio": 5,
+   "estado": "viavel",
+   "p_ano_viavel": 0.913043478
+  },
+  "mucuna": {
+   "adeq_media": 0.622491304,
+   "decendio": 37,
+   "estado": "viavel",
+   "p_ano_viavel": 0.956521739
+  },
+  "palma_forrageira": {
+   "adeq_media": 0.62602492,
+   "decendio": 3,
+   "estado": "viavel",
+   "p_ano_viavel": 1.0
+  },
+  "sorgo": {
+   "adeq_media": 0.243213043,
+   "decendio": 1,
+   "estado": "inviavel",
+   "p_ano_viavel": 0.347826087
+  }
+ }
+}

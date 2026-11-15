@@ -24,6 +24,7 @@ carregar_env()  # .env da raiz (só SULCO_*, DEEPSEEK_*, API_*, APP_*); antes de
 
 from src.api.limite_taxa import LimiteTaxa, cabecalhos  # noqa: E402
 from src.app import mvp as M   # lógica do app (sem Streamlit): reutilizada por import, não copiada
+from src.app import perfil as PF   # perfil do agricultor (schema, regras, texto sem identificador)
 from src.culturas import ciclo as ciclo_mod
 from src.culturas import zarc as zarc_mod
 from src.culturas.motor import gerar_cenarios
@@ -66,6 +67,12 @@ async def _vida(_app):
 
 app = FastAPI(title="SULCO API", version="0.2.0", lifespan=_vida,
               description="Back-end offline do SULCO. Apoia a conversa com o técnico; não decide.")
+
+from src.api.rota_calendario import router as _rota_calendario  # noqa: E402
+from src.api.rota_conversa import router as _rota_conversa  # noqa: E402
+
+app.include_router(_rota_conversa)       # POST /conversa (conversa consultiva)
+app.include_router(_rota_calendario)     # POST /calendario (calendário de plantio do agricultor)
 
 
 @app.middleware("http")
@@ -181,6 +188,25 @@ class Saude(BaseModel):
     cache_modelo_previsao: bool
 
 
+class RegrasIn(BaseModel):
+    """Regras DURAS do agricultor (src/culturas/regras_duras.py). Todas opcionais; vazio = sem regra. Cultura desconhecida = 422."""
+    model_config = ConfigDict(extra="forbid")
+    proibidas: list[str] = Field(default_factory=list, max_length=60, description="Culturas que NÃO quer plantar (safras 2 em diante).")
+    obrigatorias: list[str] = Field(default_factory=list, max_length=60, description="Culturas que PRECISA incluir (a atual conta).")
+    max_seguidas_cultura: int | None = Field(None, ge=1, le=PF.MAX_SEGUIDAS_MAX, description="Máximo de safras seguidas da mesma cultura; null = sem regra.")
+    aceita_pousio: bool = Field(False, description="Só registra: pousio NÃO é modelado como safra.")
+
+
+def _regras_duras(r: RegrasIn | None):
+    """RegrasDuras (ou None) a partir do corpo da requisição; 422 se cita cultura fora da tabela ou se se contradiz."""
+    if r is None:
+        return None
+    try:
+        return PF.regras_duras({"regras": r.model_dump()}, tabela())
+    except ValueError as e:
+        raise HTTPException(422, f"regras inválidas: {e}")
+
+
 class CenarioIn(BaseModel):
     model_config = ConfigDict(extra="forbid")
     ponto_id: str
@@ -194,6 +220,7 @@ class CenarioIn(BaseModel):
     com_evidencias: bool = True
     usar_zarc: bool = Field(M.ZARC_PADRAO, description="Restringe o início do plantio ao ZARC (só municípios do CE com ZARC). "
                             "Padrão = o do app.")
+    regras: RegrasIn | None = Field(None, description="Regras duras do agricultor: alternativa que viola nunca aparece; a cultura atual fica sempre.")
 
 
 class CenarioOut(BaseModel):
@@ -204,6 +231,8 @@ class CenarioOut(BaseModel):
     regra_prioridade: str
     cenarios: list[dict]   # contrato docs/01 seção 7 (+ janela_plantio, suposicoes, viabilidade do motor)
     lacunas_gerais: list[str]
+    regras_duras: dict | None = Field(None, description="null = sem regras. Senão: regras ativas, quantas alternativas viáveis foram descartadas e por quê, "
+                                      "se foram todas, e o que não é modelado (pousio).")
     aviso: str
     segundos: float
 
@@ -260,14 +289,22 @@ def cenarios(req: CenarioIn):
     if req.cultura_atual not in tab:
         raise HTTPException(422, f"cultura '{req.cultura_atual}' fora da tabela: {sorted(tab)}")
     pr = PRIORIDADES[req.prioridade]
+    rd = _regras_duras(req.regras)
+    rm = PF.regras_para_motor(rd)
     kw = {k: v for k, v in (("ciclo_modo", req.ciclo_modo), ("chuva_modo", req.chuva_modo), ("risco_max", req.risco_max),
                             ("n_sorteios", req.n_sorteios)) if v is not None}
     try:
         p = Parametros(ordem_pesos=pr["ordem"], bloco_ranking=pr["bloco"], usar_zarc=req.usar_zarc, **kw)
     except ValueError as e:
         raise HTTPException(422, str(e))
-    cens = gerar_cenarios({"local": req.ponto_id}, req.cultura_atual, tab, clima=clima_ponto(req.ponto_id), params=p)
+    cens = gerar_cenarios({"local": req.ponto_id}, req.cultura_atual, tab, clima=clima_ponto(req.ponto_id), params=p, regras=rm)
     gerais = []
+    info_regras = None
+    if rd is not None:
+        from src.culturas.motor import avaliar_local
+        desc = M.descartes_caminhos(avaliar_local(tab, clima_ponto(req.ponto_id), p), tab, req.cultura_atual, rm) if rm is not None else {
+            "n_viaveis": None, "n_descartadas": 0, "n_restantes": None, "todas_descartadas": False, "descartadas_por_motivo": {}, "descartadas": []}
+        info_regras = _limpo({"regras": rd.para_dict(), **desc, "nao_modelado": rd.nao_modelado()})
     ev = evidencias_cache() if req.com_evidencias else None
     for c in cens:
         alvo = c["rotacao"][1]
@@ -289,7 +326,7 @@ def cenarios(req: CenarioIn):
     if ev is None and req.com_evidencias:
         gerais.append("cache evidencias_rag.json ausente: sem evidências")
     return CenarioOut(ponto_id=req.ponto_id, cultura_atual=req.cultura_atual, prioridade=req.prioridade,
-                      regra_prioridade=pr["regra"], cenarios=cens, lacunas_gerais=gerais, aviso=AVISO,
+                      regra_prioridade=pr["regra"], cenarios=cens, lacunas_gerais=gerais, regras_duras=info_regras, aviso=AVISO,
                       segundos=time.perf_counter() - t0)
 
 
@@ -327,10 +364,12 @@ class PrevisaoOut(BaseModel):
     modelo: str
     horizonte: str
     anos_treino: list[int]
+    dados_inferencia: str | None = Field(None, description="Arquivos de onde saem o último composto e o clima (original + 2025+); o modelo é treinado só com os originais.")
     ultimo_composto_observado: str | None = None
     anomalia_observada_ultimo: float | None = None
     composto_alvo: str | None = None
-    clima_ate: str | None = None
+    clima_ate: str | None = Field(None, description="Último dia de clima que o modelo lê para este composto (no máximo o dia anterior ao alvo).")
+    clima_disponivel_ate: str | None = Field(None, description="Último dia com chuva e temperatura não vazias nos arquivos de entrada.")
     anomalia_ndvi_prevista: float | None = Field(None, description="Anomalia de NDVI (NDVI - climatologia do slot). null = sem número (ver `lacuna`).")
     faixa_incerteza: dict[str, list[float] | None] | None = Field(None, description="Faixa ACI por cobertura ('80', '90'): [inferior, superior].")
     metodo_faixa: str | None = None
@@ -473,6 +512,7 @@ class RotacaoIn(BaseModel):
     materia_organica: Literal["não sei", "baixa", "média", "alta"] = "não sei"
     usar_zarc: bool = M.ZARC_PADRAO
     n_sorteios: int = Field(1000, ge=100, le=5000)
+    regras: RegrasIn | None = Field(None, description="Regras duras do agricultor. A rotação_atual dele nunca some (se violar, vai em detalhes.regras_duras.base_viola).")
 
 
 class RotacaoOut(BaseModel):
@@ -502,9 +542,13 @@ def rotacao(req: RotacaoIn):
             _exigir_cultura(c)
         if req.rotacao_atual[0] != req.cultura_atual:
             raise HTTPException(422, "rotacao_atual deve começar pela cultura_atual")
+    rd = _regras_duras(req.regras)
     r = M.calcular_rotacao(req.ponto_id, req.cultura_atual, req.prioridade, req.rotacao_atual, req.textura,
-                           req.materia_organica, req.usar_zarc, req.n_sorteios)
+                           req.materia_organica, req.usar_zarc, req.n_sorteios, regras=PF.regras_para_motor(rd))
     r = _limpo(r)
+    r.setdefault("prioridade", req.prioridade)
+    if rd is not None and rd.aceita_pousio:
+        r["lacunas"] = list(r.get("lacunas") or []) + [PF.AVISO_POUSIO]
     topo = {"estrategias", "lacunas", "suposicoes", "horizonte_safras", "prioridade", "usar_zarc", "solo_informado",
             "solo_estimado", "empate_tecnico_todos", "aviso", "segundos", "local"}
     return RotacaoOut(ponto_id=req.ponto_id, detalhes={k: v for k, v in r.items() if k not in topo},
@@ -587,12 +631,40 @@ def plano(req: PlanoIn):
 from src.llm import chat as chat_mod  # noqa: E402
 
 
+class InformativosIn(BaseModel):
+    """Campos que só REGISTRAM (não mudam nenhum cálculo)."""
+    model_config = ConfigDict(extra="forbid")
+    area_ha: float | None = Field(None, gt=0, le=PF.AREA_MAX_HA)
+    mes_plantio: int | None = Field(None, ge=1, le=12)
+    declive: Literal["plano", "suave", "forte"] | None = None
+    acesso_mercado: Literal["sim", "não", "não sei"] | None = None
+
+
+class PerfilChatIn(BaseModel):
+    """Perfil do agricultor aceito pelo /chat: NUNCA município, ponto_id, nome, lat, lon (campo extra = 422)."""
+    model_config = ConfigDict(extra="forbid")
+    prioridade: Literal["sem", "agua", "solo", "renda"] = "sem"
+    manejo: Literal["sequeiro", "irrigado"] = "sequeiro"
+    agua_irrigacao_mm: float = Field(0, ge=0, le=PF.AGUA_MAX_MM)
+    equipamento: str = PF.F.EQUIPAMENTOS[0]
+    mercado: str = PF.F.MERCADOS[0]
+    textura: Literal["não sei", "arenoso", "médio", "argiloso"] = "não sei"
+    materia_organica: Literal["não sei", "baixa", "média", "alta"] = "não sei"
+    safra_2: str | None = None
+    safra_3: str | None = None
+    tambem_considero: list[str] = Field(default_factory=list, max_length=60)
+    quer_conversar: bool = False
+    regras: RegrasIn = Field(default_factory=RegrasIn)
+    informativos: InformativosIn = Field(default_factory=InformativosIn)
+
+
 class ChatIn(BaseModel):
     model_config = ConfigDict(extra="forbid")
     pergunta: str = Field(min_length=1, max_length=2000, description=f"Máx. {chat_mod.MAX_PERGUNTA} letras úteis (acima, a resposta é uma recusa).")
     ponto_id: str | None = Field(None, description="Com `cultura_atual`: usa o cenário deste local como contexto (sem lat/lon na API externa).")
     cultura_atual: str | None = None
     prioridade: Literal["sem", "agua", "solo", "renda"] = "sem"
+    perfil: PerfilChatIn | None = Field(None, description="O que o agricultor informou (sem identificador). Entra nos fatos do local; só com `ponto_id`.")
 
 
 class ChatTrecho(BaseModel):
@@ -672,6 +744,13 @@ def chat(req: ChatIn):
                 ctx = _contexto_chat(req.ponto_id, req.cultura_atual, req.prioridade)
             except Exception:   # noqa: BLE001
                 ctx = None
+    if req.perfil is not None:
+        try:
+            pc = PF.para_chat(PF.validar(req.perfil.model_dump(), tabela(), como_chat=True))
+        except PF.PerfilErro as e:
+            raise HTTPException(422, "perfil inválido: " + "; ".join(e.erros))
+        folha = PF.folha_com_perfil(folha, pc, M.culturas_disponiveis())
+        ctx = PF.contexto_com_perfil(ctx, pc)
     return chat_mod.responder_chat(req.pergunta, contexto=ctx, folha=folha)
 
 

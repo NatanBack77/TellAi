@@ -20,7 +20,10 @@ from src.modelos.walkforward import VARIANTES, extra_persistencia, walk_forward
 
 @pytest.fixture(scope="module")
 def cfg():
-    return carregar_config()
+    cfg = carregar_config()
+    # dados SINTÉTICOS (anos 2005-2019): sem os anos fixos da produção (config.yaml); vale `holdout_anos` (últimos N anos presentes)
+    cfg["preditivo"].pop("anos_treino", None), cfg["preditivo"].pop("anos_holdout", None)
+    return cfg
 
 
 @pytest.fixture(scope="module")

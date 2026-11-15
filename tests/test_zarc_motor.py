@@ -45,13 +45,16 @@ def test_sem_zarc_vira_lacuna_nunca_inventa(geo):
 
 
 def test_parametros_validam_zarc():
-    assert Parametros().usar_zarc is False                             # padrão desligado
+    assert Parametros().usar_zarc is True and Parametros().epoca_modo == "zarc_ou_ciclo"   # padrão (2026-11-14): ZARC ligado + época por ZARC/ciclo
+    with pytest.raises(ValueError):
+        Parametros(epoca_modo="x")
     with pytest.raises(ValueError):
         Parametros(zarc_risco=25)
     with pytest.raises(ValueError):
         Parametros(zarc_solo="x")
     assert any("ZARC LIGADO" in s for s in Parametros(usar_zarc=True).suposicoes())
-    assert not any("ZARC LIGADO" in s for s in Parametros().suposicoes())
+    assert not any("ZARC LIGADO" in s for s in Parametros(usar_zarc=False).suposicoes())
+    assert any("ZARC DESLIGADO" in s for s in Parametros(usar_zarc=False).suposicoes())
 
 
 @pytest.fixture(scope="module")
@@ -67,14 +70,14 @@ def clima(geo):
 
 
 def test_desligado_nao_muda_nada(tab, clima):
-    a = ciclo.notas_ciclo(tab, "milho", clima, Parametros())
+    a = ciclo.notas_ciclo(tab, "milho", clima, Parametros(usar_zarc=False))
     b = ciclo.notas_ciclo(tab, "milho", clima, dataclasses.replace(Parametros(), usar_zarc=False, zarc_risco=40))
     np.testing.assert_array_equal(a["nt"], b["nt"])
     assert a["zarc"] is None
 
 
 def test_zarc_zera_so_inicios_fora_da_janela(tab, clima, geo):
-    p0, p1 = Parametros(), Parametros(usar_zarc=True)
+    p0, p1 = Parametros(usar_zarc=False), Parametros(usar_zarc=True)
     a, b = ciclo.notas_ciclo(tab, "milho", clima, p0), ciclo.notas_ciclo(tab, "milho", clima, p1)
     perm = zarc.janela(geo, "milho", 30)["permitido"]
     ok = perm[zarc.decendios_do_inicio(np.arange(0, 365, p1.passo_inicio_dias))]
@@ -86,8 +89,8 @@ def test_zarc_zera_so_inicios_fora_da_janela(tab, clima, geo):
 
 def test_cultura_sem_zarc_usa_janela_aproximada_das_anuais(tab, clima, geo):
     """Sem isso, as culturas sem ZARC (adubação verde, sorgo) levariam vantagem sobre as zoneadas."""
-    a = ciclo.notas_ciclo(tab, "mucuna", clima, Parametros())
-    b = ciclo.notas_ciclo(tab, "mucuna", clima, Parametros(usar_zarc=True))
+    a = ciclo.notas_ciclo(tab, "mucuna", clima, Parametros(usar_zarc=False))
+    b = ciclo.notas_ciclo(tab, "mucuna", clima, Parametros(usar_zarc=True, epoca_modo="anual_legado"))   # modo anterior mantido
     z = b["zarc"]
     assert z["aplicado"] is True and z["aproximada"] is True and "anuais" in z["aviso"]
     ap = zarc.janela_aproximada_anuais(geo, 30)["permitido"]
@@ -114,3 +117,42 @@ def test_solo_especifico_e_subconjunto_de_qualquer_e_cai_em_qualquer_sem_linhas(
     with pytest.raises(ValueError):
         Parametros(zarc_solo="rochoso")
 
+
+
+# ---------------------------------------------------------------- época: ZARC ou ciclo (decisão 2026-11-14)
+def _mes(inicio: str) -> int:
+    return int(inicio.split("/")[1])
+
+
+def test_epoca_milho_cai_dentro_do_zarc(tab, clima, geo):
+    p = Parametros()
+    av = ciclo.notas_ciclo(tab, "milho", clima, p)
+    r = ciclo.resumir(av, ciclo.anos_comuns([av], clima), p)
+    perm = zarc.janela(geo, "milho", 30)["permitido"]
+    assert perm[min(r["k"] * p.passo_inicio_dias // 10, 35)]          # o melhor início é um decêndio indicado pelo ZARC
+
+
+def test_cultura_sem_zarc_nao_restringe_e_declara_ciclo_aproximado(tab, clima):
+    from src.culturas import motor
+    p = Parametros()
+    av = ciclo.notas_ciclo(tab, "guandu", clima, p)
+    assert av["zarc"]["aplicado"] is False and av["epoca"] is not None
+    assert motor._origem_epoca(av, p)["epoca_fonte"] == "ciclo_aproximado"
+    assert "sem zoneamento oficial" in motor._origem_epoca(av, p)["epoca_rotulo"]
+    r = ciclo.resumir(av, ciclo.anos_comuns([av], clima), p)
+    assert r["adeq_media"] >= 0
+
+
+def test_epoca_legado_reproduz_comportamento_anterior(tab, clima):
+    a = ciclo.notas_ciclo(tab, "milho", clima, Parametros(epoca_modo="anual_legado", usar_zarc=False))
+    assert a["epoca"] is None
+    r = ciclo.resumir(a, ciclo.anos_comuns([a], clima), Parametros(epoca_modo="anual_legado", usar_zarc=False))
+    assert r["adeq_media"] == pytest.approx(float(np.nanmax(r["media_por_inicio"])))     # modo antigo: início = máximo da adequação anual
+
+
+def test_origem_zarc_no_json(tab, clima):
+    from src.culturas import motor
+    p = Parametros()
+    av = ciclo.notas_ciclo(tab, "milho", clima, p)
+    o = motor._origem_epoca(av, p)
+    assert o["epoca_fonte"] == "zarc" and "ZARC" in o["epoca_rotulo"]

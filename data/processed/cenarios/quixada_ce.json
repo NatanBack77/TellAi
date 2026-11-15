@@ -11,13 +11,13 @@
       "milho",
       "milho"
     ],
-    "score": 71.0,
+    "score": 72.4,
     "faixa_incerteza": {
-      "min": 24.8,
-      "max": 92.9,
-      "score_p10": 24.8,
-      "score_p90": 92.9,
-      "score_p50": 62.9,
+      "min": 25.3,
+      "max": 93.4,
+      "score_p10": 25.3,
+      "score_p90": 93.4,
+      "score_p50": 65.6,
       "percentis": [
         10.0,
         90.0
@@ -51,9 +51,9 @@
           "palha",
           "familia_diferente"
         ],
-        "score_p10": 22.5,
-        "score_p90": 70.2,
-        "score_p50": 43.5
+        "score_p10": 22.9,
+        "score_p90": 71.0,
+        "score_p50": 44.9
       },
       "metodo": "Monte Carlo estilo SMAA-2: pesos (Dirichlet) + lacunas ~ U[0,1] + ano do clima",
       "n_sorteios": 10000,
@@ -72,7 +72,7 @@
           "temp_otima_min_c": 18.0,
           "temp_otima_max_c": 33.0,
           "temp_max_abs_c": 47.0,
-          "perfil": 27.789879676441007
+          "perfil": 27.20158850931706
         },
         "unidade": "°C",
         "nota": 1.0,
@@ -81,7 +81,7 @@
         "url": "https://raw.githubusercontent.com/OpenCLIM/ecocrop/ea43ecd418fd1a1ea08d32c7dce64b7fae02dec4/EcoCrop_DB.csv",
         "contexto": "Valor lido do espelho do GitHub; a base oficial (gaez.fao.org/pages/ecocrop) pediu login Google / retornou 503 e NAO foi consultada diretamente.",
         "no_ranking_principal": true,
-        "janela": "início 17/12, 215 dias, média de 23 anos",
+        "janela": "início 10/02, 140 dias, média de 23 anos",
         "evidencia_rag": {
           "sem_evidencia": false,
           "trechos_n": [
@@ -97,16 +97,16 @@
           "chuva_otima_min_mm": 600.0,
           "chuva_otima_max_mm": 1200.0,
           "chuva_max_abs_mm": 1800.0,
-          "perfil": 742.8717391304372
+          "perfil": 783.5243478260932
         },
         "unidade": "mm",
-        "nota": 0.8466898550724765,
+        "nota": 0.8821673913043554,
         "fonte": "FAO EcoCrop (via espelho OpenCLIM/ecocrop, EcoCrop_DB.csv, commit ea43ecd, sha256 4187e884...d48d106)",
         "pagina": "EcoPortCode=2175, coluna RMIN (absolute minimum rainfall)",
         "url": "https://raw.githubusercontent.com/OpenCLIM/ecocrop/ea43ecd418fd1a1ea08d32c7dce64b7fae02dec4/EcoCrop_DB.csv",
         "contexto": "Valor lido do espelho do GitHub; a base oficial (gaez.fao.org/pages/ecocrop) pediu login Google / retornou 503 e NAO foi consultada diretamente. Período de referência da chuva (anual vs. ciclo) NAO verificado na fonte oficial; o código do OpenCLIM compara com a chuva total acumulada no ciclo (ecocrop_testdata_run.py).",
         "no_ranking_principal": true,
-        "janela": "início 17/12, 215 dias, média de 23 anos",
+        "janela": "início 10/02, 365 dias, média de 23 anos",
         "evidencia_rag": {
           "sem_evidencia": false,
           "trechos_n": [
@@ -127,7 +127,8 @@
         "evidencia_rag": {
           "sem_evidencia": false,
           "trechos_n": [
-            4
+            4,
+            5
           ]
         },
         "trecho_n": 4
@@ -144,11 +145,11 @@
         "evidencia_rag": {
           "sem_evidencia": false,
           "trechos_n": [
-            5,
-            6
+            6,
+            7
           ]
         },
-        "trecho_n": 5
+        "trecho_n": 6
       },
       "familia_diferente": {
         "valor": {
@@ -165,15 +166,16 @@
         "evidencia_rag": {
           "sem_evidencia": false,
           "trechos_n": [
-            7,
-            8
+            8,
+            9
           ]
         },
-        "trecho_n": 7
+        "trecho_n": 8
       }
     },
     "lacunas": [
       "clima: 23 de 24 anos entraram (só anos em que todos os ciclos avaliados estão completos).",
+      "Ciclo de Milho: 140 dias = soma dos estágios da Tabela 11 do FAO-56, linha 'Arid Climate (plantio Dec/Jan)' (6 linha(s) na tabela, 125–180 dias; regra: rotulo_arido). É ciclo de referência de outras regiões, NÃO medido no semiárido brasileiro; a cultivar local pode diferir.",
       "umidade do solo: informativa; o motor de culturas não tem critério de solo (não influencia o score)."
     ],
     "riscos_revisao_local": [
@@ -185,15 +187,15 @@
     "trechos": [
       {
         "n": 1,
-        "arquivo": "agrometeoros_zoneamento_metodologias.pdf",
-        "pagina": 9,
-        "texto": "Embrapa Clima Temperado, 2009. 87 p. FRITZONS, E.; WREGE, M.S.; MANTOVANI, L.E. Altitude e temperatura: estudo do gradiente térmico no Rio Grande do Sul. Revista Brasileira de Climatologia, v. 16, p. 108-119, 2015. GIAMBELLUCCA, T.W.; SHUAI, X.; BARNES, M.L.; ALLISS, R.J.; LONGMAN, R.J.; MIURA, T.; CHEN, Q.; FRAZIER, A.G.; MUDD, R.G.; CUO, L.; BUSINGER, A.D. Evapotranspiration Hawai, i Final Report U.S. Army Corps of Engineers – Honolulu District and Commission on Water Resource Management, State of Hawai‘I, Fevereiro de 2014. GONÇALVES, S.L. Riscos de deficiência hídrica e épocas de semeadura de milho (Zea Mays L.) na região dos Campos Gerais do Paraná."
+        "arquivo": "mapa_zarc_ce_milho_1safra_port218_2026.pdf",
+        "pagina": 2,
+        "texto": "Os períodos de plantio e a relação dos municípios favoráveis para o cultivo do milho foram avaliadas e classificadas, de acordo com o nível de risco climático de 20, 30 ou 40%, em função dos seguintes critérios: a) O risco de deficiência hídrica severa ao não atingir o limite mínimo do Índice de satisfação das necessidades de água (ISNA) que deve ser igual ou menor a 0,70 na fase I, e igual ou menor a 0,55 na fase III. b) O risco de ocorrência de temperaturas muito baixas e deletérias à cultura, por meio da probabilidade de ocorrência de temperatura média menor que 18°C na fase 3 no florescimento; c) O risco de ocorrência de temperaturas muito baixas e deletérias à cultura, por meio da probabilidade de ocorrência de temperaturas mínimas menores que 2°C observadas no abrigo meteorológico nas fases 1, 2 e 3; d) O risco de ocorrência de excesso hídrico quando o índice de satisfação das necessidades de água (ISNA) é maior ou igual a 0,90 na fase IV."
       },
       {
         "n": 2,
-        "arquivo": "embrapa_debiasi_diversificacao_especies.pdf",
-        "pagina": 15,
-        "texto": "Tecnologias de produção de soja Região de transição climática Nas regiões de transição entre o clima subtropical e o tropical (norte e oeste do Paraná, sudoeste de São Paulo e sul do Mato Grosso do Sul), o milho 2ª safra tem sido a cultura predominantemente utilizada em sucessão à soja."
+        "arquivo": "mapa_zarc_ce_milho_1safra_port218_2026.pdf",
+        "pagina": 1,
+        "texto": "A temperatura é o principal fator ambiental que regula o desenvolvimento fenológico embora também haja influência da radiação solar, disponibilidade de água e nutrientes. 1.3. O milho apresenta ampla faixa de tolerância térmica, com a germinação ocorrendo de forma adequada acima de 10°C, sendo essa comprometida abaixo desse limiar. O desenvolvimento ideal do milho ocorre na temperatura diurna em torno de 30 a 33 °C e à noite entre 17°C e 23°C, noites frias. Noites quentes e dias quentes não são favoráveis pois aceleram demais o ciclo, causando perdas de rendimento. Em adição, temperaturas superiores a 24oC durante a noite prejudicam o enchimento de grãos."
       },
       {
         "n": 3,
@@ -209,9 +211,9 @@
       },
       {
         "n": 5,
-        "arquivo": "embrapa_cap3_sistema_plantio_direto.pdf",
-        "pagina": 4,
-        "texto": "64 Agricultura de baixo carbono: tecnologias e estratégias de implantação gerando maior probabilidade de erosão, principalmente porque interfere negativamente na estrutura e teores de matéria orgânica do solo, entre outros fatores (Franzluebbers, 2010). com maquinários e combustível. Geralmente o preparo de solo, convencional, é realizado por meio da aração (arado de disco ou aiveca dependendo das condições do solo) e gradagem. Palhada A palhada é oriunda de plantas de cobertura semeadas que são cultivadas anteriormente (resteva). Ou mesmo pela Brasil, atualmente, a principal cultura geradora de palhada é o milho, que é cultivado em sucessão à cultura da soja, semeado chuvoso no cerrado brasileiro."
+        "arquivo": "embrapa_semiarido_adubacao_verde_videira_meloeiro.pdf",
+        "pagina": 11,
+        "texto": "A dosagem de 40 kg ha' de N mineral junto com adubação verde foi tão boa quanto a de 120 kg ha 1 de N mineral sem adubação verde, no que se refere a produção de grãos e acumulação de nutrientes na planta e no solo (Tiwari et ai., 1980). Bruulsema & Christie (1987) verificaram que o rendimento do milho que sucedeu a adubação verde foi influenciado positivamente pelo aumento do nitrogênio disponível e, também, por outros fatores decorrentes da incorporação dos adubos verdes ao solo. Contudo, em trabalho sobre rotação de adubo verde com trigo conduzido por cinco anos, em solo franco-arenoso com menos de 1% de C orgânico, em uma região semi-árida, Pikul Jr. et aI."
       },
       {
         "n": 6,
@@ -221,15 +223,21 @@
       },
       {
         "n": 7,
-        "arquivo": "embrapa_cruz_plantio_direto_sustentabilidade.pdf",
-        "pagina": 11,
-        "texto": "Rotação de de Ciência do Solo, Viçosa, v.24, n.I. p.161-169, jan./mar. culturas. 2000. A cultura CASTRO, Alta, RS: FUNDACEP-FECOTRIGO, a cultura O. M. de. Preparo do milho. do solo para Campinas: Fundação In: CAMPOS, de Fito- B.H.C. de (Coord.). do milho no plantio direto. Cruz 1998. Cap.2, p.7- 14. Cargill, 1989. 41p. (Fundação Cargill. Série Téc- ___ nica,3). de. Fertilidade do solo. ln: CAMPOS, B.H.e. REFERÊNCIAS BIBLIOGRÁFICAS CERETTA, e. A. Manejo da adubação nitro- de (Coord.). A cultura ALMEIDA, F. S. de. Influência da cobertura genada na sucessão aveia/milho, no sistema plan- tio direto."
+        "arquivo": "mapa_zarc_ce_milho_braquiaria_port245_2026.pdf",
+        "pagina": 1,
+        "texto": "No consórcio do milho com braquiária, a forrageira pode ter dupla finalidade, servindo como alimento para a exploração pecuária, a partir do final do verão até início da primavera, e, posteriormente, para formação de palhada no sistema plantio direto. Existe a possibilidade também da utilização da forrageira exclusivamente como planta produtora de palhada, proporcionando cobertura permanente do solo até a semeadura da safra de verão subsequente. 1.7. O consórcio do milho com a braquiária é possível graças ao diferencial de tempo e espaço no acúmulo de biomassa entre as espécies. Os resultados de pesquisas envolvendo o cultivo consorciado de milho com Brachiaria brizantha demonstram a viabilidade deste sistema de produção."
       },
       {
         "n": 8,
-        "arquivo": "pesagro_rio_rural_rotacao_culturas.pdf",
-        "pagina": 12,
-        "texto": "Avaliando o esquema de rotação de culturas para as culturas do feijão e do milho em Campos dos Goyta- cazes-RJ, constatou-se que os teores foliares de N, K, S, Mn, Fe e Cu na cultura do milho e de N, K, Ca e Mn na cultura do feijão comum foram maiores quando se utilizou o esquema de sucessão feijão-deporco/feijão comum/ feijão-de-porco/milho em SSD, quando cultivado sobre palhada remanescente de três cultivos consecutivos com leguminosas. As maiores produtividades do milho e do feijão comum foram obtidas com as sucessões feijão-de-porco/ milho/feijão-de-porco/milho e feijão-de-porco/ feijão comum/feijão-de-porco/milho em SSD."
+        "arquivo": "embrapa_microrganismos_feijoeiro_milho.pdf",
+        "pagina": 1,
+        "texto": "4 INTRODUÇÃO O consórcio de culturas, como feijoeiro/milho, feijoeiro/cana-de-açúcar, soja/milho, e a rotação de culturas, como soja/trigo, soja/milho e feijoeiro/milho, são utilizadas em larga escala. Os benefícios da associação de culturas compreendem o suprimento energético e de nutrientes balanceado, maximização das fontes protéicas, utilização eficiente da água, controle de ervas daninhas e doenças a um baixo custo, controle"
+      },
+      {
+        "n": 9,
+        "arquivo": "embrapa_bogiani_rotacao_palhada_spd.pdf",
+        "pagina": 1,
+        "texto": "A lém destes, proporcionam a produção diversificada de alimentos e outros produtos agrícolas, se adotada e conduzida de modo adequado e por um período sufi c ientemente longo. A rotação de cu ltura com soja! milho+braquiária!a lgodào tem sido a alternativa mai s utilizada na região, pois favorece uma boa formação e manutenção de palhada e aproveitamento da reciclagem de nutrientes no sistema, com excelentes resultados para o potássio e para o nitrogênio. Entretanto, neste sistema de rotação, em virtude do longo período que o algodoeiro permanece no campo, a persistência da palhada formada no ano anterior deve ser alta, para que haja proteção do solo durante tod o este ano de culti vo do algodoeiro e no início da próxima safra de soja, e assim que os beneficios da palhada sejam e fetivos."
       }
     ],
     "viabilidade": "viavel",
@@ -240,58 +248,93 @@
     },
     "janela_plantio": {
       "definicao": "adequação = mínimo(nota de temperatura, nota de chuva) por início de plantio e ano",
-      "melhor_inicio": "17/12",
-      "decendio": 36,
-      "duracao_dias": 215,
+      "melhor_inicio": "10/02",
+      "decendio": 5,
+      "duracao_dias": 140,
       "ciclo_modo": "medio",
-      "chuva_modo": "ciclo",
+      "chuva_modo": "anual",
       "inicios_equivalentes": [
-        "17/12"
+        "10/02"
       ],
-      "adequacao_media": 0.847,
+      "adequacao_media": 0.882,
       "adequacao_entre_anos": {
-        "p10": 0.35,
+        "p10": 0.682,
         "p50": 1.0,
         "p90": 1.0
       },
-      "fracao_anos_viaveis": 0.957,
-      "temp_media_ciclo_c": 27.79,
-      "chuva_ciclo_mm": 742.9,
+      "fracao_anos_viaveis": 0.913,
+      "temp_media_ciclo_c": 27.2,
+      "chuva_ciclo_mm": 572.2,
+      "chuva_comparada_mm": 783.5,
+      "chuva_comparada_janela_dias": 365,
+      "ciclo_fonte": "fao",
+      "ciclo_referencia": {
+        "fonte": "fao",
+        "dias": 140,
+        "dias_min": 125,
+        "dias_max": 180,
+        "n_linhas": 6,
+        "regra": "rotulo_arido",
+        "regiao": "Arid Climate (plantio Dec/Jan)",
+        "pagina": "Cap. 6, Tabela 11 [Maize (grain); plantio Dec/Jan; Arid Climate]",
+        "url": "https://www.fao.org/4/x0490e/x0490e0b.htm",
+        "total_impresso": 140,
+        "soma_confere_total": true
+      },
+      "ciclo_ecocrop_min_max": [
+        65.0,
+        365.0
+      ],
       "anos": [
         2001,
         2023,
         23
       ],
+      "epoca_fonte": "zarc",
+      "epoca_rotulo": "ZARC (MAPA), risco 30, solo 'qualquer', 3 decêndios indicados",
+      "epoca_detalhe": {
+        "aplicado": true,
+        "recurso": "safra_2026_2027",
+        "risco": 30,
+        "solo": "qualquer",
+        "decendios_permitidos": 3,
+        "inicios_permitidos": 3,
+        "aproximada": false,
+        "aviso": null
+      },
       "sensibilidade_ciclo": {
         "min": {
-          "duracao_dias": 65,
-          "melhor_inicio": "02/03",
-          "adequacao_media": 0.119
+          "duracao_dias": 125,
+          "melhor_inicio": "10/02",
+          "adequacao_media": 0.882
         },
         "max": {
-          "duracao_dias": 365,
-          "melhor_inicio": "10/07",
-          "adequacao_media": 0.907
+          "duracao_dias": 180,
+          "melhor_inicio": "10/02",
+          "adequacao_media": 0.882
         }
       },
-      "chuva_sobre_demanda_hidrica": 1.49,
+      "chuva_sobre_demanda_hidrica": 1.14,
+      "atendimento_hidrico_nota": "INFORMAÇÃO (decisão do usuário): chuva do ciclo sobre a demanda da tabela; não entra no ranking nem na nota de chuva. ETc = Kc x ETo não está no motor (só no experimento).",
       "demanda_hidrica_mm_ciclo": 500.0
     },
     "ranking_nota": "Ranking principal só pelos critérios que TODAS as candidatas têm; N na biomassa e palha ficam à parte (informação), sem prêmio nem castigo por lacuna.",
     "suposicoes": [
       "Pesos dos critérios são proposta de projeto (não vêm de fonte).",
-      "Nota climática trapezoidal (0 fora da faixa absoluta, 1 na ótima), aplicada à temperatura média e à chuva acumulada no ciclo.",
-      "Faixa de chuva do EcoCrop comparada à chuva do ciclo (definição oficial FAO, anual ou do ciclo, não verificada).",
+      "Nota climática trapezoidal (0 fora da faixa absoluta, 1 na ótima), aplicada à temperatura média do ciclo e à chuva dos 365 dias desde o início do plantio.",
+      "Faixa de chuva do EcoCrop comparada à chuva ANUAL (365 dias desde o início): a descrição oficial do EcoCrop na FAO diz 'annual precipitation'. O atendimento hídrico do ciclo (chuva sobre a demanda) é só informação, não entra no ranking.",
       "Ranking principal usa só os critérios que todas as candidatas têm; N e palha são mostrados à parte, e lacuna vale incerteza, não nota.",
       "Notas de N e palha vêm de estudos distintos (local e idade de corte diferentes): comparação só indicativa.",
-      "SUPOSIÇÃO (decisão do usuário): duração do ciclo = o PONTO MÉDIO entre ciclo_min_dias e ciclo_max_dias. O ciclo real não é conhecido; os extremos do EcoCrop são largos (dezenas a centenas de dias).",
+      "SUPOSIÇÃO (decisão do usuário 2026-11-14): duração do ciclo = o ciclo central da Tabela 11 do FAO-56 (Allen et al. 1998) para as 11 culturas que a FAO cobre (linha escolhida por regra única: rótulo 'Arid' da FAO, senão mediana das linhas; duração = soma dos 4 estágios). É ciclo de referência de OUTRAS regiões (Califórnia, Mediterrâneo, Nigéria, Índia...), não medido no semiárido brasileiro. As culturas sem dado FAO (5, lacuna declarada em data/culturas/fao_staging.csv) mantêm o ciclo do EcoCrop (ponto médio entre ciclo_min_dias e ciclo_max_dias; extremos largos).",
       "SUPOSIÇÃO: inícios de plantio a cada 10 dias desde 1º/jan, avaliados em todos os anos 2001-2024 com ciclo completo (sem preencher dados faltantes).",
-      "SUPOSIÇÃO: chuva comparada à faixa EcoCrop como chuva acumulada durante o ciclo. Se a faixa do EcoCrop for anual (não verificado), ciclos curtos ficam penalizados.",
+      "SUPOSIÇÃO: chuva comparada à faixa EcoCrop como chuva dos 365 dias desde o início do plantio (a descrição oficial do EcoCrop na FAO fala em 'annual precipitation'; o atendimento hídrico do ciclo, chuva sobre a demanda, fica só como informação, fora do ranking). Ficha oficial do EcoCrop não aberta (login): a leitura 'anual' vem da descrição da base, não da ficha da espécie.",
       "Nota de adequação por início e ano = mínimo entre a nota de temperatura (média do ciclo) e a de chuva (fator mais limitante; ideia do modelo EcoCrop descrito no README do OpenCLIM, reimplementada, sem copiar código). A melhor janela é o início com maior adequação média entre anos.",
       "SUPOSIÇÃO (decisão do usuário): nível de risco = até 30% dos anos com nota 0 para a cultura seguir 'viável'. Não é o risco do ZARC (que mede perda de produtividade).",
       "Incerteza (estilo SMAA-2, numpy): 10000 sorteios, semente 20241112. Sorteia pesos (Dirichlet(alfa=1) sobre os critérios), lacunas (nota desconhecida ~ Uniforme[0,1], não removida nem premiada) e o ano do clima. Não é intervalo de confiança nem chance de dar certo na roça.",
+      "SUPOSIÇÃO (decisão do usuário 2026-11-14): a VIABILIDADE segue a chuva anual (faixa do EcoCrop), mas a ÉPOCA de plantio vem do ZARC quando existe indicação para o município e a cultura (ZARC LIGADO (risco 30, solo 'qualquer'); decêndios fora da indicação recebem nota 0) e, quando NÃO há ZARC (cultura sem zoneamento, ponto sem código IBGE ou fora do Ceará), de uma JANELA APROXIMADA pela adequação do ciclo: mínimo(nota de temperatura, nota de chuva anual, atendimento hídrico do ciclo = chuva do ciclo / demanda da tabela, limitado a 1; sem demanda na tabela: chuva do ciclo relativa à do melhor início do próprio local). Essa janela é rotulada 'janela aproximada, sem zoneamento oficial' e NÃO é recomendação agronômica.",
       "SUPOSIÇÃO: pesos sorteados NÃO são preferência de ninguém; os pesos-base do motor são proposta de projeto.",
       "SUPOSIÇÃO: empate técnico = intervalos de score p10-p90 que se sobrepõem. Sem desempate alfabético: empate exato divide a posição igualmente.",
+      "SUPOSIÇÃO (ciclo): Ciclo de Milho: 140 dias = soma dos estágios da Tabela 11 do FAO-56, linha 'Arid Climate (plantio Dec/Jan)' (6 linha(s) na tabela, 125–180 dias; regra: rotulo_arido). É ciclo de referência de outras regiões, NÃO medido no semiárido brasileiro; a cultivar local pode diferir.",
       "Chuva e temperatura do motor = valores DENTRO do ciclo (início de plantio x ano), do clima diário NASA POWER 2001–2024 (célula de ~50 km: pontos da mesma célula têm o mesmo clima).",
       "Temperatura diária = (Tmax+Tmin)/2.",
       "Cultura atual é informada pelo usuário; não é inferida por satélite nem por palpite.",
@@ -332,13 +375,13 @@
     "cultura_atual": "milho",
     "rotacao": [
       "milho",
-      "guandu"
+      "crotalaria_juncea"
     ],
-    "score": 94.3,
+    "score": 98.6,
     "faixa_incerteza": {
-      "min": 79.0,
+      "min": 100.0,
       "max": 100.0,
-      "score_p10": 79.0,
+      "score_p10": 100.0,
       "score_p90": 100.0,
       "score_p50": 100.0,
       "percentis": [
@@ -367,68 +410,64 @@
         }
       },
       "posicao_p10": 2,
-      "posicao_p90": 7,
-      "p_top3": 0.545,
-      "p_1o": 0.228,
-      "posicao_media": 3.91,
+      "posicao_p90": 5,
+      "p_top3": 0.48,
+      "p_1o": 0.135,
+      "posicao_media": 4.12,
       "aceitabilidade_posicao": [
-        0.228,
-        0.147,
-        0.17,
-        0.113,
-        0.093,
-        0.065,
-        0.053,
-        0.062,
-        0.033,
-        0.016,
-        0.01,
-        0.005,
-        0.005,
+        0.135,
+        0.189,
+        0.157,
+        0.11,
+        0.105,
+        0.105,
+        0.098,
+        0.066,
+        0.027,
+        0.008,
+        0.0,
+        0.0,
+        0.0,
         0.0
       ],
       "empate_tecnico_com": [
         "feijao_caupi",
-        "feijao_comum",
-        "sorgo",
-        "milheto",
         "mandioca",
         "algodao",
         "amendoim",
         "girassol",
         "mamona",
         "gergelim",
-        "palma_forrageira",
-        "crotalaria_juncea",
+        "guandu",
+        "feijao_de_porco",
         "mucuna"
       ],
       "empate_tecnico": true,
       "complemento_n_palha": {
-        "posicao_p10": 4,
-        "posicao_p90": 10,
-        "p_top3": 0.066,
-        "p_1o": 0.026,
-        "posicao_media": 7.28,
+        "posicao_p10": 2,
+        "posicao_p90": 5,
+        "p_top3": 0.491,
+        "p_1o": 0.045,
+        "posicao_media": 3.58,
         "aceitabilidade_posicao": [
-          0.026,
+          0.045,
+          0.167,
+          0.279,
+          0.273,
+          0.161,
+          0.06,
           0.013,
-          0.026,
-          0.043,
-          0.066,
-          0.12,
-          0.183,
-          0.217,
-          0.193,
-          0.087,
-          0.011,
-          0.009,
-          0.007,
+          0.001,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
           0.0
         ],
         "empate_tecnico_com": [
           "feijao_caupi",
           "feijao_comum",
-          "sorgo",
           "milheto",
           "mandioca",
           "algodao",
@@ -436,8 +475,9 @@
           "girassol",
           "mamona",
           "gergelim",
+          "guandu",
           "palma_forrageira",
-          "crotalaria_juncea",
+          "feijao_de_porco",
           "mucuna"
         ],
         "empate_tecnico": true,
@@ -448,9 +488,9 @@
           "palha",
           "familia_diferente"
         ],
-        "score_p10": 47.3,
-        "score_p90": 88.7,
-        "score_p50": 69.3
+        "score_p10": 70.2,
+        "score_p90": 93.9,
+        "score_p50": 82.9
       },
       "metodo": "Monte Carlo estilo SMAA-2: pesos (Dirichlet) + lacunas ~ U[0,1] + ano do clima",
       "n_sorteios": 10000,
@@ -465,56 +505,56 @@
     "criterios": {
       "temperatura": {
         "valor": {
-          "temp_min_abs_c": 10.0,
-          "temp_otima_min_c": 18.0,
-          "temp_otima_max_c": 38.0,
-          "temp_max_abs_c": 45.0,
-          "perfil": 27.785814263920805
+          "temp_min_abs_c": 4.0,
+          "temp_otima_min_c": 20.0,
+          "temp_otima_max_c": 30.0,
+          "temp_max_abs_c": 40.0,
+          "perfil": 27.293073122529904
         },
         "unidade": "°C",
         "nota": 1.0,
         "fonte": "FAO EcoCrop (via espelho OpenCLIM/ecocrop, EcoCrop_DB.csv, commit ea43ecd, sha256 4187e884...d48d106)",
-        "pagina": "EcoPortCode=576, coluna TMIN (absolute minimum temperature)",
+        "pagina": "EcoPortCode=801, coluna TMIN (absolute minimum temperature)",
         "url": "https://raw.githubusercontent.com/OpenCLIM/ecocrop/ea43ecd418fd1a1ea08d32c7dce64b7fae02dec4/EcoCrop_DB.csv",
         "contexto": "Valor lido do espelho do GitHub; a base oficial (gaez.fao.org/pages/ecocrop) pediu login Google / retornou 503 e NAO foi consultada diretamente.",
         "no_ranking_principal": true,
-        "janela": "início 17/12, 228 dias, média de 23 anos",
+        "janela": "início 10/02, 110 dias, média de 23 anos",
+        "evidencia_rag": {
+          "sem_evidencia": true,
+          "trechos_n": []
+        },
+        "trecho_n": null,
+        "lacuna_evidencia": "sem evidência no acervo para este critério"
+      },
+      "chuva": {
+        "valor": {
+          "chuva_min_abs_mm": 200.0,
+          "chuva_otima_min_mm": 500.0,
+          "chuva_otima_max_mm": 1500.0,
+          "chuva_max_abs_mm": 4300.0,
+          "perfil": 783.5243478260932
+        },
+        "unidade": "mm",
+        "nota": 0.9633376811594272,
+        "fonte": "FAO EcoCrop (via espelho OpenCLIM/ecocrop, EcoCrop_DB.csv, commit ea43ecd, sha256 4187e884...d48d106)",
+        "pagina": "EcoPortCode=801, coluna RMIN (absolute minimum rainfall)",
+        "url": "https://raw.githubusercontent.com/OpenCLIM/ecocrop/ea43ecd418fd1a1ea08d32c7dce64b7fae02dec4/EcoCrop_DB.csv",
+        "contexto": "Valor lido do espelho do GitHub; a base oficial (gaez.fao.org/pages/ecocrop) pediu login Google / retornou 503 e NAO foi consultada diretamente. Período de referência da chuva (anual vs. ciclo) NAO verificado na fonte oficial; o código do OpenCLIM compara com a chuva total acumulada no ciclo (ecocrop_testdata_run.py).",
+        "no_ranking_principal": true,
+        "janela": "início 10/02, 365 dias, média de 23 anos",
         "evidencia_rag": {
           "sem_evidencia": false,
           "trechos_n": [
-            1
+            1,
+            2
           ]
         },
         "trecho_n": 1
       },
-      "chuva": {
-        "valor": {
-          "chuva_min_abs_mm": 400.0,
-          "chuva_otima_min_mm": 600.0,
-          "chuva_otima_max_mm": 1500.0,
-          "chuva_max_abs_mm": 4000.0,
-          "perfil": 752.6565217391326
-        },
-        "unidade": "mm",
-        "nota": 0.852502173913053,
-        "fonte": "FAO EcoCrop (via espelho OpenCLIM/ecocrop, EcoCrop_DB.csv, commit ea43ecd, sha256 4187e884...d48d106)",
-        "pagina": "EcoPortCode=576, coluna RMIN (absolute minimum rainfall)",
-        "url": "https://raw.githubusercontent.com/OpenCLIM/ecocrop/ea43ecd418fd1a1ea08d32c7dce64b7fae02dec4/EcoCrop_DB.csv",
-        "contexto": "Valor lido do espelho do GitHub; a base oficial (gaez.fao.org/pages/ecocrop) pediu login Google / retornou 503 e NAO foi consultada diretamente. Período de referência da chuva (anual vs. ciclo) NAO verificado na fonte oficial; o código do OpenCLIM compara com a chuva total acumulada no ciclo (ecocrop_testdata_run.py).",
-        "no_ranking_principal": true,
-        "janela": "início 17/12, 228 dias, média de 23 anos",
-        "evidencia_rag": {
-          "sem_evidencia": false,
-          "trechos_n": [
-            2
-          ]
-        },
-        "trecho_n": 2
-      },
       "n_na_biomassa": {
-        "valor": 142.9,
+        "valor": 196.9,
         "unidade": "kg/ha",
-        "nota": 0.29333333333333333,
+        "nota": 0.5374011299435029,
         "fonte": "Silva et al. 2011, Cadernos de Agroecologia v.6 n.2 (resumo 10413, VII CBA), Selvíria-MS, 70 dias após semeadura",
         "pagina": "p.3, Tabela 1",
         "url": "https://revista.aba-agroecologia.org.br/cad/article/download/10413/7117/50413",
@@ -529,9 +569,9 @@
         "trecho_n": 3
       },
       "palha": {
-        "valor": 6130.0,
+        "valor": 11250.0,
         "unidade": "kg/ha",
-        "nota": 0.2900595392182242,
+        "nota": 0.6214082319440849,
         "fonte": "Silva et al. 2011, Cadernos de Agroecologia v.6 n.2 (resumo 10413, VII CBA), Selvíria-MS, 70 dias após semeadura",
         "pagina": "p.3, Tabela 1",
         "url": "https://revista.aba-agroecologia.org.br/cad/article/download/10413/7117/50413",
@@ -554,7 +594,7 @@
         "unidade": "texto",
         "nota": 1.0,
         "fonte": "FAO EcoCrop (via espelho OpenCLIM/ecocrop, EcoCrop_DB.csv, commit ea43ecd, sha256 4187e884...d48d106)",
-        "pagina": "EcoPortCode=576, coluna FAMNAME (último nível)",
+        "pagina": "EcoPortCode=801, coluna FAMNAME (último nível)",
         "url": "https://raw.githubusercontent.com/OpenCLIM/ecocrop/ea43ecd418fd1a1ea08d32c7dce64b7fae02dec4/EcoCrop_DB.csv",
         "contexto": "Valor lido do espelho do GitHub; a base oficial (gaez.fao.org/pages/ecocrop) pediu login Google / retornou 503 e NAO foi consultada diretamente.",
         "no_ranking_principal": true,
@@ -569,8 +609,10 @@
     },
     "lacunas": [
       "clima: 23 de 24 anos entraram (só anos em que todos os ciclos avaliados estão completos).",
-      "Empate técnico (intervalos de score p10-p90 se sobrepõem) com: feijao_caupi, feijao_comum, sorgo, milheto, mandioca, algodao, amendoim, girassol, mamona, gergelim, palma_forrageira, crotalaria_juncea, mucuna. A ordem entre elas não tem base nos dados.",
-      "umidade do solo: informativa; o motor de culturas não tem critério de solo (não influencia o score)."
+      "Ciclo de Crotalária juncea: 110 dias (sem dado FAO para esta cultura (lacuna): mantém o ciclo do EcoCrop; intervalo EcoCrop 60–160 d). Não é medido no semiárido; a cultivar local pode diferir.",
+      "Empate técnico (intervalos de score p10-p90 se sobrepõem) com: feijao_caupi, mandioca, algodao, amendoim, girassol, mamona, gergelim, guandu, feijao_de_porco, mucuna. A ordem entre elas não tem base nos dados.",
+      "umidade do solo: informativa; o motor de culturas não tem critério de solo (não influencia o score).",
+      "sem evidência no acervo para: temperatura"
     ],
     "riscos_revisao_local": [
       "Dados de satélite têm resolução de km; o talhão pode diferir do pixel.",
@@ -581,15 +623,15 @@
     "trechos": [
       {
         "n": 1,
-        "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
-        "pagina": 233,
-        "texto": "No início da armazenagem, a temperatura dos grãos normal­ mente é igual à do ambiente; porém, com o passar do tempo, a tendência é que ocorra um aumento natural dessa temperatura na massa de grãos, devendo, portanto, ser reduzida, para evitar aumento da respiração das sementes e sua rápida deterioração. 475 Em clima muito seco, há uma maneira específica para secar sementes (grãos) de feijão-caupi? Para produtos com teor de umidade entre 14% e 16%, a seca­ gem pode ser substituída por aeração em silos ventilados, onde as sementes perdem a umidade mais lentamente. 476 É aconselhável fazer uma pré-limpeza do feijão-caupi antes da secagem artificial?"
+        "arquivo": "pab_milho_sucessao_adubos_verdes.pdf",
+        "pagina": 6,
+        "texto": "Porém, no segundo ano de cultivo, após o florescimento da cultura, houve ocorrência de poucas chuvas e grandes períodos de estiagem (Figura 1), o que prejudicou sensivelmente o enchimento dos grãos, em todos os tratamentos, já que, de acordo com Eck (1986), as fases mais sensíveis à deficiência hídrica na cultura do milho, em ordem decrescente, são: florescimento, enchimento de grãos e desenvolvimento vegetativo. Conclusões 1. A crotalária cultivada na primavera proporciona maior produtividade do milho em sucessão comparada à área de pousio, em ano com precipitação normal, tanto em plantio direto, quanto no sistema de preparo convencional do solo."
       },
       {
         "n": 2,
-        "arquivo": "univasf_ciclagem_nutrientes_semiarido.pdf",
-        "pagina": 47,
-        "texto": "Figura 1 Precipitação pluviométrica mensal acumulada (mm), temperaturas máxima (T máxima), mínima (T mínima) e média (T média) do ar em °C durante os meses de realização do experimento, de novembro de 2016 a março de 2018. Dados da estação meteorológica de Petrolina, PE. FONTE: http://www.labmet.univasf.edu.br O experimento foi conduzido em parcelas subdivididas, com três repetições, sendo as parcelas representadas por diferentes composições de plantas de cobertura: Guandu (Cajanus cajan L.); Milheto (Pennisetum americanum L.); Guandu + Milheto"
+        "arquivo": "rbcs_faria_adubacao_verde_videira.pdf",
+        "pagina": 4,
+        "texto": "Em 18/06/1996, foram transplantadas as mudas de videira do porta-enxerto IAC-572 no espaçamento de 4 x 2 m e, em 27/06/1997, foi realizada a enxertia com o cultivar Itália, no sistema de latada. A irrigação foi feita por microaspersão, com freqüência diária. A lâmina de água aplicada baseou-se na evaporação do tanque classe A, no coeficiente da cultura e no coeficiente de uniformidade de precipitação. O delineamento experimental foi em blocos ao acaso com esquema de subparcela em faixa. O primeiro experimento foi realizado até à quarta safra de uva, com cinco tratamentos e cinco repetições. Os tratamentos foram representados por duas leguminosas: crotalária (Crotalaria juncea) e feijãode-porco (Canavalia ensiformis), submetidas a dois manejos (subtratamentos): a) ceifada e deixada na superfície do terreno e b) ceifada e incorporada ao 643 solo, havendo ainda uma testemunha sem leguminosa."
       },
       {
         "n": 3,
@@ -600,20 +642,20 @@
       {
         "n": 4,
         "arquivo": "univasf_ciclagem_nutrientes_semiarido.pdf",
-        "pagina": 28,
-        "texto": "Quantidade de sementes das espécies de adubos verdes utilizadas na composição dos tratamentos em quilogramas por hectare (kg ha-1) Tratamentos Guandu Milheto Guandu + Milheto Guandu+Milheto+Sorgo+Crotalária Guandu+Milheto+Sorgo+Milho Guandu+Milheto+Crotalária+FP *FP= Feijão-de-porco Guandu Milheto Sorgo Crotalária kg ha-1 Milho FP 5,10 5,10 5,10 5,10 5,10 1,65 1,65 1,65 1,65 1,65 1,88 1,88 3,38 13,50 3,38 28,50 Aos 75 dias após a semeadura (DAS), quando as plantas de cobertura atingiram o pleno florescimento, realizou-se a avaliação da produção de fitomassa de parte aérea. Em cada parcela, foram abertos dois quadrantes de 1,0 m 2 e a parte aérea das plantas de cobertura foram cortadas rente ao solo, com roçadeira portátil, e separada"
+        "pagina": 43,
+        "texto": "O experimento foi conduzido em parcelas subdivididas, com três repetições, e parcelas representadas por sete combinações de plantas de cobertura: Guandu (Cajanus cajan L.); Milheto (Pennisetum americanum L.); Guandu + Milheto; Guandu + Milheto + Sorgo (Sorghum bicolor L.) + Crotalária (Crotalaria juncea); Milho (Zea mays L.) + Milheto + Sorgo + Guandu; Guandu + Crotalária + Milheto + Feijão de porco (Canavalia ensiformes); Vegetação espontânea (VE), e as subparcelas pelos tempos de coleta do material ( 7, 15, 30, 45, 60, 90, 120, 150, 180 e 412) dias após a deposição do material no solo (DAD), adotando o método dos “litter bags”."
       },
       {
         "n": 5,
         "arquivo": "univasf_ciclagem_nutrientes_semiarido.pdf",
-        "pagina": 62,
-        "texto": "4.6. CONCLUSÕES Com exceção da VE e do feijão guandu em cultivo solteiro, as demais espécies de plantas de cobertura apresentaram acúmulo de nutrientes em quantidades satisfatórias para atender a demanda do cultivo de mangueira na fase de plantio e de formação. Em geral a dinâmica de liberação dos nutrientes presentes nos resíduos vegetais seguiu a ordem: K > N > Mg > Ca > P. Com exceção do P, independente da composição dos resíduos vegetais, 50% da quantidade inicial dos macronutrientes nos resíduos foram liberados para o solo nos primeiros 30 dias após a deposição dos resíduos vegetais no solo."
+        "pagina": 39,
+        "texto": "Agric Ecosyst Environ, 254: 50–59 CRUSCIOL CAC, MORO E, LIMA E, ANDREOTTI M (2008) Taxas de decomposição e de liberação de macronutrientes da palhada de aveia preta em plantio direto. Bragantia, 67 (02): 261-266 CRUZ-SILVA CTA, MATIAZZO EB, PACHECO FP, NÓBREGA LHP (2015) Allelopathy of Crotalaria juncea L. aqueous extracts on germination and initial development of maize. Idesia Arica, 33: 27–32 EO J, PARK K-C, KIM M-H (2015) Plant-specific effects of sunn hemp (Crotalaria juncea) and sudex (Sorghum bicolor var. sudanense) on the abundance and composition of soil microbial community. Agric Ecosyst Environ, 213:"
       },
       {
         "n": 6,
-        "arquivo": "pesagro_rio_rural_rotacao_culturas.pdf",
-        "pagina": 12,
-        "texto": "Avaliando o esquema de rotação de culturas para as culturas do feijão e do milho em Campos dos Goyta- cazes-RJ, constatou-se que os teores foliares de N, K, S, Mn, Fe e Cu na cultura do milho e de N, K, Ca e Mn na cultura do feijão comum foram maiores quando se utilizou o esquema de sucessão feijão-deporco/feijão comum/ feijão-de-porco/milho em SSD, quando cultivado sobre palhada remanescente de três cultivos consecutivos com leguminosas. As maiores produtividades do milho e do feijão comum foram obtidas com as sucessões feijão-de-porco/ milho/feijão-de-porco/milho e feijão-de-porco/ feijão comum/feijão-de-porco/milho em SSD."
+        "arquivo": "embrapa_debiasi_diversificacao_especies.pdf",
+        "pagina": 6,
+        "texto": "Entre essas espécies, destacam-se as pertencentes ao gênero Crotalaria, como C. spectabilis e C. ochroleuca (Dias et al., 2010). Doenças ocasionadas por agentes biotróficos (que necessitam de hospedeiros vivos para sobreviver), como o oídio (Erysiphe diffusa) e a ferrugem-asiática (Phakopsora pachyrhizi) não são afetadas pela rotação de culturas. A rotação de culturas é menos eficiente no controle de doenças causadas por fitopatógenos de solo que apresentem estruturas de resistência (escleródios, clamidosporos e oósporos) em comparação aqueles que não possuem essas estruturas, pois o tempo necessário sem culturas hospedeiras para redução expressiva desses patógenos é grande (Santos;"
       }
     ],
     "viabilidade": "viavel",
@@ -624,58 +666,78 @@
     },
     "janela_plantio": {
       "definicao": "adequação = mínimo(nota de temperatura, nota de chuva) por início de plantio e ano",
-      "melhor_inicio": "17/12",
-      "decendio": 36,
-      "duracao_dias": 228,
+      "melhor_inicio": "10/02",
+      "decendio": 5,
+      "duracao_dias": 110,
       "ciclo_modo": "medio",
-      "chuva_modo": "ciclo",
+      "chuva_modo": "anual",
       "inicios_equivalentes": [
-        "17/12"
+        "10/02"
       ],
-      "adequacao_media": 0.853,
+      "adequacao_media": 0.963,
       "adequacao_entre_anos": {
-        "p10": 0.373,
+        "p10": 1.0,
         "p50": 1.0,
         "p90": 1.0
       },
-      "fracao_anos_viaveis": 0.957,
-      "temp_media_ciclo_c": 27.79,
-      "chuva_ciclo_mm": 752.7,
+      "fracao_anos_viaveis": 1.0,
+      "temp_media_ciclo_c": 27.29,
+      "chuva_ciclo_mm": 509.0,
+      "chuva_comparada_mm": 783.5,
+      "chuva_comparada_janela_dias": 365,
+      "ciclo_fonte": "fao",
+      "ciclo_referencia": {
+        "fonte": "ecocrop",
+        "dias": 110,
+        "motivo": "sem dado FAO para esta cultura (lacuna): mantém o ciclo do EcoCrop"
+      },
+      "ciclo_ecocrop_min_max": [
+        60.0,
+        160.0
+      ],
       "anos": [
         2001,
         2023,
         23
       ],
+      "epoca_fonte": "ciclo_aproximado",
+      "epoca_rotulo": "janela aproximada, sem zoneamento oficial (cultura 'crotalaria_juncea' sem correspondência clara no ZARC (ou sem ZARC))",
+      "epoca_motivo": "cultura 'crotalaria_juncea' sem correspondência clara no ZARC (ou sem ZARC)",
+      "epoca_agua": "relativa_ao_melhor_inicio",
+      "epoca_criterio": "mínimo(temperatura do ciclo, chuva anual, chuva do ciclo / demanda); não é recomendação agronômica",
       "sensibilidade_ciclo": {
         "min": {
-          "duracao_dias": 90,
-          "melhor_inicio": "10/02",
-          "adequacao_media": 0.344
+          "duracao_dias": 60,
+          "melhor_inicio": "02/03",
+          "adequacao_media": 0.97
         },
         "max": {
-          "duracao_dias": 365,
-          "melhor_inicio": "30/06",
-          "adequacao_media": 0.912
+          "duracao_dias": 160,
+          "melhor_inicio": "27/12",
+          "adequacao_media": 0.977
         }
       },
       "chuva_sobre_demanda_hidrica": null,
+      "atendimento_hidrico_nota": "INFORMAÇÃO (decisão do usuário): chuva do ciclo sobre a demanda da tabela; não entra no ranking nem na nota de chuva. ETc = Kc x ETo não está no motor (só no experimento).",
       "demanda_hidrica_mm_ciclo": null
     },
     "ranking_nota": "Ranking principal só pelos critérios que TODAS as candidatas têm; N na biomassa e palha ficam à parte (informação), sem prêmio nem castigo por lacuna.",
     "suposicoes": [
       "Pesos dos critérios são proposta de projeto (não vêm de fonte).",
-      "Nota climática trapezoidal (0 fora da faixa absoluta, 1 na ótima), aplicada à temperatura média e à chuva acumulada no ciclo.",
-      "Faixa de chuva do EcoCrop comparada à chuva do ciclo (definição oficial FAO, anual ou do ciclo, não verificada).",
+      "Nota climática trapezoidal (0 fora da faixa absoluta, 1 na ótima), aplicada à temperatura média do ciclo e à chuva dos 365 dias desde o início do plantio.",
+      "Faixa de chuva do EcoCrop comparada à chuva ANUAL (365 dias desde o início): a descrição oficial do EcoCrop na FAO diz 'annual precipitation'. O atendimento hídrico do ciclo (chuva sobre a demanda) é só informação, não entra no ranking.",
       "Ranking principal usa só os critérios que todas as candidatas têm; N e palha são mostrados à parte, e lacuna vale incerteza, não nota.",
       "Notas de N e palha vêm de estudos distintos (local e idade de corte diferentes): comparação só indicativa.",
-      "SUPOSIÇÃO (decisão do usuário): duração do ciclo = o PONTO MÉDIO entre ciclo_min_dias e ciclo_max_dias. O ciclo real não é conhecido; os extremos do EcoCrop são largos (dezenas a centenas de dias).",
+      "SUPOSIÇÃO (decisão do usuário 2026-11-14): duração do ciclo = o ciclo central da Tabela 11 do FAO-56 (Allen et al. 1998) para as 11 culturas que a FAO cobre (linha escolhida por regra única: rótulo 'Arid' da FAO, senão mediana das linhas; duração = soma dos 4 estágios). É ciclo de referência de OUTRAS regiões (Califórnia, Mediterrâneo, Nigéria, Índia...), não medido no semiárido brasileiro. As culturas sem dado FAO (5, lacuna declarada em data/culturas/fao_staging.csv) mantêm o ciclo do EcoCrop (ponto médio entre ciclo_min_dias e ciclo_max_dias; extremos largos).",
       "SUPOSIÇÃO: inícios de plantio a cada 10 dias desde 1º/jan, avaliados em todos os anos 2001-2024 com ciclo completo (sem preencher dados faltantes).",
-      "SUPOSIÇÃO: chuva comparada à faixa EcoCrop como chuva acumulada durante o ciclo. Se a faixa do EcoCrop for anual (não verificado), ciclos curtos ficam penalizados.",
+      "SUPOSIÇÃO: chuva comparada à faixa EcoCrop como chuva dos 365 dias desde o início do plantio (a descrição oficial do EcoCrop na FAO fala em 'annual precipitation'; o atendimento hídrico do ciclo, chuva sobre a demanda, fica só como informação, fora do ranking). Ficha oficial do EcoCrop não aberta (login): a leitura 'anual' vem da descrição da base, não da ficha da espécie.",
       "Nota de adequação por início e ano = mínimo entre a nota de temperatura (média do ciclo) e a de chuva (fator mais limitante; ideia do modelo EcoCrop descrito no README do OpenCLIM, reimplementada, sem copiar código). A melhor janela é o início com maior adequação média entre anos.",
       "SUPOSIÇÃO (decisão do usuário): nível de risco = até 30% dos anos com nota 0 para a cultura seguir 'viável'. Não é o risco do ZARC (que mede perda de produtividade).",
       "Incerteza (estilo SMAA-2, numpy): 10000 sorteios, semente 20241112. Sorteia pesos (Dirichlet(alfa=1) sobre os critérios), lacunas (nota desconhecida ~ Uniforme[0,1], não removida nem premiada) e o ano do clima. Não é intervalo de confiança nem chance de dar certo na roça.",
+      "SUPOSIÇÃO (decisão do usuário 2026-11-14): a VIABILIDADE segue a chuva anual (faixa do EcoCrop), mas a ÉPOCA de plantio vem do ZARC quando existe indicação para o município e a cultura (ZARC LIGADO (risco 30, solo 'qualquer'); decêndios fora da indicação recebem nota 0) e, quando NÃO há ZARC (cultura sem zoneamento, ponto sem código IBGE ou fora do Ceará), de uma JANELA APROXIMADA pela adequação do ciclo: mínimo(nota de temperatura, nota de chuva anual, atendimento hídrico do ciclo = chuva do ciclo / demanda da tabela, limitado a 1; sem demanda na tabela: chuva do ciclo relativa à do melhor início do próprio local). Essa janela é rotulada 'janela aproximada, sem zoneamento oficial' e NÃO é recomendação agronômica.",
       "SUPOSIÇÃO: pesos sorteados NÃO são preferência de ninguém; os pesos-base do motor são proposta de projeto.",
       "SUPOSIÇÃO: empate técnico = intervalos de score p10-p90 que se sobrepõem. Sem desempate alfabético: empate exato divide a posição igualmente.",
+      "SUPOSIÇÃO (ciclo): Ciclo de Crotalária juncea: 110 dias (sem dado FAO para esta cultura (lacuna): mantém o ciclo do EcoCrop; intervalo EcoCrop 60–160 d). Não é medido no semiárido; a cultivar local pode diferir.",
       "Chuva e temperatura do motor = valores DENTRO do ciclo (início de plantio x ano), do clima diário NASA POWER 2001–2024 (célula de ~50 km: pontos da mesma célula têm o mesmo clima).",
       "Temperatura diária = (Tmax+Tmin)/2.",
       "Cultura atual é informada pelo usuário; não é inferida por satélite nem por palpite.",
@@ -718,11 +780,11 @@
       "milho",
       "feijao_caupi"
     ],
-    "score": 93.1,
+    "score": 97.9,
     "faixa_incerteza": {
-      "min": 77.1,
+      "min": 100.0,
       "max": 100.0,
-      "score_p10": 77.1,
+      "score_p10": 100.0,
       "score_p90": 100.0,
       "score_p50": 100.0,
       "percentis": [
@@ -753,31 +815,28 @@
           ]
         }
       },
-      "posicao_p10": 2,
+      "posicao_p10": 3,
       "posicao_p90": 6,
-      "p_top3": 0.523,
-      "p_1o": 0.139,
-      "posicao_media": 3.78,
+      "p_top3": 0.404,
+      "p_1o": 0.135,
+      "posicao_media": 4.34,
       "aceitabilidade_posicao": [
-        0.139,
-        0.219,
-        0.166,
-        0.109,
-        0.119,
-        0.14,
-        0.058,
-        0.03,
-        0.016,
-        0.005,
+        0.135,
+        0.135,
+        0.135,
+        0.129,
+        0.135,
+        0.125,
+        0.106,
+        0.066,
+        0.027,
+        0.008,
         0.0,
         0.0,
         0.0,
         0.0
       ],
       "empate_tecnico_com": [
-        "feijao_comum",
-        "sorgo",
-        "milheto",
         "mandioca",
         "algodao",
         "amendoim",
@@ -785,36 +844,35 @@
         "mamona",
         "gergelim",
         "guandu",
-        "palma_forrageira",
         "crotalaria_juncea",
+        "feijao_de_porco",
         "mucuna"
       ],
       "empate_tecnico": true,
       "complemento_n_palha": {
         "posicao_p10": 2,
-        "posicao_p90": 9,
-        "p_top3": 0.378,
-        "p_1o": 0.086,
-        "posicao_media": 4.96,
+        "posicao_p90": 10,
+        "p_top3": 0.377,
+        "p_1o": 0.089,
+        "posicao_media": 5.07,
         "aceitabilidade_posicao": [
-          0.086,
-          0.164,
-          0.128,
-          0.113,
-          0.115,
+          0.089,
+          0.155,
+          0.133,
+          0.112,
+          0.111,
           0.103,
-          0.085,
-          0.07,
-          0.054,
-          0.047,
-          0.025,
-          0.007,
+          0.078,
+          0.062,
+          0.053,
+          0.045,
+          0.036,
+          0.018,
           0.004,
           0.0
         ],
         "empate_tecnico_com": [
           "feijao_comum",
-          "sorgo",
           "milheto",
           "mandioca",
           "algodao",
@@ -825,6 +883,7 @@
           "guandu",
           "palma_forrageira",
           "crotalaria_juncea",
+          "feijao_de_porco",
           "mucuna"
         ],
         "empate_tecnico": true,
@@ -835,9 +894,9 @@
           "palha",
           "familia_diferente"
         ],
-        "score_p10": 53.9,
-        "score_p90": 94.8,
-        "score_p50": 79.6
+        "score_p10": 57.4,
+        "score_p90": 95.7,
+        "score_p50": 82.5
       },
       "metodo": "Monte Carlo estilo SMAA-2: pesos (Dirichlet) + lacunas ~ U[0,1] + ano do clima",
       "n_sorteios": 10000,
@@ -856,7 +915,7 @@
           "temp_otima_min_c": 25.0,
           "temp_otima_max_c": 35.0,
           "temp_max_abs_c": 40.0,
-          "perfil": 27.50052173913063
+          "perfil": 27.32211956521767
         },
         "unidade": "°C",
         "nota": 1.0,
@@ -865,7 +924,7 @@
         "url": "https://raw.githubusercontent.com/OpenCLIM/ecocrop/ea43ecd418fd1a1ea08d32c7dce64b7fae02dec4/EcoCrop_DB.csv",
         "contexto": "Valor lido do espelho do GitHub; a base oficial (gaez.fao.org/pages/ecocrop) pediu login Google / retornou 503 e NAO foi consultada diretamente.",
         "no_ranking_principal": true,
-        "janela": "início 21/01, 135 dias, média de 23 anos",
+        "janela": "início 10/02, 100 dias, média de 23 anos",
         "evidencia_rag": {
           "sem_evidencia": false,
           "trechos_n": [
@@ -881,24 +940,24 @@
           "chuva_otima_min_mm": 500.0,
           "chuva_otima_max_mm": 1500.0,
           "chuva_max_abs_mm": 4100.0,
-          "perfil": 592.1691304347861
+          "perfil": 783.5243478260932
         },
         "unidade": "mm",
-        "nota": 0.8218413043478331,
+        "nota": 0.9450065217391408,
         "fonte": "FAO EcoCrop (via espelho OpenCLIM/ecocrop, EcoCrop_DB.csv, commit ea43ecd, sha256 4187e884...d48d106)",
         "pagina": "EcoPortCode=2153, coluna RMIN (absolute minimum rainfall)",
         "url": "https://raw.githubusercontent.com/OpenCLIM/ecocrop/ea43ecd418fd1a1ea08d32c7dce64b7fae02dec4/EcoCrop_DB.csv",
         "contexto": "Valor lido do espelho do GitHub; a base oficial (gaez.fao.org/pages/ecocrop) pediu login Google / retornou 503 e NAO foi consultada diretamente. Período de referência da chuva (anual vs. ciclo) NAO verificado na fonte oficial; o código do OpenCLIM compara com a chuva total acumulada no ciclo (ecocrop_testdata_run.py).",
         "no_ranking_principal": true,
-        "janela": "início 21/01, 135 dias, média de 23 anos",
+        "janela": "início 10/02, 365 dias, média de 23 anos",
         "evidencia_rag": {
           "sem_evidencia": false,
           "trechos_n": [
-            3,
-            4
+            2,
+            3
           ]
         },
-        "trecho_n": 3
+        "trecho_n": 2
       },
       "n_na_biomassa": {
         "valor": null,
@@ -912,11 +971,11 @@
         "evidencia_rag": {
           "sem_evidencia": false,
           "trechos_n": [
-            5,
-            6
+            4,
+            5
           ]
         },
-        "trecho_n": 5
+        "trecho_n": 4
       },
       "palha": {
         "valor": null,
@@ -930,11 +989,11 @@
         "evidencia_rag": {
           "sem_evidencia": false,
           "trechos_n": [
-            7,
-            8
+            6,
+            7
           ]
         },
-        "trecho_n": 7
+        "trecho_n": 6
       },
       "familia_diferente": {
         "valor": {
@@ -951,18 +1010,19 @@
         "evidencia_rag": {
           "sem_evidencia": false,
           "trechos_n": [
-            9,
-            10
+            8,
+            9
           ]
         },
-        "trecho_n": 9
+        "trecho_n": 8
       }
     },
     "lacunas": [
       "clima: 23 de 24 anos entraram (só anos em que todos os ciclos avaliados estão completos).",
+      "Ciclo de Feijão-caupi: 100 dias = soma dos estágios da Tabela 11 do FAO-56, linha 'Mediterranean (plantio March)' (1 linha(s) na tabela, 100–100 dias; regra: linha_unica). É ciclo de referência de outras regiões, NÃO medido no semiárido brasileiro; a cultivar local pode diferir. A FAO imprime total 110 d, diferente da soma dos estágios (100 d); usada a soma.",
       "n_na_biomassa: sem dado (lacuna); no complemento do Monte Carlo vale como incerteza U[0,1], fora do ranking principal",
       "palha: sem dado (lacuna); no complemento do Monte Carlo vale como incerteza U[0,1], fora do ranking principal",
-      "Empate técnico (intervalos de score p10-p90 se sobrepõem) com: feijao_comum, sorgo, milheto, mandioca, algodao, amendoim, girassol, mamona, gergelim, guandu, palma_forrageira, crotalaria_juncea, mucuna. A ordem entre elas não tem base nos dados.",
+      "Empate técnico (intervalos de score p10-p90 se sobrepõem) com: mandioca, algodao, amendoim, girassol, mamona, gergelim, guandu, crotalaria_juncea, feijao_de_porco, mucuna. A ordem entre elas não tem base nos dados.",
       "umidade do solo: informativa; o motor de culturas não tem critério de solo (não influencia o score)."
     ],
     "riscos_revisao_local": [
@@ -980,21 +1040,21 @@
       },
       {
         "n": 2,
-        "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
-        "pagina": 232,
-        "texto": "Quanto maior o teor de umidade das sementes, mais baixa deve ser a temperatura inicial de secagem. À medida que a secagem se processa, pode-se aumentar a temperatura, não ultrapassando, entretanto, 42 °C, para que sejam evitados danos fisiológicos à semente. 469 Qual a temperatura ideal de secagem no secador quando o feijão-caupi se destina ao consumo (grãos)? Para evitar danos e gosto desagradável (semelhante ao de café torrado) nos grãos, a temperatura de secagem não deve ultrapassar 50 °C. 470 A textura (grau de maciez ou dureza) do feijão-caupi varia conforme o tempo de armazenamento? Sim."
+        "arquivo": "mapa_zarc_ce_feijao_caupi_port121_2026.pdf",
+        "pagina": 1,
+        "texto": "Temperaturas elevadas prejudicam o crescimento e o desenvolvimento da cultura, exercendo influência sobre o abortamento de flores, o vingamento e a retenção final de vagens, afetando também o número de sementes por vagem. 1.4. O feijão caupi exige um mínimo de 300 mm de precipitação ao longo do ciclo. As limitações hídricas estão mais relacionadas à distribuição pluvial do que à quantidade total de chuvas ocorridas durante o ciclo. O déficit hídrico, da semeadura à emergência e no florescimento/enchimento de vagens, pode ocasionar severa retração do crescimento vegetativo, limitando a produção."
       },
       {
         "n": 3,
-        "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
-        "pagina": 203,
-        "texto": "O feijão-caupi possui boa eficiência no uso da água, condição muito favorável ao cultivo na safrinha que, como se sabe, ocorre no final do período chuvoso, período em que pode ocorrer estresse hídrico. 202"
+        "arquivo": "mapa_zarc_ce_feijao_caupi_port121_2026.pdf",
+        "pagina": 1,
+        "texto": "Neste modelo são consideradas as exigências hídrica e térmica, duração do ciclo, das fases fenológicas e da reserva útil de água dos solos para cultivo desta espécie, bem como dados de precipitação pluviométrica e evapotranspiração de referência de séries com, no mínimo, 15 anos de dados diários registrados em 3.750 estações pluviométricas selecionadas no país. 1.8. Por se tratar de um modelo agroclimático, parte-se do pressuposto que não ocorrerão limitações quanto à fertilidade dos solos e danos às plantas devido à ocorrência de pragas e doenças. 1.9. Para delimitação das áreas aptas ao cultivo do feijão caupi em condições de baixo risco, foram adotados os seguintes parâmetros e variáveis:"
       },
       {
         "n": 4,
         "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
-        "pagina": 27,
-        "texto": "de precipitação. O ideal é que as séries tenham mais de 30 anos de dados diários de chuva. Isso é importante porque se calcula o Isna para uma frequência de ocorrência de 80%, ou seja, 8 anos em cada 10 anos de registros, o que assegura certa margem de segurança ao zoneamento de risco climático. As classes de Isna usadas no zoneamento do feijão-caupi são as seguintes: • Baixo risco (época favorável à semeadura): Isna ≥ 0,50. • Médio risco (época intermediária): 0,40 < Isna < 0,50. • Alto risco (época desfavorável à semeadura): Isna ≤ 0,40. Isso significa que uma determinada data de semeadura é considerada apta ao cultivo de feijão-caupi (baixo risco climático) quando, no mínimo, metade da exigência hídrica da cultura é atendida pela disponibilidade de água no solo."
+        "pagina": 95,
+        "texto": "Além da sua importância alimentar, o feijão-caupi tem alto potencial de utilização na adubação verde, por apresentar algumas das características desejáveis para um bom adubo verde, tais como: rápido crescimento inicial, elevado potencial de fixação biológica do nitrogênio (N), produção de biomassa e acúmulo de N na parte aérea, adaptação local e possibilidade de uso na alimentação animal. Considerado uma opção de fonte de matéria orgânica, o feijão-caupi produz elevada quantidade de biomassa, contribuindo com um aporte de nitrogênio de até 90 kg ha-1 de N. Esse aporte, associado à exploração da FBN e à eficiência desse processo, propicia a introdução do feijão-caupi em solos com baixos teores de matéria orgânica, com bons resultados."
       },
       {
         "n": 5,
@@ -1004,9 +1064,9 @@
       },
       {
         "n": 6,
-        "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
-        "pagina": 95,
-        "texto": "Além da sua importância alimentar, o feijão-caupi tem alto potencial de utilização na adubação verde, por apresentar algumas das características desejáveis para um bom adubo verde, tais como: rápido crescimento inicial, elevado potencial de fixação biológica do nitrogênio (N), produção de biomassa e acúmulo de N na parte aérea, adaptação local e possibilidade de uso na alimentação animal. Considerado uma opção de fonte de matéria orgânica, o feijão-caupi produz elevada quantidade de biomassa, contribuindo com um aporte de nitrogênio de até 90 kg ha-1 de N. Esse aporte, associado à exploração da FBN e à eficiência desse processo, propicia a introdução do feijão-caupi em solos com baixos teores de matéria orgânica, com bons resultados."
+        "arquivo": "pesagro_rio_rural_rotacao_culturas.pdf",
+        "pagina": 9,
+        "texto": "De acordo com Boller e Caldato (2001), a palhada de centeio chega a cobrir 78% da superfície do solo, proporcionando maior proteção contra a erosão. A palhada de mucuna preta proporcionou benefícios na nodulação mais eficientes na cultura do feijão e, consequentemente, maior acúmulo de N e matéria seca nas plantas de feijão (ABBOUD; DUQUE, 1986). Esse fato, certamente, está relacionado com as condições favoráveis de temperatura e umidade no solo promovido pela palha em cobertura. As diferentes palhadas das plantas de cobertura influenciam diretamente o rendimento de grãos da cultura do feijoeiro, sendo mais afetado pela espécie produtora de palha que pela sua forma de cultivo (OLIVEIRA et al., 2002)."
       },
       {
         "n": 7,
@@ -1017,17 +1077,11 @@
       {
         "n": 8,
         "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
-        "pagina": 74,
-        "texto": "Para diminuir o escoamento superficial em lavouras de feijão-caupi, deve-se agir em duas direções: aumentar a cobertura do solo e criar barreiras físicas ao escoamento. 73"
-      },
-      {
-        "n": 9,
-        "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
         "pagina": 136,
         "texto": "Considerando os aspectos fitossanitários, econômicos, de ocu­ pação de espaços, de aproveitamento de resíduos para fertilização, e considerando ainda que o sistema de irrigação mais indicado para o feijão-caupi é a aspersão convencional, as culturas preferenciais para rotação são gramíneas, como milho, sorgo e milheto. As culturas de girassol, gergelim e algodão também podem ser rotacionadas com o feijão-caupi. 135"
       },
       {
-        "n": 10,
+        "n": 9,
         "arquivo": "embrapa_meionorte_feijaocaupi_produtor_pergunta.pdf",
         "pagina": 136,
         "texto": "Em pesquisas conduzidas na Embrapa Meio-Norte (Teresina, PI), em solo Argissolo Amarelo, constatou-se que a população de plantas de feijão-caupi que permite a obtenção de elevadas produtividades de grãos (acima de 1.500 kg ha-1), para a cultivar BRS Itaim (porte ereto) sob irrigação, é de 240 mil plantas por hectare (OLIVEIRA, 2013). 248 Que culturas podem ser utilizadas em rotação para alcan­ çar um melhor aproveitamento da área irrigada com feijão-caupi? Considerando os aspectos fitossanitários, econômicos, de ocu­ pação de espaços, de aproveitamento de resíduos para fertilização, e considerando ainda que o sistema de irrigação mais indicado para o feijão-caupi é a aspersão convencional, as culturas preferenciais para rotação são gramíneas, como milho, sorgo e milheto."
@@ -1041,58 +1095,93 @@
     },
     "janela_plantio": {
       "definicao": "adequação = mínimo(nota de temperatura, nota de chuva) por início de plantio e ano",
-      "melhor_inicio": "21/01",
-      "decendio": 3,
-      "duracao_dias": 135,
+      "melhor_inicio": "10/02",
+      "decendio": 5,
+      "duracao_dias": 100,
       "ciclo_modo": "medio",
-      "chuva_modo": "ciclo",
+      "chuva_modo": "anual",
       "inicios_equivalentes": [
-        "21/01"
+        "10/02"
       ],
-      "adequacao_media": 0.822,
+      "adequacao_media": 0.945,
       "adequacao_entre_anos": {
-        "p10": 0.368,
+        "p10": 1.0,
         "p50": 1.0,
         "p90": 1.0
       },
       "fracao_anos_viaveis": 1.0,
-      "temp_media_ciclo_c": 27.5,
-      "chuva_ciclo_mm": 592.2,
+      "temp_media_ciclo_c": 27.32,
+      "chuva_ciclo_mm": 481.6,
+      "chuva_comparada_mm": 783.5,
+      "chuva_comparada_janela_dias": 365,
+      "ciclo_fonte": "fao",
+      "ciclo_referencia": {
+        "fonte": "fao",
+        "dias": 100,
+        "dias_min": 100,
+        "dias_max": 100,
+        "n_linhas": 1,
+        "regra": "linha_unica",
+        "regiao": "Mediterranean (plantio March)",
+        "pagina": "Cap. 6, Tabela 11 [Green gram, cowpeas; plantio March; Mediterranean]",
+        "url": "https://www.fao.org/4/x0490e/x0490e0b.htm",
+        "total_impresso": 110,
+        "soma_confere_total": false
+      },
+      "ciclo_ecocrop_min_max": [
+        30.0,
+        240.0
+      ],
       "anos": [
         2001,
         2023,
         23
       ],
+      "epoca_fonte": "zarc",
+      "epoca_rotulo": "ZARC (MAPA), risco 30, solo 'qualquer', 7 decêndios indicados",
+      "epoca_detalhe": {
+        "aplicado": true,
+        "recurso": "safra_2026_2027",
+        "risco": 30,
+        "solo": "qualquer",
+        "decendios_permitidos": 7,
+        "inicios_permitidos": 7,
+        "aproximada": false,
+        "aviso": null
+      },
       "sensibilidade_ciclo": {
         "min": {
-          "duracao_dias": 30,
-          "melhor_inicio": "11/01",
-          "adequacao_media": 0.04
+          "duracao_dias": 100,
+          "melhor_inicio": "10/02",
+          "adequacao_media": 0.945
         },
         "max": {
-          "duracao_dias": 240,
-          "melhor_inicio": "07/12",
-          "adequacao_media": 0.952
+          "duracao_dias": 100,
+          "melhor_inicio": "10/02",
+          "adequacao_media": 0.945
         }
       },
       "chuva_sobre_demanda_hidrica": null,
+      "atendimento_hidrico_nota": "INFORMAÇÃO (decisão do usuário): chuva do ciclo sobre a demanda da tabela; não entra no ranking nem na nota de chuva. ETc = Kc x ETo não está no motor (só no experimento).",
       "demanda_hidrica_mm_ciclo": null
     },
     "ranking_nota": "Ranking principal só pelos critérios que TODAS as candidatas têm; N na biomassa e palha ficam à parte (informação), sem prêmio nem castigo por lacuna.",
     "suposicoes": [
       "Pesos dos critérios são proposta de projeto (não vêm de fonte).",
-      "Nota climática trapezoidal (0 fora da faixa absoluta, 1 na ótima), aplicada à temperatura média e à chuva acumulada no ciclo.",
-      "Faixa de chuva do EcoCrop comparada à chuva do ciclo (definição oficial FAO, anual ou do ciclo, não verificada).",
+      "Nota climática trapezoidal (0 fora da faixa absoluta, 1 na ótima), aplicada à temperatura média do ciclo e à chuva dos 365 dias desde o início do plantio.",
+      "Faixa de chuva do EcoCrop comparada à chuva ANUAL (365 dias desde o início): a descrição oficial do EcoCrop na FAO diz 'annual precipitation'. O atendimento hídrico do ciclo (chuva sobre a demanda) é só informação, não entra no ranking.",
       "Ranking principal usa só os critérios que todas as candidatas têm; N e palha são mostrados à parte, e lacuna vale incerteza, não nota.",
       "Notas de N e palha vêm de estudos distintos (local e idade de corte diferentes): comparação só indicativa.",
-      "SUPOSIÇÃO (decisão do usuário): duração do ciclo = o PONTO MÉDIO entre ciclo_min_dias e ciclo_max_dias. O ciclo real não é conhecido; os extremos do EcoCrop são largos (dezenas a centenas de dias).",
+      "SUPOSIÇÃO (decisão do usuário 2026-11-14): duração do ciclo = o ciclo central da Tabela 11 do FAO-56 (Allen et al. 1998) para as 11 culturas que a FAO cobre (linha escolhida por regra única: rótulo 'Arid' da FAO, senão mediana das linhas; duração = soma dos 4 estágios). É ciclo de referência de OUTRAS regiões (Califórnia, Mediterrâneo, Nigéria, Índia...), não medido no semiárido brasileiro. As culturas sem dado FAO (5, lacuna declarada em data/culturas/fao_staging.csv) mantêm o ciclo do EcoCrop (ponto médio entre ciclo_min_dias e ciclo_max_dias; extremos largos).",
       "SUPOSIÇÃO: inícios de plantio a cada 10 dias desde 1º/jan, avaliados em todos os anos 2001-2024 com ciclo completo (sem preencher dados faltantes).",
-      "SUPOSIÇÃO: chuva comparada à faixa EcoCrop como chuva acumulada durante o ciclo. Se a faixa do EcoCrop for anual (não verificado), ciclos curtos ficam penalizados.",
+      "SUPOSIÇÃO: chuva comparada à faixa EcoCrop como chuva dos 365 dias desde o início do plantio (a descrição oficial do EcoCrop na FAO fala em 'annual precipitation'; o atendimento hídrico do ciclo, chuva sobre a demanda, fica só como informação, fora do ranking). Ficha oficial do EcoCrop não aberta (login): a leitura 'anual' vem da descrição da base, não da ficha da espécie.",
       "Nota de adequação por início e ano = mínimo entre a nota de temperatura (média do ciclo) e a de chuva (fator mais limitante; ideia do modelo EcoCrop descrito no README do OpenCLIM, reimplementada, sem copiar código). A melhor janela é o início com maior adequação média entre anos.",
       "SUPOSIÇÃO (decisão do usuário): nível de risco = até 30% dos anos com nota 0 para a cultura seguir 'viável'. Não é o risco do ZARC (que mede perda de produtividade).",
       "Incerteza (estilo SMAA-2, numpy): 10000 sorteios, semente 20241112. Sorteia pesos (Dirichlet(alfa=1) sobre os critérios), lacunas (nota desconhecida ~ Uniforme[0,1], não removida nem premiada) e o ano do clima. Não é intervalo de confiança nem chance de dar certo na roça.",
+      "SUPOSIÇÃO (decisão do usuário 2026-11-14): a VIABILIDADE segue a chuva anual (faixa do EcoCrop), mas a ÉPOCA de plantio vem do ZARC quando existe indicação para o município e a cultura (ZARC LIGADO (risco 30, solo 'qualquer'); decêndios fora da indicação recebem nota 0) e, quando NÃO há ZARC (cultura sem zoneamento, ponto sem código IBGE ou fora do Ceará), de uma JANELA APROXIMADA pela adequação do ciclo: mínimo(nota de temperatura, nota de chuva anual, atendimento hídrico do ciclo = chuva do ciclo / demanda da tabela, limitado a 1; sem demanda na tabela: chuva do ciclo relativa à do melhor início do próprio local). Essa janela é rotulada 'janela aproximada, sem zoneamento oficial' e NÃO é recomendação agronômica.",
       "SUPOSIÇÃO: pesos sorteados NÃO são preferência de ninguém; os pesos-base do motor são proposta de projeto.",
       "SUPOSIÇÃO: empate técnico = intervalos de score p10-p90 que se sobrepõem. Sem desempate alfabético: empate exato divide a posição igualmente.",
+      "SUPOSIÇÃO (ciclo): Ciclo de Feijão-caupi: 100 dias = soma dos estágios da Tabela 11 do FAO-56, linha 'Mediterranean (plantio March)' (1 linha(s) na tabela, 100–100 dias; regra: linha_unica). É ciclo de referência de outras regiões, NÃO medido no semiárido brasileiro; a cultivar local pode diferir. A FAO imprime total 110 d, diferente da soma dos estágios (100 d); usada a soma.",
       "Chuva e temperatura do motor = valores DENTRO do ciclo (início de plantio x ano), do clima diário NASA POWER 2001–2024 (célula de ~50 km: pontos da mesma célula têm o mesmo clima).",
       "Temperatura diária = (Tmax+Tmin)/2.",
       "Cultura atual é informada pelo usuário; não é inferida por satélite nem por palpite.",

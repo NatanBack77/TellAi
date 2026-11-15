@@ -1,0 +1,35 @@
+{
+ "pontos": [
+  "quixada_ce",
+  "amontada_ce",
+  "caridade_ce",
+  "fortaleza_ce",
+  "ico_ce",
+  "ipaumirim_ce",
+  "limoeiro_do_norte_ce",
+  "pacajus_ce",
+  "pindoretama_ce",
+  "santana_do_acarau_ce",
+  "crateus_ce",
+  "mossoro_rn",
+  "patos_pb",
+  "petrolina_pe",
+  "serra_talhada_pe"
+ ],
+ "atuais": [
+  "milho",
+  "sorgo",
+  "feijao_caupi"
+ ],
+ "execucoes_ponto_x_atual": 45,
+ "alternativas_total": 90,
+ "alternativas_com_rotulo": 32,
+ "alternativas_em_lacuna": 58,
+ "execucoes_com_ao_menos_um_rotulo": 31,
+ "rotulo_mudou_algo": 0,
+ "desempate_mudou_escolha": 0,
+ "desempate_mudou_empate_tecnico": 0,
+ "execucoes_com_empate_tecnico_nas_alternativas": 45,
+ "execucoes_em_que_o_criterio_separaria_as_alternativas": 30,
+ "leitura": "Separar duas alternativas por 'tem estudo de consórcio' não significa que uma seja melhor; sem estudo = lacuna."
+}

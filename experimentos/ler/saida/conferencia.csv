@@ -1,0 +1,6 @@
+id_linha,id_estudo,arranjo,conferencia
+L010,pinto2011mamona,"mamona (BRS Energia, 10.000 pl/ha, 1x1 m) + consorte na entrelinha (0,5 m)",mamona: 101.04/547.91=0.18 != parcial publicado 0.23; gergelim: 535.67/640.1=0.84 != parcial publicado 0.8
+L042,barreto1986,"milho + feijão comum (IPA 74/19), uma fileira de milho para três de feijão (leitura parcial do OCR), 200 kg/ha de P2O5",parcial do milho inferido por soma (OCR ilegível)
+L054,pereira2015,"gergelim + milho, arranjos 1:1, 1:2, 2:1, 2:2 (fileiras)",valor > 2 com 2 culturas: improvável como LER convencional
+L055,pereira2015,"gergelim + feijão vigna, arranjos 1:1, 1:2, 2:1, 2:2 (fileiras)",valor > 2 com 2 culturas: improvável como LER convencional
+L056,pereira2015,"milho + feijão vigna, arranjos 1:1, 1:2, 2:1, 2:2 (fileiras)",valor > 2 com 2 culturas: improvável como LER convencional

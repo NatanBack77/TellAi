@@ -37,3 +37,29 @@ data/processed/llm_cache/gasto.json
 experimentos/fao_melhorias/.cache/
 data/processed/llm_cache/
 data/processed/llm_cache_chat/
+
+# modelos de voz local (Kokoro): baixar, nao versionar
+data/modelos_voz/
+
+# indice de conhecimento agronomico (gerado)
+indice_agronomia/
+
+# segredos e dados de IA (docs/30_SEGURANCA_IA.md): nunca versionar
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+id_rsa*
+.netrc
+.urs_cookies
+.dodsrc
+*.secret
+secrets/
+data/processed/llm_cache_conversa/
+data/processed/llm_cache*/
+gasto*.json
+data/processed/llm_cache/gasto_voz.json

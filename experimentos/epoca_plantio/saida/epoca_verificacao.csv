@@ -1,0 +1,241 @@
+ponto_id,chuva_anual_mm,cultura,estado,epoca_fonte,inicio_novo,mes_novo,inicio_antigo,mes_antigo,meses_zarc,novo_dentro_zarc,novo_na_estacao_chuvosa,meses_chuvosos,adeq_novo,adeq_antigo,dur_dias,agua_epoca
+salitre_ce,655,milho,viavel,zarc,21/01,jan,11/04,abr,"['jan', 'fev']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.731,0.776,140,demanda_da_tabela
+salitre_ce,655,feijao_caupi,viavel,zarc,11/01,jan,11/01,jan,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.899,0.899,100,relativa_ao_melhor_inicio
+salitre_ce,655,feijao_comum,viavel,zarc,10/02,fev,12/03,mar,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.82,0.844,100,demanda_da_tabela
+salitre_ce,655,sorgo,inviavel,ciclo_aproximado,11/01,jan,12/03,mar,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.455,0.532,130,demanda_da_tabela
+salitre_ce,655,milheto,viavel,zarc,01/01,jan,30/07,jul,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.958,0.969,105,demanda_da_tabela
+salitre_ce,655,mandioca,viavel,zarc,21/01,jan,31/01,jan,"['jan', 'fev']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.369,0.373,210,relativa_ao_melhor_inicio
+salitre_ce,655,algodao,viavel,zarc,11/01,jan,21/01,jan,"['jan', 'fev']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.582,0.607,195,demanda_da_tabela
+salitre_ce,655,amendoim,viavel,zarc,11/01,jan,11/04,abr,"['jan', 'fev']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.75,0.776,140,demanda_da_tabela
+salitre_ce,655,girassol,viavel,zarc,21/01,jan,11/04,abr,"['jan', 'fev']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.795,0.83,130,demanda_da_tabela
+salitre_ce,655,mamona,viavel,zarc,11/01,jan,11/04,abr,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.744,0.775,180,relativa_ao_melhor_inicio
+salitre_ce,655,gergelim,viavel,zarc,01/01,jan,21/04,abr,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.887,0.909,110,relativa_ao_melhor_inicio
+salitre_ce,655,guandu,viavel,ciclo_aproximado,18/10,out,11/04,abr,,,False,"['jan', 'fev', 'mar', 'abr', 'dez']",0.735,0.776,228,relativa_ao_melhor_inicio
+salitre_ce,655,palma_forrageira,viavel,zarc,01/01,jan,01/01,jan,"['jan', 'fev', 'nov', 'dez']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.744,0.744,205,relativa_ao_melhor_inicio
+salitre_ce,655,crotalaria_juncea,viavel,ciclo_aproximado,01/01,jan,21/04,abr,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.934,0.939,110,relativa_ao_melhor_inicio
+salitre_ce,655,feijao_de_porco,inviavel,ciclo_aproximado,21/01,jan,21/01,jan,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.456,0.456,190,relativa_ao_melhor_inicio
+salitre_ce,655,mucuna,viavel,ciclo_aproximado,11/01,jan,11/04,abr,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.438,0.446,180,relativa_ao_melhor_inicio
+quiterianopolis_ce,671,milho,viavel,zarc,31/01,jan,21/04,abr,"['jan', 'fev']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.774,0.835,140,demanda_da_tabela
+quiterianopolis_ce,671,feijao_caupi,viavel,zarc,21/01,jan,10/06,jun,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.868,0.909,100,relativa_ao_melhor_inicio
+quiterianopolis_ce,671,feijao_comum,viavel,zarc,20/02,fev,01/04,abr,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.847,0.876,100,demanda_da_tabela
+quiterianopolis_ce,671,sorgo,inviavel,ciclo_aproximado,07/12,dez,21/04,abr,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.429,0.514,130,demanda_da_tabela
+quiterianopolis_ce,671,milheto,viavel,zarc,21/01,jan,30/07,jul,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.956,0.967,105,demanda_da_tabela
+quiterianopolis_ce,671,mandioca,viavel,zarc,21/01,jan,31/01,jan,"['jan', 'fev']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.394,0.4,210,relativa_ao_melhor_inicio
+quiterianopolis_ce,671,algodao,viavel,zarc,21/01,jan,01/04,abr,"['jan', 'fev']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.6,0.634,195,demanda_da_tabela
+quiterianopolis_ce,671,amendoim,viavel,zarc,21/01,jan,21/04,abr,"['jan', 'fev']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.732,0.835,140,demanda_da_tabela
+quiterianopolis_ce,671,girassol,viavel,zarc,21/01,jan,21/04,abr,"['jan', 'fev']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.804,0.868,130,demanda_da_tabela
+quiterianopolis_ce,671,mamona,viavel,zarc,21/01,jan,21/04,abr,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.728,0.83,180,relativa_ao_melhor_inicio
+quiterianopolis_ce,671,gergelim,viavel,zarc,11/01,jan,11/04,abr,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.887,0.914,110,relativa_ao_melhor_inicio
+quiterianopolis_ce,671,guandu,viavel,ciclo_aproximado,28/10,out,21/04,abr,,,False,"['jan', 'fev', 'mar', 'abr', 'dez']",0.743,0.835,228,relativa_ao_melhor_inicio
+quiterianopolis_ce,671,palma_forrageira,viavel,zarc,17/12,dez,02/03,mar,"['jan', 'fev', 'nov', 'dez']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.749,0.755,205,relativa_ao_melhor_inicio
+quiterianopolis_ce,671,crotalaria_juncea,viavel,ciclo_aproximado,11/01,jan,01/05,mai,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.93,0.943,110,relativa_ao_melhor_inicio
+quiterianopolis_ce,671,feijao_de_porco,viavel,ciclo_aproximado,17/12,dez,27/12,dez,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.469,0.47,190,relativa_ao_melhor_inicio
+quiterianopolis_ce,671,mucuna,viavel,ciclo_aproximado,17/12,dez,11/04,abr,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.467,0.47,180,relativa_ao_melhor_inicio
+arneiroz_ce,713,milho,viavel,zarc,31/01,jan,21/04,abr,"['jan', 'fev']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.8,0.869,140,demanda_da_tabela
+arneiroz_ce,713,feijao_caupi,viavel,zarc,21/01,jan,30/07,jul,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.912,0.937,100,relativa_ao_melhor_inicio
+arneiroz_ce,713,feijao_comum,viavel,zarc,02/03,mar,22/03,mar,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.875,0.886,100,demanda_da_tabela
+arneiroz_ce,713,sorgo,inviavel,ciclo_aproximado,11/01,jan,30/07,jul,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.385,0.444,130,demanda_da_tabela
+arneiroz_ce,713,milheto,viavel,zarc,21/01,jan,11/01,jan,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.939,0.952,105,demanda_da_tabela
+arneiroz_ce,713,mandioca,viavel,zarc,11/01,jan,17/12,dez,"['jan', 'fev']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.448,0.458,210,relativa_ao_melhor_inicio
+arneiroz_ce,713,algodao,viavel,zarc,21/01,jan,01/04,abr,"['jan', 'fev']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.645,0.701,195,demanda_da_tabela
+arneiroz_ce,713,amendoim,viavel,zarc,21/01,jan,21/04,abr,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.782,0.869,140,demanda_da_tabela
+arneiroz_ce,713,girassol,viavel,zarc,31/01,jan,21/04,abr,"['jan', 'fev']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.817,0.88,130,demanda_da_tabela
+arneiroz_ce,713,mamona,viavel,zarc,21/01,jan,21/04,abr,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.769,0.858,180,relativa_ao_melhor_inicio
+arneiroz_ce,713,gergelim,viavel,zarc,11/01,jan,11/01,jan,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.911,0.911,110,relativa_ao_melhor_inicio
+arneiroz_ce,713,guandu,viavel,ciclo_aproximado,27/12,dez,21/04,abr,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.802,0.869,228,relativa_ao_melhor_inicio
+arneiroz_ce,713,palma_forrageira,viavel,zarc,27/12,dez,11/01,jan,"['jan', 'fev', 'nov', 'dez']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.787,0.788,205,relativa_ao_melhor_inicio
+arneiroz_ce,713,crotalaria_juncea,viavel,ciclo_aproximado,11/01,jan,30/07,jul,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.955,0.958,110,relativa_ao_melhor_inicio
+arneiroz_ce,713,feijao_de_porco,viavel,ciclo_aproximado,27/12,dez,12/03,mar,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.523,0.531,190,relativa_ao_melhor_inicio
+arneiroz_ce,713,mucuna,viavel,ciclo_aproximado,27/12,dez,27/12,dez,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.529,0.529,180,relativa_ao_melhor_inicio
+choro_ce,720,milho,viavel,zarc,10/02,fev,21/04,abr,"['fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.88,0.902,140,demanda_da_tabela
+choro_ce,720,feijao_caupi,viavel,zarc,10/02,fev,10/06,jun,"['fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.925,0.968,100,relativa_ao_melhor_inicio
+choro_ce,720,feijao_comum,viavel,zarc,12/03,mar,22/03,mar,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.796,0.799,100,demanda_da_tabela
+choro_ce,720,sorgo,inviavel,ciclo_aproximado,21/01,jan,21/05,mai,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.38,0.423,130,demanda_da_tabela
+choro_ce,720,milheto,viavel,zarc,31/01,jan,10/06,jun,"['jan', 'fev', 'mar', 'abr', 'mai']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.933,0.97,105,demanda_da_tabela
+choro_ce,720,mandioca,viavel,zarc,31/01,jan,27/12,dez,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.45,0.465,210,relativa_ao_melhor_inicio
+choro_ce,720,algodao,viavel,zarc,31/01,jan,21/04,abr,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.709,0.712,195,demanda_da_tabela
+choro_ce,720,amendoim,viavel,zarc,10/02,fev,21/04,abr,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.882,0.902,140,demanda_da_tabela
+choro_ce,720,girassol,viavel,zarc,10/02,fev,21/04,abr,"['fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.876,0.901,130,demanda_da_tabela
+choro_ce,720,mamona,viavel,zarc,20/02,fev,21/04,abr,"['fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.861,0.891,180,relativa_ao_melhor_inicio
+choro_ce,720,gergelim,viavel,zarc,31/01,jan,10/06,jun,"['jan', 'fev', 'mar', 'abr', 'mai']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.897,0.949,110,relativa_ao_melhor_inicio
+choro_ce,720,guandu,viavel,ciclo_aproximado,17/12,dez,21/04,abr,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.848,0.902,228,relativa_ao_melhor_inicio
+choro_ce,720,palma_forrageira,viavel,zarc,11/01,jan,11/01,jan,"['jan', 'fev', 'mar', 'dez']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.74,0.74,205,relativa_ao_melhor_inicio
+choro_ce,720,crotalaria_juncea,viavel,ciclo_aproximado,11/01,jan,21/05,mai,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.963,0.98,110,relativa_ao_melhor_inicio
+choro_ce,720,feijao_de_porco,viavel,ciclo_aproximado,17/12,dez,17/12,dez,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.542,0.542,190,relativa_ao_melhor_inicio
+choro_ce,720,mucuna,viavel,ciclo_aproximado,17/12,dez,17/12,dez,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.542,0.542,180,relativa_ao_melhor_inicio
+acopiara_ce,738,milho,viavel,zarc,31/01,jan,21/04,abr,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.829,0.877,140,demanda_da_tabela
+acopiara_ce,738,feijao_caupi,viavel,zarc,10/02,fev,30/07,jul,"['fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.926,0.957,100,relativa_ao_melhor_inicio
+acopiara_ce,738,feijao_comum,viavel,zarc,02/03,mar,22/03,mar,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.788,0.801,100,demanda_da_tabela
+acopiara_ce,738,sorgo,inviavel,ciclo_aproximado,11/01,jan,30/07,jul,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.37,0.411,130,demanda_da_tabela
+acopiara_ce,738,milheto,viavel,zarc,21/01,jan,11/01,jan,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.937,0.945,105,demanda_da_tabela
+acopiara_ce,738,mandioca,viavel,zarc,11/01,jan,21/04,abr,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.484,0.495,210,relativa_ao_melhor_inicio
+acopiara_ce,738,algodao,viavel,zarc,21/01,jan,01/04,abr,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.681,0.733,195,demanda_da_tabela
+acopiara_ce,738,amendoim,viavel,zarc,21/01,jan,01/04,abr,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.819,0.882,140,demanda_da_tabela
+acopiara_ce,738,girassol,viavel,zarc,10/02,fev,21/04,abr,"['fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.826,0.877,130,demanda_da_tabela
+acopiara_ce,738,mamona,viavel,zarc,21/01,jan,01/04,abr,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.8,0.863,180,relativa_ao_melhor_inicio
+acopiara_ce,738,gergelim,viavel,zarc,11/01,jan,11/01,jan,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.923,0.923,110,relativa_ao_melhor_inicio
+acopiara_ce,738,guandu,viavel,ciclo_aproximado,17/11,nov,01/04,abr,,,False,"['jan', 'fev', 'mar', 'abr', 'dez']",0.821,0.882,228,relativa_ao_melhor_inicio
+acopiara_ce,738,palma_forrageira,viavel,zarc,11/01,jan,11/01,jan,"['jan', 'fev', 'mar', 'nov', 'dez']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.741,0.741,205,relativa_ao_melhor_inicio
+acopiara_ce,738,crotalaria_juncea,viavel,ciclo_aproximado,11/01,jan,30/07,jul,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.968,0.97,110,relativa_ao_melhor_inicio
+acopiara_ce,738,feijao_de_porco,viavel,ciclo_aproximado,17/12,dez,01/04,abr,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.558,0.568,190,relativa_ao_melhor_inicio
+acopiara_ce,738,mucuna,viavel,ciclo_aproximado,27/12,dez,21/04,abr,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.561,0.563,180,relativa_ao_melhor_inicio
+altaneira_ce,754,milho,viavel,zarc,11/01,jan,21/04,abr,"['jan', 'fev']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.857,0.89,140,demanda_da_tabela
+altaneira_ce,754,feijao_caupi,viavel,zarc,21/01,jan,30/06,jun,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.923,0.958,100,relativa_ao_melhor_inicio
+altaneira_ce,754,feijao_comum,viavel,zarc,31/01,jan,10/02,fev,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.924,0.924,100,demanda_da_tabela
+altaneira_ce,754,sorgo,inviavel,ciclo_aproximado,01/01,jan,02/03,mar,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.356,0.384,130,demanda_da_tabela
+altaneira_ce,754,milheto,viavel,zarc,11/01,jan,17/12,dez,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.933,0.942,105,demanda_da_tabela
+altaneira_ce,754,mandioca,viavel,zarc,21/01,jan,31/01,jan,"['jan', 'fev']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.509,0.515,210,relativa_ao_melhor_inicio
+altaneira_ce,754,algodao,viavel,zarc,11/01,jan,21/04,abr,"['jan', 'fev']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.7,0.744,195,demanda_da_tabela
+altaneira_ce,754,amendoim,viavel,zarc,11/01,jan,22/03,mar,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.87,0.892,140,demanda_da_tabela
+altaneira_ce,754,girassol,viavel,zarc,11/01,jan,21/04,abr,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.87,0.886,130,demanda_da_tabela
+altaneira_ce,754,mamona,viavel,zarc,11/01,jan,21/04,abr,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.845,0.87,180,relativa_ao_melhor_inicio
+altaneira_ce,754,gergelim,viavel,zarc,01/01,jan,01/01,jan,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.915,0.915,110,relativa_ao_melhor_inicio
+altaneira_ce,754,guandu,viavel,ciclo_aproximado,08/10,out,22/03,mar,,,False,"['jan', 'fev', 'mar', 'abr', 'dez']",0.855,0.892,228,relativa_ao_melhor_inicio
+altaneira_ce,754,palma_forrageira,viavel,zarc,17/12,dez,31/01,jan,"['jan', 'fev', 'nov', 'dez']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.835,0.838,205,relativa_ao_melhor_inicio
+altaneira_ce,754,crotalaria_juncea,viavel,ciclo_aproximado,01/01,jan,01/01,jan,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.976,0.976,110,relativa_ao_melhor_inicio
+altaneira_ce,754,feijao_de_porco,viavel,ciclo_aproximado,21/01,jan,31/01,jan,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.61,0.621,190,relativa_ao_melhor_inicio
+altaneira_ce,754,mucuna,viavel,ciclo_aproximado,01/01,jan,31/01,jan,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.573,0.58,180,relativa_ao_melhor_inicio
+caninde_ce,798,milho,viavel,zarc,10/02,fev,10/06,jun,"['fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.915,0.971,140,demanda_da_tabela
+caninde_ce,798,feijao_caupi,viavel,zarc,10/02,fev,20/07,jul,"['fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.973,1.0,100,relativa_ao_melhor_inicio
+caninde_ce,798,feijao_comum,viavel,zarc,20/02,fev,22/03,mar,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.875,0.884,100,demanda_da_tabela
+caninde_ce,798,sorgo,inviavel,ciclo_aproximado,01/01,jan,20/07,jul,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.277,0.281,130,demanda_da_tabela
+caninde_ce,798,milheto,viavel,zarc,31/01,jan,10/06,jun,"['jan', 'fev', 'mar', 'abr', 'mai']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.933,0.949,105,demanda_da_tabela
+caninde_ce,798,mandioca,viavel,zarc,31/01,jan,01/04,abr,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.55,0.589,210,relativa_ao_melhor_inicio
+caninde_ce,798,algodao,viavel,zarc,31/01,jan,21/04,abr,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.803,0.838,195,demanda_da_tabela
+caninde_ce,798,amendoim,viavel,zarc,31/01,jan,20/06,jun,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.934,0.981,140,demanda_da_tabela
+caninde_ce,798,girassol,viavel,zarc,10/02,fev,20/06,jun,"['fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.899,0.95,130,demanda_da_tabela
+caninde_ce,798,mamona,viavel,zarc,20/02,fev,20/06,jun,"['fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.917,0.959,180,relativa_ao_melhor_inicio
+caninde_ce,798,gergelim,viavel,zarc,31/01,jan,10/06,jun,"['jan', 'fev', 'mar', 'abr', 'mai']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.914,0.956,110,relativa_ao_melhor_inicio
+caninde_ce,798,guandu,viavel,ciclo_aproximado,17/12,dez,20/06,jun,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.953,0.981,228,relativa_ao_melhor_inicio
+caninde_ce,798,palma_forrageira,viavel,zarc,11/01,jan,21/01,jan,"['jan', 'fev', 'mar', 'dez']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.859,0.86,205,relativa_ao_melhor_inicio
+caninde_ce,798,crotalaria_juncea,viavel,ciclo_aproximado,11/01,jan,30/06,jun,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.996,1.0,110,relativa_ao_melhor_inicio
+caninde_ce,798,feijao_de_porco,viavel,ciclo_aproximado,17/12,dez,02/03,mar,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.656,0.706,190,relativa_ao_melhor_inicio
+caninde_ce,798,mucuna,viavel,ciclo_aproximado,27/12,dez,01/04,abr,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.637,0.65,180,relativa_ao_melhor_inicio
+barbalha_ce,806,milho,viavel,zarc,11/01,jan,21/04,abr,"['jan', 'fev']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.9,0.952,140,demanda_da_tabela
+barbalha_ce,806,feijao_caupi,viavel,zarc,31/01,jan,29/08,ago,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.875,0.985,100,relativa_ao_melhor_inicio
+barbalha_ce,806,feijao_comum,viavel,zarc,31/01,jan,10/06,jun,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.96,0.994,100,demanda_da_tabela
+barbalha_ce,806,sorgo,inviavel,ciclo_aproximado,27/12,dez,30/06,jun,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.212,0.239,130,demanda_da_tabela
+barbalha_ce,806,milheto,viavel,zarc,01/01,jan,20/07,jul,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.911,0.935,105,demanda_da_tabela
+barbalha_ce,806,mandioca,viavel,zarc,11/01,jan,11/05,mai,"['jan', 'fev']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.6,0.615,210,relativa_ao_melhor_inicio
+barbalha_ce,806,algodao,viavel,zarc,11/01,jan,10/07,jul,"['jan', 'fev']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.806,0.835,195,demanda_da_tabela
+barbalha_ce,806,amendoim,viavel,zarc,01/01,jan,21/04,abr,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.921,0.952,140,demanda_da_tabela
+barbalha_ce,806,girassol,viavel,zarc,11/01,jan,21/04,abr,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.893,0.934,130,demanda_da_tabela
+barbalha_ce,806,mamona,viavel,zarc,11/01,jan,21/04,abr,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.881,0.931,180,relativa_ao_melhor_inicio
+barbalha_ce,806,gergelim,viavel,zarc,01/01,jan,30/06,jun,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.907,0.957,110,relativa_ao_melhor_inicio
+barbalha_ce,806,guandu,viavel,ciclo_aproximado,08/10,out,21/04,abr,,,False,"['jan', 'fev', 'mar', 'abr', 'dez']",0.926,0.952,228,relativa_ao_melhor_inicio
+barbalha_ce,806,palma_forrageira,viavel,zarc,07/12,dez,21/04,abr,"['jan', 'fev', 'nov', 'dez']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.898,0.921,205,relativa_ao_melhor_inicio
+barbalha_ce,806,crotalaria_juncea,viavel,ciclo_aproximado,01/01,jan,20/06,jun,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.975,0.996,110,relativa_ao_melhor_inicio
+barbalha_ce,806,feijao_de_porco,viavel,ciclo_aproximado,28/10,out,21/01,jan,,,False,"['jan', 'fev', 'mar', 'abr', 'dez']",0.717,0.747,190,relativa_ao_melhor_inicio
+barbalha_ce,806,mucuna,viavel,ciclo_aproximado,17/12,dez,20/07,jul,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.651,0.673,180,relativa_ao_melhor_inicio
+jaguaribe_ce,814,milho,viavel,zarc,10/02,fev,28/09,set,"['fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.858,0.883,140,demanda_da_tabela
+jaguaribe_ce,814,feijao_caupi,viavel,zarc,10/02,fev,10/07,jul,"['fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.953,0.995,100,relativa_ao_melhor_inicio
+jaguaribe_ce,814,feijao_comum,viavel,zarc,12/03,mar,01/04,abr,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.744,0.757,100,demanda_da_tabela
+jaguaribe_ce,814,sorgo,inviavel,ciclo_aproximado,01/01,jan,01/01,jan,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.319,0.319,130,demanda_da_tabela
+jaguaribe_ce,814,milheto,viavel,zarc,21/01,jan,11/01,jan,"['jan', 'fev', 'mar', 'abr', 'mai']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.897,0.899,105,demanda_da_tabela
+jaguaribe_ce,814,mandioca,viavel,zarc,21/01,jan,11/04,abr,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.564,0.583,210,relativa_ao_melhor_inicio
+jaguaribe_ce,814,algodao,viavel,zarc,21/01,jan,01/04,abr,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.712,0.75,195,demanda_da_tabela
+jaguaribe_ce,814,amendoim,viavel,zarc,21/01,jan,02/03,mar,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.886,0.91,140,demanda_da_tabela
+jaguaribe_ce,814,girassol,viavel,zarc,22/03,mar,11/01,jan,['mar'],True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.824,0.847,130,demanda_da_tabela
+jaguaribe_ce,814,mamona,viavel,zarc,31/01,jan,02/03,mar,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.844,0.859,180,relativa_ao_melhor_inicio
+jaguaribe_ce,814,gergelim,viavel,zarc,21/01,jan,10/07,jul,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.883,0.891,110,relativa_ao_melhor_inicio
+jaguaribe_ce,814,guandu,viavel,ciclo_aproximado,27/11,nov,02/03,mar,,,False,"['jan', 'fev', 'mar', 'abr', 'dez']",0.884,0.91,228,relativa_ao_melhor_inicio
+jaguaribe_ce,814,palma_forrageira,viavel,zarc,21/01,jan,31/01,jan,"['jan', 'fev', 'mar', 'dez']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.683,0.684,205,relativa_ao_melhor_inicio
+jaguaribe_ce,814,crotalaria_juncea,viavel,ciclo_aproximado,11/01,jan,10/07,jul,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.982,0.997,110,relativa_ao_melhor_inicio
+jaguaribe_ce,814,feijao_de_porco,viavel,ciclo_aproximado,17/12,dez,01/04,abr,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.634,0.684,190,relativa_ao_melhor_inicio
+jaguaribe_ce,814,mucuna,viavel,ciclo_aproximado,21/01,jan,01/04,abr,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.629,0.642,180,relativa_ao_melhor_inicio
+aurora_ce,863,milho,viavel,zarc,11/01,jan,30/06,jun,"['jan', 'fev']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.924,0.961,140,demanda_da_tabela
+aurora_ce,863,feijao_caupi,viavel,zarc,10/02,fev,29/08,ago,"['fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.993,1.0,100,relativa_ao_melhor_inicio
+aurora_ce,863,feijao_comum,viavel,zarc,20/02,fev,01/04,abr,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.836,0.85,100,demanda_da_tabela
+aurora_ce,863,sorgo,inviavel,ciclo_aproximado,17/12,dez,30/06,jun,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.213,0.23,130,demanda_da_tabela
+aurora_ce,863,milheto,viavel,zarc,21/01,jan,01/04,abr,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.901,0.905,105,demanda_da_tabela
+aurora_ce,863,mandioca,viavel,zarc,21/01,jan,31/01,jan,"['jan', 'fev']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.654,0.669,210,relativa_ao_melhor_inicio
+aurora_ce,863,algodao,viavel,zarc,11/01,jan,21/04,abr,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.82,0.873,195,demanda_da_tabela
+aurora_ce,863,amendoim,viavel,zarc,11/01,jan,30/06,jun,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.951,0.984,140,demanda_da_tabela
+aurora_ce,863,girassol,inviavel,zarc,30/06,jun,01/05,mai,[],False,False,"['jan', 'fev', 'mar', 'abr', 'dez']",0.0,0.899,130,demanda_da_tabela
+aurora_ce,863,mamona,viavel,zarc,11/01,jan,30/06,jun,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.893,0.928,180,relativa_ao_melhor_inicio
+aurora_ce,863,gergelim,viavel,zarc,11/01,jan,31/01,jan,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.878,0.908,110,relativa_ao_melhor_inicio
+aurora_ce,863,guandu,viavel,ciclo_aproximado,18/10,out,30/06,jun,,,False,"['jan', 'fev', 'mar', 'abr', 'dez']",0.971,0.984,228,relativa_ao_melhor_inicio
+aurora_ce,863,palma_forrageira,viavel,zarc,01/01,jan,31/01,jan,"['jan', 'fev', 'nov', 'dez']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.821,0.85,205,relativa_ao_melhor_inicio
+aurora_ce,863,crotalaria_juncea,viavel,ciclo_aproximado,01/01,jan,30/06,jun,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.997,1.0,110,relativa_ao_melhor_inicio
+aurora_ce,863,feijao_de_porco,viavel,ciclo_aproximado,11/01,jan,01/04,abr,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.771,0.803,190,relativa_ao_melhor_inicio
+aurora_ce,863,mucuna,viavel,ciclo_aproximado,01/01,jan,31/01,jan,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.695,0.722,180,relativa_ao_melhor_inicio
+caririacu_ce,889,milho,viavel,zarc,11/01,jan,30/06,jun,"['jan', 'fev']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.922,0.953,140,demanda_da_tabela
+caririacu_ce,889,feijao_caupi,viavel,zarc,31/01,jan,20/07,jul,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.978,1.0,100,relativa_ao_melhor_inicio
+caririacu_ce,889,feijao_comum,viavel,zarc,10/02,fev,10/02,fev,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.921,0.921,100,demanda_da_tabela
+caririacu_ce,889,sorgo,inviavel,ciclo_aproximado,21/01,jan,21/01,jan,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.192,0.192,130,demanda_da_tabela
+caririacu_ce,889,milheto,viavel,zarc,11/01,jan,31/01,jan,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.874,0.88,105,demanda_da_tabela
+caririacu_ce,889,mandioca,viavel,zarc,11/01,jan,31/01,jan,"['jan', 'fev']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.688,0.707,210,relativa_ao_melhor_inicio
+caririacu_ce,889,algodao,viavel,zarc,11/01,jan,21/04,abr,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.826,0.865,195,demanda_da_tabela
+caririacu_ce,889,amendoim,viavel,zarc,11/01,jan,30/06,jun,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.947,0.976,140,demanda_da_tabela
+caririacu_ce,889,girassol,viavel,zarc,11/01,jan,31/01,jan,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.864,0.882,130,demanda_da_tabela
+caririacu_ce,889,mamona,viavel,zarc,11/01,jan,30/06,jun,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.887,0.91,180,relativa_ao_melhor_inicio
+caririacu_ce,889,gergelim,viavel,zarc,11/01,jan,31/01,jan,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.869,0.893,110,relativa_ao_melhor_inicio
+caririacu_ce,889,guandu,viavel,ciclo_aproximado,18/10,out,30/06,jun,,,False,"['jan', 'fev', 'mar', 'abr', 'dez']",0.964,0.976,228,relativa_ao_melhor_inicio
+caririacu_ce,889,palma_forrageira,viavel,zarc,17/12,dez,01/01,jan,"['jan', 'fev', 'nov', 'dez']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.884,0.909,205,relativa_ao_melhor_inicio
+caririacu_ce,889,crotalaria_juncea,viavel,ciclo_aproximado,01/01,jan,30/06,jun,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.998,1.0,110,relativa_ao_melhor_inicio
+caririacu_ce,889,feijao_de_porco,viavel,ciclo_aproximado,17/11,nov,21/04,abr,,,False,"['jan', 'fev', 'mar', 'abr', 'dez']",0.768,0.8,190,relativa_ao_melhor_inicio
+caririacu_ce,889,mucuna,viavel,ciclo_aproximado,01/01,jan,31/01,jan,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.729,0.754,180,relativa_ao_melhor_inicio
+aracoiaba_ce,940,milho,viavel,zarc,10/02,fev,10/07,jul,"['fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'mai']",0.939,0.98,140,demanda_da_tabela
+aracoiaba_ce,940,feijao_caupi,viavel,zarc,20/02,fev,29/08,ago,"['fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'mai']",0.998,1.0,100,relativa_ao_melhor_inicio
+aracoiaba_ce,940,feijao_comum,viavel,zarc,12/03,mar,01/04,abr,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'mai']",0.795,0.81,100,demanda_da_tabela
+aracoiaba_ce,940,sorgo,inviavel,ciclo_aproximado,20/02,fev,08/09,set,,,True,"['jan', 'fev', 'mar', 'abr', 'mai']",0.095,0.108,130,demanda_da_tabela
+aracoiaba_ce,940,milheto,viavel,zarc,10/02,fev,21/04,abr,"['jan', 'fev', 'mar', 'abr', 'mai']",True,True,"['jan', 'fev', 'mar', 'abr', 'mai']",0.862,0.867,105,demanda_da_tabela
+aracoiaba_ce,940,mandioca,viavel,zarc,21/01,jan,21/05,mai,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'mai']",0.75,0.782,210,relativa_ao_melhor_inicio
+aracoiaba_ce,940,algodao,viavel,zarc,31/01,jan,10/07,jul,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'mai']",0.867,0.921,195,demanda_da_tabela
+aracoiaba_ce,940,amendoim,viavel,zarc,31/01,jan,30/06,jun,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'mai']",0.982,1.0,140,demanda_da_tabela
+aracoiaba_ce,940,girassol,inviavel,zarc,30/06,jun,21/05,mai,[],False,False,"['jan', 'fev', 'mar', 'abr', 'mai']",0.0,0.909,130,demanda_da_tabela
+aracoiaba_ce,940,mamona,viavel,zarc,02/03,mar,21/05,mai,"['mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'mai']",0.906,0.946,180,relativa_ao_melhor_inicio
+aracoiaba_ce,940,gergelim,viavel,zarc,21/01,jan,21/05,mai,"['jan', 'fev', 'mar', 'abr', 'mai']",True,True,"['jan', 'fev', 'mar', 'abr', 'mai']",0.873,0.891,110,relativa_ao_melhor_inicio
+aracoiaba_ce,940,guandu,viavel,ciclo_aproximado,17/12,dez,30/06,jun,,,False,"['jan', 'fev', 'mar', 'abr', 'mai']",0.988,1.0,228,relativa_ao_melhor_inicio
+aracoiaba_ce,940,palma_forrageira,viavel,zarc,21/01,jan,21/01,jan,"['jan', 'fev', 'mar', 'dez']",True,True,"['jan', 'fev', 'mar', 'abr', 'mai']",0.738,0.738,205,relativa_ao_melhor_inicio
+aracoiaba_ce,940,crotalaria_juncea,viavel,ciclo_aproximado,21/01,jan,10/06,jun,,,True,"['jan', 'fev', 'mar', 'abr', 'mai']",1.0,1.0,110,relativa_ao_melhor_inicio
+aracoiaba_ce,940,feijao_de_porco,viavel,ciclo_aproximado,11/01,jan,21/01,jan,,,True,"['jan', 'fev', 'mar', 'abr', 'mai']",0.861,0.882,190,relativa_ao_melhor_inicio
+aracoiaba_ce,940,mucuna,viavel,ciclo_aproximado,27/12,dez,21/05,mai,,,False,"['jan', 'fev', 'mar', 'abr', 'mai']",0.795,0.821,180,relativa_ao_melhor_inicio
+miraima_ce,949,milho,viavel,zarc,10/02,fev,10/07,jul,"['fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.929,0.973,140,demanda_da_tabela
+miraima_ce,949,feijao_caupi,viavel,zarc,31/01,jan,19/08,ago,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",1.0,1.0,100,relativa_ao_melhor_inicio
+miraima_ce,949,feijao_comum,viavel,zarc,12/03,mar,22/03,mar,"['fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.801,0.807,100,demanda_da_tabela
+miraima_ce,949,sorgo,inviavel,ciclo_aproximado,10/02,fev,10/02,fev,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.111,0.111,130,demanda_da_tabela
+miraima_ce,949,milheto,viavel,zarc,10/02,fev,21/04,abr,"['jan', 'fev', 'mar', 'abr', 'mai']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.84,0.852,105,demanda_da_tabela
+miraima_ce,949,mandioca,viavel,zarc,21/01,jan,01/04,abr,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.741,0.775,210,relativa_ao_melhor_inicio
+miraima_ce,949,algodao,viavel,zarc,31/01,jan,21/04,abr,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.813,0.907,195,demanda_da_tabela
+miraima_ce,949,amendoim,viavel,zarc,31/01,jan,20/07,jul,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.987,1.0,140,demanda_da_tabela
+miraima_ce,949,girassol,viavel,zarc,10/02,fev,21/05,mai,"['fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.847,0.871,130,demanda_da_tabela
+miraima_ce,949,mamona,viavel,zarc,20/02,fev,11/01,jan,"['fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.906,0.915,180,relativa_ao_melhor_inicio
+miraima_ce,949,gergelim,viavel,zarc,31/01,jan,21/05,mai,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.828,0.854,110,relativa_ao_melhor_inicio
+miraima_ce,949,guandu,viavel,ciclo_aproximado,07/12,dez,20/07,jul,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.99,1.0,228,relativa_ao_melhor_inicio
+miraima_ce,949,palma_forrageira,viavel,zarc,11/01,jan,11/01,jan,"['jan', 'fev', 'mar', 'dez']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.728,0.728,205,relativa_ao_melhor_inicio
+miraima_ce,949,crotalaria_juncea,viavel,ciclo_aproximado,21/01,jan,21/05,mai,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",1.0,1.0,110,relativa_ao_melhor_inicio
+miraima_ce,949,feijao_de_porco,viavel,ciclo_aproximado,11/01,jan,21/04,abr,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.864,0.865,190,relativa_ao_melhor_inicio
+miraima_ce,949,mucuna,viavel,ciclo_aproximado,21/01,jan,11/04,abr,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.784,0.807,180,relativa_ao_melhor_inicio
+acarape_ce,1083,milho,viavel,zarc,31/01,jan,21/05,mai,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'mai']",0.898,0.924,140,demanda_da_tabela
+acarape_ce,1083,feijao_caupi,viavel,zarc,20/02,fev,10/06,jun,"['fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'mai']",0.994,1.0,100,relativa_ao_melhor_inicio
+acarape_ce,1083,feijao_comum,viavel,zarc,22/03,mar,11/04,abr,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'mai']",0.808,0.82,100,demanda_da_tabela
+acarape_ce,1083,sorgo,inviavel,ciclo_aproximado,12/03,mar,22/03,mar,,,True,"['jan', 'fev', 'mar', 'abr', 'mai']",0.087,0.087,130,demanda_da_tabela
+acarape_ce,1083,milheto,viavel,zarc,10/02,fev,21/01,jan,"['jan', 'fev', 'mar', 'abr', 'mai']",True,True,"['jan', 'fev', 'mar', 'abr', 'mai']",0.735,0.75,105,demanda_da_tabela
+acarape_ce,1083,mandioca,viavel,zarc,21/01,jan,10/06,jun,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'mai']",0.879,0.891,210,relativa_ao_melhor_inicio
+acarape_ce,1083,algodao,viavel,zarc,10/02,fev,21/05,mai,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'mai']",0.818,0.848,195,demanda_da_tabela
+acarape_ce,1083,amendoim,viavel,zarc,31/01,jan,10/06,jun,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'mai']",0.997,1.0,140,demanda_da_tabela
+acarape_ce,1083,girassol,viavel,zarc,20/02,fev,20/02,fev,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'mai']",0.771,0.771,130,demanda_da_tabela
+acarape_ce,1083,mamona,viavel,zarc,02/03,mar,21/01,jan,"['mar', 'abr', 'mai']",True,True,"['jan', 'fev', 'mar', 'abr', 'mai']",0.854,0.859,180,relativa_ao_melhor_inicio
+acarape_ce,1083,gergelim,viavel,zarc,10/02,fev,20/02,fev,"['jan', 'fev', 'mar', 'abr', 'mai']",True,True,"['jan', 'fev', 'mar', 'abr', 'mai']",0.734,0.743,110,relativa_ao_melhor_inicio
+acarape_ce,1083,guandu,viavel,ciclo_aproximado,07/12,dez,10/06,jun,,,False,"['jan', 'fev', 'mar', 'abr', 'mai']",0.999,1.0,228,relativa_ao_melhor_inicio
+acarape_ce,1083,palma_forrageira,viavel,zarc,11/01,jan,21/01,jan,"['jan', 'fev', 'nov', 'dez']",True,True,"['jan', 'fev', 'mar', 'abr', 'mai']",0.755,0.759,205,relativa_ao_melhor_inicio
+acarape_ce,1083,crotalaria_juncea,viavel,ciclo_aproximado,21/01,jan,10/06,jun,,,True,"['jan', 'fev', 'mar', 'abr', 'mai']",0.999,1.0,110,relativa_ao_melhor_inicio
+acarape_ce,1083,feijao_de_porco,viavel,ciclo_aproximado,27/12,dez,11/01,jan,,,False,"['jan', 'fev', 'mar', 'abr', 'mai']",0.955,0.974,190,relativa_ao_melhor_inicio
+acarape_ce,1083,mucuna,viavel,ciclo_aproximado,11/01,jan,20/06,jun,,,True,"['jan', 'fev', 'mar', 'abr', 'mai']",0.893,0.91,180,relativa_ao_melhor_inicio
+carnaubal_ce,1134,milho,viavel,zarc,21/01,jan,21/04,abr,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.864,0.887,140,demanda_da_tabela
+carnaubal_ce,1134,feijao_caupi,viavel,zarc,10/02,fev,22/03,mar,"['fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.995,0.998,100,relativa_ao_melhor_inicio
+carnaubal_ce,1134,feijao_comum,viavel,zarc,02/03,mar,02/03,mar,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.863,0.863,100,demanda_da_tabela
+carnaubal_ce,1134,sorgo,inviavel,ciclo_aproximado,27/11,nov,27/11,nov,,,False,"['jan', 'fev', 'mar', 'abr', 'dez']",0.058,0.058,130,demanda_da_tabela
+carnaubal_ce,1134,milheto,viavel,zarc,21/01,jan,01/05,mai,"['jan', 'fev', 'mar', 'abr', 'mai']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.666,0.683,105,demanda_da_tabela
+carnaubal_ce,1134,mandioca,viavel,zarc,11/01,jan,21/04,abr,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.887,0.902,210,relativa_ao_melhor_inicio
+carnaubal_ce,1134,algodao,viavel,zarc,21/01,jan,21/04,abr,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.744,0.77,195,demanda_da_tabela
+carnaubal_ce,1134,amendoim,viavel,zarc,21/01,jan,01/05,mai,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.995,0.999,140,demanda_da_tabela
+carnaubal_ce,1134,girassol,viavel,zarc,21/01,jan,01/05,mai,"['jan', 'fev', 'mar']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.687,0.699,130,demanda_da_tabela
+carnaubal_ce,1134,mamona,viavel,zarc,20/02,fev,01/05,mai,"['fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.805,0.819,180,relativa_ao_melhor_inicio
+carnaubal_ce,1134,gergelim,viavel,zarc,11/01,jan,21/04,abr,"['jan', 'fev', 'mar', 'abr']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.633,0.646,110,relativa_ao_melhor_inicio
+carnaubal_ce,1134,guandu,viavel,ciclo_aproximado,01/01,jan,01/05,mai,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.995,0.999,228,relativa_ao_melhor_inicio
+carnaubal_ce,1134,palma_forrageira,viavel,zarc,11/01,jan,11/01,jan,"['jan', 'fev', 'mar', 'nov', 'dez']",True,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.767,0.767,205,relativa_ao_melhor_inicio
+carnaubal_ce,1134,crotalaria_juncea,viavel,ciclo_aproximado,21/01,jan,11/04,abr,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.996,1.0,110,relativa_ao_melhor_inicio
+carnaubal_ce,1134,feijao_de_porco,viavel,ciclo_aproximado,11/01,jan,10/02,fev,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.927,0.948,190,relativa_ao_melhor_inicio
+carnaubal_ce,1134,mucuna,viavel,ciclo_aproximado,01/01,jan,21/04,abr,,,True,"['jan', 'fev', 'mar', 'abr', 'dez']",0.904,0.919,180,relativa_ao_melhor_inicio

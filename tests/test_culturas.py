@@ -157,7 +157,11 @@ def test_cenarios_contrato_aviso_e_faixa_incerteza(tab, fabrica_clima):
         assert isinstance(f, dict) and f["min"] <= f["max"] and f["n_sorteios"] == 1000 and f["semente"] == P.semente
         assert "não é intervalo" in f["leitura"].lower() or "não é intervalo" in f["leitura"]
         assert not any("não calculada" in x for x in c["lacunas"])
-        assert any("SUPOSIÇÃO (decisão do usuário): duração do ciclo" in s for s in c["suposicoes"])
+        # padrão novo (2026-11-14): ciclo FAO-56 + chuva anual, declarados como SUPOSIÇÃO e como aviso 'outras regiões'
+        assert any("SUPOSIÇÃO (decisão do usuário 2026-11-14): duração do ciclo" in s for s in c["suposicoes"])
+        assert any("chuva dos 365 dias" in s for s in c["suposicoes"]) and c["janela_plantio"]["chuva_modo"] == "anual"
+        assert any("ciclo de referência de outras regiões" in x for x in c["lacunas"])
+        assert c["janela_plantio"]["ciclo_fonte"] == "fao" and c["janela_plantio"]["chuva_comparada_janela_dias"] == 365
         assert c["janela_plantio"]["duracao_dias"] > 0
     alt = cen[1]["faixa_incerteza"]
     assert 0 <= alt["p_top3"] <= 1 and 1 <= alt["posicao_p10"] <= alt["posicao_p90"]
@@ -203,13 +207,14 @@ def test_chuva_acumulada_no_ciclo_e_melhor_janela(tab, fabrica_clima):
     # chuva só de jan a mai: ciclo de 60 dias iniciado em jun não vê chuva; iniciado em jan-abr vê
     df = fabrica_clima(chuva_pico=8.0)
     cl = _serie(df)
-    av = ciclo.notas_ciclo(tab, "milheto", cl, Parametros(ciclo_modo="min"))  # milheto: ciclo_min 60 d (tabela)
+    p_ant = Parametros(ciclo_modo="min", ciclo_fonte="ecocrop", chuva_modo="ciclo")    # opção anterior (comparação)
+    av = ciclo.notas_ciclo(tab, "milheto", cl, p_ant)  # milheto: ciclo_min 60 d (tabela EcoCrop)
     assert av["dur"] == 60 and av["estado"] == "avaliavel"
     k_jul = int(np.where(np.arange(0, 365, 10) == 190)[0][0])  # início ~ 10/jul
     k_jan = 0
     assert np.nanmax(av["chuva"][:, k_jul]) == 0.0
     assert np.nanmean(av["chuva"][:, k_jan]) == pytest.approx(60 * 8.0)
-    res = ciclo.resumir(av, ciclo.anos_comuns([av], cl), Parametros(ciclo_modo="min"))
+    res = ciclo.resumir(av, ciclo.anos_comuns([av], cl), p_ant)
     assert res["adeq_media"] > 0 and res["k"] * 10 < 150  # melhor início dentro da estação chuvosa
 
 

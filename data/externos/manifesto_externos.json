@@ -1,0 +1,45 @@
+{
+ "conab_precos_mensal_uf_ce.csv": {
+  "fonte": "CONAB, Portal de Informações Agropecuárias",
+  "url": "https://portaldeinformacoes.conab.gov.br/downloads/arquivos/PrecosMensalUF.txt",
+  "data_download": "2026-11-14",
+  "sha256_bruto": "55ab1b087701c32dc07a42de5551eef2f9930fd2dde42aa35e9b46b3590adc1c",
+  "linhas_brutas": 21349,
+  "linhas_recorte": 100,
+  "licenca": "NÃO LIDA (download aberto sem login; confira os termos do portal da CONAB antes de redistribuir)",
+  "encoding_origem": "latin-1",
+  "decimal": "vírgula no original (mantido)"
+ },
+ "conab_precos_mensal_municipio_ce.csv": {
+  "fonte": "CONAB, Portal de Informações Agropecuárias",
+  "url": "https://portaldeinformacoes.conab.gov.br/downloads/arquivos/PrecosMensalMunicipio.txt",
+  "data_download": "2026-11-14",
+  "sha256_bruto": "21b5cb5ebdba65fe5a05fccbba224713d19b2664740466d6ad89e17ee8faa851",
+  "linhas_brutas": 19899,
+  "linhas_recorte": 77,
+  "licenca": "NÃO LIDA (download aberto sem login; confira os termos do portal da CONAB antes de redistribuir)",
+  "encoding_origem": "latin-1",
+  "decimal": "vírgula no original (mantido)"
+ },
+ "conab_custos_producao_nordeste.csv": {
+  "fonte": "CONAB, Portal de Informações Agropecuárias",
+  "url": "https://portaldeinformacoes.conab.gov.br/downloads/arquivos/CustoProducao.txt",
+  "data_download": "2026-11-14",
+  "sha256_bruto": "c2da60bad89c4f79f2e870d62e8f708f8d9b6f8170323868f7e630adb1b3c41b",
+  "linhas_brutas": 1542,
+  "linhas_recorte": 286,
+  "licenca": "NÃO LIDA (download aberto sem login; confira os termos do portal da CONAB antes de redistribuir)",
+  "encoding_origem": "latin-1",
+  "decimal": "vírgula no original (mantido)"
+ },
+ "sigef_campos_sementes_ce.csv": {
+  "fonte": "MAPA, SIGEF - Campos de produção de sementes (dados.agricultura.gov.br)",
+  "url": "https://dados.agricultura.gov.br/dataset/c7784a6e-f0ec-4196-a1ce-1d2d4784a58e/resource/6ab20c11-73a0-4ab0-8e13-2420d48dd6f5/download/sigefcamposproducaodesementes.csv",
+  "data_download": "2026-11-14",
+  "sha256_bruto": "b44284d8773705d4f8d039f30493a81838b07702c223a5b4ab8b07b0f61c3aee",
+  "linhas_brutas": 611266,
+  "linhas_recorte": 1553,
+  "licenca": "Creative Commons Attribution (campo license_title do CKAN)",
+  "aviso": "são campos de PRODUÇÃO DE SEMENTES (inscritos no MAPA), não plantio comercial; não representa o calendário do agricultor"
+ }
+}

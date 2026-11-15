@@ -1,0 +1,25 @@
+{
+  "modelo_producao": "xgboost",
+  "treino_producao": [
+    2001,
+    2021
+  ],
+  "linhas_csv_prospectivo": 5147,
+  "linhas_pipeline_novo_2025plus": 5147,
+  "linhas_em_comum": 5147,
+  "linhas_sem_numero_por_extrapolacao_no_pipeline_novo": 0,
+  "dif_ndvi_prev_media_abs": 0.006108572331298871,
+  "dif_ndvi_prev_max_abs": 0.061108796553155154,
+  "correlacao_ndvi_prev": 0.9991069521318059,
+  "rmse_ndvi_producao": 0.062177154246521774,
+  "rmse_ndvi_prospectivo": 0.06105766539456116,
+  "rmse_ndvi_clim21": 0.08543649251592136,
+  "rmse_ndvi_clim24": 0.0818477056895238,
+  "skill_producao_vs_clim21": 0.27224125879307537,
+  "skill_prospectivo_vs_clim24": 0.2540088340878649,
+  "amostra_prever_um_composto": {
+    "n": 40,
+    "sem_numero": 0,
+    "dif_max_abs_vs_lote": 0.0
+  }
+}

@@ -299,16 +299,21 @@ def _template_trechos(trechos: list[dict], simples: dict | None = None, pergunta
         ls = [f"{simples.get(t['n']) or _curto(t['texto'], 220)} [{t['n']}]" for t in trechos[:2]]
         ls.append(_fatos.FECHO_PADRAO)
         return "\n".join(ls)
-    bons = [(t, limpar_trecho_pdf(t["texto"])) for t in trechos_que_respondem(trechos, pergunta)]
-    bons = [(t, x) for t, x in bons if len(x) >= 20][:MAX_TRECHOS_PADRAO]
+    from .conhecimento import frases_simples
+    bons = []
+    for t in trechos_que_respondem(trechos, pergunta):
+        fr = frases_simples(t["texto"], pergunta, max_frases=2)       # só frases completas que respondem; sem autor, citação, tabela nem cabeçalho
+        if fr:
+            bons.append((t, fr))
+    bons = bons[:MAX_TRECHOS_PADRAO]
     if not bons:
         docs = list(dict.fromkeys(_nome_documento(t.get("arquivo", "")) for t in trechos if t.get("arquivo")))[:2]
         refs = " ".join(f"[{t['n']}]" for t in trechos[:2])
         return MSG_SEM_RESPOSTA_DIRETA + (f"\nDocumento: {'; '.join(docs)}. {refs}".rstrip() if docs else "")
     fontes = {fonte_curta(t.get("arquivo", "")) for t, _ in bons}
     fonte = fontes.pop() if len(fontes) == 1 and None not in fontes else None
-    ls = ["Segundo o material consultado" + (f" ({fonte})" if fonte else "") + ":"]
-    ls += [f"- {x} [{t['n']}]" for t, x in bons]
+    ls = [f"Segundo o material consultado" + (f" ({fonte})" if fonte else "") + ": " + f"{' '.join(bons[0][1])} [{bons[0][0]['n']}]"]
+    ls += [f"{' '.join(fr)} [{t['n']}]" for t, fr in bons[1:]]
     ls.append(_fatos.FECHO_PADRAO)
     return "\n".join(ls)
 

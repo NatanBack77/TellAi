@@ -23,7 +23,7 @@ from collections import deque
 # Rotas isentas (healthcheck do orquestrador não pode tomar 429)
 ISENTAS = ("/saude",)
 # Prefixos de rotas caras (Monte Carlo, otimização, reranker, treino)
-PESADAS = ("/cenarios", "/rotacao", "/plano", "/evidencias", "/modelo/previsao", "/chat")
+PESADAS = ("/cenarios", "/rotacao", "/plano", "/evidencias", "/modelo/previsao", "/chat", "/conversa", "/calendario", "/voz/transcrever", "/voz/falar")
 MAX_CHAVES = 20_000
 
 

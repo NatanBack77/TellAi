@@ -18,7 +18,7 @@ from src.llm.verificador import termos_tecnicos, verificar
 from tests.l4_perguntas import L4, NEGATIVAS, POSITIVAS
 from tests.test_chat import AVISO, TRECHO, Falso, busca
 
-MUNICIPIOS = ["quixada_ce", "fortaleza_ce", "sobral_ce", "irece_ba", "patos_pb"]   # completo, composto não consecutivo, sem previsão + sem IBGE, fora do CE x2
+MUNICIPIOS = ["quixada_ce", "fortaleza_ce", "sobral_ce", "irece_ba", "patos_pb"]   # completo, composto não consecutivo (sem previsão), com previsão (já deu 503 por data duplicada) + sem IBGE, fora do CE x2
 TETO_PROMPT_TOKENS = 2500
 APP_PY = Path(__file__).resolve().parents[1] / "src/app/app.py"
 
@@ -93,10 +93,15 @@ def test_folha_fortaleza_sem_previsao_vira_lacuna_com_o_motivo(folhas):
     assert fato(f, "caminhos")                                                         # o resto do local não some
 
 
-def test_folha_sobral_previsao_indisponivel_e_sem_ibge(folhas):
+def test_folha_sobral_tem_previsao_do_composto_seguinte_ao_ultimo_valido_e_sem_ibge(folhas):
+    """Antes (2026-11-14) sobral_ce dava 503 por data duplicada no clima (linha-alvo acrescentada duas vezes); agora tem previsão.
+    A data NÃO é constante: vem do último composto válido (API), e a folha mostra a mesma data."""
     f = folhas["sobral_ce"]
-    lac = fato(f, "previsao", "previsão do NDVI")
-    assert lac and lac[0]["lacuna"] and "Lacuna, sem número" in lac[0]["texto"] and "sobral" not in lac[0]["texto"].lower()
+    p = A.previsao("sobral_ce").model_dump()
+    assert p["anomalia_ndvi_prevista"] is not None and p["composto_alvo"] > p["ultimo_composto_observado"]
+    prev = fato(f, "previsao", "anomalia prevista")
+    assert prev and not prev[0]["lacuna"] and FT.data_br(p["composto_alvo"]) in prev[0]["texto"]
+    assert FT.data_br(p["ultimo_composto_observado"]) in fato(f, "previsao", "último composto observado")[0]["texto"]
     assert any("IBGE" in x["texto"] and x["lacuna"] for x in fato(f, "renda"))        # sem código IBGE: sem receita bruta (lacuna)
     assert "2311" not in textos(f)
 

@@ -6,6 +6,12 @@ caminhos:
   ndvi: data/processed/ndvi_16d.parquet
   umidade_solo: data/processed/umidade_solo.parquet   # opcional
   saida: data/processed/modelos
+  # ENTRADAS DE INFERÊNCIA (só para a previsão do próximo composto): original + 2025plus, geradas por
+  # `python -m src.coleta.unir_2025`. NUNCA usadas em treino, validação ou métricas (essas leem `clima`/`ndvi` acima).
+  clima_atual: data/processed/clima_diario_atual.parquet
+  ndvi_atual: data/processed/ndvi_16d_atual.parquet
+  clima_2025plus: data/processed/clima_2025plus.parquet
+  ndvi_2025plus: data/processed/ndvi_2025plus.parquet
 
 # Colunas obrigatórias por arquivo (falta => parar e pedir)
 colunas_obrigatorias:
@@ -46,7 +52,11 @@ preditivo:
   janela_tmax_dias: 30
   janela_umidade_dias: 15          # média da umidade nos 15 dias ANTES do período t
   min_anos_climatologia_slot: 3    # anos de referência por slot para calcular a anomalia
-  holdout_anos: 3
+  holdout_anos: 3                  # SÓ para dados sem anos explícitos (sintéticos/testes); a produção usa as chaves abaixo
+  # ANOS FIXOS (2026-11-14): sem eles, "os últimos N anos presentes" deslocaria o holdout para 2024-2026 ao entrarem dados novos
+  # e mudaria metricas.json. Com estas chaves, linhas de outros anos (2025+) nunca entram no treino nem no teste.
+  anos_treino: {de: 2001, ate: 2021}    # climatologia do alvo (anomalia) calculada SÓ nestes anos
+  anos_holdout: {de: 2022, ate: 2024}
   ridge_alphas: [0.1, 1.0, 10.0, 100.0]   # escolhido por validação interna agrupada, só com dados de treino
   xgboost:                                # fixos a priori; NUNCA ajustados olhando o teste
     n_estimators: 200

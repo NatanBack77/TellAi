@@ -12,7 +12,9 @@ from src.modelos.sintetico import gerar_sinteticos
 
 @pytest.fixture(scope="module")
 def cfg():
-    return carregar_config()
+    cfg = carregar_config()
+    cfg["preditivo"].pop("anos_treino", None), cfg["preditivo"].pop("anos_holdout", None)   # dados sintéticos: sem os anos fixos da produção
+    return cfg
 
 
 @pytest.fixture(scope="module")

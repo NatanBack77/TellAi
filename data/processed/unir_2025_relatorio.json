@@ -1,0 +1,39 @@
+{
+  "clima": {
+    "arquivo": "clima_diario_atual.parquet",
+    "linhas_original": 1709370,
+    "linhas_2025plus": 132990,
+    "linhas_saida": 1842360,
+    "duplicadas_removidas": 0,
+    "grupos_duplicados_com_valores_diferentes": 0,
+    "data_min": "2001-01-01",
+    "data_max": "2026-11-13",
+    "pontos": 195,
+    "regravado": false,
+    "ultimo_dia_com_chuva_e_tmax": "2026-11-10",
+    "linhas_com_chuva_nan": 585,
+    "nota": "os últimos dias do POWER vêm vazios (NaN, mantidos); os mais recentes podem ser provisórios (hipótese, não verificada)."
+  },
+  "ndvi": {
+    "arquivo": "ndvi_16d_atual.parquet",
+    "linhas_original": 107583,
+    "linhas_2025plus": 8190,
+    "linhas_saida": 115773,
+    "duplicadas_removidas": 0,
+    "grupos_duplicados_com_valores_diferentes": 0,
+    "data_min": "2001-01-01",
+    "data_max": "2026-10-16",
+    "pontos": 195,
+    "regravado": false,
+    "confiabilidade_contagem": {
+      "0": 66726,
+      "1": 29477,
+      "3": 19559,
+      "NaN": 11
+    },
+    "confiabilidade_aceita_config": [
+      0,
+      1
+    ]
+  }
+}

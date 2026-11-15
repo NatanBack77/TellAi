@@ -1,0 +1,1156 @@
+                        Relatório de
+                     Avaliação Executiva
+
+ Projeto/Programa                     Programa Garantia Safra
+
+ Mapp (Nº e Denominação)              38 – Garantia Safra no Ceará
+
+ Programa (PPA)                       311 – Promoção da Segurança Alimentar e Nutricional
+
+ Categoria                            Estruturante – Ocupação e Renda (Inclusão Produtiva Rural)
+
+                                      Thaisa França Badagnan
+                                      Ricardo Brito Soares
+ Equipe de Avaliação
+                                      Adreciana Aguiar
+                                      Fabrício Linhares (revisão)
+
+ Data                                 Outubro/2022
+
+
+
+
+                    Sumário do Projeto/Programa
+
+Descrição do Projeto: O projeto Garantia Safra no Ceará disponibiliza os recursos necessários para a
+contrapartida do governo estadual na constituição do Fundo Garantia Safra, uma das ações do
+Programa Nacional de Agricultura Familiar (PRONAF), executado pelo Governo Federal através da
+Secretaria de Política Agrícola do Ministério da Agricultura Pecuária e Abastecimento (MAPA). O
+Fundo foi constituído com o objetivo de envolver os entes federativos, de forma solidária, através de
+contribuições financeiras que possibilitem o funcionamento e operacionalização do Programa. É
+constituído das contribuições dos próprios agricultores (taxa de adesão), dos municípios, dos estados
+e da união
+
+Objetivos: Garantir renda mínima para a sobrevivência de agricultores que aderirem ao Garantia
+Safra; assegurar renda mínima aos agricultores de base familiar na ocorrência de perda por estiagem
+iguais ou superiores a 50%; reduzir os riscos da exploração da agricultura de sequeiro; e reduzir as
+práticas assistencialistas no trato da população rural nas ocorrências de seca.
+
+Público-Alvo: Agricultores familiares que se enquadrem nos critérios do Programa.
+
+Principais Ações (2019/2021):
+
+De maneira resumida, a execução deste Programa consiste nas seguintes ações:
+
+i) Adesão dos Estados;
+ii) Reunião do Comitê Gestor do Garantia-Safra para definição das diretrizes do ano agrícola;
+iii) Adesão dos municípios;
+iv) Inscrição, seleção e adesão dos agricultores;
+v) Realização dos aportes financeiros ao Fundo Garantia-Safra (municípios, estados e União);
+vi) Verificação de perdas de safra nos municípios; e
+vii) Pagamento do benefício
+
+Resultados esperados (2019/2021):
+
+Produtores dispondo de renda mínima para sua sobrevivência em situação de seca ou excesso hídrico
+
+
+
+
+                          Sobre a Avaliação Executiva
+
+A avaliação executiva é um tipo de avaliação ex-post, ou seja, de intervenções já em andamento. Ela
+deve ser desenhada de forma a prover uma descrição geral dos programas/projetos e seus processos,
+aplicando uma abordagem sintética e que demanda pouco tempo e dispêndio de recursos. Como
+resultado, são providas informações gerais de desenho, execução e desempenho em vez de uma análise
+meticulosa de todos os detalhes do projeto.
+Esta avaliação executiva fornecerá um retrato do desempenho do programa Garantia Safra em várias
+áreas importantes, como design, planejamento estratégico, operação e resultados. Nessa perspectiva, a
+avaliação executiva apresentará um diagnóstico da capacidade institucional, organizacional e de gestão
+do programa Garantia Safra que permitirá reflexões sobre estratégias de melhoria do programa, além
+da orientação pela lógica de monitoramento e avaliação com base em resultados, já adotada no
+Governo do Estado do Ceará.
+
+De acordo com uma nota técnica publicada pelo Banco Mundial 1, basicamente existem dois modelos
+principais adotados nas Avaliações Executivas. No chamado Modelo 1, as avaliações são baseadas em
+um questionário predefinido com um número exato de perguntas, dividida em áreas de atuação e
+respondidas pelos avaliadores. A avaliação é acompanhada de orientações e critérios detalhados sobre
+
+1 Results of the expert roundtables on innovative performance measurement tools. World Bank. Technical Notes, 2: Executive
+Evaluations.                  Washington,               DC;              2009.               Disponível               em:
+http://siteresources.worldbank.org/INTLACREGTOPPOVANA/Resources/840442-
+1235414009766/TechnicalNoteExecutiveEvaluations.pdf
+
+
+
+
+                                                            2
+como cada questão deve ser respondida. No Modelo 2, as avaliações, apesar de ter um quadro geral,
+com áreas predeterminadas de desempenho, são mais flexíveis, no sentido de que os avaliadores
+possuem autonomia para decidir como avaliar cada área.
+
+A avaliação executiva realizada pelo CAPP/IPECE adota elementos presentes em ambos os modelos,
+mas segue principalmente o Modelo 1, orientando a análise por um conjunto de questões, organizadas
+em 5 eixos, a saber:
+
+Eixo I – Propósito e Concepção
+Avalia o propósito do programa/projeto e a sua concepção. Considera itens como diagnóstico do
+problema, a definição dos objetivos, o escopo e o desenho de suas ações. Ressalta-se que um projeto
+bem formulado nesses aspectos possui maiores chances de alcançar o potencial de transformação
+desejado.
+Eixo II – Planejamento
+Avalia a presença de elementos essenciais de planejamento, como desdobramento do objetivo em
+atividades, metas, custos e medidas de desempenho. Considera-se que o planejamento adequado do
+programa/projeto é fundamental para que as necessidades da fase de concepção sejam detalhadas e,
+como consequência, alcançadas.
+Eixo III – Execução e Gerenciamento
+Avalia a gestão sobre os pontos de vista da supervisão financeira, dos avanços físicos das atividades
+(quando aplicável), da compilação de dados de desempenho e da responsabilização das ações e
+atividades. O gerenciamento adequado do programa/projeto é a garantia de que os resultados
+planejados estão sendo alcançados ou que o programa/projeto necessita de correções de rumo.
+Eixo IV – Resultados
+Avalia o desempenho do programa/projeto em termos dos resultados alcançados pelas medidas de
+desempenho planejadas e das informações geradas por avaliações internas ou externas.
+Eixo V – Percepção dos beneficiários
+Avalia se o programa/projeto coleta dados quanto à satisfação de seus beneficiários e se estas
+informações são utilizadas para o aprimoramento das ações.
+Em cada eixo, temos um conjunto de questões que serão respondidas pelos avaliadores, com base na
+documentação do programa. O objetivo é apresentar um panorama geral acerca de determinada ação,
+identificando fragilidades relacionadas, especialmente, ao seu desenho, à sua gestão e implementação.
+Ao final do processo, a avaliação deve ser capaz de oferecer subsídios para que possam ser propostas,
+se necessário, recomendações com oportunidades efetivas de aprimoramento e correção de rumos.
+Também podem ser propostas avaliações adicionais mais aprofundadas.
+
+
+A avaliação executiva será processada em 5 fases dispostas na seguinte sequência:
+
+                        Coleta de
+                                         Elaboração dos
+   Inicialização       evidências/                              Devolutiva          Finalização
+                                            relatórios
+                        reuniões
+
+
+
+                                                 3
+Inicialização: compreende na exposição dos objetivos e da metodologia da avaliação executiva; na
+apresentação da equipe de avaliadores e agendamento de reuniões com a gerência do projeto e demais
+atores envolvidos.
+
+Coleta de evidências e reuniões: composta por encontros da equipe de avaliação com os gestores;
+coleta de informações sobre o projeto e levantamento de evidências documentais.
+
+Elaboração dos relatórios: o produto principal da análise será um documento, no formato de relatório.
+Inicialmente uma primeira versão é elaborada pela equipe de avaliação com base nas evidências
+coletadas.
+
+Devolutiva: caracteriza-se como um momento de diálogo entre os avaliadores e a equipe do projeto, e
+consiste na apresentação dos primeiros resultados da avaliação. Nesse momento, são abordadas as
+principais conclusões do relatório.
+
+Finalização: consiste no encaminhamento da versão final do relatório, além da apresentação e
+prestação de contas da avaliação ao CCPIS.
+
+Por fim, cabe mencionar que esta avaliação, designada em 02 de Maio de 2022 pela Resolução CCPIS
+n° 12/2022, será realizada pelo CAPP (Centro de Análise de Dados e Avaliação de Políticas Públicas),
+que é vinculado ao IPECE (Instituto de Pesquisa e Estratégia Econômica do Ceará).
+
+
+
+
+                                                 4
+                                             Síntese
+
+A figura abaixo apresenta uma síntese do desenpenho do Projeto Ceará Credi conforme os 5 eixos
+temáticos analisados nesta avaliação executiva. Em cada eixo, foram atribuídas notas para cada um de
+seus tópicos: 1 no caso de avaliação satisfatória, 0,5 de parcialmente satisfatória e 0 de insatisfatório.
+A nota entre 0 e 1 em cada eixo do gráfico radial representa a pontuação média do seu respectivo eixo
+temático.
+
+
+
+
+                                                    5
+                      Eixo I: Propósito e Concepção
+
+1.1. O projeto teve como base algum estudo diagnóstico que permitiu identificar o
+    problema/oportunidade de melhoria que justifica a sua intervenção? Como a identificação
+    foi realizada (demanda da população, demanda política, situação apresentada na mídia)?
+
+Avaliação do item                 SIM
+
+
+O diagnóstico consiste na identificação mais detalhada do problema a ser combatido ou necessidade
+atendida pela intervenção. Com base nas informações levantadas, deve-se avaliar o problema com
+o objetivo de compreender suas causas e consequências, constituindo um subsídio essencial para o
+desenho das ações.
+
+Uma vez diagnosticada uma condição social e econômica a partir da identificação de um problema,
+parte-se para a etapa de formatação ou prescrição de políticas capazes de atuar sobre a fonte ou a
+causa desse problema, solucionando-o ou, pelo menos, amenizando-o.
+
+A identificação da fonte ou causa do problema cria a possibilidade de diferentes alternativas de
+solução e, portanto, de diversas propostas de ações públicas, com custos e benefícios específicos.
+Nesse sentido, a formulação da política deve levar em conta as ferramentas alternativas possíveis,
+que sejam mais apropriadas no combate à fonte do problema, compatíveis com as condições e o
+contexto específico do setor público, e que obtenham maior resultado ou benefício à sociedade ao
+menor custo possível. Trata-se de desenhar políticas que sejam efetivas e eficientes, e
+adicionalmente tenham legitimidade social.
+
+No contexto da avaliação executiva, o objetivo é verificar se o diagnóstico inicial foi realizado de
+forma satisfatória, se de fato havia um problema social que justificasse a existência de uma
+intervenção pública e se as potenciais causas para esse problema, adotadas por suposições ou
+identificadas no diagnóstico, são plausíveis e consistentes com o modelo lógico adotado.
+
+No caso do Programa Garantia Safra, a origem do problema social, perda de renda/safra por causa
+de condições climáticas adversas, é frequente e periódico, especialmente no semiárido, e bem
+documentada em registros técnicos e científicos ao longo da história (pluviometria, por exemplo)
+como na literatura e cultura popular. No entanto, a amplitude com que este problema recorrente afeta
+as condições atuais dos potenciais beneficiários e o meio pelo qual o Programa tenta-se amenizar
+este efeito são temas de destaque no diagnóstico que justifica esta política pública.
+
+O projeto discute detalhes e ressalta algumas evidências da grande dependência dos agricultores
+familiares do Estado da agricultura de sequeiro, da participação deles na economia local (emprego
+e produção), e do diferencial de qualidade de vida deste grupo (segurança alimentar, imigração e
+bem-estar). Destaca-se ainda que o programa surge instrumentalizando uma mudança conceitual na
+forma de tratamento do problema, que passa de “combate” a seca para “convivência” com ela.
+
+
+
+
+                                                 6
+Embora o programa seja federal, a participação do Estado no mesmo é uma demanda social dos
+próprios agricultores, como também das administrações municipais.
+
+Sugestões
+
+Evidenciar um pouco mais a grande dependência dos agricultores familiares do Estado da agricultura
+de sequeiro, a participação dos mesmos na economia local (emprego e produção), e o diferencial de
+qualidade de vida destes por meio de indicadores disponíveis (segurança alimentar, imigração e
+bem-estar).
+
+
+
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+Comentários da equipe gestora ou executora do programa ou projeto.
+Devolutiva - Comentários (equipe de avaliação)
+Comentários finais ou sugestões da equipe de avaliação.
+
+
+
+1.2. O estudo diagnóstico teve como base dados estatísticos e/ou indicadores, ou publicações
+    científicas?
+
+Avaliação do item                 SIM
+Nos vários documentos apresentados do programa são destacados indicadores de suporte e algumas
+citações de estudos, como o percentual médio de perda de safra e o estudo encomendado do
+Ministério do Desenvolvimento Agrário à agência alemã GTZ, sobre as aptidões e escolhas de
+culturas dos agricultores familiares estaduais.
+
+Embora bem diagnósticado, para que o projeto ganhe reconhecimento como “baseado em evidências
+científicas” poderia-se adicionar outras referências disponíveis da literatura acadêmica e prática.
+
+Sugestões
+A descrição e justificativa do projeto poderia se beneficiar das pesquisas acadêmicas que analisam
+os problemas enfrentados pelos agricultores familiares do semiárido e a política de intervenção
+proposta do Programa. Seguem algumas sugestões que podem ser consultadas:
+
+ARRUDA, Minéia Patrícia Góes. Entre o alívio à pobreza e o desenvolvimento rural: ideias e
+paradigmas do Programa Garantia Safra. 2020.
+
+BARBOSA, Wescley de Freitas. Intempérie Climática e Política de Proteção Social no Brasil: Uma
+Avaliação Multidimensional do Impacto do Programa Garantia SAFRA. 2019.
+
+COSTA, Marco Aurélio et al. Vulnerabilidade Social no Brasil: conceitos, métodos e primeiros
+resultados para municípios e regiões metropolitanas brasileiras. Texto para Discussão, 2018.
+
+
+
+
+                                                7
+DE NAZARENO, L. R.; DE SOUZA JUNIOR, P. C.; IGNÁCIO, S. A. Índice de Vulnerabilidade
+das Famílias Paranaenses: Mensuração a partir do Cadastro Único para Programas Sociais-
+CadÚnico. Curitiba: Ipardes, 2012.
+
+DOS SANTOS MESQUITA, Patricia et al. Importância dos programas voltados aos agricultores
+familiares nos períodos de seca e frente à necessidade de adaptação às mudanças climáticas no
+Semiárido brasileiro. Desenvolvimento e Meio Ambiente, v. 55, 2020.
+
+VALADARES, Alexandre Arbex et al. Agricultura familiar e abastecimento alimentar no contexto
+do Covid-19: uma abordagem das ações públicas emergenciais. 2020.
+
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+Comentários da equipe gestora ou executora do programa ou projeto.
+Devolutiva - Comentários (equipe de avaliação)
+Comentários finais ou sugestões da equipe de avaliação.
+
+
+
+1.3. O objetivo do projeto é claro e consistente com o problema?
+
+Avaliação do item                 SIM
+
+Neste tópico, o foco está em questões sobre a clareza na definição dos objetivos do programa e se
+este apresenta notoriamente uma oportunidade de resposta ou enfrentamento ao problema
+identificado.
+
+Em sua definição legal, o Fundo Garantia-Safra estabelece objetivo de “garantir condições mínimas
+de sobrevivência aos agricultores familiares de Municípios sistematicamente sujeitos à perda de
+safra por razão do fenômeno da estiagem ou excesso hídrico”. A transferência de recursos
+financeiros (R$ 850,00) diretamente para os agricultores na condicionalidade de perda de safra local
+acima de 50% é bastante consistente com o objetivo destacado acima. Ademais, particularidades
+operacionais do programa como o cofinanciamento do próprio agricultor a cada ano e a transferência
+direta para a conta dos agricultores indicam um tratamento diferenciado do problema (nova
+tecnologia de programa), em sintonia com a idéia de convivência e adaptação ao meio.
+
+O programa ainda destaca outros objetivos de apoio do programa como:
+
+I – a introdução de tecnologias, lavouras e espécies animais adaptadas às condições locais;
+II – a capacitação e a profissionalização dos agricultores familiares;
+III – o estímulo ao associativismo e ao cooperativismo; e
+IV – a ampliação do acesso dos agricultores familiares ao crédito rural.
+
+Sugestões
+
+
+
+
+                                                 8
+Analisar oportunamente a correlação entre a participação no programa e a melhora dos objetivos de
+apoio. Investigar se os agricultores que participam do programa tendem a ter um engajamento maior
+nas atividades descritas (introdução de novas tecnologias, melhor capacitação, associativismo, e
+demanda por crédito rural). Esta pesquisa, no entanto, dependeria de informações de
+acompanhamento, e/ou de análises externas de consultoria ou convênios.
+
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+Comentários da equipe gestora ou executora do programa ou projeto.
+Devolutiva - Comentários (equipe de avaliação)
+Comentários finais ou sugestões da equipe de avaliação.
+
+
+
+1.4. É possível identificar coerência entre a solução proposta pelo projeto e o problema
+    apresentado? As soluções são baseadas em alguma evidência científica?
+
+Avaliação do item                 SIM
+A transferência financeira de recursos em caso de perda de safra no segundo semestre é importante
+e oportuna para aliviar dificuldades encontradas pelos pequenos agricultores familiares. A
+continuidade do programa ao longo dos anos por diferentes governos e transpondo condições
+climáticas heterogêneas poderia ser considerado um aparente indicador de seu sucesso. No entanto,
+o mérito final do programa ocorre quando ele produz efeitos significantes em seus beneficiários, que
+só poderiam ser mensurados com precisão por meio de metodologias tecnicamente adequadas e
+isentas. Neste sentido, para que o programa ganhe o reconhecimento científico aliado ao amparo
+político, é importante incluir estudos que analisaram a efetividade do mesmo em melhorar diversos
+aspectos da vida do agricultor familiar. Desta forma, o mesmo pode ganhar merecidamente o rótulo
+de “programa baseado em evidência”.
+
+Sugestões
+
+Inclusão de artigos e textos científicos de avaliação do programa Garantia Safra. Em particular
+(segue anexo) o estudo “Fala Agricultor, Uma Ferramenta de Diálogo com o Agricultor
+Familiar, e Avaliação do Programa Garantia Safra”. Este estudo foi realizado em parceria pelo
+Banco Mundial, Projeto São José (SDA-CE) e Universidade Federal do Ceará, onde foram sugeridos
+e testados mecanismos de impacto do programa. Evidenciou-se por exemplo, efeitos do programa
+na redução percebida da insegurança alimentar e propensão a mudar de atividade ou mesmo local
+de residência.
+
+Abaixo mais alguns trabalhos relacionados à avaliação do programa:
+
+BARBOSA, Wescley de Freitas. Intempérie Climática e Política de Proteção Social no Brasil: Uma
+Avaliação Multidimensional do Impacto do Programa Garantia SAFRA. 2019.
+
+SOUZA MOREIRA, Vinicius; SILVEIRA, Suely de Fátima Ramos; MOTTER, Kiara Zancanaro.
+Avaliação de impacto do Pronaf B sobre a satisfação de agricultores familiares em municípios de
+Minas Gerais. Estudos Sociedade e Agricultura, 2014.
+
+
+
+                                                 9
+CASTRO, César Nunes de; RESENDE, Guilherme Mendes; PIRES, Murilo José de Souza.
+Avaliação dos impactos regionais do Programa Nacional da Agricultura Familiar (PRONAF). 2014.
+
+RODRIGUES, Anderson da Silva. Avaliação do impacto do Projeto Hora de Plantar sobre a
+sustentabilidade dos agricultores familiares da Microrregião do Cariri (CE): o caso do milho híbrido.
+2016.
+
+SILVA, Ronan Luiz. AVALIAÇÃO DO PROGRAMA GARANTIA-SAFRA: ANÁLISE E
+PROSPECÇÃO A PARTIR DE UM MODELO BASEADO EM AGENTES. IPEA, 2016.
+
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+Comentários da equipe gestora ou executora do programa ou projeto.
+Devolutiva - Comentários (equipe de avaliação)
+Comentários finais ou sugestões da equipe de avaliação.
+
+
+
+1.5. O público alvo do projeto é coerente com o FECOP?
+    Esse público é universal ou focalizado
+    Caso seja focalizado, quais os critérios de elegibilidade?
+
+Avaliação do item                  SIM
+
+Contitui público alvo do programa os agricultores familiares elegíveis para o PRONAF, que
+possuem renda de no máximo 1,5 salários mínimos (excluindo-se aposentadoria rural), e área de
+plantio entre 0,6 e 5 hectares. Embora estes critérios não sejam exatamente aqueles que definiriam
+a situação de pobreza, em sua definição estritamente monetária, e que é também adotado de forma
+geral nas normas do FECOP, o nível de renda estabelecido ainda é razoavelmente adequado para
+caracterizar o estado de vultenabilidade econômica quando associado ao tipo de atividade e
+dimensão de área do pequeno produtor.
+
+Sugestões
+Verificar e evidenciar o percentual de agricultores cadastrado no CADÙNICO e que fazem parte de
+outros programas como o Bolsa Família/Auxílio Brasil, Hora de Plantar, etc.
+
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+
+
+Devolutiva - Comentários (equipe de avaliação)
+
+
+
+
+1.6. Trata-se de uma proposta única no Ceará para solução do problema, sem sobreposição de
+    público alvo e ações com outras iniciativas?
+
+Avaliação do item                  PARCIALMENTE
+
+
+                                                 10
+Nesta questão é considerado se o projeto possui público alvo e aborda situação-problema de forma
+distinta de outros esforços estadual, federal, municipal e/ou privado.
+
+Como destacado, o programa tem um desenho único quando ao seu calendário, participação
+financeira dos beneficiados, regra de gatilho para o benefício e gestão compartilhada. No entanto,
+não é o único programa de apoio a dar assistência ao beneficiado como membro familiar ou como
+trabalhador. O agricultor rural em sua necessidade de convivência com a seca também depende de
+outros programas governamentais como de distribuição de sementes, leite, e outras transferências
+monetárias. E por ser de transferência monetária direta, pode-se questionar se a incorporação do
+mesmo em outros programas não traria uma efetividade maior, vis-à-vis o custo de manutenção dele.
+
+Sugestões
+Mesmo que a sugestão anterior, verificar se possível a participação dos beneficiários em programas
+de assistência sociais compatíveis.
+
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+
+
+Devolutiva - Comentários (equipe de avaliação)
+
+
+
+
+                                               11
+                           Eixo 2: Planejamento
+
+2.1. O projeto apresenta um modelo lógico descrevendo recursos, atividades, produtos,
+    resultados e impactos?
+    Caso não tenha um modelo lógico, é possível construir um modelo lógico com as informações
+    na documentação apresentada (projeto MAPP, termo de referência, outros)?
+
+Avaliação do item                 SIM
+
+Uma forma sistematizada de analisar o desdobramento do escopo do projeto é por meio da Matriz
+de Marco Lógico. A partir da matriz marco lógico apresentada é possível derivar o encadeamento
+lógico do projeto insumos/ atividades/ produtos/ resultados/ impactos; constando indicadores, meios
+de verificação e riscos, bem como o alinhamento com a solução proposta.
+
+Encadeamento lógico preliminar do Programa Garantia Safra
+
+
+                          Recursos financeiros do FECOP
+       Insumos            Recursos financeiros de outras fontes
+
+
+
+
+                          Inscrição dos beneficiários
+      Atividades
+
+
+
+                          Renda mínima para o agricultor familiar por ocasião da perda de safra
+       Produtos           ocasionada pela falta ou excesso hídrico.
+
+
+
+
+                          Aumento da renda dos produtores na eventualidade de seca ou excesso
+     Impactos de          hídrico.
+     Curto Prazo
+
+
+
+    Impactos de           Redução do êxodo rural em função de adversidades climáticas.
+    Longo Prazo
+
+
+
+
+                                                12
+Sugestões
+
+Apenas completar a matriz de marco lógico acrescentando na parte de insumos a origem de todo o
+recurso utilizado, e na parte das atividades todas as listadas no item 8 do MAPP (inscrição dos
+beneficiários, capacitação de atores locais, seleção, homologação dos beneficiários, adesão dos
+agricultores, avaliação de perdas e pagamento). É possível ainda adicionar outras variáveis de
+impacto, como a redução da insegurança alimentar, constatada no estudo do Banco Mundial citado
+acima.
+
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+Comentários da equipe gestora ou executora do programa ou projeto.
+Devolutiva - Comentários (equipe de avaliação)
+Comentários finais ou sugestões da equipe de avaliação.
+
+
+
+2.2. Existem estimativas claras e critérios para a definição dos recursos financeiros do projeto?
+
+Avaliação do item                  SIM
+
+
+Uma questão importante a ser avaliada é se existem critérios claros para a definição de volume de
+recursos solicitados e se são considerados parâmetros de custo que subsidiam a estimativa dos
+recursos necessários.
+
+A divisão das parcelas de contribuição entre os entes federativos mais o agricultor é pré-definida em
+cada etapa ano/safra. A tabela de distribuição de recursos por municípios traz uma observação
+referente ao valor do benefício, sendo levantado R$17,00 pelo agricultor, R$51,00 pelo Município,
+R$102,00 pelo Estado (via FECOP) e R$340,00 pela União, totalizando R$510,00. Poder-se-ia
+informar um pouco mais sobre o uso do fundo para o complemento da parcela de R$850,00 paga ao
+agricultor? Os que não tiveram perda conseguem cobrir que percentual da diferença por certame?
+A estimativa do cálculo de beneficiários totais é realizada assumindo uma família média de 4,12
+pessoas. Seria interessante verificar se esta é uma boa média para a família dos beneficiários do
+programa.
+
+Sugestões
+
+Destacar a participação (se houver) de municípios onde não houve pagamento da transferência de
+R$ 850,00 per capita por conta da não perda de safra (ou outro motivo). Verificar a participação
+percentual destes municípios na alimentação do fundo. Um parâmetro de referência para esta
+participação seria a de complemento de cobertura dos entes por certame, igual à 40% ((1 -
+510/850)*100).
+
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+
+
+
+
+                                                 13
+Devolutiva - Comentários (equipe de avaliação)
+
+
+
+
+2.3.O projeto definiu indicadores orientados a resultados para todos os componentes do
+    modelo lógico?
+   No projeto verifica-se formas de coleta das informações utilizadas para o cálculo destes
+   indicadores?
+
+Avaliação do item                PARCIALMENTE
+
+
+Considerando boas práticas de monitoramento de programas, cada elo do encadeamento lógico deve
+apresentar indicadores de monitoramento e seus meios de verificação.
+
+Na Matriz de Marco Lógico apresentada no MAPP não consta indicador do insumo (presumindo-se
+o valor do FECOP e outras fontes), e como destacado anteriormente pode-se completar as
+informações de atividades destacando metas para as mesmas, assim como pode-se adicionar outros
+indicadores de impacto como a insegurança alimentar e/ou pobreza.
+
+Quadro 1. Indicadores do encadeamento lógico do Programa Garantia Safra.
+
+
+   Componentes                                       Indicadores
+       Insumos           Não consta
+     Atividades          Percentual de inscrições no Garantia Safra
+      Produtos           Percentual dos agricultores aderidos ao Garantia Safra
+     Resultados          Percentual de produtores com renda mínima para sobrevivência
+      Impactos           Sugestão: Percentual de agricultores familiares na zona rural
+
+
+
+Sugestões
+Acrescentar os indicadores para as outras atividades do item 8, assim como outros indicadores de
+impacto final que merecem destaque.
+
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+
+
+Devolutiva - Comentários (equipe de avaliação)
+
+
+
+
+                                               14
+2.4. O projeto possui linhas de base (indicadores de atividades, produtos, resultados e impacto)
+    que permitem identificar o seu ciclo de vida?
+
+Avaliação do item                 NÃO
+
+Uma linha de base é composta pelo conjunto de objetivos do projeto e a descrição das ações que vão
+permitir a realização destes objetivos, ou seja, os planos para sua execução. Deve constar, também,
+a situação inicial dos indicadores a serem acompanhados pelo projeto, servindo como referência
+para as comparações entre o planejado e o realizado.
+
+O programa já ocorre a bastante tempo e não foram definidas linhas de base de início na elaboração
+do mesmo ou definido um ciclo (fim) para o programa. No entanto, é possível inferir que a existência
+(ou a falta) do programa deveria influenciar na condição de vida dos agricultores rurais, que
+poderiam ser verificadas ao longo do tempo nos Censos Agropecuários, ou qualquer outra pesquisa
+temporal ou transversal envolvendo agricultores familiares do Nordeste. Como estratégia de
+monitoramento, os agricultores acompanhados podem prover as informações a cada certame sobre
+suas percepções de risco e bem-estar.
+
+Sugestões
+Procurar elaborar relatórios de monitoramento e dar publicidade aos indicadores. Mesmo que não
+seja possível recuperar indicadores para o início do programa, poderiam ser calculados indicadores
+com início em qualquer período, e acompanhá-los ao longo do tempo.
+
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+
+
+Devolutiva - Comentários (equipe de avaliação)
+
+
+
+
+2.5. O projeto apresenta um cronograma detalhado de metas e prazos?
+
+Avaliação do item                 PARCIALMENTE
+
+
+No que concerne ao principal produto de início que é a inscrição dos agricultores no programa, tanto
+cronograma quanto metas são estipulados por edição do programa (135.614 agricultores familiares
+segundo o MAPP38 de 2021). Com relação a atividade de laudos sobre perda de safra por município,
+existe o cronograma formalizado, mas pouca informação sobre o atendimento do mesmo por
+município em edições anteriores. E como suporte à objetivos complementares como uso de novas
+tecnologias, capacitação, associativismo, e acesso à crédito, não existe qualquer previsão de metas
+ou prazos.
+
+Sugestões
+
+
+
+
+                                                15
+Apresentar uma perspectiva temporal de melhora para os objetivos de apoio. Qual o percentual atual
+e desejado de agricultores participantes do programa que conseguem realizar parte dos objetivos
+complementares citados ?
+
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+Comentários da equipe gestora ou executora do programa ou projeto.
+Devolutiva - Comentários (equipe de avaliação)
+Comentários finais ou sugestões da equipe de avaliação.
+
+
+
+2.6. O projeto identifica todos os atores envolvidos, bem como apresenta uma descrição das
+    responsabilidades?
+
+Avaliação do item                 SIM
+
+
+A partir do projeto mais recente, MAPP 2021, montamos uma síntese da relação entre cada atividade
+do programa e os atores responsáveis por sua execução.
+
+Quadro 2. Atividades e respectivos responsáveis.
+     Atividades                                     Responsáveis
+ Capacitação de atores   Secretaria do Desenvolvimento Agrário - SDA
+        locais
+     Inscrição dos       Secretarias Municipais de Agricultura e EMATERCE (SDA)
+     beneficiários
+      Seleção dos        Secretaria de Política Agrícola do Ministério da Agricultura Pecuária e
+      beneficiários      Abastecimento - MAPA
+   Homologação dos       Conselho Municipal de Desenvolvimento Sustentável - CMDS
+     beneficiários
+     selecionados
+        Adesão           Agricultores
+  Avaliação de perdas    Técnicos da prefeitura ou credenciados
+      Pagamento          Caixa Econômica Federal - CEF
+Sugestões
+
+Sem sugestões.
+
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+
+
+Devolutiva - Comentários (equipe de avaliação)
+
+
+
+
+                                               16
+2.7. O projeto está alinhado com estratégias e prioridades de governo de médio e longo prazo?
+
+
+Avaliação do item                 SIM
+
+Nesse tópico, é avaliado se o planejamento do programa está exibido nas estruturas programáticas
+oficiais (PPA e LOA). Conforme apresentado no MAPP 2021, item 2, o projeto está alinhado com
+o Planejamento Estratégico do Governo do Estado do Ceará constando no PPA 2020/2023 dentro
+da seguinte estrutura:
+
+ Eixo Governamental:        Ceará e Oportunidades
+ Tema Estratégico:          3.1 – Agricultura Familiar e Agronegócio
+                            311 – Desenvolvimento          Territorial   Rural   Sustentável   da
+ Programa:
+                            Agropecuária Familiar
+                            311.1.03 – Promoção de garantia em caso de perda da produção em
+ Iniciativa:
+                            razão de estiagem ou excesso hídrico
+ Entrega principal:
+
+
+O orçamento destinado ao projeto está presente na Lei Orçamentária Anual (LOA). De acordo com
+o MAPP 2021, as ações do projeto inserem-se na ação orçamentária Apoio ao Programa Garantia
+Safra. No Demonstrativo da Despesa por Programa na LOA 2021, foi destinado R$ 20.400.000,00
+para o código programa 10514.
+
+Sugestões
+Sem sugestões.
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+
+
+Devolutiva - Comentários (equipe de avaliação)
+
+
+
+
+2.8. O planejamento do projeto identifica riscos?
+
+
+Avaliação do item                 SIM
+
+O Mapp38 de 2022 apresenta fatores de identificação dos riscos, listados a seguir:
+
+   •   Uma das partes integrantes, Prefeitura, Estado ou União, não realizar os aportes financeiros;
+
+
+
+
+                                                17
+   •   Também é um risco frequente a rotatividade de representantes das Secretarias Municipais de
+       Agricultura e dos CMDS por gerar uma descontinuidade nos procedimentos.
+   •   As Capacitações dos parceiros executores devem ocorrer de forma sistemática.
+
+Sugestões
+Sugere-se especificar ações preventivas e corretivas com o propósito de minimizar os riscos
+identificados. Importante destacar que cabe à equipe gestora definir se tais ações são realmente
+aplicáveis ao programa.
+
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+
+
+Devolutiva - Comentários (equipe de avaliação)
+
+
+
+
+                                               18
+                Eixo 3: Execução e Planejamento
+
+3.1. O projeto possui uma oferta efetiva de bens e/ou serviços para a sociedade? Essa oferta é
+    condizente com a demanda por este bem e/ou serviço?
+
+Avaliação do item                  SIM
+Este é um raro caso de programa governamental onde a demanda é pode ser dimensionada pela
+contabilidade de pagamentos (mesmo que de baixo valor) realizados pelos beneficiários potenciais.
+Para estes, o programa provê a cabida cobertura. Vale ressaltar ainda que a demanda final pelo
+benefício de transferência está condicionada a fatores fora do estrito controle dos operadores ou dos
+agricultores individualmente (fator climático), o que reduz e facilita ainda mais a oferta do serviço.
+
+Sugestões
+Sugere-se fazer uma estimativa da quantidade total de agricultores familiares e da quantidade de
+agricultores familiares cadastrados no CadÚnico em cada município do estado. Com isso, seria
+possível a construção de uma tabela contendo os valores desde o início do projeto, por ano, relatando
+a população potencial, a população objetivo e a população beneficiada, calculando a variação
+percentual do período 2020-2021 assim poder-se-ia ter parâmetros para visualizar se a focalização
+pretendida da política foi cumprida e se a cobertura planejada foi realizada.
+
+Observação: A população potencial é caracterizada por toda aquela que possivelmente esteja
+envolvida no problema diagnosticado. A população objetivo é definida como os agricultores da
+população potencial que cumprem os requisitos para obter o acesso ao benefício.
+
+
+
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+
+
+Devolutiva - Comentários (equipe de avaliação)
+
+
+
+3.2. Existe monitoramento de atividades e produtos?
+    De que forma a gestão do projeto faz esse monitoramento (calcula indicadores, evidências
+    documentais)?
+
+
+Avaliação do item                  PARCIALMENTE
+
+O projeto possui monitoramento das atividades através do registro de frequência dos técnicos nos
+treinamentos pela lista de presença, contatos e visitas aos municípios para verificar o andamento das
+etapas de execução do projeto. No entanto, não foram disponibilizadas qualquer indicador extraído
+do sistema de monitoramento e que estejam relacionados à atividades ou resultados e impactos.
+
+
+
+                                                 19
+Sugestões
+
+Descrever melhor as potencialidades do sistema de monitoramento quanto a gerar indicadores de
+atividades, produtos, resultados e impactos.
+
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+
+
+Devolutiva - Comentários (equipe de avaliação)
+
+
+
+
+3.3. O projeto apresentou execução financeira adequada nos últimos 2 ou 3 anos (execução
+    superior a 85%)?
+    Alguma característica específica do projeto afeta o nível de execução?
+
+Avaliação do item                     SIM
+
+
+Pode-se considerar que a execução financeira dos recursos é eficiente quando a relação entre o valor
+empenhado e o valor aprovado for igual ou superior a 85% (Adotando o mesmo parâmetro do
+Manual de Avaliação Executiva de MG).
+
+Com base no relatório de Desempenho Físico Financeiro do FECOP divulgado anualmente, o
+presente projeto possui uma adequada execução financeira apresentando um valor de 100% da
+relação entre os valores de Limite Anual e os valores empenhados, nos últimos três anos, como
+mostra a tabela abaixo.
+
+ Tabela: Execução Financeira
+                   Limite               Empenhado                            Valor Pago
+     Ano             (R$)                  (R$)                  %              (R$)                 %
+     2021       13.832.628,00          13.832.628,00            100         13.832.628,00           100
+     2020       13.351.698,00          13.351.698,00            100         13.351.698,00           100
+     2019       16.759.110,00          16.759.110,00            100         16.759.110,00           100
+
+Fonte: Relatório de Desempenho Físico Financeiro do Fundo Estadual de Combate à Pobreza; Volume I; 2019, 2020 e
+2021.
+
+
+Sugestões
+Sem sugestões
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+
+
+Devolutiva - Comentários (equipe de avaliação)
+
+
+
+
+                                                      20
+3.4. Com as informações da documentação apresentada, é possível construir medidas de
+    eficiência do projeto?
+    Os gestores do projeto monitoram indicadores de eficiência do projeto?
+
+Avaliação do item                  PARCIALMENTE
+
+Eficiência refere-se à boa utilização dos recursos (financeiros, materiais e humanos) em relação às
+atividades e resultados atingidos, ou seja, alcançar resultados com o menor comprometimento de
+recursos, prezando pela qualidade. Por exemplo, atividades planejadas por atividades realizadas e
+custo total por pessoas atingidas.
+
+Embora ocorra um monitoramento das etapas de execução do projeto, não foram disponibilizadas
+informações sobre monitoramento de indicadores de eficiência. A única meta mencionada a cumprir
+é o número de agricultores cadastrados. Mas como sugerido anteriormente, a melhora da qualidade
+de vida do agricultor em diversos aspectos deveria ser o foco de efetividade e eficiência do projeto.
+
+Sugestões
+
+Analisar impacto médio sobre alguns indicadores selecionados, e fazer um levantamento sobre o
+custo total por família beneficiada, ao longo dos últimos anos, por município.
+
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+
+
+Devolutiva - Comentários (equipe de avaliação)
+
+
+
+
+3.5. O projeto conta com efetivo monitoramento de risco?
+
+Avaliação do item                  PARCIALMENTE
+Os riscos referentes ao projeto são relacionados à inadimplência dos entes federativos e à
+rotatividade dos atores municipais. O projeto não possui um processo sistemático de monitoramento
+dos riscos identificados, de maneira a garantir que seus objetivos e resultados sejam alcançados com
+efetividade.
+
+Sugestões
+Mencionar quais são as estratégias a serem tomadas caso não haja repasses dos municípios. Quais
+seriam outros riscos do projeto que poderiam ser levados em consideração?
+Como sugestão, seguem outros riscos relacionados ao projeto:
+-Se todos os municípios do estado forem afetados pela estiagem, quais os procedimentos a serem
+seguidos?
+– Falta de envolvimento dos municípios nas atividades de mobilização;
+
+
+
+                                                 21
+- Falta de divulgação do período para cadastramento do público-alvo.
+
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+
+
+Devolutiva - Comentários (equipe de avaliação)
+
+
+
+
+3.6. O projeto faz o monitoramento de resultados?
+    Existem instrumentos para este monitoramento (coleta de informações periódicas, banco de
+    dados disponível, pessoal capacitado, entre outros)?
+
+
+Avaliação do item                 NÃO
+Pelo que foi exposto, existe um monitoramento da execução do projeto e do número de beneficiários,
+através de um relatório disponibilizado no site do MAPA. No entanto, não há indícios de que o
+monitoramento de resultados esteja ocorrendo.
+Destaca-se que há um indicador de resultado definido no projeto: produtores dispondo de renda
+mínima para sua sobrevivência em situação de seca ou excesso hídrico.
+
+Sugestões
+Para verificar se a família possui realmente renda mínima para sua sobrevivência teria que verificar
+aspectos relacionados a: quantidade de pessoas na família, número de crianças, renda familiar,
+segurança alimentar, etc.
+
+Sugere-se a coleta dessas informações, preferencialmente a nível individual e passível de
+identificação. Tais informações devem alimentar o banco de dados de forma contínua e que permita
+consultas. Isso também permite o cruzamento de informações com outras bases de dados do governo
+estadual e federal. A partir disso, seria possível fazer o acompanhamento dos indicadores de
+resultado do projeto.
+
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+
+
+Devolutiva - Comentários (equipe de avaliação)
+
+
+
+
+3.7. Há transparência e publicidade de gastos e do desempenho do projeto?
+
+Avaliação do item                       SIM
+
+
+
+
+                                                22
+O projeto disponibiliza informações relativas aos gastos, através do Relatório de Desempenho Físico
+Financeiro     disponível      em:      https://www.fecop.seplag.ce.gov.br/gestao/relatorios-de-
+desempenho-fisico-financeiro/.
+
+Também é possível a consulta dos nomes dos beneficiários, NIS, município, valor recebido por
+período. Disponível em:
+https://www.portaltransparencia.gov.br/beneficios/safra?paginacaoSimples=false&tamanho
+Pagina=&offset=&direcaoOrdenacao=asc&de=01%2F05%2F2021&ate=31%2F05%2F2022
+&uf=CE&colunasSelecionadas=linkDetalhamento%2CmesReferencia%2Cuf%2Cmunicipio
+%2Ccpf%2Cnis%2Cbeneficiario%2Cvalor&ordenarPor=nis&direcao=asc
+
+Sugestões
+É importante dar publicidade ao desempenho e cumprimento de metas do projeto. Apresentar os
+relatórios reportando, quando possível, indicadores de resultados e, quando existentes, os efeitos do
+programa nos agricultores familiares.
+
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+
+
+Devolutiva - Comentários (equipe de avaliação)
+
+
+
+
+                                                 23
+                               Eixo 4: Resultados
+
+4.1. O projeto avalia indicadores de resultado e impacto?
+    A trajetória desses indicadores é favorável (em relação às linhas de base)?
+
+
+Avaliação do item                  NÃO
+Não foi possível identificar uma linha de base para os indicadores de resultado e de impacto. O
+projeto apresenta na matriz de marco lógico como indicador de resultado “% de produtores com
+renda mínima para sobrevivência” e de impacto “Permanência de 73,16 % dos agricultores
+familiares na zona rural”. O indicador de impacto pode ser definido como uma meta a ser alcançada
+pelo projeto e não como um indicador de impacto.
+
+Sugestões
+
+Sugere-se a realização de pesquisa entre os agricultores beneficiários, por meio de questionários, e
+elaboração de relatórios para a formatação de uma linha da base. Importante manter as bases de
+dados atualizadas, e realizar periodicamente o monitoramento dos indicadores calculados,
+principalmente de resultado.
+
+Sugere-se acrescentar os seguintes indicadores de resultado:
+- Redução da insegurança alimentar dos agricultores com perda por estiagem
+- Percentual de agricultores com rendimentos acima da linha de pobreza ou extrema pobreza durante
+o ano de estiagem
+
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+
+
+Devolutiva - Comentários (equipe de avaliação)
+
+
+
+
+4.2.As metas (de resultados e impactos) estabelecidas foram alcançadas nos últimos anos?
+
+Avaliação do item                  NÃO
+O projeto não apresentou metas referente a resultados ou impactos. Como já mencionado
+anteriormente o indicador de impacto pode ser definido como uma meta.
+
+Sugestões
+
+
+
+
+                                                 24
+Apresentar metas de resultado e impacto para um período de tempo. Além disso, fazer o
+acompanhamento dos beneficiários através da base de dados existente e com informações sobre
+renda familiar, número de pessoas na família, número de crianças, etc.
+
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+
+
+Devolutiva - Comentários (equipe de avaliação)
+
+
+
+
+4.3. O projeto apresenta informações que permitem confrontar os resultados e impactos com
+    os custos do mesmo?
+
+Avaliação do item                  NÃO
+A equipe avaliadora não identificou informações sobre os custo-benefício dos resultados e impactos.
+Como mencionado no item 4.1 não se reportou monitoramento dos indicadores de resultado e
+impacto, portanto não teria como confrontar esses indicadores com os custos do projeto.
+
+Sugestões
+Incluir documentos do processo de estimativa de custos do projeto. Essas evidências podem incluir
+solicitações de recursos financeiros quando da elaboração da proposta orçamentária inicial do
+projeto.
+
+Utilizar a análise custo-benefício e a análise custo efetividade para relacionar os custos do programa
+com seus resultados.
+Custo-benefício = Valores dos efeitos do programa/Custos
+Custo-Efetividade = Efeitos do programa em termos físicos/Custos
+
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+
+
+Devolutiva - Comentários (equipe de avaliação)
+
+
+
+4.4. O projeto já foi submetido a outras avaliações anteriormente (de qualquer tipo)?
+
+Avaliação do item                  SIM
+O projeto possui as seguintes avaliações externas que podem servir para embasamento para
+construção de uma linha de base do programa:
+
+ROCHA, João Paulo Vasconcelos. Programa garantia safra: estudo da relação entre o volume de
+recursos aportados e a produção de grãos no Estado do Ceará (2009-2011). 2013.
+
+
+
+                                                 25
+SILVA, Ronan Luiz. AVALIAÇÃO DO PROGRAMA GARANTIA-SAFRA: ANÁLISE E
+PROSPECÇÃO A PARTIR DE UM MODELO BASEADO EM AGENTES. IPEA, 2016.
+
+BARBOSA, Wescley de Freitas. Intempérie Climática e Política de Proteção Social no Brasil: Uma
+Avaliação Multidimensional do Impacto do Programa Garantia SAFRA. 2019.
+
+Sugestões
+Sem Sugestões.
+
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+
+
+Devolutiva - Comentários (equipe de avaliação)
+
+
+
+
+4.5. O projeto apesenta elementos (linha de base, bancos de dados, possibilidade de construir
+    grupo de controle) que permitem uma avaliação de impacto no futuro?
+
+Avaliação do item                PARCIALMENTE
+O projeto reúne alguns elementos essenciais para a formulação de uma proposta de avalição de
+impacto no futuro (público-alvo e beneficiários bem delimitado, base de dados cadastral e
+monitoramento das ações). No entanto, não há definições a respeito de uma linha de base, da
+construção de um grupo de controle e um horizonte de avaliação. Não há uma delimitação temporal
+de atuação do projeto de modo a nos informar em quanto tempo seria possível observar os impactos
+do projeto.
+
+Sugestões
+Um ponto que deve ser considerado em uma proposta de avaliação é a definição de um possível
+grupo de comparação (controle) que não foram/são/serão beneficiários do projeto, apesar de serem
+candidatos potenciais. Seria interessante construir este grupo de controle com pessoas que
+apresentam as condicionalidades para pertencer ao projeto, que se inscreveram, mas por algum
+imprevisto não pagaram o boleto bancário, ou se inscreveram em anos anteriores e perderam o prazo
+para inscrição no ano vigente (agricultores familiares potencialmente beneficiários do programa,
+mas não o são).
+Além disso, outros indicadores de resultados devem ser acrescentados e o indicador de impacto
+modificado.
+
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+
+
+Devolutiva - Comentários (equipe de avaliação)
+
+
+
+
+                                               26
+              Eixo 5: Percepção dos Beneficiários
+
+5.1.O projeto coleta informações e produz relatórios a respeito da percepção dos beneficiários?
+
+Avaliação do item                  NÃO
+A percepção dos beneficiários são informações importantes para a conclusão de uma análise
+executiva satisfatória. Dessa forma, faz-se necessário o levantamento diretamente com os
+beneficiários a respeito dos níveis de satisfação e percepções gerais sobre a política, pois o contato
+com os usuários pode informar aos gestores os eventuais problemas de implementação e o
+alinhamento das atividades com as reais necessidades da população.
+
+Nos documentos enviados para esta análise não foi possível identificar a existência de coleta de
+informações sobre a percepção dos beneficiários, embora seja fácil concluir por contato direto e
+convivência que os gestores conhecem bem o público-alvo em suas demandas para o programa.
+
+Sugestões
+Gerar uma metodologia amostral de coleta e sistematização de informações de percepção dos
+beneficiários a cada edição do programa, ou se existente, enviar a mesma avaliação.
+
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+
+
+Devolutiva - Comentários (equipe de avaliação)
+
+
+
+
+5.2. O projeto utiliza a percepção dos beneficiários para implementar mudanças?
+
+Avaliação do item                  NÃO
+Se a pesquisa de satisfação não é realizada, então não se pode inferir ajustes a partir da mesma.
+
+Sugestões
+Realização da Pesquisa de Satisfação.
+
+Devolutiva - Comentários (equipe gestora ou executora do programa/projeto)
+
+
+Devolutiva - Comentários (equipe de avaliação)
+
+
+
+
+                                                 27
+

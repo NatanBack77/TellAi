@@ -146,6 +146,12 @@ Objetivo: o agricultor fala e o texto entra na caixa de pergunta do RAG (a voz s
 - **Alternativa local e gratuita:** `faster-whisper` (já há `faster-whisper-small` no cache do Hugging Face da máquina de desenvolvimento): precisa teste de qualidade em português, tempo e memória, e conferir a licença.
 - Antes de qualquer integração: decidir se o áudio pode sair do aparelho (regra 6), testar em português e manter o aviso de que dá para digitar.
 
+### 3.11b Voz com a API da DeepSeek (verificado nas páginas oficiais em 2026-11-14; ainda NÃO testado com áudio real)
+- **ASR (voz para texto):** `POST https://api.deepseek.com/v1/tools/asr` (multipart, campo `file`). **Português consta na lista (`pt`)**; o idioma é detectado do áudio (sem parâmetro). Entrada: WAV PCM 16 bits ou Ogg Opus; até 8 MiB e 120 s; **o áudio inteiro vai numa requisição, sem streaming**. Em estéreo só o canal esquerdo é reconhecido. Resposta JSON: `text`, `duration_ms`. Preço de lista US$ 0,116 por hora de áudio (US$ 0,058 na promoção por tempo limitado); fração de segundo conta como 1 s. Limite de 50 requisições em andamento por conta. Fonte: https://api-docs.deepseek.com/guides/asr
+- **TTS (texto para voz):** `POST https://api.deepseek.com/v1/tools/tts` (e WebSocket). **Português NÃO está na lista** (zh, yue, en, ja, ko, ms, ar, id, th, vi). Vozes `stella` e `tide`. Fonte: https://api-docs.deepseek.com/guides/tts
+- **Consequência:** a entrada por voz em português é possível com a mesma conta e chave do chat; a leitura em voz alta pela DeepSeek não serve para português (alternativa não verificada: síntese de voz do próprio navegador, pt-BR).
+- **A fazer (adiado):** rota `/voz/transcrever` (áudio do navegador convertido para WAV 16 bits, ≤ 120 s), botão de microfone no app e em `/teste`, contador de segundos de áudio no gasto, limite de taxa, aviso de privacidade (o áudio vai a um serviço externo), teste de qualidade com áudios reais em português (sotaque nordestino).
+
 ## 4. Ideias pesquisadas e não testadas
 - **EnbPI** (conformal para séries sem divisão de dados; Xu e Xie, ICML 2021): não testado (`docs/16` B).
 - **SAVI/MSAVI** em vegetação esparsa (ver M6); **GLDAS/ERA5-Land** (BL3/M3); **uso do solo MapBiomas** (D2); **SMAP defasado** com mais anos (M4).

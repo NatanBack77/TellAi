@@ -110,6 +110,21 @@ def _bloco_solo(ponto_id: str, rot: dict | None) -> dict:
     return {"titulo": tit, "itens": itens}
 
 
+def _bloco_informado(perfil: dict, calc: dict | None, ponto_id: str, cultura: str, d: dict | None) -> dict | None:
+    """'O que você informou': o perfil sem identificador (o nome e as coordenadas já estão no bloco Local). Diz o que tem efeito e o que só registra."""
+    from src.app import perfil as P
+    melhor = None
+    if calc is not None and d is not None:
+        try:
+            melhor = M.vulnerabilidade_cultura_atual(ponto_id, cultura, calc, d).get("melhor_inicio")
+        except Exception:  # noqa: BLE001
+            melhor = None
+    linhas = P.linhas_informadas(perfil, M.culturas_disponiveis(), melhor)
+    if not linhas:
+        return None
+    return {"titulo": "O que você informou", "itens": linhas + ["Campos marcados 'só registra' não entram em nenhuma conta; servem para a conversa com o técnico."]}
+
+
 def _bloco_levar(rot: dict | None) -> dict:
     itens = list(LEVAR_AO_TECNICO_FIXO)
     ests = (rot or {}).get("estrategias") or [{}]
@@ -117,7 +132,8 @@ def _bloco_levar(rot: dict | None) -> dict:
     return {"titulo": "O que levar ao técnico", "itens": itens}
 
 
-def montar_cartao(ponto_id: str, cultura: str, prioridade: str = "sem", calc: dict | None = None, rotacao: dict | None = None) -> dict:
+def montar_cartao(ponto_id: str, cultura: str, prioridade: str = "sem", calc: dict | None = None, rotacao: dict | None = None,
+                  perfil: dict | None = None) -> dict:
     """Monta o cartão (estrutura de dados). `calc`/`rotacao` opcionais: o app passa os resultados já em cache; sem eles o cartão calcula."""
     if calc is None:
         try:
@@ -132,6 +148,10 @@ def montar_cartao(ponto_id: str, cultura: str, prioridade: str = "sem", calc: di
     d = M.diagnostico_local(ponto_id)
     blocos = [_bloco_local(ponto_id, cultura, prioridade), _bloco_diagnostico(ponto_id, d), _bloco_janela(ponto_id, cultura, calc, d),
               _bloco_caminhos(rotacao), _bloco_solo(ponto_id, rotacao), _bloco_levar(rotacao)]
+    if perfil:
+        bi = _bloco_informado(perfil, calc, ponto_id, cultura, d)
+        if bi:
+            blocos.insert(1, bi)
     return {"ponto_id": ponto_id, "titulo": f"SULCO: cartão de {M.nome_do_ponto(ponto_id)}", "escopo": AVISO_ESCOPO, "blocos": blocos,
             "aviso_final": AVISO_FINAL}
 

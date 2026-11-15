@@ -1,0 +1,237 @@
+{
+ "sem": {
+  "n_viaveis_media": 14.733333333333333,
+  "n_viaveis_dp": 0.4422166387140533,
+  "n_viaveis_min_max": [
+   14,
+   15
+  ],
+  "n_conjuntos_viaveis_distintos": 4,
+  "dist_jaccard_media_pares": 0.03428571428571428,
+  "dp_adeq_entre_municipios_media_por_cultura": 0.11711999862135884
+ },
+ "ecocrop": {
+  "n_viaveis_media": 13.133333333333333,
+  "n_viaveis_dp": 1.14697670227235,
+  "n_viaveis_min_max": [
+   10,
+   14
+  ],
+  "n_conjuntos_viaveis_distintos": 5,
+  "dist_jaccard_media_pares": 0.0940107511536083,
+  "dp_adeq_entre_municipios_media_por_cultura": 0.17644363045204914
+ },
+ "culturas_que_perdem_viabilidade": [
+  {
+   "ponto_id": "fortaleza_ce",
+   "cultura": "girassol",
+   "nota_solo": 0.0,
+   "ph_local": 5.5,
+   "textura_local": "médio"
+  },
+  {
+   "ponto_id": "aracati_ce",
+   "cultura": "palma_forrageira",
+   "nota_solo": 0.0,
+   "ph_local": 5.8,
+   "textura_local": "médio"
+  },
+  {
+   "ponto_id": "itapipoca_ce",
+   "cultura": "palma_forrageira",
+   "nota_solo": 0.0,
+   "ph_local": 5.62,
+   "textura_local": "médio"
+  },
+  {
+   "ponto_id": "camocim_ce",
+   "cultura": "palma_forrageira",
+   "nota_solo": 0.0,
+   "ph_local": 5.6,
+   "textura_local": "médio"
+  },
+  {
+   "ponto_id": "quixada_ce",
+   "cultura": "palma_forrageira",
+   "nota_solo": 0.0,
+   "ph_local": 6.15,
+   "textura_local": "médio"
+  },
+  {
+   "ponto_id": "taua_ce",
+   "cultura": "palma_forrageira",
+   "nota_solo": 0.0,
+   "ph_local": 6.3,
+   "textura_local": "médio"
+  },
+  {
+   "ponto_id": "quixeramobim_ce",
+   "cultura": "palma_forrageira",
+   "nota_solo": 0.0,
+   "ph_local": 5.92,
+   "textura_local": "médio"
+  },
+  {
+   "ponto_id": "crateus_ce",
+   "cultura": "palma_forrageira",
+   "nota_solo": 0.0,
+   "ph_local": 6.1,
+   "textura_local": "médio"
+  },
+  {
+   "ponto_id": "crato_ce",
+   "cultura": "milheto",
+   "nota_solo": 0.0,
+   "ph_local": 4.9,
+   "textura_local": "argiloso"
+  },
+  {
+   "ponto_id": "crato_ce",
+   "cultura": "algodao",
+   "nota_solo": 0.0,
+   "ph_local": 4.9,
+   "textura_local": "argiloso"
+  },
+  {
+   "ponto_id": "crato_ce",
+   "cultura": "girassol",
+   "nota_solo": 0.0,
+   "ph_local": 4.9,
+   "textura_local": "argiloso"
+  },
+  {
+   "ponto_id": "crato_ce",
+   "cultura": "palma_forrageira",
+   "nota_solo": 0.0,
+   "ph_local": 4.9,
+   "textura_local": "argiloso"
+  },
+  {
+   "ponto_id": "crato_ce",
+   "cultura": "crotalaria_juncea",
+   "nota_solo": 0.0,
+   "ph_local": 4.9,
+   "textura_local": "argiloso"
+  },
+  {
+   "ponto_id": "barbalha_ce",
+   "cultura": "algodao",
+   "nota_solo": 0.0,
+   "ph_local": 4.92,
+   "textura_local": "médio"
+  },
+  {
+   "ponto_id": "barbalha_ce",
+   "cultura": "girassol",
+   "nota_solo": 0.0,
+   "ph_local": 4.92,
+   "textura_local": "médio"
+  },
+  {
+   "ponto_id": "barbalha_ce",
+   "cultura": "palma_forrageira",
+   "nota_solo": 0.0,
+   "ph_local": 4.92,
+   "textura_local": "médio"
+  },
+  {
+   "ponto_id": "barbalha_ce",
+   "cultura": "crotalaria_juncea",
+   "nota_solo": 0.0,
+   "ph_local": 4.92,
+   "textura_local": "médio"
+  },
+  {
+   "ponto_id": "tiangua_ce",
+   "cultura": "girassol",
+   "nota_solo": 0.0,
+   "ph_local": 5.4,
+   "textura_local": "médio"
+  },
+  {
+   "ponto_id": "tiangua_ce",
+   "cultura": "palma_forrageira",
+   "nota_solo": 0.0,
+   "ph_local": 5.4,
+   "textura_local": "médio"
+  },
+  {
+   "ponto_id": "ibiapina_ce",
+   "cultura": "girassol",
+   "nota_solo": 0.0,
+   "ph_local": 5.4,
+   "textura_local": "médio"
+  },
+  {
+   "ponto_id": "ibiapina_ce",
+   "cultura": "palma_forrageira",
+   "nota_solo": 0.0,
+   "ph_local": 5.4,
+   "textura_local": "médio"
+  },
+  {
+   "ponto_id": "limoeiro_do_norte_ce",
+   "cultura": "palma_forrageira",
+   "nota_solo": 0.0,
+   "ph_local": 6.5,
+   "textura_local": "médio"
+  },
+  {
+   "ponto_id": "russas_ce",
+   "cultura": "palma_forrageira",
+   "nota_solo": 0.0,
+   "ph_local": 6.0,
+   "textura_local": "médio"
+  },
+  {
+   "ponto_id": "ico_ce",
+   "cultura": "palma_forrageira",
+   "nota_solo": 0.0,
+   "ph_local": 6.12,
+   "textura_local": "médio"
+  }
+ ],
+ "n_pares_cultura_municipio_piores": 81,
+ "n_pares_total": 240,
+ "n_pares_mudou_inicio": 0,
+ "ce_todos": {
+  "pontos": 184,
+  "pontos_sem_nota_solo": 0,
+  "pontos_pixels_validos_lt_50pct": 2,
+  "ph_min_med_max": [
+   4.800000000000001,
+   5.9,
+   6.7
+  ],
+  "textura_contagem": {
+   "médio": 181,
+   "argiloso": 3
+  },
+  "culturas_nota0_em_n_pontos": {
+   "algodao": 4,
+   "crotalaria_juncea": 5,
+   "girassol": 19,
+   "milheto": 3,
+   "palma_forrageira": 182,
+   "sorgo": 4
+  },
+  "culturas_nota_lt1_em_n_pontos": {
+   "algodao": 117,
+   "amendoim": 19,
+   "crotalaria_juncea": 117,
+   "feijao_caupi": 17,
+   "feijao_comum": 17,
+   "feijao_de_porco": 57,
+   "gergelim": 17,
+   "girassol": 117,
+   "guandu": 4,
+   "mamona": 6,
+   "mandioca": 17,
+   "milheto": 6,
+   "milho": 3,
+   "mucuna": 4,
+   "palma_forrageira": 184,
+   "sorgo": 16
+  }
+ }
+}

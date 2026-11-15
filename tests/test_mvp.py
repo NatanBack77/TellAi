@@ -121,13 +121,16 @@ def test_app_fluxo_completo_sem_excecao():
     from streamlit.testing.v1 import AppTest
     at = AppTest.from_file(APP, default_timeout=120).run()
     assert not at.exception
+    assert "Alternativa A" not in _textos(at)          # sem cultura escolhida não há caminhos (e não há cultura padrão)
+    at.multiselect(key="culturas").set_value(["milho"]).run()
+    assert not at.exception
     t = _textos(at)
     for k in ("250 m a 50 km", "Quando o campo costuma ficar nu", "Atual: ", "Alternativa A", "Alternativa B",
               "Lacunas", "Riscos para revisão local", "técnico local", "NÃO é previsão"):
         assert k.lower() in t.lower(), k
-    for chave, valor in (("local", "sobral_ce"), ("cultura", "feijao_caupi")):
-        at.selectbox(key=chave).set_value(valor).run()
-        assert not at.exception
+    at.selectbox(key="local").set_value("sobral_ce").run()
+    at.multiselect(key="culturas").set_value(["feijao_caupi"]).run()
+    assert not at.exception
     at.radio(key="prioridade").set_value("renda").run()
     assert not at.exception and any("preço" in w.value for w in at.warning)
     at.radio(key="prioridade").set_value("solo").run()
@@ -144,15 +147,17 @@ def test_resposta_por_selecao_abaixo_de_5_segundos():
     from streamlit.testing.v1 import AppTest
     at = AppTest.from_file(APP, default_timeout=120).run()
     M.limpar_caches()
-    for chave, valor in (("local", "crato_ce"), ("cultura", "sorgo")):
+    at.multiselect(key="culturas").set_value(["milho"]).run()       # partida a frio (primeira cultura do município): fora da medida
+    for chave, valor in (("local", "crato_ce"), ("culturas", ["sorgo"])):
         t0 = time.perf_counter()
-        at.selectbox(key=chave).set_value(valor).run()
+        (at.multiselect if chave == "culturas" else at.selectbox)(key=chave).set_value(valor).run()
         assert time.perf_counter() - t0 < 5.0, chave
 
 
 def test_rotacao_3_safras_na_tela_com_entradas_do_agricultor():
     from streamlit.testing.v1 import AppTest
     at = AppTest.from_file(APP, default_timeout=120).run()
+    at.multiselect(key="culturas").set_value(["milho"]).run()
     assert not at.exception
     t = _textos(at)
     assert any("3b. Rotação em 3 safras" in x.value for x in at.subheader)
@@ -271,6 +276,7 @@ def test_filtros_do_agricultor_nao_inventam_efeito():
 def test_tela_com_filtros_ligados():
     from streamlit.testing.v1 import AppTest
     at = AppTest.from_file(APP, default_timeout=120).run()
+    at.multiselect(key="culturas").set_value(["milho"]).run()
     at.radio(key="manejo").set_value("irrigado").run()
     at.number_input(key="agua_irrig").set_value(300).run()
     at.selectbox(key="equip").set_value("trator e implementos").run()
@@ -320,6 +326,7 @@ def test_pagina_glossario_mostra_trechos():
 def test_secoes_integradas_aparecem_com_avisos_e_lacunas():
     from streamlit.testing.v1 import AppTest
     at = AppTest.from_file(APP, default_timeout=120).run()
+    at.multiselect(key="culturas").set_value(["milho"]).run()
     assert not at.exception
     tx = _textos(at)
     for k in ("5. Risco de erosão", "RELATIVOS entre os 195 pontos", "5b. Calor e chuva extrema", "5c. Chuva menos evapotranspiração",

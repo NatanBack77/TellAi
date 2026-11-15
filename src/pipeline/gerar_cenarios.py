@@ -27,7 +27,7 @@ import pandas as pd
 
 from src.culturas.ciclo import ClimaPonto
 from src.culturas.motor import AVISO, gerar_cenarios, validar_cenario
-from src.culturas.parametros import CHUVA_MODOS, CICLO_MODOS, Parametros
+from src.culturas.parametros import CHUVA_MODOS, CICLO_FONTES, CICLO_MODOS, EPOCA_MODOS, Parametros
 from src.culturas.tabela_culturas import carregar
 from src.rag import busca as rag
 from src.rag.busca import radical, tokenizar
@@ -226,13 +226,18 @@ def main(argv=None) -> None:
     ap.add_argument("--culturas-arquivo", type=Path, help="JSON {ponto_id: cultura_id}")
     ap.add_argument("--saida", type=Path, default=SAIDA)
     ap.add_argument("--ciclo-modo", choices=CICLO_MODOS, default="medio", help="duração do ciclo (SUPOSIÇÃO): min, medio ou max")
-    ap.add_argument("--chuva-modo", choices=CHUVA_MODOS, default="ciclo", help="chuva do ciclo ou de 365 dias (SUPOSIÇÃO)")
+    ap.add_argument("--chuva-modo", choices=CHUVA_MODOS, default=Parametros.chuva_modo,
+                    help="chuva de 365 dias desde o início (anual, padrão) ou do ciclo (opção anterior) (SUPOSIÇÃO)")
+    ap.add_argument("--ciclo-fonte", choices=CICLO_FONTES, default=Parametros.ciclo_fonte,
+                    help="ciclo da Tabela 11 do FAO-56 (fao, padrão) ou do EcoCrop (ecocrop, opção anterior) (SUPOSIÇÃO)")
+    ap.add_argument("--epoca-modo", choices=EPOCA_MODOS, default=Parametros.epoca_modo,
+                    help="época de plantio: ZARC ou ciclo aproximado (zarc_ou_ciclo, padrão) ou modo anterior (anual_legado) (SUPOSIÇÃO)")
     ap.add_argument("--risco-max", type=float, default=0.30, help="fração de anos que pode falhar (SUPOSIÇÃO)")
     ap.add_argument("--passo-inicio", type=int, default=10, help="dias entre inícios de plantio")
     ap.add_argument("--n-sorteios", type=int, default=10000)
     ap.add_argument("--semente", type=int, default=Parametros.semente)
     a = ap.parse_args(argv)
-    params = Parametros(ciclo_modo=a.ciclo_modo, chuva_modo=a.chuva_modo, risco_max=a.risco_max,
+    params = Parametros(ciclo_modo=a.ciclo_modo, ciclo_fonte=a.ciclo_fonte, epoca_modo=a.epoca_modo, chuva_modo=a.chuva_modo, risco_max=a.risco_max,
                         passo_inicio_dias=a.passo_inicio, n_sorteios=a.n_sorteios, semente=a.semente)
     rodar(a.pontos, a.n, a.cultura_atual, a.culturas_arquivo, a.saida, params=params)
 

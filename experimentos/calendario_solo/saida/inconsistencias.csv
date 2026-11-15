@@ -1,0 +1,262 @@
+ponto_id,cultura,tipo,detalhe
+fortaleza_ce,milho,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),8 decêndios
+fortaleza_ce,milho,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 21/01 (dec 3); ZARC permite fev,mar,abr"
+fortaleza_ce,feijao_caupi,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),5 decêndios
+fortaleza_ce,feijao_caupi,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 10/02 (dec 5); ZARC permite mar,abr"
+fortaleza_ce,feijao_comum,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),6 decêndios
+fortaleza_ce,feijao_comum,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/04 (dec 11); ZARC permite fev,mar"
+fortaleza_ce,sorgo,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),"ZARC de sorgo existe (não mapeado): fev,mar,abr,mai"
+fortaleza_ce,mandioca,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),7 decêndios
+fortaleza_ce,mandioca,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite jan,fev,mar"
+fortaleza_ce,algodao,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),8 decêndios
+fortaleza_ce,algodao,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 21/01 (dec 3); ZARC permite fev,mar,abr"
+fortaleza_ce,amendoim,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),10 decêndios
+fortaleza_ce,girassol,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),9 decêndios
+fortaleza_ce,mamona,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),6 decêndios
+fortaleza_ce,mamona,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite mar,abr,mai"
+fortaleza_ce,gergelim,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),12 decêndios
+fortaleza_ce,guandu,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+fortaleza_ce,palma_forrageira,motor SEM ZARC sugere início fora do ZARC (risco 30),início 11/01 (dec 2); ZARC permite —
+fortaleza_ce,crotalaria_juncea,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+fortaleza_ce,feijao_de_porco,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+fortaleza_ce,mucuna,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+aracati_ce,milho,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 31/01 (dec 4); ZARC permite fev,mar"
+aracati_ce,feijao_caupi,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 21/01 (dec 3); ZARC permite fev,mar,abr"
+aracati_ce,feijao_comum,ZARC sem indicação (risco 30) mas PAM tem área,955 ha/ano
+aracati_ce,feijao_comum,motor SEM ZARC sugere início fora do ZARC (risco 30),início 11/04 (dec 11); ZARC permite —
+aracati_ce,sorgo,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),"ZARC de sorgo existe (não mapeado): fev,mar,abr,mai"
+aracati_ce,milheto,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 21/01 (dec 3); ZARC permite fev,mar,abr,mai"
+aracati_ce,mandioca,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 21/01 (dec 3); ZARC permite fev,mar"
+aracati_ce,algodao,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),5 decêndios
+aracati_ce,algodao,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 31/01 (dec 4); ZARC permite fev,mar"
+aracati_ce,amendoim,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),6 decêndios
+aracati_ce,girassol,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),2 decêndios
+aracati_ce,girassol,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 21/01 (dec 3); ZARC permite mar,abr"
+aracati_ce,mamona,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),6 decêndios
+aracati_ce,mamona,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite fev,mar,abr"
+aracati_ce,gergelim,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),9 decêndios
+aracati_ce,gergelim,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 21/01 (dec 3); ZARC permite fev,mar,abr"
+aracati_ce,guandu,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+aracati_ce,crotalaria_juncea,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+aracati_ce,feijao_de_porco,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+aracati_ce,mucuna,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+itapipoca_ce,milho,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite fev,mar"
+itapipoca_ce,feijao_caupi,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 21/01 (dec 3); ZARC permite fev,mar,abr"
+itapipoca_ce,feijao_comum,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 22/03 (dec 9); ZARC permite fev,mar"
+itapipoca_ce,sorgo,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),"ZARC de sorgo existe (não mapeado): fev,mar,abr,mai"
+itapipoca_ce,milheto,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 21/01 (dec 3); ZARC permite fev,mar,abr,mai"
+itapipoca_ce,mandioca,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 27/12 (dec 37); ZARC permite fev,mar"
+itapipoca_ce,algodao,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),7 decêndios
+itapipoca_ce,algodao,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite fev,mar,abr"
+itapipoca_ce,amendoim,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),8 decêndios
+itapipoca_ce,amendoim,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite fev,mar,abr"
+itapipoca_ce,girassol,motor SEM ZARC sugere início fora do ZARC (risco 30),início 21/01 (dec 3); ZARC permite —
+itapipoca_ce,mamona,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),6 decêndios
+itapipoca_ce,mamona,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 27/12 (dec 37); ZARC permite mar,abr"
+itapipoca_ce,gergelim,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),10 decêndios
+itapipoca_ce,gergelim,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 21/01 (dec 3); ZARC permite fev,mar,abr,mai"
+itapipoca_ce,guandu,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+itapipoca_ce,crotalaria_juncea,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+itapipoca_ce,feijao_de_porco,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+itapipoca_ce,mucuna,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+camocim_ce,milho,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite fev,mar"
+camocim_ce,feijao_caupi,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 31/01 (dec 4); ZARC permite fev,mar,abr"
+camocim_ce,feijao_comum,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 22/03 (dec 9); ZARC permite fev,mar"
+camocim_ce,sorgo,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),"ZARC de sorgo existe (não mapeado): jan,fev,mar,abr,mai"
+camocim_ce,mandioca,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite jan,fev,mar"
+camocim_ce,algodao,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),7 decêndios
+camocim_ce,algodao,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite jan,fev,mar"
+camocim_ce,amendoim,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),8 decêndios
+camocim_ce,amendoim,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite jan,fev,mar,abr"
+camocim_ce,girassol,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),6 decêndios
+camocim_ce,girassol,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite fev,mar,abr"
+camocim_ce,mamona,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),6 decêndios
+camocim_ce,mamona,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite fev,mar,abr"
+camocim_ce,gergelim,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),10 decêndios
+camocim_ce,guandu,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+camocim_ce,crotalaria_juncea,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+camocim_ce,feijao_de_porco,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+camocim_ce,mucuna,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+quixada_ce,feijao_caupi,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 21/01 (dec 3); ZARC permite fev,mar,abr"
+quixada_ce,feijao_comum,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 22/03 (dec 9); ZARC permite fev,mar"
+quixada_ce,sorgo,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),"ZARC de sorgo existe (não mapeado): fev,mar,abr,mai"
+quixada_ce,milheto,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 21/01 (dec 3); ZARC permite fev,mar,abr,mai"
+quixada_ce,mandioca,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 27/12 (dec 37); ZARC permite fev,mar"
+quixada_ce,algodao,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 27/12 (dec 37); ZARC permite fev,mar"
+quixada_ce,amendoim,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),7 decêndios
+quixada_ce,girassol,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),7 decêndios
+quixada_ce,girassol,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite fev,mar,abr"
+quixada_ce,mamona,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),7 decêndios
+quixada_ce,mamona,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 27/12 (dec 37); ZARC permite fev,mar,abr"
+quixada_ce,gergelim,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),10 decêndios
+quixada_ce,gergelim,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 21/01 (dec 3); ZARC permite fev,mar,abr,mai"
+quixada_ce,guandu,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+quixada_ce,crotalaria_juncea,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+quixada_ce,feijao_de_porco,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+quixada_ce,mucuna,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+taua_ce,milho,motor SEM ZARC sugere início fora do ZARC (risco 30),início 27/12 (dec 37); ZARC permite fev
+taua_ce,feijao_caupi,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite jan,fev,mar"
+taua_ce,sorgo,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),"ZARC de sorgo existe (não mapeado): jan,fev,mar,abr"
+taua_ce,milheto,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite jan,fev,mar,abr"
+taua_ce,mandioca,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 17/12 (dec 36); ZARC permite jan,fev,mar"
+taua_ce,algodao,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 27/12 (dec 37); ZARC permite jan,fev"
+taua_ce,amendoim,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),5 decêndios
+taua_ce,amendoim,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 27/12 (dec 37); ZARC permite jan,fev,mar"
+taua_ce,girassol,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),3 decêndios
+taua_ce,girassol,motor SEM ZARC sugere início fora do ZARC (risco 30),início 01/01 (dec 1); ZARC permite fev
+taua_ce,mamona,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 27/12 (dec 37); ZARC permite jan,fev,mar,abr"
+taua_ce,gergelim,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),8 decêndios
+taua_ce,gergelim,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite jan,fev,mar,abr"
+taua_ce,guandu,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+taua_ce,crotalaria_juncea,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+taua_ce,feijao_de_porco,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+taua_ce,mucuna,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+quixeramobim_ce,milho,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 17/12 (dec 36); ZARC permite fev,mar"
+quixeramobim_ce,feijao_caupi,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite fev,mar,abr"
+quixeramobim_ce,feijao_comum,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 22/03 (dec 9); ZARC permite fev,mar"
+quixeramobim_ce,sorgo,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),"ZARC de sorgo existe (não mapeado): fev,mar,abr,mai"
+quixeramobim_ce,milheto,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 21/01 (dec 3); ZARC permite fev,mar,abr,mai"
+quixeramobim_ce,mandioca,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 27/12 (dec 37); ZARC permite jan,fev,mar"
+quixeramobim_ce,algodao,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 17/12 (dec 36); ZARC permite fev,mar"
+quixeramobim_ce,amendoim,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),7 decêndios
+quixeramobim_ce,amendoim,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 17/12 (dec 36); ZARC permite fev,mar,abr"
+quixeramobim_ce,girassol,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),2 decêndios
+quixeramobim_ce,girassol,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite mar,abr"
+quixeramobim_ce,mamona,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),10 decêndios
+quixeramobim_ce,mamona,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 17/12 (dec 36); ZARC permite fev,mar,abr,mai"
+quixeramobim_ce,gergelim,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),10 decêndios
+quixeramobim_ce,gergelim,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite jan,fev,mar,abr"
+quixeramobim_ce,guandu,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+quixeramobim_ce,crotalaria_juncea,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+quixeramobim_ce,feijao_de_porco,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+quixeramobim_ce,mucuna,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+crateus_ce,milho,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite fev,mar"
+crateus_ce,feijao_caupi,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite jan,fev,mar,abr"
+crateus_ce,sorgo,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),"ZARC de sorgo existe (não mapeado): jan,fev,mar,abr"
+crateus_ce,milheto,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite jan,fev,mar,abr"
+crateus_ce,mandioca,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 01/01 (dec 1); ZARC permite jan,fev,mar"
+crateus_ce,algodao,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite jan,fev,mar"
+crateus_ce,amendoim,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),6 decêndios
+crateus_ce,amendoim,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite jan,fev,mar"
+crateus_ce,girassol,motor SEM ZARC sugere início fora do ZARC (risco 30),início 01/01 (dec 1); ZARC permite —
+crateus_ce,mamona,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),8 decêndios
+crateus_ce,mamona,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 17/12 (dec 36); ZARC permite fev,mar,abr"
+crateus_ce,gergelim,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),8 decêndios
+crateus_ce,gergelim,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite jan,fev,mar,abr"
+crateus_ce,guandu,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+crateus_ce,crotalaria_juncea,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+crateus_ce,feijao_de_porco,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+crateus_ce,mucuna,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+crato_ce,milho,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 01/01 (dec 1); ZARC permite jan,fev"
+crato_ce,feijao_caupi,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite fev,mar"
+crato_ce,sorgo,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),"ZARC de sorgo existe (não mapeado): jan,fev,mar,abr"
+crato_ce,algodao,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),5 decêndios
+crato_ce,algodao,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 01/01 (dec 1); ZARC permite jan,fev"
+crato_ce,girassol,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),6 decêndios
+crato_ce,girassol,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 01/01 (dec 1); ZARC permite jan,fev,mar"
+crato_ce,mamona,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),10 decêndios
+crato_ce,mamona,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 17/12 (dec 36); ZARC permite jan,fev,mar,abr"
+crato_ce,gergelim,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),10 decêndios
+crato_ce,guandu,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+crato_ce,crotalaria_juncea,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+crato_ce,feijao_de_porco,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+crato_ce,mucuna,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+barbalha_ce,milho,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 01/01 (dec 1); ZARC permite jan,fev"
+barbalha_ce,feijao_caupi,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 01/01 (dec 1); ZARC permite fev,mar"
+barbalha_ce,sorgo,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),"ZARC de sorgo existe (não mapeado): jan,fev,mar,abr"
+barbalha_ce,milheto,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 17/12 (dec 36); ZARC permite jan,fev,mar,abr"
+barbalha_ce,mandioca,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 28/09 (dec 28); ZARC permite jan,fev"
+barbalha_ce,algodao,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 17/12 (dec 36); ZARC permite jan,fev"
+barbalha_ce,girassol,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),7 decêndios
+barbalha_ce,girassol,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 17/12 (dec 36); ZARC permite jan,fev,mar"
+barbalha_ce,mamona,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),9 decêndios
+barbalha_ce,mamona,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 07/12 (dec 35); ZARC permite jan,fev,mar,abr"
+barbalha_ce,gergelim,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),9 decêndios
+barbalha_ce,guandu,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+barbalha_ce,palma_forrageira,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 18/10 (dec 30); ZARC permite jan,fev,nov,dez"
+barbalha_ce,crotalaria_juncea,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+barbalha_ce,feijao_de_porco,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+barbalha_ce,mucuna,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+tiangua_ce,feijao_caupi,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 21/01 (dec 3); ZARC permite fev,mar,abr"
+tiangua_ce,sorgo,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),"ZARC de sorgo existe (não mapeado): jan,fev,mar,abr,mai"
+tiangua_ce,algodao,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),7 decêndios
+tiangua_ce,algodao,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite jan,fev,mar"
+tiangua_ce,girassol,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),9 decêndios
+tiangua_ce,mamona,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),6 decêndios
+tiangua_ce,mamona,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite fev,mar,abr"
+tiangua_ce,gergelim,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),11 decêndios
+tiangua_ce,guandu,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+tiangua_ce,crotalaria_juncea,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+tiangua_ce,feijao_de_porco,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+tiangua_ce,mucuna,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+ibiapina_ce,feijao_caupi,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 21/01 (dec 3); ZARC permite fev,mar,abr"
+ibiapina_ce,sorgo,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),"ZARC de sorgo existe (não mapeado): jan,fev,mar,abr,mai"
+ibiapina_ce,milheto,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 27/12 (dec 37); ZARC permite jan,fev,mar,abr,mai"
+ibiapina_ce,mandioca,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 01/01 (dec 1); ZARC permite jan,fev,mar"
+ibiapina_ce,algodao,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),7 decêndios
+ibiapina_ce,algodao,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite jan,fev,mar"
+ibiapina_ce,amendoim,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 27/12 (dec 37); ZARC permite jan,fev,mar"
+ibiapina_ce,girassol,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),9 decêndios
+ibiapina_ce,girassol,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 27/12 (dec 37); ZARC permite jan,fev,mar,abr"
+ibiapina_ce,mamona,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),6 decêndios
+ibiapina_ce,mamona,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 27/12 (dec 37); ZARC permite fev,mar,abr"
+ibiapina_ce,gergelim,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),11 decêndios
+ibiapina_ce,guandu,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+ibiapina_ce,crotalaria_juncea,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+ibiapina_ce,feijao_de_porco,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+ibiapina_ce,mucuna,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+limoeiro_do_norte_ce,milho,motor SEM ZARC sugere início fora do ZARC (risco 30),início 31/01 (dec 4); ZARC permite fev
+limoeiro_do_norte_ce,feijao_caupi,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 21/01 (dec 3); ZARC permite fev,mar,abr"
+limoeiro_do_norte_ce,feijao_comum,motor SEM ZARC sugere início fora do ZARC (risco 30),início 01/04 (dec 10); ZARC permite fev
+limoeiro_do_norte_ce,sorgo,"PAM tem área, cultura sem ZARC",1083 ha/ano (2021-23)
+limoeiro_do_norte_ce,sorgo,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),"ZARC de sorgo existe (não mapeado): fev,mar,abr"
+limoeiro_do_norte_ce,milheto,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 21/01 (dec 3); ZARC permite fev,mar,abr,mai"
+limoeiro_do_norte_ce,mandioca,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 17/12 (dec 36); ZARC permite fev,mar"
+limoeiro_do_norte_ce,algodao,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 27/12 (dec 37); ZARC permite fev,mar"
+limoeiro_do_norte_ce,amendoim,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),5 decêndios
+limoeiro_do_norte_ce,amendoim,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 31/01 (dec 4); ZARC permite fev,mar"
+limoeiro_do_norte_ce,girassol,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),1 decêndios
+limoeiro_do_norte_ce,girassol,motor SEM ZARC sugere início fora do ZARC (risco 30),início 21/01 (dec 3); ZARC permite mar
+limoeiro_do_norte_ce,mamona,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),8 decêndios
+limoeiro_do_norte_ce,mamona,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 27/12 (dec 37); ZARC permite fev,mar,abr"
+limoeiro_do_norte_ce,gergelim,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),8 decêndios
+limoeiro_do_norte_ce,gergelim,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite fev,mar,abr"
+limoeiro_do_norte_ce,guandu,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+limoeiro_do_norte_ce,crotalaria_juncea,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+limoeiro_do_norte_ce,feijao_de_porco,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+limoeiro_do_norte_ce,mucuna,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+russas_ce,milho,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 31/01 (dec 4); ZARC permite fev,mar"
+russas_ce,feijao_caupi,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 21/01 (dec 3); ZARC permite fev,mar,abr"
+russas_ce,feijao_comum,motor SEM ZARC sugere início fora do ZARC (risco 30),início 01/04 (dec 10); ZARC permite fev
+russas_ce,sorgo,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),"ZARC de sorgo existe (não mapeado): fev,mar,abr,mai"
+russas_ce,milheto,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 21/01 (dec 3); ZARC permite fev,mar,abr,mai"
+russas_ce,mandioca,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 17/12 (dec 36); ZARC permite fev,mar"
+russas_ce,algodao,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),5 decêndios
+russas_ce,algodao,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 27/12 (dec 37); ZARC permite fev,mar"
+russas_ce,amendoim,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),6 decêndios
+russas_ce,amendoim,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 31/01 (dec 4); ZARC permite fev,mar,abr"
+russas_ce,girassol,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),3 decêndios
+russas_ce,girassol,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 21/01 (dec 3); ZARC permite mar,abr"
+russas_ce,mamona,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),9 decêndios
+russas_ce,mamona,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 27/12 (dec 37); ZARC permite fev,mar,abr,mai"
+russas_ce,gergelim,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),9 decêndios
+russas_ce,gergelim,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite fev,mar,abr"
+russas_ce,guandu,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+russas_ce,crotalaria_juncea,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+russas_ce,feijao_de_porco,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+russas_ce,mucuna,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+ico_ce,milho,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 27/12 (dec 37); ZARC permite jan,fev,mar"
+ico_ce,feijao_caupi,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite fev,mar,abr"
+ico_ce,feijao_comum,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 22/03 (dec 9); ZARC permite fev,mar"
+ico_ce,sorgo,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),"ZARC de sorgo existe (não mapeado): jan,fev,mar,abr"
+ico_ce,algodao,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 11/01 (dec 2); ZARC permite jan,fev,mar"
+ico_ce,amendoim,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 27/12 (dec 37); ZARC permite jan,fev,mar"
+ico_ce,girassol,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),4 decêndios
+ico_ce,girassol,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 27/12 (dec 37); ZARC permite fev,mar"
+ico_ce,mamona,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),10 decêndios
+ico_ce,mamona,motor SEM ZARC sugere início fora do ZARC (risco 30),"início 17/12 (dec 36); ZARC permite jan,fev,mar,abr"
+ico_ce,gergelim,ZARC indica plantio mas PAM sem área registrada (não prova que não planta: traço/omitido = NaN),10 decêndios
+ico_ce,guandu,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+ico_ce,crotalaria_juncea,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+ico_ce,feijao_de_porco,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),
+ico_ce,mucuna,sem ZARC (janela aproximada pelas anuais quando ZARC ligado),

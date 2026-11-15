@@ -30,14 +30,17 @@ def _ler(caminho: Path, nome: str, obrigatorias: list[str]) -> pd.DataFrame:
     return df
 
 
-def carregar_entradas(cfg: dict, base: str | Path | None = None) -> dict[str, pd.DataFrame | None]:
-    """Lê clima e NDVI (obrigatórios) e umidade do solo (opcional)."""
+def carregar_entradas(cfg: dict, base: str | Path | None = None, atual: bool = False) -> dict[str, pd.DataFrame | None]:
+    """Lê clima e NDVI (obrigatórios) e umidade do solo (opcional).
+
+    `atual=True` lê `clima_atual`/`ndvi_atual` (original + 2025plus, ver `src/coleta/unir_2025.py`): SÓ para inferência.
+    Treino, validação e métricas usam sempre `atual=False` (arquivos originais, até 2024)."""
     base = Path(base) if base else RAIZ
     cols = cfg["colunas_obrigatorias"]
     cam = cfg["caminhos"]
     saida: dict[str, pd.DataFrame | None] = {
-        "clima": _ler(base / cam["clima"], "clima", cols["clima"]),
-        "ndvi": _ler(base / cam["ndvi"], "ndvi", cols["ndvi"]),
+        "clima": _ler(base / cam["clima_atual" if atual else "clima"], "clima", cols["clima"]),
+        "ndvi": _ler(base / cam["ndvi_atual" if atual else "ndvi"], "ndvi", cols["ndvi"]),
         "umidade_solo": None,
     }
     um = base / cam["umidade_solo"]

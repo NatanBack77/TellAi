@@ -174,7 +174,7 @@ def test_texto_simples_de_cada_tema_no_municipio_completo(folhas):
 
 
 def test_municipio_sem_previsao_tem_frase_simples_de_lacuna(folhas):
-    for pid in ("fortaleza_ce", "sobral_ce"):
+    for pid in ("fortaleza_ce",):     # compostos anteriores não consecutivos (sobral_ce passou a ter previsão em 2026-11-14)
         prev = [x for x in folhas[pid]["fatos"] if x["tema"] == "previsao" and x["rotulo"] in ("previsão do NDVI", "sem previsão")]
         assert prev and all(x["lacuna"] and "ainda não temos previsão do verde das plantas" in x["texto_simples"] for x in prev)
         assert not any("anomalia" in x["texto_simples"].lower() for x in prev)

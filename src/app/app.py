@@ -5,6 +5,7 @@ Nenhum número vem do texto da tela: tudo vem de arquivo ou de código rodado; o
 Como usar e roteiro de demo: docs/11_MVP.md.
 """
 import importlib
+import json
 import inspect
 import pkgutil
 import sys
@@ -19,11 +20,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from src.llm.ambiente import carregar_env  # noqa: E402
 
 carregar_env()  # .env da raiz: só SULCO_*, DEEPSEEK_*, API_*, APP_* (nunca EARTHDATA_*); não sobrescreve o ambiente
+from src.app import calendario_app as CA  # noqa: E402
 from src.app import camadas as C  # noqa: E402
 from src.app import filtros as F  # noqa: E402
 from src.app import logica as L  # noqa: E402
 from src.app import mapa_vista as MV  # noqa: E402
+from src.app import ligacao_conversa as LC  # noqa: E402
 from src.app import mvp as M  # noqa: E402
+from src.app import perfil as P  # noqa: E402
 from src.app import quadra as Q  # noqa: E402
 
 try:  # seções de outros módulos: se o arquivo faltar, a seção some sem quebrar o app
@@ -36,7 +40,7 @@ except ImportError:
     SRS = None
 
 AVISO = M.AVISO
-LOCAL_PADRAO, CULTURA_PADRAO = "quixada_ce", "milho"
+LOCAL_PADRAO = "quixada_ce"   # só o município inicial do mapa; NÃO há cultura padrão (o agricultor escolhe ou conversa)
 AVISO_KM = ("O satélite enxerga áreas de cerca de 250 m a 50 km, não o seu talhão. Marque o município mais próximo e "
             "use o resultado como conversa com o técnico, não como veredito.")
 
@@ -46,19 +50,21 @@ def lacuna(msg: str):
 
 
 @st.cache_resource(show_spinner="Calculando as estratégias com o clima do local...", max_entries=64)
-def calcular_cache(ponto: str, cultura: str, prioridade: str) -> dict:
-    return M.calcular(ponto, cultura, prioridade)
+def calcular_cache(ponto: str, cultura: str, prioridade: str, regras_chave: str = "{}") -> dict:
+    return M.calcular(ponto, cultura, prioridade, regras=P.de_chave_regras(regras_chave))
 
 
 @st.cache_resource(show_spinner="Montando as rotações de 3 safras...", max_entries=64)
-def rotacao_cache(ponto: str, cultura: str, prioridade: str, rot2: str, rot3: str, textura: str, mo: str, zarc: bool) -> dict:
+def rotacao_cache(ponto: str, cultura: str, prioridade: str, rot2: str, rot3: str, textura: str, mo: str, zarc: bool,
+                  regras_chave: str = "{}") -> dict:
     rot = None if rot2 == "-" or rot3 == "-" else [cultura, rot2, rot3]
-    return M.calcular_rotacao(ponto, cultura, prioridade, rot, textura, mo, zarc)
+    return M.calcular_rotacao(ponto, cultura, prioridade, rot, textura, mo, zarc, regras=P.de_chave_regras(regras_chave))
 
 
 @st.cache_resource(show_spinner="Montando o plano de várias safras (MILP)...", max_entries=32)
-def plano_cache(ponto: str, cultura: str, prioridade: str, horizonte: int, sem_repetir: bool, min_leg: int, zarc: bool) -> dict:
-    return M.calcular_plano(ponto, cultura, prioridade, horizonte, sem_repetir, min_leg, zarc)
+def plano_cache(ponto: str, cultura: str, prioridade: str, horizonte: int, sem_repetir: bool, min_leg: int, zarc: bool,
+                regras_chave: str = "{}") -> dict:
+    return M.calcular_plano(ponto, cultura, prioridade, horizonte, sem_repetir, min_leg, zarc, regras_agricultor=P.de_chave_regras(regras_chave))
 
 
 @st.cache_resource(show_spinner=False, max_entries=64)
@@ -84,15 +90,15 @@ def renda_cache(ibge: int | None, ids: tuple) -> dict:
 
 
 @st.cache_resource(show_spinner="Reunindo os dados do seu local para o chat...", max_entries=32)
-def folha_cache(ponto: str, cultura: str, prioridade: str) -> dict:
+def folha_cache(ponto: str, cultura: str, prioridade: str, regras_chave: str = "{}") -> dict:
     """Folha de fatos do local (src/llm/fatos.py): as mesmas funções da tela e da API, sem número novo."""
     from src.llm import fatos as FT
-    return FT.montar_folha(ponto, cultura, prioridade, calc=calcular_cache(ponto, cultura, prioridade))
+    return FT.montar_folha(ponto, cultura, prioridade, calc=calcular_cache(ponto, cultura, prioridade, regras_chave))
 
 
 @st.cache_resource(show_spinner=False, max_entries=128)
-def cenario_cache(ponto: str, cultura: str, prioridade: str, fator_chuva: float, delta_t: float) -> dict:
-    return M.cenario_clima(ponto, cultura, prioridade, fator_chuva, delta_t, base=calcular_cache(ponto, cultura, prioridade))
+def cenario_cache(ponto: str, cultura: str, prioridade: str, fator_chuva: float, delta_t: float, regras_chave: str = "{}") -> dict:
+    return M.cenario_clima(ponto, cultura, prioridade, fator_chuva, delta_t, base=calcular_cache(ponto, cultura, prioridade, regras_chave))
 
 
 # ------------------------------------------------------------------------------------------ 1. entrada
@@ -177,39 +183,116 @@ def mapa_e_local() -> str:
     return st.selectbox("Município / local (195 pontos; 184 do Ceará)", ids, format_func=lambda k: nomes[k], key="local")
 
 
-def entradas() -> tuple[str, str, str]:
-    st.subheader("1. Onde, o que você planta hoje e o que importa mais")
-    lid = mapa_e_local()
-    c1, c2 = st.columns(2)
+def _carregar_perfil():
+    """Callback do 'Carregar perfil': lê o arquivo escolhido, valida por schema (nada é executado) e põe nos campos. Sem servidor."""
+    ss = st.session_state
+    arq = ss.get("perfil_arquivo")
+    if arq is None:
+        return
+    try:
+        p = P.de_json(arq.getvalue(), M.culturas_disponiveis(), list(M.carregar_pontos()["ponto_id"]))
+        P.para_estado(ss, p)
+        ss["perfil_msg"] = ("ok", "Perfil carregado. Confira os campos abaixo.")
+    except P.PerfilErro as e:
+        ss["perfil_msg"] = ("erro", "Não consegui usar esse arquivo: " + "; ".join(e.erros))
+
+
+def _aplicar_pendente():
+    """Antes dos campos existirem: devolve o perfil guardado (os campos somem do estado ao visitar outra página) e aplica o que a conversa sugeriu."""
+    ss = st.session_state
+    if "culturas" not in ss and ss.get("_perfil_guardado"):
+        P.para_estado(ss, ss["_perfil_guardado"])
+    pend = ss.pop("_perfil_pendente", None)
+    if pend:
+        if pend.get("culturas"):
+            ss["culturas"] = pend["culturas"]
+        if pend.get("prioridade"):
+            ss["prioridade"] = pend["prioridade"]
+
+
+def entradas() -> tuple[str, str | None, str, dict, "RegrasDuras | None", str | None]:
+    """Seção única 'Seu perfil'. Devolve (município, cultura base ou None, prioridade, perfil, regras para o motor, erro nas regras)."""
+    _aplicar_pendente()
+    ss = st.session_state
+    st.subheader("1. Seu perfil")
+    preenchido = bool(ss.get("culturas")) or bool(ss.get("quer_conversar"))
     culturas = M.culturas_disponiveis()
-    if st.session_state.get("cultura") not in culturas:
-        st.session_state["cultura"] = CULTURA_PADRAO
-    cultura = c1.selectbox("Cultura atual (lista da tabela de culturas)", list(culturas), format_func=lambda k: culturas[k],
-                           key="cultura")
-    prio = c2.radio("O que importa mais para você?", list(M.PRIORIDADES), format_func=lambda k: M.PRIORIDADES[k]["rotulo"],
-                    key="prioridade", index=0)
+    with st.expander("Seu perfil (toque para abrir ou fechar)", expanded=not preenchido):
+        lid = mapa_e_local()
+        st.markdown("**O que você planta**")
+        st.multiselect("Culturas que eu planto ou penso em plantar", list(culturas), format_func=lambda k: culturas[k], key="culturas",
+                       placeholder="Escolha uma ou mais; a primeira é a da última safra",
+                       help="A primeira cultura é a que você plantou na última safra: os três caminhos partem dela. As outras ficam no perfil e na conversa.")
+        st.checkbox("Ainda não sei / quero conversar", key="quer_conversar",
+                    help="Marque se ainda não decidiu. Sem cultura escolhida, o app mostra só o retrato do local e convida você a conversar.")
+        c1, c2 = st.columns(2)
+        with c1:
+            st.radio("O que importa mais para você?", list(M.PRIORIDADES), format_func=lambda k: M.PRIORIDADES[k]["rotulo"], key="prioridade", index=0)
+        with c2:
+            st.radio("Como você planta", list(F.MANEJOS), format_func=lambda k: F.MANEJOS[k], key="manejo")
+            irrigado = ss.get("manejo") == "irrigado"
+            st.number_input("Água de irrigação por ciclo (mm; 0 = só a chuva)", 0, 3000, 0, 50, key="agua_irrig", disabled=not irrigado,
+                            help="Só vale se você irriga. 1 mm = 1 litro por metro quadrado.")
+        st.markdown("**Sua terra e sua rotação**")
+        o1, o2, o3, o4 = st.columns(4)
+        o1.selectbox("Textura do solo (se souber)", M.OPCOES_TEXTURA, key="textura")
+        o2.selectbox("Matéria orgânica (se souber)", M.OPCOES_MO, key="mo")
+        opcoes = ["-"] + list(culturas)
+        rot = lambda k: "repetir a cultura atual" if k == "-" else culturas[k]
+        o3.selectbox("Sua rotação: 2ª safra (opcional)", opcoes, format_func=rot, key="rot2")
+        o4.selectbox("Sua rotação: 3ª safra (opcional)", opcoes, format_func=rot, key="rot3")
+        e1, e2 = st.columns(2)
+        e1.selectbox("Equipamento que você tem", F.EQUIPAMENTOS, key="equip")
+        e2.selectbox("Preferência de mercado", F.MERCADOS, key="mercado")
+        st.caption("Manejo, água, equipamento e mercado só MARCAM cada alternativa como 'atende', 'não atende' ou LACUNA; não mudam a pontuação "
+                   "nem apagam alternativas. Equipamento e mercado não têm dado de preço nem de máquina: vão para a conversa com o técnico.")
+        st.markdown("**Minhas regras (valem para as alternativas)**")
+        st.caption("Alternativa que quebra uma regra sua não aparece. A rotação que você já faz nunca some: se quebrar a regra, o app avisa.")
+        r1, r2, r3, r4 = st.columns(4)
+        r1.multiselect("Culturas que eu NÃO quero plantar", list(culturas), format_func=lambda k: culturas[k], key="regra_nao",
+                       help="Vale para as próximas safras; o que você já plantou fica.")
+        r2.multiselect("Culturas que eu PRECISO incluir (opcional)", list(culturas), format_func=lambda k: culturas[k], key="regra_incluir")
+        r3.number_input("Máximo de safras seguidas da mesma cultura", min_value=1, max_value=P.MAX_SEGUIDAS_MAX, value=None, step=1, key="regra_max",
+                        placeholder="vazio = sem regra", help="Deixe vazio se não tem limite.")
+        r4.checkbox("Aceito pousio", key="regra_pousio", help=P.AVISO_POUSIO)
+        if ss.get("regra_pousio"):
+            st.info(P.AVISO_POUSIO)
+        st.markdown(f"**Só para registrar** ({P.ROTULO_SO_REGISTRA})")
+        i1, i2, i3, i4 = st.columns(4)
+        i1.number_input("Área do talhão (ha)", min_value=0.1, max_value=float(P.AREA_MAX_HA), value=None, step=0.5, key="inf_area",
+                        placeholder="opcional", help="Só registra para o técnico; não muda o resultado.")
+        i2.selectbox("Mês em que costumo plantar", list(range(1, 13)), format_func=lambda m: P.MESES_PT[m - 1], index=None, key="inf_mes",
+                     placeholder="opcional", help="Só registra para o técnico; não muda o resultado. O app só compara com a melhor época calculada.")
+        i3.selectbox("Declive que eu percebo", list(P.DECLIVES), index=None, key="inf_declive", placeholder="opcional",
+                     help="Plano, suave ou forte. Só registra para o técnico; não muda o resultado.")
+        i4.selectbox("Tenho acesso a mercado ou transporte", list(P.ACESSOS_MERCADO), index=None, key="inf_mercado", placeholder="opcional",
+                     help="Só registra para o técnico; não muda o resultado.")
+        st.markdown("**Guardar ou recuperar o perfil**")
+        perfil = P.do_estado(ss)
+        g1, g2 = st.columns(2)
+        g1.download_button("Baixar meu perfil (JSON)", P.para_json(perfil).encode("utf-8"), file_name="perfil_sulco.json", mime="application/json",
+                           key="perfil_baixar", help="O arquivo fica só com você. Nada vai para servidor.")
+        g2.file_uploader("Carregar perfil", type=["json"], key="perfil_arquivo", on_change=_carregar_perfil,
+                         help="Escolha um arquivo baixado antes. Ele é conferido campo a campo e nada nele é executado.")
+        msg = ss.pop("perfil_msg", None)
+        if msg:
+            (st.success if msg[0] == "ok" else st.error)(msg[1])
+    perfil = P.do_estado(ss)
+    cultura = perfil["cultura_atual"]
+    prio = perfil["prioridade"]
     cfg = M.PRIORIDADES[prio]
     if prio == "renda":
         lacuna(cfg["regra"])
     else:
         st.caption(f"Como a prioridade foi usada: {cfg['regra']}")
-    entradas_agricultor()
-    return lid, cultura, prio
-
-
-def entradas_agricultor():
-    """A6: manejo, água, equipamento e mercado. São FILTROS sobre as alternativas: não mudam nota nem ranking."""
-    with st.expander("Condições da sua área (opcional): filtros sobre as alternativas", expanded=False):
-        c1, c2, c3, c4 = st.columns(4)
-        c1.radio("Como você planta", list(F.MANEJOS), format_func=lambda k: F.MANEJOS[k], key="manejo")
-        irrigado = st.session_state.get("manejo") == "irrigado"
-        c2.number_input("Água de irrigação que você consegue aplicar por ciclo (mm; 0 = só a chuva)", 0, 3000, 0, 50, key="agua_irrig",
-                        disabled=not irrigado, help="Só vale no manejo irrigado. 1 mm = 1 litro por metro quadrado.")
-        c3.selectbox("Equipamento que você tem", F.EQUIPAMENTOS, key="equip")
-        c4.selectbox("Preferência de mercado", F.MERCADOS, key="mercado")
-        st.caption("Os filtros só MARCAM cada alternativa como 'atende', 'não atende' ou LACUNA, com dado de arquivo. Não mudam a pontuação, "
-                   "não apagam alternativas e não dizem que uma rende mais. Equipamento e mercado não têm dado de preço nem de máquina: "
-                   "viram lacuna e vão para a conversa com o técnico local.")
+    rd, erro = None, None
+    try:
+        rd = P.regras_duras(perfil, culturas)
+    except ValueError as e:
+        erro = str(e)
+    ss["_perfil"], ss["_perfil_guardado"] = perfil, perfil
+    ss["_perfil_chat"] = P.para_chat(perfil)
+    return lid, cultura, prio, perfil, rd, erro
 
 
 def filtros_atuais() -> "F.Filtros":
@@ -264,7 +347,7 @@ def _barras(df: pd.DataFrame, x: str, y: str, titulo: str, rotulo_y: str, format
     st.altair_chart(base.properties(height=220), width="stretch")
 
 
-def painel_diagnostico(lid: str, cultura: str, calc: dict):
+def painel_diagnostico(lid: str, cultura: str | None, calc: dict | None):
     d = M.diagnostico_local(lid)
     nome = M.carregar_pontos().set_index("ponto_id").loc[lid, "nome"]
     st.subheader(f"2. O que os satélites mostram em {nome}")
@@ -307,29 +390,33 @@ def painel_diagnostico(lid: str, cultura: str, calc: dict):
         _barras(d["chuva_df"].dropna(), "rotulo", "media_mm", "Chuva média por quinzena (NASA POWER, célula de ~50 km)", "mm",
                 formato=".0f", cor="#3d7ea6")
 
-    st.markdown(f"#### Quando a cultura atual ({M.culturas_disponiveis()[cultura]}) é mais vulnerável")
-    v = M.vulnerabilidade_cultura_atual(lid, cultura, calc, d)
-    for t in v["lacunas"]:
-        lacuna(t)
-    if "df" in v:
-        if v["viabilidade"] != "viavel":
-            st.error(f"Neste local a cultura atual está '{v['viabilidade']}' pelo motor (faixa de chuva/temperatura da tabela).")
-        st.write(f"Melhor início de plantio nos dados: {v['melhor_inicio']} (ciclo suposto de {v['duracao']} dias). Os inícios "
-                 f"com menor adequação: {', '.join(v['piores_inicios'])}.")
-        graf = alt.Chart(v["df"], title="Adequação ao clima por data de início do plantio (0 a 1; média de 2001 a 2023)").mark_line(
-            point=True, color="#2e7d32").encode(
-            x=alt.X("inicio:N", sort=list(v["df"]["inicio"]), title="início do plantio (dd/mm)", axis=alt.Axis(labelAngle=-60)),
-            y=alt.Y("adequacao_media:Q", title="adequação", scale=alt.Scale(domain=[0, 1])),
-            tooltip=["inicio", alt.Tooltip("adequacao_media:Q", format=".2f"), alt.Tooltip("frac_anos_viaveis:Q", format=".0%")])
-        st.altair_chart(graf.properties(height=220), width="stretch")
-        if "solo_nu_no_ciclo" in v:
-            partes = []
-            partes.append(f"Épocas típicas de campo nu dentro do ciclo da melhor data: {M.rotulos_quinzenas(v['solo_nu_no_ciclo'])}.")
-            partes.append(f"Quinzenas de maior estresse do verdor dentro do ciclo: {M.rotulos_quinzenas(v['estresse_no_ciclo'])}.")
-            partes.append(f"Quinzenas da estação chuvosa dentro do ciclo: {M.rotulos_quinzenas(v['estacao_chuvosa_no_ciclo'])}.")
-            st.write(" ".join(partes))
-        st.caption("Adequação = o pior entre a nota de temperatura e a de chuva da cultura (faixas da tabela de culturas, "
-                   "ciclo suposto no ponto médio). É uma regra do motor, não colheita medida.")
+    if cultura is not None and calc is not None:
+        st.markdown(f"#### Quando a cultura atual ({M.culturas_disponiveis()[cultura]}) é mais vulnerável")
+        v = M.vulnerabilidade_cultura_atual(lid, cultura, calc, d)
+        for t in v["lacunas"]:
+            lacuna(t)
+        if "df" in v:
+            if v["viabilidade"] != "viavel":
+                st.error(f"Neste local a cultura atual está '{v['viabilidade']}' pelo motor (faixa de chuva/temperatura da tabela).")
+            st.write(f"Melhor início de plantio nos dados: {v['melhor_inicio']} (ciclo suposto de {v['duracao']} dias). Os inícios "
+                     f"com menor adequação: {', '.join(v['piores_inicios'])}.")
+            graf = alt.Chart(v["df"], title="Adequação ao clima por data de início do plantio (0 a 1; média de 2001 a 2023)").mark_line(
+                point=True, color="#2e7d32").encode(
+                x=alt.X("inicio:N", sort=list(v["df"]["inicio"]), title="início do plantio (dd/mm)", axis=alt.Axis(labelAngle=-60)),
+                y=alt.Y("adequacao_media:Q", title="adequação", scale=alt.Scale(domain=[0, 1])),
+                tooltip=["inicio", alt.Tooltip("adequacao_media:Q", format=".2f"), alt.Tooltip("frac_anos_viaveis:Q", format=".0%")])
+            st.altair_chart(graf.properties(height=220), width="stretch")
+            comp = P.comparar_epoca(((st.session_state.get("_perfil") or {}).get("informativos") or {}).get("mes_plantio"), v["melhor_inicio"])
+            if comp:
+                st.info(comp + " (só compara; o mês que você informou não muda o cálculo.)")
+            if "solo_nu_no_ciclo" in v:
+                partes = []
+                partes.append(f"Épocas típicas de campo nu dentro do ciclo da melhor data: {M.rotulos_quinzenas(v['solo_nu_no_ciclo'])}.")
+                partes.append(f"Quinzenas de maior estresse do verdor dentro do ciclo: {M.rotulos_quinzenas(v['estresse_no_ciclo'])}.")
+                partes.append(f"Quinzenas da estação chuvosa dentro do ciclo: {M.rotulos_quinzenas(v['estacao_chuvosa_no_ciclo'])}.")
+                st.write(" ".join(partes))
+            st.caption("Adequação = o pior entre a nota de temperatura e a de chuva da cultura (faixas da tabela de culturas, "
+                       "ciclo suposto no ponto médio). É uma regra do motor, não colheita medida.")
 
     st.markdown("#### Tendências (24 anos)")
     if d["tendencias"]:
@@ -422,6 +509,23 @@ def tabela_comparativa(cens: list[dict], prio: str):
     st.dataframe(pd.DataFrame(linhas), hide_index=True)
 
 
+def aviso_regras_caminhos(calc: dict):
+    """Quantas alternativas as regras do agricultor descartaram dos 3 caminhos, em frase simples (nada some em silêncio)."""
+    d = calc.get("descartes")
+    if not d:
+        return
+    nome = lambda c: _nome(c)
+    if d["todas_descartadas"]:
+        st.error(f"Suas regras descartaram TODAS as {d['n_descartadas']} alternativas que o clima do local permite. Só aparece a cultura que você já planta. "
+                 "Afrouxe uma regra (por exemplo, tire uma cultura da lista 'não quero') ou converse com o técnico.")
+    elif d["n_descartadas"]:
+        st.info(f"Suas regras descartaram {d['n_descartadas']} de {d['n_viaveis']} alternativas que o clima do local permite: "
+                + ", ".join(f"{nome(x['cultura'])} ({'; '.join(x['motivos'])})" for x in d["descartadas"][:8])
+                + (" e outras." if d["n_descartadas"] > 8 else "."))
+    else:
+        st.caption("Suas regras não descartaram nenhuma das alternativas que o clima do local permite.")
+
+
 def painel_estrategias(lid: str, cultura: str, prio: str, calc: dict):
     st.subheader("3. Três caminhos para comparar (atual + 2 alternativas)")
     st.info(AVISO)
@@ -432,6 +536,7 @@ def painel_estrategias(lid: str, cultura: str, prio: str, calc: dict):
         lacuna("a estratégia atual não está entre os cenários.")
     if len(cens) < 3:
         lacuna(f"só {len(cens)} estratégia(s) disponível(is) com os dados; o mínimo é 3, incluindo a atual.")
+    aviso_regras_caminhos(calc)
     tabela_comparativa(cens, prio)
     painel_filtros(lid, cens)
     emp = [c for c in alts if M.bloco_ranking(c, prio).get("empate_tecnico")]
@@ -498,18 +603,34 @@ def _nota_textura(est: dict) -> str:
             f"este ponto seria '{sib or M.LACUNA}'. Os dois rótulos podem diferir; confirme com o técnico local.")
 
 
-def painel_rotacao(lid: str, cultura: str, prio: str):
+def aviso_regras_rotacao(r: dict, cultura: str, r2: str, r3: str):
+    """Regras do agricultor na rotação de 3 safras: quantas alternativas saíram, se saíram todas e se a rotação atual dele as viola (ela nunca some)."""
+    d = r.get("regras_duras")
+    if not d:
+        return
+    if r.get("estrategias") == []:
+        base = [cultura] + ([r2, r3] if r2 != "-" and r3 != "-" else [cultura, cultura])
+        st.error(f"Suas regras descartaram TODAS as {d['n_descartadas']} alternativas de 3 safras. Fica só a sua rotação atual: "
+                 + " → ".join(_nome(c) for c in base) + ". Afrouxe uma regra ou converse com o técnico.")
+    elif d["n_descartadas"]:
+        top = "; ".join(f"{m} ({n})" for m, n in list(d["descartadas_por_motivo"].items())[:4])
+        st.info(f"Suas regras descartaram {d['n_descartadas']} sequências de 3 safras. Principais motivos: {top}.")
+    else:
+        st.caption("Suas regras não descartaram nenhuma sequência de 3 safras.")
+    if d.get("base_viola"):
+        st.warning("A rotação que você já faz não respeita uma das suas regras (" + "; ".join(d["base_viola"])
+                   + "). Ela continua na tela, como referência.")
+    for t in d.get("nao_modelado") or []:
+        st.caption(t)
+
+
+def painel_rotacao(lid: str, cultura: str, prio: str, regras_chave: str = "{}"):
     st.subheader("3b. Rotação em 3 safras (uma por ano)")
     st.caption("Compara sequências de três safras seguidas, começando pela cultura que você já planta. Nenhum número vem de memória: "
                "tudo sai da tabela de culturas, do clima do local e de regras declaradas; o que falta aparece como lacuna.")
-    culturas = M.culturas_disponiveis()
-    opcoes = ["-"] + list(culturas)
-    rotulo = lambda k: "repetir a cultura atual" if k == "-" else culturas[k]
-    c1, c2, c3, c4 = st.columns(4)
-    r2 = c1.selectbox("Sua rotação atual: 2ª safra (opcional)", opcoes, format_func=rotulo, key="rot2")
-    r3 = c2.selectbox("Sua rotação atual: 3ª safra (opcional)", opcoes, format_func=rotulo, key="rot3")
-    tex = c3.selectbox("Textura do solo (se souber)", M.OPCOES_TEXTURA, key="textura")
-    mo = c4.selectbox("Matéria orgânica (se souber)", M.OPCOES_MO, key="mo")
+    ss = st.session_state
+    r2, r3, tex, mo = ss.get("rot2", "-"), ss.get("rot3", "-"), ss.get("textura", "não sei"), ss.get("mo", "não sei")
+    st.caption("Sua rotação atual, a textura e a matéria orgânica vêm do seu perfil (no topo da página).")
     est = M.solo_estimado(lid)
     if est:
         st.caption(f"Solo estimado pelo mapa SoilGrids para este local (camadas 0–30 cm): argila {M.br(est['argila_pct'], 0)}%, areia {M.br(est['areia_pct'], 0)}%, "
@@ -524,10 +645,11 @@ def painel_rotacao(lid: str, cultura: str, prio: str):
     if (r2 == "-") != (r3 == "-"):
         st.info("Para usar a sua rotação, escolha a 2ª e a 3ª safra; senão a rotação atual será a repetição da cultura atual.")
     try:
-        r = rotacao_cache(lid, cultura, prio, r2, r3, tex, mo, zarc)
+        r = rotacao_cache(lid, cultura, prio, r2, r3, tex, mo, zarc, regras_chave)
     except Exception as e:  # noqa: BLE001
         lacuna(f"não foi possível montar as rotações ({e.__class__.__name__}: {e}).")
         return
+    aviso_regras_rotacao(r, cultura, r2, r3)
     if not r["estrategias"]:
         for l in r["lacunas"]:
             lacuna(l)
@@ -572,9 +694,9 @@ def painel_rotacao(lid: str, cultura: str, prio: str):
         semrep = h2.checkbox("Nunca repetir a mesma cultura em seguida", value=True, key="plano_semrep")
         minleg = h3.slider("Mínimo de safras com leguminosa", 0, 3, 1, key="plano_leg")
         if st.button("Calcular o plano", key="plano_btn"):
-            st.session_state["plano_pedido"] = (lid, cultura, prio, hor, semrep, minleg, zarc)
+            st.session_state["plano_pedido"] = (lid, cultura, prio, hor, semrep, minleg, zarc, regras_chave)
         ped = st.session_state.get("plano_pedido")
-        if ped and ped[:3] == (lid, cultura, prio):
+        if ped and ped[:3] == (lid, cultura, prio) and ped[7] == regras_chave:
             pl = plano_cache(*ped)
             if pl.get("lacuna"):
                 lacuna(pl["lacuna"])
@@ -593,7 +715,7 @@ def painel_rotacao(lid: str, cultura: str, prio: str):
 
 
 # ------------------------------------------------------------------------------------------ 4. cenário
-def painel_cenario(lid: str, cultura: str, prio: str):
+def painel_cenario(lid: str, cultura: str, prio: str, regras_chave: str = "{}"):
     st.subheader("4. E se a chuva ou a temperatura forem diferentes?")
     st.warning("Isto NÃO é previsão de clima. Você escolhe uma variação uniforme (todos os dias do ano) para ver o quanto o resultado "
                "é sensível. Chuva mais irregular, veranicos e início da estação não são representados.")
@@ -601,7 +723,7 @@ def painel_cenario(lid: str, cultura: str, prio: str):
     chuva = c1.slider("Chuva em relação ao histórico (%)", int(M.CHUVA_FATOR_MIN * 100), int(M.CHUVA_FATOR_MAX * 100), 100, 5,
                       key="fator_chuva")
     temp = c2.slider("Temperatura: aumento (°C)", M.TEMP_DELTA_MIN, M.TEMP_DELTA_MAX, 0.0, 0.5, key="delta_t")
-    cc = cenario_cache(lid, cultura, prio, chuva / 100.0, float(temp))
+    cc = cenario_cache(lid, cultura, prio, chuva / 100.0, float(temp), regras_chave)
     if chuva == 100 and temp == 0.0:
         st.info("Mova os controles para ver como as três estratégias reagem.")
     for t in cc["avisos"]:
@@ -767,24 +889,56 @@ def painel_forragem():
 
 
 # ------------------------------------------------------------------------------------------ páginas
+CONVITE_SEM_CULTURA = ("Conte no chat o que você planta ou pensa em plantar, ou o que quer priorizar (água, solo, renda), e eu monto as "
+                       "comparações com você. Se preferir, escolha uma ou mais culturas no seu perfil, no topo desta página.")
+
+
+def painel_retrato_local(lid: str):
+    """Só o retrato do local (satélite e indicadores): não depende de cultura nenhuma."""
+    painel_diagnostico(lid, None, None)
+    painel_quadra(lid)
+    for nome, f in (("risco de solo", lambda: painel_risco_solo(lid)), ("extremos", lambda: painel_extremos(lid)),
+                    ("balanço hídrico", lambda: painel_balanco(lid))):
+        try:
+            f()
+        except Exception as e:  # noqa: BLE001
+            lacuna(f"seção '{nome}' não pôde ser montada ({e.__class__.__name__}: {e}).")
+
+
 def pagina_meu_local():
     st.header("Meu local: o que o satélite diz e três caminhos para conversar com o técnico")
     st.info(AVISO)
-    lid, cultura, prio = entradas()
-    st.session_state["_cenario_atual"] = (lid, cultura, prio)   # os widgets somem do estado em outras páginas; o chat lê esta cópia
+    lid, cultura, prio, perfil, rd, erro = entradas()
+    ss = st.session_state
+    if cultura is None:
+        ss.pop("_cenario_atual", None)
+        st.info(CONVITE_SEM_CULTURA)
+        painel_retrato_local(lid)
+        return
+    if erro:
+        ss.pop("_cenario_atual", None)
+        st.error("Há um conflito nas suas regras: " + erro + ". Corrija no seu perfil; enquanto isso os caminhos não são calculados.")
+        painel_retrato_local(lid)
+        return
+    regras_chave = P.chave_regras(P.regras_para_motor(rd))
+    ss["_cenario_atual"] = (lid, cultura, prio, regras_chave)   # os widgets somem do estado em outras páginas; o chat lê esta cópia
+    if cultura in (perfil["regras"]["proibidas"] or []):
+        st.caption("Você marcou a cultura que já planta como 'não quero plantar': ela continua nos caminhos como ponto de partida; a regra vale só para as próximas safras.")
+    if rd is not None and rd.aceita_pousio:
+        st.caption(P.AVISO_POUSIO)
     try:
-        calc = calcular_cache(lid, cultura, prio)
+        calc = calcular_cache(lid, cultura, prio, regras_chave)
     except Exception as e:  # noqa: BLE001 - a tela deve mostrar a lacuna em vez de quebrar
         lacuna(f"não foi possível calcular as estratégias ({e.__class__.__name__}: {e}).")
         return
     painel_diagnostico(lid, cultura, calc)
     painel_quadra(lid)
     painel_estrategias(lid, cultura, prio, calc)
-    painel_rotacao(lid, cultura, prio)
-    painel_cenario(lid, cultura, prio)
+    painel_rotacao(lid, cultura, prio, regras_chave)
+    painel_cenario(lid, cultura, prio, regras_chave)
     for nome, f in (("risco de solo", lambda: painel_risco_solo(lid)), ("extremos", lambda: painel_extremos(lid)),
                     ("balanço hídrico", lambda: painel_balanco(lid)), ("renda", lambda: painel_renda(lid, cultura)), ("forragem", painel_forragem),
-                    ("cartão do município", lambda: painel_cartao(lid, cultura, prio, calc))):
+                    ("cartão do município", lambda: painel_cartao(lid, cultura, prio, calc, regras_chave, perfil))):
         try:
             f()
         except Exception as e:  # noqa: BLE001 - uma seção com defeito vira lacuna, não derruba o app
@@ -792,14 +946,14 @@ def pagina_meu_local():
     secoes_opcionais(lid, cultura, prio)
 
 
-def painel_cartao(lid: str, cultura: str, prio: str, calc: dict):
+def painel_cartao(lid: str, cultura: str, prio: str, calc: dict, regras_chave: str = "{}", perfil: dict | None = None):
     """AP1: cartão de uma folha do município, com os mesmos dados da tela (sem número novo)."""
     from src.app import cartao as CT
     st.subheader("6. Cartão do município (uma folha, para levar ao técnico)")
     ss = st.session_state
     rot = rotacao_cache(lid, cultura, prio, ss.get("rot2", "-"), ss.get("rot3", "-"), ss.get("textura", "não sei"), ss.get("mo", "não sei"),
-                        bool(ss.get("zarc", M.ZARC_PADRAO)))
-    c = CT.montar_cartao(lid, cultura, prio, calc=calc, rotacao=rot)
+                        bool(ss.get("zarc", M.ZARC_PADRAO)), regras_chave)
+    c = CT.montar_cartao(lid, cultura, prio, calc=calc, rotacao=rot, perfil=perfil)
     c1, c2 = st.columns(2)
     nome_arq = f"cartao_sulco_{lid}"
     c1.download_button("Baixar cartão (HTML, para imprimir)", CT.cartao_html(c).encode("utf-8"), file_name=nome_arq + ".html",
@@ -909,7 +1063,10 @@ ROTULO_ORIGEM_CHAT = {"llm": "Gerado por IA a partir dos fatos do seu local e do
 def _folha_do_local_visto():
     """Folha de fatos do local que o usuário escolheu em 'Meu local' (sem nome, lat/lon, ponto_id nem IBGE nos textos)."""
     ref = st.session_state.get("_cenario_atual")
-    return folha_cache(*ref) if ref else None
+    if not ref:
+        return None
+    folha = folha_cache(*ref)
+    return P.folha_com_perfil(folha, st.session_state.get("_perfil_chat"), M.culturas_disponiveis())   # perfil SEM identificador
 
 
 def _mostrar_resposta_chat(item: dict):
@@ -945,6 +1102,217 @@ def _mostrar_resposta_chat(item: dict):
     st.caption(r["aviso"])
 
 
+def _aplicar_conversa():
+    """Leva o estado da conversa (culturas citadas, foco) ao perfil: vale quando a página 'Meu local' abrir de novo."""
+    ss = st.session_state
+    ss["_perfil_pendente"] = P.estado_conversa_para_perfil(ss.get("conversa_estado"), M.culturas_disponiveis())
+
+
+def secao_conversa():
+    """Ponto de ligação com a conversa consultiva (src/llm/conversa.py, outro dono). Só aparece se esse módulo existir."""
+    if not LC.disponivel():
+        return
+    ss = st.session_state
+    ss.setdefault("conversa_estado", dict(LC.ESTADO_VAZIO))
+    ss.setdefault("conversa_chips", list(LC.CHIPS_INICIAIS))
+    st.markdown("**Vamos montar seu ciclo juntos**")
+    if ss.get("conversa_texto"):
+        st.write(ss["conversa_texto"])
+    fala = None
+    if ss["conversa_chips"]:
+        cols = st.columns(len(ss["conversa_chips"]))
+        for i, (col, chip) in enumerate(zip(cols, ss["conversa_chips"])):
+            if col.button(chip, key=f"conversa_chip_{i}"):
+                fala = chip
+    livre = st.text_input("Ou conte com suas palavras o que você planta ou quer priorizar", key="conversa_fala", max_chars=500)
+    if st.button("Enviar", key="conversa_enviar") and livre.strip():
+        fala = livre.strip()
+    if fala:
+        r = LC.ligar_conversa(fala, ss["conversa_estado"], ss.get("_perfil_chat"))
+        if r is None:
+            lacuna("a conversa não respondeu agora; use as perguntas abaixo ou o seu perfil.")
+        else:
+            ss["conversa_texto"], ss["conversa_chips"], ss["conversa_estado"] = r["texto"], r["chips"], r["estado"]
+            st.rerun()
+    est = ss["conversa_estado"]
+    if est.get("culturas_citadas") or est.get("foco"):
+        st.caption("Até aqui: culturas " + (", ".join(M.culturas_disponiveis().get(c, c) for c in est.get("culturas_citadas") or []) or "nenhuma")
+                   + "; foco " + (est.get("foco") or "nenhum") + ".")
+        st.button("Usar isto no meu perfil", key="conversa_usar", on_click=_aplicar_conversa,
+                  help="Põe as culturas e o foco no seu perfil. Você confere e muda na página 'Meu local'.")
+    st.divider()
+
+
+# ------------------------------------------------------------------------------------------------ MEU CALENDÁRIO (o que os dados mostram do que você plantou)
+@st.cache_data(show_spinner=False, max_entries=32)
+def calendario_cache(ponto: str, plantios_json: str, hoje_iso: str, textura: str, proibidas: tuple) -> dict:
+    from src.culturas import calendario_plantio as CP
+    solo = {"arenoso": "arenoso", "médio": "medio", "argiloso": "argiloso"}.get(textura, "qualquer")
+    return CP.calcular(ponto, json.loads(plantios_json), hoje_iso, proibidas=proibidas, solo=solo)
+
+
+def _ver_plantios_da_conversa():
+    """Botão 'Ver no calendário': passa à lista os plantios que a conversa entendeu e confirmou (validados pelo schema)."""
+    ss = st.session_state
+    novos = (ss.get("cal_estado") or {}).get("plantios") or []
+    try:
+        ss["plantios"] = CA.juntar_plantios(ss.get("plantios"), novos, M.culturas_disponiveis())
+        ss["pagina"] = "Meu calendário"
+    except ValueError as e:
+        ss["cal_msg"] = ("erro", "Não consegui usar os plantios da conversa: " + str(e))
+
+
+def _grafico_linha_do_tempo(rows: list[dict], hoje_: "date"):
+    df = pd.DataFrame(rows)
+    df["inicio"] = pd.to_datetime(df["inicio"])
+    df["fim"] = pd.to_datetime(df["fim"])
+    base = alt.Chart(df).mark_bar(cornerRadius=3, height=18).encode(
+        y=alt.Y("etapa:N", sort=CA.ETAPAS, title=None), x=alt.X("inicio:T", title=None), x2="fim:T",
+        color=alt.Color("etapa:N", sort=CA.ETAPAS, legend=None, scale=alt.Scale(domain=CA.ETAPAS, range=["#b5651d", "#7a9e3b", "#d4a017", "#3f7ca6", "#8c6d62"])),
+        tooltip=[alt.Tooltip("etapa:N", title="Etapa"), alt.Tooltip("detalhe:N", title="O que é"), alt.Tooltip("inicio:T", title="De", format="%d/%m/%Y"),
+                 alt.Tooltip("fim:T", title="Até", format="%d/%m/%Y")])
+    hoje_df = pd.DataFrame({"x": [pd.Timestamp(hoje_)], "rotulo": ["hoje"]})
+    marca = alt.Chart(hoje_df).mark_rule(color="#c0392b", strokeDash=[4, 3]).encode(x="x:T")
+    texto = alt.Chart(hoje_df).mark_text(color="#c0392b", dy=-6, align="left", dx=3).encode(x="x:T", text="rotulo:N", y=alt.value(0))
+    st.altair_chart((base + marca + texto).properties(height=170), use_container_width=True)
+
+
+def _conversa_calendario(lid: str, perfil_chat: dict | None):
+    """Caixa de conversa do calendário: 'plantei milho em fevereiro'. Uma pergunta por vez; sem IA para perguntar e confirmar."""
+    from src.llm import conversa as CV
+    ss = st.session_state
+    ss.setdefault("cal_estado", None)
+    ss.setdefault("cal_texto", "")
+    st.markdown("**Conte em uma frase o que você plantou** (por exemplo: plantei milho em fevereiro)")
+    st.caption("Sou um assistente automático do Sulco, não uma pessoa nem um técnico. Mostro o que os dados dizem; quem decide é você, com o técnico.")
+    if ss.get("cal_texto"):
+        st.write(ss["cal_texto"])
+    fala = None
+    chips = ss.get("cal_chips") or []
+    if chips:
+        cols = st.columns(len(chips))
+        for i, (col, ch) in enumerate(zip(cols, chips)):
+            if col.button(ch["rotulo"], key=f"cal_chip_{i}"):
+                fala = ch["texto"]
+    livre = st.text_input("Escreva aqui", key="cal_fala", max_chars=300)
+    if st.button("Enviar", key="cal_enviar") and livre.strip():
+        fala = livre.strip()
+    if fala:
+        pc = dict(perfil_chat or {})
+        pc.pop("plantios", None)
+        r = CV.conversar(fala, ss.get("cal_estado"), lid, pc, hoje=CA.hoje())
+        ss["cal_texto"], ss["cal_chips"], ss["cal_estado"] = r["resposta"], r["chips"], r["estado"]
+        st.rerun()
+    if (ss.get("cal_estado") or {}).get("plantios"):
+        st.button("Ver no calendário", key="cal_ver", on_click=_ver_plantios_da_conversa, help="Põe os plantios que a conversa entendeu na lista abaixo.")
+
+
+def pagina_calendario():
+    st.header("Meu calendário: o que os dados mostram do que você plantou")
+    st.info("Isto NÃO é ordem nem previsão: é o que os dados dizem e o que vale conversar com o técnico. O ciclo, as fases e a colheita são referência de OUTRAS regiões "
+            "(FAO ou EcoCrop): a sua semente pode ser diferente. " + AVISO)
+    ss = st.session_state
+    ss.setdefault("plantios", [])
+    culturas = M.culturas_disponiveis()
+    pts = M.carregar_pontos()
+    ids = list(pts["ponto_id"])
+    nomes_pts = dict(zip(pts["ponto_id"], pts["nome"]))
+    if ss.get("local") not in ids:
+        ss["local"] = LOCAL_PADRAO
+    lid = st.selectbox("Município / local", ids, format_func=lambda k: nomes_pts[k], key="local")
+    hoje_ = CA.hoje()
+    _conversa_calendario(lid, ss.get("_perfil_chat"))
+    st.divider()
+    st.subheader("Seus plantios")
+    msg = ss.pop("cal_msg", None)
+    if msg:
+        (st.error if msg[0] == "erro" else st.success)(msg[1])
+    with st.form("form_plantio", clear_on_submit=True):
+        f1, f2, f3, f4 = st.columns(4)
+        cultura = f1.selectbox("Cultura", list(culturas), format_func=lambda k: culturas[k], key="cal_cultura")
+        mes = f2.selectbox("Mês em que plantou", list(range(1, 13)), format_func=lambda m: CP_MESES[m - 1], index=hoje_.month - 1 if hoje_.month > 1 else 0, key="cal_mes")
+        parte = f3.radio("Em que parte do mês", [None, "comeco", "meio", "fim"], format_func=lambda k: CA.PARTES_ROTULO[k], key="cal_parte", horizontal=True)
+        ciclo = f4.number_input("Dias da sua semente até a colheita (0 = não sei)", 0, 800, 0, 5, key="cal_ciclo",
+                                help="Opcional. Se você sabe quantos dias a sua semente leva, o cálculo usa o seu número no lugar da referência de outras regiões.")
+        manejo = st.radio("Como plantou", ["sequeiro", "irrigado"], horizontal=True, key="cal_manejo", format_func=lambda k: F.MANEJOS[k])
+        add = st.form_submit_button("Adicionar plantio")
+    if add:
+        try:
+            novo = CA.novo_plantio(cultura, mes, parte, None, ciclo or None, manejo, culturas)
+            ss["plantios"] = CA.juntar_plantios(ss["plantios"], [novo], culturas)
+            st.success("Plantio adicionado.")
+        except ValueError as e:
+            st.error("Não consegui usar esse plantio: " + str(e))
+    plantios = list(ss["plantios"])
+    if not plantios:
+        st.caption("Ainda não há plantios. Use o formulário ou conte numa frase, acima.")
+    else:
+        for i, p in enumerate(plantios):
+            c1, c2 = st.columns([8, 1])
+            try:
+                c1.markdown(f"**{i + 1}. {CA.titulo_plantio(p, culturas, hoje_)}**" + (f" (ciclo informado: {p['ciclo_dias']} dias)" if p.get("ciclo_dias") else ""))
+            except ValueError:
+                c1.markdown(f"**{i + 1}. {culturas.get(p.get('cultura'), p.get('cultura'))}**")
+            if c2.button("Tirar", key=f"cal_tirar_{i}"):
+                ss["plantios"] = [x for j, x in enumerate(plantios) if j != i]
+                st.rerun()
+        _mostrar_calendario(lid, plantios, hoje_, culturas)
+    st.divider()
+    st.markdown("**Guardar ou carregar seus plantios** (no mesmo arquivo do perfil; nada fica guardado no servidor)")
+    g1, g2 = st.columns(2)
+    try:
+        p_json = P.para_json(P.validar(P.do_estado(ss), culturas, list(ids)))
+        g1.download_button("Baixar perfil com os plantios (JSON)", p_json.encode("utf-8"), file_name="perfil_sulco.json", mime="application/json", key="cal_baixar")
+    except P.PerfilErro as e:
+        g1.caption("O perfil ainda não está completo para baixar: " + "; ".join(e.erros))
+    arq = g2.file_uploader("Carregar perfil (JSON)", type=["json"], key="cal_arquivo")
+    if arq is not None and st.button("Usar este arquivo", key="cal_usar_arquivo"):
+        try:
+            novo_p = P.de_json(arq.getvalue(), culturas, ids)
+            P.para_estado(ss, novo_p)
+            st.success("Perfil carregado; os plantios dele estão na lista.")
+            st.rerun()
+        except P.PerfilErro as e:
+            st.error("Não consegui usar esse arquivo: " + "; ".join(e.erros))
+
+
+CP_MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"]
+
+
+def _mostrar_calendario(lid: str, plantios: list[dict], hoje_, culturas: dict):
+    from src.llm import fatos as FT
+    ss = st.session_state
+    prib = tuple(sorted(((ss.get("regra_nao") or []))))
+    try:
+        with st.spinner("Olhando os dados do seu local..."):
+            calc = calendario_cache(lid, json.dumps(plantios, sort_keys=True), hoje_.isoformat(), ss.get("textura", "não sei"), prib)
+    except Exception as e:  # noqa: BLE001 - lacuna visível em vez de tela quebrada
+        lacuna(f"não foi possível montar o calendário ({e.__class__.__name__}: {e}).")
+        return
+    folha = FT.montar_folha_calendario(calc, culturas)
+    for p in calc["plantios"]:
+        with st.expander(f"{p['indice'] + 1}. {p['cultura_nome']}: {CA.resumo_fase(p)}", expanded=len(calc["plantios"]) == 1):
+            if p["status"] == "esclarecimento":
+                lacuna(p["esclarecimento"] + ". Tire esse plantio e adicione de novo com o mês certo.")
+                continue
+            rows = CA.linha_do_tempo(p, hoje_)
+            if rows:
+                _grafico_linha_do_tempo(rows, hoje_)
+                st.caption("Cada barra é o que os dados mostram, não uma ordem. Fases e colheita: referência de outras regiões (a sua semente pode ser diferente). "
+                           "Janela do zoneamento: Ministério da Agricultura, sequeiro. Passe o mouse nas barras para ver as datas.")
+            for f in folha["fatos"]:
+                if f.get("plantio") != p["indice"] or not f.get("texto_simples"):
+                    continue
+                (lacuna if f["lacuna"] else st.markdown)(f["texto_simples"] if not f["lacuna"] else "LACUNA: " + f["texto_simples"])
+            if p.get("lacunas"):
+                st.caption("Lacunas: " + "; ".join(p["lacunas"]))
+            with st.expander("De onde vem cada frase", expanded=False):
+                for f in folha["fatos"]:
+                    if f.get("plantio") == p["indice"]:
+                        st.caption(f"{f['rotulo']}: {f['origem']}")
+    st.caption("O clima vem de uma área de cerca de 50 km e o satélite de pixels de cerca de 250 m: nenhum enxerga a sua roça. Converse com o técnico.")
+
+
 def pagina_pergunte():
     from src.llm import chat as CH
     st.header("Pergunte ao Sulco")
@@ -959,6 +1327,9 @@ def pagina_pergunte():
         st.warning(f"IA desligada. {est['mensagem']} Você ainda recebe os trechos do acervo, em texto padrão, sem internet.")
     ss = st.session_state
     ss.setdefault("chat_hist", [])
+    secao_conversa()
+    if (ss.get("cal_estado") or {}).get("plantios"):
+        st.button("Ver no calendário", key="pergunte_ver_cal", on_click=_ver_plantios_da_conversa, help="Mostra os plantios que a conversa entendeu na página 'Meu calendário'.")
     st.caption("Exemplos (clique para preencher):")
     cols = st.columns(len(EXEMPLOS_CHAT))
     for i, ex in enumerate(EXEMPLOS_CHAT):
@@ -992,9 +1363,10 @@ def pagina_pergunte():
 def main():
     st.set_page_config(page_title="SULCO", layout="wide")
     st.title("SULCO: da órbita ao sulco")
-    pagina = st.sidebar.radio("Página", ["Meu local", "Pergunte ao Sulco", "Glossário", "Limites dos dados"], key="pagina")
+    pagina = st.sidebar.radio("Página", ["Meu local", "Meu calendário", "Pergunte ao Sulco", "Glossário", "Limites dos dados"], key="pagina")
     st.sidebar.caption(AVISO)
-    {"Meu local": pagina_meu_local, "Pergunte ao Sulco": pagina_pergunte, "Glossário": pagina_glossario, "Limites dos dados": pagina_limites}[pagina]()
+    {"Meu local": pagina_meu_local, "Meu calendário": pagina_calendario, "Pergunte ao Sulco": pagina_pergunte, "Glossário": pagina_glossario,
+     "Limites dos dados": pagina_limites}[pagina]()
 
 
 main()

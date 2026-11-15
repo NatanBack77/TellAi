@@ -1,0 +1,11 @@
+{
+ "valores_distintos_dec_sequeiro": [
+  0,
+  20,
+  30,
+  40
+ ],
+ "linhas_sequeiro": 72630,
+ "dicionario": "MAPA dicionario-de-dados-tabua-de-risco-2026.pdf: 'dec1 a dec36 = Periodo de plantio no ano separado por decendios de 1 a 36'; NAO define 0/20/30/40 (leitura 0=sem indicacao, 20/30/40=risco maximo vem das portarias/observacao).",
+ "mes_do_decendio": "convencao 3 decendios por mes (dec1-3 jan ... dec34-36 dez); o dicionario nao define"
+}

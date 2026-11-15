@@ -8,8 +8,10 @@ Suposições do motor (NÃO são dado de fonte; revisar com o usuário):
 - M1 pesos dos critérios (PESOS) são uma proposta de projeto, não vêm de literatura (o Monte Carlo os sorteia).
 - M2 nota climática: 0 fora da faixa absoluta, 1 na ótima, linear entre as duas (forma trapezoidal do EcoCrop descrita
   no README do OpenCLIM), aplicada à temperatura MÉDIA e à chuva ACUMULADA no ciclo de cada início/ano (ciclo.py).
-- M3 a chuva é comparada à faixa EcoCrop como chuva do ciclo (ou 365 dias, `chuva_modo`); se a faixa for anual
-  (definição oficial FAO não verificada), ciclos curtos ficam penalizados.
+- M3 a chuva é comparada à faixa EcoCrop como chuva dos 365 dias desde o início (`chuva_modo="anual"`, padrão desde
+  2026-11-14: a descrição oficial do EcoCrop diz "annual precipitation"; a ficha da espécie não foi aberta) ou do ciclo
+  (`chuva_modo="ciclo"`, opção anterior). O atendimento hídrico do ciclo (chuva/demanda) é só informação, fora do ranking.
+- M7 duração do ciclo: Tabela 11 do FAO-56 nas culturas que a FAO cobre (`ciclo_fonte="fao"`, ciclo_fao.py); EcoCrop nas demais.
 - M4 notas de N e palha: min-max entre as candidatas com dado; valores vêm de estudos diferentes
   (locais e idades de corte diferentes), logo a comparação é só indicativa.
 - M5 'familia_diferente': 1 se a família botânica (EcoCrop) difere da cultura atual, 0 se igual.
@@ -22,7 +24,7 @@ from typing import Any
 
 import numpy as np
 
-from . import ciclo, incerteza
+from . import ciclo, ciclo_fao, incerteza
 from .parametros import Parametros
 from .tabela_culturas import carregar
 
@@ -32,13 +34,24 @@ PESOS = {"temperatura": 0.25, "chuva": 0.25, "n_na_biomassa": 0.20, "palha": 0.1
 
 UNID = {"temperatura": "°C", "chuva": "mm", "n_na_biomassa": "kg/ha", "palha": "kg/ha", "familia_diferente": "texto"}
 
-SUPOSICOES = [
-    "Pesos dos critérios são proposta de projeto (não vêm de fonte).",
-    "Nota climática trapezoidal (0 fora da faixa absoluta, 1 na ótima), aplicada à temperatura média e à chuva acumulada no ciclo.",
-    "Faixa de chuva do EcoCrop comparada à chuva do ciclo (definição oficial FAO, anual ou do ciclo, não verificada).",
+def _suposicoes_base(p: Parametros) -> list[str]:
+    anual = p.chuva_modo == "anual"
+    return [
+        "Pesos dos critérios são proposta de projeto (não vêm de fonte).",
+        "Nota climática trapezoidal (0 fora da faixa absoluta, 1 na ótima), aplicada à temperatura média do ciclo e à chuva "
+        + ("dos 365 dias desde o início do plantio." if anual else "acumulada no ciclo."),
+        ("Faixa de chuva do EcoCrop comparada à chuva ANUAL (365 dias desde o início): a descrição oficial do EcoCrop na FAO diz "
+         "'annual precipitation'. O atendimento hídrico do ciclo (chuva sobre a demanda) é só informação, não entra no ranking."
+         if anual else
+         "Faixa de chuva do EcoCrop comparada à chuva do ciclo (opção anterior; a descrição oficial fala em chuva anual)."),
+    ] + _SUPOSICOES_FIXAS
+
+
+_SUPOSICOES_FIXAS = [
     "Ranking principal usa só os critérios que todas as candidatas têm; N e palha são mostrados à parte, e lacuna vale incerteza, não nota.",
     "Notas de N e palha vêm de estudos distintos (local e idade de corte diferentes): comparação só indicativa.",
 ]
+SUPOSICOES = _suposicoes_base(Parametros())      # padrão atual (compatibilidade); o cenário usa _suposicoes_base(p)
 
 RISCOS_FIXOS = [
     "Dados de satélite têm resolução de km; o talhão pode diferir do pixel.",
@@ -152,6 +165,25 @@ def _criterios_json(tab: dict, cid: str, notas: dict, perfil: dict, atual: str) 
     return out
 
 
+def _avisos_ciclo(tab: dict, cid: str, av: dict) -> list[str]:
+    """Aviso sobre a duração do ciclo da cultura: 'ciclo de referência de outras regiões' (FAO) ou ciclo EcoCrop (ponto médio)."""
+    info = av.get("ciclo_info") or {}
+    nome = tab[cid]["cultura_pt"]
+    if info.get("fonte") == "fao":
+        return [ciclo_fao.aviso_fao(info, nome, info.get("ecocrop_min_max"))]
+    if info.get("fonte") == "override":
+        return [f"Ciclo de {nome}: {info['dias']} dias informado manualmente (ciclo_override)."]
+    eco = info.get("ecocrop_min_max")
+    if eco is None:
+        return []
+    motivo = info.get("motivo") or "ciclo do EcoCrop escolhido pelo modo configurado"
+    return [ciclo_fao.aviso_ecocrop(nome, info["dias"], eco[0], eco[1], motivo)]
+
+
+def _suposicoes_ciclo(tab: dict, cid: str, r: dict, p: Parametros) -> list[str]:
+    return ["SUPOSIÇÃO (ciclo): " + a for a in _avisos_ciclo(tab, cid, r["av"])] if r.get("av") else []
+
+
 CRITERIOS = list(PESOS)  # ordem fixa dos 5 critérios (eixo do tensor de notas)
 LEITURA_RANKING = ("Ranking principal só pelos critérios que TODAS as candidatas têm; N na biomassa e palha ficam à parte "
                    "(informação), sem prêmio nem castigo por lacuna.")
@@ -211,6 +243,30 @@ def _score_base(pesos: dict, crit: list[str], notas: dict) -> float | None:
     return round(100 * sum(pesos[k] * notas[k] for k in crit) / pw, 1)
 
 
+ROTULO_CICLO_APROXIMADO = "janela aproximada, sem zoneamento oficial"
+
+
+def _origem_epoca(av: dict, p: Parametros) -> dict:
+    """De ONDE vem a época de plantio: 'zarc' (decêndios indicados pelo zoneamento oficial) ou 'ciclo_aproximado' (adequação do ciclo)."""
+    z = av.get("zarc")
+    if z and z.get("aplicado") and not z.get("aproximada") and z.get("decendios_permitidos") == 0:
+        return {"epoca_fonte": "zarc", "epoca_sem_indicacao": True,
+                "epoca_rotulo": f"ZARC (MAPA) não indica nenhum decêndio ao risco {z['risco']} neste município: sem época de plantio válida (a data mostrada é apenas formal)",
+                "epoca_detalhe": z}
+    if z and z.get("aplicado") and not z.get("aproximada"):
+        return {"epoca_fonte": "zarc", "epoca_rotulo": f"ZARC (MAPA), risco {z['risco']}, solo '{z['solo']}', {z['decendios_permitidos']} decêndios indicados",
+                "epoca_detalhe": z}
+    if p.epoca_modo == "anual_legado":
+        return {"epoca_fonte": "zarc_aproximada_anuais" if z and z.get("aproximada") else "anual_legado_sem_zarc",
+                "epoca_rotulo": "modo anterior (anual_legado): época sem valor informativo" if not z or not z.get("aproximada") else
+                                "janela aproximada pelas anuais com ZARC, sem zoneamento oficial da cultura",
+                "epoca_detalhe": z}
+    motivo = ("ZARC desligado" if not p.usar_zarc else (z or {}).get("motivo") or "sem ZARC")
+    return {"epoca_fonte": "ciclo_aproximado", "epoca_rotulo": ROTULO_CICLO_APROXIMADO + f" ({motivo})",
+            "epoca_motivo": motivo, "epoca_agua": av.get("epoca_agua"),
+            "epoca_criterio": "mínimo(temperatura do ciclo, chuva anual, chuva do ciclo / demanda); não é recomendação agronômica"}
+
+
 def _janela_json(tab: dict, cid: str, clima, av_local: dict, p: Parametros) -> dict:
     res = av_local["culturas"][cid]["res"]
     av = av_local["culturas"][cid]["av"]
@@ -223,7 +279,12 @@ def _janela_json(tab: dict, cid: str, clima, av_local: dict, p: Parametros) -> d
                                   "p90": round(res["adeq_p90"], 3)},
          "fracao_anos_viaveis": round(res["p_ano_viavel"], 3),
          "temp_media_ciclo_c": round(res["tmedia_ciclo"], 2), "chuva_ciclo_mm": round(res["chuva_ciclo_mm"], 1),
+         "chuva_comparada_mm": round(res["chuva_comparada_mm"], 1),
+         "chuva_comparada_janela_dias": av["dur_chuva"],
+         "ciclo_fonte": p.ciclo_fonte, "ciclo_referencia": {k: v for k, v in av["ciclo_info"].items() if k != "ecocrop_min_max"},
+         "ciclo_ecocrop_min_max": av["ciclo_info"].get("ecocrop_min_max"),
          "anos": av_local["anos"]}
+    j.update(_origem_epoca(av, p))
     sens = {}
     for m in ("min", "max"):
         if m == p.ciclo_modo:
@@ -241,6 +302,8 @@ def _janela_json(tab: dict, cid: str, clima, av_local: dict, p: Parametros) -> d
     j["sensibilidade_ciclo"] = sens
     dem = _v(tab, cid, "demanda_hidrica_mm_ciclo")
     j["chuva_sobre_demanda_hidrica"] = (None if dem is None else round(res["chuva_ciclo_mm"] / dem, 2))
+    j["atendimento_hidrico_nota"] = ("INFORMAÇÃO (decisão do usuário): chuva do ciclo sobre a demanda da tabela; não entra no "
+                                     "ranking nem na nota de chuva. ETc = Kc x ETo não está no motor (só no experimento).")
     j["demanda_hidrica_mm_ciclo"] = dem
     return j
 
@@ -337,16 +400,22 @@ def gerar_cenarios(perfil: dict, cultura_atual: str, tabela: dict | None = None,
         ranqueia = np.array([c != cultura_atual for c in ids_sim])
         sim = incerteza.simular(T, CRITERIOS, pr_crit, ranqueia, p)
     # ---- escolha das alternativas: P(top-N), posição média, e (empate exato) sorteio com semente fixa; nunca alfabético
-    escolhidas, corte_empatado = [], False
+    escolhidas, corte_empatado, corte_por_consorcio = [], False, False
     if sim is not None and cand and sim[p.bloco_ranking]["ranking"] is not None:
         rk = sim[p.bloco_ranking]["ranking"]
         perm = np.random.default_rng(p.semente + 1).permutation(len(cand))
-        chave = [(-round(float(rk["p_topo"][j]), 9), round(float(rk["pos_media"][j]), 9), int(perm[j])) for j in range(len(cand))]
+        if p.consorcio_modo == "desempate":      # critério secundário OPCIONAL (docs/29): só quebra EMPATE EXATO; padrão 'sem' não passa por aqui
+            from . import consorcio as _cons
+            resp = [0 if _cons.tem_respaldo(cultura_atual, c) else 1 for c in cand]
+        else:
+            resp = [0] * len(cand)
+        chave = [(-round(float(rk["p_topo"][j]), 9), round(float(rk["pos_media"][j]), 9), resp[j], int(perm[j])) for j in range(len(cand))]
         ordem = sorted(range(len(cand)), key=lambda j: chave[j])
         escolhidas = [cand[j] for j in ordem[:n_alternativas]]
         if len(ordem) > n_alternativas:
             a, b = chave[ordem[n_alternativas - 1]], chave[ordem[n_alternativas]]
             corte_empatado = a[:2] == b[:2]
+            corte_por_consorcio = corte_empatado and a[2] != b[2]
     if len(escolhidas) < n_alternativas:
         lacunas_gerais.append(f"Só {len(escolhidas)} alternativa(s) viável(is) com os dados disponíveis (pedido: {n_alternativas}).")
     cobertura_pr = None
@@ -357,6 +426,7 @@ def gerar_cenarios(perfil: dict, cultura_atual: str, tabela: dict | None = None,
     for c in [cultura_atual] + escolhidas:
         r = cs[c]
         lac = list(lacunas_gerais) + list(r["lacunas"])
+        lac += _avisos_ciclo(tab, c, r["av"])
         riscos = list(RISCOS_FIXOS)
         if r["estado"] != "viavel":
             riscos.insert(0, f"Viabilidade da cultura atual: {r['estado']} ({'; '.join(r['motivos'] + r['lacunas'])}).")
@@ -364,7 +434,7 @@ def gerar_cenarios(perfil: dict, cultura_atual: str, tabela: dict | None = None,
             cenarios.append({"local": loc, "cultura_atual": cultura_atual, "rotacao": [cultura_atual, c], "score": None,
                              "faixa_incerteza": None, "criterios": {}, "lacunas": lac + ["cultura não avaliada: sem faixa/ciclo/clima"],
                              "riscos_revisao_local": riscos, "trechos": [], "viabilidade": r["estado"], "pesos_usados": {},
-                             "suposicoes": SUPOSICOES + p.suposicoes(), "aviso": AVISO})
+                             "suposicoes": _suposicoes_base(p) + p.suposicoes() + _suposicoes_ciclo(tab, c, r, p), "aviso": AVISO})
             continue
         i = ids_sim.index(c)
         nt = notas[c]
@@ -373,19 +443,24 @@ def gerar_cenarios(perfil: dict, cultura_atual: str, tabela: dict | None = None,
         cob_c = {"peso_coberto": round(sum(PESOS[k] for k in CRITERIOS if nt.get(k) is not None), 3),
                  "peso_total": round(sum(PESOS.values()), 3), "criterios_sem_dado": sem_nota}
         cobertura = dict(cobertura_pr or {}, completa=cob_c)
-        perfil_ciclo = {"temp_media_c": r["res"]["tmedia_ciclo"], "chuva_ciclo_mm": r["res"]["chuva_ciclo_mm"]}
+        # `chuva_ciclo_mm` do perfil = a chuva efetivamente comparada à faixa (anual no modo 'anual'; ver janela_plantio)
+        perfil_ciclo = {"temp_media_c": r["res"]["tmedia_ciclo"], "chuva_ciclo_mm": r["res"]["chuva_comparada_mm"]}
         crit_json = _criterios_json(tab, c, nt, perfil_ciclo, cultura_atual)
         for k, d in crit_json.items():
             d["no_ranking_principal"] = k in pr_crit
             if k in ("temperatura", "chuva") and d.get("valor") is not None:
-                d["janela"] = f"início {r['res']['inicio']}, {r['av']['dur']} dias, média de {av['anos'][2]} anos"
+                dj = r["av"]["dur"] if (k == "temperatura" or p.chuva_modo == "ciclo") else r["av"]["dur_chuva"]
+                d["janela"] = f"início {r['res']['inicio']}, {dj} dias, média de {av['anos'][2]} anos"
         lac += [f"{k}: sem dado (lacuna); no complemento do Monte Carlo vale como incerteza U[0,1], fora do ranking principal"
                 for k in sem_nota if k not in pr_crit]
         fx = _faixa_json(i, c, sim, ids_sim, cobertura, p, av["anos"], [x for x in ids_sim if x != cultura_atual])
         if fx.get("empate_tecnico"):
             lac.append("Empate técnico (intervalos de score p%g-p%g se sobrepõem) com: %s. A ordem entre elas não tem base nos dados."
                        % (p.percentil_baixo, p.percentil_alto, ", ".join(fx["empate_tecnico_com"])))
-        if c in escolhidas and corte_empatado:
+        if c in escolhidas and corte_por_consorcio:
+            lac.append("Corte das alternativas em empate exato (mesmo P(top-N) e posição média): desempatado pelo critério opcional 'consórcio com "
+                       "respaldo publicado' (consorcio_modo='desempate'). Isso não significa que a escolhida seja melhor.")
+        elif c in escolhidas and corte_empatado:
             lac.append("Corte das alternativas em empate exato (mesmo P(top-N) e posição média): escolha por sorteio com "
                        "semente fixa, não por ordem alfabética nem por critério agronômico.")
         riscos_c = riscos
@@ -394,7 +469,11 @@ def gerar_cenarios(perfil: dict, cultura_atual: str, tabela: dict | None = None,
             "score": _score_base(PESOS, pr_crit, nt), "faixa_incerteza": fx, "criterios": crit_json,
             "lacunas": lac, "riscos_revisao_local": riscos_c, "trechos": [], "viabilidade": r["estado"],
             "pesos_usados": usados, "janela_plantio": _janela_json(tab, c, clima, av, p),
-            "ranking_nota": LEITURA_RANKING, "suposicoes": SUPOSICOES + p.suposicoes(), "aviso": AVISO})
+            "ranking_nota": LEITURA_RANKING, "suposicoes": _suposicoes_base(p) + p.suposicoes() + _suposicoes_ciclo(tab, c, r, p),
+            "aviso": AVISO})
+    if p.consorcio_modo != "sem":                # evidência de consórcio (docs/29); não altera nota, faixa nem ordem; padrão 'sem' não passa por aqui
+        from . import consorcio as _cons
+        _cons.anexar(cenarios, p.consorcio_modo)
     return cenarios
 
 

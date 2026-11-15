@@ -98,10 +98,11 @@ def test_vista_zoom_so_com_a_caixa_ligada_e_desligada_por_padrao(monkeypatch):
 def test_tela_cartao_mapa_e_tempo_por_selecao():
     from streamlit.testing.v1 import AppTest
     at = AppTest.from_file(APP, default_timeout=120).run()
+    at.multiselect(key="culturas").set_value(["milho"]).run()
     assert not at.exception
     assert at.checkbox(key="mapa_zoom").value is False and at.checkbox(key="mapa_offline").value is False
     assert any("Cartão do município" in s.value for s in at.subheader)
-    assert len(at.get("download_button")) == 2 or len(at.get("download_button")) == 1          # HTML sempre; PDF se fpdf2
+    assert len(at.get("download_button")) in (2, 3)          # perfil JSON + cartão HTML sempre; PDF se fpdf2
     t0 = time.perf_counter()
     at.checkbox(key="mapa_zoom").check().run()
     t1 = time.perf_counter() - t0

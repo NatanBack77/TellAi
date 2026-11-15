@@ -214,9 +214,25 @@ def _anexar_evidencias(c: dict, alvo: str) -> None:
         c["lacunas"].append("sem evidência no acervo para: " + ", ".join(sem))
 
 
+def descartes_caminhos(av: dict, tab: dict, cultura_atual: str, regras) -> dict | None:
+    """Quantas alternativas viáveis as regras duras do agricultor tiraram dos 3 caminhos (None = sem regra). Mesma conta do motor.
+
+    `todas_descartadas`: havia alternativa viável e as regras tiraram todas (a tela diz isso em frase simples)."""
+    if regras is None:
+        return None
+    from src.culturas import regras_duras as rd
+    fam = {c: (tab[c]["atributos"].get("familia_botanica") or {}).get("valor") for c in tab}
+    cand = [c for c in tab if c != cultura_atual and av["culturas"][c]["estado"] == "viavel"]
+    ok, fora = rd.separar([(cultura_atual, c) for c in cand], fam, regras)
+    return {"n_viaveis": len(cand), "n_descartadas": len(fora), "n_restantes": len(ok), "todas_descartadas": bool(cand) and not ok,
+            "descartadas_por_motivo": rd.resumo_descartes(fora), "descartadas": [{"cultura": d["sequencia"][1], "motivos": d["motivos"]} for d in fora]}
+
+
 def calcular(ponto_id: str, cultura_atual: str, prioridade: str = "sem", fator_chuva: float = 1.0,
-             delta_t: float = 0.0, n_sorteios: int = N_SORTEIOS_APP, com_evidencias: bool = True) -> dict:
-    """Atual + 2 alternativas (motor), com local, evidências e lacunas. `av` traz a avaliação de todas as culturas."""
+             delta_t: float = 0.0, n_sorteios: int = N_SORTEIOS_APP, com_evidencias: bool = True, regras=None) -> dict:
+    """Atual + 2 alternativas (motor), com local, evidências e lacunas. `av` traz a avaliação de todas as culturas.
+
+    `regras`: RegrasDuras do agricultor (ou None). Alternativa que viola regra nunca entra; a cultura atual fica sempre."""
     t0 = time.perf_counter()
     tab = carregar_tabela()
     pts = carregar_pontos().set_index("ponto_id")
@@ -226,7 +242,7 @@ def calcular(ponto_id: str, cultura_atual: str, prioridade: str = "sem", fator_c
     clima = clima_ponto(ponto_id)
     if fator_chuva != 1.0 or delta_t != 0.0:
         clima = perturbar(clima, fator_chuva, delta_t)
-    cens = gerar_cenarios({"local": ponto_id}, cultura_atual, tab, clima=clima, params=p)
+    cens = gerar_cenarios({"local": ponto_id}, cultura_atual, tab, clima=clima, params=p, regras=regras)
     av = avaliar_local(tab, clima, p)
     linha = pts.loc[ponto_id]
     for c in cens:
@@ -239,8 +255,8 @@ def calcular(ponto_id: str, cultura_atual: str, prioridade: str = "sem", fator_c
             _anexar_evidencias(c, alvo)
         if PRIORIDADES[prioridade].get("lacuna"):
             c["lacunas"].append(PRIORIDADES[prioridade]["lacuna"])
-    return {"cenarios": cens, "av": av, "params": p, "clima": clima, "prioridade": prioridade,
-            "segundos": time.perf_counter() - t0}
+    return {"cenarios": cens, "av": av, "params": p, "clima": clima, "prioridade": prioridade, "regras": regras,
+            "descartes": descartes_caminhos(av, tab, cultura_atual, regras), "segundos": time.perf_counter() - t0}
 
 
 def bloco_ranking(c: dict, prioridade: str) -> dict:
@@ -581,9 +597,10 @@ def _faixa_observada(ca: dict, ok: np.ndarray, k: int) -> dict:
 
 
 def cenario_clima(ponto_id: str, cultura: str, prioridade: str, fator_chuva: float, delta_t: float,
-                  base: dict | None = None) -> dict:
+                  base: dict | None = None, regras=None) -> dict:
     """Mesmo motor, clima perturbado. Compara as MESMAS 3 estratégias do cenário-base e diz se o clima sai do já visto."""
-    base = base or calcular(ponto_id, cultura, prioridade, com_evidencias=False)
+    base = base or calcular(ponto_id, cultura, prioridade, com_evidencias=False, regras=regras)
+    regras = base.get("regras", regras)
     p = base["params"]
     clima_c = perturbar(clima_ponto(ponto_id), fator_chuva, delta_t)
     av_c = avaliar_local(carregar_tabela(), clima_c, p)
@@ -613,7 +630,7 @@ def cenario_clima(ponto_id: str, cultura: str, prioridade: str, fator_chuva: flo
             lin.update(adeq_cenario=s["res"]["adeq_media"], inicio_cenario=s["res"]["inicio"],
                        anos_viaveis_cenario=s["res"]["p_ano_viavel"], chuva_cenario=s["res"]["chuva_ciclo_mm"])
         linhas.append(lin)
-    novo = gerar_cenarios({"local": ponto_id}, cultura, carregar_tabela(), clima=clima_c, params=p)
+    novo = gerar_cenarios({"local": ponto_id}, cultura, carregar_tabela(), clima=clima_c, params=p, regras=regras)
     alt_base = [c["rotacao"][1] for c in base["cenarios"] if not c.get("atual")]
     alt_nova = [c["rotacao"][1] for c in novo if c["rotacao"][1] != cultura]
     return {"linhas": linhas, "avisos": avisos, "alternativas_base": alt_base, "alternativas_cenario": alt_nova,
@@ -827,7 +844,7 @@ OPCOES_MO = ["não sei", "baixa", "média", "alta"]
 
 def calcular_rotacao(ponto_id: str, cultura_atual: str, prioridade: str = "sem", rotacao_atual: list[str] | None = None,
                      textura: str = "não sei", materia_organica: str = "não sei", usar_zarc: bool = ZARC_PADRAO,
-                     n_sorteios: int = 3000, renda_por_cultura: dict | None = None) -> dict:
+                     n_sorteios: int = 3000, renda_por_cultura: dict | None = None, regras=None) -> dict:
     """Rotação de 3 safras (atual + 2 alternativas) para o local. `rotacao_atual`: 3 culturas começando pela atual, ou None (repete a atual).
 
     Solo informado pelo usuário só gera avisos de risco (não altera nota). ZARC (opcional) restringe os inícios de plantio.
@@ -855,7 +872,7 @@ def calcular_rotacao(ponto_id: str, cultura_atual: str, prioridade: str = "sem",
         except ImportError:
             renda_por_cultura = None
     r = gerar_rotacoes({"local": ponto_id}, cultura_atual, tab, clima_ponto(ponto_id), p, prioridade, rotacao_atual, 2, solo,
-                       ibge, renda_por_cultura)
+                       ibge, renda_por_cultura, regras=regras)
     r["usar_zarc"], r["solo_informado"], r["solo_estimado"], r["segundos"] = usar_zarc, solo, est, time.perf_counter() - t0
     r["local"] = {"ponto_id": ponto_id, "nome": pts.loc[ponto_id]["nome"]}
     return r
@@ -866,7 +883,7 @@ ORDEM_MILP = {"sem": None, "renda": None, "agua": ("adeq", "div", "leg", "palha"
 
 
 def calcular_plano(ponto_id: str, cultura_atual: str, prioridade: str = "sem", horizonte: int = 5, nunca_repetir_seguida: bool = True,
-                   min_leguminosas: int = 2, usar_zarc: bool = ZARC_PADRAO, n_sorteios: int = 150) -> dict:
+                   min_leguminosas: int = 2, usar_zarc: bool = ZARC_PADRAO, n_sorteios: int = 150, regras_agricultor=None) -> dict:
     """Plano de `horizonte` safras por MILP com regras duras, repetido com pesos/ano de clima/lacunas sorteados (frequência de cada sequência ser a ótima).
 
     PROPOSTA, não decisão: o MILP devolve um ótimo por sorteio; a frequência mostra que nenhuma sequência domina (empate técnico).
@@ -888,6 +905,16 @@ def calcular_plano(ponto_id: str, cultura_atual: str, prioridade: str = "sem", h
         regras["sem_repetir_seguida"] = True
     if min_leguminosas:
         regras["min_leguminosas"] = int(min_leguminosas)
+    if regras_agricultor is not None:                      # regras duras do agricultor (perfil): só entram culturas viáveis aqui
+        d = regras_agricultor.para_dict()
+        falta = sorted(c for c in d["obrigatorias"] if c not in cult)
+        if falta:
+            return {"lacuna": "você pediu para incluir " + ", ".join(tab[c]["cultura_pt"] if c in tab else c for c in falta)
+                    + ", mas o clima do local não permite essa cultura: nenhum plano atende. Converse com o técnico.", "top": []}
+        regras["proibidas"] = [c for c in d["proibidas"] if c in cult]
+        regras["obrigatorias"] = d["obrigatorias"]
+        if d["max_seguidas_cultura"]:
+            regras["max_seguidas_cultura"] = d["max_seguidas_cultura"]
     r = otimizar_com_incerteza(cult, cultura_atual, adeq, fam, pal, T=horizonte, regras=regras, n=n_sorteios, ordem_pesos=ORDEM_MILP[prioridade])
     r["top"] = [{**x, "nomes": [tab[c]["cultura_pt"] for c in x["sequencia"]]} for x in r["top"]]
     r["segundos"], r["usar_zarc"], r["prioridade"], r["n_culturas"] = time.perf_counter() - t0, usar_zarc, prioridade, len(cult)

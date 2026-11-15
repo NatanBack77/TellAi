@@ -131,6 +131,19 @@ def dividir_anos(anos, holdout_anos: int) -> tuple[list[int], list[int]]:
     return anos[:-holdout_anos], anos[-holdout_anos:]
 
 
+def anos_explicitos(p: dict) -> tuple[list[int], list[int]] | None:
+    """(anos de treino, anos de holdout) fixados em `preditivo.anos_treino/anos_holdout` ({de, ate}); None se não houver."""
+    if "anos_treino" not in p and "anos_holdout" not in p:
+        return None
+    if "anos_treino" not in p or "anos_holdout" not in p:
+        raise DadosInvalidos("config: `anos_treino` e `anos_holdout` devem ser declarados juntos.")
+    tr = list(range(int(p["anos_treino"]["de"]), int(p["anos_treino"]["ate"]) + 1))
+    ho = list(range(int(p["anos_holdout"]["de"]), int(p["anos_holdout"]["ate"]) + 1))
+    if not tr or not ho or max(tr) >= min(ho):
+        raise DadosInvalidos("config: anos de treino devem existir, o holdout também, e o treino terminar ANTES do holdout.")
+    return tr, ho
+
+
 def usar_persistencia_cfg(cfg: dict, usar: bool | None = None) -> bool:
     return bool(cfg["preditivo"].get("usar_persistencia", False)) if usar is None else bool(usar)
 
@@ -147,12 +160,21 @@ def preparar_tabela_modelagem(df: pd.DataFrame, cfg: dict, usar_persistencia: bo
     """
     p = cfg["preditivo"]
     usar = usar_persistencia_cfg(cfg, usar_persistencia)
-    treino_anos, teste_anos = dividir_anos(df["ano"].unique(), p["holdout_anos"])
+    expl = anos_explicitos(p)
+    if expl is None:
+        treino_anos, teste_anos = dividir_anos(df["ano"].unique(), p["holdout_anos"])
+    else:   # anos fixos: dados novos (2025+) não deslocam o holdout nem a climatologia do alvo
+        treino_anos, teste_anos = expl
+        faltam = sorted(set(treino_anos + teste_anos) - {int(a) for a in df["ano"].unique()})
+        if faltam:
+            raise DadosInvalidos(f"anos fixos do config sem nenhum NDVI no dataset: {faltam}")
     com_umid = any(c.startswith("sm_raiz") for c in df.columns)
     cols = nomes_features(cfg, com_umid)
     d = adicionar_anomalia(df, treino_anos, cfg)
     d, novas = adicionar_persistencia(d, p.get("persistencia_max_gap_dias", 17))   # ordena por (ponto, data)
     ok = d["completo"] & d["anomalia_ndvi"].notna()
+    if expl is not None:
+        ok &= d["ano"].isin(treino_anos + teste_anos)   # linhas fora dos anos fixos (ex.: 2025+) nunca entram
     if usar or so_linhas_com_persistencia:
         ok &= d[novas].notna().all(axis=1)
     if usar:

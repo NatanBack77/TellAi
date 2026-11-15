@@ -1,0 +1,2881 @@
+ponto_id,regiao,cultura,mes,zarc_dec_r20,zarc_dec_r30,zarc_dec_r40,zarc_dec_r30_arenoso,zarc_dec_r30_medio,zarc_dec_r30_argiloso
+fortaleza_ce,litoral,milho,jan,0.0,0.0,1.0,,,
+fortaleza_ce,litoral,milho,fev,2.0,3.0,3.0,,,
+fortaleza_ce,litoral,milho,mar,3.0,3.0,3.0,,,
+fortaleza_ce,litoral,milho,abr,1.0,2.0,3.0,,,
+fortaleza_ce,litoral,milho,mai,0.0,0.0,0.0,,,
+fortaleza_ce,litoral,milho,jun,0.0,0.0,0.0,,,
+fortaleza_ce,litoral,milho,jul,0.0,0.0,0.0,,,
+fortaleza_ce,litoral,milho,ago,0.0,0.0,0.0,,,
+fortaleza_ce,litoral,milho,set,0.0,0.0,0.0,,,
+fortaleza_ce,litoral,milho,out,0.0,0.0,0.0,,,
+fortaleza_ce,litoral,milho,nov,0.0,0.0,0.0,,,
+fortaleza_ce,litoral,milho,dez,0.0,0.0,0.0,,,
+fortaleza_ce,litoral,feijao_caupi,jan,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,feijao_caupi,fev,0.0,0.0,1.0,0.0,0.0,0.0
+fortaleza_ce,litoral,feijao_caupi,mar,0.0,2.0,3.0,2.0,2.0,2.0
+fortaleza_ce,litoral,feijao_caupi,abr,3.0,3.0,3.0,3.0,3.0,3.0
+fortaleza_ce,litoral,feijao_caupi,mai,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,feijao_caupi,jun,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,feijao_caupi,jul,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,feijao_caupi,ago,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,feijao_caupi,set,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,feijao_caupi,out,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,feijao_caupi,nov,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,feijao_caupi,dez,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,feijao_comum,jan,0.0,0.0,0.0,,,
+fortaleza_ce,litoral,feijao_comum,fev,1.0,3.0,3.0,,,
+fortaleza_ce,litoral,feijao_comum,mar,2.0,3.0,3.0,,,
+fortaleza_ce,litoral,feijao_comum,abr,0.0,0.0,3.0,,,
+fortaleza_ce,litoral,feijao_comum,mai,0.0,0.0,0.0,,,
+fortaleza_ce,litoral,feijao_comum,jun,0.0,0.0,0.0,,,
+fortaleza_ce,litoral,feijao_comum,jul,0.0,0.0,0.0,,,
+fortaleza_ce,litoral,feijao_comum,ago,0.0,0.0,0.0,,,
+fortaleza_ce,litoral,feijao_comum,set,0.0,0.0,0.0,,,
+fortaleza_ce,litoral,feijao_comum,out,0.0,0.0,0.0,,,
+fortaleza_ce,litoral,feijao_comum,nov,0.0,0.0,0.0,,,
+fortaleza_ce,litoral,feijao_comum,dez,0.0,0.0,0.0,,,
+fortaleza_ce,litoral,sorgo,jan,,,,,,
+fortaleza_ce,litoral,sorgo,fev,,,,,,
+fortaleza_ce,litoral,sorgo,mar,,,,,,
+fortaleza_ce,litoral,sorgo,abr,,,,,,
+fortaleza_ce,litoral,sorgo,mai,,,,,,
+fortaleza_ce,litoral,sorgo,jun,,,,,,
+fortaleza_ce,litoral,sorgo,jul,,,,,,
+fortaleza_ce,litoral,sorgo,ago,,,,,,
+fortaleza_ce,litoral,sorgo,set,,,,,,
+fortaleza_ce,litoral,sorgo,out,,,,,,
+fortaleza_ce,litoral,sorgo,nov,,,,,,
+fortaleza_ce,litoral,sorgo,dez,,,,,,
+fortaleza_ce,litoral,milheto,jan,0.0,0.0,1.0,0.0,0.0,0.0
+fortaleza_ce,litoral,milheto,fev,3.0,3.0,3.0,3.0,3.0,3.0
+fortaleza_ce,litoral,milheto,mar,3.0,3.0,3.0,3.0,3.0,3.0
+fortaleza_ce,litoral,milheto,abr,3.0,3.0,3.0,3.0,3.0,3.0
+fortaleza_ce,litoral,milheto,mai,2.0,2.0,3.0,0.0,2.0,2.0
+fortaleza_ce,litoral,milheto,jun,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,milheto,jul,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,milheto,ago,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,milheto,set,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,milheto,out,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,milheto,nov,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,milheto,dez,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,mandioca,jan,0.0,1.0,2.0,1.0,1.0,1.0
+fortaleza_ce,litoral,mandioca,fev,3.0,3.0,3.0,3.0,3.0,3.0
+fortaleza_ce,litoral,mandioca,mar,3.0,3.0,3.0,2.0,3.0,3.0
+fortaleza_ce,litoral,mandioca,abr,0.0,0.0,1.0,0.0,0.0,0.0
+fortaleza_ce,litoral,mandioca,mai,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,mandioca,jun,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,mandioca,jul,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,mandioca,ago,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,mandioca,set,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,mandioca,out,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,mandioca,nov,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,mandioca,dez,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,algodao,jan,0.0,0.0,1.0,0.0,0.0,0.0
+fortaleza_ce,litoral,algodao,fev,2.0,3.0,3.0,3.0,3.0,3.0
+fortaleza_ce,litoral,algodao,mar,3.0,3.0,3.0,3.0,3.0,3.0
+fortaleza_ce,litoral,algodao,abr,1.0,2.0,2.0,0.0,1.0,2.0
+fortaleza_ce,litoral,algodao,mai,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,algodao,jun,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,algodao,jul,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,algodao,ago,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,algodao,set,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,algodao,out,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,algodao,nov,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,algodao,dez,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,amendoim,jan,0.0,1.0,2.0,0.0,1.0,0.0
+fortaleza_ce,litoral,amendoim,fev,2.0,3.0,3.0,3.0,3.0,3.0
+fortaleza_ce,litoral,amendoim,mar,3.0,3.0,3.0,3.0,3.0,3.0
+fortaleza_ce,litoral,amendoim,abr,2.0,3.0,3.0,1.0,2.0,3.0
+fortaleza_ce,litoral,amendoim,mai,0.0,0.0,1.0,0.0,0.0,0.0
+fortaleza_ce,litoral,amendoim,jun,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,amendoim,jul,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,amendoim,ago,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,amendoim,set,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,amendoim,out,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,amendoim,nov,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,amendoim,dez,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,girassol,jan,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,girassol,fev,2.0,3.0,3.0,2.0,3.0,3.0
+fortaleza_ce,litoral,girassol,mar,3.0,3.0,3.0,3.0,3.0,3.0
+fortaleza_ce,litoral,girassol,abr,3.0,3.0,3.0,0.0,1.0,3.0
+fortaleza_ce,litoral,girassol,mai,0.0,0.0,1.0,0.0,0.0,0.0
+fortaleza_ce,litoral,girassol,jun,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,girassol,jul,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,girassol,ago,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,girassol,set,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,girassol,out,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,girassol,nov,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,girassol,dez,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,mamona,jan,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,mamona,fev,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,mamona,mar,2.0,2.0,2.0,2.0,2.0,2.0
+fortaleza_ce,litoral,mamona,abr,3.0,3.0,3.0,2.0,3.0,3.0
+fortaleza_ce,litoral,mamona,mai,0.0,1.0,1.0,0.0,0.0,1.0
+fortaleza_ce,litoral,mamona,jun,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,mamona,jul,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,mamona,ago,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,mamona,set,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,mamona,out,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,mamona,nov,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,mamona,dez,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,gergelim,jan,0.0,1.0,2.0,,,
+fortaleza_ce,litoral,gergelim,fev,2.0,3.0,3.0,,,
+fortaleza_ce,litoral,gergelim,mar,3.0,3.0,3.0,,,
+fortaleza_ce,litoral,gergelim,abr,3.0,3.0,3.0,,,
+fortaleza_ce,litoral,gergelim,mai,1.0,2.0,2.0,,,
+fortaleza_ce,litoral,gergelim,jun,0.0,0.0,0.0,,,
+fortaleza_ce,litoral,gergelim,jul,0.0,0.0,0.0,,,
+fortaleza_ce,litoral,gergelim,ago,0.0,0.0,0.0,,,
+fortaleza_ce,litoral,gergelim,set,0.0,0.0,0.0,,,
+fortaleza_ce,litoral,gergelim,out,0.0,0.0,0.0,,,
+fortaleza_ce,litoral,gergelim,nov,0.0,0.0,0.0,,,
+fortaleza_ce,litoral,gergelim,dez,0.0,0.0,0.0,,,
+fortaleza_ce,litoral,guandu,jan,,,,,,
+fortaleza_ce,litoral,guandu,fev,,,,,,
+fortaleza_ce,litoral,guandu,mar,,,,,,
+fortaleza_ce,litoral,guandu,abr,,,,,,
+fortaleza_ce,litoral,guandu,mai,,,,,,
+fortaleza_ce,litoral,guandu,jun,,,,,,
+fortaleza_ce,litoral,guandu,jul,,,,,,
+fortaleza_ce,litoral,guandu,ago,,,,,,
+fortaleza_ce,litoral,guandu,set,,,,,,
+fortaleza_ce,litoral,guandu,out,,,,,,
+fortaleza_ce,litoral,guandu,nov,,,,,,
+fortaleza_ce,litoral,guandu,dez,,,,,,
+fortaleza_ce,litoral,palma_forrageira,jan,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,palma_forrageira,fev,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,palma_forrageira,mar,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,palma_forrageira,abr,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,palma_forrageira,mai,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,palma_forrageira,jun,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,palma_forrageira,jul,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,palma_forrageira,ago,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,palma_forrageira,set,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,palma_forrageira,out,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,palma_forrageira,nov,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,palma_forrageira,dez,0.0,0.0,0.0,0.0,0.0,0.0
+fortaleza_ce,litoral,crotalaria_juncea,jan,,,,,,
+fortaleza_ce,litoral,crotalaria_juncea,fev,,,,,,
+fortaleza_ce,litoral,crotalaria_juncea,mar,,,,,,
+fortaleza_ce,litoral,crotalaria_juncea,abr,,,,,,
+fortaleza_ce,litoral,crotalaria_juncea,mai,,,,,,
+fortaleza_ce,litoral,crotalaria_juncea,jun,,,,,,
+fortaleza_ce,litoral,crotalaria_juncea,jul,,,,,,
+fortaleza_ce,litoral,crotalaria_juncea,ago,,,,,,
+fortaleza_ce,litoral,crotalaria_juncea,set,,,,,,
+fortaleza_ce,litoral,crotalaria_juncea,out,,,,,,
+fortaleza_ce,litoral,crotalaria_juncea,nov,,,,,,
+fortaleza_ce,litoral,crotalaria_juncea,dez,,,,,,
+fortaleza_ce,litoral,feijao_de_porco,jan,,,,,,
+fortaleza_ce,litoral,feijao_de_porco,fev,,,,,,
+fortaleza_ce,litoral,feijao_de_porco,mar,,,,,,
+fortaleza_ce,litoral,feijao_de_porco,abr,,,,,,
+fortaleza_ce,litoral,feijao_de_porco,mai,,,,,,
+fortaleza_ce,litoral,feijao_de_porco,jun,,,,,,
+fortaleza_ce,litoral,feijao_de_porco,jul,,,,,,
+fortaleza_ce,litoral,feijao_de_porco,ago,,,,,,
+fortaleza_ce,litoral,feijao_de_porco,set,,,,,,
+fortaleza_ce,litoral,feijao_de_porco,out,,,,,,
+fortaleza_ce,litoral,feijao_de_porco,nov,,,,,,
+fortaleza_ce,litoral,feijao_de_porco,dez,,,,,,
+fortaleza_ce,litoral,mucuna,jan,,,,,,
+fortaleza_ce,litoral,mucuna,fev,,,,,,
+fortaleza_ce,litoral,mucuna,mar,,,,,,
+fortaleza_ce,litoral,mucuna,abr,,,,,,
+fortaleza_ce,litoral,mucuna,mai,,,,,,
+fortaleza_ce,litoral,mucuna,jun,,,,,,
+fortaleza_ce,litoral,mucuna,jul,,,,,,
+fortaleza_ce,litoral,mucuna,ago,,,,,,
+fortaleza_ce,litoral,mucuna,set,,,,,,
+fortaleza_ce,litoral,mucuna,out,,,,,,
+fortaleza_ce,litoral,mucuna,nov,,,,,,
+fortaleza_ce,litoral,mucuna,dez,,,,,,
+aracati_ce,litoral/Jaguaribe,milho,jan,0.0,0.0,0.0,,,
+aracati_ce,litoral/Jaguaribe,milho,fev,0.0,1.0,2.0,,,
+aracati_ce,litoral/Jaguaribe,milho,mar,0.0,1.0,1.0,,,
+aracati_ce,litoral/Jaguaribe,milho,abr,0.0,0.0,0.0,,,
+aracati_ce,litoral/Jaguaribe,milho,mai,0.0,0.0,0.0,,,
+aracati_ce,litoral/Jaguaribe,milho,jun,0.0,0.0,0.0,,,
+aracati_ce,litoral/Jaguaribe,milho,jul,0.0,0.0,0.0,,,
+aracati_ce,litoral/Jaguaribe,milho,ago,0.0,0.0,0.0,,,
+aracati_ce,litoral/Jaguaribe,milho,set,0.0,0.0,0.0,,,
+aracati_ce,litoral/Jaguaribe,milho,out,0.0,0.0,0.0,,,
+aracati_ce,litoral/Jaguaribe,milho,nov,0.0,0.0,0.0,,,
+aracati_ce,litoral/Jaguaribe,milho,dez,0.0,0.0,0.0,,,
+aracati_ce,litoral/Jaguaribe,feijao_caupi,jan,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,feijao_caupi,fev,2.0,2.0,3.0,2.0,2.0,2.0
+aracati_ce,litoral/Jaguaribe,feijao_caupi,mar,3.0,3.0,3.0,3.0,3.0,3.0
+aracati_ce,litoral/Jaguaribe,feijao_caupi,abr,1.0,3.0,3.0,0.0,1.0,3.0
+aracati_ce,litoral/Jaguaribe,feijao_caupi,mai,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,feijao_caupi,jun,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,feijao_caupi,jul,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,feijao_caupi,ago,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,feijao_caupi,set,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,feijao_caupi,out,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,feijao_caupi,nov,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,feijao_caupi,dez,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,feijao_comum,jan,0.0,0.0,0.0,,,
+aracati_ce,litoral/Jaguaribe,feijao_comum,fev,0.0,0.0,2.0,,,
+aracati_ce,litoral/Jaguaribe,feijao_comum,mar,0.0,0.0,2.0,,,
+aracati_ce,litoral/Jaguaribe,feijao_comum,abr,0.0,0.0,0.0,,,
+aracati_ce,litoral/Jaguaribe,feijao_comum,mai,0.0,0.0,0.0,,,
+aracati_ce,litoral/Jaguaribe,feijao_comum,jun,0.0,0.0,0.0,,,
+aracati_ce,litoral/Jaguaribe,feijao_comum,jul,0.0,0.0,0.0,,,
+aracati_ce,litoral/Jaguaribe,feijao_comum,ago,0.0,0.0,0.0,,,
+aracati_ce,litoral/Jaguaribe,feijao_comum,set,0.0,0.0,0.0,,,
+aracati_ce,litoral/Jaguaribe,feijao_comum,out,0.0,0.0,0.0,,,
+aracati_ce,litoral/Jaguaribe,feijao_comum,nov,0.0,0.0,0.0,,,
+aracati_ce,litoral/Jaguaribe,feijao_comum,dez,0.0,0.0,0.0,,,
+aracati_ce,litoral/Jaguaribe,sorgo,jan,,,,,,
+aracati_ce,litoral/Jaguaribe,sorgo,fev,,,,,,
+aracati_ce,litoral/Jaguaribe,sorgo,mar,,,,,,
+aracati_ce,litoral/Jaguaribe,sorgo,abr,,,,,,
+aracati_ce,litoral/Jaguaribe,sorgo,mai,,,,,,
+aracati_ce,litoral/Jaguaribe,sorgo,jun,,,,,,
+aracati_ce,litoral/Jaguaribe,sorgo,jul,,,,,,
+aracati_ce,litoral/Jaguaribe,sorgo,ago,,,,,,
+aracati_ce,litoral/Jaguaribe,sorgo,set,,,,,,
+aracati_ce,litoral/Jaguaribe,sorgo,out,,,,,,
+aracati_ce,litoral/Jaguaribe,sorgo,nov,,,,,,
+aracati_ce,litoral/Jaguaribe,sorgo,dez,,,,,,
+aracati_ce,litoral/Jaguaribe,milheto,jan,0.0,0.0,1.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,milheto,fev,2.0,3.0,3.0,3.0,3.0,3.0
+aracati_ce,litoral/Jaguaribe,milheto,mar,3.0,3.0,3.0,3.0,3.0,3.0
+aracati_ce,litoral/Jaguaribe,milheto,abr,3.0,3.0,3.0,1.0,3.0,3.0
+aracati_ce,litoral/Jaguaribe,milheto,mai,1.0,2.0,2.0,0.0,0.0,2.0
+aracati_ce,litoral/Jaguaribe,milheto,jun,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,milheto,jul,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,milheto,ago,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,milheto,set,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,milheto,out,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,milheto,nov,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,milheto,dez,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,mandioca,jan,0.0,0.0,1.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,mandioca,fev,2.0,3.0,3.0,3.0,3.0,3.0
+aracati_ce,litoral/Jaguaribe,mandioca,mar,1.0,2.0,3.0,0.0,1.0,2.0
+aracati_ce,litoral/Jaguaribe,mandioca,abr,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,mandioca,mai,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,mandioca,jun,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,mandioca,jul,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,mandioca,ago,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,mandioca,set,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,mandioca,out,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,mandioca,nov,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,mandioca,dez,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,algodao,jan,0.0,0.0,1.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,algodao,fev,2.0,2.0,3.0,2.0,2.0,2.0
+aracati_ce,litoral/Jaguaribe,algodao,mar,1.0,3.0,3.0,0.0,2.0,3.0
+aracati_ce,litoral/Jaguaribe,algodao,abr,0.0,0.0,1.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,algodao,mai,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,algodao,jun,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,algodao,jul,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,algodao,ago,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,algodao,set,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,algodao,out,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,algodao,nov,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,algodao,dez,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,amendoim,jan,0.0,0.0,1.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,amendoim,fev,2.0,2.0,3.0,2.0,2.0,2.0
+aracati_ce,litoral/Jaguaribe,amendoim,mar,2.0,3.0,3.0,1.0,2.0,3.0
+aracati_ce,litoral/Jaguaribe,amendoim,abr,0.0,1.0,2.0,0.0,0.0,1.0
+aracati_ce,litoral/Jaguaribe,amendoim,mai,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,amendoim,jun,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,amendoim,jul,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,amendoim,ago,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,amendoim,set,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,amendoim,out,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,amendoim,nov,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,amendoim,dez,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,girassol,jan,0.0,0.0,0.0,,0.0,0.0
+aracati_ce,litoral/Jaguaribe,girassol,fev,0.0,0.0,0.0,,0.0,0.0
+aracati_ce,litoral/Jaguaribe,girassol,mar,1.0,1.0,1.0,,0.0,1.0
+aracati_ce,litoral/Jaguaribe,girassol,abr,0.0,1.0,2.0,,0.0,1.0
+aracati_ce,litoral/Jaguaribe,girassol,mai,0.0,0.0,0.0,,0.0,0.0
+aracati_ce,litoral/Jaguaribe,girassol,jun,0.0,0.0,0.0,,0.0,0.0
+aracati_ce,litoral/Jaguaribe,girassol,jul,0.0,0.0,0.0,,0.0,0.0
+aracati_ce,litoral/Jaguaribe,girassol,ago,0.0,0.0,0.0,,0.0,0.0
+aracati_ce,litoral/Jaguaribe,girassol,set,0.0,0.0,0.0,,0.0,0.0
+aracati_ce,litoral/Jaguaribe,girassol,out,0.0,0.0,0.0,,0.0,0.0
+aracati_ce,litoral/Jaguaribe,girassol,nov,0.0,0.0,0.0,,0.0,0.0
+aracati_ce,litoral/Jaguaribe,girassol,dez,0.0,0.0,0.0,,0.0,0.0
+aracati_ce,litoral/Jaguaribe,mamona,jan,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,mamona,fev,1.0,1.0,1.0,1.0,1.0,1.0
+aracati_ce,litoral/Jaguaribe,mamona,mar,3.0,3.0,3.0,3.0,3.0,3.0
+aracati_ce,litoral/Jaguaribe,mamona,abr,1.0,2.0,3.0,0.0,1.0,2.0
+aracati_ce,litoral/Jaguaribe,mamona,mai,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,mamona,jun,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,mamona,jul,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,mamona,ago,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,mamona,set,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,mamona,out,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,mamona,nov,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,mamona,dez,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,gergelim,jan,0.0,0.0,1.0,,,
+aracati_ce,litoral/Jaguaribe,gergelim,fev,2.0,3.0,3.0,,,
+aracati_ce,litoral/Jaguaribe,gergelim,mar,3.0,3.0,3.0,,,
+aracati_ce,litoral/Jaguaribe,gergelim,abr,2.0,3.0,3.0,,,
+aracati_ce,litoral/Jaguaribe,gergelim,mai,0.0,0.0,1.0,,,
+aracati_ce,litoral/Jaguaribe,gergelim,jun,0.0,0.0,0.0,,,
+aracati_ce,litoral/Jaguaribe,gergelim,jul,0.0,0.0,0.0,,,
+aracati_ce,litoral/Jaguaribe,gergelim,ago,0.0,0.0,0.0,,,
+aracati_ce,litoral/Jaguaribe,gergelim,set,0.0,0.0,0.0,,,
+aracati_ce,litoral/Jaguaribe,gergelim,out,0.0,0.0,0.0,,,
+aracati_ce,litoral/Jaguaribe,gergelim,nov,0.0,0.0,0.0,,,
+aracati_ce,litoral/Jaguaribe,gergelim,dez,0.0,0.0,0.0,,,
+aracati_ce,litoral/Jaguaribe,guandu,jan,,,,,,
+aracati_ce,litoral/Jaguaribe,guandu,fev,,,,,,
+aracati_ce,litoral/Jaguaribe,guandu,mar,,,,,,
+aracati_ce,litoral/Jaguaribe,guandu,abr,,,,,,
+aracati_ce,litoral/Jaguaribe,guandu,mai,,,,,,
+aracati_ce,litoral/Jaguaribe,guandu,jun,,,,,,
+aracati_ce,litoral/Jaguaribe,guandu,jul,,,,,,
+aracati_ce,litoral/Jaguaribe,guandu,ago,,,,,,
+aracati_ce,litoral/Jaguaribe,guandu,set,,,,,,
+aracati_ce,litoral/Jaguaribe,guandu,out,,,,,,
+aracati_ce,litoral/Jaguaribe,guandu,nov,,,,,,
+aracati_ce,litoral/Jaguaribe,guandu,dez,,,,,,
+aracati_ce,litoral/Jaguaribe,palma_forrageira,jan,3.0,3.0,3.0,3.0,3.0,3.0
+aracati_ce,litoral/Jaguaribe,palma_forrageira,fev,3.0,3.0,3.0,3.0,3.0,3.0
+aracati_ce,litoral/Jaguaribe,palma_forrageira,mar,1.0,2.0,2.0,0.0,1.0,2.0
+aracati_ce,litoral/Jaguaribe,palma_forrageira,abr,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,palma_forrageira,mai,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,palma_forrageira,jun,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,palma_forrageira,jul,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,palma_forrageira,ago,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,palma_forrageira,set,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,palma_forrageira,out,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,palma_forrageira,nov,0.0,0.0,0.0,0.0,0.0,0.0
+aracati_ce,litoral/Jaguaribe,palma_forrageira,dez,0.0,1.0,2.0,1.0,1.0,1.0
+aracati_ce,litoral/Jaguaribe,crotalaria_juncea,jan,,,,,,
+aracati_ce,litoral/Jaguaribe,crotalaria_juncea,fev,,,,,,
+aracati_ce,litoral/Jaguaribe,crotalaria_juncea,mar,,,,,,
+aracati_ce,litoral/Jaguaribe,crotalaria_juncea,abr,,,,,,
+aracati_ce,litoral/Jaguaribe,crotalaria_juncea,mai,,,,,,
+aracati_ce,litoral/Jaguaribe,crotalaria_juncea,jun,,,,,,
+aracati_ce,litoral/Jaguaribe,crotalaria_juncea,jul,,,,,,
+aracati_ce,litoral/Jaguaribe,crotalaria_juncea,ago,,,,,,
+aracati_ce,litoral/Jaguaribe,crotalaria_juncea,set,,,,,,
+aracati_ce,litoral/Jaguaribe,crotalaria_juncea,out,,,,,,
+aracati_ce,litoral/Jaguaribe,crotalaria_juncea,nov,,,,,,
+aracati_ce,litoral/Jaguaribe,crotalaria_juncea,dez,,,,,,
+aracati_ce,litoral/Jaguaribe,feijao_de_porco,jan,,,,,,
+aracati_ce,litoral/Jaguaribe,feijao_de_porco,fev,,,,,,
+aracati_ce,litoral/Jaguaribe,feijao_de_porco,mar,,,,,,
+aracati_ce,litoral/Jaguaribe,feijao_de_porco,abr,,,,,,
+aracati_ce,litoral/Jaguaribe,feijao_de_porco,mai,,,,,,
+aracati_ce,litoral/Jaguaribe,feijao_de_porco,jun,,,,,,
+aracati_ce,litoral/Jaguaribe,feijao_de_porco,jul,,,,,,
+aracati_ce,litoral/Jaguaribe,feijao_de_porco,ago,,,,,,
+aracati_ce,litoral/Jaguaribe,feijao_de_porco,set,,,,,,
+aracati_ce,litoral/Jaguaribe,feijao_de_porco,out,,,,,,
+aracati_ce,litoral/Jaguaribe,feijao_de_porco,nov,,,,,,
+aracati_ce,litoral/Jaguaribe,feijao_de_porco,dez,,,,,,
+aracati_ce,litoral/Jaguaribe,mucuna,jan,,,,,,
+aracati_ce,litoral/Jaguaribe,mucuna,fev,,,,,,
+aracati_ce,litoral/Jaguaribe,mucuna,mar,,,,,,
+aracati_ce,litoral/Jaguaribe,mucuna,abr,,,,,,
+aracati_ce,litoral/Jaguaribe,mucuna,mai,,,,,,
+aracati_ce,litoral/Jaguaribe,mucuna,jun,,,,,,
+aracati_ce,litoral/Jaguaribe,mucuna,jul,,,,,,
+aracati_ce,litoral/Jaguaribe,mucuna,ago,,,,,,
+aracati_ce,litoral/Jaguaribe,mucuna,set,,,,,,
+aracati_ce,litoral/Jaguaribe,mucuna,out,,,,,,
+aracati_ce,litoral/Jaguaribe,mucuna,nov,,,,,,
+aracati_ce,litoral/Jaguaribe,mucuna,dez,,,,,,
+itapipoca_ce,litoral,milho,jan,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,milho,fev,2.0,3.0,3.0,,,
+itapipoca_ce,litoral,milho,mar,2.0,3.0,3.0,,,
+itapipoca_ce,litoral,milho,abr,0.0,0.0,1.0,,,
+itapipoca_ce,litoral,milho,mai,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,milho,jun,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,milho,jul,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,milho,ago,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,milho,set,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,milho,out,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,milho,nov,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,milho,dez,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,feijao_caupi,jan,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,feijao_caupi,fev,1.0,2.0,3.0,2.0,2.0,2.0
+itapipoca_ce,litoral,feijao_caupi,mar,3.0,3.0,3.0,3.0,3.0,3.0
+itapipoca_ce,litoral,feijao_caupi,abr,3.0,3.0,3.0,1.0,3.0,3.0
+itapipoca_ce,litoral,feijao_caupi,mai,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,feijao_caupi,jun,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,feijao_caupi,jul,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,feijao_caupi,ago,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,feijao_caupi,set,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,feijao_caupi,out,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,feijao_caupi,nov,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,feijao_caupi,dez,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,feijao_comum,jan,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,feijao_comum,fev,0.0,2.0,3.0,,,
+itapipoca_ce,litoral,feijao_comum,mar,0.0,1.0,3.0,,,
+itapipoca_ce,litoral,feijao_comum,abr,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,feijao_comum,mai,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,feijao_comum,jun,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,feijao_comum,jul,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,feijao_comum,ago,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,feijao_comum,set,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,feijao_comum,out,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,feijao_comum,nov,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,feijao_comum,dez,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,sorgo,jan,,,,,,
+itapipoca_ce,litoral,sorgo,fev,,,,,,
+itapipoca_ce,litoral,sorgo,mar,,,,,,
+itapipoca_ce,litoral,sorgo,abr,,,,,,
+itapipoca_ce,litoral,sorgo,mai,,,,,,
+itapipoca_ce,litoral,sorgo,jun,,,,,,
+itapipoca_ce,litoral,sorgo,jul,,,,,,
+itapipoca_ce,litoral,sorgo,ago,,,,,,
+itapipoca_ce,litoral,sorgo,set,,,,,,
+itapipoca_ce,litoral,sorgo,out,,,,,,
+itapipoca_ce,litoral,sorgo,nov,,,,,,
+itapipoca_ce,litoral,sorgo,dez,,,,,,
+itapipoca_ce,litoral,milheto,jan,0.0,0.0,1.0,0.0,0.0,0.0
+itapipoca_ce,litoral,milheto,fev,2.0,3.0,3.0,3.0,3.0,3.0
+itapipoca_ce,litoral,milheto,mar,3.0,3.0,3.0,3.0,3.0,3.0
+itapipoca_ce,litoral,milheto,abr,3.0,3.0,3.0,2.0,3.0,3.0
+itapipoca_ce,litoral,milheto,mai,1.0,2.0,3.0,0.0,1.0,2.0
+itapipoca_ce,litoral,milheto,jun,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,milheto,jul,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,milheto,ago,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,milheto,set,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,milheto,out,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,milheto,nov,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,milheto,dez,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,mandioca,jan,0.0,0.0,1.0,0.0,0.0,0.0
+itapipoca_ce,litoral,mandioca,fev,3.0,3.0,3.0,3.0,3.0,3.0
+itapipoca_ce,litoral,mandioca,mar,2.0,3.0,3.0,1.0,2.0,3.0
+itapipoca_ce,litoral,mandioca,abr,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,mandioca,mai,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,mandioca,jun,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,mandioca,jul,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,mandioca,ago,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,mandioca,set,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,mandioca,out,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,mandioca,nov,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,mandioca,dez,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,algodao,jan,0.0,0.0,1.0,0.0,0.0,0.0
+itapipoca_ce,litoral,algodao,fev,2.0,3.0,3.0,2.0,3.0,3.0
+itapipoca_ce,litoral,algodao,mar,3.0,3.0,3.0,1.0,3.0,3.0
+itapipoca_ce,litoral,algodao,abr,0.0,1.0,1.0,0.0,0.0,1.0
+itapipoca_ce,litoral,algodao,mai,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,algodao,jun,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,algodao,jul,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,algodao,ago,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,algodao,set,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,algodao,out,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,algodao,nov,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,algodao,dez,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,amendoim,jan,0.0,0.0,1.0,0.0,0.0,0.0
+itapipoca_ce,litoral,amendoim,fev,2.0,3.0,3.0,3.0,3.0,3.0
+itapipoca_ce,litoral,amendoim,mar,3.0,3.0,3.0,2.0,3.0,3.0
+itapipoca_ce,litoral,amendoim,abr,1.0,2.0,3.0,0.0,0.0,2.0
+itapipoca_ce,litoral,amendoim,mai,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,amendoim,jun,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,amendoim,jul,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,amendoim,ago,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,amendoim,set,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,amendoim,out,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,amendoim,nov,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,amendoim,dez,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,girassol,jan,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,girassol,fev,0.0,0.0,3.0,,,
+itapipoca_ce,litoral,girassol,mar,0.0,0.0,3.0,,,
+itapipoca_ce,litoral,girassol,abr,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,girassol,mai,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,girassol,jun,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,girassol,jul,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,girassol,ago,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,girassol,set,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,girassol,out,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,girassol,nov,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,girassol,dez,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,mamona,jan,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,mamona,fev,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,mamona,mar,3.0,3.0,3.0,3.0,3.0,3.0
+itapipoca_ce,litoral,mamona,abr,2.0,3.0,3.0,1.0,2.0,3.0
+itapipoca_ce,litoral,mamona,mai,0.0,0.0,1.0,0.0,0.0,0.0
+itapipoca_ce,litoral,mamona,jun,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,mamona,jul,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,mamona,ago,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,mamona,set,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,mamona,out,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,mamona,nov,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,mamona,dez,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,gergelim,jan,0.0,0.0,1.0,,,
+itapipoca_ce,litoral,gergelim,fev,2.0,3.0,3.0,,,
+itapipoca_ce,litoral,gergelim,mar,3.0,3.0,3.0,,,
+itapipoca_ce,litoral,gergelim,abr,3.0,3.0,3.0,,,
+itapipoca_ce,litoral,gergelim,mai,0.0,1.0,2.0,,,
+itapipoca_ce,litoral,gergelim,jun,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,gergelim,jul,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,gergelim,ago,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,gergelim,set,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,gergelim,out,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,gergelim,nov,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,gergelim,dez,0.0,0.0,0.0,,,
+itapipoca_ce,litoral,guandu,jan,,,,,,
+itapipoca_ce,litoral,guandu,fev,,,,,,
+itapipoca_ce,litoral,guandu,mar,,,,,,
+itapipoca_ce,litoral,guandu,abr,,,,,,
+itapipoca_ce,litoral,guandu,mai,,,,,,
+itapipoca_ce,litoral,guandu,jun,,,,,,
+itapipoca_ce,litoral,guandu,jul,,,,,,
+itapipoca_ce,litoral,guandu,ago,,,,,,
+itapipoca_ce,litoral,guandu,set,,,,,,
+itapipoca_ce,litoral,guandu,out,,,,,,
+itapipoca_ce,litoral,guandu,nov,,,,,,
+itapipoca_ce,litoral,guandu,dez,,,,,,
+itapipoca_ce,litoral,palma_forrageira,jan,3.0,3.0,3.0,3.0,3.0,3.0
+itapipoca_ce,litoral,palma_forrageira,fev,3.0,3.0,3.0,3.0,3.0,3.0
+itapipoca_ce,litoral,palma_forrageira,mar,1.0,2.0,2.0,0.0,1.0,2.0
+itapipoca_ce,litoral,palma_forrageira,abr,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,palma_forrageira,mai,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,palma_forrageira,jun,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,palma_forrageira,jul,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,palma_forrageira,ago,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,palma_forrageira,set,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,palma_forrageira,out,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,palma_forrageira,nov,0.0,0.0,0.0,0.0,0.0,0.0
+itapipoca_ce,litoral,palma_forrageira,dez,1.0,1.0,2.0,1.0,1.0,1.0
+itapipoca_ce,litoral,crotalaria_juncea,jan,,,,,,
+itapipoca_ce,litoral,crotalaria_juncea,fev,,,,,,
+itapipoca_ce,litoral,crotalaria_juncea,mar,,,,,,
+itapipoca_ce,litoral,crotalaria_juncea,abr,,,,,,
+itapipoca_ce,litoral,crotalaria_juncea,mai,,,,,,
+itapipoca_ce,litoral,crotalaria_juncea,jun,,,,,,
+itapipoca_ce,litoral,crotalaria_juncea,jul,,,,,,
+itapipoca_ce,litoral,crotalaria_juncea,ago,,,,,,
+itapipoca_ce,litoral,crotalaria_juncea,set,,,,,,
+itapipoca_ce,litoral,crotalaria_juncea,out,,,,,,
+itapipoca_ce,litoral,crotalaria_juncea,nov,,,,,,
+itapipoca_ce,litoral,crotalaria_juncea,dez,,,,,,
+itapipoca_ce,litoral,feijao_de_porco,jan,,,,,,
+itapipoca_ce,litoral,feijao_de_porco,fev,,,,,,
+itapipoca_ce,litoral,feijao_de_porco,mar,,,,,,
+itapipoca_ce,litoral,feijao_de_porco,abr,,,,,,
+itapipoca_ce,litoral,feijao_de_porco,mai,,,,,,
+itapipoca_ce,litoral,feijao_de_porco,jun,,,,,,
+itapipoca_ce,litoral,feijao_de_porco,jul,,,,,,
+itapipoca_ce,litoral,feijao_de_porco,ago,,,,,,
+itapipoca_ce,litoral,feijao_de_porco,set,,,,,,
+itapipoca_ce,litoral,feijao_de_porco,out,,,,,,
+itapipoca_ce,litoral,feijao_de_porco,nov,,,,,,
+itapipoca_ce,litoral,feijao_de_porco,dez,,,,,,
+itapipoca_ce,litoral,mucuna,jan,,,,,,
+itapipoca_ce,litoral,mucuna,fev,,,,,,
+itapipoca_ce,litoral,mucuna,mar,,,,,,
+itapipoca_ce,litoral,mucuna,abr,,,,,,
+itapipoca_ce,litoral,mucuna,mai,,,,,,
+itapipoca_ce,litoral,mucuna,jun,,,,,,
+itapipoca_ce,litoral,mucuna,jul,,,,,,
+itapipoca_ce,litoral,mucuna,ago,,,,,,
+itapipoca_ce,litoral,mucuna,set,,,,,,
+itapipoca_ce,litoral,mucuna,out,,,,,,
+itapipoca_ce,litoral,mucuna,nov,,,,,,
+itapipoca_ce,litoral,mucuna,dez,,,,,,
+camocim_ce,litoral,milho,jan,0.0,0.0,1.0,,,
+camocim_ce,litoral,milho,fev,3.0,3.0,3.0,,,
+camocim_ce,litoral,milho,mar,2.0,3.0,3.0,,,
+camocim_ce,litoral,milho,abr,0.0,0.0,0.0,,,
+camocim_ce,litoral,milho,mai,0.0,0.0,0.0,,,
+camocim_ce,litoral,milho,jun,0.0,0.0,0.0,,,
+camocim_ce,litoral,milho,jul,0.0,0.0,0.0,,,
+camocim_ce,litoral,milho,ago,0.0,0.0,0.0,,,
+camocim_ce,litoral,milho,set,0.0,0.0,0.0,,,
+camocim_ce,litoral,milho,out,0.0,0.0,0.0,,,
+camocim_ce,litoral,milho,nov,0.0,0.0,0.0,,,
+camocim_ce,litoral,milho,dez,0.0,0.0,0.0,,,
+camocim_ce,litoral,feijao_caupi,jan,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,feijao_caupi,fev,0.0,2.0,3.0,2.0,2.0,2.0
+camocim_ce,litoral,feijao_caupi,mar,3.0,3.0,3.0,3.0,3.0,3.0
+camocim_ce,litoral,feijao_caupi,abr,2.0,3.0,3.0,1.0,2.0,3.0
+camocim_ce,litoral,feijao_caupi,mai,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,feijao_caupi,jun,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,feijao_caupi,jul,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,feijao_caupi,ago,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,feijao_caupi,set,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,feijao_caupi,out,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,feijao_caupi,nov,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,feijao_caupi,dez,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,feijao_comum,jan,0.0,0.0,1.0,,,
+camocim_ce,litoral,feijao_comum,fev,2.0,3.0,3.0,,,
+camocim_ce,litoral,feijao_comum,mar,2.0,2.0,3.0,,,
+camocim_ce,litoral,feijao_comum,abr,0.0,0.0,1.0,,,
+camocim_ce,litoral,feijao_comum,mai,0.0,0.0,0.0,,,
+camocim_ce,litoral,feijao_comum,jun,0.0,0.0,0.0,,,
+camocim_ce,litoral,feijao_comum,jul,0.0,0.0,0.0,,,
+camocim_ce,litoral,feijao_comum,ago,0.0,0.0,0.0,,,
+camocim_ce,litoral,feijao_comum,set,0.0,0.0,0.0,,,
+camocim_ce,litoral,feijao_comum,out,0.0,0.0,0.0,,,
+camocim_ce,litoral,feijao_comum,nov,0.0,0.0,0.0,,,
+camocim_ce,litoral,feijao_comum,dez,0.0,0.0,0.0,,,
+camocim_ce,litoral,sorgo,jan,,,,,,
+camocim_ce,litoral,sorgo,fev,,,,,,
+camocim_ce,litoral,sorgo,mar,,,,,,
+camocim_ce,litoral,sorgo,abr,,,,,,
+camocim_ce,litoral,sorgo,mai,,,,,,
+camocim_ce,litoral,sorgo,jun,,,,,,
+camocim_ce,litoral,sorgo,jul,,,,,,
+camocim_ce,litoral,sorgo,ago,,,,,,
+camocim_ce,litoral,sorgo,set,,,,,,
+camocim_ce,litoral,sorgo,out,,,,,,
+camocim_ce,litoral,sorgo,nov,,,,,,
+camocim_ce,litoral,sorgo,dez,,,,,,
+camocim_ce,litoral,milheto,jan,0.0,1.0,1.0,0.0,1.0,1.0
+camocim_ce,litoral,milheto,fev,3.0,3.0,3.0,3.0,3.0,3.0
+camocim_ce,litoral,milheto,mar,3.0,3.0,3.0,3.0,3.0,3.0
+camocim_ce,litoral,milheto,abr,3.0,3.0,3.0,1.0,3.0,3.0
+camocim_ce,litoral,milheto,mai,0.0,1.0,1.0,0.0,0.0,1.0
+camocim_ce,litoral,milheto,jun,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,milheto,jul,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,milheto,ago,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,milheto,set,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,milheto,out,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,milheto,nov,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,milheto,dez,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,mandioca,jan,0.0,1.0,2.0,1.0,1.0,1.0
+camocim_ce,litoral,mandioca,fev,3.0,3.0,3.0,3.0,3.0,3.0
+camocim_ce,litoral,mandioca,mar,1.0,2.0,2.0,0.0,1.0,2.0
+camocim_ce,litoral,mandioca,abr,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,mandioca,mai,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,mandioca,jun,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,mandioca,jul,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,mandioca,ago,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,mandioca,set,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,mandioca,out,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,mandioca,nov,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,mandioca,dez,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,algodao,jan,0.0,1.0,1.0,0.0,1.0,1.0
+camocim_ce,litoral,algodao,fev,2.0,3.0,3.0,3.0,3.0,3.0
+camocim_ce,litoral,algodao,mar,2.0,3.0,3.0,1.0,2.0,3.0
+camocim_ce,litoral,algodao,abr,0.0,0.0,1.0,0.0,0.0,0.0
+camocim_ce,litoral,algodao,mai,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,algodao,jun,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,algodao,jul,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,algodao,ago,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,algodao,set,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,algodao,out,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,algodao,nov,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,algodao,dez,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,amendoim,jan,0.0,1.0,1.0,1.0,1.0,1.0
+camocim_ce,litoral,amendoim,fev,3.0,3.0,3.0,3.0,3.0,3.0
+camocim_ce,litoral,amendoim,mar,3.0,3.0,3.0,2.0,3.0,3.0
+camocim_ce,litoral,amendoim,abr,0.0,1.0,1.0,0.0,0.0,1.0
+camocim_ce,litoral,amendoim,mai,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,amendoim,jun,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,amendoim,jul,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,amendoim,ago,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,amendoim,set,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,amendoim,out,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,amendoim,nov,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,amendoim,dez,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,girassol,jan,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,girassol,fev,2.0,2.0,2.0,2.0,2.0,2.0
+camocim_ce,litoral,girassol,mar,3.0,3.0,3.0,1.0,2.0,3.0
+camocim_ce,litoral,girassol,abr,0.0,1.0,2.0,0.0,0.0,1.0
+camocim_ce,litoral,girassol,mai,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,girassol,jun,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,girassol,jul,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,girassol,ago,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,girassol,set,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,girassol,out,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,girassol,nov,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,girassol,dez,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,mamona,jan,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,mamona,fev,1.0,1.0,1.0,1.0,1.0,1.0
+camocim_ce,litoral,mamona,mar,3.0,3.0,3.0,3.0,3.0,3.0
+camocim_ce,litoral,mamona,abr,1.0,2.0,3.0,0.0,1.0,2.0
+camocim_ce,litoral,mamona,mai,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,mamona,jun,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,mamona,jul,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,mamona,ago,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,mamona,set,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,mamona,out,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,mamona,nov,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,mamona,dez,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,gergelim,jan,0.0,1.0,2.0,,,
+camocim_ce,litoral,gergelim,fev,3.0,3.0,3.0,,,
+camocim_ce,litoral,gergelim,mar,3.0,3.0,3.0,,,
+camocim_ce,litoral,gergelim,abr,2.0,3.0,3.0,,,
+camocim_ce,litoral,gergelim,mai,0.0,0.0,1.0,,,
+camocim_ce,litoral,gergelim,jun,0.0,0.0,0.0,,,
+camocim_ce,litoral,gergelim,jul,0.0,0.0,0.0,,,
+camocim_ce,litoral,gergelim,ago,0.0,0.0,0.0,,,
+camocim_ce,litoral,gergelim,set,0.0,0.0,0.0,,,
+camocim_ce,litoral,gergelim,out,0.0,0.0,0.0,,,
+camocim_ce,litoral,gergelim,nov,0.0,0.0,0.0,,,
+camocim_ce,litoral,gergelim,dez,0.0,0.0,0.0,,,
+camocim_ce,litoral,guandu,jan,,,,,,
+camocim_ce,litoral,guandu,fev,,,,,,
+camocim_ce,litoral,guandu,mar,,,,,,
+camocim_ce,litoral,guandu,abr,,,,,,
+camocim_ce,litoral,guandu,mai,,,,,,
+camocim_ce,litoral,guandu,jun,,,,,,
+camocim_ce,litoral,guandu,jul,,,,,,
+camocim_ce,litoral,guandu,ago,,,,,,
+camocim_ce,litoral,guandu,set,,,,,,
+camocim_ce,litoral,guandu,out,,,,,,
+camocim_ce,litoral,guandu,nov,,,,,,
+camocim_ce,litoral,guandu,dez,,,,,,
+camocim_ce,litoral,palma_forrageira,jan,3.0,3.0,3.0,3.0,3.0,3.0
+camocim_ce,litoral,palma_forrageira,fev,3.0,3.0,3.0,3.0,3.0,3.0
+camocim_ce,litoral,palma_forrageira,mar,1.0,1.0,2.0,0.0,1.0,1.0
+camocim_ce,litoral,palma_forrageira,abr,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,palma_forrageira,mai,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,palma_forrageira,jun,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,palma_forrageira,jul,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,palma_forrageira,ago,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,palma_forrageira,set,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,palma_forrageira,out,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,palma_forrageira,nov,0.0,0.0,0.0,0.0,0.0,0.0
+camocim_ce,litoral,palma_forrageira,dez,1.0,2.0,3.0,2.0,2.0,2.0
+camocim_ce,litoral,crotalaria_juncea,jan,,,,,,
+camocim_ce,litoral,crotalaria_juncea,fev,,,,,,
+camocim_ce,litoral,crotalaria_juncea,mar,,,,,,
+camocim_ce,litoral,crotalaria_juncea,abr,,,,,,
+camocim_ce,litoral,crotalaria_juncea,mai,,,,,,
+camocim_ce,litoral,crotalaria_juncea,jun,,,,,,
+camocim_ce,litoral,crotalaria_juncea,jul,,,,,,
+camocim_ce,litoral,crotalaria_juncea,ago,,,,,,
+camocim_ce,litoral,crotalaria_juncea,set,,,,,,
+camocim_ce,litoral,crotalaria_juncea,out,,,,,,
+camocim_ce,litoral,crotalaria_juncea,nov,,,,,,
+camocim_ce,litoral,crotalaria_juncea,dez,,,,,,
+camocim_ce,litoral,feijao_de_porco,jan,,,,,,
+camocim_ce,litoral,feijao_de_porco,fev,,,,,,
+camocim_ce,litoral,feijao_de_porco,mar,,,,,,
+camocim_ce,litoral,feijao_de_porco,abr,,,,,,
+camocim_ce,litoral,feijao_de_porco,mai,,,,,,
+camocim_ce,litoral,feijao_de_porco,jun,,,,,,
+camocim_ce,litoral,feijao_de_porco,jul,,,,,,
+camocim_ce,litoral,feijao_de_porco,ago,,,,,,
+camocim_ce,litoral,feijao_de_porco,set,,,,,,
+camocim_ce,litoral,feijao_de_porco,out,,,,,,
+camocim_ce,litoral,feijao_de_porco,nov,,,,,,
+camocim_ce,litoral,feijao_de_porco,dez,,,,,,
+camocim_ce,litoral,mucuna,jan,,,,,,
+camocim_ce,litoral,mucuna,fev,,,,,,
+camocim_ce,litoral,mucuna,mar,,,,,,
+camocim_ce,litoral,mucuna,abr,,,,,,
+camocim_ce,litoral,mucuna,mai,,,,,,
+camocim_ce,litoral,mucuna,jun,,,,,,
+camocim_ce,litoral,mucuna,jul,,,,,,
+camocim_ce,litoral,mucuna,ago,,,,,,
+camocim_ce,litoral,mucuna,set,,,,,,
+camocim_ce,litoral,mucuna,out,,,,,,
+camocim_ce,litoral,mucuna,nov,,,,,,
+camocim_ce,litoral,mucuna,dez,,,,,,
+quixada_ce,sertão central,milho,jan,0.0,0.0,0.0,,,
+quixada_ce,sertão central,milho,fev,0.0,2.0,2.0,,,
+quixada_ce,sertão central,milho,mar,0.0,1.0,3.0,,,
+quixada_ce,sertão central,milho,abr,0.0,0.0,0.0,,,
+quixada_ce,sertão central,milho,mai,0.0,0.0,0.0,,,
+quixada_ce,sertão central,milho,jun,0.0,0.0,0.0,,,
+quixada_ce,sertão central,milho,jul,0.0,0.0,0.0,,,
+quixada_ce,sertão central,milho,ago,0.0,0.0,0.0,,,
+quixada_ce,sertão central,milho,set,0.0,0.0,0.0,,,
+quixada_ce,sertão central,milho,out,0.0,0.0,0.0,,,
+quixada_ce,sertão central,milho,nov,0.0,0.0,0.0,,,
+quixada_ce,sertão central,milho,dez,0.0,0.0,0.0,,,
+quixada_ce,sertão central,feijao_caupi,jan,0.0,0.0,1.0,0.0,0.0,0.0
+quixada_ce,sertão central,feijao_caupi,fev,1.0,2.0,3.0,2.0,2.0,2.0
+quixada_ce,sertão central,feijao_caupi,mar,3.0,3.0,3.0,3.0,3.0,3.0
+quixada_ce,sertão central,feijao_caupi,abr,2.0,2.0,2.0,0.0,1.0,2.0
+quixada_ce,sertão central,feijao_caupi,mai,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,feijao_caupi,jun,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,feijao_caupi,jul,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,feijao_caupi,ago,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,feijao_caupi,set,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,feijao_caupi,out,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,feijao_caupi,nov,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,feijao_caupi,dez,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,feijao_comum,jan,0.0,0.0,0.0,,,
+quixada_ce,sertão central,feijao_comum,fev,0.0,2.0,3.0,,,
+quixada_ce,sertão central,feijao_comum,mar,0.0,2.0,3.0,,,
+quixada_ce,sertão central,feijao_comum,abr,0.0,0.0,2.0,,,
+quixada_ce,sertão central,feijao_comum,mai,0.0,0.0,0.0,,,
+quixada_ce,sertão central,feijao_comum,jun,0.0,0.0,0.0,,,
+quixada_ce,sertão central,feijao_comum,jul,0.0,0.0,0.0,,,
+quixada_ce,sertão central,feijao_comum,ago,0.0,0.0,0.0,,,
+quixada_ce,sertão central,feijao_comum,set,0.0,0.0,0.0,,,
+quixada_ce,sertão central,feijao_comum,out,0.0,0.0,0.0,,,
+quixada_ce,sertão central,feijao_comum,nov,0.0,0.0,0.0,,,
+quixada_ce,sertão central,feijao_comum,dez,0.0,0.0,0.0,,,
+quixada_ce,sertão central,sorgo,jan,,,,,,
+quixada_ce,sertão central,sorgo,fev,,,,,,
+quixada_ce,sertão central,sorgo,mar,,,,,,
+quixada_ce,sertão central,sorgo,abr,,,,,,
+quixada_ce,sertão central,sorgo,mai,,,,,,
+quixada_ce,sertão central,sorgo,jun,,,,,,
+quixada_ce,sertão central,sorgo,jul,,,,,,
+quixada_ce,sertão central,sorgo,ago,,,,,,
+quixada_ce,sertão central,sorgo,set,,,,,,
+quixada_ce,sertão central,sorgo,out,,,,,,
+quixada_ce,sertão central,sorgo,nov,,,,,,
+quixada_ce,sertão central,sorgo,dez,,,,,,
+quixada_ce,sertão central,milheto,jan,0.0,0.0,1.0,0.0,0.0,0.0
+quixada_ce,sertão central,milheto,fev,2.0,3.0,3.0,3.0,3.0,3.0
+quixada_ce,sertão central,milheto,mar,3.0,3.0,3.0,3.0,3.0,3.0
+quixada_ce,sertão central,milheto,abr,3.0,3.0,3.0,2.0,3.0,3.0
+quixada_ce,sertão central,milheto,mai,1.0,2.0,2.0,0.0,1.0,2.0
+quixada_ce,sertão central,milheto,jun,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,milheto,jul,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,milheto,ago,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,milheto,set,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,milheto,out,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,milheto,nov,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,milheto,dez,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,mandioca,jan,0.0,0.0,1.0,0.0,0.0,0.0
+quixada_ce,sertão central,mandioca,fev,3.0,3.0,3.0,3.0,3.0,3.0
+quixada_ce,sertão central,mandioca,mar,1.0,2.0,3.0,1.0,1.0,2.0
+quixada_ce,sertão central,mandioca,abr,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,mandioca,mai,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,mandioca,jun,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,mandioca,jul,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,mandioca,ago,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,mandioca,set,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,mandioca,out,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,mandioca,nov,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,mandioca,dez,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,algodao,jan,0.0,0.0,1.0,0.0,0.0,0.0
+quixada_ce,sertão central,algodao,fev,2.0,3.0,3.0,2.0,3.0,3.0
+quixada_ce,sertão central,algodao,mar,2.0,3.0,3.0,1.0,2.0,3.0
+quixada_ce,sertão central,algodao,abr,0.0,0.0,2.0,0.0,0.0,0.0
+quixada_ce,sertão central,algodao,mai,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,algodao,jun,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,algodao,jul,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,algodao,ago,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,algodao,set,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,algodao,out,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,algodao,nov,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,algodao,dez,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,amendoim,jan,0.0,0.0,1.0,0.0,0.0,0.0
+quixada_ce,sertão central,amendoim,fev,2.0,3.0,3.0,3.0,3.0,3.0
+quixada_ce,sertão central,amendoim,mar,2.0,3.0,3.0,2.0,3.0,3.0
+quixada_ce,sertão central,amendoim,abr,0.0,1.0,2.0,0.0,0.0,1.0
+quixada_ce,sertão central,amendoim,mai,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,amendoim,jun,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,amendoim,jul,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,amendoim,ago,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,amendoim,set,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,amendoim,out,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,amendoim,nov,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,amendoim,dez,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,girassol,jan,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,girassol,fev,1.0,2.0,2.0,2.0,2.0,2.0
+quixada_ce,sertão central,girassol,mar,3.0,3.0,3.0,1.0,2.0,3.0
+quixada_ce,sertão central,girassol,abr,1.0,2.0,3.0,0.0,0.0,2.0
+quixada_ce,sertão central,girassol,mai,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,girassol,jun,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,girassol,jul,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,girassol,ago,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,girassol,set,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,girassol,out,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,girassol,nov,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,girassol,dez,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,mamona,jan,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,mamona,fev,1.0,1.0,1.0,1.0,1.0,1.0
+quixada_ce,sertão central,mamona,mar,3.0,3.0,3.0,3.0,3.0,3.0
+quixada_ce,sertão central,mamona,abr,2.0,3.0,3.0,1.0,2.0,3.0
+quixada_ce,sertão central,mamona,mai,0.0,0.0,1.0,0.0,0.0,0.0
+quixada_ce,sertão central,mamona,jun,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,mamona,jul,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,mamona,ago,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,mamona,set,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,mamona,out,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,mamona,nov,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,mamona,dez,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,gergelim,jan,0.0,0.0,1.0,,,
+quixada_ce,sertão central,gergelim,fev,2.0,3.0,3.0,,,
+quixada_ce,sertão central,gergelim,mar,3.0,3.0,3.0,,,
+quixada_ce,sertão central,gergelim,abr,3.0,3.0,3.0,,,
+quixada_ce,sertão central,gergelim,mai,0.0,1.0,2.0,,,
+quixada_ce,sertão central,gergelim,jun,0.0,0.0,0.0,,,
+quixada_ce,sertão central,gergelim,jul,0.0,0.0,0.0,,,
+quixada_ce,sertão central,gergelim,ago,0.0,0.0,0.0,,,
+quixada_ce,sertão central,gergelim,set,0.0,0.0,0.0,,,
+quixada_ce,sertão central,gergelim,out,0.0,0.0,0.0,,,
+quixada_ce,sertão central,gergelim,nov,0.0,0.0,0.0,,,
+quixada_ce,sertão central,gergelim,dez,0.0,0.0,0.0,,,
+quixada_ce,sertão central,guandu,jan,,,,,,
+quixada_ce,sertão central,guandu,fev,,,,,,
+quixada_ce,sertão central,guandu,mar,,,,,,
+quixada_ce,sertão central,guandu,abr,,,,,,
+quixada_ce,sertão central,guandu,mai,,,,,,
+quixada_ce,sertão central,guandu,jun,,,,,,
+quixada_ce,sertão central,guandu,jul,,,,,,
+quixada_ce,sertão central,guandu,ago,,,,,,
+quixada_ce,sertão central,guandu,set,,,,,,
+quixada_ce,sertão central,guandu,out,,,,,,
+quixada_ce,sertão central,guandu,nov,,,,,,
+quixada_ce,sertão central,guandu,dez,,,,,,
+quixada_ce,sertão central,palma_forrageira,jan,3.0,3.0,3.0,3.0,3.0,3.0
+quixada_ce,sertão central,palma_forrageira,fev,3.0,3.0,3.0,3.0,3.0,3.0
+quixada_ce,sertão central,palma_forrageira,mar,2.0,2.0,3.0,0.0,1.0,2.0
+quixada_ce,sertão central,palma_forrageira,abr,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,palma_forrageira,mai,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,palma_forrageira,jun,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,palma_forrageira,jul,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,palma_forrageira,ago,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,palma_forrageira,set,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,palma_forrageira,out,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,palma_forrageira,nov,0.0,0.0,0.0,0.0,0.0,0.0
+quixada_ce,sertão central,palma_forrageira,dez,1.0,2.0,3.0,1.0,2.0,2.0
+quixada_ce,sertão central,crotalaria_juncea,jan,,,,,,
+quixada_ce,sertão central,crotalaria_juncea,fev,,,,,,
+quixada_ce,sertão central,crotalaria_juncea,mar,,,,,,
+quixada_ce,sertão central,crotalaria_juncea,abr,,,,,,
+quixada_ce,sertão central,crotalaria_juncea,mai,,,,,,
+quixada_ce,sertão central,crotalaria_juncea,jun,,,,,,
+quixada_ce,sertão central,crotalaria_juncea,jul,,,,,,
+quixada_ce,sertão central,crotalaria_juncea,ago,,,,,,
+quixada_ce,sertão central,crotalaria_juncea,set,,,,,,
+quixada_ce,sertão central,crotalaria_juncea,out,,,,,,
+quixada_ce,sertão central,crotalaria_juncea,nov,,,,,,
+quixada_ce,sertão central,crotalaria_juncea,dez,,,,,,
+quixada_ce,sertão central,feijao_de_porco,jan,,,,,,
+quixada_ce,sertão central,feijao_de_porco,fev,,,,,,
+quixada_ce,sertão central,feijao_de_porco,mar,,,,,,
+quixada_ce,sertão central,feijao_de_porco,abr,,,,,,
+quixada_ce,sertão central,feijao_de_porco,mai,,,,,,
+quixada_ce,sertão central,feijao_de_porco,jun,,,,,,
+quixada_ce,sertão central,feijao_de_porco,jul,,,,,,
+quixada_ce,sertão central,feijao_de_porco,ago,,,,,,
+quixada_ce,sertão central,feijao_de_porco,set,,,,,,
+quixada_ce,sertão central,feijao_de_porco,out,,,,,,
+quixada_ce,sertão central,feijao_de_porco,nov,,,,,,
+quixada_ce,sertão central,feijao_de_porco,dez,,,,,,
+quixada_ce,sertão central,mucuna,jan,,,,,,
+quixada_ce,sertão central,mucuna,fev,,,,,,
+quixada_ce,sertão central,mucuna,mar,,,,,,
+quixada_ce,sertão central,mucuna,abr,,,,,,
+quixada_ce,sertão central,mucuna,mai,,,,,,
+quixada_ce,sertão central,mucuna,jun,,,,,,
+quixada_ce,sertão central,mucuna,jul,,,,,,
+quixada_ce,sertão central,mucuna,ago,,,,,,
+quixada_ce,sertão central,mucuna,set,,,,,,
+quixada_ce,sertão central,mucuna,out,,,,,,
+quixada_ce,sertão central,mucuna,nov,,,,,,
+quixada_ce,sertão central,mucuna,dez,,,,,,
+taua_ce,Inhamuns,milho,jan,0.0,0.0,1.0,,,
+taua_ce,Inhamuns,milho,fev,0.0,2.0,3.0,,,
+taua_ce,Inhamuns,milho,mar,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,milho,abr,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,milho,mai,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,milho,jun,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,milho,jul,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,milho,ago,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,milho,set,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,milho,out,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,milho,nov,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,milho,dez,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,feijao_caupi,jan,0.0,1.0,1.0,0.0,1.0,1.0
+taua_ce,Inhamuns,feijao_caupi,fev,2.0,3.0,3.0,2.0,3.0,3.0
+taua_ce,Inhamuns,feijao_caupi,mar,2.0,3.0,3.0,0.0,2.0,3.0
+taua_ce,Inhamuns,feijao_caupi,abr,0.0,0.0,2.0,0.0,0.0,0.0
+taua_ce,Inhamuns,feijao_caupi,mai,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,feijao_caupi,jun,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,feijao_caupi,jul,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,feijao_caupi,ago,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,feijao_caupi,set,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,feijao_caupi,out,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,feijao_caupi,nov,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,feijao_caupi,dez,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,feijao_comum,jan,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,feijao_comum,fev,0.0,3.0,3.0,,,
+taua_ce,Inhamuns,feijao_comum,mar,0.0,1.0,2.0,,,
+taua_ce,Inhamuns,feijao_comum,abr,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,feijao_comum,mai,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,feijao_comum,jun,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,feijao_comum,jul,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,feijao_comum,ago,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,feijao_comum,set,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,feijao_comum,out,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,feijao_comum,nov,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,feijao_comum,dez,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,sorgo,jan,,,,,,
+taua_ce,Inhamuns,sorgo,fev,,,,,,
+taua_ce,Inhamuns,sorgo,mar,,,,,,
+taua_ce,Inhamuns,sorgo,abr,,,,,,
+taua_ce,Inhamuns,sorgo,mai,,,,,,
+taua_ce,Inhamuns,sorgo,jun,,,,,,
+taua_ce,Inhamuns,sorgo,jul,,,,,,
+taua_ce,Inhamuns,sorgo,ago,,,,,,
+taua_ce,Inhamuns,sorgo,set,,,,,,
+taua_ce,Inhamuns,sorgo,out,,,,,,
+taua_ce,Inhamuns,sorgo,nov,,,,,,
+taua_ce,Inhamuns,sorgo,dez,,,,,,
+taua_ce,Inhamuns,milheto,jan,0.0,1.0,2.0,0.0,1.0,1.0
+taua_ce,Inhamuns,milheto,fev,3.0,3.0,3.0,3.0,3.0,3.0
+taua_ce,Inhamuns,milheto,mar,3.0,3.0,3.0,2.0,3.0,3.0
+taua_ce,Inhamuns,milheto,abr,2.0,3.0,3.0,0.0,1.0,3.0
+taua_ce,Inhamuns,milheto,mai,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,milheto,jun,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,milheto,jul,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,milheto,ago,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,milheto,set,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,milheto,out,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,milheto,nov,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,milheto,dez,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,mandioca,jan,1.0,1.0,2.0,1.0,1.0,1.0
+taua_ce,Inhamuns,mandioca,fev,2.0,3.0,3.0,1.0,2.0,3.0
+taua_ce,Inhamuns,mandioca,mar,0.0,1.0,1.0,0.0,0.0,1.0
+taua_ce,Inhamuns,mandioca,abr,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,mandioca,mai,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,mandioca,jun,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,mandioca,jul,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,mandioca,ago,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,mandioca,set,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,mandioca,out,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,mandioca,nov,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,mandioca,dez,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,algodao,jan,0.0,1.0,1.0,0.0,1.0,1.0
+taua_ce,Inhamuns,algodao,fev,2.0,3.0,3.0,0.0,2.0,3.0
+taua_ce,Inhamuns,algodao,mar,0.0,0.0,2.0,0.0,0.0,0.0
+taua_ce,Inhamuns,algodao,abr,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,algodao,mai,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,algodao,jun,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,algodao,jul,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,algodao,ago,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,algodao,set,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,algodao,out,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,algodao,nov,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,algodao,dez,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,amendoim,jan,0.0,1.0,2.0,1.0,1.0,1.0
+taua_ce,Inhamuns,amendoim,fev,2.0,3.0,3.0,1.0,3.0,3.0
+taua_ce,Inhamuns,amendoim,mar,0.0,1.0,3.0,0.0,0.0,1.0
+taua_ce,Inhamuns,amendoim,abr,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,amendoim,mai,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,amendoim,jun,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,amendoim,jul,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,amendoim,ago,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,amendoim,set,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,amendoim,out,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,amendoim,nov,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,amendoim,dez,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,girassol,jan,0.0,0.0,1.0,,,
+taua_ce,Inhamuns,girassol,fev,1.0,3.0,3.0,,,
+taua_ce,Inhamuns,girassol,mar,0.0,0.0,1.0,,,
+taua_ce,Inhamuns,girassol,abr,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,girassol,mai,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,girassol,jun,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,girassol,jul,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,girassol,ago,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,girassol,set,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,girassol,out,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,girassol,nov,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,girassol,dez,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,mamona,jan,0.0,1.0,1.0,0.0,0.0,1.0
+taua_ce,Inhamuns,mamona,fev,2.0,3.0,3.0,2.0,3.0,3.0
+taua_ce,Inhamuns,mamona,mar,3.0,3.0,3.0,3.0,3.0,3.0
+taua_ce,Inhamuns,mamona,abr,1.0,2.0,3.0,0.0,1.0,2.0
+taua_ce,Inhamuns,mamona,mai,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,mamona,jun,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,mamona,jul,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,mamona,ago,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,mamona,set,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,mamona,out,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,mamona,nov,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,mamona,dez,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,gergelim,jan,0.0,1.0,2.0,,,
+taua_ce,Inhamuns,gergelim,fev,3.0,3.0,3.0,,,
+taua_ce,Inhamuns,gergelim,mar,2.0,3.0,3.0,,,
+taua_ce,Inhamuns,gergelim,abr,0.0,1.0,2.0,,,
+taua_ce,Inhamuns,gergelim,mai,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,gergelim,jun,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,gergelim,jul,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,gergelim,ago,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,gergelim,set,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,gergelim,out,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,gergelim,nov,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,gergelim,dez,0.0,0.0,0.0,,,
+taua_ce,Inhamuns,guandu,jan,,,,,,
+taua_ce,Inhamuns,guandu,fev,,,,,,
+taua_ce,Inhamuns,guandu,mar,,,,,,
+taua_ce,Inhamuns,guandu,abr,,,,,,
+taua_ce,Inhamuns,guandu,mai,,,,,,
+taua_ce,Inhamuns,guandu,jun,,,,,,
+taua_ce,Inhamuns,guandu,jul,,,,,,
+taua_ce,Inhamuns,guandu,ago,,,,,,
+taua_ce,Inhamuns,guandu,set,,,,,,
+taua_ce,Inhamuns,guandu,out,,,,,,
+taua_ce,Inhamuns,guandu,nov,,,,,,
+taua_ce,Inhamuns,guandu,dez,,,,,,
+taua_ce,Inhamuns,palma_forrageira,jan,3.0,3.0,3.0,3.0,3.0,3.0
+taua_ce,Inhamuns,palma_forrageira,fev,3.0,3.0,3.0,1.0,2.0,3.0
+taua_ce,Inhamuns,palma_forrageira,mar,0.0,1.0,1.0,0.0,0.0,1.0
+taua_ce,Inhamuns,palma_forrageira,abr,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,palma_forrageira,mai,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,palma_forrageira,jun,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,palma_forrageira,jul,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,palma_forrageira,ago,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,palma_forrageira,set,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,palma_forrageira,out,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,palma_forrageira,nov,0.0,0.0,0.0,0.0,0.0,0.0
+taua_ce,Inhamuns,palma_forrageira,dez,2.0,3.0,3.0,2.0,3.0,3.0
+taua_ce,Inhamuns,crotalaria_juncea,jan,,,,,,
+taua_ce,Inhamuns,crotalaria_juncea,fev,,,,,,
+taua_ce,Inhamuns,crotalaria_juncea,mar,,,,,,
+taua_ce,Inhamuns,crotalaria_juncea,abr,,,,,,
+taua_ce,Inhamuns,crotalaria_juncea,mai,,,,,,
+taua_ce,Inhamuns,crotalaria_juncea,jun,,,,,,
+taua_ce,Inhamuns,crotalaria_juncea,jul,,,,,,
+taua_ce,Inhamuns,crotalaria_juncea,ago,,,,,,
+taua_ce,Inhamuns,crotalaria_juncea,set,,,,,,
+taua_ce,Inhamuns,crotalaria_juncea,out,,,,,,
+taua_ce,Inhamuns,crotalaria_juncea,nov,,,,,,
+taua_ce,Inhamuns,crotalaria_juncea,dez,,,,,,
+taua_ce,Inhamuns,feijao_de_porco,jan,,,,,,
+taua_ce,Inhamuns,feijao_de_porco,fev,,,,,,
+taua_ce,Inhamuns,feijao_de_porco,mar,,,,,,
+taua_ce,Inhamuns,feijao_de_porco,abr,,,,,,
+taua_ce,Inhamuns,feijao_de_porco,mai,,,,,,
+taua_ce,Inhamuns,feijao_de_porco,jun,,,,,,
+taua_ce,Inhamuns,feijao_de_porco,jul,,,,,,
+taua_ce,Inhamuns,feijao_de_porco,ago,,,,,,
+taua_ce,Inhamuns,feijao_de_porco,set,,,,,,
+taua_ce,Inhamuns,feijao_de_porco,out,,,,,,
+taua_ce,Inhamuns,feijao_de_porco,nov,,,,,,
+taua_ce,Inhamuns,feijao_de_porco,dez,,,,,,
+taua_ce,Inhamuns,mucuna,jan,,,,,,
+taua_ce,Inhamuns,mucuna,fev,,,,,,
+taua_ce,Inhamuns,mucuna,mar,,,,,,
+taua_ce,Inhamuns,mucuna,abr,,,,,,
+taua_ce,Inhamuns,mucuna,mai,,,,,,
+taua_ce,Inhamuns,mucuna,jun,,,,,,
+taua_ce,Inhamuns,mucuna,jul,,,,,,
+taua_ce,Inhamuns,mucuna,ago,,,,,,
+taua_ce,Inhamuns,mucuna,set,,,,,,
+taua_ce,Inhamuns,mucuna,out,,,,,,
+taua_ce,Inhamuns,mucuna,nov,,,,,,
+taua_ce,Inhamuns,mucuna,dez,,,,,,
+quixeramobim_ce,sertão central,milho,jan,0.0,0.0,0.0,,,
+quixeramobim_ce,sertão central,milho,fev,0.0,2.0,2.0,,,
+quixeramobim_ce,sertão central,milho,mar,0.0,2.0,3.0,,,
+quixeramobim_ce,sertão central,milho,abr,0.0,0.0,0.0,,,
+quixeramobim_ce,sertão central,milho,mai,0.0,0.0,0.0,,,
+quixeramobim_ce,sertão central,milho,jun,0.0,0.0,0.0,,,
+quixeramobim_ce,sertão central,milho,jul,0.0,0.0,0.0,,,
+quixeramobim_ce,sertão central,milho,ago,0.0,0.0,0.0,,,
+quixeramobim_ce,sertão central,milho,set,0.0,0.0,0.0,,,
+quixeramobim_ce,sertão central,milho,out,0.0,0.0,0.0,,,
+quixeramobim_ce,sertão central,milho,nov,0.0,0.0,0.0,,,
+quixeramobim_ce,sertão central,milho,dez,0.0,0.0,0.0,,,
+quixeramobim_ce,sertão central,feijao_caupi,jan,0.0,0.0,1.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,feijao_caupi,fev,1.0,2.0,3.0,2.0,2.0,2.0
+quixeramobim_ce,sertão central,feijao_caupi,mar,3.0,3.0,3.0,3.0,3.0,3.0
+quixeramobim_ce,sertão central,feijao_caupi,abr,1.0,1.0,1.0,0.0,1.0,1.0
+quixeramobim_ce,sertão central,feijao_caupi,mai,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,feijao_caupi,jun,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,feijao_caupi,jul,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,feijao_caupi,ago,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,feijao_caupi,set,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,feijao_caupi,out,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,feijao_caupi,nov,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,feijao_caupi,dez,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,feijao_comum,jan,0.0,0.0,0.0,,,
+quixeramobim_ce,sertão central,feijao_comum,fev,0.0,3.0,3.0,,,
+quixeramobim_ce,sertão central,feijao_comum,mar,0.0,2.0,3.0,,,
+quixeramobim_ce,sertão central,feijao_comum,abr,0.0,0.0,1.0,,,
+quixeramobim_ce,sertão central,feijao_comum,mai,0.0,0.0,0.0,,,
+quixeramobim_ce,sertão central,feijao_comum,jun,0.0,0.0,0.0,,,
+quixeramobim_ce,sertão central,feijao_comum,jul,0.0,0.0,0.0,,,
+quixeramobim_ce,sertão central,feijao_comum,ago,0.0,0.0,0.0,,,
+quixeramobim_ce,sertão central,feijao_comum,set,0.0,0.0,0.0,,,
+quixeramobim_ce,sertão central,feijao_comum,out,0.0,0.0,0.0,,,
+quixeramobim_ce,sertão central,feijao_comum,nov,0.0,0.0,0.0,,,
+quixeramobim_ce,sertão central,feijao_comum,dez,0.0,0.0,0.0,,,
+quixeramobim_ce,sertão central,sorgo,jan,,,,,,
+quixeramobim_ce,sertão central,sorgo,fev,,,,,,
+quixeramobim_ce,sertão central,sorgo,mar,,,,,,
+quixeramobim_ce,sertão central,sorgo,abr,,,,,,
+quixeramobim_ce,sertão central,sorgo,mai,,,,,,
+quixeramobim_ce,sertão central,sorgo,jun,,,,,,
+quixeramobim_ce,sertão central,sorgo,jul,,,,,,
+quixeramobim_ce,sertão central,sorgo,ago,,,,,,
+quixeramobim_ce,sertão central,sorgo,set,,,,,,
+quixeramobim_ce,sertão central,sorgo,out,,,,,,
+quixeramobim_ce,sertão central,sorgo,nov,,,,,,
+quixeramobim_ce,sertão central,sorgo,dez,,,,,,
+quixeramobim_ce,sertão central,milheto,jan,0.0,0.0,1.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,milheto,fev,2.0,3.0,3.0,3.0,3.0,3.0
+quixeramobim_ce,sertão central,milheto,mar,3.0,3.0,3.0,3.0,3.0,3.0
+quixeramobim_ce,sertão central,milheto,abr,3.0,3.0,3.0,1.0,3.0,3.0
+quixeramobim_ce,sertão central,milheto,mai,1.0,1.0,2.0,0.0,0.0,1.0
+quixeramobim_ce,sertão central,milheto,jun,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,milheto,jul,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,milheto,ago,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,milheto,set,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,milheto,out,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,milheto,nov,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,milheto,dez,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,mandioca,jan,0.0,1.0,1.0,0.0,1.0,1.0
+quixeramobim_ce,sertão central,mandioca,fev,3.0,3.0,3.0,3.0,3.0,3.0
+quixeramobim_ce,sertão central,mandioca,mar,1.0,2.0,3.0,0.0,1.0,2.0
+quixeramobim_ce,sertão central,mandioca,abr,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,mandioca,mai,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,mandioca,jun,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,mandioca,jul,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,mandioca,ago,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,mandioca,set,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,mandioca,out,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,mandioca,nov,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,mandioca,dez,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,algodao,jan,0.0,0.0,1.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,algodao,fev,2.0,3.0,3.0,2.0,3.0,3.0
+quixeramobim_ce,sertão central,algodao,mar,1.0,3.0,3.0,0.0,2.0,3.0
+quixeramobim_ce,sertão central,algodao,abr,0.0,0.0,1.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,algodao,mai,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,algodao,jun,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,algodao,jul,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,algodao,ago,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,algodao,set,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,algodao,out,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,algodao,nov,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,algodao,dez,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,amendoim,jan,0.0,0.0,1.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,amendoim,fev,2.0,3.0,3.0,3.0,3.0,3.0
+quixeramobim_ce,sertão central,amendoim,mar,2.0,3.0,3.0,1.0,3.0,3.0
+quixeramobim_ce,sertão central,amendoim,abr,0.0,1.0,2.0,0.0,0.0,1.0
+quixeramobim_ce,sertão central,amendoim,mai,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,amendoim,jun,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,amendoim,jul,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,amendoim,ago,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,amendoim,set,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,amendoim,out,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,amendoim,nov,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,amendoim,dez,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,girassol,jan,0.0,0.0,0.0,,0.0,0.0
+quixeramobim_ce,sertão central,girassol,fev,0.0,0.0,0.0,,0.0,0.0
+quixeramobim_ce,sertão central,girassol,mar,1.0,1.0,1.0,,0.0,1.0
+quixeramobim_ce,sertão central,girassol,abr,0.0,1.0,2.0,,0.0,1.0
+quixeramobim_ce,sertão central,girassol,mai,0.0,0.0,0.0,,0.0,0.0
+quixeramobim_ce,sertão central,girassol,jun,0.0,0.0,0.0,,0.0,0.0
+quixeramobim_ce,sertão central,girassol,jul,0.0,0.0,0.0,,0.0,0.0
+quixeramobim_ce,sertão central,girassol,ago,0.0,0.0,0.0,,0.0,0.0
+quixeramobim_ce,sertão central,girassol,set,0.0,0.0,0.0,,0.0,0.0
+quixeramobim_ce,sertão central,girassol,out,0.0,0.0,0.0,,0.0,0.0
+quixeramobim_ce,sertão central,girassol,nov,0.0,0.0,0.0,,0.0,0.0
+quixeramobim_ce,sertão central,girassol,dez,0.0,0.0,0.0,,0.0,0.0
+quixeramobim_ce,sertão central,mamona,jan,0.0,0.0,1.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,mamona,fev,2.0,3.0,3.0,2.0,2.0,3.0
+quixeramobim_ce,sertão central,mamona,mar,3.0,3.0,3.0,3.0,3.0,3.0
+quixeramobim_ce,sertão central,mamona,abr,3.0,3.0,3.0,2.0,3.0,3.0
+quixeramobim_ce,sertão central,mamona,mai,0.0,1.0,2.0,0.0,0.0,1.0
+quixeramobim_ce,sertão central,mamona,jun,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,mamona,jul,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,mamona,ago,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,mamona,set,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,mamona,out,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,mamona,nov,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,mamona,dez,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,gergelim,jan,0.0,1.0,1.0,,,
+quixeramobim_ce,sertão central,gergelim,fev,2.0,3.0,3.0,,,
+quixeramobim_ce,sertão central,gergelim,mar,3.0,3.0,3.0,,,
+quixeramobim_ce,sertão central,gergelim,abr,2.0,3.0,3.0,,,
+quixeramobim_ce,sertão central,gergelim,mai,0.0,0.0,1.0,,,
+quixeramobim_ce,sertão central,gergelim,jun,0.0,0.0,0.0,,,
+quixeramobim_ce,sertão central,gergelim,jul,0.0,0.0,0.0,,,
+quixeramobim_ce,sertão central,gergelim,ago,0.0,0.0,0.0,,,
+quixeramobim_ce,sertão central,gergelim,set,0.0,0.0,0.0,,,
+quixeramobim_ce,sertão central,gergelim,out,0.0,0.0,0.0,,,
+quixeramobim_ce,sertão central,gergelim,nov,0.0,0.0,0.0,,,
+quixeramobim_ce,sertão central,gergelim,dez,0.0,0.0,0.0,,,
+quixeramobim_ce,sertão central,guandu,jan,,,,,,
+quixeramobim_ce,sertão central,guandu,fev,,,,,,
+quixeramobim_ce,sertão central,guandu,mar,,,,,,
+quixeramobim_ce,sertão central,guandu,abr,,,,,,
+quixeramobim_ce,sertão central,guandu,mai,,,,,,
+quixeramobim_ce,sertão central,guandu,jun,,,,,,
+quixeramobim_ce,sertão central,guandu,jul,,,,,,
+quixeramobim_ce,sertão central,guandu,ago,,,,,,
+quixeramobim_ce,sertão central,guandu,set,,,,,,
+quixeramobim_ce,sertão central,guandu,out,,,,,,
+quixeramobim_ce,sertão central,guandu,nov,,,,,,
+quixeramobim_ce,sertão central,guandu,dez,,,,,,
+quixeramobim_ce,sertão central,palma_forrageira,jan,3.0,3.0,3.0,3.0,3.0,3.0
+quixeramobim_ce,sertão central,palma_forrageira,fev,3.0,3.0,3.0,3.0,3.0,3.0
+quixeramobim_ce,sertão central,palma_forrageira,mar,1.0,2.0,2.0,0.0,1.0,2.0
+quixeramobim_ce,sertão central,palma_forrageira,abr,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,palma_forrageira,mai,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,palma_forrageira,jun,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,palma_forrageira,jul,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,palma_forrageira,ago,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,palma_forrageira,set,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,palma_forrageira,out,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,palma_forrageira,nov,0.0,0.0,0.0,0.0,0.0,0.0
+quixeramobim_ce,sertão central,palma_forrageira,dez,1.0,2.0,3.0,1.0,2.0,2.0
+quixeramobim_ce,sertão central,crotalaria_juncea,jan,,,,,,
+quixeramobim_ce,sertão central,crotalaria_juncea,fev,,,,,,
+quixeramobim_ce,sertão central,crotalaria_juncea,mar,,,,,,
+quixeramobim_ce,sertão central,crotalaria_juncea,abr,,,,,,
+quixeramobim_ce,sertão central,crotalaria_juncea,mai,,,,,,
+quixeramobim_ce,sertão central,crotalaria_juncea,jun,,,,,,
+quixeramobim_ce,sertão central,crotalaria_juncea,jul,,,,,,
+quixeramobim_ce,sertão central,crotalaria_juncea,ago,,,,,,
+quixeramobim_ce,sertão central,crotalaria_juncea,set,,,,,,
+quixeramobim_ce,sertão central,crotalaria_juncea,out,,,,,,
+quixeramobim_ce,sertão central,crotalaria_juncea,nov,,,,,,
+quixeramobim_ce,sertão central,crotalaria_juncea,dez,,,,,,
+quixeramobim_ce,sertão central,feijao_de_porco,jan,,,,,,
+quixeramobim_ce,sertão central,feijao_de_porco,fev,,,,,,
+quixeramobim_ce,sertão central,feijao_de_porco,mar,,,,,,
+quixeramobim_ce,sertão central,feijao_de_porco,abr,,,,,,
+quixeramobim_ce,sertão central,feijao_de_porco,mai,,,,,,
+quixeramobim_ce,sertão central,feijao_de_porco,jun,,,,,,
+quixeramobim_ce,sertão central,feijao_de_porco,jul,,,,,,
+quixeramobim_ce,sertão central,feijao_de_porco,ago,,,,,,
+quixeramobim_ce,sertão central,feijao_de_porco,set,,,,,,
+quixeramobim_ce,sertão central,feijao_de_porco,out,,,,,,
+quixeramobim_ce,sertão central,feijao_de_porco,nov,,,,,,
+quixeramobim_ce,sertão central,feijao_de_porco,dez,,,,,,
+quixeramobim_ce,sertão central,mucuna,jan,,,,,,
+quixeramobim_ce,sertão central,mucuna,fev,,,,,,
+quixeramobim_ce,sertão central,mucuna,mar,,,,,,
+quixeramobim_ce,sertão central,mucuna,abr,,,,,,
+quixeramobim_ce,sertão central,mucuna,mai,,,,,,
+quixeramobim_ce,sertão central,mucuna,jun,,,,,,
+quixeramobim_ce,sertão central,mucuna,jul,,,,,,
+quixeramobim_ce,sertão central,mucuna,ago,,,,,,
+quixeramobim_ce,sertão central,mucuna,set,,,,,,
+quixeramobim_ce,sertão central,mucuna,out,,,,,,
+quixeramobim_ce,sertão central,mucuna,nov,,,,,,
+quixeramobim_ce,sertão central,mucuna,dez,,,,,,
+crateus_ce,sertão/Crateús,milho,jan,0.0,0.0,1.0,,,
+crateus_ce,sertão/Crateús,milho,fev,2.0,3.0,3.0,,,
+crateus_ce,sertão/Crateús,milho,mar,0.0,1.0,1.0,,,
+crateus_ce,sertão/Crateús,milho,abr,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,milho,mai,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,milho,jun,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,milho,jul,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,milho,ago,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,milho,set,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,milho,out,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,milho,nov,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,milho,dez,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,feijao_caupi,jan,0.0,1.0,1.0,0.0,1.0,1.0
+crateus_ce,sertão/Crateús,feijao_caupi,fev,2.0,3.0,3.0,2.0,3.0,3.0
+crateus_ce,sertão/Crateús,feijao_caupi,mar,3.0,3.0,3.0,2.0,3.0,3.0
+crateus_ce,sertão/Crateús,feijao_caupi,abr,0.0,1.0,1.0,0.0,0.0,1.0
+crateus_ce,sertão/Crateús,feijao_caupi,mai,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,feijao_caupi,jun,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,feijao_caupi,jul,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,feijao_caupi,ago,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,feijao_caupi,set,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,feijao_caupi,out,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,feijao_caupi,nov,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,feijao_caupi,dez,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,feijao_comum,jan,0.0,0.0,1.0,,,
+crateus_ce,sertão/Crateús,feijao_comum,fev,2.0,3.0,3.0,,,
+crateus_ce,sertão/Crateús,feijao_comum,mar,1.0,2.0,2.0,,,
+crateus_ce,sertão/Crateús,feijao_comum,abr,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,feijao_comum,mai,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,feijao_comum,jun,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,feijao_comum,jul,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,feijao_comum,ago,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,feijao_comum,set,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,feijao_comum,out,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,feijao_comum,nov,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,feijao_comum,dez,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,sorgo,jan,,,,,,
+crateus_ce,sertão/Crateús,sorgo,fev,,,,,,
+crateus_ce,sertão/Crateús,sorgo,mar,,,,,,
+crateus_ce,sertão/Crateús,sorgo,abr,,,,,,
+crateus_ce,sertão/Crateús,sorgo,mai,,,,,,
+crateus_ce,sertão/Crateús,sorgo,jun,,,,,,
+crateus_ce,sertão/Crateús,sorgo,jul,,,,,,
+crateus_ce,sertão/Crateús,sorgo,ago,,,,,,
+crateus_ce,sertão/Crateús,sorgo,set,,,,,,
+crateus_ce,sertão/Crateús,sorgo,out,,,,,,
+crateus_ce,sertão/Crateús,sorgo,nov,,,,,,
+crateus_ce,sertão/Crateús,sorgo,dez,,,,,,
+crateus_ce,sertão/Crateús,milheto,jan,0.0,1.0,2.0,0.0,1.0,1.0
+crateus_ce,sertão/Crateús,milheto,fev,3.0,3.0,3.0,3.0,3.0,3.0
+crateus_ce,sertão/Crateús,milheto,mar,3.0,3.0,3.0,2.0,3.0,3.0
+crateus_ce,sertão/Crateús,milheto,abr,2.0,3.0,3.0,0.0,1.0,3.0
+crateus_ce,sertão/Crateús,milheto,mai,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,milheto,jun,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,milheto,jul,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,milheto,ago,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,milheto,set,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,milheto,out,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,milheto,nov,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,milheto,dez,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,mandioca,jan,0.0,1.0,2.0,1.0,1.0,1.0
+crateus_ce,sertão/Crateús,mandioca,fev,2.0,3.0,3.0,1.0,2.0,3.0
+crateus_ce,sertão/Crateús,mandioca,mar,0.0,1.0,1.0,0.0,0.0,1.0
+crateus_ce,sertão/Crateús,mandioca,abr,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,mandioca,mai,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,mandioca,jun,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,mandioca,jul,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,mandioca,ago,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,mandioca,set,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,mandioca,out,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,mandioca,nov,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,mandioca,dez,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,algodao,jan,0.0,1.0,1.0,0.0,1.0,1.0
+crateus_ce,sertão/Crateús,algodao,fev,2.0,3.0,3.0,1.0,3.0,3.0
+crateus_ce,sertão/Crateús,algodao,mar,0.0,1.0,2.0,0.0,0.0,1.0
+crateus_ce,sertão/Crateús,algodao,abr,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,algodao,mai,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,algodao,jun,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,algodao,jul,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,algodao,ago,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,algodao,set,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,algodao,out,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,algodao,nov,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,algodao,dez,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,amendoim,jan,0.0,1.0,1.0,1.0,1.0,1.0
+crateus_ce,sertão/Crateús,amendoim,fev,2.0,3.0,3.0,3.0,3.0,3.0
+crateus_ce,sertão/Crateús,amendoim,mar,0.0,2.0,2.0,0.0,1.0,2.0
+crateus_ce,sertão/Crateús,amendoim,abr,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,amendoim,mai,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,amendoim,jun,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,amendoim,jul,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,amendoim,ago,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,amendoim,set,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,amendoim,out,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,amendoim,nov,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,amendoim,dez,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,girassol,jan,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,girassol,fev,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,girassol,mar,0.0,0.0,2.0,,,
+crateus_ce,sertão/Crateús,girassol,abr,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,girassol,mai,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,girassol,jun,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,girassol,jul,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,girassol,ago,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,girassol,set,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,girassol,out,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,girassol,nov,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,girassol,dez,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,mamona,jan,0.0,0.0,1.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,mamona,fev,2.0,3.0,3.0,2.0,3.0,3.0
+crateus_ce,sertão/Crateús,mamona,mar,3.0,3.0,3.0,3.0,3.0,3.0
+crateus_ce,sertão/Crateús,mamona,abr,1.0,2.0,3.0,0.0,1.0,2.0
+crateus_ce,sertão/Crateús,mamona,mai,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,mamona,jun,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,mamona,jul,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,mamona,ago,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,mamona,set,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,mamona,out,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,mamona,nov,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,mamona,dez,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,gergelim,jan,0.0,1.0,2.0,,,
+crateus_ce,sertão/Crateús,gergelim,fev,3.0,3.0,3.0,,,
+crateus_ce,sertão/Crateús,gergelim,mar,3.0,3.0,3.0,,,
+crateus_ce,sertão/Crateús,gergelim,abr,0.0,1.0,2.0,,,
+crateus_ce,sertão/Crateús,gergelim,mai,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,gergelim,jun,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,gergelim,jul,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,gergelim,ago,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,gergelim,set,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,gergelim,out,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,gergelim,nov,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,gergelim,dez,0.0,0.0,0.0,,,
+crateus_ce,sertão/Crateús,guandu,jan,,,,,,
+crateus_ce,sertão/Crateús,guandu,fev,,,,,,
+crateus_ce,sertão/Crateús,guandu,mar,,,,,,
+crateus_ce,sertão/Crateús,guandu,abr,,,,,,
+crateus_ce,sertão/Crateús,guandu,mai,,,,,,
+crateus_ce,sertão/Crateús,guandu,jun,,,,,,
+crateus_ce,sertão/Crateús,guandu,jul,,,,,,
+crateus_ce,sertão/Crateús,guandu,ago,,,,,,
+crateus_ce,sertão/Crateús,guandu,set,,,,,,
+crateus_ce,sertão/Crateús,guandu,out,,,,,,
+crateus_ce,sertão/Crateús,guandu,nov,,,,,,
+crateus_ce,sertão/Crateús,guandu,dez,,,,,,
+crateus_ce,sertão/Crateús,palma_forrageira,jan,3.0,3.0,3.0,3.0,3.0,3.0
+crateus_ce,sertão/Crateús,palma_forrageira,fev,2.0,3.0,3.0,1.0,2.0,3.0
+crateus_ce,sertão/Crateús,palma_forrageira,mar,0.0,0.0,1.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,palma_forrageira,abr,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,palma_forrageira,mai,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,palma_forrageira,jun,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,palma_forrageira,jul,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,palma_forrageira,ago,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,palma_forrageira,set,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,palma_forrageira,out,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,palma_forrageira,nov,0.0,0.0,0.0,0.0,0.0,0.0
+crateus_ce,sertão/Crateús,palma_forrageira,dez,1.0,3.0,3.0,2.0,3.0,3.0
+crateus_ce,sertão/Crateús,crotalaria_juncea,jan,,,,,,
+crateus_ce,sertão/Crateús,crotalaria_juncea,fev,,,,,,
+crateus_ce,sertão/Crateús,crotalaria_juncea,mar,,,,,,
+crateus_ce,sertão/Crateús,crotalaria_juncea,abr,,,,,,
+crateus_ce,sertão/Crateús,crotalaria_juncea,mai,,,,,,
+crateus_ce,sertão/Crateús,crotalaria_juncea,jun,,,,,,
+crateus_ce,sertão/Crateús,crotalaria_juncea,jul,,,,,,
+crateus_ce,sertão/Crateús,crotalaria_juncea,ago,,,,,,
+crateus_ce,sertão/Crateús,crotalaria_juncea,set,,,,,,
+crateus_ce,sertão/Crateús,crotalaria_juncea,out,,,,,,
+crateus_ce,sertão/Crateús,crotalaria_juncea,nov,,,,,,
+crateus_ce,sertão/Crateús,crotalaria_juncea,dez,,,,,,
+crateus_ce,sertão/Crateús,feijao_de_porco,jan,,,,,,
+crateus_ce,sertão/Crateús,feijao_de_porco,fev,,,,,,
+crateus_ce,sertão/Crateús,feijao_de_porco,mar,,,,,,
+crateus_ce,sertão/Crateús,feijao_de_porco,abr,,,,,,
+crateus_ce,sertão/Crateús,feijao_de_porco,mai,,,,,,
+crateus_ce,sertão/Crateús,feijao_de_porco,jun,,,,,,
+crateus_ce,sertão/Crateús,feijao_de_porco,jul,,,,,,
+crateus_ce,sertão/Crateús,feijao_de_porco,ago,,,,,,
+crateus_ce,sertão/Crateús,feijao_de_porco,set,,,,,,
+crateus_ce,sertão/Crateús,feijao_de_porco,out,,,,,,
+crateus_ce,sertão/Crateús,feijao_de_porco,nov,,,,,,
+crateus_ce,sertão/Crateús,feijao_de_porco,dez,,,,,,
+crateus_ce,sertão/Crateús,mucuna,jan,,,,,,
+crateus_ce,sertão/Crateús,mucuna,fev,,,,,,
+crateus_ce,sertão/Crateús,mucuna,mar,,,,,,
+crateus_ce,sertão/Crateús,mucuna,abr,,,,,,
+crateus_ce,sertão/Crateús,mucuna,mai,,,,,,
+crateus_ce,sertão/Crateús,mucuna,jun,,,,,,
+crateus_ce,sertão/Crateús,mucuna,jul,,,,,,
+crateus_ce,sertão/Crateús,mucuna,ago,,,,,,
+crateus_ce,sertão/Crateús,mucuna,set,,,,,,
+crateus_ce,sertão/Crateús,mucuna,out,,,,,,
+crateus_ce,sertão/Crateús,mucuna,nov,,,,,,
+crateus_ce,sertão/Crateús,mucuna,dez,,,,,,
+crato_ce,Cariri,milho,jan,2.0,2.0,3.0,,,
+crato_ce,Cariri,milho,fev,2.0,3.0,3.0,,,
+crato_ce,Cariri,milho,mar,0.0,0.0,2.0,,,
+crato_ce,Cariri,milho,abr,0.0,0.0,0.0,,,
+crato_ce,Cariri,milho,mai,0.0,0.0,0.0,,,
+crato_ce,Cariri,milho,jun,0.0,0.0,0.0,,,
+crato_ce,Cariri,milho,jul,0.0,0.0,0.0,,,
+crato_ce,Cariri,milho,ago,0.0,0.0,0.0,,,
+crato_ce,Cariri,milho,set,0.0,0.0,0.0,,,
+crato_ce,Cariri,milho,out,0.0,0.0,0.0,,,
+crato_ce,Cariri,milho,nov,0.0,0.0,0.0,,,
+crato_ce,Cariri,milho,dez,0.0,0.0,0.0,,,
+crato_ce,Cariri,feijao_caupi,jan,0.0,0.0,1.0,0.0,0.0,0.0
+crato_ce,Cariri,feijao_caupi,fev,2.0,3.0,3.0,3.0,3.0,3.0
+crato_ce,Cariri,feijao_caupi,mar,2.0,3.0,3.0,2.0,3.0,3.0
+crato_ce,Cariri,feijao_caupi,abr,0.0,0.0,1.0,0.0,0.0,0.0
+crato_ce,Cariri,feijao_caupi,mai,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,feijao_caupi,jun,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,feijao_caupi,jul,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,feijao_caupi,ago,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,feijao_caupi,set,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,feijao_caupi,out,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,feijao_caupi,nov,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,feijao_caupi,dez,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,feijao_comum,jan,1.0,2.0,3.0,,,
+crato_ce,Cariri,feijao_comum,fev,3.0,3.0,3.0,,,
+crato_ce,Cariri,feijao_comum,mar,1.0,2.0,2.0,,,
+crato_ce,Cariri,feijao_comum,abr,0.0,0.0,0.0,,,
+crato_ce,Cariri,feijao_comum,mai,0.0,0.0,0.0,,,
+crato_ce,Cariri,feijao_comum,jun,0.0,0.0,0.0,,,
+crato_ce,Cariri,feijao_comum,jul,0.0,0.0,0.0,,,
+crato_ce,Cariri,feijao_comum,ago,0.0,0.0,0.0,,,
+crato_ce,Cariri,feijao_comum,set,0.0,0.0,0.0,,,
+crato_ce,Cariri,feijao_comum,out,0.0,0.0,0.0,,,
+crato_ce,Cariri,feijao_comum,nov,0.0,0.0,0.0,,,
+crato_ce,Cariri,feijao_comum,dez,0.0,0.0,0.0,,,
+crato_ce,Cariri,sorgo,jan,,,,,,
+crato_ce,Cariri,sorgo,fev,,,,,,
+crato_ce,Cariri,sorgo,mar,,,,,,
+crato_ce,Cariri,sorgo,abr,,,,,,
+crato_ce,Cariri,sorgo,mai,,,,,,
+crato_ce,Cariri,sorgo,jun,,,,,,
+crato_ce,Cariri,sorgo,jul,,,,,,
+crato_ce,Cariri,sorgo,ago,,,,,,
+crato_ce,Cariri,sorgo,set,,,,,,
+crato_ce,Cariri,sorgo,out,,,,,,
+crato_ce,Cariri,sorgo,nov,,,,,,
+crato_ce,Cariri,sorgo,dez,,,,,,
+crato_ce,Cariri,milheto,jan,2.0,3.0,3.0,2.0,3.0,3.0
+crato_ce,Cariri,milheto,fev,3.0,3.0,3.0,3.0,3.0,3.0
+crato_ce,Cariri,milheto,mar,3.0,3.0,3.0,2.0,3.0,3.0
+crato_ce,Cariri,milheto,abr,2.0,2.0,3.0,0.0,1.0,2.0
+crato_ce,Cariri,milheto,mai,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,milheto,jun,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,milheto,jul,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,milheto,ago,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,milheto,set,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,milheto,out,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,milheto,nov,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,milheto,dez,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,mandioca,jan,3.0,3.0,3.0,3.0,3.0,3.0
+crato_ce,Cariri,mandioca,fev,2.0,3.0,3.0,1.0,2.0,3.0
+crato_ce,Cariri,mandioca,mar,0.0,0.0,1.0,0.0,0.0,0.0
+crato_ce,Cariri,mandioca,abr,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,mandioca,mai,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,mandioca,jun,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,mandioca,jul,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,mandioca,ago,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,mandioca,set,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,mandioca,out,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,mandioca,nov,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,mandioca,dez,0.0,0.0,1.0,0.0,0.0,0.0
+crato_ce,Cariri,algodao,jan,1.0,2.0,3.0,2.0,2.0,2.0
+crato_ce,Cariri,algodao,fev,2.0,3.0,3.0,2.0,3.0,3.0
+crato_ce,Cariri,algodao,mar,0.0,0.0,1.0,0.0,0.0,0.0
+crato_ce,Cariri,algodao,abr,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,algodao,mai,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,algodao,jun,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,algodao,jul,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,algodao,ago,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,algodao,set,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,algodao,out,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,algodao,nov,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,algodao,dez,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,amendoim,jan,2.0,3.0,3.0,3.0,2.0,3.0
+crato_ce,Cariri,amendoim,fev,3.0,3.0,3.0,3.0,3.0,3.0
+crato_ce,Cariri,amendoim,mar,0.0,1.0,2.0,0.0,1.0,1.0
+crato_ce,Cariri,amendoim,abr,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,amendoim,mai,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,amendoim,jun,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,amendoim,jul,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,amendoim,ago,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,amendoim,set,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,amendoim,out,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,amendoim,nov,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,amendoim,dez,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,girassol,jan,2.0,2.0,2.0,,,
+crato_ce,Cariri,girassol,fev,3.0,3.0,3.0,,,
+crato_ce,Cariri,girassol,mar,0.0,1.0,3.0,,,
+crato_ce,Cariri,girassol,abr,0.0,0.0,0.0,,,
+crato_ce,Cariri,girassol,mai,0.0,0.0,0.0,,,
+crato_ce,Cariri,girassol,jun,0.0,0.0,0.0,,,
+crato_ce,Cariri,girassol,jul,0.0,0.0,0.0,,,
+crato_ce,Cariri,girassol,ago,0.0,0.0,0.0,,,
+crato_ce,Cariri,girassol,set,0.0,0.0,0.0,,,
+crato_ce,Cariri,girassol,out,0.0,0.0,0.0,,,
+crato_ce,Cariri,girassol,nov,0.0,0.0,0.0,,,
+crato_ce,Cariri,girassol,dez,0.0,0.0,0.0,,,
+crato_ce,Cariri,mamona,jan,1.0,2.0,3.0,1.0,2.0,2.0
+crato_ce,Cariri,mamona,fev,3.0,3.0,3.0,3.0,3.0,3.0
+crato_ce,Cariri,mamona,mar,3.0,3.0,3.0,2.0,3.0,3.0
+crato_ce,Cariri,mamona,abr,1.0,2.0,2.0,0.0,0.0,2.0
+crato_ce,Cariri,mamona,mai,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,mamona,jun,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,mamona,jul,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,mamona,ago,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,mamona,set,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,mamona,out,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,mamona,nov,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,mamona,dez,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,gergelim,jan,2.0,3.0,3.0,,,
+crato_ce,Cariri,gergelim,fev,3.0,3.0,3.0,,,
+crato_ce,Cariri,gergelim,mar,3.0,3.0,3.0,,,
+crato_ce,Cariri,gergelim,abr,0.0,1.0,1.0,,,
+crato_ce,Cariri,gergelim,mai,0.0,0.0,0.0,,,
+crato_ce,Cariri,gergelim,jun,0.0,0.0,0.0,,,
+crato_ce,Cariri,gergelim,jul,0.0,0.0,0.0,,,
+crato_ce,Cariri,gergelim,ago,0.0,0.0,0.0,,,
+crato_ce,Cariri,gergelim,set,0.0,0.0,0.0,,,
+crato_ce,Cariri,gergelim,out,0.0,0.0,0.0,,,
+crato_ce,Cariri,gergelim,nov,0.0,0.0,0.0,,,
+crato_ce,Cariri,gergelim,dez,0.0,0.0,0.0,,,
+crato_ce,Cariri,guandu,jan,,,,,,
+crato_ce,Cariri,guandu,fev,,,,,,
+crato_ce,Cariri,guandu,mar,,,,,,
+crato_ce,Cariri,guandu,abr,,,,,,
+crato_ce,Cariri,guandu,mai,,,,,,
+crato_ce,Cariri,guandu,jun,,,,,,
+crato_ce,Cariri,guandu,jul,,,,,,
+crato_ce,Cariri,guandu,ago,,,,,,
+crato_ce,Cariri,guandu,set,,,,,,
+crato_ce,Cariri,guandu,out,,,,,,
+crato_ce,Cariri,guandu,nov,,,,,,
+crato_ce,Cariri,guandu,dez,,,,,,
+crato_ce,Cariri,palma_forrageira,jan,3.0,3.0,3.0,3.0,3.0,3.0
+crato_ce,Cariri,palma_forrageira,fev,3.0,3.0,3.0,1.0,2.0,3.0
+crato_ce,Cariri,palma_forrageira,mar,0.0,0.0,1.0,0.0,0.0,0.0
+crato_ce,Cariri,palma_forrageira,abr,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,palma_forrageira,mai,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,palma_forrageira,jun,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,palma_forrageira,jul,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,palma_forrageira,ago,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,palma_forrageira,set,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,palma_forrageira,out,0.0,0.0,0.0,0.0,0.0,0.0
+crato_ce,Cariri,palma_forrageira,nov,0.0,1.0,2.0,0.0,1.0,1.0
+crato_ce,Cariri,palma_forrageira,dez,3.0,3.0,3.0,3.0,3.0,3.0
+crato_ce,Cariri,crotalaria_juncea,jan,,,,,,
+crato_ce,Cariri,crotalaria_juncea,fev,,,,,,
+crato_ce,Cariri,crotalaria_juncea,mar,,,,,,
+crato_ce,Cariri,crotalaria_juncea,abr,,,,,,
+crato_ce,Cariri,crotalaria_juncea,mai,,,,,,
+crato_ce,Cariri,crotalaria_juncea,jun,,,,,,
+crato_ce,Cariri,crotalaria_juncea,jul,,,,,,
+crato_ce,Cariri,crotalaria_juncea,ago,,,,,,
+crato_ce,Cariri,crotalaria_juncea,set,,,,,,
+crato_ce,Cariri,crotalaria_juncea,out,,,,,,
+crato_ce,Cariri,crotalaria_juncea,nov,,,,,,
+crato_ce,Cariri,crotalaria_juncea,dez,,,,,,
+crato_ce,Cariri,feijao_de_porco,jan,,,,,,
+crato_ce,Cariri,feijao_de_porco,fev,,,,,,
+crato_ce,Cariri,feijao_de_porco,mar,,,,,,
+crato_ce,Cariri,feijao_de_porco,abr,,,,,,
+crato_ce,Cariri,feijao_de_porco,mai,,,,,,
+crato_ce,Cariri,feijao_de_porco,jun,,,,,,
+crato_ce,Cariri,feijao_de_porco,jul,,,,,,
+crato_ce,Cariri,feijao_de_porco,ago,,,,,,
+crato_ce,Cariri,feijao_de_porco,set,,,,,,
+crato_ce,Cariri,feijao_de_porco,out,,,,,,
+crato_ce,Cariri,feijao_de_porco,nov,,,,,,
+crato_ce,Cariri,feijao_de_porco,dez,,,,,,
+crato_ce,Cariri,mucuna,jan,,,,,,
+crato_ce,Cariri,mucuna,fev,,,,,,
+crato_ce,Cariri,mucuna,mar,,,,,,
+crato_ce,Cariri,mucuna,abr,,,,,,
+crato_ce,Cariri,mucuna,mai,,,,,,
+crato_ce,Cariri,mucuna,jun,,,,,,
+crato_ce,Cariri,mucuna,jul,,,,,,
+crato_ce,Cariri,mucuna,ago,,,,,,
+crato_ce,Cariri,mucuna,set,,,,,,
+crato_ce,Cariri,mucuna,out,,,,,,
+crato_ce,Cariri,mucuna,nov,,,,,,
+crato_ce,Cariri,mucuna,dez,,,,,,
+barbalha_ce,Cariri,milho,jan,2.0,2.0,3.0,,,
+barbalha_ce,Cariri,milho,fev,2.0,3.0,3.0,,,
+barbalha_ce,Cariri,milho,mar,0.0,0.0,2.0,,,
+barbalha_ce,Cariri,milho,abr,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,milho,mai,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,milho,jun,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,milho,jul,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,milho,ago,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,milho,set,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,milho,out,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,milho,nov,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,milho,dez,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,feijao_caupi,jan,0.0,0.0,1.0,0.0,0.0,0.0
+barbalha_ce,Cariri,feijao_caupi,fev,2.0,3.0,3.0,3.0,3.0,3.0
+barbalha_ce,Cariri,feijao_caupi,mar,2.0,3.0,3.0,1.0,2.0,3.0
+barbalha_ce,Cariri,feijao_caupi,abr,0.0,0.0,1.0,0.0,0.0,0.0
+barbalha_ce,Cariri,feijao_caupi,mai,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,feijao_caupi,jun,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,feijao_caupi,jul,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,feijao_caupi,ago,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,feijao_caupi,set,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,feijao_caupi,out,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,feijao_caupi,nov,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,feijao_caupi,dez,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,feijao_comum,jan,1.0,2.0,3.0,,,
+barbalha_ce,Cariri,feijao_comum,fev,3.0,3.0,3.0,,,
+barbalha_ce,Cariri,feijao_comum,mar,1.0,2.0,2.0,,,
+barbalha_ce,Cariri,feijao_comum,abr,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,feijao_comum,mai,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,feijao_comum,jun,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,feijao_comum,jul,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,feijao_comum,ago,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,feijao_comum,set,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,feijao_comum,out,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,feijao_comum,nov,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,feijao_comum,dez,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,sorgo,jan,,,,,,
+barbalha_ce,Cariri,sorgo,fev,,,,,,
+barbalha_ce,Cariri,sorgo,mar,,,,,,
+barbalha_ce,Cariri,sorgo,abr,,,,,,
+barbalha_ce,Cariri,sorgo,mai,,,,,,
+barbalha_ce,Cariri,sorgo,jun,,,,,,
+barbalha_ce,Cariri,sorgo,jul,,,,,,
+barbalha_ce,Cariri,sorgo,ago,,,,,,
+barbalha_ce,Cariri,sorgo,set,,,,,,
+barbalha_ce,Cariri,sorgo,out,,,,,,
+barbalha_ce,Cariri,sorgo,nov,,,,,,
+barbalha_ce,Cariri,sorgo,dez,,,,,,
+barbalha_ce,Cariri,milheto,jan,2.0,3.0,3.0,2.0,3.0,3.0
+barbalha_ce,Cariri,milheto,fev,3.0,3.0,3.0,3.0,3.0,3.0
+barbalha_ce,Cariri,milheto,mar,3.0,3.0,3.0,2.0,3.0,3.0
+barbalha_ce,Cariri,milheto,abr,2.0,2.0,3.0,0.0,1.0,2.0
+barbalha_ce,Cariri,milheto,mai,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,milheto,jun,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,milheto,jul,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,milheto,ago,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,milheto,set,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,milheto,out,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,milheto,nov,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,milheto,dez,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,mandioca,jan,3.0,3.0,3.0,3.0,3.0,3.0
+barbalha_ce,Cariri,mandioca,fev,2.0,3.0,3.0,1.0,2.0,3.0
+barbalha_ce,Cariri,mandioca,mar,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,mandioca,abr,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,mandioca,mai,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,mandioca,jun,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,mandioca,jul,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,mandioca,ago,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,mandioca,set,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,mandioca,out,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,mandioca,nov,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,mandioca,dez,0.0,0.0,1.0,0.0,0.0,0.0
+barbalha_ce,Cariri,algodao,jan,2.0,2.0,3.0,2.0,2.0,2.0
+barbalha_ce,Cariri,algodao,fev,2.0,3.0,3.0,1.0,3.0,3.0
+barbalha_ce,Cariri,algodao,mar,0.0,0.0,1.0,0.0,0.0,0.0
+barbalha_ce,Cariri,algodao,abr,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,algodao,mai,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,algodao,jun,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,algodao,jul,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,algodao,ago,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,algodao,set,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,algodao,out,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,algodao,nov,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,algodao,dez,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,amendoim,jan,2.0,3.0,3.0,3.0,3.0,3.0
+barbalha_ce,Cariri,amendoim,fev,3.0,3.0,3.0,2.0,3.0,3.0
+barbalha_ce,Cariri,amendoim,mar,0.0,1.0,2.0,0.0,0.0,1.0
+barbalha_ce,Cariri,amendoim,abr,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,amendoim,mai,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,amendoim,jun,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,amendoim,jul,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,amendoim,ago,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,amendoim,set,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,amendoim,out,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,amendoim,nov,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,amendoim,dez,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,girassol,jan,2.0,2.0,2.0,,,
+barbalha_ce,Cariri,girassol,fev,3.0,3.0,3.0,,,
+barbalha_ce,Cariri,girassol,mar,0.0,2.0,3.0,,,
+barbalha_ce,Cariri,girassol,abr,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,girassol,mai,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,girassol,jun,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,girassol,jul,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,girassol,ago,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,girassol,set,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,girassol,out,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,girassol,nov,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,girassol,dez,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,mamona,jan,1.0,2.0,3.0,1.0,2.0,2.0
+barbalha_ce,Cariri,mamona,fev,3.0,3.0,3.0,3.0,3.0,3.0
+barbalha_ce,Cariri,mamona,mar,3.0,3.0,3.0,2.0,3.0,3.0
+barbalha_ce,Cariri,mamona,abr,0.0,1.0,2.0,0.0,0.0,1.0
+barbalha_ce,Cariri,mamona,mai,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,mamona,jun,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,mamona,jul,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,mamona,ago,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,mamona,set,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,mamona,out,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,mamona,nov,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,mamona,dez,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,gergelim,jan,2.0,3.0,3.0,,,
+barbalha_ce,Cariri,gergelim,fev,3.0,3.0,3.0,,,
+barbalha_ce,Cariri,gergelim,mar,2.0,3.0,3.0,,,
+barbalha_ce,Cariri,gergelim,abr,0.0,0.0,1.0,,,
+barbalha_ce,Cariri,gergelim,mai,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,gergelim,jun,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,gergelim,jul,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,gergelim,ago,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,gergelim,set,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,gergelim,out,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,gergelim,nov,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,gergelim,dez,0.0,0.0,0.0,,,
+barbalha_ce,Cariri,guandu,jan,,,,,,
+barbalha_ce,Cariri,guandu,fev,,,,,,
+barbalha_ce,Cariri,guandu,mar,,,,,,
+barbalha_ce,Cariri,guandu,abr,,,,,,
+barbalha_ce,Cariri,guandu,mai,,,,,,
+barbalha_ce,Cariri,guandu,jun,,,,,,
+barbalha_ce,Cariri,guandu,jul,,,,,,
+barbalha_ce,Cariri,guandu,ago,,,,,,
+barbalha_ce,Cariri,guandu,set,,,,,,
+barbalha_ce,Cariri,guandu,out,,,,,,
+barbalha_ce,Cariri,guandu,nov,,,,,,
+barbalha_ce,Cariri,guandu,dez,,,,,,
+barbalha_ce,Cariri,palma_forrageira,jan,3.0,3.0,3.0,3.0,3.0,3.0
+barbalha_ce,Cariri,palma_forrageira,fev,3.0,3.0,3.0,1.0,2.0,3.0
+barbalha_ce,Cariri,palma_forrageira,mar,0.0,0.0,1.0,0.0,0.0,0.0
+barbalha_ce,Cariri,palma_forrageira,abr,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,palma_forrageira,mai,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,palma_forrageira,jun,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,palma_forrageira,jul,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,palma_forrageira,ago,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,palma_forrageira,set,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,palma_forrageira,out,0.0,0.0,0.0,0.0,0.0,0.0
+barbalha_ce,Cariri,palma_forrageira,nov,0.0,1.0,2.0,0.0,1.0,1.0
+barbalha_ce,Cariri,palma_forrageira,dez,3.0,3.0,3.0,3.0,3.0,3.0
+barbalha_ce,Cariri,crotalaria_juncea,jan,,,,,,
+barbalha_ce,Cariri,crotalaria_juncea,fev,,,,,,
+barbalha_ce,Cariri,crotalaria_juncea,mar,,,,,,
+barbalha_ce,Cariri,crotalaria_juncea,abr,,,,,,
+barbalha_ce,Cariri,crotalaria_juncea,mai,,,,,,
+barbalha_ce,Cariri,crotalaria_juncea,jun,,,,,,
+barbalha_ce,Cariri,crotalaria_juncea,jul,,,,,,
+barbalha_ce,Cariri,crotalaria_juncea,ago,,,,,,
+barbalha_ce,Cariri,crotalaria_juncea,set,,,,,,
+barbalha_ce,Cariri,crotalaria_juncea,out,,,,,,
+barbalha_ce,Cariri,crotalaria_juncea,nov,,,,,,
+barbalha_ce,Cariri,crotalaria_juncea,dez,,,,,,
+barbalha_ce,Cariri,feijao_de_porco,jan,,,,,,
+barbalha_ce,Cariri,feijao_de_porco,fev,,,,,,
+barbalha_ce,Cariri,feijao_de_porco,mar,,,,,,
+barbalha_ce,Cariri,feijao_de_porco,abr,,,,,,
+barbalha_ce,Cariri,feijao_de_porco,mai,,,,,,
+barbalha_ce,Cariri,feijao_de_porco,jun,,,,,,
+barbalha_ce,Cariri,feijao_de_porco,jul,,,,,,
+barbalha_ce,Cariri,feijao_de_porco,ago,,,,,,
+barbalha_ce,Cariri,feijao_de_porco,set,,,,,,
+barbalha_ce,Cariri,feijao_de_porco,out,,,,,,
+barbalha_ce,Cariri,feijao_de_porco,nov,,,,,,
+barbalha_ce,Cariri,feijao_de_porco,dez,,,,,,
+barbalha_ce,Cariri,mucuna,jan,,,,,,
+barbalha_ce,Cariri,mucuna,fev,,,,,,
+barbalha_ce,Cariri,mucuna,mar,,,,,,
+barbalha_ce,Cariri,mucuna,abr,,,,,,
+barbalha_ce,Cariri,mucuna,mai,,,,,,
+barbalha_ce,Cariri,mucuna,jun,,,,,,
+barbalha_ce,Cariri,mucuna,jul,,,,,,
+barbalha_ce,Cariri,mucuna,ago,,,,,,
+barbalha_ce,Cariri,mucuna,set,,,,,,
+barbalha_ce,Cariri,mucuna,out,,,,,,
+barbalha_ce,Cariri,mucuna,nov,,,,,,
+barbalha_ce,Cariri,mucuna,dez,,,,,,
+tiangua_ce,Ibiapaba,milho,jan,0.0,2.0,2.0,,,
+tiangua_ce,Ibiapaba,milho,fev,3.0,3.0,3.0,,,
+tiangua_ce,Ibiapaba,milho,mar,2.0,3.0,3.0,,,
+tiangua_ce,Ibiapaba,milho,abr,0.0,0.0,1.0,,,
+tiangua_ce,Ibiapaba,milho,mai,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,milho,jun,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,milho,jul,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,milho,ago,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,milho,set,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,milho,out,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,milho,nov,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,milho,dez,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,feijao_caupi,jan,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,feijao_caupi,fev,1.0,2.0,2.0,2.0,2.0,2.0
+tiangua_ce,Ibiapaba,feijao_caupi,mar,3.0,3.0,3.0,3.0,3.0,3.0
+tiangua_ce,Ibiapaba,feijao_caupi,abr,2.0,3.0,3.0,1.0,2.0,3.0
+tiangua_ce,Ibiapaba,feijao_caupi,mai,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,feijao_caupi,jun,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,feijao_caupi,jul,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,feijao_caupi,ago,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,feijao_caupi,set,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,feijao_caupi,out,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,feijao_caupi,nov,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,feijao_caupi,dez,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,feijao_comum,jan,0.0,0.0,1.0,,,
+tiangua_ce,Ibiapaba,feijao_comum,fev,2.0,2.0,3.0,,,
+tiangua_ce,Ibiapaba,feijao_comum,mar,1.0,2.0,3.0,,,
+tiangua_ce,Ibiapaba,feijao_comum,abr,0.0,0.0,1.0,,,
+tiangua_ce,Ibiapaba,feijao_comum,mai,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,feijao_comum,jun,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,feijao_comum,jul,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,feijao_comum,ago,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,feijao_comum,set,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,feijao_comum,out,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,feijao_comum,nov,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,feijao_comum,dez,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,sorgo,jan,,,,,,
+tiangua_ce,Ibiapaba,sorgo,fev,,,,,,
+tiangua_ce,Ibiapaba,sorgo,mar,,,,,,
+tiangua_ce,Ibiapaba,sorgo,abr,,,,,,
+tiangua_ce,Ibiapaba,sorgo,mai,,,,,,
+tiangua_ce,Ibiapaba,sorgo,jun,,,,,,
+tiangua_ce,Ibiapaba,sorgo,jul,,,,,,
+tiangua_ce,Ibiapaba,sorgo,ago,,,,,,
+tiangua_ce,Ibiapaba,sorgo,set,,,,,,
+tiangua_ce,Ibiapaba,sorgo,out,,,,,,
+tiangua_ce,Ibiapaba,sorgo,nov,,,,,,
+tiangua_ce,Ibiapaba,sorgo,dez,,,,,,
+tiangua_ce,Ibiapaba,milheto,jan,1.0,2.0,2.0,2.0,2.0,2.0
+tiangua_ce,Ibiapaba,milheto,fev,3.0,3.0,3.0,3.0,3.0,3.0
+tiangua_ce,Ibiapaba,milheto,mar,3.0,3.0,3.0,3.0,3.0,3.0
+tiangua_ce,Ibiapaba,milheto,abr,3.0,3.0,3.0,1.0,3.0,3.0
+tiangua_ce,Ibiapaba,milheto,mai,1.0,1.0,2.0,0.0,0.0,1.0
+tiangua_ce,Ibiapaba,milheto,jun,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,milheto,jul,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,milheto,ago,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,milheto,set,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,milheto,out,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,milheto,nov,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,milheto,dez,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,mandioca,jan,1.0,2.0,3.0,2.0,2.0,2.0
+tiangua_ce,Ibiapaba,mandioca,fev,3.0,3.0,3.0,3.0,3.0,3.0
+tiangua_ce,Ibiapaba,mandioca,mar,1.0,2.0,2.0,0.0,1.0,2.0
+tiangua_ce,Ibiapaba,mandioca,abr,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,mandioca,mai,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,mandioca,jun,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,mandioca,jul,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,mandioca,ago,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,mandioca,set,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,mandioca,out,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,mandioca,nov,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,mandioca,dez,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,algodao,jan,1.0,1.0,2.0,1.0,1.0,1.0
+tiangua_ce,Ibiapaba,algodao,fev,3.0,3.0,3.0,3.0,3.0,3.0
+tiangua_ce,Ibiapaba,algodao,mar,2.0,3.0,3.0,1.0,2.0,3.0
+tiangua_ce,Ibiapaba,algodao,abr,0.0,0.0,1.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,algodao,mai,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,algodao,jun,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,algodao,jul,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,algodao,ago,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,algodao,set,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,algodao,out,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,algodao,nov,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,algodao,dez,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,amendoim,jan,1.0,2.0,2.0,2.0,2.0,2.0
+tiangua_ce,Ibiapaba,amendoim,fev,3.0,3.0,3.0,3.0,3.0,3.0
+tiangua_ce,Ibiapaba,amendoim,mar,3.0,3.0,3.0,2.0,3.0,3.0
+tiangua_ce,Ibiapaba,amendoim,abr,0.0,1.0,1.0,0.0,0.0,1.0
+tiangua_ce,Ibiapaba,amendoim,mai,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,amendoim,jun,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,amendoim,jul,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,amendoim,ago,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,amendoim,set,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,amendoim,out,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,amendoim,nov,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,amendoim,dez,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,girassol,jan,0.0,2.0,2.0,,,
+tiangua_ce,Ibiapaba,girassol,fev,3.0,3.0,3.0,,,
+tiangua_ce,Ibiapaba,girassol,mar,3.0,3.0,3.0,,,
+tiangua_ce,Ibiapaba,girassol,abr,0.0,1.0,1.0,,,
+tiangua_ce,Ibiapaba,girassol,mai,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,girassol,jun,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,girassol,jul,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,girassol,ago,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,girassol,set,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,girassol,out,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,girassol,nov,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,girassol,dez,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,mamona,jan,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,mamona,fev,1.0,1.0,1.0,1.0,1.0,1.0
+tiangua_ce,Ibiapaba,mamona,mar,3.0,3.0,3.0,3.0,3.0,3.0
+tiangua_ce,Ibiapaba,mamona,abr,1.0,2.0,3.0,0.0,1.0,2.0
+tiangua_ce,Ibiapaba,mamona,mai,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,mamona,jun,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,mamona,jul,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,mamona,ago,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,mamona,set,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,mamona,out,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,mamona,nov,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,mamona,dez,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,gergelim,jan,1.0,2.0,2.0,,,
+tiangua_ce,Ibiapaba,gergelim,fev,3.0,3.0,3.0,,,
+tiangua_ce,Ibiapaba,gergelim,mar,3.0,3.0,3.0,,,
+tiangua_ce,Ibiapaba,gergelim,abr,3.0,3.0,3.0,,,
+tiangua_ce,Ibiapaba,gergelim,mai,0.0,0.0,1.0,,,
+tiangua_ce,Ibiapaba,gergelim,jun,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,gergelim,jul,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,gergelim,ago,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,gergelim,set,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,gergelim,out,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,gergelim,nov,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,gergelim,dez,0.0,0.0,0.0,,,
+tiangua_ce,Ibiapaba,guandu,jan,,,,,,
+tiangua_ce,Ibiapaba,guandu,fev,,,,,,
+tiangua_ce,Ibiapaba,guandu,mar,,,,,,
+tiangua_ce,Ibiapaba,guandu,abr,,,,,,
+tiangua_ce,Ibiapaba,guandu,mai,,,,,,
+tiangua_ce,Ibiapaba,guandu,jun,,,,,,
+tiangua_ce,Ibiapaba,guandu,jul,,,,,,
+tiangua_ce,Ibiapaba,guandu,ago,,,,,,
+tiangua_ce,Ibiapaba,guandu,set,,,,,,
+tiangua_ce,Ibiapaba,guandu,out,,,,,,
+tiangua_ce,Ibiapaba,guandu,nov,,,,,,
+tiangua_ce,Ibiapaba,guandu,dez,,,,,,
+tiangua_ce,Ibiapaba,palma_forrageira,jan,3.0,3.0,3.0,3.0,3.0,3.0
+tiangua_ce,Ibiapaba,palma_forrageira,fev,3.0,3.0,3.0,3.0,3.0,3.0
+tiangua_ce,Ibiapaba,palma_forrageira,mar,1.0,2.0,2.0,0.0,1.0,2.0
+tiangua_ce,Ibiapaba,palma_forrageira,abr,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,palma_forrageira,mai,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,palma_forrageira,jun,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,palma_forrageira,jul,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,palma_forrageira,ago,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,palma_forrageira,set,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,palma_forrageira,out,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,palma_forrageira,nov,0.0,0.0,0.0,0.0,0.0,0.0
+tiangua_ce,Ibiapaba,palma_forrageira,dez,3.0,3.0,3.0,3.0,3.0,3.0
+tiangua_ce,Ibiapaba,crotalaria_juncea,jan,,,,,,
+tiangua_ce,Ibiapaba,crotalaria_juncea,fev,,,,,,
+tiangua_ce,Ibiapaba,crotalaria_juncea,mar,,,,,,
+tiangua_ce,Ibiapaba,crotalaria_juncea,abr,,,,,,
+tiangua_ce,Ibiapaba,crotalaria_juncea,mai,,,,,,
+tiangua_ce,Ibiapaba,crotalaria_juncea,jun,,,,,,
+tiangua_ce,Ibiapaba,crotalaria_juncea,jul,,,,,,
+tiangua_ce,Ibiapaba,crotalaria_juncea,ago,,,,,,
+tiangua_ce,Ibiapaba,crotalaria_juncea,set,,,,,,
+tiangua_ce,Ibiapaba,crotalaria_juncea,out,,,,,,
+tiangua_ce,Ibiapaba,crotalaria_juncea,nov,,,,,,
+tiangua_ce,Ibiapaba,crotalaria_juncea,dez,,,,,,
+tiangua_ce,Ibiapaba,feijao_de_porco,jan,,,,,,
+tiangua_ce,Ibiapaba,feijao_de_porco,fev,,,,,,
+tiangua_ce,Ibiapaba,feijao_de_porco,mar,,,,,,
+tiangua_ce,Ibiapaba,feijao_de_porco,abr,,,,,,
+tiangua_ce,Ibiapaba,feijao_de_porco,mai,,,,,,
+tiangua_ce,Ibiapaba,feijao_de_porco,jun,,,,,,
+tiangua_ce,Ibiapaba,feijao_de_porco,jul,,,,,,
+tiangua_ce,Ibiapaba,feijao_de_porco,ago,,,,,,
+tiangua_ce,Ibiapaba,feijao_de_porco,set,,,,,,
+tiangua_ce,Ibiapaba,feijao_de_porco,out,,,,,,
+tiangua_ce,Ibiapaba,feijao_de_porco,nov,,,,,,
+tiangua_ce,Ibiapaba,feijao_de_porco,dez,,,,,,
+tiangua_ce,Ibiapaba,mucuna,jan,,,,,,
+tiangua_ce,Ibiapaba,mucuna,fev,,,,,,
+tiangua_ce,Ibiapaba,mucuna,mar,,,,,,
+tiangua_ce,Ibiapaba,mucuna,abr,,,,,,
+tiangua_ce,Ibiapaba,mucuna,mai,,,,,,
+tiangua_ce,Ibiapaba,mucuna,jun,,,,,,
+tiangua_ce,Ibiapaba,mucuna,jul,,,,,,
+tiangua_ce,Ibiapaba,mucuna,ago,,,,,,
+tiangua_ce,Ibiapaba,mucuna,set,,,,,,
+tiangua_ce,Ibiapaba,mucuna,out,,,,,,
+tiangua_ce,Ibiapaba,mucuna,nov,,,,,,
+tiangua_ce,Ibiapaba,mucuna,dez,,,,,,
+ibiapina_ce,Ibiapaba,milho,jan,0.0,2.0,2.0,,,
+ibiapina_ce,Ibiapaba,milho,fev,3.0,3.0,3.0,,,
+ibiapina_ce,Ibiapaba,milho,mar,2.0,3.0,3.0,,,
+ibiapina_ce,Ibiapaba,milho,abr,0.0,0.0,1.0,,,
+ibiapina_ce,Ibiapaba,milho,mai,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,milho,jun,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,milho,jul,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,milho,ago,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,milho,set,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,milho,out,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,milho,nov,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,milho,dez,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,feijao_caupi,jan,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,feijao_caupi,fev,1.0,2.0,3.0,2.0,2.0,2.0
+ibiapina_ce,Ibiapaba,feijao_caupi,mar,3.0,3.0,3.0,3.0,3.0,3.0
+ibiapina_ce,Ibiapaba,feijao_caupi,abr,2.0,3.0,3.0,1.0,2.0,3.0
+ibiapina_ce,Ibiapaba,feijao_caupi,mai,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,feijao_caupi,jun,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,feijao_caupi,jul,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,feijao_caupi,ago,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,feijao_caupi,set,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,feijao_caupi,out,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,feijao_caupi,nov,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,feijao_caupi,dez,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,feijao_comum,jan,0.0,0.0,1.0,,,
+ibiapina_ce,Ibiapaba,feijao_comum,fev,2.0,3.0,3.0,,,
+ibiapina_ce,Ibiapaba,feijao_comum,mar,1.0,2.0,3.0,,,
+ibiapina_ce,Ibiapaba,feijao_comum,abr,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,feijao_comum,mai,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,feijao_comum,jun,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,feijao_comum,jul,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,feijao_comum,ago,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,feijao_comum,set,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,feijao_comum,out,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,feijao_comum,nov,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,feijao_comum,dez,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,sorgo,jan,,,,,,
+ibiapina_ce,Ibiapaba,sorgo,fev,,,,,,
+ibiapina_ce,Ibiapaba,sorgo,mar,,,,,,
+ibiapina_ce,Ibiapaba,sorgo,abr,,,,,,
+ibiapina_ce,Ibiapaba,sorgo,mai,,,,,,
+ibiapina_ce,Ibiapaba,sorgo,jun,,,,,,
+ibiapina_ce,Ibiapaba,sorgo,jul,,,,,,
+ibiapina_ce,Ibiapaba,sorgo,ago,,,,,,
+ibiapina_ce,Ibiapaba,sorgo,set,,,,,,
+ibiapina_ce,Ibiapaba,sorgo,out,,,,,,
+ibiapina_ce,Ibiapaba,sorgo,nov,,,,,,
+ibiapina_ce,Ibiapaba,sorgo,dez,,,,,,
+ibiapina_ce,Ibiapaba,milheto,jan,1.0,2.0,2.0,2.0,2.0,2.0
+ibiapina_ce,Ibiapaba,milheto,fev,3.0,3.0,3.0,3.0,3.0,3.0
+ibiapina_ce,Ibiapaba,milheto,mar,3.0,3.0,3.0,3.0,3.0,3.0
+ibiapina_ce,Ibiapaba,milheto,abr,3.0,3.0,3.0,1.0,3.0,3.0
+ibiapina_ce,Ibiapaba,milheto,mai,1.0,1.0,2.0,0.0,0.0,1.0
+ibiapina_ce,Ibiapaba,milheto,jun,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,milheto,jul,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,milheto,ago,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,milheto,set,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,milheto,out,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,milheto,nov,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,milheto,dez,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,mandioca,jan,1.0,2.0,3.0,2.0,2.0,2.0
+ibiapina_ce,Ibiapaba,mandioca,fev,3.0,3.0,3.0,3.0,3.0,3.0
+ibiapina_ce,Ibiapaba,mandioca,mar,1.0,2.0,2.0,0.0,1.0,2.0
+ibiapina_ce,Ibiapaba,mandioca,abr,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,mandioca,mai,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,mandioca,jun,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,mandioca,jul,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,mandioca,ago,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,mandioca,set,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,mandioca,out,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,mandioca,nov,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,mandioca,dez,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,algodao,jan,1.0,1.0,2.0,1.0,1.0,1.0
+ibiapina_ce,Ibiapaba,algodao,fev,3.0,3.0,3.0,3.0,3.0,3.0
+ibiapina_ce,Ibiapaba,algodao,mar,2.0,3.0,3.0,1.0,2.0,3.0
+ibiapina_ce,Ibiapaba,algodao,abr,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,algodao,mai,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,algodao,jun,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,algodao,jul,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,algodao,ago,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,algodao,set,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,algodao,out,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,algodao,nov,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,algodao,dez,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,amendoim,jan,1.0,2.0,2.0,2.0,2.0,2.0
+ibiapina_ce,Ibiapaba,amendoim,fev,3.0,3.0,3.0,3.0,3.0,3.0
+ibiapina_ce,Ibiapaba,amendoim,mar,3.0,3.0,3.0,2.0,3.0,3.0
+ibiapina_ce,Ibiapaba,amendoim,abr,0.0,0.0,1.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,amendoim,mai,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,amendoim,jun,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,amendoim,jul,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,amendoim,ago,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,amendoim,set,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,amendoim,out,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,amendoim,nov,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,amendoim,dez,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,girassol,jan,0.0,2.0,2.0,,,
+ibiapina_ce,Ibiapaba,girassol,fev,3.0,3.0,3.0,,,
+ibiapina_ce,Ibiapaba,girassol,mar,3.0,3.0,3.0,,,
+ibiapina_ce,Ibiapaba,girassol,abr,0.0,1.0,2.0,,,
+ibiapina_ce,Ibiapaba,girassol,mai,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,girassol,jun,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,girassol,jul,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,girassol,ago,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,girassol,set,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,girassol,out,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,girassol,nov,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,girassol,dez,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,mamona,jan,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,mamona,fev,1.0,1.0,1.0,1.0,1.0,1.0
+ibiapina_ce,Ibiapaba,mamona,mar,3.0,3.0,3.0,3.0,3.0,3.0
+ibiapina_ce,Ibiapaba,mamona,abr,1.0,2.0,3.0,0.0,1.0,2.0
+ibiapina_ce,Ibiapaba,mamona,mai,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,mamona,jun,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,mamona,jul,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,mamona,ago,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,mamona,set,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,mamona,out,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,mamona,nov,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,mamona,dez,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,gergelim,jan,1.0,2.0,2.0,,,
+ibiapina_ce,Ibiapaba,gergelim,fev,3.0,3.0,3.0,,,
+ibiapina_ce,Ibiapaba,gergelim,mar,3.0,3.0,3.0,,,
+ibiapina_ce,Ibiapaba,gergelim,abr,2.0,3.0,3.0,,,
+ibiapina_ce,Ibiapaba,gergelim,mai,0.0,0.0,1.0,,,
+ibiapina_ce,Ibiapaba,gergelim,jun,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,gergelim,jul,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,gergelim,ago,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,gergelim,set,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,gergelim,out,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,gergelim,nov,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,gergelim,dez,0.0,0.0,0.0,,,
+ibiapina_ce,Ibiapaba,guandu,jan,,,,,,
+ibiapina_ce,Ibiapaba,guandu,fev,,,,,,
+ibiapina_ce,Ibiapaba,guandu,mar,,,,,,
+ibiapina_ce,Ibiapaba,guandu,abr,,,,,,
+ibiapina_ce,Ibiapaba,guandu,mai,,,,,,
+ibiapina_ce,Ibiapaba,guandu,jun,,,,,,
+ibiapina_ce,Ibiapaba,guandu,jul,,,,,,
+ibiapina_ce,Ibiapaba,guandu,ago,,,,,,
+ibiapina_ce,Ibiapaba,guandu,set,,,,,,
+ibiapina_ce,Ibiapaba,guandu,out,,,,,,
+ibiapina_ce,Ibiapaba,guandu,nov,,,,,,
+ibiapina_ce,Ibiapaba,guandu,dez,,,,,,
+ibiapina_ce,Ibiapaba,palma_forrageira,jan,3.0,3.0,3.0,3.0,3.0,3.0
+ibiapina_ce,Ibiapaba,palma_forrageira,fev,3.0,3.0,3.0,3.0,3.0,3.0
+ibiapina_ce,Ibiapaba,palma_forrageira,mar,1.0,1.0,2.0,0.0,1.0,1.0
+ibiapina_ce,Ibiapaba,palma_forrageira,abr,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,palma_forrageira,mai,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,palma_forrageira,jun,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,palma_forrageira,jul,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,palma_forrageira,ago,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,palma_forrageira,set,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,palma_forrageira,out,0.0,0.0,0.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,palma_forrageira,nov,0.0,0.0,1.0,0.0,0.0,0.0
+ibiapina_ce,Ibiapaba,palma_forrageira,dez,3.0,3.0,3.0,3.0,3.0,3.0
+ibiapina_ce,Ibiapaba,crotalaria_juncea,jan,,,,,,
+ibiapina_ce,Ibiapaba,crotalaria_juncea,fev,,,,,,
+ibiapina_ce,Ibiapaba,crotalaria_juncea,mar,,,,,,
+ibiapina_ce,Ibiapaba,crotalaria_juncea,abr,,,,,,
+ibiapina_ce,Ibiapaba,crotalaria_juncea,mai,,,,,,
+ibiapina_ce,Ibiapaba,crotalaria_juncea,jun,,,,,,
+ibiapina_ce,Ibiapaba,crotalaria_juncea,jul,,,,,,
+ibiapina_ce,Ibiapaba,crotalaria_juncea,ago,,,,,,
+ibiapina_ce,Ibiapaba,crotalaria_juncea,set,,,,,,
+ibiapina_ce,Ibiapaba,crotalaria_juncea,out,,,,,,
+ibiapina_ce,Ibiapaba,crotalaria_juncea,nov,,,,,,
+ibiapina_ce,Ibiapaba,crotalaria_juncea,dez,,,,,,
+ibiapina_ce,Ibiapaba,feijao_de_porco,jan,,,,,,
+ibiapina_ce,Ibiapaba,feijao_de_porco,fev,,,,,,
+ibiapina_ce,Ibiapaba,feijao_de_porco,mar,,,,,,
+ibiapina_ce,Ibiapaba,feijao_de_porco,abr,,,,,,
+ibiapina_ce,Ibiapaba,feijao_de_porco,mai,,,,,,
+ibiapina_ce,Ibiapaba,feijao_de_porco,jun,,,,,,
+ibiapina_ce,Ibiapaba,feijao_de_porco,jul,,,,,,
+ibiapina_ce,Ibiapaba,feijao_de_porco,ago,,,,,,
+ibiapina_ce,Ibiapaba,feijao_de_porco,set,,,,,,
+ibiapina_ce,Ibiapaba,feijao_de_porco,out,,,,,,
+ibiapina_ce,Ibiapaba,feijao_de_porco,nov,,,,,,
+ibiapina_ce,Ibiapaba,feijao_de_porco,dez,,,,,,
+ibiapina_ce,Ibiapaba,mucuna,jan,,,,,,
+ibiapina_ce,Ibiapaba,mucuna,fev,,,,,,
+ibiapina_ce,Ibiapaba,mucuna,mar,,,,,,
+ibiapina_ce,Ibiapaba,mucuna,abr,,,,,,
+ibiapina_ce,Ibiapaba,mucuna,mai,,,,,,
+ibiapina_ce,Ibiapaba,mucuna,jun,,,,,,
+ibiapina_ce,Ibiapaba,mucuna,jul,,,,,,
+ibiapina_ce,Ibiapaba,mucuna,ago,,,,,,
+ibiapina_ce,Ibiapaba,mucuna,set,,,,,,
+ibiapina_ce,Ibiapaba,mucuna,out,,,,,,
+ibiapina_ce,Ibiapaba,mucuna,nov,,,,,,
+ibiapina_ce,Ibiapaba,mucuna,dez,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,milho,jan,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,milho,fev,0.0,1.0,2.0,,,
+limoeiro_do_norte_ce,Jaguaribe,milho,mar,0.0,0.0,1.0,,,
+limoeiro_do_norte_ce,Jaguaribe,milho,abr,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,milho,mai,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,milho,jun,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,milho,jul,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,milho,ago,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,milho,set,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,milho,out,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,milho,nov,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,milho,dez,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,feijao_caupi,jan,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,feijao_caupi,fev,1.0,2.0,3.0,2.0,2.0,2.0
+limoeiro_do_norte_ce,Jaguaribe,feijao_caupi,mar,3.0,3.0,3.0,3.0,3.0,3.0
+limoeiro_do_norte_ce,Jaguaribe,feijao_caupi,abr,1.0,2.0,3.0,0.0,1.0,2.0
+limoeiro_do_norte_ce,Jaguaribe,feijao_caupi,mai,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,feijao_caupi,jun,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,feijao_caupi,jul,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,feijao_caupi,ago,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,feijao_caupi,set,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,feijao_caupi,out,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,feijao_caupi,nov,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,feijao_caupi,dez,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,feijao_comum,jan,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,feijao_comum,fev,0.0,1.0,2.0,,,
+limoeiro_do_norte_ce,Jaguaribe,feijao_comum,mar,0.0,0.0,2.0,,,
+limoeiro_do_norte_ce,Jaguaribe,feijao_comum,abr,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,feijao_comum,mai,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,feijao_comum,jun,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,feijao_comum,jul,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,feijao_comum,ago,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,feijao_comum,set,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,feijao_comum,out,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,feijao_comum,nov,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,feijao_comum,dez,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,sorgo,jan,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,sorgo,fev,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,sorgo,mar,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,sorgo,abr,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,sorgo,mai,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,sorgo,jun,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,sorgo,jul,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,sorgo,ago,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,sorgo,set,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,sorgo,out,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,sorgo,nov,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,sorgo,dez,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,milheto,jan,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,milheto,fev,2.0,2.0,3.0,2.0,2.0,2.0
+limoeiro_do_norte_ce,Jaguaribe,milheto,mar,3.0,3.0,3.0,3.0,3.0,3.0
+limoeiro_do_norte_ce,Jaguaribe,milheto,abr,3.0,3.0,3.0,1.0,3.0,3.0
+limoeiro_do_norte_ce,Jaguaribe,milheto,mai,0.0,1.0,2.0,0.0,0.0,1.0
+limoeiro_do_norte_ce,Jaguaribe,milheto,jun,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,milheto,jul,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,milheto,ago,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,milheto,set,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,milheto,out,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,milheto,nov,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,milheto,dez,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,mandioca,jan,0.0,0.0,1.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,mandioca,fev,2.0,3.0,3.0,2.0,3.0,3.0
+limoeiro_do_norte_ce,Jaguaribe,mandioca,mar,0.0,1.0,2.0,0.0,1.0,1.0
+limoeiro_do_norte_ce,Jaguaribe,mandioca,abr,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,mandioca,mai,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,mandioca,jun,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,mandioca,jul,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,mandioca,ago,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,mandioca,set,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,mandioca,out,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,mandioca,nov,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,mandioca,dez,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,algodao,jan,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,algodao,fev,1.0,2.0,3.0,2.0,2.0,2.0
+limoeiro_do_norte_ce,Jaguaribe,algodao,mar,1.0,2.0,3.0,0.0,1.0,2.0
+limoeiro_do_norte_ce,Jaguaribe,algodao,abr,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,algodao,mai,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,algodao,jun,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,algodao,jul,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,algodao,ago,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,algodao,set,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,algodao,out,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,algodao,nov,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,algodao,dez,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,amendoim,jan,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,amendoim,fev,2.0,2.0,3.0,2.0,2.0,2.0
+limoeiro_do_norte_ce,Jaguaribe,amendoim,mar,2.0,3.0,3.0,1.0,2.0,3.0
+limoeiro_do_norte_ce,Jaguaribe,amendoim,abr,0.0,0.0,1.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,amendoim,mai,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,amendoim,jun,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,amendoim,jul,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,amendoim,ago,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,amendoim,set,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,amendoim,out,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,amendoim,nov,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,amendoim,dez,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,girassol,jan,0.0,0.0,0.0,,,0.0
+limoeiro_do_norte_ce,Jaguaribe,girassol,fev,0.0,0.0,0.0,,,0.0
+limoeiro_do_norte_ce,Jaguaribe,girassol,mar,0.0,1.0,1.0,,,1.0
+limoeiro_do_norte_ce,Jaguaribe,girassol,abr,0.0,0.0,0.0,,,0.0
+limoeiro_do_norte_ce,Jaguaribe,girassol,mai,0.0,0.0,0.0,,,0.0
+limoeiro_do_norte_ce,Jaguaribe,girassol,jun,0.0,0.0,0.0,,,0.0
+limoeiro_do_norte_ce,Jaguaribe,girassol,jul,0.0,0.0,0.0,,,0.0
+limoeiro_do_norte_ce,Jaguaribe,girassol,ago,0.0,0.0,0.0,,,0.0
+limoeiro_do_norte_ce,Jaguaribe,girassol,set,0.0,0.0,0.0,,,0.0
+limoeiro_do_norte_ce,Jaguaribe,girassol,out,0.0,0.0,0.0,,,0.0
+limoeiro_do_norte_ce,Jaguaribe,girassol,nov,0.0,0.0,0.0,,,0.0
+limoeiro_do_norte_ce,Jaguaribe,girassol,dez,0.0,0.0,0.0,,,0.0
+limoeiro_do_norte_ce,Jaguaribe,mamona,jan,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,mamona,fev,1.0,2.0,3.0,1.0,2.0,2.0
+limoeiro_do_norte_ce,Jaguaribe,mamona,mar,3.0,3.0,3.0,3.0,3.0,3.0
+limoeiro_do_norte_ce,Jaguaribe,mamona,abr,2.0,3.0,3.0,1.0,2.0,3.0
+limoeiro_do_norte_ce,Jaguaribe,mamona,mai,0.0,0.0,1.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,mamona,jun,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,mamona,jul,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,mamona,ago,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,mamona,set,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,mamona,out,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,mamona,nov,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,mamona,dez,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,gergelim,jan,0.0,0.0,1.0,,,
+limoeiro_do_norte_ce,Jaguaribe,gergelim,fev,2.0,3.0,3.0,,,
+limoeiro_do_norte_ce,Jaguaribe,gergelim,mar,3.0,3.0,3.0,,,
+limoeiro_do_norte_ce,Jaguaribe,gergelim,abr,1.0,2.0,3.0,,,
+limoeiro_do_norte_ce,Jaguaribe,gergelim,mai,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,gergelim,jun,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,gergelim,jul,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,gergelim,ago,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,gergelim,set,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,gergelim,out,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,gergelim,nov,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,gergelim,dez,0.0,0.0,0.0,,,
+limoeiro_do_norte_ce,Jaguaribe,guandu,jan,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,guandu,fev,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,guandu,mar,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,guandu,abr,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,guandu,mai,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,guandu,jun,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,guandu,jul,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,guandu,ago,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,guandu,set,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,guandu,out,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,guandu,nov,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,guandu,dez,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,palma_forrageira,jan,3.0,3.0,3.0,3.0,3.0,3.0
+limoeiro_do_norte_ce,Jaguaribe,palma_forrageira,fev,3.0,3.0,3.0,2.0,3.0,3.0
+limoeiro_do_norte_ce,Jaguaribe,palma_forrageira,mar,1.0,1.0,2.0,0.0,0.0,1.0
+limoeiro_do_norte_ce,Jaguaribe,palma_forrageira,abr,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,palma_forrageira,mai,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,palma_forrageira,jun,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,palma_forrageira,jul,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,palma_forrageira,ago,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,palma_forrageira,set,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,palma_forrageira,out,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,palma_forrageira,nov,0.0,0.0,0.0,0.0,0.0,0.0
+limoeiro_do_norte_ce,Jaguaribe,palma_forrageira,dez,0.0,1.0,2.0,0.0,1.0,1.0
+limoeiro_do_norte_ce,Jaguaribe,crotalaria_juncea,jan,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,crotalaria_juncea,fev,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,crotalaria_juncea,mar,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,crotalaria_juncea,abr,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,crotalaria_juncea,mai,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,crotalaria_juncea,jun,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,crotalaria_juncea,jul,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,crotalaria_juncea,ago,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,crotalaria_juncea,set,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,crotalaria_juncea,out,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,crotalaria_juncea,nov,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,crotalaria_juncea,dez,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,feijao_de_porco,jan,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,feijao_de_porco,fev,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,feijao_de_porco,mar,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,feijao_de_porco,abr,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,feijao_de_porco,mai,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,feijao_de_porco,jun,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,feijao_de_porco,jul,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,feijao_de_porco,ago,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,feijao_de_porco,set,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,feijao_de_porco,out,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,feijao_de_porco,nov,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,feijao_de_porco,dez,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,mucuna,jan,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,mucuna,fev,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,mucuna,mar,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,mucuna,abr,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,mucuna,mai,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,mucuna,jun,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,mucuna,jul,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,mucuna,ago,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,mucuna,set,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,mucuna,out,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,mucuna,nov,,,,,,
+limoeiro_do_norte_ce,Jaguaribe,mucuna,dez,,,,,,
+russas_ce,Jaguaribe,milho,jan,0.0,0.0,0.0,,,
+russas_ce,Jaguaribe,milho,fev,0.0,1.0,2.0,,,
+russas_ce,Jaguaribe,milho,mar,0.0,1.0,2.0,,,
+russas_ce,Jaguaribe,milho,abr,0.0,0.0,0.0,,,
+russas_ce,Jaguaribe,milho,mai,0.0,0.0,0.0,,,
+russas_ce,Jaguaribe,milho,jun,0.0,0.0,0.0,,,
+russas_ce,Jaguaribe,milho,jul,0.0,0.0,0.0,,,
+russas_ce,Jaguaribe,milho,ago,0.0,0.0,0.0,,,
+russas_ce,Jaguaribe,milho,set,0.0,0.0,0.0,,,
+russas_ce,Jaguaribe,milho,out,0.0,0.0,0.0,,,
+russas_ce,Jaguaribe,milho,nov,0.0,0.0,0.0,,,
+russas_ce,Jaguaribe,milho,dez,0.0,0.0,0.0,,,
+russas_ce,Jaguaribe,feijao_caupi,jan,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,feijao_caupi,fev,1.0,2.0,3.0,2.0,2.0,2.0
+russas_ce,Jaguaribe,feijao_caupi,mar,3.0,3.0,3.0,3.0,3.0,3.0
+russas_ce,Jaguaribe,feijao_caupi,abr,1.0,3.0,3.0,0.0,1.0,3.0
+russas_ce,Jaguaribe,feijao_caupi,mai,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,feijao_caupi,jun,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,feijao_caupi,jul,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,feijao_caupi,ago,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,feijao_caupi,set,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,feijao_caupi,out,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,feijao_caupi,nov,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,feijao_caupi,dez,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,feijao_comum,jan,0.0,0.0,0.0,,,
+russas_ce,Jaguaribe,feijao_comum,fev,0.0,1.0,2.0,,,
+russas_ce,Jaguaribe,feijao_comum,mar,0.0,0.0,2.0,,,
+russas_ce,Jaguaribe,feijao_comum,abr,0.0,0.0,0.0,,,
+russas_ce,Jaguaribe,feijao_comum,mai,0.0,0.0,0.0,,,
+russas_ce,Jaguaribe,feijao_comum,jun,0.0,0.0,0.0,,,
+russas_ce,Jaguaribe,feijao_comum,jul,0.0,0.0,0.0,,,
+russas_ce,Jaguaribe,feijao_comum,ago,0.0,0.0,0.0,,,
+russas_ce,Jaguaribe,feijao_comum,set,0.0,0.0,0.0,,,
+russas_ce,Jaguaribe,feijao_comum,out,0.0,0.0,0.0,,,
+russas_ce,Jaguaribe,feijao_comum,nov,0.0,0.0,0.0,,,
+russas_ce,Jaguaribe,feijao_comum,dez,0.0,0.0,0.0,,,
+russas_ce,Jaguaribe,sorgo,jan,,,,,,
+russas_ce,Jaguaribe,sorgo,fev,,,,,,
+russas_ce,Jaguaribe,sorgo,mar,,,,,,
+russas_ce,Jaguaribe,sorgo,abr,,,,,,
+russas_ce,Jaguaribe,sorgo,mai,,,,,,
+russas_ce,Jaguaribe,sorgo,jun,,,,,,
+russas_ce,Jaguaribe,sorgo,jul,,,,,,
+russas_ce,Jaguaribe,sorgo,ago,,,,,,
+russas_ce,Jaguaribe,sorgo,set,,,,,,
+russas_ce,Jaguaribe,sorgo,out,,,,,,
+russas_ce,Jaguaribe,sorgo,nov,,,,,,
+russas_ce,Jaguaribe,sorgo,dez,,,,,,
+russas_ce,Jaguaribe,milheto,jan,0.0,0.0,1.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,milheto,fev,2.0,3.0,3.0,2.0,3.0,3.0
+russas_ce,Jaguaribe,milheto,mar,3.0,3.0,3.0,3.0,3.0,3.0
+russas_ce,Jaguaribe,milheto,abr,3.0,3.0,3.0,1.0,3.0,3.0
+russas_ce,Jaguaribe,milheto,mai,1.0,1.0,2.0,0.0,0.0,1.0
+russas_ce,Jaguaribe,milheto,jun,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,milheto,jul,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,milheto,ago,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,milheto,set,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,milheto,out,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,milheto,nov,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,milheto,dez,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,mandioca,jan,0.0,0.0,1.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,mandioca,fev,2.0,3.0,3.0,3.0,3.0,3.0
+russas_ce,Jaguaribe,mandioca,mar,1.0,2.0,3.0,0.0,1.0,2.0
+russas_ce,Jaguaribe,mandioca,abr,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,mandioca,mai,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,mandioca,jun,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,mandioca,jul,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,mandioca,ago,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,mandioca,set,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,mandioca,out,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,mandioca,nov,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,mandioca,dez,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,algodao,jan,0.0,0.0,1.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,algodao,fev,2.0,2.0,3.0,2.0,2.0,2.0
+russas_ce,Jaguaribe,algodao,mar,1.0,3.0,3.0,0.0,2.0,3.0
+russas_ce,Jaguaribe,algodao,abr,0.0,0.0,1.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,algodao,mai,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,algodao,jun,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,algodao,jul,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,algodao,ago,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,algodao,set,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,algodao,out,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,algodao,nov,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,algodao,dez,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,amendoim,jan,0.0,0.0,1.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,amendoim,fev,2.0,2.0,3.0,2.0,2.0,2.0
+russas_ce,Jaguaribe,amendoim,mar,2.0,3.0,3.0,1.0,3.0,3.0
+russas_ce,Jaguaribe,amendoim,abr,0.0,1.0,2.0,0.0,0.0,1.0
+russas_ce,Jaguaribe,amendoim,mai,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,amendoim,jun,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,amendoim,jul,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,amendoim,ago,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,amendoim,set,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,amendoim,out,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,amendoim,nov,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,amendoim,dez,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,girassol,jan,0.0,0.0,0.0,,0.0,0.0
+russas_ce,Jaguaribe,girassol,fev,0.0,0.0,0.0,,0.0,0.0
+russas_ce,Jaguaribe,girassol,mar,2.0,2.0,2.0,,1.0,2.0
+russas_ce,Jaguaribe,girassol,abr,0.0,1.0,2.0,,0.0,1.0
+russas_ce,Jaguaribe,girassol,mai,0.0,0.0,0.0,,0.0,0.0
+russas_ce,Jaguaribe,girassol,jun,0.0,0.0,0.0,,0.0,0.0
+russas_ce,Jaguaribe,girassol,jul,0.0,0.0,0.0,,0.0,0.0
+russas_ce,Jaguaribe,girassol,ago,0.0,0.0,0.0,,0.0,0.0
+russas_ce,Jaguaribe,girassol,set,0.0,0.0,0.0,,0.0,0.0
+russas_ce,Jaguaribe,girassol,out,0.0,0.0,0.0,,0.0,0.0
+russas_ce,Jaguaribe,girassol,nov,0.0,0.0,0.0,,0.0,0.0
+russas_ce,Jaguaribe,girassol,dez,0.0,0.0,0.0,,0.0,0.0
+russas_ce,Jaguaribe,mamona,jan,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,mamona,fev,1.0,2.0,3.0,2.0,2.0,2.0
+russas_ce,Jaguaribe,mamona,mar,3.0,3.0,3.0,3.0,3.0,3.0
+russas_ce,Jaguaribe,mamona,abr,3.0,3.0,3.0,2.0,3.0,3.0
+russas_ce,Jaguaribe,mamona,mai,0.0,1.0,2.0,0.0,0.0,1.0
+russas_ce,Jaguaribe,mamona,jun,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,mamona,jul,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,mamona,ago,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,mamona,set,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,mamona,out,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,mamona,nov,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,mamona,dez,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,gergelim,jan,0.0,0.0,1.0,,,
+russas_ce,Jaguaribe,gergelim,fev,2.0,3.0,3.0,,,
+russas_ce,Jaguaribe,gergelim,mar,3.0,3.0,3.0,,,
+russas_ce,Jaguaribe,gergelim,abr,2.0,3.0,3.0,,,
+russas_ce,Jaguaribe,gergelim,mai,0.0,0.0,1.0,,,
+russas_ce,Jaguaribe,gergelim,jun,0.0,0.0,0.0,,,
+russas_ce,Jaguaribe,gergelim,jul,0.0,0.0,0.0,,,
+russas_ce,Jaguaribe,gergelim,ago,0.0,0.0,0.0,,,
+russas_ce,Jaguaribe,gergelim,set,0.0,0.0,0.0,,,
+russas_ce,Jaguaribe,gergelim,out,0.0,0.0,0.0,,,
+russas_ce,Jaguaribe,gergelim,nov,0.0,0.0,0.0,,,
+russas_ce,Jaguaribe,gergelim,dez,0.0,0.0,0.0,,,
+russas_ce,Jaguaribe,guandu,jan,,,,,,
+russas_ce,Jaguaribe,guandu,fev,,,,,,
+russas_ce,Jaguaribe,guandu,mar,,,,,,
+russas_ce,Jaguaribe,guandu,abr,,,,,,
+russas_ce,Jaguaribe,guandu,mai,,,,,,
+russas_ce,Jaguaribe,guandu,jun,,,,,,
+russas_ce,Jaguaribe,guandu,jul,,,,,,
+russas_ce,Jaguaribe,guandu,ago,,,,,,
+russas_ce,Jaguaribe,guandu,set,,,,,,
+russas_ce,Jaguaribe,guandu,out,,,,,,
+russas_ce,Jaguaribe,guandu,nov,,,,,,
+russas_ce,Jaguaribe,guandu,dez,,,,,,
+russas_ce,Jaguaribe,palma_forrageira,jan,3.0,3.0,3.0,3.0,3.0,3.0
+russas_ce,Jaguaribe,palma_forrageira,fev,3.0,3.0,3.0,3.0,3.0,3.0
+russas_ce,Jaguaribe,palma_forrageira,mar,1.0,2.0,2.0,0.0,1.0,2.0
+russas_ce,Jaguaribe,palma_forrageira,abr,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,palma_forrageira,mai,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,palma_forrageira,jun,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,palma_forrageira,jul,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,palma_forrageira,ago,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,palma_forrageira,set,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,palma_forrageira,out,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,palma_forrageira,nov,0.0,0.0,0.0,0.0,0.0,0.0
+russas_ce,Jaguaribe,palma_forrageira,dez,0.0,1.0,2.0,1.0,1.0,1.0
+russas_ce,Jaguaribe,crotalaria_juncea,jan,,,,,,
+russas_ce,Jaguaribe,crotalaria_juncea,fev,,,,,,
+russas_ce,Jaguaribe,crotalaria_juncea,mar,,,,,,
+russas_ce,Jaguaribe,crotalaria_juncea,abr,,,,,,
+russas_ce,Jaguaribe,crotalaria_juncea,mai,,,,,,
+russas_ce,Jaguaribe,crotalaria_juncea,jun,,,,,,
+russas_ce,Jaguaribe,crotalaria_juncea,jul,,,,,,
+russas_ce,Jaguaribe,crotalaria_juncea,ago,,,,,,
+russas_ce,Jaguaribe,crotalaria_juncea,set,,,,,,
+russas_ce,Jaguaribe,crotalaria_juncea,out,,,,,,
+russas_ce,Jaguaribe,crotalaria_juncea,nov,,,,,,
+russas_ce,Jaguaribe,crotalaria_juncea,dez,,,,,,
+russas_ce,Jaguaribe,feijao_de_porco,jan,,,,,,
+russas_ce,Jaguaribe,feijao_de_porco,fev,,,,,,
+russas_ce,Jaguaribe,feijao_de_porco,mar,,,,,,
+russas_ce,Jaguaribe,feijao_de_porco,abr,,,,,,
+russas_ce,Jaguaribe,feijao_de_porco,mai,,,,,,
+russas_ce,Jaguaribe,feijao_de_porco,jun,,,,,,
+russas_ce,Jaguaribe,feijao_de_porco,jul,,,,,,
+russas_ce,Jaguaribe,feijao_de_porco,ago,,,,,,
+russas_ce,Jaguaribe,feijao_de_porco,set,,,,,,
+russas_ce,Jaguaribe,feijao_de_porco,out,,,,,,
+russas_ce,Jaguaribe,feijao_de_porco,nov,,,,,,
+russas_ce,Jaguaribe,feijao_de_porco,dez,,,,,,
+russas_ce,Jaguaribe,mucuna,jan,,,,,,
+russas_ce,Jaguaribe,mucuna,fev,,,,,,
+russas_ce,Jaguaribe,mucuna,mar,,,,,,
+russas_ce,Jaguaribe,mucuna,abr,,,,,,
+russas_ce,Jaguaribe,mucuna,mai,,,,,,
+russas_ce,Jaguaribe,mucuna,jun,,,,,,
+russas_ce,Jaguaribe,mucuna,jul,,,,,,
+russas_ce,Jaguaribe,mucuna,ago,,,,,,
+russas_ce,Jaguaribe,mucuna,set,,,,,,
+russas_ce,Jaguaribe,mucuna,out,,,,,,
+russas_ce,Jaguaribe,mucuna,nov,,,,,,
+russas_ce,Jaguaribe,mucuna,dez,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,milho,jan,0.0,1.0,1.0,,,
+ico_ce,Centro-Sul/Jaguaribe,milho,fev,1.0,3.0,3.0,,,
+ico_ce,Centro-Sul/Jaguaribe,milho,mar,0.0,1.0,2.0,,,
+ico_ce,Centro-Sul/Jaguaribe,milho,abr,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,milho,mai,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,milho,jun,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,milho,jul,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,milho,ago,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,milho,set,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,milho,out,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,milho,nov,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,milho,dez,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,feijao_caupi,jan,0.0,0.0,1.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,feijao_caupi,fev,2.0,2.0,3.0,2.0,2.0,2.0
+ico_ce,Centro-Sul/Jaguaribe,feijao_caupi,mar,3.0,3.0,3.0,3.0,3.0,3.0
+ico_ce,Centro-Sul/Jaguaribe,feijao_caupi,abr,0.0,2.0,3.0,0.0,0.0,2.0
+ico_ce,Centro-Sul/Jaguaribe,feijao_caupi,mai,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,feijao_caupi,jun,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,feijao_caupi,jul,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,feijao_caupi,ago,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,feijao_caupi,set,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,feijao_caupi,out,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,feijao_caupi,nov,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,feijao_caupi,dez,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,feijao_comum,jan,0.0,0.0,1.0,,,
+ico_ce,Centro-Sul/Jaguaribe,feijao_comum,fev,2.0,3.0,3.0,,,
+ico_ce,Centro-Sul/Jaguaribe,feijao_comum,mar,0.0,2.0,3.0,,,
+ico_ce,Centro-Sul/Jaguaribe,feijao_comum,abr,0.0,0.0,1.0,,,
+ico_ce,Centro-Sul/Jaguaribe,feijao_comum,mai,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,feijao_comum,jun,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,feijao_comum,jul,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,feijao_comum,ago,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,feijao_comum,set,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,feijao_comum,out,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,feijao_comum,nov,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,feijao_comum,dez,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,sorgo,jan,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,sorgo,fev,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,sorgo,mar,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,sorgo,abr,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,sorgo,mai,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,sorgo,jun,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,sorgo,jul,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,sorgo,ago,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,sorgo,set,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,sorgo,out,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,sorgo,nov,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,sorgo,dez,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,milheto,jan,1.0,2.0,2.0,1.0,2.0,2.0
+ico_ce,Centro-Sul/Jaguaribe,milheto,fev,3.0,3.0,3.0,3.0,3.0,3.0
+ico_ce,Centro-Sul/Jaguaribe,milheto,mar,3.0,3.0,3.0,3.0,3.0,3.0
+ico_ce,Centro-Sul/Jaguaribe,milheto,abr,3.0,3.0,3.0,0.0,2.0,3.0
+ico_ce,Centro-Sul/Jaguaribe,milheto,mai,0.0,0.0,1.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,milheto,jun,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,milheto,jul,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,milheto,ago,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,milheto,set,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,milheto,out,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,milheto,nov,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,milheto,dez,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,mandioca,jan,1.0,2.0,3.0,2.0,2.0,2.0
+ico_ce,Centro-Sul/Jaguaribe,mandioca,fev,3.0,3.0,3.0,2.0,3.0,3.0
+ico_ce,Centro-Sul/Jaguaribe,mandioca,mar,0.0,1.0,2.0,0.0,0.0,1.0
+ico_ce,Centro-Sul/Jaguaribe,mandioca,abr,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,mandioca,mai,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,mandioca,jun,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,mandioca,jul,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,mandioca,ago,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,mandioca,set,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,mandioca,out,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,mandioca,nov,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,mandioca,dez,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,algodao,jan,1.0,1.0,1.0,0.0,1.0,1.0
+ico_ce,Centro-Sul/Jaguaribe,algodao,fev,3.0,3.0,3.0,2.0,3.0,3.0
+ico_ce,Centro-Sul/Jaguaribe,algodao,mar,0.0,2.0,3.0,0.0,1.0,2.0
+ico_ce,Centro-Sul/Jaguaribe,algodao,abr,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,algodao,mai,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,algodao,jun,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,algodao,jul,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,algodao,ago,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,algodao,set,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,algodao,out,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,algodao,nov,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,algodao,dez,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,amendoim,jan,1.0,1.0,2.0,1.0,1.0,1.0
+ico_ce,Centro-Sul/Jaguaribe,amendoim,fev,3.0,3.0,3.0,3.0,3.0,3.0
+ico_ce,Centro-Sul/Jaguaribe,amendoim,mar,1.0,3.0,3.0,0.0,2.0,3.0
+ico_ce,Centro-Sul/Jaguaribe,amendoim,abr,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,amendoim,mai,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,amendoim,jun,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,amendoim,jul,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,amendoim,ago,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,amendoim,set,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,amendoim,out,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,amendoim,nov,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,amendoim,dez,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,girassol,jan,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,girassol,fev,1.0,3.0,3.0,,,
+ico_ce,Centro-Sul/Jaguaribe,girassol,mar,0.0,1.0,2.0,,,
+ico_ce,Centro-Sul/Jaguaribe,girassol,abr,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,girassol,mai,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,girassol,jun,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,girassol,jul,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,girassol,ago,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,girassol,set,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,girassol,out,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,girassol,nov,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,girassol,dez,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,mamona,jan,0.0,1.0,1.0,0.0,1.0,1.0
+ico_ce,Centro-Sul/Jaguaribe,mamona,fev,3.0,3.0,3.0,3.0,3.0,3.0
+ico_ce,Centro-Sul/Jaguaribe,mamona,mar,3.0,3.0,3.0,3.0,3.0,3.0
+ico_ce,Centro-Sul/Jaguaribe,mamona,abr,2.0,3.0,3.0,1.0,2.0,3.0
+ico_ce,Centro-Sul/Jaguaribe,mamona,mai,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,mamona,jun,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,mamona,jul,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,mamona,ago,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,mamona,set,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,mamona,out,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,mamona,nov,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,mamona,dez,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,gergelim,jan,1.0,2.0,2.0,,,
+ico_ce,Centro-Sul/Jaguaribe,gergelim,fev,3.0,3.0,3.0,,,
+ico_ce,Centro-Sul/Jaguaribe,gergelim,mar,3.0,3.0,3.0,,,
+ico_ce,Centro-Sul/Jaguaribe,gergelim,abr,1.0,2.0,3.0,,,
+ico_ce,Centro-Sul/Jaguaribe,gergelim,mai,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,gergelim,jun,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,gergelim,jul,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,gergelim,ago,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,gergelim,set,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,gergelim,out,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,gergelim,nov,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,gergelim,dez,0.0,0.0,0.0,,,
+ico_ce,Centro-Sul/Jaguaribe,guandu,jan,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,guandu,fev,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,guandu,mar,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,guandu,abr,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,guandu,mai,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,guandu,jun,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,guandu,jul,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,guandu,ago,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,guandu,set,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,guandu,out,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,guandu,nov,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,guandu,dez,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,palma_forrageira,jan,3.0,3.0,3.0,3.0,3.0,3.0
+ico_ce,Centro-Sul/Jaguaribe,palma_forrageira,fev,3.0,3.0,3.0,2.0,3.0,3.0
+ico_ce,Centro-Sul/Jaguaribe,palma_forrageira,mar,0.0,1.0,1.0,0.0,0.0,1.0
+ico_ce,Centro-Sul/Jaguaribe,palma_forrageira,abr,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,palma_forrageira,mai,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,palma_forrageira,jun,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,palma_forrageira,jul,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,palma_forrageira,ago,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,palma_forrageira,set,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,palma_forrageira,out,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,palma_forrageira,nov,0.0,0.0,0.0,0.0,0.0,0.0
+ico_ce,Centro-Sul/Jaguaribe,palma_forrageira,dez,2.0,3.0,3.0,3.0,3.0,3.0
+ico_ce,Centro-Sul/Jaguaribe,crotalaria_juncea,jan,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,crotalaria_juncea,fev,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,crotalaria_juncea,mar,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,crotalaria_juncea,abr,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,crotalaria_juncea,mai,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,crotalaria_juncea,jun,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,crotalaria_juncea,jul,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,crotalaria_juncea,ago,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,crotalaria_juncea,set,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,crotalaria_juncea,out,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,crotalaria_juncea,nov,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,crotalaria_juncea,dez,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,feijao_de_porco,jan,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,feijao_de_porco,fev,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,feijao_de_porco,mar,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,feijao_de_porco,abr,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,feijao_de_porco,mai,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,feijao_de_porco,jun,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,feijao_de_porco,jul,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,feijao_de_porco,ago,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,feijao_de_porco,set,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,feijao_de_porco,out,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,feijao_de_porco,nov,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,feijao_de_porco,dez,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,mucuna,jan,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,mucuna,fev,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,mucuna,mar,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,mucuna,abr,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,mucuna,mai,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,mucuna,jun,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,mucuna,jul,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,mucuna,ago,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,mucuna,set,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,mucuna,out,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,mucuna,nov,,,,,,
+ico_ce,Centro-Sul/Jaguaribe,mucuna,dez,,,,,,
