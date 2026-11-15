@@ -70,9 +70,11 @@ app = FastAPI(title="SULCO API", version="0.2.0", lifespan=_vida,
 
 from src.api.rota_calendario import router as _rota_calendario  # noqa: E402
 from src.api.rota_conversa import router as _rota_conversa  # noqa: E402
+from src.api.rota_plano import router as _rota_plano  # noqa: E402
 
 app.include_router(_rota_conversa)       # POST /conversa (conversa consultiva)
 app.include_router(_rota_calendario)     # POST /calendario (calendário de plantio do agricultor)
+app.include_router(_rota_plano)          # POST /plano-plantio (plano de plantio em 10 etapas)
 
 
 from src.api.cabecalhos_seguranca import aplicar_cabecalhos  # noqa: E402
