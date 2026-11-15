@@ -307,3 +307,8 @@ Não usar métrica de "parece humano" como meta. Se medir, perguntar só se a pe
 - **Resumo da ferramenta, não texto lido:** todas as páginas do Google, Amazon, NN/g, Microsoft Jugalbandi, AIEP, EU AI Act e lei 15.263 passaram por um resumidor. As únicas que li direto foram o PDF do FarmChat (S20), o PDF da pesquisa de VR (S12) e a página da Microsoft Bot Framework (S11).
 - **Não achei fonte:** tratamento e registro com agricultor do Nordeste (S29); taxa de reformulação (S31); divulgação de IA com agricultor de baixo letramento; evidência de que voz "mais humana" aumenta confiança (S15); estudo de Embrapa/Brasil com voz.
 - **Sem WhatsApp/voz no Brasil:** o RAImundo, pelo que vi, é texto no WhatsApp; não achei assistente brasileiro de voz para agricultor com avaliação.
+
+## 9. Nota de 2026-11-15: o nome da assistente
+
+O nome **Maíra** foi escolhido pelo usuário (feminino). A divulgação recomendada na seção de decisões foi **mantida**: nas saudações e em "quem é você?" a assistente diz "Eu sou a Maíra, a assistente automática do Sulco" e que é um programa, não uma pessoa nem uma técnica. O nome é um tratamento, não uma identidade humana: sem idade, sem história pessoal, sem "na minha experiência" (o verificador de persona continua barrando isso, agora também no feminino).
+

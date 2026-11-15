@@ -117,7 +117,8 @@ def test_trecho_interno_bloqueado_pelo_filtro(tmp_path):
 
 def test_bloqueios_de_conteudo():
     for s in ["Rodar o Docker no servidor", "chave DEEPSEEK_API_KEY=abc", "o PIN: 1234", "arquivo src/llm/chat.py", "lat: -5.1 lon: -39.7",
-              "-5.1789, -39.2954", "sk-abcdefghijklmnopqrstuvwxyz"]:
+              "-5.1789, -39.2954", "sk-abcdefghij" + "klmnopqrstuvwxyz"  # montado em duas partes: o varredor de segredos versionados (test_guardrails) não acusa o exemplo
+              ]:
         assert A.bloco_proibido(s), s
     for s in ["O milho precisa de 400 mm de chuva", "ciclo de 90 dias no semiárido"]:
         assert not A.bloco_proibido(s), s

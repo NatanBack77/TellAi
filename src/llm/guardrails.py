@@ -60,6 +60,8 @@ RECUSAS = {
     "estado": "Não consegui continuar essa conversa. Vamos começar de novo?",
 }
 RESPOSTA_SEGURA_SAIDA = RECUSAS["saida"]
+# categorias que o chat e a conversa NÃO bloqueavam antes (as de injeção, clima, lucro e produtividade já têm recusa própria nos dois caminhos)
+CATEGORIAS_BLOQUEIO_NOVAS = frozenset({"segredo", "infra", "interno", "financeiro", "juridico", "pessoas"})
 
 
 @dataclass
@@ -456,8 +458,9 @@ def preparar_trecho(item, *, exigir_marca: bool = False, max_chars: int = 800, c
     t = unicodedata.normalize("NFKC", bruto)
     t = _INVISIVEIS.sub("", t)
     t = re.sub(r"[\x00-\x08\x0b-\x1f\x7f]", " ", t)
+    t = _DELIM.sub("\n", t)           # delimitador vira FRONTEIRA de frase: a ordem escondida depois dele não arrasta o texto bom que vem colado
+    t = re.sub(r"(?i)(?<=\s)(system|sistema|assistant|assistente|developer|instruction|instrucao)\s*:", "\n\\1:", t)   # 'system:' no meio da linha também abre frase
     t = _PAPEL.sub("", t)
-    t = _DELIM.sub(" ", t)
     t = _TAG.sub(" ", t)
     t = _LINK.sub(" ", t)
     t = _CIT_FALSA.sub(" ", t)
@@ -587,7 +590,7 @@ def valor_permitido(valor, permitidos, maximo: int = 60) -> str | None:
 _CPF = re.compile(r"(?<!\d)\d{3}\.\d{3}\.\d{3}-\d{2}(?!\d)|(?<![\d.,-])\d{11}(?![\d.,-])")
 _CNPJ = re.compile(r"(?<!\d)\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}(?!\d)")
 _EMAIL = re.compile(r"[\w.+-]+\s?(?:@|\(at\)|\[at\]| arroba )\s?[\w-]+(?:\.|\s?\(dot\)\s?|\s?ponto\s?)[\w.-]+", re.I)
-_FONE = re.compile(r"(?<![\d.,])(?:\+?55\s?)?\(?\b\d{2}\)?[\s.-]?9?\d{4}[\s.-]?\d{4}(?![\d.,])")
+_FONE = re.compile(r"(?<![\d.,])(?:\+?55\s?)?\(?\b\d{2}\)?[\s.-]?9?\d{4}[\s.-]?\d{4}(?!\d|[.,]\d)")   # ponto/vírgula FINAL de frase não impede (antes 'zap 88 98888-7766.' passava)
 _SEGREDOS = [
     ("chave_sk", re.compile(r"\bsk-[A-Za-z0-9_-]{6,}")),
     ("bearer", re.compile(r"\bBearer\s+[A-Za-z0-9._~+/=-]{8,}", re.I)),
@@ -616,6 +619,8 @@ _PONTO_ID = re.compile(r"\b[a-z][a-z_]{2,}_(?:ce|rn|pb|pe|al|se|ba|pi|ma|mg|sp|r
 _INTERNOS_SAIDA = [
     ("engenharia", re.compile(r"\b(?:deep ?seek|open ?ai|chat ?gpt|gpt-?\d\w*|anthropic|claude|gemini|llama|mistral|qwen|kokoro|llm|modelo de linguagem|large language model)\b", re.I)),
     ("engenharia", re.compile(r"\b(?:prompt|system prompt|prompt do sistema|verificador|guardrails?|subagentes?|sub-agentes?|agentes? (?:de ia|de inteligencia|de engenharia|ab\w{6,}|ae\w{6,})|bm25|reranker|embeddings?|vetorial|vector|indice rag|\brag\b|pipeline|backend|back-end|fastapi|streamlit|uvicorn|pydantic|parquet|joblib|stub|cache da ia|temperatura zero|max_tokens)\b", re.I)),
+    # a IA falando das PRÓPRIAS regras/instruções ('minhas regras dizem...', 'meu prompt'): é vazamento do prompt mesmo sem copiar o texto nem o canário
+    ("engenharia", re.compile(r"\b(?:minhas|as minhas|nossas) (?:regras|instru[cç][oõ]es|diretrizes|ordens)\b|\b(?:meu|nosso) (?:prompt|system prompt|comando inicial)\b|\bfui (?:programad[oa]|instru[ií]d[oa]|configurad[oa]) (?:para|a)\b", re.I)),
     ("custo", re.compile(r"\b(?:us\$|usd|d[oó]lares?)\s*\d|\b\d+[.,]?\d*\s*(?:tokens?|d[oó]lares?|usd)\b|\bgasto (?:do dia|diario|di[aá]rio|da api|da ia)\b|\bsaldo (?:da|do) (?:api|conta|deepseek)\b|\bcusto (?:da|do) (?:api|ia|modelo|chamada)\b|\btokens? (?:de entrada|de saida|usados|gastos)\b|\blimite diario de chamadas\b", re.I)),
     ("interno", re.compile(r"\b(?:uso interno|apenas interno|somente interno|nao (?:divulgar|citar ao agricultor|publicar)|confidencial|sigiloso|\[interno\]|interno:|hip[oó]tese interna|opini[aã]o interna|nota interna|nota da equipe|rascunho|todo:|fixme|xxx:|hack:|gambiarra|workaround interno|segundo o time|o time de engenharia|a equipe de desenvolvimento)\b", re.I)),
     ("canario", re.compile(r"sulco[- ]canario|\bref-interna\b", re.I)),
@@ -639,7 +644,9 @@ _NEGACAO = re.compile(r"\b(?:nao|nem|sem|nunca|jamais|nenhum\w*|ninguem|impossiv
 FRASES_PERMITIDAS = ("isto e um cenario a avaliar com tecnico local", "converse com o tecnico", "a avaliar com tecnico local",
                      "esta ferramenta nao escolhe rotacao", "nao preve clima nem produtividade", "nao promete que a rotacao rende mais",
                      "ainda nao temos esse dado", "isso vale so para as proximas duas semanas", "segundo o material consultado",
-                     "o sulco nao diz qual rotacao da mais dinheiro")
+                     "o sulco nao diz qual rotacao da mais dinheiro",
+                     # exemplos que o PRÓPRIO prompt do chat manda a IA escrever (chat.SISTEMA_CHAT): copiá-los não é vazamento
+                     "o feijao costuma ser plantado depois da colheita do milho", "pelos dados do seu local")
 
 
 def _cpf_valido(s: str) -> bool:
@@ -662,10 +669,12 @@ def vazou_prompt(saida: str, sistema: str | None, n: int = 8, permitidas: tuple[
     """True se a saída copia `n` palavras seguidas do prompt do sistema (ignorando o fecho permitido). Pega o vazamento mesmo sem o canário."""
     if not sistema:
         return False
-    ps = normalizar(sistema).split()
-    so = normalizar(saida)
+    # palavras SEM pontuação: 'respostas.' (fim de frase no prompt) e 'respostas' (no meio da saída) são a mesma palavra; antes a pontuação colada
+    # permitia copiar o prompt trocando só a vírgula/ponto de lugar
+    ps = re.findall(r"\w+", normalizar(sistema))
+    so = " ".join(re.findall(r"\w+", normalizar(saida)))
     for p in permitidas:
-        so = so.replace(p, " ")
+        so = so.replace(" ".join(re.findall(r"\w+", p)), " ")
     so_p = so.split()
     if len(so_p) < n:
         return False

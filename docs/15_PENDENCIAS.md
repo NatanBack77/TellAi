@@ -1,5 +1,8 @@
 # Pendências do SULCO (lista completa e organizada)
 
+> **Atualização 2026-11-15:** ver `docs/33_PROGRESSO_2026-11-15.md` (Maíra, guardrails ligados, front do Codex em `/app`, medição real da IA e mudanças, índice agronômico construído mas ainda não avaliado/ligado, lacunas em `docs/31`, segurança em `docs/30`). Decisões abertas novas: sorgo pelo ZARC no motor; Streamlit ou front novo; servidor local ou nuvem.
+
+
 > **Estado em 2026-11-14 (fim do dia):** tudo da rodada está commitado. Resumo do que mudou desde 2026-11-13:
 > - **Chat com RAG ligado à DeepSeek** (`src/llm/`): folha de fatos do local (70 fatos com origem), fonte "sobre o Sulco", acervo de 50 PDFs; resposta em **linguagem simples**, sem siglas e sem marcadores [F#]/[n] no texto (as fontes ficam em "De onde veio esta resposta"); verificador de números, promessas, tom e repetição; recusa de pedidos de lucro/escolha de rotação; **trava de gasto** (100 chamadas/dia, 600 tokens de saída, contador em `data/processed/llm_cache/gasto.json`, ignorado pelo git). Testado com a API real: 31 chamadas, ~55 mil tokens de entrada, **~US$ 0,01 a 0,02** (o usuário tem US$ 5). Última rodada: 5 de 5 respostas da IA aprovadas.
 > - **Página de teste do chat:** `GET /teste` (HTML puro) e `GET /chat/gasto`. **Limite de taxa** na API (`src/api/limite_taxa.py`).

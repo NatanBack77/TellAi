@@ -45,7 +45,7 @@ button.sec{font:inherit;font-size:.85rem;padding:9px 12px;border:1px solid var(-
 </head>
 <body>
 <header><h1>Sulco · conversa por voz</h1>
-<small>Assistente automático. Apoia a conversa com o técnico: <b>a avaliar com técnico local</b>.</small></header>
+<small>Maíra, assistente automática (não é pessoa nem técnica). Apoia a conversa com o técnico: <b>a avaliar com técnico local</b>.</small></header>
 
 <div id="pin" class="msg aviso">
   <div><b>PIN de acesso</b> (o do arquivo .env do computador):</div>
@@ -56,9 +56,9 @@ button.sec{font:inherit;font-size:.85rem;padding:9px 12px;border:1px solid var(-
   <label>Município (opcional)<select id="mun"><option value="">(sem local)</option></select></label>
   <label>Cultura que planta (opcional)<select id="cult"><option value="">(não sei / quero conversar)</option></select></label>
   <label>Ouvir você com<select id="ouvir"><option value="navegador">Navegador (português do Brasil)</option><option value="deepseek">DeepSeek (áudio; detecta o idioma sozinha)</option></select></label>
-  <label hidden>Voz da resposta<select id="voz"><option value="kokoro" selected>Dora (voz feminina, grátis, feita no servidor)</option><option value="navegador">Navegador (português do Brasil, grátis)</option><option value="deepseek">DeepSeek (paga; NÃO é feita para português)</option><option value="nenhuma">Sem voz (só texto)</option></select></label>
-  <label hidden>Qual voz (português)<select id="vozbr"><option value="">(automática)</option></select></label>
-  <label hidden>Velocidade da fala<select id="vel"><option value="0.9">Mais devagar</option><option value="1" selected>Normal</option><option value="1.1">Mais rápida</option></select></label>
+  <label hidden style="display:none">Voz da resposta<select id="voz"><option value="kokoro">Dora (voz feminina, grátis, feita no servidor)</option><option value="navegador" selected>Navegador (português do Brasil, grátis)</option><option value="deepseek">DeepSeek (paga; NÃO é feita para português)</option><option value="nenhuma">Sem voz (só texto)</option></select></label>
+  <label hidden style="display:none">Qual voz (português)<select id="vozbr"><option value="">(automática)</option></select></label>
+  <label hidden style="display:none">Velocidade da fala<select id="vel"><option value="0.9">Mais devagar</option><option value="1" selected>Normal</option><option value="1.1">Mais rápida</option></select></label>
   <label>Modo<select id="modo"><option value="continua">Conversa contínua</option><option value="toque">Um toque por vez</option></select></label>
 </div>
 
@@ -67,7 +67,7 @@ button.sec{font:inherit;font-size:.85rem;padding:9px 12px;border:1px solid var(-
 </div>
 
 <footer>
-  <div id="status">Toque em “Começar” para conversar com o assistente.</div>
+  <div id="status">Toque em “Começar” para conversar com a Maíra.</div>
   <div id="linha">
     <button class="sec" id="parar" style="display:none">Encerrar</button>
     <button id="mic">Começar</button>
@@ -88,7 +88,7 @@ const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
 const PT = /\b(que|de|para|o|a|os|as|um|uma|não|nao|com|eu|quero|como|qual|quais|posso|plantar|milho|feijão|feijao|chuva|água|agua|solo|aqui|meu|minha|fazer|tem|vai|é|se|em|no|na|dá|da|do)\b/i;
 const LIMIAR = 0.02, SILENCIO_MS = 3500, ESPERA_MS = 9000, MAX_MS = 60000;
 function el(tag, cls, txt){const e=document.createElement(tag); if(cls) e.className=cls; if(txt!==undefined) e.textContent=txt; return e;}
-function msg(cls, txt, tag){const m=el('div','msg '+cls); if(tag) m.append(el('div','tag',tag)); m.append(document.createTextNode(txt)); $('conversa').append(m); m.scrollIntoView({block:'end'}); return m;}
+function msg(cls, txt, tag){const m=el('div','msg '+cls); if(tag){ const t=el('div','tag',tag); t.style.display='block'; t.style.marginBottom='4px'; m.append(t); } m.append(document.createTextNode(txt)); $('conversa').append(m); m.scrollIntoView({block:'end'}); return m;}
 function status(t){$('status').textContent=t;}
 function cab(){return {'X-Voz-Pin': estado.pin};}
 
@@ -174,7 +174,7 @@ function ouvirNavegador(){
     const texto = textoTotal();
     if (!texto){ if (estado.ativo && estado.tentativas++ < 1){ return comecarGravacao(); } status('Não ouvi nada. Toque em “Falar” e tente de novo.'); estado.ativo=false; $('parar').style.display='none'; return; }
     estado.tentativas=0; estado.ocupado=true; $('mic').disabled=true;
-    try{ await perguntar(texto); }catch(e){ if(e.message!=='PIN'){ msg('aviso', e.message); estado.ativo=false; } }
+    try{ await perguntar(texto); }catch(e){ if(e.message!=='PIN'){ msg('aviso', 'Não consegui responder agora. Tente de novo.'); status('Toque em “Falar” e tente de novo.'); estado.ativo=false; } }
     estado.ocupado=false; $('mic').disabled=false; custo();
   };
   const abrir = () => {
@@ -213,6 +213,7 @@ async function terminarGravacao(semFala){
   estado.ocupado=false; $('mic').disabled=false; custo();
 }
 async function perguntar(texto, mostrar=true){
+  estado.perguntaGrande = texto.trim().split(/\s+/).length >= 12;
   const eSaudacao = !mostrar;
   limparChips(); if (mostrar) msg('eu', texto, 'você');
   status('Pensando...');
@@ -237,7 +238,7 @@ async function perguntar(texto, mostrar=true){
   try{ r = await (await chamar('/conversa',{method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(corpo)})).json(); }
   finally{ temas.forEach(clearTimeout); estado.esperando=false; }
   estado.conversa = r.estado;
-  const rotulo = (r.assistente || 'Assistente automático do Sulco') + ' · ' + ((performance.now()-t0)/1000).toFixed(1) + ' s' + (r.origem==='llm' ? ' · IA' : '');
+  const rotulo = 'Maíra · assistente automática' + ' · ' + ((performance.now()-t0)/1000).toFixed(1) + ' s' + (r.origem==='llm' ? ' · IA' : '');
   msg('sist', r.resposta, rotulo);
   mostrarChips(r.chips || []);
   await falar(r.resposta);
@@ -254,9 +255,10 @@ function mostrarChips(chips){
     $('chips').append(b); }
 }
 async function iniciarConversa(){
-  estado.conversa=null; estado.iniciada=true; estado.parou=false; estado.ativo=$('modo').value==='continua'; estado.ocupado=true; $('mic').disabled=true;
-  try{ await perguntar('oi', false); }catch(e){ if(e.message!=='PIN') msg('aviso', e.message); }
-  estado.ocupado=false; $('mic').disabled=false; custo();
+  // não fala sozinha: só abre o microfone. Quem cumprimenta primeiro é você ("bom dia"), e ela responde e se apresenta.
+  estado.conversa=null; estado.iniciada=true; estado.parou=false; estado.ativo=$('modo').value==='continua';
+  status('Pode falar. Comece dizendo, por exemplo, “bom dia”.'); $('mic').disabled=false;
+  await comecarGravacao();
 }
 async function falar(texto){
   const modo=$('voz').value; if (modo==='nenhuma') return;
@@ -278,21 +280,16 @@ async function falarDe(texto, modo){
     return;
   }
   try{
-    // fala em pedaços: o primeiro pedaço (uma frase) começa a tocar enquanto o próximo ainda está sendo gerado
+    // lê a resposta INTEIRA, como está escrita na tela, em pedaços curtos. Todos os pedaços começam a ser gerados já (em fila),
+    // sem esperar o anterior tocar: assim não há silêncio a cada ponto final.
     const frases=(texto.replace(/\s+/g,' ').match(/[^.!?;:]+[.!?;:]?/g)||[texto]).map(x=>x.trim()).filter(Boolean);
-    // resposta falada curta (a resposta completa fica escrita na tela): até ~260 caracteres, cortando no fim de uma frase
-    // não repete o que a pessoa acabou de dizer ("Entendi, você quer..."): isso fica só na tela; fala só o que é novo
-    const ECO=/^(entendi|certo|combinado|anotado|tudo bem|beleza)\b[^?]*?[.:]?$/i;
-    let uteis=frases.filter(f=>!(ECO.test(f) && f.length<90)); if (!uteis.length) uteis=frases.slice(-1);
-    const faladas=[]; let tam=0; for (const f of uteis){ if (faladas.length && tam+f.length>200) break; faladas.push(f); tam+=f.length+1; }
-    const cortou = faladas.length < uteis.length; if (cortou) faladas.push('O resto está escrito na tela.');
-    let ini0=faladas[0]; const vi=ini0.search(/[,:]\s/); if (ini0.length>70 && vi>20 && vi<ini0.length-25){ faladas.splice(0,1,ini0.slice(0,vi+1), ini0.slice(vi+1).trim()); }   // 1º pedaço curto: começa a falar mais cedo
-    const partes=[faladas[0]]; let atual=''; for (const f of faladas.slice(1)){ if (atual && (atual+' '+f).length>150){ partes.push(atual); atual=f; } else atual=(atual+' '+f).trim(); } if (atual) partes.push(atual);   // 1ª frase sozinha: começa a falar mais cedo
+    let ini0=frases[0]; const vi=ini0.search(/[,:]\s/); if (ini0.length>70 && vi>20 && vi<ini0.length-25){ frases.splice(0,1,ini0.slice(0,vi+1), ini0.slice(vi+1).trim()); }   // 1º pedaço curto: começa a falar mais cedo
+    const partes=[frases[0]]; let atual=''; for (const f of frases.slice(1)){ if (atual && (atual+' '+f).length>170){ partes.push(atual); atual=f; } else atual=(atual+' '+f).trim(); } if (atual) partes.push(atual);
     const pedir=(t)=>chamar('/voz/falar',{method:'POST', headers:{...cab(),'Content-Type':'application/json'}, body:JSON.stringify({texto:t, motor: modo==='kokoro' ? 'kokoro' : 'deepseek'})}).then(r=>r.blob());
-    let proximo=pedir(partes[0]);
-    for (let i=0;i<partes.length;i++){
-      const blob=await proximo; if (i+1<partes.length) proximo=pedir(partes[i+1]);
-      if (estado.parou) break;
+    const fila=[]; let cadeia=Promise.resolve();
+    for (const t of partes){ const pr=cadeia.then(()=>estado.parou?null:pedir(t)); fila.push(pr); cadeia=pr.catch(()=>null); }
+    for (let i=0;i<fila.length;i++){
+      const blob=await fila[i]; if (!blob || estado.parou) break;
       const url=URL.createObjectURL(blob); const p=$('player'); p.src=url;
       await new Promise(res => { p.onended=res; p.onerror=res; p.play().catch(res); });
       URL.revokeObjectURL(url);

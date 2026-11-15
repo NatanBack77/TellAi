@@ -70,7 +70,7 @@ def test_conversa_aceita_plantios_no_estado_e_no_perfil_sem_quebrar_o_contrato(c
     r = cli.post("/conversa", json={"mensagem": "como choveu?", "ponto_id": PID, "estado": {"plantios": [pl]}})
     j = r.json()
     assert r.status_code == 200 and j["acao"] == "responder" and "choveram" in j["resposta"] and j["calendario"]["tema"] == "chuva"
-    assert j["estado"]["plantios"] == [pl] and j["pergunta"] and j["pede"] == "confirmacao" and j["fontes"] and j["assistente"].startswith("Assistente automático")
+    assert j["estado"]["plantios"] == [pl] and j["pergunta"] and j["pede"] == "confirmacao" and j["fontes"] and j["assistente"].startswith("Maíra, assistente automática")
     r2 = cli.post("/conversa", json={"mensagem": "como choveu?", "ponto_id": PID, "perfil": {"plantios": [pl]}})
     assert r2.status_code == 200 and r2.json()["calendario"]["plantio"]["cultura"] == "milho"
     # o contrato antigo segue igual

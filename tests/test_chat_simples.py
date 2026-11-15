@@ -167,7 +167,10 @@ def test_texto_simples_de_cada_tema_no_municipio_completo(folhas):
     met = [x for x in folhas["quixada_ce"]["fatos"] if x["rotulo"] == "skill por fase"][0]["texto_simples"]
     assert met.startswith("Nos testes, o modelo acerta melhor que usar só a média dos anos anteriores, mas só olhando as próximas duas semanas")
     cam = [t for t in por_tema["caminhos"] if t.startswith("Caminho 2")][0]
-    assert "milho" in cam and "feijão-caupi" in cam and "Os dados não mostram qual é melhor." in cam
+    # Caminho 2 = crotalária juncea (não mais feijão-caupi): os cenários foram regerados com a matriz de rotação e o ZARC novos (commit 7bb3e12d);
+    # as alternativas saem do sorteio do motor com empate técnico (fatos 'caminho 2'/'caminho 3'), e o feijão-caupi segue como Caminho 3.
+    assert "milho" in cam and "crotalária juncea" in cam and "Os dados não mostram qual é melhor." in cam
+    assert any(t.startswith("Caminho 3") and "feijão-caupi" in t for t in por_tema["caminhos"])
     assert any("por volta de fevereiro" in t for t in por_tema["janela"])
     assert any("R$ 485" in t and "não é lucro" in t for t in por_tema["renda"])
     assert any("ainda não temos dado de" in t.lower() for t in por_tema["renda"] + por_tema["caminhos"])
@@ -456,7 +459,9 @@ def test_texto_padrao_dos_caminhos_uma_linha_por_caminho_na_ordem(folhas):
     assert ls[0].startswith("Caminho 1 (o que você faz hoje): repetir milho") and "só para comparar" in ls[0]
     assert ls[1].startswith("Caminho 2:") and ls[2].startswith("Caminho 3:")
     assert sum(l.startswith("Caminho 2") for l in ls) == 1 and sum(l.startswith("Caminho 1") for l in ls) == 1
-    assert all("melhor época para começar: fevereiro" in l for l in ls[:3]) and "ainda não temos dado de" in ls[1]
+    assert all("melhor época para começar: fevereiro" in l for l in ls[:3])
+    # a lacuna de nitrogênio/palha ('ainda não temos dado de') agora está no Caminho 3 (feijão-caupi): a crotalária (Caminho 2) tem N e palha em estudo pontual
+    assert "crotalária juncea" in ls[1] and "ainda não temos dado de" in ls[2]
     assert any("não mostram qual é melhor" in l for l in ls) and "[F" not in r["resposta"] and not termos_tecnicos(r["resposta"])
     assert "[F" in r["resposta_com_citacoes"]
 

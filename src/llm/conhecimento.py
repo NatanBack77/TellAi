@@ -20,9 +20,16 @@ from . import intencao as IT
 from . import sobre_sulco as _sulco
 from .verificador import contar_palavras, limpar_citacoes, sem_acento
 
-MAX_FATOS = 7
-TETO_TOKENS_LIVRE = 650               # fatos da pergunta; o prompt todo (sistema + pergunta + fatos) fica abaixo de ~2.800 tokens
+MAX_FATOS = 14                    # medição de 2026-11-15: a IA recebia 1 a 4 fatos e não tinha com o que analisar
+TETO_TOKENS_LIVRE = 1100               # fatos da pergunta; o prompt todo (sistema + pergunta + fatos) fica abaixo de ~2.800 tokens
 MAX_PALAVRAS_PADRAO = 56          # resposta falada: ~60 palavras
+# PERGUNTA GRANDE (12+ palavras, 2+ temas ou pedido de explicação): o limite é dinâmico. Resposta ~110 palavras, até 8 fatos, frases curtas.
+LIMITE_PALAVRAS_CURTA = 90        # o que o prompt pede para pergunta curta
+LIMITE_PALAVRAS_GRANDE = 130      # o que o prompt pede para pergunta grande
+MAX_PALAVRAS_PADRAO_GRANDE = 106  # texto padrão (sem IA) da pergunta grande
+MAX_FATOS_GRANDE = 18
+TETO_TOKENS_GRANDE = 1400          # fatos da pergunta grande; o prompt todo continua abaixo de 2.800 tokens (testado)
+_PEDE_EXPLICACAO = re.compile(r"\b(explica\w*|explique\w*|por ?que|porque|como funciona|me conta|conta pra mim|conta para mim|me diga|detalha\w*)\b")
 FECHO = "Converse com o técnico."
 SEM_RESPOSTA = "Isso eu não achei nos dados do Sulco nem no material que tenho, e não quero chutar. Vale perguntar ao técnico."
 
@@ -79,7 +86,7 @@ _T = [
     ("veranico", r"veranico|dias? (seguidos? )?sem chuva|dias? .{0,15}sem (chuva|chover)|chuva falha|falhou a chuva|para de chover|estiagem (no meio|dentro)|chuva (ficou|fica) (parada|falhando)"),
     ("chuva_epoca", r"(quando|que (mes|meses|epoca)|em que (mes|epoca)|comeca|comecam|inicio|vem|chega|volta).{0,28}(chov|chuv|inverno|aguas|quadra)|epoca d[aeo]s? (chuva|aguas|inverno)|estacao chuvosa|\bquadra\b|chove (mais|pouco|muito|bem)|quanto (chove|de chuva)|chuva (media|por ano|normal|do ano)|pluviosidade|meses? (de|da) chuva|tempo d[aeo]s? (chuva|aguas)|\binverno\b|aguas (do|de) (inverno|ano)|chuvas? (aqui|na regiao|no municipio)"),
     ("solo_nu", r"(solo|terra|chao) (\w+ )?(fica|esta|costuma ficar|fica de|vira) (nu|nua|descoberto|descoberta|pelad\w+|exposto|exposta)|solo nu|terra nua|terra descoberta|solo descoberto|chao nu|sem verde|terra pelada|terra (fica|costuma ficar) (nua|descoberta|exposta)|fica descoberta|cobertura do solo"),
-    ("estresse", r"estress|\bsofre\b|sofrimento|sofrem|epoca ruim|planta(s)? (fica|ficam) (fraca|fracas)|pior epoca|epoca mais dificil"),
+    ("estresse", r"estress|\bsofr\w+|epoca ruim|planta(s)? (fica|ficam) (fraca|fracas)|pior epoca|epoca mais dificil"),
     ("extremos", r"dias? (muito )?quentes?|calor (forte|demais|extremo|exagerado)|onda de calor|temporal|chuva (muito )?forte|chuva extrema|tempestade|rajada|maior chuva"),
     ("agua_balanco", r"da conta d[ae]|calor tira|a agua que (o calor|a planta|evapora)|evapora|evapotransp|\beto\b|falta (de )?agua|balanco hidrico|\bsaldo\b|agua (no|do|da) (solo|terra)|umidade|seca (demais|de mais|todo|o ano)|\bseco\b (o|todo)"),
     ("erosao", r"erosao|enxurrada|(levar|leva|lavar|lava|carregar|carrega|arrastar|arrasta) a terra|escoamento|ravina|declive|terreno inclinado|ladeira|barranco|perda de solo"),
@@ -128,11 +135,29 @@ def parece_pergunta(msg: str) -> bool:
     return bool("?" in str(msg) or _PERGUNTA.search(n) or _SO_QUESTAO.search(n))
 
 
+def pergunta_grande(pergunta) -> bool:
+    """Pergunta que pede resposta mais longa: 12+ palavras, junta 2+ temas ou pede explicação ('explica', 'por que', 'como funciona', 'me conta')."""
+    n = _norm(pergunta)
+    if len(n.split()) >= 12 or _PEDE_EXPLICACAO.search(n):
+        return True
+    try:
+        return len(detectar_temas(pergunta)) >= 2
+    except Exception:  # noqa: BLE001
+        return False
+
+
 def detectar_temas(pergunta: str) -> list[str]:
     """Temas da pergunta na ordem de prioridade do roteador (sem LLM). Tolera erro de grafia (corrige palavras parecidas com o vocabulário)."""
     n = _norm(pergunta)
     nc = corrigir_grafia(n)
     ach = [t for t, r in TEMAS if r.search(n) or (nc != n and r.search(nc))]
+    # "vale a pena plantar X aqui?" / "compensa plantar X?": a pessoa quer saber se a cultura COMBINA com o lugar. Não é pedido de lucro:
+    # responde com o clima, o zoneamento e a época, e diz numa frase que preço e custo o Sulco não tem (medição de 2026-11-15).
+    if "lucro" in ach and re.search(r"vale a pena|compensa|\bserve\b|da certo", nc) and not re.search(r"lucr|dinheiro|ganh|fatur|\brico\b|financeir|rentab|paga", nc):
+        ach = [t for t in ach if t != "lucro"]
+        for t in ("cultura_clima", "zarc_plantio", "preco"):
+            if t not in ach:
+                ach.append(t)
     # 'terra' sozinho (tema solo) só vale sem tema de lacuna/clima mais específico
     if "solo" in ach and len(ach) > 1 and re.fullmatch(r".*", n) and not re.search(r"\bsolo\b|argila|areia|arenos|textura|fertil|\bph\b|acid|fraca|fraco|cansada|pobre|ruim", nc):
         ach.remove("solo")
@@ -164,6 +189,8 @@ def detectar_temas(pergunta: str) -> list[str]:
         ach = [t for t in ach if t not in ("chuva_epoca", "ciclo")]
     if "modelo" in ach and "previsao" in ach:
         ach.remove("previsao")
+    if "estresse" in ach and "previsao" in ach and not re.search(r"previs|prever|proxim|vai (melhorar|piorar|ficar|estar)|amanha|mes que vem", nc):
+        ach.remove("previsao")      # "quando a vegetação costuma sofrer" pergunta do passado: não mistura a previsão
     if "zarc_plantio" in ach and "chuva_epoca" in ach and not re.search(r"plant", nc):
         ach.remove("zarc_plantio")
     if "limites" in ach and "sobre_sulco" in ach:
@@ -237,6 +264,8 @@ def sem_numeros(fatos: list[dict]) -> list[dict]:
         q = _sem_extenso(q) if q else q
         if q and not tem_numero(q):
             out.append({**f, "texto_simples": " ".join(q.split()), "numeros": False})
+        elif not f.get("lacuna"):
+            out.append({**f, "so_comparar": True})      # sem versão em palavras: vai com o número, e a IA é instruída a dizer só a comparação
     return out
 
 
@@ -388,6 +417,10 @@ def _fatos_viabilidade(cid: str, ponto: str | None, tema: str = "viabilidade") -
         qual = (f"No seu local, {_art(cid)} fica dentro das faixas de chuva e calor {_pct_qual(p)} dos anos olhados" if p is not None else f"No seu local, {_art(cid)} fica dentro das faixas de chuva e calor")
         qual += (f", começando perto de {mes_ini}" if mes_ini else "") + ". É o que os dados mostram, não promessa de colheita."
         return [_f(tema, f"viabilidade de {cid}", txt, o, prio=1, qual=qual)]
+    if v["estado"] == "inviavel":                 # dados em conflito (EcoCrop x ZARC/PAM): não afirma que 'não dá'; diz que os dados não fecham
+        cf = FT.fato_conflito(cid, ponto, _nomes())
+        if cf:
+            return [_f(tema, f"dados em conflito: {cid}", cf["texto_simples"], cf["origem"], lacuna=True, prio=1)]
     m = re.search(r"(\d+)% dos (\d+) anos.*melhor in[ií]cio: (\d+)%", " ".join(v.get("motivos") or []))
     qual_inv = None
     if m:
@@ -889,7 +922,7 @@ def _fatos_rag(pergunta: str, buscar_fn=None, max_trechos: int = 2) -> list[dict
 # com a ficha por BM25 (o mesmo do acervo, `rag.busca`), de modo que assuntos que nenhuma regra de tema prevê ainda achem fatos.
 LIMIAR_BM25 = 3.5          # medido na bateria (docs/21_resultados_fases/CONVERSA_LIVRE.md): abaixo disso a pergunta é de fora do Sulco
 LIMIAR_COBERTURA = 0.30    # fração (ponderada por idf) das palavras da pergunta que o fato cobre
-K_FICHA = 4
+K_FICHA = 8
 _TAGS = {
     "diagnostico": "clima chuva estação chuvosa inverno veranico seco terra descoberta solo nu estresse planta sofre épocas verão satélite tendência anos",
     "previsao": "verde satélite vegetação futuro próximas semanas previsão ndvi melhorar piorar normal",
@@ -1105,19 +1138,24 @@ def _cortar(fatos: list[dict], teto_tokens: int, max_fatos: int) -> list[dict]:
 
 
 def selecionar_fatos(pergunta: str, ponto_id: str | None = None, estado: dict | None = None, *, buscar_fn=None, usar_rag: bool = True, hoje=None,
-                     max_fatos: int = MAX_FATOS, teto_tokens: int = TETO_TOKENS_LIVRE, numeros: bool = True) -> dict:
+                     max_fatos: int | None = None, teto_tokens: int | None = None, numeros: bool = True) -> dict:
     """Folha de fatos para uma pergunta livre.
 
     Devolve {temas, culturas, fatos[{id,tema,rotulo,texto,texto_simples,origem,lacuna,prio,papel}], lacunas[tema], precisa_local, usou_rag}.
     `estado`: estado da conversa (culturas, ponto_id, proibidas). Nunca levanta; sem nada para dizer, devolve UM fato de lacuna ('não achei')."""
     est = estado if isinstance(estado, dict) else {}
+    grande = pergunta_grande(pergunta)
+    max_fatos = max_fatos or (MAX_FATOS_GRANDE if grande else MAX_FATOS)
+    teto_tokens = teto_tokens or (TETO_TOKENS_GRANDE if grande else TETO_TOKENS_LIVRE)
     try:
         from datetime import date
-        return _selecionar(pergunta, ponto_id, est, buscar_fn, usar_rag, max_fatos, teto_tokens, hoje or date.today(), numeros)
+        sel = _selecionar(pergunta, ponto_id, est, buscar_fn, usar_rag, max_fatos, teto_tokens, hoje or date.today(), numeros)
+        sel["grande"] = grande
+        return sel
     except Exception as e:  # noqa: BLE001 - a conversa nunca quebra por causa do roteador
         f = _f("nada", "sem resposta", SEM_RESPOSTA, f"roteador ({type(e).__name__})", lacuna=True, prio=0)
         f["id"] = "F1"
-        return {"temas": [], "culturas": [], "fatos": [f], "lacunas": [], "precisa_local": False, "usou_rag": False}
+        return {"temas": [], "culturas": [], "fatos": [f], "lacunas": [], "precisa_local": False, "usou_rag": False, "grande": grande}
 
 
 def _selecionar(pergunta, ponto_id, est, buscar_fn, usar_rag, max_fatos, teto_tokens, hoje, numeros=True) -> dict:
@@ -1261,7 +1299,7 @@ def _selecionar(pergunta, ponto_id, est, buscar_fn, usar_rag, max_fatos, teto_to
     # --- ficha completa: busca por similaridade (assuntos que nenhuma regra de tema prevê, e fatos de outros temas que ajudam a mesma resposta)
     melhor = 0.0
     nao_lacuna = [f for f in fatos if not f["lacuna"]]
-    if len(nao_lacuna) < 3 or not temas:
+    if True:        # a ficha completa entra SEMPRE: além dos fatos do tema, a IA recebe os fatos vizinhos (chuva, zoneamento, solo...) para relacionar
         try:
             achados = buscar_ficha(pergunta, ponto, cult)
         except Exception:  # noqa: BLE001
@@ -1270,7 +1308,7 @@ def _selecionar(pergunta, ponto_id, est, buscar_fn, usar_rag, max_fatos, teto_to
             melhor = achados[0][0]
         have = {f["texto_simples"] for f in fatos}
         novos = [{**f, "prio": min(f["prio"], 2) + (0 if not temas else 1)} for _, f in achados if f["texto_simples"] not in have]
-        fatos.extend(novos[: (K_FICHA if not temas else 2)])
+        fatos.extend(novos[: (K_FICHA if not temas else 6)])
         nao_lacuna = [f for f in fatos if not f["lacuna"]]
     # --- acervo (RAG): assuntos de manejo, ou quando nenhuma fonte do Sulco respondeu
     usou_rag = False
@@ -1291,10 +1329,12 @@ def _selecionar(pergunta, ponto_id, est, buscar_fn, usar_rag, max_fatos, teto_to
     if not numeros:                      # o usuário não pediu número: a resposta usa palavras (versão qualitativa de cada fato)
         tinha = any(not f["lacuna"] for f in fatos)
         fatos = sem_numeros(fatos)
-        if tinha and not any(not f["lacuna"] for f in fatos) and not temas:
+        resp = [f for f in fatos if not f["lacuna"] and not f.get("so_comparar")]      # fatos que respondem EM PALAVRAS (os 'so_comparar' só servem à IA)
+        if tinha and not resp and not temas:      # nenhum tema e só achados com número da ficha (parecidos por acaso): honesto, 'não achei'
             fatos = [f for f in fatos if f["lacuna"]] + [_f("nada", "sem resposta", SEM_RESPOSTA, "roteador: nenhuma fonte do Sulco respondeu", lacuna=True, prio=0)]
-        elif tinha and not any(not f["lacuna"] for f in fatos):
-            fatos.append(_f("nada_numero", "só com número", "Tenho esse dado em números. Se quiser ver, pergunte com \"quanto\" ou \"quantos\" que eu mostro.", "regra: número só se o usuário pedir", prio=1))
+        elif tinha and not resp and not any(f["lacuna"] for f in fatos):
+            # só há fatos com número e nenhuma lacuna a dizer: o texto padrão oferece os números (com lacuna, a lacuna já é a resposta: sem frase contraditória)
+            fatos.append(_f("nada_numero", "só com número", "Para isso eu tenho os números. Se quiser, é só pedir que eu digo.", "regra: número só se o usuário pedir", prio=1))
     fatos = _cortar(fatos, teto_tokens, max_fatos)
     trechos = []
     for i, f in enumerate(fatos, 1):
@@ -1316,17 +1356,19 @@ def _qualquer_ponto() -> str | None:
 
 
 # ------------------------------------------------------------------------------------------------ texto padrão (sem LLM)
-def texto_padrao_livre(sel: dict, max_palavras: int = MAX_PALAVRAS_PADRAO) -> str:
+def texto_padrao_livre(sel: dict, max_palavras: int | None = None) -> str:
     """Resposta SEM IA: a lacuna dita primeiro (quando é o caso), depois 'o que eu tenho' em até 3 frases dos fatos, cada uma com [F#] para conferência
     (`limpar_citacoes` tira os marcadores da tela), e o fecho. Corta frases até caber em `max_palavras`."""
     fatos = sel["fatos"]
+    grande = bool(sel.get("grande"))                      # pergunta grande: até 5 frases e ~106 palavras (em vez de 3 e 56)
+    max_palavras = max_palavras or (MAX_PALAVRAS_PADRAO_GRANDE if grande else MAX_PALAVRAS_PADRAO)
     lac = [f for f in fatos if f["lacuna"] and f["prio"] == 0 and f["tema"] != "nada"]
     sem_resp = [f for f in fatos if f["tema"] == "nada"]
-    resto = [f for f in fatos if f not in lac and f not in sem_resp]
+    resto = [f for f in fatos if f not in lac and f not in sem_resp and not f.get("so_comparar")]     # fato com número sem versão em palavras: só a IA usa
     if sem_resp and not resto:
         return SEM_RESPOSTA
     linhas = [f"{f['texto_simples']} [{f['id']}]" for f in lac[:2]]
-    ate = 3 - min(len(lac), 1)
+    ate = (5 if grande else 3) - min(len(lac), 1)
     corpo = [f"{f['texto_simples']} [{f['id']}]" for f in resto[:ate + (1 if not lac else 0)]]
     if lac and corpo:
         linhas.append("O que eu tenho para isso:")

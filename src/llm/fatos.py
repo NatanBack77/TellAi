@@ -1065,9 +1065,12 @@ def fatos_ciclo(c: _Coletor, ciclo: dict, nomes: dict, foco: str | None = None, 
         elif d["estado"] == "inviavel":
             c.add("conv_ciclo", f"viabilidade de {cid}", f"{d['nome']}: em nenhum início de plantio a cultura ficou dentro das faixas em anos suficientes "
                   f"(melhor início: {pct(d['p_ano_viavel'], 0)} dos anos).", ORIGEM_AVALIAR + ": per_cultura", 1,
-                  simples=f"Pelo clima dos últimos anos, {n} fica difícil no seu local: no melhor mês para começar, só deu certo "
-                          f"{anos_txt(d['p_ano_viavel'])}.")
+                  simples=f"Pelo clima dos últimos anos, {n} fica difícil no seu local, porque a chuva ou o calor ficaram fora do que a planta aceita: "
+                          f"no melhor mês para começar, só ficou dentro {anos_txt(d['p_ano_viavel'])}.")
             c.fatos[-1]["papel"] = "viab"
+            cf = fato_conflito(cid, ciclo.get("ponto_id"), nomes)
+            if cf:                       # fontes se contradizem: não afirma que 'não dá'; troca a frase por 'dados em conflito'
+                c.fatos[-1].update({"texto_simples": cf["texto_simples"], "origem": cf["origem"], "lacuna": True, "papel": "conflito", "prio": 1})
         else:
             c.lacuna("conv_ciclo", f"viabilidade de {cid}", f"{d['nome']}: sem avaliação de clima neste local ({_curto('; '.join(d['lacunas']) or 'faltou dado', 160)}).",
                      ORIGEM_AVALIAR + ": per_cultura", 1, simples=f"Ainda não deu para avaliar {n} no seu local: faltou dado de clima.")
@@ -1193,32 +1196,123 @@ def texto_limite_viabilidade(crit: dict | None) -> tuple[str, str]:
     Sem `crit` (avaliação antiga): só afirma o que sempre vale (clima) e diz que não sabe se o zoneamento entrou."""
     if not crit:
         return ("A viabilidade olha temperatura e chuva do ciclo (motor do Sulco); não considera semente, mão de obra nem mercado, e não foi informado se o zoneamento (ZARC) entrou.",
-                "Isso olha chuva e calor; não olha semente nem preço.")
-    olhou, olhou_s, nao, nao_s = ["temperatura e chuva do ciclo"], ["chuva e calor"], [], []
+                "Eu olhei a chuva e o calor daí. Semente e preço eu ainda não tenho.")
+    olhou, olhou_s, nao, nao_s = ["temperatura e chuva do ciclo"], ["a chuva e o calor daí"], [], []
     if crit.get("zarc") in ("sim", "parcial"):
         olhou.append("as datas de plantio do zoneamento do governo (ZARC, risco " + str(crit.get("zarc_risco")) + ")" + ("; para parte das culturas, sem zoneamento, uma janela aproximada" if crit["zarc"] == "parcial" else ""))
-        olhou_s.append("as datas do zoneamento do governo" + (" (nas plantas sem zoneamento, uma data aproximada)" if crit["zarc"] == "parcial" else ""))
+        olhou_s.append("as datas do zoneamento do governo")
     else:
-        nao.append("o zoneamento de plantio (ZARC)"); nao_s.append("as datas do zoneamento do governo")
+        nao.append("o zoneamento de plantio (ZARC)"); nao_s.append("as datas do zoneamento")
     if crit.get("solo_ecocrop"):
         olhou.append("pH e textura do solo estimados de mapa global (não é análise)"); olhou_s.append("o solo (pelo mapa, não por análise)")
     else:
-        nao.append("o solo do local (pH, textura)" + ("; o tipo de solo só escolhe a data do zoneamento" if crit.get("solo_zarc") else "")); nao_s.append("o solo")
+        nao.append("o solo do local (pH, textura)" + ("; o tipo de solo só escolhe a data do zoneamento" if crit.get("solo_zarc") else "")); nao_s.append("solo")
     nao += ["semente", "preço e mercado"]; nao_s += ["semente", "preço"]
     if not crit.get("municipio_planta"):
-        nao.append("o que o município já planta (IBGE/PAM)"); nao_s.append("o que o seu município costuma plantar")
+        nao.append("o que o município já planta (IBGE/PAM)"); nao_s.append("o que o município costuma plantar")
     lst = lambda xs: xs[0] if len(xs) == 1 else ", ".join(xs[:-1]) + " e " + xs[-1]
-    return (f"A viabilidade olhou {lst(olhou)}; não considera {lst(nao)}.", f"Isso olhou {lst(olhou_s)}; ainda não olha {lst(nao_s)}.")
+    nao_s = [x.replace("as datas do zoneamento do governo", "as datas do zoneamento") for x in nao_s]
+    simples = f"Eu olhei {lst(olhou_s)}. {lst(nao_s).capitalize()} eu ainda não tenho."
+    return (f"A viabilidade olhou {lst(olhou)}; não considera {lst(nao)}.", simples)
 
 
-def fatos_sugestao(c: _Coletor, sug: dict, nomes: dict, restricoes: list[str] | None = None, manejo: str | None = None) -> None:
-    """Fatos da sugestão por foco ('o que dá para plantar aqui', 'quero economizar água')."""
+
+# ---- 'o que dá para plantar': agrupar por uso (frases curtas para ler em voz alta) e tratar 'dados em conflito'
+# Uso de cada cultura da lista do Sulco (classificação agronômica comum; o acervo trata crotalária, mucuna, guandu e feijão-de-porco como adubos verdes).
+_USO = {"milho": "comida", "feijao_caupi": "comida", "feijao_comum": "comida", "mandioca": "comida",
+        "algodao": "renda", "amendoim": "renda", "gergelim": "renda", "girassol": "renda", "mamona": "renda",
+        "palma_forrageira": "gado", "sorgo": "gado", "milheto": "gado",
+        "crotalaria_juncea": "terra", "mucuna": "terra", "guandu": "terra", "feijao_de_porco": "terra"}
+_ABRE_USO = {"comida": "Para comida", "renda": "Para vender", "gado": "Para o gado", "terra": "Para cuidar da terra"}
+MAX_NOMES_FRASE = 5
+
+
+def frases_por_uso(nomes: dict, ids: list[str], abertura: str = "Pelo clima daí, ") -> str:
+    """Culturas agrupadas por uso, uma frase curta por grupo, no máximo 5 nomes por frase. Só agrupa; não escolhe nem ordena por mérito."""
+    grupos: dict[str, list[str]] = {}
+    for cid in ids:
+        grupos.setdefault(_USO.get(cid, "outras"), []).append(cid)
+    frases = []
+    for uso in ("comida", "renda", "gado", "terra", "outras"):
+        g = grupos.get(uso)
+        if not g:
+            continue
+        nm = [_nm(nomes, x) for x in g[:MAX_NOMES_FRASE]]
+        ls = nm[0] if len(nm) == 1 else ", ".join(nm[:-1]) + " e " + nm[-1]
+        ls += " e outras" if len(g) > MAX_NOMES_FRASE else ""
+        frases.append((_ABRE_USO.get(uso, "Também") + ", " + ls + ".") if frases else (abertura + _ABRE_USO.get(uso, "Também").lower() + ", dão certo " + ls + "."))
+    return " ".join(frases)
+
+
+_FEM_CONFLITO = {"mandioca", "palma_forrageira", "crotalaria_juncea", "mucuna", "mamona"}
+
+
+def fato_conflito(cid: str, ponto: str | None, nomes: dict) -> dict | None:
+    """'Dados em conflito': o cálculo de clima (EcoCrop) diz que a cultura não fica dentro das faixas, MAS há zoneamento oficial (ZARC/MAPA) para ela no município
+    e/ou área colhida no IBGE (PAM). Nesse caso o assistente NÃO afirma que 'não dá': diz que os dados não fecham e manda para o técnico. None = sem conflito."""
+    if not ponto:
+        return None
+    zarc = pam = False
+    try:
+        from src.app import filtros as F
+        from src.culturas import zarc as Z
+        j = Z.janela(Z.geocodigo_do_ponto(ponto), cid, F.RISCO_ZARC, "qualquer")
+        perm = j.get("permitido")
+        zarc = bool(perm is not None and len(perm) == 36 and not j.get("aproximada") and any(perm))
+    except Exception:  # noqa: BLE001
+        zarc = False
+    pam = pam_ce = False
+    try:
+        from src.app import mvp as M
+        from src.culturas.rotacao import PAM_PRODUTO, contexto_pam
+        ib = M.carregar_pontos().set_index("ponto_id").loc[ponto, "ibge"]
+        pam = (contexto_pam(int(ib)).get(cid) or {}).get("area_colhida_ha", 0) > 0
+        if not pam and cid in PAM_PRODUTO:                       # sem área no município: olha o Ceará inteiro (último ano do PAM)
+            import pandas as pd
+            from src.modelos.entrada import RAIZ
+            d = pd.read_parquet(RAIZ / "data/processed/pam_ce.parquet")
+            d = d[(d["variavel"] == "area_colhida_ha") & (d["produto"] == PAM_PRODUTO[cid]) & d["valor"].notna()]
+            pam_ce = bool(len(d) and d[d["ano"] == d["ano"].max()]["valor"].sum() > 0)
+    except Exception:  # noqa: BLE001
+        pam = pam_ce = False
+    if not (zarc or pam or pam_ce):
+        return None
+    fem = cid in _FEM_CONFLITO
+    n = _nm(nomes, cid)
+    art, ele = ("a", "ela") if fem else ("o", "ele")
+    fontes = " e ".join(x for x, ok in (("há zoneamento do governo para " + ele + " no seu município", zarc), ("o IBGE mostra " + n + " colhid" + ("a" if fem else "o") + " por aí", pam),
+                                     ("há " + n + " plantad" + ("a" if fem else "o") + " no Ceará, pelo IBGE", pam_ce)) if ok)
+    txt = (f"Sobre {art} {n}, os meus dados não fecham. A tabela de clima que eu uso diz que a chuva daí fica fora do que {ele} aceita, mas {fontes}. "
+           "Essa é uma boa pergunta para o técnico.")
+    origem = "EcoCrop (faixa de chuva) × " + " e ".join(x for x, ok in (("ZARC/MAPA", zarc), ("IBGE/PAM", pam), ("IBGE/PAM (área colhida no Ceará)", pam_ce)) if ok)
+    return {"tema": "conv_conflito", "rotulo": f"dados em conflito: {cid}", "texto": " ".join(txt.split()), "origem": origem, "prio": 1, "lacuna": True,
+            "valor": None, "texto_simples": " ".join(txt.split()), "papel": "conflito"}
+
+
+def fatos_sugestao(c: _Coletor, sug: dict, nomes: dict, restricoes: list[str] | None = None, manejo: str | None = None, contexto: dict | None = None) -> None:
+    """Fatos da sugestão por foco ('o que dá para plantar aqui', 'quero economizar água'). `contexto` (opcional, vem de dados lidos pela conversa):
+    {'mes': 'novembro', 'chuva_qual': frase, 'zarc_agora': [ids] | None, 'pam': [ids por área] | None}: a época do ano, o zoneamento de hoje e o que o município planta."""
     viaveis, inv, ind = sug["viaveis"], sug["inviaveis"], sug["indeterminadas"]
+    ctx = contexto or {}
+    if ctx.get("zarc_agora") is not None or ctx.get("chuva_qual"):
+        mes = ctx.get("mes") or "este mês"
+        ids = ctx.get("zarc_agora")
+        partes = [ctx["chuva_qual"]] if ctx.get("chuva_qual") else []
+        if ids is not None:
+            partes.append(f"Pelo zoneamento do governo, em {mes} dá para plantar {_lista_nomes(nomes, ids[:MAX_NOMES_FRASE])}{' e outras' if len(ids) > MAX_NOMES_FRASE else ''} aí."
+                          if ids else f"Pelo zoneamento do governo, {mes} não está entre as épocas de plantio aí.")
+        c.add("conv_sugestao", "época do ano", " ".join(partes), "src.culturas.zarc.janela (ZARC, MAPA) + chuva diária NASA POWER do local", 1, simples=" ".join(partes))
+        c.fatos[-1]["papel"] = "epoca"
+    if ctx.get("pam"):
+        pam = [x for x in ctx["pam"] if x not in ("feijao_comum",)]
+        nm = ["feijão" if x == "feijao_caupi" else _nm(nomes, x) for x in pam[:4]]
+        c.add("conv_sugestao", "o que o município planta", "Área colhida no município (IBGE/PAM), em ordem: " + ", ".join(pam[:4]) + ".", "IBGE/PAM (SIDRA 1612), data/processed/pam_ce.parquet", 2,
+              simples=f"Por aí, o pessoal planta mais {', '.join(nm[:-1]) + ' e ' + nm[-1] if len(nm) > 1 else nm[0]}. É o que já se colhe, não uma recomendação.")
+        c.fatos[-1]["papel"] = "pam"
     if viaveis:
         c.add("conv_sugestao", "o que dá", f"Dão certo pelo clima neste local: {', '.join(viaveis)}. Não dão: {', '.join(inv) or 'nenhuma'}. Sem avaliação: {', '.join(ind) or 'nenhuma'}.",
               ORIGEM_SUGERIR + ": viaveis", 1 if not sug.get("foco") else 2,
-              simples=f"Pelo clima dos últimos anos, dão certo no seu local: {_lista_nomes(nomes, viaveis)}."
-                      + (f" Não deram certo: {_lista_nomes(nomes, inv)}." if inv else ""))
+              simples=frases_por_uso(nomes, viaveis))        # as que 'não dão' ficam de fora: só entram, com o porquê, se o usuário perguntar (fato 'dados em conflito')
     else:
         c.lacuna("conv_sugestao", "o que dá", "Nenhuma cultura da lista ficou viável pelo clima neste local (ou faltou dado).", ORIGEM_SUGERIR, 1,
                  simples="Pelos dados de clima, nenhuma cultura da lista do Sulco ficou segura no seu local, ou faltou dado.")
@@ -1232,13 +1326,15 @@ def fatos_sugestao(c: _Coletor, sug: dict, nomes: dict, restricoes: list[str] | 
         rk = sug.get("ranking") or []
         if rk:
             top = rk[:3]
-            fr = "; ".join(f"{_nm(nomes, r['id'])} cerca de {milhar(r['valor'])} {un_txt}" for r in top)
+            fr = ", ".join(f"{_nm(nomes, r['id'])} cerca de {milhar(r['valor'])} {un_txt}" for r in top)
             emp = ""
             if sug.get("empate_no_topo"):
                 emp = f" {_lista_nomes(nomes, sug['topo'][:3]).capitalize()} ficam empatadas na frente, com o mesmo valor."
             c.add("conv_sugestao", "ranking do foco", f"Foco {foco}: entre as culturas viáveis com dado de {dado} na tabela, na frente ({un_txt}): " + "; ".join(f"{r['id']} {br(r['valor'], 0)}" for r in top) + ".",
                   ORIGEM_TABELA + f": {sug['atributo']}", 1,
-                  simples=f"Olhando só {rot}, entre as que dão certo e têm dado, {verbo}: {fr}.{emp} Os valores vêm de estudos diferentes.")
+                  # sem número no texto simples (o usuário não pediu número; os valores ficam no `texto` do fato, para quem perguntar 'quanto')
+                  simples=f"Olhando só {rot}, entre as que dão certo e têm dado, {verbo}: {_lista_nomes(nomes, [r['id'] for r in top])}"
+                          + ("." if sug.get("empate_no_topo") else ", nessa ordem.") + f"{emp} Os valores vêm de estudos diferentes.")
             c.fatos[-1]["papel"] = {"agua": "agua", "solo": "palha", "palhada": "palha", "nitrogenio": "n"}[foco]
         else:
             c.lacuna("conv_sugestao", "ranking do foco", f"Nenhuma cultura viável tem dado de {dado} na tabela.", ORIGEM_TABELA + f": {sug['atributo']}", 1,
@@ -1311,7 +1407,7 @@ def fatos_franqueza(c: _Coletor, fora: list[str]) -> None:
 def montar_folha_conversa(nomes: dict, ciclo: dict | None = None, sugestao: dict | None = None, caminhos: dict | None = None,
                           fora: list[str] | None = None, foco: str | None = None, restricoes: list[str] | None = None,
                           manejo: str | None = None, privado: dict | None = None, ordem_informada: bool = True,
-                          avisos: list[str] | None = None) -> dict:
+                          avisos: list[str] | None = None, contexto: dict | None = None) -> dict:
     """Folha de fatos da CONVERSA (determinística; sem identificador do local). `restricoes` = ids das culturas que ele não quer.
     Devolve {'fatos', 'privado', 'foco', ...}; cada fato tem id F#, tema, rotulo, texto, texto_simples, origem, lacuna e papel."""
     c = _Coletor()
@@ -1322,7 +1418,7 @@ def montar_folha_conversa(nomes: dict, ciclo: dict | None = None, sugestao: dict
     if ciclo is not None:
         fatos_ciclo(c, ciclo, nomes, foco, restricoes, manejo, ordem_informada)
     if sugestao is not None:
-        fatos_sugestao(c, sugestao, nomes, restricoes, manejo)
+        fatos_sugestao(c, sugestao, nomes, restricoes, manejo, contexto)
     if caminhos is not None:
         fatos_caminhos(c, caminhos, nomes)
     for i, f in enumerate(c.fatos, 1):

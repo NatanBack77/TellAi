@@ -27,7 +27,7 @@ _NUM = re.compile(r"(?<![A-Za-z0-9])\d+(?:[.,]\d+)*")
 
 
 # ---- TOM para o agricultor (só no chat, `tom=True`): resposta curta e sem termo técnico sem tradução ----
-MAX_PALAVRAS_CHAT = 110
+MAX_PALAVRAS_CHAT = 140
 TERMOS_PROIBIDOS = ["ndvi", "anomalia", "composto", "compostos", "faixa de incerteza", "intervalo", "percentil", "skill", "rmse", "r2", "r²",
                     "aci", "conformal", "monte carlo", "sorteio", "sorteios", "persistencia", "climatologia", "modis", "power", "smap",
                     "empate tecnico", "holdout", "bootstrap", "p90", "p-valor"]
@@ -67,7 +67,12 @@ def frases_repetidas(texto: str) -> list[tuple[str, str]]:
         jac = inter / len(ca | cb)
         sm = difflib.SequenceMatcher(None, sem_acento(a.lower()), sem_acento(b.lower())).ratio()
         reform = bool(_RESTATE.match(sem_acento(b.lower()))) and inter >= 2 and inter / min(len(ca), len(cb)) >= 0.5
-        if (len(ca) >= 3 and len(cb) >= 3 and jac >= 0.7) or sm >= 0.85 or reform:
+        # frases PARALELAS sobre coisas diferentes ('Milheto pede cerca de 450 mm.' / 'Milho pede cerca de 500 mm.') não são repetição:
+        # o sujeito (1ª palavra de conteúdo) ou os números mudam
+        suj = lambda x: (re.findall(r"[a-zà-ú-]{3,}", sem_acento(x.lower())) or [""])[0]
+        nums = lambda x: re.findall(r"\d+(?:[.,]\d+)?", x)
+        paralelas = (suj(a) != suj(b) or (nums(a) and nums(a) != nums(b))) and not reform
+        if ((len(ca) >= 3 and len(cb) >= 3 and jac >= 0.7) or sm >= 0.85 or reform) and not paralelas:
             out.append((a, b))
     return out
 
@@ -256,7 +261,7 @@ def verificar(texto, cenario_json=None, trechos=None, exigir_citacao: bool | Non
     norm = sem_acento(texto.lower())
     for p in _PROM:
         for m in p.finditer(norm):
-            if _NEGACAO.search(norm[max(0, m.start() - 40):m.start()].rsplit(".", 1)[-1]):
+            if _NEGACAO.search(norm[max(0, m.start() - 70):m.start()].rsplit(".", 1)[-1]):      # janela de 70: "não tenho dado de preço nem de custo para dizer se dá lucro"
                 continue                  # 'não garante', 'sem garantia', 'não prometo': negação passa
             motivos.append(f"promessa proibida: '{m.group()}'")
             break

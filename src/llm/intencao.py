@@ -120,7 +120,7 @@ _NEGA_CUE = re.compile(r"\b(nao (quero|vou|posso|gosto d\w+|tenho|plant\w+|prete
 _QUEBRA = re.compile(r"[,.;:!?]|\bmas\b|(?<!nao )\bquero\b|\bpreciso\b|\bgostaria\b")
 
 _TIPOS = [
-    ("previsao", r"previs\w+|\bndvi\b|como vai (ficar|estar)|proxim\w+ (semana|quinzena|dia)|nas proximas|verdor|vegetacao|satelite|vai ficar"),
+    ("previsao", r"^(?!.*\b(costuma\w*|sofr\w+)\b).*(previs\w+|\bndvi\b|como vai (ficar|estar)|proxim\w+ (semana|quinzena|dia)|nas proximas|verdor|vegetacao|satelite|vai ficar)"),   # "quando a vegetação costuma sofrer" é do passado (épocas de estresse), não previsão
     ("explicar", r"por ?que\b|explic\w+|como funciona|o que (e|sao|significa)\b|\bsignifica\b|quer dizer|de onde (vem|vêm)|\bcaminhos?\b|\blacuna|"
                  r"como (voces |o sulco |o app )?(calcula|decide|funciona)|para que serve|limite"),
     ("viabilidade", r"da(o)? (certo )?(aqui|no meu|na minha)|da pra plantar|serve(m)? (aqui|pra mim|para mim)|viavel|viabilidade|"

@@ -48,6 +48,9 @@ def test_cartao_nenhum_numero_fora_dos_dados(cartao_quixada):
                          "pt": M.carregar_pontos().set_index("ponto_id").loc["quixada_ce"][["lat", "lon"]].to_dict(),
                          "frases": [d["solo_nu"]["frase"], d["estresse_frase"], d["confianca_nota"]]}, default=str, ensure_ascii=False)
     permitidos = _numeros(fontes.replace(".", ","))                     # números do JSON (ponto decimal -> vírgula)
+    # 'empate técnico com N outras sequências': N é a CONTAGEM de `empate_tecnico_com` de cada estratégia (cartao.py), derivada dos dados e não
+    # escrita neles; com a matriz de rotação nova (7bb3e12d) o empate passou a ter dezenas de sequências (79), e a contagem antes só coincidia por acaso.
+    permitidos += [float(len(e.get("empate_tecnico_com") or [])) for e in rot["estrategias"]]
     permitidos += [x * 100 for x in permitidos]
     permitidos += [abs(x) for x in permitidos]
     texto = CT.cartao_texto(c)

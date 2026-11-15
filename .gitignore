@@ -59,7 +59,16 @@ id_rsa*
 .dodsrc
 *.secret
 secrets/
+frontend/node_modules/
+frontend/dist/
+frontend/.playwright-cli/
 data/processed/llm_cache_conversa/
 data/processed/llm_cache*/
 gasto*.json
 data/processed/llm_cache/gasto_voz.json
+
+# certificado local de teste e log do servidor de voz
+.certs_local/
+
+# estado local do agentmesh
+.agentmesh/

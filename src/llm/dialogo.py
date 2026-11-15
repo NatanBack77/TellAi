@@ -32,7 +32,7 @@ def estado_inicial() -> dict:
     return {"v": VERSAO_ESTADO, "culturas": [], "ordem_dita": False, "n_safras": None, "foco": None, "proibidas": [], "ponto_id": None,
             "manejo": None, "tipo": None, "confirmado": False, "pendente": None, "fora_da_lista": [], "ja_perguntou_foco": False, "turnos": 0,
             "plantios": [], "rascunho": None, "fila": [], "cal_idx": None, "cal_vistos": [], "cal_oferta": None,
-            "ult_cultura": [], "numeros_permitidos": False}      # ult_cultura: culturas da última pergunta livre (para "e quantos dias ele demora?"); não entra no ciclo
+            "ult_cultura": [], "numeros_permitidos": False, "ult_resposta": "", "aviso_limite_dito": False, "pergunta_pendente": ""}      # ult_cultura: culturas da última pergunta livre (para "e quantos dias ele demora?"); não entra no ciclo
 
 
 def normalizar_estado(e: Any, ids_validos: set[str] | None = None, pontos_validos: set[str] | None = None) -> dict:
@@ -55,6 +55,11 @@ def normalizar_estado(e: Any, ids_validos: set[str] | None = None, pontos_valido
     base["proibidas"] = ids(e.get("proibidas"))
     base["ult_cultura"] = ids(e.get("ult_cultura"))[:2]
     base["numeros_permitidos"] = bool(e.get("numeros_permitidos"))      # só do último turno
+    base["aviso_limite_dito"] = bool(e.get("aviso_limite_dito"))        # o aviso 'solo, semente e preço eu ainda não tenho' sai UMA vez por conversa
+    ur = e.get("ult_resposta")                                          # resumo curto da última resposta (para 'não entendi'); só é repetido ao usuário, nunca vai à IA
+    base["ult_resposta"] = " ".join(ur.split())[:300] if isinstance(ur, str) else ""
+    pp = e.get("pergunta_pendente")                                     # pergunta feita ANTES de eu pedir o município: respondo a ela quando o município chegar
+    base["pergunta_pendente"] = " ".join(pp.split())[:300] if isinstance(pp, str) else ""
     base["ordem_dita"] = bool(e.get("ordem_dita")) and len(base["culturas"]) >= 2
     ns = e.get("n_safras")
     base["n_safras"] = ns if isinstance(ns, int) and not isinstance(ns, bool) and 1 <= ns <= MAX_CULTURAS else None
@@ -188,7 +193,7 @@ CHIPS_CONFIRMA = [chip("Sim, está certo"), chip("Não, quero mudar", "Não, que
 CHIPS_ORDEM = [chip("Ver a melhor ordem", "Ver a melhor ordem"), chip("Só ver se dão aí", "Só ver se dão certo aqui"), chip("Já tenho uma ordem", "Já tenho uma ordem")]
 CHIPS_INICIO = [chip("O que dá para plantar aqui?"), chip("Quero economizar água"), chip("Quero montar um ciclo")]
 
-PERGUNTA_FOCO = "O que pesa mais para você agora: economizar água, proteger o solo ou ter uma renda extra?"
+PERGUNTA_FOCO = "Me diz uma coisa: o que pesa mais na sua roça, gastar menos água, cuidar da terra ou ganhar um dinheiro a mais?"
 PERGUNTA_MUNICIPIO = "Para olhar os dados do seu local, preciso saber o município. Em que município fica a sua roça?"
 PERGUNTA_ORDEM = "Você quer que eu veja a melhor ordem para essas culturas, ou só se elas dão certo no seu local?"
 PERGUNTA_CULTURAS = "Quais culturas você pensa em colocar no ciclo? Pode dizer na ordem, por exemplo: primeiro milho, depois feijão."
@@ -243,15 +248,9 @@ def texto_entendido(estado: dict, nomes: dict, foco: str | None = None) -> str:
 
 
 def acolhida(estado: dict, ext: dict, nomes: dict, foco: str | None) -> str:
-    """Uma frase curta que mostra que a pessoa foi entendida (usada no texto padrão; a IA escreve a sua própria)."""
-    if foco:
-        return ACOLHIDA_FOCO[foco]
-    cult = estado.get("culturas") or []
-    if len(cult) >= 2:
-        return f"Entendi, você quer olhar {lista_ptbr([str(nomes.get(c, c)).lower() for c in cult])}."
-    if len(cult) == 1:
-        return f"Entendi, você quer olhar {str(nomes.get(cult[0], cult[0])).lower()}."
-    return "Certo, vamos olhar o seu local."
+    """Antes era uma frase que repetia o pedido ('Entendi, você quer olhar...'). Repetir o que a pessoa acabou de dizer soa robótico lido em voz alta:
+    a resposta começa direto pela informação. Mantida (vazia) porque o texto padrão e os testes ainda a chamam."""
+    return ""
 
 
 # ================================================================================================ CALENDÁRIO DE PLANTIO (perguntas, uma por vez)

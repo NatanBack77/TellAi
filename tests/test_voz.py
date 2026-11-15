@@ -115,7 +115,7 @@ def test_pagina_carrega_e_e_segura():
     r = c.get("/voz")
     assert r.status_code == 200 and "text/html" in r.headers["content-type"] and "__CULTURAS__" not in r.text
     assert "innerHTML" not in r.text and "eval(" not in r.text and "document.write" not in r.text
-    assert "Assistente automático" in r.text and "técnico" in r.text
+    assert "Maíra, assistente automática" in r.text and "técnica" in r.text      # nome Maíra, divulgação mantida (não é pessoa nem técnica)
     assert "/voz" not in c.get("/openapi.json").json()["paths"]
 
 

@@ -39,5 +39,8 @@ python -m venv .venv
 Coletas (idempotentes, com cache): `python -m src.coleta.power | modis_ornl --workers 16 | zarc | solo | sidra | srtm`. Detalhes e ordem em [`docs/04_RETOMADA.md`](docs/04_RETOMADA.md).
 Dados `SINTETICO_*` servem só para testar formato e fluxo; nenhuma métrica deles é resultado do projeto.
 
+## Front-end React da conversa Maíra
+O front-end React usa a conversa com estado da API (`POST /conversa`) e fica em [`frontend/`](frontend/README.md). Em desenvolvimento, inicie `.venv/bin/uvicorn src.api.main:app --port 8000` na raiz e, em outro terminal, `cd frontend && npm install && npm run dev`. O Vite encaminha as rotas da API para `127.0.0.1:8000`.
+
 ## Segurança
 `.env` guarda chaves (Earthdata, DeepSeek) e **nunca** é commitado.

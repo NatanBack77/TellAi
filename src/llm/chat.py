@@ -16,12 +16,13 @@ import re
 from pathlib import Path
 
 from . import cache as _cache
+from . import guardrails as _G
 from . import fatos as _fatos
 from . import integracao as _integ
 from . import servico as _serv
 from . import sobre_sulco as _sulco
 from .provedores import Provedor, ProvedorErro, ProvedorIndisponivel, Stub
-from .seguranca import MSG_ESCOPO, MSG_INJECAO, classificar_pergunta, redigir_pergunta, sanear_json
+from .seguranca import MSG_ESCOPO, MSG_INJECAO, classificar_pergunta, redigir_mensagem, redigir_pergunta, sanear_json
 from .verificador import citacoes, citacoes_fatos, limpar_citacoes, sem_acento, verificar
 
 VERSAO_PROMPT = "chat-v3"
@@ -39,7 +40,7 @@ MSG_PERGUNTA_VAZIA = "Escreva uma pergunta (pelo menos algumas letras)."
 MSG_PERGUNTA_LONGA = f"A pergunta está longa demais (máximo {MAX_PERGUNTA} letras). Escreva de forma mais curta."
 ORIGENS = ("llm", "template", "sem_evidencia", "recusa")
 
-SISTEMA_CHAT = """Você conversa com um agricultor do semiárido do Nordeste que lê pouco e usa o celular. Responda em português do dia a dia, SIMPLES, CURTO e OBJETIVO.
+SISTEMA_CHAT = """Você é a Maíra, assistente AUTOMÁTICA do Sulco, e conversa com um agricultor do semiárido do Nordeste que lê pouco e usa o celular. Responda em português do dia a dia, SIMPLES, CURTO e OBJETIVO.
 ESTILO (obrigatório):
 - No máximo 70 palavras (4 a 5 frases curtas). Comece pela RESPOSTA em uma frase; depois, no máximo 2 detalhes.
 - Sem siglas nem termo técnico. NUNCA escreva: NDVI, anomalia, composto, faixa de incerteza, intervalo, percentil, skill, RMSE, R², ACI, conformal, Monte Carlo, sorteios, persistência, climatologia, MODIS, POWER, SMAP, empate técnico.
@@ -94,9 +95,9 @@ def _pasta_cache() -> Path:
 
 
 # ------------------------------------------------------------------------------------------------ contexto (cenario atual)
-MAX_TRECHO_CTX = 240
+MAX_TRECHO_CTX = 180          # era 240; o prompt do cenário passou de 2.500 tokens com os cenários regerados (lacunas de ciclo FAO + empate)
 MAX_TRECHOS_CTX = 5
-MAX_ITEM_CTX = 160
+MAX_ITEM_CTX = 120           # era 160 (mesmo motivo)
 
 
 def _curto(t, n: int) -> str:
@@ -150,7 +151,7 @@ def montar_contexto(cenarios: list[dict], cultura_atual: str | None = None, prio
                     d["trecho_n"] = visto[k]
             crit[str(nome)] = d
         rot = c.get("rotacao")
-        saida.append({"rotacao": rot if isinstance(rot, (str, list)) else None, "e_a_atual": bool(c.get("atual")), "criterios": crit,
+        saida.append({"rotacao": rot if isinstance(rot, (str, list)) else None, **({"e_a_atual": True} if c.get("atual") else {}), "criterios": crit,
                       "lacunas": [_curto(x, MAX_ITEM_CTX) for x in (c.get("lacunas") or [])],
                       "riscos_revisao_local": [_curto(x, MAX_ITEM_CTX) for x in (c.get("riscos_revisao_local") or [])]})
     if not saida:
@@ -162,6 +163,10 @@ def montar_contexto(cenarios: list[dict], cultura_atual: str | None = None, prio
             ctx[nome] = comuns[:5]
             for s in saida:
                 s[chave] = [x for x in s[chave] if x not in comuns][:4]
+    for s_ in saida:                                  # lista vazia não leva informação: sai do JSON (poupa tokens; os leitores usam .get)
+        for chave in ("lacunas", "riscos_revisao_local"):
+            if not s_[chave]:
+                s_.pop(chave)
     loc = (cenarios[0] or {}).get("local")
     if _chave_municipio() and isinstance(loc, dict) and loc.get("nome"):
         ctx["municipio"] = str(loc["nome"])
@@ -366,7 +371,7 @@ def _gerar(prov: Provedor, usuario: str, cache, offline: bool):
     if offline:
         return None, False, "modo offline e sem resposta guardada", None
     try:
-        s = prov.gerar(SISTEMA_CHAT, usuario, max_tokens=MAX_TOKENS)
+        s = prov.gerar(_G.sistema_com_canario(SISTEMA_CHAT), _G.limitar_prompt(usuario), max_tokens=MAX_TOKENS)
     except ProvedorIndisponivel as e:
         return None, False, str(e), None
     except ProvedorErro as e:
@@ -407,6 +412,9 @@ def validar_pergunta(pergunta) -> tuple[str | None, str | None, str]:
         return None, "injecao", MSG_INJECAO
     if _pede_dinheiro(p):
         return None, "fora_de_escopo", MSG_DINHEIRO
+    _v = _G.filtrar_entrada(p)                      # pedido de segredo, prompt, infraestrutura, dose de agrotóxico, outro idioma, ordem escondida
+    if not _v.ok and _v.categoria in _G.CATEGORIAS_BLOQUEIO_NOVAS:
+        return None, _v.categoria, _v.resposta
     if classificar_pergunta(p) == "fora_de_escopo" or _fora_escopo(p):
         return None, "fora_de_escopo", MSG_ESCOPO
     return p, None, ""
@@ -445,7 +453,7 @@ def _responder(pergunta, contexto, modo, provedor, buscar_fn, cache, permitir_st
     if recusa:
         return _res(msg, "recusa", motivo=recusa, modo=modo)
     privado = (folha or {}).get("privado")
-    p_env = redigir_pergunta(_fatos.anonimizar(p, privado))   # nome do municipio na pergunta nao sai do computador
+    p_env = redigir_mensagem(_fatos.anonimizar(p, privado))   # nome do municipio na pergunta nao sai do computador
 
     # --- escolhe as fontes. Ordem: 'sobre o Sulco' (definicoes e funcionamento) > fatos do local > cenario antigo > acervo (RAG)
     n_p = sem_acento(p.lower())
@@ -517,6 +525,9 @@ def _responder(pergunta, contexto, modo, provedor, buscar_fn, cache, permitir_st
                            verif_ok=False, verif_motivos=v["motivos"])
     if not limpar_citacoes(saida):
         return so_template("texto da IA ficou vazio sem as citações; mostrando o texto padrão", prov=prov, uso=uso, em_cache=em_cache)
+    _g = _G.filtrar_saida(limpar_citacoes(saida), sistema=SISTEMA_CHAT)   # nada de segredo, caminho, URL, nome interno ou trecho do prompt chega à tela
+    if not _g.ok:
+        return so_template("guardrail:saida " + ",".join(_g.motivos), prov=prov, uso=uso, em_cache=em_cache)
     saida = saida.strip()
     prev_tema = _e_previsao(fatos_sel, p)
     saida = posprocessar(saida, prev_tema)

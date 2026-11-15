@@ -14,6 +14,8 @@ from typing import Any, Literal
 from fastapi import APIRouter, HTTPException
 from pydantic import BaseModel, ConfigDict, Field
 
+from src.llm import guardrails as G
+
 router = APIRouter(tags=["conversa"])
 
 
@@ -99,4 +101,7 @@ def conversa(req: ConversaIn):
             CP.validar_plantios(estado["plantios"], A.tabela())
         except ValueError as e:
             raise HTTPException(422, "plantios do estado inválidos: " + str(e))
-    return C.conversar(req.mensagem, estado, req.ponto_id, perfil)
+    if G.verificar_estado(estado):
+        raise HTTPException(422, "Estado da conversa inválido.")
+    r = C.conversar(req.mensagem, estado, req.ponto_id, perfil)
+    return {k: v for k, v in r.items() if k in ConversaOut.model_fields}   # campos internos a mais (ex.: 'temas') ficam de fora do contrato

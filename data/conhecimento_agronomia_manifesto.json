@@ -1,0 +1,202 @@
+{
+ "construido_em": "2026-11-15T10:33:59",
+ "modelo_embeddings": "intfloat/multilingual-e5-small",
+ "n_trechos": 8849,
+ "por_tipo": {
+  "pesquisa_interna": 105,
+  "estudo_publicado": 66,
+  "tabela_com_fonte": 1030,
+  "dado_minerado": 7617,
+  "lacuna": 31
+ },
+ "descartes": {
+  "blocos_descartados": 259,
+  "registros_bloqueados_na_varredura": 32
+ },
+ "lista_branca": [
+  "data/culturas/fao_staging.csv",
+  "data/culturas/ler_staging.csv",
+  "data/culturas/matriz_rotacao.csv",
+  "data/culturas/solo_staging.csv",
+  "data/culturas/tabela_culturas.csv",
+  "data/externos/conab_custos_producao_nordeste.csv",
+  "data/externos/conab_precos_mensal_municipio_ce.csv",
+  "data/externos/conab_precos_mensal_uf_ce.csv",
+  "data/externos/manifesto_externos.json",
+  "data/externos/sigef_campos_sementes_ce.csv",
+  "data/processed/diagnostico/diagnostico.json",
+  "data/processed/pam_ce.parquet",
+  "data/processed/pontos.csv",
+  "data/processed/solo.parquet",
+  "data/processed/zarc_ce.parquet",
+  "docs/06_PESOS_E_CULTURAS.md",
+  "docs/07_PESQUISA_VIABILIDADE.md",
+  "docs/13_ZARC.md",
+  "docs/21_resultados_fases/CALENDARIO_PLANTIO.md",
+  "docs/21_resultados_fases/CICLO_FAO_CHUVA_ANUAL.md",
+  "docs/21_resultados_fases/MATRIZ_ROTACAO.md",
+  "docs/21_resultados_fases/ROTACAO_REGRAS_PARETO.md",
+  "docs/21_resultados_fases/SOILGRIDS.md",
+  "docs/22_PESQUISA_ROTACAO.md",
+  "docs/25_PESQUISA_FAO.md",
+  "docs/27_CALENDARIO_SOLO_SEMENTE_MERCADO.md",
+  "docs/27_EPOCA_DE_PLANTIO.md",
+  "docs/29_LER_CONSORCIO.md",
+  "docs/31_LACUNAS_DE_DADOS.md",
+  "docs/ler_trechos.md"
+ ],
+ "fontes": {
+  "docs/07_PESQUISA_VIABILIDADE.md": {
+   "sha256": "fe534531d2be5c247209f2931413620fb1114f8f56523abb500dee11a33eee5b",
+   "data": "2026-11-12"
+  },
+  "docs/22_PESQUISA_ROTACAO.md": {
+   "sha256": "d3e25f4ff4c3d8d26c685208d405d64f3a56564a644bf2849c7ab9652454233c",
+   "data": "2026-11-13"
+  },
+  "docs/25_PESQUISA_FAO.md": {
+   "sha256": "c3af8b4372b7735ee33738a9c4e7bd42275f447f08c1dabf254f4844615db079",
+   "data": "2026-11-14"
+  },
+  "docs/13_ZARC.md": {
+   "sha256": "c6438cd4601b7a6568e89503b1eb7dfc8caaa179d98b3c53b7ac4329ecde618c",
+   "data": "2026-11-13"
+  },
+  "docs/29_LER_CONSORCIO.md": {
+   "sha256": "346b8868b5d7c6dc069365cbadeef58bf74730dbd3cc611c71e2e1ff7116c1fc",
+   "data": "2026-11-14"
+  },
+  "docs/ler_trechos.md": {
+   "sha256": "e1b89e85e329306ffd296ebfd58b23113f4f8acbc9bf3fe1c0b384747ddaf99d",
+   "data": "2026-11-14"
+  },
+  "docs/27_CALENDARIO_SOLO_SEMENTE_MERCADO.md": {
+   "sha256": "53f6a48c328df9ad2ba564c583ee2513126033b73c39e41e7c7c20a08ce464c8",
+   "data": "2026-11-14"
+  },
+  "docs/27_EPOCA_DE_PLANTIO.md": {
+   "sha256": "2256409caf026a1c2cbe2ec6d209fd576a545a66a9635df67c17f6f39df782c5",
+   "data": "2026-11-14"
+  },
+  "docs/06_PESOS_E_CULTURAS.md": {
+   "sha256": "41806a466a10011e0e8b8025e489f4db861cbbd9863d1122f12df9a73b9bebb1",
+   "data": "2026-11-14"
+  },
+  "docs/21_resultados_fases/CALENDARIO_PLANTIO.md": {
+   "sha256": "817579edffd178ea2d89cc43d7437e54e4c34c8357e8874f10d80fe2b10d88e5",
+   "data": "2026-11-14"
+  },
+  "docs/21_resultados_fases/CICLO_FAO_CHUVA_ANUAL.md": {
+   "sha256": "acba3dab7ca2f63d9e606ddfdbc4bfa4f24a163c1afde57588e365e48ab006c9",
+   "data": "2026-11-14"
+  },
+  "docs/21_resultados_fases/MATRIZ_ROTACAO.md": {
+   "sha256": "93d5b248e11f3c809509258090eaba0ffc2a8145a8c0abc0ab7098fbb7aa1b6e",
+   "data": "2026-11-14"
+  },
+  "docs/21_resultados_fases/SOILGRIDS.md": {
+   "sha256": "17c70cf061f4e77c287a5ca9421e31d0489423e5a01bea820c9fd6789b4e4cb9",
+   "data": "2026-11-13"
+  },
+  "docs/21_resultados_fases/ROTACAO_REGRAS_PARETO.md": {
+   "sha256": "358a7cb3b4d5ea7f6419108debc6ad8abc38f7d95c3f25246cc0ce452e06bb37",
+   "data": "2026-11-14"
+  },
+  "data/culturas/tabela_culturas.csv": {
+   "sha256": "f56dbfdc2f74f88467994ec6cf5f6b87df58ad46c0992715bf47656c23dc93ac",
+   "data": "2026-11-12"
+  },
+  "data/culturas/fao_staging.csv": {
+   "sha256": "b73dc7729587b01cc1b27703b4b9a494f73274350f66c232436dce83d4f944c1",
+   "data": "2026-11-14"
+  },
+  "data/culturas/solo_staging.csv": {
+   "sha256": "50bf85a7bf80adaec465a9e595d37e071386d5462afa4aa771d2915eab8984a3",
+   "data": "2026-11-14"
+  },
+  "data/culturas/ler_staging.csv": {
+   "sha256": "fce999a8fe9f5c5cb63123678529f1fa47ce35b5fe15c3e0e95e47d3998f460c",
+   "data": "2026-11-14"
+  },
+  "data/culturas/matriz_rotacao.csv": {
+   "sha256": "ae9fa08f4ebad81ff67a167bd7751396f7b58ad39e5e4b1ecbce0c5bf0e0813d",
+   "data": "2026-11-14"
+  },
+  "data/externos/conab_precos_mensal_uf_ce.csv": {
+   "sha256": "1af1132aba0ed29c101702fc0312d6286cc3e0340f500042c757c478272ca1fe",
+   "data": "2026-11-14"
+  },
+  "data/externos/conab_precos_mensal_municipio_ce.csv": {
+   "sha256": "4906c9350cfa2ca1b08f4b0b7bc26191071b4728a8ef4b6df14caf935732ef92",
+   "data": "2026-11-14"
+  },
+  "data/externos/conab_custos_producao_nordeste.csv": {
+   "sha256": "372ccfdf1cf934a1d3be04f56e441b644d4ff435f5d6aef1b09e1af35287e79e",
+   "data": "2026-11-14"
+  },
+  "data/externos/sigef_campos_sementes_ce.csv": {
+   "sha256": "3fafb5efbec545a98d49e4637cef57cb9ecf20d12a715c112f0cc5552f4d46c7",
+   "data": "2026-11-14"
+  },
+  "data/externos/manifesto_externos.json": {
+   "sha256": "b9fad71d793d42cb241c5b75414acfd14ba82eac8ce78ae65619eda996441fda",
+   "data": "2026-11-14"
+  },
+  "data/processed/zarc_ce.parquet": {
+   "sha256": "3b65cd7ab890c266fec5d0dded04381c74f62bb50ee536a4e7b8c9580ef36c3d",
+   "data": "2026-11-13"
+  },
+  "data/processed/pam_ce.parquet": {
+   "sha256": "d2af4a091c0dad93e54c5ddb256f9aa002361c7448d1250508410c4260199901",
+   "data": "2026-11-13"
+  },
+  "data/processed/solo.parquet": {
+   "sha256": "2ed838d61457e8ccfc4a764c1406c77e1a64d72d113807868570250a35f49e97",
+   "data": "2026-11-13"
+  },
+  "data/processed/diagnostico/diagnostico.json": {
+   "sha256": "42836379ff3ae4b70949170729e9946041e6e141905d88f6f8e5263a4c565e2a",
+   "data": "2026-11-12"
+  },
+  "data/processed/pontos.csv": {
+   "sha256": "93544fc12743fcebf08917fbce4d9be0fdac9019c8d6d0b3df8f8b498ebba8c3",
+   "data": "2026-11-14"
+  },
+  "docs/31_LACUNAS_DE_DADOS.md": {
+   "sha256": "0371dda7c3eb17fdd8a1284a9e4ce24e605d4506c9289f0d7d2b808ee2d2e4ba",
+   "data": "2026-11-14"
+  }
+ },
+ "reconstruido_por_mudanca_em": [
+  "docs/07_PESQUISA_VIABILIDADE.md",
+  "docs/22_PESQUISA_ROTACAO.md",
+  "docs/25_PESQUISA_FAO.md",
+  "docs/13_ZARC.md",
+  "docs/29_LER_CONSORCIO.md",
+  "docs/ler_trechos.md",
+  "docs/27_CALENDARIO_SOLO_SEMENTE_MERCADO.md",
+  "docs/27_EPOCA_DE_PLANTIO.md",
+  "docs/06_PESOS_E_CULTURAS.md",
+  "docs/21_resultados_fases/CALENDARIO_PLANTIO.md",
+  "docs/21_resultados_fases/CICLO_FAO_CHUVA_ANUAL.md",
+  "docs/21_resultados_fases/MATRIZ_ROTACAO.md",
+  "docs/21_resultados_fases/SOILGRIDS.md",
+  "docs/21_resultados_fases/ROTACAO_REGRAS_PARETO.md",
+  "data/culturas/tabela_culturas.csv",
+  "data/culturas/fao_staging.csv",
+  "data/culturas/solo_staging.csv",
+  "data/culturas/ler_staging.csv",
+  "data/culturas/matriz_rotacao.csv",
+  "data/externos/conab_precos_mensal_uf_ce.csv",
+  "data/externos/conab_precos_mensal_municipio_ce.csv",
+  "data/externos/conab_custos_producao_nordeste.csv",
+  "data/externos/sigef_campos_sementes_ce.csv",
+  "data/externos/manifesto_externos.json",
+  "data/processed/zarc_ce.parquet",
+  "data/processed/pam_ce.parquet",
+  "data/processed/solo.parquet",
+  "data/processed/diagnostico/diagnostico.json",
+  "data/processed/pontos.csv",
+  "docs/31_LACUNAS_DE_DADOS.md"
+ ]
+}

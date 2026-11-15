@@ -103,3 +103,16 @@ def test_evidencias_vazio():
     assert r.status_code in (200, 503)
     if r.status_code == 200:
         assert r.json()["sem_evidencia"] is True
+
+
+def test_conversa_pergunta_livre_no_meio_do_fluxo_nao_da_500():
+    """Regressão (2026-11-15): a conversa livre devolvia o campo interno 'temas', fora do contrato, e a rota respondia 500."""
+    from fastapi.testclient import TestClient
+    from src.api.main import app
+    cli = TestClient(app)
+    r1 = cli.post("/conversa", json={"mensagem": "o que dá para plantar aqui?", "ponto_id": "quixada_ce"})
+    assert r1.status_code == 200
+    for frase in ("é não entendi tem como", "o que é veranico?", "quanto custa a semente?", "ok"):
+        r2 = cli.post("/conversa", json={"mensagem": frase, "estado": r1.json()["estado"], "ponto_id": "quixada_ce"})
+        assert r2.status_code == 200, (frase, r2.text[:200])
+        assert "temas" not in r2.json()

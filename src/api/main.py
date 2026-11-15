@@ -75,6 +75,14 @@ app.include_router(_rota_conversa)       # POST /conversa (conversa consultiva)
 app.include_router(_rota_calendario)     # POST /calendario (calendário de plantio do agricultor)
 
 
+from src.api.cabecalhos_seguranca import aplicar_cabecalhos  # noqa: E402
+
+
+@app.middleware("http")
+async def cabecalhos_de_seguranca(request, call_next):
+    return aplicar_cabecalhos(await call_next(request), request.url.path)
+
+
 @app.middleware("http")
 async def medir(request: Request, call_next):
     t0 = time.perf_counter()

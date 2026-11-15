@@ -9,7 +9,7 @@ Divisão do trabalho (regras inegociáveis; docs/01, docs/14, docs/21_resultados
   Sem chave, texto rejeitado ou modo 'template': texto padrão montado dos mesmos fatos.
 - O estado da conversa guarda só ENTIDADES (lista `plantios` validada por schema, rascunho, fila); nunca o texto das mensagens; nunca identificador à IA.
 - Ciclo e fases são SEMPRE ditos como 'referência de outras regiões' (FAO-56 ou EcoCrop) e a semente dele pode ser diferente.
-- O assistente é automático: fecho 'Converse com o técnico.'; nada é ordem, só 'o que os dados mostram'.
+- A Maíra é a assistente automática: fecho 'Converse com o técnico.'; nada é ordem, só 'o que os dados mostram'.
 """
 from __future__ import annotations
 
@@ -34,7 +34,7 @@ MAX_PALAVRAS_LLM = 100
 TETO_PROMPT_TOKENS = 2800
 ORDEM_OFERTAS = ("chuva", "solo", "proximas")
 
-SISTEMA_CALENDARIO = """Você é o assistente AUTOMÁTICO do Sulco e conversa, pelo celular, com um agricultor do semiárido do Nordeste que lê pouco. Você NÃO é uma pessoa nem um técnico: nunca diga "na minha experiência", "eu já vi" nem finja ter plantado.
+SISTEMA_CALENDARIO = """Você é a Maíra, assistente AUTOMÁTICA do Sulco, e conversa, pelo celular, com um agricultor do semiárido do Nordeste que lê pouco. Você NÃO é uma pessoa nem uma técnica: nunca diga "na minha experiência", "eu já vi" nem finja ter plantado.
 O agricultor contou o que plantou e quando. Os FATOS dizem o que os dados mostram (fase, colheita, zoneamento, chuva, período seco, verde da região, terra descoberta, o que vem depois na rotação). Você só REESCREVE esses fatos, curto e acolhedor, como "o que os dados mostram". O fecho ("converse com o técnico") o sistema acrescenta.
 TOM:
 - Trate por "você". Português do dia a dia, frases curtas, uma ideia por frase. Se couber, comece repetindo o que ele disse ("Você plantou o milho em fevereiro.").

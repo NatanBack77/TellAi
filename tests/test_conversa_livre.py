@@ -87,7 +87,8 @@ def test_nenhum_numero_vem_de_fora_dos_fatos(sels):
 def test_resposta_padrao_curta_para_voz_e_simples(sels):
     for q, s in sels.items():
         t = _corpo(s)
-        assert contar_palavras(t) <= 62, (q, contar_palavras(t), t)
+        # limite dinâmico: pergunta curta ~55 palavras (+folga); pergunta grande (12+ palavras, 2+ temas ou 'por que/explica') até ~110
+        assert contar_palavras(t) <= (112 if CK.pergunta_grande(q) else 62), (q, contar_palavras(t), t)
         assert not re.search(r"\b(NDVI|anomalia|composto|percentil|RMSE|conformal|MODIS|POWER)\b", t), (q, t)
 
 
@@ -186,7 +187,8 @@ def test_pedidos_guiados_continuam_no_fluxo_guiado():
     r = C.conversar("o que dá para plantar aqui?", None, PONTO, None, buscar_fn=SEM_RAG, modo="template")
     assert r["pede"] == "foco"
     r = C.conversar("quero economizar água", None, PONTO, None, buscar_fn=SEM_RAG, modo="template")
-    assert r["acao"] == "responder" and "gastar menos água" in r["resposta"]
+    # a resposta começa direto pela informação (não repete 'Entendi, você quer gastar menos água'): fala da água que a planta pede
+    assert r["acao"] == "responder" and "água que a planta pede" in r["resposta"]
 
 
 # ---------------------------------------------------------------------------------------------- LLM: só reescreve, verificador vale
@@ -287,3 +289,128 @@ def test_numeros_permitidos_vale_so_no_turno():
     assert r1["estado"]["numeros_permitidos"] is True and re.search(r"\d", r1["resposta"])
     r2 = C.conversar("e ele aguenta seca?", r1["estado"], PONTO, None, buscar_fn=SEM_RAG, modo="template", hoje=HOJE)
     assert r2["estado"]["numeros_permitidos"] is False and not CK.tem_numero(r2["resposta"].split("\n")[0])
+
+
+# ---------------------------------------------------------------------------------------------- saudação espelhada (Maíra) e limite dinâmico
+@pytest.mark.parametrize("msg,abre", [("bom dia", "Bom dia!"), ("Boa tarde!", "Boa tarde!"), ("boa noite", "Boa noite!"), ("oi", "Oi!"), ("olá", "Oi!"),
+                                       ("e aí", "Oi!"), ("bom dia, tudo bem?", "Bom dia!")])
+def test_saudacao_espelha_o_que_o_usuario_disse_e_se_apresenta(msg, abre):
+    r = C.conversar(msg, None, None, None, modo="template")
+    t = r["resposta"]
+    assert t.startswith(abre + " Eu sou a Maíra, a assistente automática do Sulco") and t.rstrip().endswith("O que você quer ver?")
+    assert "técnico" in t and not re.search(r"\d", t)                                  # sem número
+    assert r["acao"] == "responder" and r["pede"] is None and r["chips"] == D.CHIPS_INICIO      # não pede município agora; chips iniciais
+    assert not re.search(r"na minha experi|sou (uma )?pessoa|sou (um )?técnico", sem_acento(t.lower()))
+
+
+GRANDES = [
+    "eu plantei milho em fevereiro, choveu pouco e agora o solo está fraco, o que os dados dizem e o que eu devo conversar com o técnico?",
+    "me explica por que o feijão-caupi aguenta mais seca que o milho aqui no meu local",
+    "como funciona o zoneamento de risco climático e o que ele diz sobre plantar milho no meu município nessa época do ano?",
+    "me conta como o solo fraco e a pouca chuva atrapalham o milho e o que dá para plantar depois dele",
+    "quando é a melhor época de plantio do milho aqui, quanto tempo ele leva para ficar pronto e o que planto depois da colheita?",
+    "o solo da minha roça é fraco e tem pouca chuva, o que o Sulco sabe sobre o veranico e sobre rotação com leguminosa?",
+]
+
+
+@pytest.mark.parametrize("q", GRANDES, ids=[f"G{i}" for i in range(len(GRANDES))])
+def test_pergunta_grande_tem_limite_maior_mais_fatos_e_prompt_dentro_do_teto(q):
+    # limites da medição de 2026-11-15 (a IA era rejeitada por resposta boa "longa"): curta 90, grande 130 (constantes de conhecimento.py)
+    assert CK.pergunta_grande(q) and C.limite_palavras(q) == CK.LIMITE_PALAVRAS_GRANDE == 130
+    s = CK.selecionar_fatos(q, PONTO, {}, buscar_fn=SEM_RAG, hoje=HOJE)
+    assert s["grande"] and 1 <= len(s["fatos"]) <= CK.MAX_FATOS_GRANDE == 18
+    p = C.montar_prompt(q, D.estado_inicial(), None, "livre", s["fatos"], D.PERGUNTA_FOCO, C._nomes())
+    assert f"no máximo {CK.LIMITE_PALAVRAS_GRANDE} palavras" in p and "uma ideia por frase" in p
+    assert FT.tokens_aprox(C.SISTEMA_CONVERSA) + FT.tokens_aprox(p) <= 2800
+    t = _corpo(s)
+    assert contar_palavras(t) <= 112 and t.rstrip().endswith("Converse com o técnico.")
+    r = C.conversar(q, None, PONTO, None, buscar_fn=SEM_RAG, modo="template", hoje=HOJE)
+    assert r["acao"] in ("responder", "perguntar") and "Converse com o técnico." in r["resposta"]
+
+
+def test_pergunta_curta_tem_limite_menor_que_a_grande():
+    for q in ("quando começa a chover aqui?", "o milho aguenta seca", "quantos dias o milho demora?"):
+        assert not CK.pergunta_grande(q) and C.limite_palavras(q) == CK.LIMITE_PALAVRAS_CURTA == 90 < CK.LIMITE_PALAVRAS_GRANDE
+        s = CK.selecionar_fatos(q, PONTO, {}, buscar_fn=SEM_RAG, hoje=HOJE)
+        assert not s["grande"] and len(s["fatos"]) <= CK.MAX_FATOS
+        assert f"no máximo {CK.LIMITE_PALAVRAS_CURTA} palavras" in C.montar_prompt(q, D.estado_inicial(), None, "livre", s["fatos"], None, C._nomes())
+
+
+def test_verificador_de_tamanho_usa_o_mesmo_limite_dinamico(tmp_path):
+    fatos = [{"id": "F1", "texto_simples": "O milho precisa de chuva.", "papel": "x"}]
+    longo = " ".join(["palavra"] * 120) + " [F1]."
+    lim_c, lim_g = int(CK.LIMITE_PALAVRAS_CURTA * 1.12), int(CK.LIMITE_PALAVRAS_GRANDE * 1.12)
+    assert not any("palavras" in m for m in C.verificar_conversa(longo, fatos, "x", False, False, lim_g))     # grande: 120 palavras passa
+    assert any("palavras" in m for m in C.verificar_conversa(longo, fatos, "x", False, False, lim_c))         # curta: 120 palavras é barrada
+    # ponta a ponta: a IA devolve ~125 palavras; para pergunta curta o texto padrão assume, para pergunta grande a resposta da IA vale
+    def ia(u):
+        (i, t), *_ = re.findall(r"^\[(F\d+)\] (.*)$", u, flags=re.M)
+        return re.split(r"(?<=[.!?]) ", t)[0].rstrip(".") + f" [{i}]. " + " ".join(["Isso é o que os dados mostram"] * 18) + f" [{i}]."
+    r_curta, _ = _llm(ia, "quantos dias o milho demora?", tmp_path / "c")
+    assert r_curta["origem"] != "llm" and any("palavras" in m for m in r_curta["verificacao"]["motivos"])
+    r_grande, _ = _llm(ia, "me explica quantos dias o milho demora para ficar pronto e por que isso muda de um ano para o outro", tmp_path / "g")
+    assert r_grande["origem"] == "llm", r_grande["verificacao"]
+
+
+# ---------------------------------------------------------------------------------------------- 'não entendi': reexplica, nunca responde com trecho de documento
+NAO_ENTENDI = ["é não entendi tem como", "não entendi", "não compreendi", "como assim?", "pode repetir?", "explica de novo", "tem como explicar?",
+               "o que você falou?", "hã?", "oi?", "naum entedi nada"]
+
+
+@pytest.mark.parametrize("msg", NAO_ENTENDI)
+def test_nao_entendi_com_pergunta_aberta_explica_a_pergunta_e_mantem_pendente_e_chips(msg):
+    r1 = C.conversar("o que dá para plantar aqui?", None, PONTO, None, buscar_fn=SEM_RAG, modo="template", hoje=HOJE)
+    assert r1["estado"]["pendente"] == "foco"
+    def sem_rag(_q):
+        raise AssertionError("'não entendi' não pode ir ao acervo")
+    r = C.conversar(msg, r1["estado"], PONTO, None, buscar_fn=sem_rag, modo="template", hoje=HOJE)
+    assert r["resposta"].startswith("Sem problema. Eu queria saber o que mais te preocupa na roça: gastar menos água, cuidar da terra ou ganhar um dinheiro a mais.")
+    assert r["estado"]["pendente"] == "foco" and r["pede"] == "foco" and r["chips"] == D.CHIPS_FOCO and r["acao"] == "perguntar"
+    assert not r["trechos"] and not r["fatos"] and "Embrapa" not in r["resposta"] and not re.search(r"\d", r["resposta"])
+
+
+def test_nao_entendi_sem_pergunta_aberta_repete_a_ultima_resposta_mais_curta():
+    r1 = C.conversar("quantos dias o milho demora?", None, PONTO, None, buscar_fn=SEM_RAG, modo="template", hoje=HOJE)
+    assert r1["estado"]["pendente"] is None and 0 < len(r1["estado"]["ult_resposta"]) <= 300
+    r2 = C.conversar("não entendi", r1["estado"], PONTO, None, buscar_fn=lambda q: 1 / 0, modo="template", hoje=HOJE)
+    assert r2["resposta"].startswith("Claro, falo de outro jeito, mais curto:") and "dias" in r2["resposta"] and len(r2["resposta"]) < len(r1["resposta"]) + 80
+    assert r2["estado"]["ult_resposta"] == r1["estado"]["ult_resposta"] and r2["chips"] == D.CHIPS_INICIO       # reexplicar não troca o que ele não entendeu
+    r3 = C.conversar("não entendi", None, PONTO, None, buscar_fn=lambda q: 1 / 0, modo="template", hoje=HOJE)       # conversa nova, nada a repetir
+    assert "falo mais simples" in r3["resposta"] and r3["chips"] == D.CHIPS_INICIO
+
+
+def test_ult_resposta_do_estado_e_aceita_pela_porta_e_nao_pega_pergunta_normal():
+    from src.llm import guardrails as G
+    r1 = C.conversar("quantos dias o milho demora?", None, PONTO, None, buscar_fn=SEM_RAG, modo="template", hoje=HOJE)
+    assert G.verificar_estado(r1["estado"]) == []
+    for q in ("não entendi por que choveu pouco em 2023 no meu local", "como funciona o ciclo do milho", "tem como plantar milho aqui?"):
+        assert not C.nao_entendeu(sem_acento(q.lower())), q
+
+
+# ---------------------------------------------------------------------------------------------- respostas guiadas: lugar, época, sem negação solta
+def test_e_o_sorgo_devolve_dados_em_conflito_com_as_duas_fontes():
+    for q in ("e o sorgo?", "o sorgo dá aqui?"):
+        r = C.conversar(q, None, PONTO, None, buscar_fn=SEM_RAG, modo="template", hoje=HOJE)
+        t = r["resposta"]
+        assert "Sobre o sorgo, os meus dados não fecham" in t and "tabela de clima" in t and "IBGE" in t and "boa pergunta para o técnico" in t, t
+        assert "não deu certo" not in t.lower() and "inviável" not in t.lower()
+        f = [x for x in r["fatos"] if "não fecham" in x["texto_simples"]][0]
+        assert f["lacuna"] and "EcoCrop" in f["origem"] and "IBGE/PAM" in f["origem"]
+
+
+def test_aviso_de_limite_sai_uma_vez_por_conversa():
+    r1 = C.conversar("o que dá para plantar aqui?", None, PONTO, None, buscar_fn=SEM_RAG, modo="template", hoje=HOJE)
+    assert "eu ainda não tenho" in r1["resposta"] and r1["estado"]["aviso_limite_dito"] is True
+    assert "Isso olhou" not in r1["resposta"]                                  # sujeito vago saiu: 'Eu olhei a chuva e o calor daí'
+    r2 = C.conversar("moro em Quixadá", {**r1["estado"], "pendente": None}, PONTO, None, buscar_fn=SEM_RAG, modo="template", hoje=HOJE)
+    assert "eu ainda não tenho" not in r2["resposta"] and "dão certo" in r2["resposta"]
+
+
+def test_resposta_guiada_usa_a_epoca_do_ano_do_dia_informado():
+    from datetime import date
+    seco = C.conversar("o que dá para plantar aqui?", None, PONTO, None, buscar_fn=SEM_RAG, modo="template", hoje=date(2026, 11, 15))["resposta"]
+    chuva = C.conversar("o que dá para plantar aqui?", None, PONTO, None, buscar_fn=SEM_RAG, modo="template", hoje=date(2026, 2, 15))["resposta"]
+    assert "Em novembro" in seco and "novembro não está entre as épocas de plantio" in seco
+    assert "Em fevereiro" in chuva and "em fevereiro dá para plantar" in chuva
+    for t in (seco, chuva):
+        assert all(len(re.findall(r",| e ", fr)) <= 5 for fr in re.split(r"(?<=[.!?])\s", t) if "dão certo" in fr or fr.startswith("Para "))    # até 5 nomes por frase

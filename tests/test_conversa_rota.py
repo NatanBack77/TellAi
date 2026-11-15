@@ -23,7 +23,7 @@ def test_rodada_a_rodada_com_o_estado_devolvido(cli):
     r2 = cli.post("/conversa", json={"mensagem": "o que dá para plantar aqui?", "ponto_id": PID, "estado": r.json()["estado"]})
     j = r2.json()
     assert r2.status_code == 200 and j["acao"] == "responder" and j["pede"] == "foco" and len(j["chips"]) == 4 and j["origem"] == "template"
-    assert j["assistente"].startswith("Assistente automático") and j["fontes"] and all(f["origem"] for f in j["fontes"])
+    assert j["assistente"].startswith("Maíra, assistente automática") and j["fontes"] and all(f["origem"] for f in j["fontes"])
     r3 = cli.post("/conversa", json={"mensagem": j["chips"][0]["texto"], "ponto_id": PID, "estado": json.loads(json.dumps(j["estado"]))})
     assert r3.json()["estado"]["foco"] == "agua" and r3.json()["pergunta"] is None
 
@@ -40,6 +40,11 @@ def test_perfil_e_cultura_atual_validados(cli):
 
 
 def test_estado_adulterado_nao_derruba_a_rota(cli):
+    # Com os guardrails ligados, estado com caminho ('../x') é recusado na porta (422, guardrails.verificar_estado): é o comportamento seguro esperado.
     r = cli.post("/conversa", json={"mensagem": "milho e feijão de corda", "ponto_id": PID,
                                     "estado": {"culturas": ["../x", "milho"], "pendente": "executar", "turnos": "muitos"}})
+    assert r.status_code == 422
+    # Adulteração sem conteúdo perigoso (pendente desconhecido, turnos em texto) não derruba: o estado é saneado e a rota responde 200.
+    r = cli.post("/conversa", json={"mensagem": "milho e feijão de corda", "ponto_id": PID,
+                                    "estado": {"culturas": ["milho"], "pendente": "executar", "turnos": "muitos"}})
     assert r.status_code == 200 and r.json()["estado"]["culturas"] in (["milho", "feijao_caupi"], ["milho"])

@@ -181,7 +181,8 @@ def test_todas_iguais_vira_empate_geral(nomes):
 def test_cultura_inviavel_tem_frase_propria_e_franqueza_de_cultura_fora_da_lista(nomes):
     r = AS.avaliar(PID, [M, "sorgo"])
     f = _folha(nomes, r, fora=["melancia"])
-    assert any("sorgo fica difícil" in x["texto_simples"] for x in f["fatos"])
+    # sorgo no Ceará = 'dados em conflito' (EcoCrop x IBGE/PAM): a frase não afirma que 'não dá'; diz que os dados não fecham (2026-11-15)
+    assert any("Sobre o sorgo, os meus dados não fecham" in x["texto_simples"] and x["lacuna"] and "EcoCrop" in x["origem"] for x in f["fatos"])
     fr = [x for x in f["fatos"] if x["papel"] == "franqueza"][0]
     assert "melancia" in fr["texto_simples"] and "ainda não temos dados" in fr["texto_simples"] and fr["lacuna"]
 
@@ -196,7 +197,7 @@ def test_viabilidade_nunca_diz_cem_por_cento(nomes):
 def test_fatos_da_sugestao_por_foco(nomes):
     f = _folha(nomes, sug=AS.sugerir_por_foco(PID, "agua"), foco="agua")
     r = [x for x in f["fatos"] if x["papel"] == "agua"][0]["texto_simples"]
-    assert "feijão comum cerca de 300 mm" in r and "estudos diferentes" in r
+    assert "ficam na frente: feijão comum" in r and "estudos diferentes" in r
     assert any(x["papel"] == "lacuna" and "ainda não temos dado de água" in x["texto_simples"].lower() for x in f["fatos"])
     fn = _folha(nomes, sug=AS.sugerir_por_foco(PID, "renda"), foco="renda")
     assert any(x["papel"] == "lacuna_foco" and "não consegue dizer o que dá mais renda" in x["texto_simples"] for x in fn["fatos"])
