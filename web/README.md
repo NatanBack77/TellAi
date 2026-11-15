@@ -80,7 +80,9 @@ src/
 
 ## Exemplos incluídos
 
-- `/` — status da API (`GET /saude`, só o campo `status`) e uma cena 3D de "sulcos" animada.
+- `/boas-vindas` — quiz inicial (município, solo, clima) em passos; as respostas ficam no localStorage. Sem respostas salvas, qualquer tela do sistema manda para cá.
+- `/` — tela principal: card da IA à esquerda e, à direita, uma cena 3D procedural para cada uma das 10 etapas do plantio (`?topico=`).
+- `/maira` — conversa com a Maíra.
 - `/municipios` — lista de `GET /municipios` com busca na URL (`?q=`), sem acento/caixa, e mapa 3D dos pontos por lat/lon (clique seleciona). `ibge: null` aparece como "sem dado".
 
 As regras do produto em `docs/32_FRONTEND_HANDOFF.md` (seção 4) valem aqui também: texto da API só como texto, nada de número inventado, nenhum caminho/chave em tela.

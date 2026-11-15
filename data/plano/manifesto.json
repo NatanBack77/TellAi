@@ -1,0 +1,42 @@
+{
+  "linhas": 377,
+  "por_etapa_e_status": {
+    "1:lacuna": 15,
+    "1:verificado": 33,
+    "4:lacuna": 9,
+    "4:verificado": 13,
+    "5:lacuna": 2,
+    "5:verificado": 36,
+    "6:lacuna": 5,
+    "6:verificado": 35,
+    "7:lacuna": 5,
+    "7:verificado": 20,
+    "8:lacuna": 28,
+    "8:verificado": 55,
+    "9:lacuna": 2,
+    "9:verificado": 40,
+    "10:lacuna": 32,
+    "10:nao_se_aplica": 3,
+    "10:verificado": 44
+  },
+  "culturas": [
+    "algodao",
+    "amendoim",
+    "crotalaria_juncea",
+    "feijao_caupi",
+    "feijao_comum",
+    "feijao_de_porco",
+    "gergelim",
+    "girassol",
+    "guandu",
+    "mamona",
+    "mandioca",
+    "milheto",
+    "milho",
+    "mucuna",
+    "palma_forrageira",
+    "sorgo"
+  ],
+  "requer_tecnico": 7,
+  "origem": "data/plano_staging/claude (curadoria com fonte; trecho conferido literalmente na página citada)"
+}

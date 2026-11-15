@@ -7,6 +7,7 @@ import { Button } from "@/shared/components/ui/Button";
 import { IconButton } from "@/shared/components/ui/IconButton";
 import { EASE_SUAVE, MOLA_SUAVE } from "@/shared/components/motion/transicoes";
 import { cn } from "@/shared/lib/cn";
+import { ConteudoEtapa } from "../components/ConteudoEtapa";
 import { usePainelViewModel } from "../viewmodels/usePainelViewModel";
 
 // Three.js só baixa quando a tela principal abre.
@@ -38,6 +39,7 @@ export function PainelView() {
           <Logo />
           <button
             type="button"
+            onClick={vm.falarComMaira}
             className="flex h-[26px] items-center gap-1 rounded-full border border-bg-border bg-bg-soft px-3 font-geist text-[10px] text-text-body transition-colors hover:bg-white"
           >
             <LogoMark className="h-[14px] w-[12px]" />
@@ -84,19 +86,7 @@ export function PainelView() {
               </h1>
               <p className="max-w-prose font-geist text-lg text-text-body">{vm.topico.resumo}</p>
 
-              <div className="max-w-prose space-y-3 rounded-2xl border border-dashed border-bg-border bg-white/60 p-4">
-                <div className="flex items-center gap-2 font-geist text-sm text-text-body">
-                  <LogoMark className="h-[18px] w-[16px]" />A Maíra vai explicar esta etapa para{" "}
-                  {vm.perfil?.municipio ?? "o seu município"}.
-                </div>
-                {[92, 78, 85, 60].map((w) => (
-                  <span
-                    key={w}
-                    className="block h-3 animate-pulse rounded-full bg-bg-border/80"
-                    style={{ width: `${w}%` }}
-                  />
-                ))}
-              </div>
+              <ConteudoEtapa plano={vm.plano} municipio={vm.perfil?.municipio ?? null} />
             </motion.article>
           </AnimatePresence>
         </div>

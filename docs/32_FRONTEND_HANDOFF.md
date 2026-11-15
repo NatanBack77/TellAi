@@ -23,6 +23,7 @@ Atualizado em 2026-11-15. Este documento diz o que o front-end pode contar do se
 | `/limites` | GET | o que o Sulco não vê |
 | `/chat` | POST | pergunta única (sem memória) |
 | `/conversa` | POST | **conversa com memória do estado** (a principal): ver seção 3 |
+| `/plano-plantio` | POST | **plano de plantio em 10 etapas** para um local e uma cultura (contrato em `docs/34`); `GET /plano-plantio/culturas` e `/plano-plantio/etapas` |
 | `/calendario` | POST | cálculo do calendário de plantio do agricultor |
 | `/voz/transcrever` | POST | áudio WAV → texto (DeepSeek); cabeçalho `X-Voz-Pin` |
 | `/voz/falar` | POST | texto → áudio WAV; JSON `{texto, motor}`; `motor: "kokoro"` (voz da Dora, local) |

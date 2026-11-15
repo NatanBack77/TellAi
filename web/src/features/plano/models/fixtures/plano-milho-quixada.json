@@ -1,0 +1,713 @@
+{
+ "versao": "plano-1",
+ "ponto_id": "quixada_ce",
+ "cultura": "milho",
+ "cultura_nome": "Milho",
+ "cultura_exemplo": false,
+ "etapas": [
+  {
+   "numero": 1,
+   "slug": "introducao",
+   "titulo": "Introdução ao Plantio",
+   "origem": "dado_curado",
+   "itens": [
+    {
+     "atributo": "finalidade",
+     "rotulo": "Para que serve",
+     "valor": "Produção de grãos para alimentação humana e animal",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Milho e Sorgo. Cultivo do Milho. Sistema de Produção 1, 9. ed., nov. 2015",
+      "pagina": 40,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/486917/1/Sistema-de-Producao-Cultivo-do-Milho.pdf"
+     },
+     "trecho": "No milho, o interesse antropocêntrico reside principalmente na produção de grãos, para alimentação humana e animal.",
+     "contexto": "Embrapa Milho e Sorgo (fonte nacional)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "limitacao_principal",
+     "rotulo": "Principal limitação",
+     "valor": "O principal fator de risco é o déficit hídrico",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Milho e Sorgo. Cultivo do Milho. Sistema de Produção 1, 9. ed., nov. 2015",
+      "pagina": 22,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/486917/1/Sistema-de-Producao-Cultivo-do-Milho.pdf"
+     },
+     "trecho": "o principal fator de risco é o déficit hídrico",
+     "contexto": "Brasil Central; vale também para sequeiro no semiárido; Embrapa Milho e Sorgo (fonte nacional)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    }
+   ],
+   "lacunas": [
+    "Vantagem no semiárido: Sem fonte consultada: o documento não trata de aptidão específica ao semiárido"
+   ],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  },
+  {
+   "numero": 2,
+   "slug": "recomendacao",
+   "titulo": "Recomendação de Plantação",
+   "origem": "motor",
+   "itens": [
+    {
+     "atributo": "cultura_recomendada_1",
+     "rotulo": "Milho",
+     "valor": "Costuma dar certo aqui (9 em cada 10 anos).",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "Sulco: clima do local (NASA, 2001–2024) e zoneamento do Ministério da Agricultura",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "Pelo clima daqui nos últimos anos e pelo zoneamento do Ministério da Agricultura. Confirme com o técnico.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "cultura_recomendada_2",
+     "rotulo": "Gergelim",
+     "valor": "Costuma dar certo aqui (10 em cada 10 anos). Época de plantio (solo médio): de 1º de fevereiro até 10 de maio.",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "Sulco: clima do local (NASA, 2001–2024) e zoneamento do Ministério da Agricultura",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "Pelo clima daqui nos últimos anos e pelo zoneamento do Ministério da Agricultura. Confirme com o técnico.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "cultura_recomendada_3",
+     "rotulo": "Milheto",
+     "valor": "Costuma dar certo aqui (10 em cada 10 anos). Época de plantio (solo médio): de 1º de fevereiro até 10 de maio.",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "Sulco: clima do local (NASA, 2001–2024) e zoneamento do Ministério da Agricultura",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "Pelo clima daqui nos últimos anos e pelo zoneamento do Ministério da Agricultura. Confirme com o técnico.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "cultura_recomendada_4",
+     "rotulo": "Palma forrageira",
+     "valor": "Costuma dar certo aqui (10 em cada 10 anos). Época de plantio (solo médio): de 1º de janeiro até 10 de março e de 11 de dezembro até o fim de dezembro.",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "Sulco: clima do local (NASA, 2001–2024) e zoneamento do Ministério da Agricultura",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "Pelo clima daqui nos últimos anos e pelo zoneamento do Ministério da Agricultura. Confirme com o técnico.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    },
+    {
+     "atributo": "cultura_recomendada_5",
+     "rotulo": "Feijão-caupi",
+     "valor": "Costuma dar certo aqui (10 em cada 10 anos). Época de plantio (solo médio): de 11 de fevereiro até 10 de abril.",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "Sulco: clima do local (NASA, 2001–2024) e zoneamento do Ministério da Agricultura",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "Pelo clima daqui nos últimos anos e pelo zoneamento do Ministério da Agricultura. Confirme com o técnico.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    },
+    {
+     "atributo": "cultura_recomendada_6",
+     "rotulo": "Girassol",
+     "valor": "Costuma dar certo aqui (10 em cada 10 anos). Época de plantio (solo médio): de 11 de fevereiro até 20 de março.",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "Sulco: clima do local (NASA, 2001–2024) e zoneamento do Ministério da Agricultura",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "Pelo clima daqui nos últimos anos e pelo zoneamento do Ministério da Agricultura. Confirme com o técnico.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    }
+   ],
+   "lacunas": [
+    "Não há preço, custo nem mercado: a comparação não considera renda."
+   ],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  },
+  {
+   "numero": 3,
+   "slug": "clima_epoca",
+   "titulo": "Clima e Época de Plantio",
+   "origem": "motor",
+   "itens": [
+    {
+     "atributo": "janela_zarc",
+     "rotulo": "Época para plantar",
+     "valor": "de 11 de fevereiro até 10 de março",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "Ministério da Agricultura, zoneamento de risco climático (sequeiro)",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "São as datas com menos risco de perder a lavoura por causa da chuva.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "ciclo_cultura",
+     "rotulo": "Da semente até a colheita",
+     "valor": "cerca de 140 dias (entre 125 e 180, conforme a semente)",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "FAO-56 (Allen et al., 1998), cap. 6, Tabela 11",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "Valor de referência; a sua semente pode levar mais ou menos tempo.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "estacao_chuvosa",
+     "rotulo": "Quando costuma chover mais",
+     "valor": "de 16 de janeiro até 15 de maio",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "Sulco: clima do local (NASA, 2001–2024)",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "Na média dos últimos anos; cada ano é diferente.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "periodo_seco",
+     "rotulo": "Veranico (dias seguidos sem chuva no meio das águas)",
+     "valor": "Costuma ficar uns 9 dias sem chuva; em 1 de cada 10 anos passa de 15 dias; o maior foi 31 dias.",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "Sulco: clima do local (NASA, 2001–2024)",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "Conta como dia sem chuva o que teve menos de 1 mm.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    }
+   ],
+   "lacunas": [
+    "Não há previsão de chuva: o plano mostra o que costuma acontecer, não o que vai acontecer."
+   ],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  },
+  {
+   "numero": 4,
+   "slug": "preparacao_solo",
+   "titulo": "Preparação do Solo",
+   "origem": "dado_curado",
+   "itens": [],
+   "lacunas": [
+    "Ainda não há dado com fonte para esta cultura nesta etapa.",
+    "Solo e preparo: ainda não coletado"
+   ],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  },
+  {
+   "numero": 5,
+   "slug": "semeadura",
+   "titulo": "Semeadura e Plantio",
+   "origem": "dado_curado",
+   "itens": [
+    {
+     "atributo": "espacamento_convencional_x_reduzido",
+     "rotulo": "Espaçamento convencional e reduzido",
+     "valor": "convencional 80 a 90 cm entre fileiras; reduzido 45 a 50 cm",
+     "unidade": "cm",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Milho e Sorgo. Cultivo do Milho. Sistema de Produção 1, 9. ed.",
+      "pagina": 148,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/486917/1/Sistema-de-Producao-Cultivo-do-Milho.pdf"
+     },
+     "trecho": "espaçamento reduzido (45 a 50 cm entre fileiras) comparado ao espaçamento convencional (80 a 90 cm)",
+     "contexto": "fonte nacional, não específica do semiárido",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    }
+   ],
+   "lacunas": [],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  },
+  {
+   "numero": 6,
+   "slug": "irrigacao_agua",
+   "titulo": "Irrigação e Cuidados com a Água",
+   "origem": "dado_curado",
+   "itens": [
+    {
+     "atributo": "kc",
+     "rotulo": "Kc (inicial · médio · final)",
+     "valor": "inicial 0,3 · médio 1,20 · final 0,60 a 0,35",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "FAO. Irrigation and Drainage Paper 56 (Crop evapotranspiration), Tabela 12: coeficientes de cultura Kc de valor único",
+      "pagina": 1,
+      "url": null
+     },
+     "trecho": "Maize, Field (grain) (field corn) |  | 1.20 | 0.60-0.35 11 | 2",
+     "contexto": "milho grão; climas sub-úmidos (UR mín ~45%, vento ~2 m/s); para clima semiárido a própria FAO manda ajustar. Texto das notas de rodapé não foi baixado. URL de origem não registrada pelo agente que baixou o arquivo",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    }
+   ],
+   "lacunas": [],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  },
+  {
+   "numero": 7,
+   "slug": "adubacao",
+   "titulo": "Adubação e Nutrição",
+   "origem": "dado_curado",
+   "itens": [],
+   "lacunas": [
+    "Ainda não há dado com fonte para esta cultura nesta etapa.",
+    "Adubação (referência da fonte): ainda não coletado"
+   ],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  },
+  {
+   "numero": 8,
+   "slug": "desenvolvimento",
+   "titulo": "Desenvolvimento e Manutenção",
+   "origem": "dado_curado",
+   "itens": [
+    {
+     "atributo": "doenca",
+     "rotulo": "Doença",
+     "valor": "Enfezamento pálido: no início, folhas com deformações e depois clorose das bordas da base das folhas, que pode progredir para toda a planta, com nanismo acentuado",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Milho e Sorgo. Cultivo do Milho. Sistema de Produção 1, 9. ed., nov. 2015",
+      "pagina": 298,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/486917/1/Sistema-de-Producao-Cultivo-do-Milho.pdf"
+     },
+     "trecho": "Enfezamento pálido - no início, plantas podem apresentar folhas com deformações e posteriormente inicia-se pela descoloração (clorose) das bordas da base das folhas que pode progredir para toda a planta, nanismo acentuado",
+     "contexto": "Embrapa Milho e Sorgo (fonte nacional)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    },
+    {
+     "atributo": "doenca_manejo_cultural",
+     "rotulo": "Manejo cultural de doença",
+     "valor": "Para o controle da doença descrita, os métodos culturais, como a eliminação dos hospedeiros nativos do patógeno e do vetor (gramíneas em geral), têm sido os mais eficientes",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Milho e Sorgo. Cultivo do Milho. Sistema de Produção 1, 9. ed., nov. 2015",
+      "pagina": 300,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/486917/1/Sistema-de-Producao-Cultivo-do-Milho.pdf"
+     },
+     "trecho": "para o controle da doença, os métodos culturais, na forma de eliminação dos hospedeiros nativos do patógeno e do vetor (gramíneas em geral), têm sido os mais eficientes",
+     "contexto": "vem logo depois da seção de enfezamentos; a frase não nomeia a doença nem a cigarrinha; Embrapa Milho e Sorgo (fonte nacional)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    },
+    {
+     "atributo": "estadio_V5",
+     "rotulo": "Estádio V5",
+     "valor": "No estádio V5 (cinco folhas completamente desenvolvidas), a iniciação das folhas e das espigas está completa",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Milho e Sorgo. Cultivo do Milho. Sistema de Produção 1, 9. ed., nov. 2015",
+      "pagina": 30,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/486917/1/Sistema-de-Producao-Cultivo-do-Milho.pdf"
+     },
+     "trecho": "No estádio V5 (cinco folhas completamente desenvolvidas), tanto a iniciação das folhas como das espigas vai estar completa",
+     "contexto": "Embrapa Milho e Sorgo (fonte nacional)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    },
+    {
+     "atributo": "fase_duracao_dias",
+     "rotulo": "Duração das fases",
+     "valor": "65",
+     "unidade": "dias",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Milho e Sorgo. Cultivo do Milho. Sistema de Produção 1, 9. ed., nov. 2015",
+      "pagina": 26,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/486917/1/Sistema-de-Producao-Cultivo-do-Milho.pdf"
+     },
+     "trecho": "genótipo de milho de ciclo normal, cuja floração acontece aos 65 dias após a emergência",
+     "contexto": "após emergência até a floração; Embrapa Milho e Sorgo (fonte nacional)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "pcc_daninhas",
+     "rotulo": "Período crítico do mato",
+     "valor": "V5 a V8, geralmente 20 a 40",
+     "unidade": "dias",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Milho e Sorgo. Cultivo do Milho. Sistema de Produção 1, 9. ed., nov. 2015",
+      "pagina": 162,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/486917/1/Sistema-de-Producao-Cultivo-do-Milho.pdf"
+     },
+     "trecho": "O período crítico de competição (PCC) das plantas daninhas ou forrageiras no milho ocorre entre os estádios V5 (5 folhas totalmente expandidas) e V8, geralmente, entre 20 e 40 dias após emergência",
+     "contexto": "após emergência; Embrapa Milho e Sorgo (fonte nacional)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "plantas_daninhas_criticas",
+     "rotulo": "Mato mais problemático",
+     "valor": "Dicotiledôneas citadas pela fonte: caruru, balãozinho, picão-preto, leiteira, corda-de-viola, nabiça, poaia-branca, trapoeraba e guanxuma",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Milho e Sorgo. Cultivo do Milho. Sistema de Produção 1, 9. ed., nov. 2015",
+      "pagina": 209,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/486917/1/Sistema-de-Producao-Cultivo-do-Milho.pdf"
+     },
+     "trecho": "como Amaranthus spp (caruru), Cardiospermum halicacabum (balãozinho), Bidens spp. (picão -preto),Euphorbia heterophylla (leiteira), Ipomoea spp (corda de- viola), Raphanus sativus (nabiça), Richardia brasiliensis (poaia -branca), Commelina benghalensis(trapoeraba) e Sida spp. (guanxuma)",
+     "contexto": "Embrapa Milho e Sorgo (fonte nacional)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    },
+    {
+     "atributo": "praga",
+     "rotulo": "Praga",
+     "valor": "Lagarta-do-cartucho (Spodoptera frugiperda): a fase do cartucho deixa o milho muito suscetível ao ataque; a fonte exige vigilância constante",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Milho e Sorgo. Cultivo do Milho. Sistema de Produção 1, 9. ed., nov. 2015",
+      "pagina": 32,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/486917/1/Sistema-de-Producao-Cultivo-do-Milho.pdf"
+     },
+     "trecho": "conferem à cultura do milho elevada suscetibilidade ao ataque da lagarta do cartucho (Spodoptera frugiperda), exigindo assim constante vigilância",
+     "contexto": "Embrapa Milho e Sorgo (fonte nacional)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    },
+    {
+     "atributo": "praga",
+     "rotulo": "Praga",
+     "valor": "Lagarta-elasmo: a alta umidade do solo contribui para reduzir os problemas que ela causa no milho",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Milho e Sorgo. Cultivo do Milho. Sistema de Produção 1, 9. ed., nov. 2015",
+      "pagina": 295,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/486917/1/Sistema-de-Producao-Cultivo-do-Milho.pdf"
+     },
+     "trecho": "A alta umidade do solo contribui para reduzir os problemas causados pela lagarta-elasmo no milho",
+     "contexto": "Embrapa Milho e Sorgo (fonte nacional)",
+     "requer_tecnico": true,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    }
+   ],
+   "lacunas": [
+    "Amontoa: Sem fonte consultada: o documento não descreve amontoa para milho",
+    "Desbaste: Sem fonte consultada: o documento não indica desbaste para milho"
+   ],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  },
+  {
+   "numero": 9,
+   "slug": "colheita",
+   "titulo": "Colheita",
+   "origem": "dado_curado",
+   "itens": [
+    {
+     "atributo": "colheita_indicador",
+     "rotulo": "Como saber que é hora de colher",
+     "valor": "Grãos com cerca de 25% de umidade, colhidos por colheitadeira mecanizada",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Milho e Sorgo. Cultivo do Milho. Sistema de Produção 1, 9. ed., nov. 2015",
+      "pagina": 347,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/486917/1/Sistema-de-Producao-Cultivo-do-Milho.pdf"
+     },
+     "trecho": "O milho geralmente é colhido com 25% de umidade, utilizando-se colheitadeiras mecanizadas",
+     "contexto": "Embrapa Milho e Sorgo (fonte nacional)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "colheita_metodo",
+     "rotulo": "Como colher",
+     "valor": "A colheita manual é mais apropriada para pequenas propriedades e terrenos declivosos; na mecanizada, a regulagem adequada das máquinas é importante",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Milho e Sorgo. Cultivo do Milho. Sistema de Produção 1, 9. ed., nov. 2015",
+      "pagina": 347,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/486917/1/Sistema-de-Producao-Cultivo-do-Milho.pdf"
+     },
+     "trecho": "É mais apropriada para pequenas propriedades e terrenos declivosos. Na colheita mecanizada, a regulagem adequada das máquinas é importante",
+     "contexto": "Embrapa Milho e Sorgo (fonte nacional)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    },
+    {
+     "atributo": "colheita_perdas",
+     "rotulo": "Perdas na colheita",
+     "valor": "1,0 a 1,5 (colheita manual)",
+     "unidade": "%",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Milho e Sorgo. Cultivo do Milho. Sistema de Produção 1, 9. ed., nov. 2015",
+      "pagina": 347,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/486917/1/Sistema-de-Producao-Cultivo-do-Milho.pdf"
+     },
+     "trecho": "Estimam-se em 1,0 a 1,5% as perdas promovidas pela colheita manual",
+     "contexto": "Embrapa Milho e Sorgo (fonte nacional)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    },
+    {
+     "atributo": "colheita_umidade",
+     "rotulo": "Umidade na colheita",
+     "valor": "25",
+     "unidade": "%",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Milho e Sorgo. Cultivo do Milho. Sistema de Produção 1, 9. ed., nov. 2015",
+      "pagina": 347,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/486917/1/Sistema-de-Producao-Cultivo-do-Milho.pdf"
+     },
+     "trecho": "O milho geralmente é colhido com 25% de umidade",
+     "contexto": "colheita mecanizada; Embrapa Milho e Sorgo (fonte nacional)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    }
+   ],
+   "lacunas": [],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  },
+  {
+   "numero": 10,
+   "slug": "pos_colheita",
+   "titulo": "Pós-colheita e Armazenamento",
+   "origem": "dado_curado",
+   "itens": [
+    {
+     "atributo": "manejo_preventivo",
+     "rotulo": "Prevenção no armazém",
+     "valor": "Limpeza dos grãos antes de ensacar, umidade adequada, limpeza e desinfestação do armazém e monitoramento da infestação",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Milho e Sorgo. Cultivo do Milho. Sistema de Produção 1, 9. ed., nov. 2015",
+      "pagina": 361,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/486917/1/Sistema-de-Producao-Cultivo-do-Milho.pdf"
+     },
+     "trecho": "depende de cuidados como: limpeza dos grãos antes de ensacá-los, umidade adequada do grão, limpeza e desinfestação do armazém",
+     "contexto": "Embrapa Milho e Sorgo (fonte nacional)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    },
+    {
+     "atributo": "monitoramento_armazem",
+     "rotulo": "Vigilância no armazém",
+     "valor": "Monitorar a infestação por insetos; infestação vinda do campo exige tratamento curativo, que deve ser orientado por técnico",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Milho e Sorgo. Cultivo do Milho. Sistema de Produção 1, 9. ed., nov. 2015",
+      "pagina": 345,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/486917/1/Sistema-de-Producao-Cultivo-do-Milho.pdf"
+     },
+     "trecho": null,
+     "contexto": "Embrapa Milho e Sorgo (fonte nacional)",
+     "requer_tecnico": true,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    },
+    {
+     "atributo": "praga_armazenamento",
+     "rotulo": "Praga do grão guardado",
+     "valor": "Gorgulho/caruncho (Sitophilus zeamais) e traça-dos-cereais (Sitotroga cerealella) | dano: consomem os grãos armazenados",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Milho e Sorgo. Cultivo do Milho. Sistema de Produção 1, 9. ed., nov. 2015",
+      "pagina": 339,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/486917/1/Sistema-de-Producao-Cultivo-do-Milho.pdf"
+     },
+     "trecho": "Sitotroga cerearella, são responsáveis pela maior parte das perdas",
+     "contexto": "Embrapa Milho e Sorgo (fonte nacional)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    },
+    {
+     "atributo": "secagem_umidade_alvo",
+     "rotulo": "Umidade final da secagem",
+     "valor": "13",
+     "unidade": "%",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Milho e Sorgo. Cultivo do Milho. Sistema de Produção 1, 9. ed., nov. 2015",
+      "pagina": 347,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/486917/1/Sistema-de-Producao-Cultivo-do-Milho.pdf"
+     },
+     "trecho": "para o armazenamento após a colheita na propriedade ou em armazéns, os grãos deverão ter no máximo 13% de umidade",
+     "contexto": "máximo para armazenar a granel; Embrapa Milho e Sorgo (fonte nacional)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "umidade_de_colheita_sem_secagem",
+     "rotulo": "Umidade para colher sem secar",
+     "valor": "12 a 14",
+     "unidade": "%",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Milho e Sorgo. Cultivo do Milho. Sistema de Produção 1, 9. ed., nov. 2015",
+      "pagina": 347,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/486917/1/Sistema-de-Producao-Cultivo-do-Milho.pdf"
+     },
+     "trecho": "é interessante colher o produto com menor teor possível de umidade, em torno de 12 a 14%",
+     "contexto": "quando não há secagem; Embrapa Milho e Sorgo (fonte nacional)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    }
+   ],
+   "lacunas": [
+    "Preço e venda: sem série de preço estruturada para o produtor (CONAB só 2025–2026 e poucas culturas; ver docs/31)",
+    "Embalagem: Sem fonte consultada: o documento não detalha embalagem para pequena escala",
+    "Tempo de armazenamento: Sem fonte consultada: o documento não fixa prazo de armazenamento"
+   ],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  }
+ ],
+ "cobertura_itens": {
+  "1": 2,
+  "2": 6,
+  "3": 4,
+  "4": 0,
+  "5": 1,
+  "6": 1,
+  "7": 0,
+  "8": 8,
+  "9": 4,
+  "10": 5
+ },
+ "limites": [
+  "Os dados das etapas vêm de publicações da Embrapa, da FAO e do MAPA, muitas de outras regiões; o campo 'contexto' de cada item diz a origem.",
+  "Nenhum técnico local revisou este plano.",
+  "Satélite e clima não enxergam o seu talhão; o solo é estimado de um mapa global, não é análise de solo.",
+  "Não há preço, custo nem mercado."
+ ],
+ "aviso": "Apoio à decisão: converse com o técnico antes de decidir. O plano mostra o que as fontes e os dados dizem; não promete colheita, lucro nem clima futuro."
+}

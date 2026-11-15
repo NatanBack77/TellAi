@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as AppRouteImport } from './routes/_app'
 import { Route as BoasVindasRouteImport } from './routes/boas-vindas'
 import { Route as AppIndexRouteImport } from './routes/_app/index'
+import { Route as AppMairaRouteImport } from './routes/_app/maira'
 import { Route as AppMunicipiosRouteImport } from './routes/_app/municipios'
 
 const AppRoute = AppRouteImport.update({
@@ -28,6 +29,11 @@ const AppIndexRoute = AppIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AppRoute,
 } as any)
+const AppMairaRoute = AppMairaRouteImport.update({
+  id: '/maira',
+  path: '/maira',
+  getParentRoute: () => AppRoute,
+} as any)
 const AppMunicipiosRoute = AppMunicipiosRouteImport.update({
   id: '/municipios',
   path: '/municipios',
@@ -37,10 +43,12 @@ const AppMunicipiosRoute = AppMunicipiosRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof AppIndexRoute
   '/boas-vindas': typeof BoasVindasRoute
+  '/maira': typeof AppMairaRoute
   '/municipios': typeof AppMunicipiosRoute
 }
 export interface FileRoutesByTo {
   '/boas-vindas': typeof BoasVindasRoute
+  '/maira': typeof AppMairaRoute
   '/municipios': typeof AppMunicipiosRoute
   '/': typeof AppIndexRoute
 }
@@ -48,15 +56,22 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/_app': typeof AppRouteWithChildren
   '/boas-vindas': typeof BoasVindasRoute
+  '/_app/maira': typeof AppMairaRoute
   '/_app/municipios': typeof AppMunicipiosRoute
   '/_app/': typeof AppIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/boas-vindas' | '/municipios'
+  fullPaths: '/' | '/boas-vindas' | '/maira' | '/municipios'
   fileRoutesByTo: FileRoutesByTo
-  to: '/boas-vindas' | '/municipios' | '/'
-  id: '__root__' | '/_app' | '/boas-vindas' | '/_app/municipios' | '/_app/'
+  to: '/boas-vindas' | '/maira' | '/municipios' | '/'
+  id:
+    | '__root__'
+    | '/_app'
+    | '/boas-vindas'
+    | '/_app/maira'
+    | '/_app/municipios'
+    | '/_app/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -87,6 +102,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppIndexRouteImport
       parentRoute: typeof AppRoute
     }
+    '/_app/maira': {
+      id: '/_app/maira'
+      path: '/maira'
+      fullPath: '/maira'
+      preLoaderRoute: typeof AppMairaRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/_app/municipios': {
       id: '/_app/municipios'
       path: '/municipios'
@@ -98,11 +120,13 @@ declare module '@tanstack/react-router' {
 }
 
 interface AppRouteChildren {
+  AppMairaRoute: typeof AppMairaRoute
   AppMunicipiosRoute: typeof AppMunicipiosRoute
   AppIndexRoute: typeof AppIndexRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
+  AppMairaRoute: AppMairaRoute,
   AppMunicipiosRoute: AppMunicipiosRoute,
   AppIndexRoute: AppIndexRoute,
 }

@@ -47,7 +47,8 @@ def _sem_rede(monkeypatch):
 
     def conectar(self, endereco, *a, **k):
         host = endereco[0] if isinstance(endereco, tuple) else endereco
-        if self.family == socket.AF_UNIX or str(host) in ("127.0.0.1", "::1", "localhost"):
+        # socket.AF_UNIX não existe no Windows (o TestClient chega aqui): getattr evita AttributeError sem afrouxar o bloqueio de rede.
+        if self.family == getattr(socket, "AF_UNIX", None) or str(host) in ("127.0.0.1", "::1", "localhost"):
             return orig(self, endereco, *a, **k)
         raise RuntimeError(f"REDE BLOQUEADA nos testes: tentativa de conectar a {host!r}")
 

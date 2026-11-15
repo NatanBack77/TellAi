@@ -1,0 +1,291 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Infoteca-e: Identificador inválido</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="Generator" content="DSpace 5.6" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="/infoteca/favicon.ico" type="image/x-icon"/>
+        <link rel="stylesheet" href="/infoteca/static/css/jquery-ui-1.10.3.custom/redmond/jquery-ui-1.10.3.custom.css" type="text/css" />
+        <link rel="stylesheet" href="/infoteca/static/css/bootstrap/bootstrap.min.css" type="text/css" />
+        <link rel="stylesheet" href="/infoteca/static/css/bootstrap/bootstrap-theme.min.css" type="text/css" />
+        <link rel="stylesheet" href="/infoteca/static/css/bootstrap/dspace-theme.css" type="text/css" />
+        
+        <link rel="search" type="application/opensearchdescription+xml" href="/infoteca/open-search/description.xml" title="DSpace"/>
+        
+
+        <script type='text/javascript' src="/infoteca/static/js/jquery/jquery-1.10.2.min.js"></script>
+        <script type='text/javascript' src='/infoteca/static/js/jquery/jquery-ui-1.10.3.custom.min.js'></script>
+        <script type='text/javascript' src='/infoteca/static/js/bootstrap/bootstrap.min.js'></script>
+        <script type='text/javascript' src='/infoteca/static/js/holder.js'></script>
+        <script type="text/javascript" src="/infoteca/utils.js"></script>
+        <script type="text/javascript" src="/infoteca/static/js/choice-support.js"></script>
+
+        
+        
+
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+          <script src="/infoteca/static/js/html5shiv.js"></script>
+          <script src="/infoteca/static/js/respond.min.js"></script>
+        <![endif]-->
+    </head>
+
+    
+    
+    <body class="undernavigation">
+
+
+
+
+                <div class="row" style="padding-bottom: 0px;">
+
+
+                  <div class="col-md-3 brand">
+                      <a  href="/infoteca/" style="outline: none;">
+                    <img src="/infoteca/image/logomarca_infoteca_e.jpg" alt="Infoteca logo" class="logoRepositorio" style="" width="508px">
+
+                      <img src="/infoteca/image/Infoteca_Embrapa.jpg" alt="Embrapa logo" class="logoComposto" style="" width="508px" >
+
+                    </a>
+                    </div>
+                    <div class="col-md-9" style="padding-top: 0px;">
+
+                    <img src="/infoteca/image/folha.png" alt="Infoteca" class="banerDireita">
+
+                      <a  href="https://www.embrapa.br/" target="_blank" style="outline: none;">
+                      <img src="/infoteca/image/embrapa_logo.jpg" alt="Embrapa " class="logoEmbrapa" width="330px">
+                          </a>
+                    </div>
+
+
+                    </div>
+
+
+
+
+        <a class="sr-only" href="#content">Skip navigation</a>
+        <header class="navbar navbar-inverse navbar-fixed">
+
+
+
+
+            
+            <div class="container" style="padding-right: 0px;">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+    </button>
+    
+</div>
+<nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+    <ul class="nav navbar-nav">
+        <li class="false"><a href="/infoteca/"> Página inicial</a></li>
+
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Navegar <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+                <li><a href="/infoteca/community-list">Unidades da Embrapa</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">Navegar nos Itens por:</li>
+                    
+
+                
+                <li><a href="/infoteca/browse?type=dateissued">Ano de Publicação</a></li>
+                    
+                <li><a href="/infoteca/browse?type=author">Autor</a></li>
+                    
+                <li><a href="/infoteca/browse?type=editor">Editor</a></li>
+                    
+                <li><a href="/infoteca/browse?type=title">Título</a></li>
+                    
+                <li><a href="/infoteca/browse?type=subject">Assunto</a></li>
+                    
+                <li><a href="/infoteca/browse?type=type">Tipo</a></li>
+                    
+
+                
+
+            </ul>
+        </li>
+
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sobre <b class="caret"></b></a>
+            <ul class="dropdown-menu" style="font-size: 15px;">
+		<li><a href="/infoteca/infoteca.jsp" style="font-size: 15px;">Infoteca-e</a></li>
+                <li><a href="https://www.embrapa.br/seb/o-sistema" target="_blank" style="font-size: 15px;">Sistema Embrapa de Bibliotecas - SEB</a></li>
+                <li><a href="/infoteca/interoperabilidade.jsp" style="font-size: 15px;">Interoperabilidade de metadados</a></li>
+                <li><a href="https://www.embrapa.br/politica-de-governanca-de-dados-informacao-e-conhecimento"  target="_blank" style="font-size: 15px;">Política de Governança</a></li>
+                <li><a href="/infoteca/duvidas.jsp" style="font-size: 15px;">Dúvidas frequentes</a></li>
+                <li><a href="/infoteca/contato.jsp" style="font-size: 15px;">Contato</a></li>
+            </ul>
+        </li>
+        <!--STATS ADDON  -->
+        
+        <li><a href="/infoteca/stats?level=general&type=access&page=downviews-series">Estatísticas</a></li>
+            
+        <!--END STATS ADDON  -->
+    </ul>
+    
+    
+    <div style="padding-top:15px;padding-left:25px;">
+        <div class="dropdown">
+            <a class="pull-right" href="?locale=es"><img alt="Español" title="Español" src="/infoteca/image/spain.png"></a>
+            <a class="pull-right" href="?locale=en"><img alt="English" title="English" src="/infoteca/image/english.png"></a>
+            <a class="pull-right" href="?locale=pt_BR"><img alt="Português" title="Português" src="/infoteca/image/brazil.png"></a>
+        </div>
+    </div>
+    
+    
+
+</nav>
+
+            </div>
+            
+        </header>
+
+        <main id="content" role="main" >
+            
+            
+            
+            <div class="container">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <h1>Identificador inválido</h1>
+	<p>O identificador doc/146059/1/circ48.pdf não se apresenta como um valido Bitstream no repositório.  Isto pode ser devido a uma das seguintes razões:</p>
+
+    <ul>
+        <li>A URL da página atual está incorreta - Se você clicou em um link externo,ele pode ter sido digitado incorretamente ou estar corrompido.</li>
+        <li>Você digitou um ID inválido em um formulário. Tente novamente.</li>
+    </ul>
+    <p>Se você está tendo problemas, por favor entre em contato com os administradores do repositório.</p>
+
+    
+
+  
+  
+  
+
+
+
+<center>
+  <p><a href="/infoteca/feedback">Deixe uma mensagem para os administradores do Infoteca-e.</a></p>
+</center>
+
+
+    <p align="center">
+        <a href="/infoteca/">Ir para a página inicial do repositório</a>
+    </p>
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+</main>
+
+<footer class="navbar navbar-inverse navbar-bottom">
+    <div id="designedby" class="container text-muted">
+        <div class="col-md-5" align="left" id="footer">
+            Indexado por </br>
+            <a href="https://oasisbr.ibict.br/" target="_BLANK">
+                <img src="/infoteca/image/oasisbr.png" alt="Portal Brasileiro de Publicações e Dados Científicos em Acesso Aberto" title="Oasisbr" width="176" height="59" />
+            </a>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="https://www.fao.org/agris/" target="_BLANK">
+                <img src=https://assets.agris.fao.org/public/images/2025-07/ADP_cert_2026.png alt="BRI – FAO AGRIS data provider 2026" title="Seal of recognition for active AGRIS Data Providers 2026" width="90" height="118" />
+            </a>
+        </div>
+        <div class="col-md-3" align="left">
+                Suportado por </br></br></br>
+                <a href="http://www.dspace.org/" target="_BLANK">
+                <img src="/infoteca/image/DSpace-logo-light.png" alt="DSpace logo" width="150" height="38"></img>
+            </a>
+        </div>
+        <div class="col-md-4" align="right" id="footer2">
+            <p>
+            <a class="linkRodape" style="color: #FFF;" href="https://www.embrapa.br/" target="_BLANK">  Empresa Brasileira de Pesquisa Agropecuária - Embrapa</a>
+            SAC: <a class="linkRodape" style="color: #FFF;" href="https://www.embrapa.br/fale-conosco" target="_BLANK">https://www.embrapa.br/fale-conosco</a></br></br>
+O conteúdo do repositório está licenciado sob a Licença Creative Commons<a style="color: white;" href="https://creativecommons.org/licenses/by-nc-nd/4.0/"> Atribuição - NãoComercial - SemDerivações 4.0 Internacional.</a></br>
+               <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">
+               <img alt=Licença Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/80x15.png" /></a>
+            </p>
+            <a href="/infoteca/htmlmap"></a></p>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
+
