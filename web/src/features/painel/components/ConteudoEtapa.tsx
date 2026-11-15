@@ -123,7 +123,7 @@ export function ConteudoEtapa({ plano, municipio }: Props) {
   // `faltas` (o que não temos) continua no texto gerado, mas NÃO é mostrado ao agricultor: decisão do produto.
   const { destaques, detalhes, naoSeAplica, semDados } = plano.texto;
   return (
-    <div className="max-w-prose space-y-4 font-geist text-text-body">
+    <div className="w-full space-y-4 font-geist text-text-body">
       {plano.culturaNome && (
         <p className="text-sm">
           Plano para{" "}

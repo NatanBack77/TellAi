@@ -5,7 +5,7 @@ import { Seo } from "@/shared/components/seo/Seo";
 import { Logo, LogoMark } from "@/shared/components/brand/Logo";
 import { Button } from "@/shared/components/ui/Button";
 import { IconButton } from "@/shared/components/ui/IconButton";
-import { EASE_SUAVE, MOLA_SUAVE } from "@/shared/components/motion/transicoes";
+import { EASE_SUAVE } from "@/shared/components/motion/transicoes";
 import { cn } from "@/shared/lib/cn";
 import { ConteudoEtapa } from "../components/ConteudoEtapa";
 import { usePainelViewModel } from "../viewmodels/usePainelViewModel";
@@ -68,61 +68,75 @@ export function PainelView() {
           </div>
         )}
 
-        {/* Conteúdo do tópico (a IA vai preencher aqui) */}
-        <div className="min-h-0 flex-1 overflow-y-auto">
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.article
-              key={vm.topico.id}
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0, transition: EASE_SUAVE }}
-              exit={{ opacity: 0, y: -8, transition: { duration: 0.15 } }}
-              className="space-y-4"
-            >
-              <p className="font-geist text-sm text-text-body">
-                Etapa {vm.indice + 1} de {vm.total}
-              </p>
-              <h1 className="font-geist text-3xl font-semibold text-text-subtitle">
-                {vm.topico.titulo}
-              </h1>
-              <p className="max-w-prose font-geist text-lg text-text-body">{vm.topico.resumo}</p>
+        <div className="flex min-h-0 flex-1 flex-col gap-6 lg:flex-row">
+          {/* Sumário: troca a etapa (e o modelo 3D) */}
+          <nav
+            aria-label="Sumário das etapas do plantio"
+            className="shrink-0 lg:w-64 lg:overflow-y-auto"
+          >
+            <p className="mb-2 px-3 font-geist text-xs font-medium tracking-wide text-text-body uppercase">
+              Sumário
+            </p>
+            <ol className="space-y-0.5">
+              {vm.topicos.map((t, i) => {
+                const ativo = t.id === vm.topico.id;
+                return (
+                  <li key={t.id}>
+                    <button
+                      type="button"
+                      onClick={() => vm.irPara(t.id)}
+                      aria-current={ativo ? "step" : undefined}
+                      className={cn(
+                        "flex w-full items-start gap-2.5 rounded-xl px-3 py-2 text-left font-geist text-sm transition-colors",
+                        ativo
+                          ? "bg-bg-soft font-medium text-text-subtitle"
+                          : "text-text-body hover:bg-bg-soft/60",
+                      )}
+                    >
+                      <span
+                        className={cn(
+                          "grid size-5 shrink-0 place-items-center rounded-full text-[11px]",
+                          ativo
+                            ? "bg-brand-primary text-brand-secondary"
+                            : "bg-bg-border/70 text-text-body",
+                        )}
+                      >
+                        {i + 1}
+                      </span>
+                      <span className="leading-5">{t.titulo}</span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ol>
+          </nav>
 
-              <ConteudoEtapa plano={vm.plano} municipio={vm.perfil?.municipio ?? null} />
-            </motion.article>
-          </AnimatePresence>
+          {/* Conteúdo do tópico (a IA vai preencher aqui) */}
+          <div className="min-h-0 flex-1 overflow-y-auto">
+            <AnimatePresence mode="wait" initial={false}>
+              <motion.article
+                key={vm.topico.id}
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0, transition: EASE_SUAVE }}
+                exit={{ opacity: 0, y: -8, transition: { duration: 0.15 } }}
+                className="space-y-4"
+              >
+                <p className="font-geist text-sm text-text-body">
+                  Etapa {vm.indice + 1} de {vm.total}
+                </p>
+                <h1 className="font-geist text-3xl font-semibold text-text-subtitle">
+                  {vm.topico.titulo}
+                </h1>
+                <p className="max-w-prose font-geist text-lg text-text-body">{vm.topico.resumo}</p>
+
+                <ConteudoEtapa plano={vm.plano} municipio={vm.perfil?.municipio ?? null} />
+              </motion.article>
+            </AnimatePresence>
+          </div>
         </div>
 
         {/* Navegação entre os tópicos */}
-        <nav aria-label="Etapas do plantio" className="space-y-4">
-          <ol className="flex flex-wrap gap-1.5">
-            {vm.topicos.map((t, i) => {
-              const ativo = t.id === vm.topico.id;
-              return (
-                <li key={t.id}>
-                  <button
-                    type="button"
-                    onClick={() => vm.irPara(t.id)}
-                    aria-current={ativo ? "step" : undefined}
-                    className={cn(
-                      "relative flex items-center gap-1.5 rounded-full border px-3 py-1.5 font-geist text-xs transition-colors",
-                      ativo
-                        ? "border-brand-secondary text-brand-primary"
-                        : "border-bg-border bg-white text-text-body hover:border-brand-secondary/40",
-                    )}
-                  >
-                    {ativo && (
-                      <motion.span
-                        layoutId="topico-ativo"
-                        transition={MOLA_SUAVE}
-                        className="absolute inset-0 -z-10 rounded-full bg-brand-secondary"
-                      />
-                    )}
-                    <span className="font-medium">{i + 1}</span>
-                    <span className="max-w-40 truncate">{t.titulo}</span>
-                  </button>
-                </li>
-              );
-            })}
-          </ol>
+        <nav aria-label="Etapa anterior e próxima">
           <div className="flex justify-center gap-2.5">
             <Button variant="brandDark" onClick={vm.anterior} disabled={!vm.temAnterior}>
               Anterior

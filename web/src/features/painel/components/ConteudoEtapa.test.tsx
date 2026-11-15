@@ -27,7 +27,9 @@ const PROIBIDO = /sem dado|n[ãa]o temos|ainda n[ãa]o h[áa]|n[ãa]o coletado|a
 describe("ConteudoEtapa: nunca mostra o que não temos", () => {
   it("em nenhuma das 10 etapas aparece aviso de falta de dado", () => {
     for (const e of plano.etapas) {
-      const { container, unmount } = render(<ConteudoEtapa plano={vm(e.numero)} municipio="Quixadá" />);
+      const { container, unmount } = render(
+        <ConteudoEtapa plano={vm(e.numero)} municipio="Quixadá" />,
+      );
       expect(container.textContent, `etapa ${e.numero}`).not.toMatch(PROIBIDO);
       unmount();
     }
@@ -35,7 +37,10 @@ describe("ConteudoEtapa: nunca mostra o que não temos", () => {
 
   it("etapa sem nenhum dado (milho, adubação) mostra só o encaminhamento ao técnico", () => {
     const base = vm(7);
-    const vazio = { ...base, texto: { ...base.texto!, linhas: [], destaques: [], detalhes: [], semDados: true } };
+    const vazio = {
+      ...base,
+      texto: { ...base.texto!, linhas: [], destaques: [], detalhes: [], semDados: true },
+    };
     render(<ConteudoEtapa plano={vazio} municipio="Quixadá" />);
     expect(screen.getByText(/converse com o técnico local/i)).toBeTruthy();
     expect(document.body.textContent).not.toMatch(PROIBIDO);
