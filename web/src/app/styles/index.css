@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+/* Tokens do tema. Use como classes: bg-paper, text-ink, border-line, bg-forest... */
+@theme {
+  --font-sans: "DM Sans Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --color-paper: #f5f6ef;
+  --color-surface: #ffffff;
+  --color-ink: #1f3027;
+  --color-ink-soft: #46594d;
+  --color-muted: #78847a;
+  --color-line: #dfe5d9;
+  --color-forest: #214834;
+  --color-forest-deep: #183a2b;
+  --color-leaf: #4f8c42;
+  --color-lime: #d9ef72;
+  --color-alert: #a04430;
+
+  /* Tokens do Figma (Fazendinha do Natanzin) */
+  --font-geist: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --color-brand-primary: #9eea6c;
+  --color-brand-secondary: #1f4647;
+  --color-text-subtitle: #1f4647;
+  --color-text-body: #45556c;
+  --color-bg-soft: #f5f7fa;
+  --color-bg-border: #e3e9f1;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    @apply min-h-dvh;
+  }
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+  }
+  :focus-visible {
+    @apply outline-3 outline-offset-2 outline-leaf;
+  }
+}
+
+@keyframes surgir {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+  }
+}

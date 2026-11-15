@@ -1,0 +1,1289 @@
+[
+  {
+    "ponto_id": "petrolina_pe",
+    "nome": "Petrolina (PE)",
+    "lat": -9.39,
+    "lon": -40.5,
+    "ibge": 2611101
+  },
+  {
+    "ponto_id": "araripina_pe",
+    "nome": "Araripina (PE)",
+    "lat": -7.58,
+    "lon": -40.5,
+    "ibge": 2601102
+  },
+  {
+    "ponto_id": "serra_talhada_pe",
+    "nome": "Serra Talhada (PE)",
+    "lat": -7.99,
+    "lon": -38.3,
+    "ibge": 2613909
+  },
+  {
+    "ponto_id": "sertania_pe",
+    "nome": "Sertania (PE)",
+    "lat": -8.07,
+    "lon": -37.27,
+    "ibge": 2614105
+  },
+  { "ponto_id": "patos_pb", "nome": "Patos (PB)", "lat": -7.02, "lon": -37.28, "ibge": 2510808 },
+  { "ponto_id": "sousa_pb", "nome": "Sousa (PB)", "lat": -6.76, "lon": -38.23, "ibge": 2516201 },
+  {
+    "ponto_id": "mossoro_rn",
+    "nome": "Mossoro (RN)",
+    "lat": -5.19,
+    "lon": -37.34,
+    "ibge": 2408003
+  },
+  {
+    "ponto_id": "quixada_ce",
+    "nome": "Quixadá (CE)",
+    "lat": -4.97,
+    "lon": -39.02,
+    "ibge": 2311306
+  },
+  {
+    "ponto_id": "crateus_ce",
+    "nome": "Crateús (CE)",
+    "lat": -5.17,
+    "lon": -40.65,
+    "ibge": 2304103
+  },
+  { "ponto_id": "picos_pi", "nome": "Picos (PI)", "lat": -7.08, "lon": -41.47, "ibge": 2208007 },
+  { "ponto_id": "irece_ba", "nome": "Irece (BA)", "lat": -11.3, "lon": -41.85, "ibge": 2914604 },
+  {
+    "ponto_id": "senhor_do_bonfim_ba",
+    "nome": "Senhor do Bonfim (BA)",
+    "lat": -10.46,
+    "lon": -40.19,
+    "ibge": 2930105
+  },
+  {
+    "ponto_id": "euclides_da_cunha_ba",
+    "nome": "Euclides da Cunha (BA)",
+    "lat": -10.51,
+    "lon": -39.01,
+    "ibge": 2910701
+  },
+  {
+    "ponto_id": "acarau_ce",
+    "nome": "Acaraú (CE)",
+    "lat": -2.9686,
+    "lon": -40.0868,
+    "ibge": 2300200
+  },
+  {
+    "ponto_id": "alto_santo_ce",
+    "nome": "Alto Santo (CE)",
+    "lat": -5.5165,
+    "lon": -38.241,
+    "ibge": 2300705
+  },
+  {
+    "ponto_id": "apuiares_ce",
+    "nome": "Apuiarés (CE)",
+    "lat": -3.9694,
+    "lon": -39.3305,
+    "ibge": 2300903
+  },
+  {
+    "ponto_id": "aracati_ce",
+    "nome": "Aracati (CE)",
+    "lat": -4.6801,
+    "lon": -37.6864,
+    "ibge": 2301109
+  },
+  {
+    "ponto_id": "aracoiaba_ce",
+    "nome": "Aracoiaba (CE)",
+    "lat": -4.4832,
+    "lon": -38.7151,
+    "ibge": 2301208
+  },
+  {
+    "ponto_id": "barbalha_ce",
+    "nome": "Barbalha (CE)",
+    "lat": -7.407,
+    "lon": -39.3465,
+    "ibge": 2301901
+  },
+  { "ponto_id": "barro_ce", "nome": "Barro (CE)", "lat": -7.1246, "lon": -38.795, "ibge": 2302008 },
+  {
+    "ponto_id": "barroquinha_ce",
+    "nome": "Barroquinha (CE)",
+    "lat": -2.9698,
+    "lon": -41.1732,
+    "ibge": 2302057
+  },
+  {
+    "ponto_id": "beberibe_ce",
+    "nome": "Beberibe (CE)",
+    "lat": -4.4026,
+    "lon": -38.1135,
+    "ibge": 2302206
+  },
+  {
+    "ponto_id": "camocim_ce",
+    "nome": "Camocim (CE)",
+    "lat": -2.9495,
+    "lon": -40.7992,
+    "ibge": 2302602
+  },
+  {
+    "ponto_id": "caninde_ce",
+    "nome": "Canindé (CE)",
+    "lat": -4.4028,
+    "lon": -39.4303,
+    "ibge": 2302800
+  },
+  {
+    "ponto_id": "caririacu_ce",
+    "nome": "Caririaçu (CE)",
+    "lat": -7.0209,
+    "lon": -39.2747,
+    "ibge": 2303204
+  },
+  {
+    "ponto_id": "croata_ce",
+    "nome": "Croatá (CE)",
+    "lat": -4.3882,
+    "lon": -40.9759,
+    "ibge": 2304236
+  },
+  {
+    "ponto_id": "deputado_irapuan_pinheiro_ce",
+    "nome": "Deputado Irapuan Pinheiro (CE)",
+    "lat": -5.8848,
+    "lon": -39.2666,
+    "ibge": 2304269
+  },
+  {
+    "ponto_id": "erere_ce",
+    "nome": "Ereré (CE)",
+    "lat": -5.9865,
+    "lon": -38.3125,
+    "ibge": 2304277
+  },
+  {
+    "ponto_id": "ibiapina_ce",
+    "nome": "Ibiapina (CE)",
+    "lat": -3.9498,
+    "lon": -41.0002,
+    "ibge": 2305308
+  },
+  { "ponto_id": "ico_ce", "nome": "Icó (CE)", "lat": -6.388, "lon": -38.782, "ibge": 2305407 },
+  {
+    "ponto_id": "iguatu_ce",
+    "nome": "Iguatu (CE)",
+    "lat": -6.3588,
+    "lon": -39.283,
+    "ibge": 2305506
+  },
+  { "ponto_id": "ipu_ce", "nome": "Ipu (CE)", "lat": -4.3683, "lon": -40.6708, "ibge": 2305803 },
+  {
+    "ponto_id": "iraucuba_ce",
+    "nome": "Irauçuba (CE)",
+    "lat": -3.8671,
+    "lon": -39.8173,
+    "ibge": 2306108
+  },
+  {
+    "ponto_id": "jaguaretama_ce",
+    "nome": "Jaguaretama (CE)",
+    "lat": -5.4919,
+    "lon": -38.747,
+    "ibge": 2306702
+  },
+  {
+    "ponto_id": "jaguaribe_ce",
+    "nome": "Jaguaribe (CE)",
+    "lat": -5.9613,
+    "lon": -38.7076,
+    "ibge": 2306900
+  },
+  {
+    "ponto_id": "madalena_ce",
+    "nome": "Madalena (CE)",
+    "lat": -4.8579,
+    "lon": -39.5093,
+    "ibge": 2307635
+  },
+  {
+    "ponto_id": "maranguape_ce",
+    "nome": "Maranguape (CE)",
+    "lat": -4.0067,
+    "lon": -38.8101,
+    "ibge": 2307700
+  },
+  {
+    "ponto_id": "mauriti_ce",
+    "nome": "Mauriti (CE)",
+    "lat": -7.3972,
+    "lon": -38.7182,
+    "ibge": 2308104
+  },
+  {
+    "ponto_id": "miraima_ce",
+    "nome": "Miraíma (CE)",
+    "lat": -3.5597,
+    "lon": -39.9096,
+    "ibge": 2308377
+  },
+  {
+    "ponto_id": "monsenhor_tabosa_ce",
+    "nome": "Monsenhor Tabosa (CE)",
+    "lat": -4.9144,
+    "lon": -40.0443,
+    "ibge": 2308609
+  },
+  {
+    "ponto_id": "moraujo_ce",
+    "nome": "Moraújo (CE)",
+    "lat": -3.4625,
+    "lon": -40.6832,
+    "ibge": 2308807
+  },
+  {
+    "ponto_id": "novo_oriente_ce",
+    "nome": "Novo Oriente (CE)",
+    "lat": -5.5924,
+    "lon": -40.7721,
+    "ibge": 2309409
+  },
+  {
+    "ponto_id": "pacuja_ce",
+    "nome": "Pacujá (CE)",
+    "lat": -4.0056,
+    "lon": -40.6899,
+    "ibge": 2309904
+  },
+  {
+    "ponto_id": "paracuru_ce",
+    "nome": "Paracuru (CE)",
+    "lat": -3.4794,
+    "lon": -39.0389,
+    "ibge": 2310209
+  },
+  {
+    "ponto_id": "parambu_ce",
+    "nome": "Parambu (CE)",
+    "lat": -6.3024,
+    "lon": -40.6289,
+    "ibge": 2310308
+  },
+  {
+    "ponto_id": "pedra_branca_ce",
+    "nome": "Pedra Branca (CE)",
+    "lat": -5.4966,
+    "lon": -39.8471,
+    "ibge": 2310506
+  },
+  {
+    "ponto_id": "penaforte_ce",
+    "nome": "Penaforte (CE)",
+    "lat": -7.7777,
+    "lon": -39.0538,
+    "ibge": 2310605
+  },
+  {
+    "ponto_id": "pindoretama_ce",
+    "nome": "Pindoretama (CE)",
+    "lat": -4.0553,
+    "lon": -38.3043,
+    "ibge": 2310852
+  },
+  {
+    "ponto_id": "poranga_ce",
+    "nome": "Poranga (CE)",
+    "lat": -4.7991,
+    "lon": -41.0787,
+    "ibge": 2311009
+  },
+  {
+    "ponto_id": "potengi_ce",
+    "nome": "Potengi (CE)",
+    "lat": -7.0737,
+    "lon": -40.036,
+    "ibge": 2311207
+  },
+  {
+    "ponto_id": "quiterianopolis_ce",
+    "nome": "Quiterianópolis (CE)",
+    "lat": -5.8723,
+    "lon": -40.7631,
+    "ibge": 2311264
+  },
+  {
+    "ponto_id": "russas_ce",
+    "nome": "Russas (CE)",
+    "lat": -4.8434,
+    "lon": -38.1473,
+    "ibge": 2311801
+  },
+  {
+    "ponto_id": "saboeiro_ce",
+    "nome": "Saboeiro (CE)",
+    "lat": -6.4862,
+    "lon": -39.8874,
+    "ibge": 2311900
+  },
+  {
+    "ponto_id": "salitre_ce",
+    "nome": "Salitre (CE)",
+    "lat": -7.2034,
+    "lon": -40.3651,
+    "ibge": 2311959
+  },
+  {
+    "ponto_id": "santa_quiteria_ce",
+    "nome": "Santa Quitéria (CE)",
+    "lat": -4.34,
+    "lon": -40.0429,
+    "ibge": 2312205
+  },
+  {
+    "ponto_id": "senador_pompeu_ce",
+    "nome": "Senador Pompeu (CE)",
+    "lat": -5.5881,
+    "lon": -39.4333,
+    "ibge": 2312700
+  },
+  { "ponto_id": "taua_ce", "nome": "Tauá (CE)", "lat": -5.9363, "lon": -40.2592, "ibge": 2313302 },
+  {
+    "ponto_id": "tururu_ce",
+    "nome": "Tururu (CE)",
+    "lat": -3.5529,
+    "lon": -39.4038,
+    "ibge": 2313559
+  },
+  {
+    "ponto_id": "vicosa_do_ceara_ce",
+    "nome": "Viçosa do Ceará (CE)",
+    "lat": -3.5485,
+    "lon": -41.1349,
+    "ibge": 2314102
+  },
+  {
+    "ponto_id": "abaiara_ce",
+    "nome": "Abaiara (CE)",
+    "lat": -7.3608,
+    "lon": -39.0361,
+    "ibge": 2300101
+  },
+  {
+    "ponto_id": "acarape_ce",
+    "nome": "Acarape (CE)",
+    "lat": -4.2156,
+    "lon": -38.6617,
+    "ibge": 2300150
+  },
+  {
+    "ponto_id": "acopiara_ce",
+    "nome": "Acopiara (CE)",
+    "lat": -6.1227,
+    "lon": -39.4952,
+    "ibge": 2300309
+  },
+  {
+    "ponto_id": "aiuaba_ce",
+    "nome": "Aiuaba (CE)",
+    "lat": -6.6045,
+    "lon": -40.2977,
+    "ibge": 2300408
+  },
+  {
+    "ponto_id": "alcantaras_ce",
+    "nome": "Alcântaras (CE)",
+    "lat": -3.5951,
+    "lon": -40.546,
+    "ibge": 2300507
+  },
+  {
+    "ponto_id": "altaneira_ce",
+    "nome": "Altaneira (CE)",
+    "lat": -6.985,
+    "lon": -39.6928,
+    "ibge": 2300606
+  },
+  {
+    "ponto_id": "amontada_ce",
+    "nome": "Amontada (CE)",
+    "lat": -3.2387,
+    "lon": -39.785,
+    "ibge": 2300754
+  },
+  {
+    "ponto_id": "antonina_do_norte_ce",
+    "nome": "Antonina do Norte (CE)",
+    "lat": -6.7578,
+    "lon": -39.9841,
+    "ibge": 2300804
+  },
+  {
+    "ponto_id": "aquiraz_ce",
+    "nome": "Aquiraz (CE)",
+    "lat": -3.9759,
+    "lon": -38.3941,
+    "ibge": 2301000
+  },
+  {
+    "ponto_id": "ararenda_ce",
+    "nome": "Ararendá (CE)",
+    "lat": -4.7736,
+    "lon": -40.7471,
+    "ibge": 2301257
+  },
+  {
+    "ponto_id": "araripe_ce",
+    "nome": "Araripe (CE)",
+    "lat": -7.2388,
+    "lon": -40.0765,
+    "ibge": 2301307
+  },
+  {
+    "ponto_id": "aratuba_ce",
+    "nome": "Aratuba (CE)",
+    "lat": -4.4135,
+    "lon": -39.0248,
+    "ibge": 2301406
+  },
+  {
+    "ponto_id": "arneiroz_ce",
+    "nome": "Arneiroz (CE)",
+    "lat": -6.2379,
+    "lon": -40.1521,
+    "ibge": 2301505
+  },
+  {
+    "ponto_id": "assare_ce",
+    "nome": "Assaré (CE)",
+    "lat": -6.9101,
+    "lon": -39.8696,
+    "ibge": 2301604
+  },
+  {
+    "ponto_id": "aurora_ce",
+    "nome": "Aurora (CE)",
+    "lat": -6.9883,
+    "lon": -38.9676,
+    "ibge": 2301703
+  },
+  {
+    "ponto_id": "baixio_ce",
+    "nome": "Baixio (CE)",
+    "lat": -6.7127,
+    "lon": -38.7492,
+    "ibge": 2301802
+  },
+  {
+    "ponto_id": "banabuiu_ce",
+    "nome": "Banabuiú (CE)",
+    "lat": -5.2629,
+    "lon": -38.9031,
+    "ibge": 2301851
+  },
+  {
+    "ponto_id": "barreira_ce",
+    "nome": "Barreira (CE)",
+    "lat": -4.3203,
+    "lon": -38.6199,
+    "ibge": 2301950
+  },
+  {
+    "ponto_id": "baturite_ce",
+    "nome": "Baturité (CE)",
+    "lat": -4.3871,
+    "lon": -38.8512,
+    "ibge": 2302107
+  },
+  {
+    "ponto_id": "bela_cruz_ce",
+    "nome": "Bela Cruz (CE)",
+    "lat": -3.0535,
+    "lon": -40.308,
+    "ibge": 2302305
+  },
+  {
+    "ponto_id": "boa_viagem_ce",
+    "nome": "Boa Viagem (CE)",
+    "lat": -5.0865,
+    "lon": -39.8085,
+    "ibge": 2302404
+  },
+  {
+    "ponto_id": "brejo_santo_ce",
+    "nome": "Brejo Santo (CE)",
+    "lat": -7.554,
+    "lon": -38.9212,
+    "ibge": 2302503
+  },
+  {
+    "ponto_id": "campos_sales_ce",
+    "nome": "Campos Sales (CE)",
+    "lat": -6.9358,
+    "lon": -40.272,
+    "ibge": 2302701
+  },
+  {
+    "ponto_id": "capistrano_ce",
+    "nome": "Capistrano (CE)",
+    "lat": -4.4708,
+    "lon": -38.906,
+    "ibge": 2302909
+  },
+  {
+    "ponto_id": "caridade_ce",
+    "nome": "Caridade (CE)",
+    "lat": -4.2036,
+    "lon": -39.1088,
+    "ibge": 2303006
+  },
+  {
+    "ponto_id": "carire_ce",
+    "nome": "Cariré (CE)",
+    "lat": -3.9516,
+    "lon": -40.5239,
+    "ibge": 2303105
+  },
+  {
+    "ponto_id": "carius_ce",
+    "nome": "Cariús (CE)",
+    "lat": -6.6444,
+    "lon": -39.4628,
+    "ibge": 2303303
+  },
+  {
+    "ponto_id": "carnaubal_ce",
+    "nome": "Carnaubal (CE)",
+    "lat": -4.1302,
+    "lon": -41.0117,
+    "ibge": 2303402
+  },
+  {
+    "ponto_id": "cascavel_ce",
+    "nome": "Cascavel (CE)",
+    "lat": -4.2385,
+    "lon": -38.2972,
+    "ibge": 2303501
+  },
+  {
+    "ponto_id": "catarina_ce",
+    "nome": "Catarina (CE)",
+    "lat": -6.2555,
+    "lon": -39.9083,
+    "ibge": 2303600
+  },
+  {
+    "ponto_id": "catunda_ce",
+    "nome": "Catunda (CE)",
+    "lat": -4.6299,
+    "lon": -40.1753,
+    "ibge": 2303659
+  },
+  {
+    "ponto_id": "caucaia_ce",
+    "nome": "Caucaia (CE)",
+    "lat": -3.7825,
+    "lon": -38.8108,
+    "ibge": 2303709
+  },
+  {
+    "ponto_id": "cedro_ce",
+    "nome": "Cedro (CE)",
+    "lat": -6.5695,
+    "lon": -39.0943,
+    "ibge": 2303808
+  },
+  {
+    "ponto_id": "chaval_ce",
+    "nome": "Chaval (CE)",
+    "lat": -3.0914,
+    "lon": -41.2309,
+    "ibge": 2303907
+  },
+  {
+    "ponto_id": "choro_ce",
+    "nome": "Choró (CE)",
+    "lat": -4.7734,
+    "lon": -39.1908,
+    "ibge": 2303931
+  },
+  {
+    "ponto_id": "chorozinho_ce",
+    "nome": "Chorozinho (CE)",
+    "lat": -4.3061,
+    "lon": -38.4704,
+    "ibge": 2303956
+  },
+  {
+    "ponto_id": "coreau_ce",
+    "nome": "Coreaú (CE)",
+    "lat": -3.6426,
+    "lon": -40.7261,
+    "ibge": 2304004
+  },
+  {
+    "ponto_id": "crato_ce",
+    "nome": "Crato (CE)",
+    "lat": -7.2323,
+    "lon": -39.4896,
+    "ibge": 2304202
+  },
+  { "ponto_id": "cruz_ce", "nome": "Cruz (CE)", "lat": -2.8957, "lon": -40.3256, "ibge": 2304251 },
+  {
+    "ponto_id": "eusebio_ce",
+    "nome": "Eusébio (CE)",
+    "lat": -3.8772,
+    "lon": -38.4589,
+    "ibge": 2304285
+  },
+  {
+    "ponto_id": "farias_brito_ce",
+    "nome": "Farias Brito (CE)",
+    "lat": -6.9112,
+    "lon": -39.5493,
+    "ibge": 2304301
+  },
+  {
+    "ponto_id": "forquilha_ce",
+    "nome": "Forquilha (CE)",
+    "lat": -3.823,
+    "lon": -40.2252,
+    "ibge": 2304350
+  },
+  {
+    "ponto_id": "fortaleza_ce",
+    "nome": "Fortaleza (CE)",
+    "lat": -3.7856,
+    "lon": -38.5277,
+    "ibge": 2304400
+  },
+  {
+    "ponto_id": "fortim_ce",
+    "nome": "Fortim (CE)",
+    "lat": -4.4625,
+    "lon": -37.8712,
+    "ibge": 2304459
+  },
+  {
+    "ponto_id": "frecheirinha_ce",
+    "nome": "Frecheirinha (CE)",
+    "lat": -3.7117,
+    "lon": -40.8215,
+    "ibge": 2304509
+  },
+  {
+    "ponto_id": "general_sampaio_ce",
+    "nome": "General Sampaio (CE)",
+    "lat": -4.0629,
+    "lon": -39.4478,
+    "ibge": 2304608
+  },
+  {
+    "ponto_id": "graca_ce",
+    "nome": "Graça (CE)",
+    "lat": -4.0456,
+    "lon": -40.7736,
+    "ibge": 2304657
+  },
+  {
+    "ponto_id": "granja_ce",
+    "nome": "Granja (CE)",
+    "lat": -3.2311,
+    "lon": -41.0021,
+    "ibge": 2304707
+  },
+  {
+    "ponto_id": "granjeiro_ce",
+    "nome": "Granjeiro (CE)",
+    "lat": -6.9087,
+    "lon": -39.2476,
+    "ibge": 2304806
+  },
+  {
+    "ponto_id": "groairas_ce",
+    "nome": "Groaíras (CE)",
+    "lat": -3.912,
+    "lon": -40.3645,
+    "ibge": 2304905
+  },
+  {
+    "ponto_id": "guaiuba_ce",
+    "nome": "Guaiúba (CE)",
+    "lat": -4.1029,
+    "lon": -38.6671,
+    "ibge": 2304954
+  },
+  {
+    "ponto_id": "guaraciaba_do_norte_ce",
+    "nome": "Guaraciaba do Norte (CE)",
+    "lat": -4.2334,
+    "lon": -40.9158,
+    "ibge": 2305001
+  },
+  {
+    "ponto_id": "guaramiranga_ce",
+    "nome": "Guaramiranga (CE)",
+    "lat": -4.2522,
+    "lon": -38.9532,
+    "ibge": 2305100
+  },
+  {
+    "ponto_id": "hidrolandia_ce",
+    "nome": "Hidrolândia (CE)",
+    "lat": -4.4327,
+    "lon": -40.4066,
+    "ibge": 2305209
+  },
+  {
+    "ponto_id": "horizonte_ce",
+    "nome": "Horizonte (CE)",
+    "lat": -4.102,
+    "lon": -38.4657,
+    "ibge": 2305233
+  },
+  {
+    "ponto_id": "ibaretama_ce",
+    "nome": "Ibaretama (CE)",
+    "lat": -4.7794,
+    "lon": -38.7228,
+    "ibge": 2305266
+  },
+  {
+    "ponto_id": "ibicuitinga_ce",
+    "nome": "Ibicuitinga (CE)",
+    "lat": -4.9751,
+    "lon": -38.5591,
+    "ibge": 2305332
+  },
+  {
+    "ponto_id": "icapui_ce",
+    "nome": "Icapuí (CE)",
+    "lat": -4.7391,
+    "lon": -37.4124,
+    "ibge": 2305357
+  },
+  {
+    "ponto_id": "independencia_ce",
+    "nome": "Independência (CE)",
+    "lat": -5.475,
+    "lon": -40.3422,
+    "ibge": 2305605
+  },
+  {
+    "ponto_id": "ipaporanga_ce",
+    "nome": "Ipaporanga (CE)",
+    "lat": -4.9097,
+    "lon": -40.8035,
+    "ibge": 2305654
+  },
+  {
+    "ponto_id": "ipaumirim_ce",
+    "nome": "Ipaumirim (CE)",
+    "lat": -6.8067,
+    "lon": -38.7429,
+    "ibge": 2305704
+  },
+  {
+    "ponto_id": "ipueiras_ce",
+    "nome": "Ipueiras (CE)",
+    "lat": -4.5736,
+    "lon": -40.8778,
+    "ibge": 2305902
+  },
+  {
+    "ponto_id": "iracema_ce",
+    "nome": "Iracema (CE)",
+    "lat": -5.7779,
+    "lon": -38.336,
+    "ibge": 2306009
+  },
+  {
+    "ponto_id": "itaicaba_ce",
+    "nome": "Itaiçaba (CE)",
+    "lat": -4.7192,
+    "lon": -37.849,
+    "ibge": 2306207
+  },
+  {
+    "ponto_id": "itaitinga_ce",
+    "nome": "Itaitinga (CE)",
+    "lat": -3.9991,
+    "lon": -38.5498,
+    "ibge": 2306256
+  },
+  {
+    "ponto_id": "itapaje_ce",
+    "nome": "Itapajé (CE)",
+    "lat": -3.7336,
+    "lon": -39.5751,
+    "ibge": 2306306
+  },
+  {
+    "ponto_id": "itapipoca_ce",
+    "nome": "Itapipoca (CE)",
+    "lat": -3.3946,
+    "lon": -39.5976,
+    "ibge": 2306405
+  },
+  {
+    "ponto_id": "itapiuna_ce",
+    "nome": "Itapiúna (CE)",
+    "lat": -4.5942,
+    "lon": -38.9526,
+    "ibge": 2306504
+  },
+  {
+    "ponto_id": "itarema_ce",
+    "nome": "Itarema (CE)",
+    "lat": -3.0499,
+    "lon": -39.8899,
+    "ibge": 2306553
+  },
+  {
+    "ponto_id": "itatira_ce",
+    "nome": "Itatira (CE)",
+    "lat": -4.6264,
+    "lon": -39.5783,
+    "ibge": 2306603
+  },
+  {
+    "ponto_id": "jaguaribara_ce",
+    "nome": "Jaguaribara (CE)",
+    "lat": -5.6125,
+    "lon": -38.5245,
+    "ibge": 2306801
+  },
+  {
+    "ponto_id": "jaguaruana_ce",
+    "nome": "Jaguaruana (CE)",
+    "lat": -4.8666,
+    "lon": -37.7461,
+    "ibge": 2307007
+  },
+  {
+    "ponto_id": "jardim_ce",
+    "nome": "Jardim (CE)",
+    "lat": -7.5903,
+    "lon": -39.2482,
+    "ibge": 2307106
+  },
+  { "ponto_id": "jati_ce", "nome": "Jati (CE)", "lat": -7.6924, "lon": -38.9921, "ibge": 2307205 },
+  {
+    "ponto_id": "jijoca_de_jericoacoara_ce",
+    "nome": "Jijoca de Jericoacoara (CE)",
+    "lat": -2.8786,
+    "lon": -40.4949,
+    "ibge": 2307254
+  },
+  {
+    "ponto_id": "juazeiro_do_norte_ce",
+    "nome": "Juazeiro do Norte (CE)",
+    "lat": -7.185,
+    "lon": -39.2864,
+    "ibge": 2307304
+  },
+  { "ponto_id": "jucas_ce", "nome": "Jucás (CE)", "lat": -6.46, "lon": -39.6067, "ibge": 2307403 },
+  {
+    "ponto_id": "lavras_da_mangabeira_ce",
+    "nome": "Lavras da Mangabeira (CE)",
+    "lat": -6.7775,
+    "lon": -38.9947,
+    "ibge": 2307502
+  },
+  {
+    "ponto_id": "limoeiro_do_norte_ce",
+    "nome": "Limoeiro do Norte (CE)",
+    "lat": -5.1576,
+    "lon": -38.0477,
+    "ibge": 2307601
+  },
+  {
+    "ponto_id": "maracanau_ce",
+    "nome": "Maracanaú (CE)",
+    "lat": -3.8738,
+    "lon": -38.6273,
+    "ibge": 2307650
+  },
+  {
+    "ponto_id": "marco_ce",
+    "nome": "Marco (CE)",
+    "lat": -3.1908,
+    "lon": -40.2639,
+    "ibge": 2307809
+  },
+  {
+    "ponto_id": "martinopole_ce",
+    "nome": "Martinópole (CE)",
+    "lat": -3.1692,
+    "lon": -40.6494,
+    "ibge": 2307908
+  },
+  {
+    "ponto_id": "massape_ce",
+    "nome": "Massapê (CE)",
+    "lat": -3.483,
+    "lon": -40.39,
+    "ibge": 2308005
+  },
+  {
+    "ponto_id": "meruoca_ce",
+    "nome": "Meruoca (CE)",
+    "lat": -3.5774,
+    "lon": -40.4544,
+    "ibge": 2308203
+  },
+  {
+    "ponto_id": "milagres_ce",
+    "nome": "Milagres (CE)",
+    "lat": -7.2725,
+    "lon": -38.9432,
+    "ibge": 2308302
+  },
+  {
+    "ponto_id": "milha_ce",
+    "nome": "Milhã (CE)",
+    "lat": -5.6391,
+    "lon": -39.1684,
+    "ibge": 2308351
+  },
+  {
+    "ponto_id": "missao_velha_ce",
+    "nome": "Missão Velha (CE)",
+    "lat": -7.3072,
+    "lon": -39.1531,
+    "ibge": 2308401
+  },
+  {
+    "ponto_id": "mombaca_ce",
+    "nome": "Mombaça (CE)",
+    "lat": -5.7874,
+    "lon": -39.7487,
+    "ibge": 2308500
+  },
+  {
+    "ponto_id": "morada_nova_ce",
+    "nome": "Morada Nova (CE)",
+    "lat": -5.0336,
+    "lon": -38.432,
+    "ibge": 2308708
+  },
+  {
+    "ponto_id": "morrinhos_ce",
+    "nome": "Morrinhos (CE)",
+    "lat": -3.285,
+    "lon": -40.0873,
+    "ibge": 2308906
+  },
+  {
+    "ponto_id": "mucambo_ce",
+    "nome": "Mucambo (CE)",
+    "lat": -3.8996,
+    "lon": -40.7574,
+    "ibge": 2309003
+  },
+  {
+    "ponto_id": "mulungu_ce",
+    "nome": "Mulungu (CE)",
+    "lat": -4.3226,
+    "lon": -38.9938,
+    "ibge": 2309102
+  },
+  {
+    "ponto_id": "nova_olinda_ce",
+    "nome": "Nova Olinda (CE)",
+    "lat": -7.0948,
+    "lon": -39.6656,
+    "ibge": 2309201
+  },
+  {
+    "ponto_id": "nova_russas_ce",
+    "nome": "Nova Russas (CE)",
+    "lat": -4.6787,
+    "lon": -40.5292,
+    "ibge": 2309300
+  },
+  {
+    "ponto_id": "ocara_ce",
+    "nome": "Ocara (CE)",
+    "lat": -4.5261,
+    "lon": -38.5081,
+    "ibge": 2309458
+  },
+  { "ponto_id": "oros_ce", "nome": "Orós (CE)", "lat": -6.2447, "lon": -38.9457, "ibge": 2309508 },
+  {
+    "ponto_id": "pacajus_ce",
+    "nome": "Pacajus (CE)",
+    "lat": -4.1838,
+    "lon": -38.4965,
+    "ibge": 2309607
+  },
+  {
+    "ponto_id": "pacatuba_ce",
+    "nome": "Pacatuba (CE)",
+    "lat": -3.9535,
+    "lon": -38.5962,
+    "ibge": 2309706
+  },
+  {
+    "ponto_id": "pacoti_ce",
+    "nome": "Pacoti (CE)",
+    "lat": -4.1991,
+    "lon": -38.9024,
+    "ibge": 2309805
+  },
+  {
+    "ponto_id": "palhano_ce",
+    "nome": "Palhano (CE)",
+    "lat": -4.7086,
+    "lon": -38.0275,
+    "ibge": 2310001
+  },
+  {
+    "ponto_id": "palmacia_ce",
+    "nome": "Palmácia (CE)",
+    "lat": -4.1254,
+    "lon": -38.8391,
+    "ibge": 2310100
+  },
+  {
+    "ponto_id": "paraipaba_ce",
+    "nome": "Paraipaba (CE)",
+    "lat": -3.4225,
+    "lon": -39.1763,
+    "ibge": 2310258
+  },
+  {
+    "ponto_id": "paramoti_ce",
+    "nome": "Paramoti (CE)",
+    "lat": -4.16,
+    "lon": -39.3767,
+    "ibge": 2310407
+  },
+  {
+    "ponto_id": "pentecoste_ce",
+    "nome": "Pentecoste (CE)",
+    "lat": -3.8546,
+    "lon": -39.146,
+    "ibge": 2310704
+  },
+  {
+    "ponto_id": "pereiro_ce",
+    "nome": "Pereiro (CE)",
+    "lat": -6.0363,
+    "lon": -38.4882,
+    "ibge": 2310803
+  },
+  {
+    "ponto_id": "piquet_carneiro_ce",
+    "nome": "Piquet Carneiro (CE)",
+    "lat": -5.8624,
+    "lon": -39.4503,
+    "ibge": 2310902
+  },
+  {
+    "ponto_id": "pires_ferreira_ce",
+    "nome": "Pires Ferreira (CE)",
+    "lat": -4.2586,
+    "lon": -40.5855,
+    "ibge": 2310951
+  },
+  {
+    "ponto_id": "porteiras_ce",
+    "nome": "Porteiras (CE)",
+    "lat": -7.5417,
+    "lon": -39.1064,
+    "ibge": 2311108
+  },
+  {
+    "ponto_id": "potiretama_ce",
+    "nome": "Potiretama (CE)",
+    "lat": -5.7495,
+    "lon": -38.1669,
+    "ibge": 2311231
+  },
+  {
+    "ponto_id": "quixelo_ce",
+    "nome": "Quixelô (CE)",
+    "lat": -6.1754,
+    "lon": -39.119,
+    "ibge": 2311355
+  },
+  {
+    "ponto_id": "quixeramobim_ce",
+    "nome": "Quixeramobim (CE)",
+    "lat": -5.2449,
+    "lon": -39.3335,
+    "ibge": 2311405
+  },
+  {
+    "ponto_id": "quixere_ce",
+    "nome": "Quixeré (CE)",
+    "lat": -5.0879,
+    "lon": -37.8612,
+    "ibge": 2311504
+  },
+  {
+    "ponto_id": "redencao_ce",
+    "nome": "Redenção (CE)",
+    "lat": -4.2461,
+    "lon": -38.7622,
+    "ibge": 2311603
+  },
+  {
+    "ponto_id": "reriutaba_ce",
+    "nome": "Reriutaba (CE)",
+    "lat": -4.1191,
+    "lon": -40.6129,
+    "ibge": 2311702
+  },
+  {
+    "ponto_id": "santana_do_acarau_ce",
+    "nome": "Santana do Acaraú (CE)",
+    "lat": -3.4625,
+    "lon": -40.166,
+    "ibge": 2312007
+  },
+  {
+    "ponto_id": "santana_do_cariri_ce",
+    "nome": "Santana do Cariri (CE)",
+    "lat": -7.2224,
+    "lon": -39.7572,
+    "ibge": 2312106
+  },
+  {
+    "ponto_id": "sao_benedito_ce",
+    "nome": "São Benedito (CE)",
+    "lat": -4.041,
+    "lon": -40.9689,
+    "ibge": 2312304
+  },
+  {
+    "ponto_id": "sao_goncalo_do_amarante_ce",
+    "nome": "São Gonçalo do Amarante (CE)",
+    "lat": -3.6001,
+    "lon": -39.0599,
+    "ibge": 2312403
+  },
+  {
+    "ponto_id": "sao_joao_do_jaguaribe_ce",
+    "nome": "São João do Jaguaribe (CE)",
+    "lat": -5.3264,
+    "lon": -38.272,
+    "ibge": 2312502
+  },
+  {
+    "ponto_id": "sao_luis_do_curu_ce",
+    "nome": "São Luís do Curu (CE)",
+    "lat": -3.6462,
+    "lon": -39.2638,
+    "ibge": 2312601
+  },
+  {
+    "ponto_id": "senador_sa_ce",
+    "nome": "Senador Sá (CE)",
+    "lat": -3.2683,
+    "lon": -40.4614,
+    "ibge": 2312809
+  },
+  { "ponto_id": "sobral_ce", "nome": "Sobral (CE)", "lat": -3.8117, "lon": -40.2279, "ibge": null },
+  {
+    "ponto_id": "solonopole_ce",
+    "nome": "Solonópole (CE)",
+    "lat": -5.7769,
+    "lon": -39.0034,
+    "ibge": 2313005
+  },
+  {
+    "ponto_id": "tabuleiro_do_norte_ce",
+    "nome": "Tabuleiro do Norte (CE)",
+    "lat": -5.3622,
+    "lon": -38.0264,
+    "ibge": 2313104
+  },
+  {
+    "ponto_id": "tamboril_ce",
+    "nome": "Tamboril (CE)",
+    "lat": -4.92,
+    "lon": -40.3361,
+    "ibge": 2313203
+  },
+  {
+    "ponto_id": "tarrafas_ce",
+    "nome": "Tarrafas (CE)",
+    "lat": -6.7303,
+    "lon": -39.7372,
+    "ibge": 2313252
+  },
+  {
+    "ponto_id": "tejucuoca_ce",
+    "nome": "Tejuçuoca (CE)",
+    "lat": -3.934,
+    "lon": -39.5831,
+    "ibge": 2313351
+  },
+  {
+    "ponto_id": "tiangua_ce",
+    "nome": "Tianguá (CE)",
+    "lat": -3.7354,
+    "lon": -41.0538,
+    "ibge": 2313401
+  },
+  {
+    "ponto_id": "trairi_ce",
+    "nome": "Trairi (CE)",
+    "lat": -3.3377,
+    "lon": -39.353,
+    "ibge": 2313500
+  },
+  {
+    "ponto_id": "ubajara_ce",
+    "nome": "Ubajara (CE)",
+    "lat": -3.8678,
+    "lon": -41.0061,
+    "ibge": 2313609
+  },
+  {
+    "ponto_id": "umari_ce",
+    "nome": "Umari (CE)",
+    "lat": -6.6235,
+    "lon": -38.7309,
+    "ibge": 2313708
+  },
+  {
+    "ponto_id": "umirim_ce",
+    "nome": "Umirim (CE)",
+    "lat": -3.6877,
+    "lon": -39.3845,
+    "ibge": 2313757
+  },
+  {
+    "ponto_id": "uruburetama_ce",
+    "nome": "Uruburetama (CE)",
+    "lat": -3.6219,
+    "lon": -39.5168,
+    "ibge": 2313807
+  },
+  {
+    "ponto_id": "uruoca_ce",
+    "nome": "Uruoca (CE)",
+    "lat": -3.3206,
+    "lon": -40.6762,
+    "ibge": 2313906
+  },
+  {
+    "ponto_id": "varjota_ce",
+    "nome": "Varjota (CE)",
+    "lat": -4.1659,
+    "lon": -40.4918,
+    "ibge": 2313955
+  },
+  {
+    "ponto_id": "varzea_alegre_ce",
+    "nome": "Várzea Alegre (CE)",
+    "lat": -6.7727,
+    "lon": -39.2978,
+    "ibge": 2314003
+  }
+]
