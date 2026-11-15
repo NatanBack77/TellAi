@@ -68,6 +68,16 @@ async def _vida(_app):
 app = FastAPI(title="SULCO API", version="0.2.0", lifespan=_vida,
               description="Back-end offline do SULCO. Apoia a conversa com o técnico; não decide.")
 
+from fastapi.middleware.cors import CORSMiddleware  # noqa: E402
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=os.environ.get("SULCO_CORS_ORIGINS", "*").split(","),
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 from src.api.rota_calendario import router as _rota_calendario  # noqa: E402
 from src.api.rota_conversa import router as _rota_conversa  # noqa: E402
 
