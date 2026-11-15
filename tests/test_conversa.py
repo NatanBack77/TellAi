@@ -546,3 +546,11 @@ def test_pergunta_feita_antes_do_municipio_e_respondida_quando_o_municipio_chega
     r2 = C.conversar("Juazeiro do Norte", r["estado"])
     assert r2["estado"]["ponto_id"] and r2["estado"]["pergunta_pendente"] == ""
     assert "mais fracas" in r2["resposta"] and "dão certo" not in r2["resposta"] and "previsão" not in r2["resposta"].lower()
+
+
+def test_pergunta_do_municipio_e_curta_e_destaca_municipio_em_negrito():
+    """Pedido do usuário (2026-11-15): 'Para olhar os dados do seu local, preciso saber qual é o seu **município**?' (negrito em **...**)."""
+    r = C.conversar("o que dá para plantar aqui?", None)
+    assert r["pede"] == "municipio"
+    assert r["resposta"].startswith("Para olhar os dados do seu local, preciso saber qual é o seu **município**?")
+    assert "roça" not in r["resposta"]

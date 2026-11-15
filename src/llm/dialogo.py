@@ -194,7 +194,7 @@ CHIPS_ORDEM = [chip("Ver a melhor ordem", "Ver a melhor ordem"), chip("Só ver s
 CHIPS_INICIO = [chip("O que dá para plantar aqui?"), chip("Quero economizar água"), chip("Quero montar um ciclo")]
 
 PERGUNTA_FOCO = "Me diz uma coisa: o que pesa mais na sua roça, gastar menos água, cuidar da terra ou ganhar um dinheiro a mais?"
-PERGUNTA_MUNICIPIO = "Para olhar os dados do seu local, preciso saber o município. Em que município fica a sua roça?"
+PERGUNTA_MUNICIPIO = "Para olhar os dados do seu local, preciso saber qual é o seu **município**?"      # negrito em **...** (as telas desenham; a voz não lê os asteriscos)
 PERGUNTA_ORDEM = "Você quer que eu veja a melhor ordem para essas culturas, ou só se elas dão certo no seu local?"
 PERGUNTA_CULTURAS = "Quais culturas você pensa em colocar no ciclo? Pode dizer na ordem, por exemplo: primeiro milho, depois feijão."
 PERGUNTA_ORDEM_TEXTO = "Qual é a ordem que você pensou? Por exemplo: primeiro milho, depois feijão-caupi."

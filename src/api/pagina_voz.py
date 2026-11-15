@@ -88,7 +88,7 @@ const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
 const PT = /\b(que|de|para|o|a|os|as|um|uma|não|nao|com|eu|quero|como|qual|quais|posso|plantar|milho|feijão|feijao|chuva|água|agua|solo|aqui|meu|minha|fazer|tem|vai|é|se|em|no|na|dá|da|do)\b/i;
 const LIMIAR = 0.02, SILENCIO_MS = 3500, ESPERA_MS = 9000, MAX_MS = 60000;
 function el(tag, cls, txt){const e=document.createElement(tag); if(cls) e.className=cls; if(txt!==undefined) e.textContent=txt; return e;}
-function msg(cls, txt, tag){const m=el('div','msg '+cls); if(tag){ const t=el('div','tag',tag); t.style.display='block'; t.style.marginBottom='4px'; m.append(t); } m.append(document.createTextNode(txt)); $('conversa').append(m); m.scrollIntoView({block:'end'}); return m;}
+function msg(cls, txt, tag){const m=el('div','msg '+cls); if(tag){ const t=el('div','tag',tag); t.style.display='block'; t.style.marginBottom='4px'; m.append(t); } txt.split(/(\*\*[^*]+\*\*)/g).forEach(p=>{ if(/^\*\*[^*]+\*\*$/.test(p)){ const b=document.createElement('strong'); b.textContent=p.slice(2,-2); m.append(b); } else m.append(document.createTextNode(p)); }); $('conversa').append(m); m.scrollIntoView({block:'end'}); return m;}
 function status(t){$('status').textContent=t;}
 function cab(){return {'X-Voz-Pin': estado.pin};}
 
@@ -261,6 +261,7 @@ async function iniciarConversa(){
   await comecarGravacao();
 }
 async function falar(texto){
+  texto = String(texto).replace(/\*\*/g,'');          // não ler os asteriscos do negrito
   const modo=$('voz').value; if (modo==='nenhuma') return;
   estado.falando=true; try{ await falarDe(texto, modo); } finally { estado.falando=false; }
 }

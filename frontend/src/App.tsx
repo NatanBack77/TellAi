@@ -90,8 +90,13 @@ function mergeRecognitionResults(results: string[]) {
   return keep.reduce((combined, text) => mergeSpeechText(combined, text), "");
 }
 
+function withBold(text: string) {
+  // **trecho** vira negrito; o resto continua texto puro (nunca HTML do servidor)
+  return text.split(/(\*\*[^*]+\*\*)/g).map((piece, index) => /^\*\*[^*]+\*\*$/.test(piece) ? <strong key={index}>{piece.slice(2, -2)}</strong> : piece);
+}
+
 function shortSpeechParts(text: string) {
-  const sentences = text.replace(/\s+/g, " ").match(/[^.!?;:]+[.!?;:]?/g)?.map((part) => part.trim()).filter(Boolean) ?? [text];
+  const sentences = text.replace(/\*\*/g, "").replace(/\s+/g, " ").match(/[^.!?;:]+[.!?;:]?/g)?.map((part) => part.trim()).filter(Boolean) ?? [text];
   const parts: string[] = [];
   let current = "";
   for (const sentence of sentences) {
@@ -166,7 +171,7 @@ function Message({ message }: { message: ChatMessage }) {
         {message.understood && (
           <div className="understood-note"><Check size={14} aria-hidden="true" /> Entendi: {message.understood}</div>
         )}
-        <div className="assistant-copy">{message.text}</div>
+        <div className="assistant-copy">{withBold(message.text)}</div>
         {message.sources && <SourceDisclosure sources={message.sources} />}
         <p className="technical-reminder">Use esta conversa como apoio. Confirme cada situação com um técnico local.</p>
       </div>
