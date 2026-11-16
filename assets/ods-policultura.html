@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Onde se Aplicam os ODS na Policultura | tellai</title>
+  <meta name="description" content="Análise profunda e fundamentada de como os Objetivos de Desenvolvimento Sustentável (ODS) da ONU se aplicam diretamente aos sistemas de policultura, consórcios e rotação agrícola no Semiárido.">
+  <style>
+    :root {
+      --bg-main: #080c14;
+      --bg-card: rgba(17, 24, 39, 0.85);
+      --bg-card-hover: rgba(30, 41, 59, 0.9);
+      --border-color: rgba(255, 255, 255, 0.1);
+      --border-accent: rgba(16, 185, 129, 0.4);
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --primary: #10b981;
+      --primary-glow: rgba(16, 185, 129, 0.25);
+      --cyan-nasa: #06b6d4;
+      --solar-gold: #f59e0b;
+      --space-indigo: #6366f1;
+      --radius-lg: 16px;
+      --radius-md: 10px;
+      --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      --font-stack: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      font-family: var(--font-stack);
+      line-height: 1.6;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(16, 185, 129, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 85% 85%, rgba(6, 182, 212, 0.12) 0%, transparent 45%);
+      background-attachment: fixed;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(16px);
+      background: rgba(8, 12, 20, 0.85);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--primary), var(--cyan-nasa));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 20px;
+      color: #000;
+    }
+
+    .brand-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+    }
+
+    .brand-sub {
+      font-size: 0.72rem;
+      color: var(--primary);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      display: block;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-left: 18px;
+      transition: var(--transition);
+      padding: 6px 12px;
+      border-radius: 8px;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    /* Hero */
+    .hero-ods {
+      padding: 60px 0 40px;
+      text-align: center;
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 6px 16px;
+      border-radius: 50px;
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 18px;
+      background: linear-gradient(135deg, #ffffff 40%, #a7f3d0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-desc {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 840px;
+      margin: 0 auto;
+    }
+
+    /* Comparison Table / Box */
+    .compare-section {
+      margin: 40px 0;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+    }
+
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 20px;
+    }
+
+    .compare-col {
+      padding: 24px;
+      border-radius: var(--radius-md);
+    }
+
+    .compare-col.mono {
+      background: rgba(244, 63, 94, 0.06);
+      border: 1px solid rgba(244, 63, 94, 0.25);
+    }
+
+    .compare-col.poly {
+      background: rgba(16, 185, 129, 0.08);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+
+    .col-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .compare-col.mono .col-title { color: #f43f5e; }
+    .compare-col.poly .col-title { color: var(--primary); }
+
+    .compare-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 0.95rem;
+    }
+
+    .compare-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      color: var(--text-main);
+    }
+
+    /* ODS Detail Cards */
+    .ods-cards-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      margin: 40px 0;
+    }
+
+    .ods-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .ods-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-2px);
+    }
+
+    .ods-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .ods-badge-id {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-weight: 800;
+      font-size: 1rem;
+    }
+
+    .ods-card.ods2 .ods-badge-id { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid rgba(245, 158, 11, 0.3); }
+    .ods-card.ods6 .ods-badge-id { background: rgba(6, 182, 212, 0.15); color: #06b6d4; border: 1px solid rgba(6, 182, 212, 0.3); }
+    .ods-card.ods12 .ods-badge-id { background: rgba(217, 119, 6, 0.15); color: #d97706; border: 1px solid rgba(217, 119, 6, 0.3); }
+    .ods-card.ods13 .ods-badge-id { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .ods-card.ods15 .ods-badge-id { background: rgba(34, 197, 94, 0.15); color: #22c55e; border: 1px solid rgba(34, 197, 94, 0.3); }
+    .ods-card.ods-tech .ods-badge-id { background: rgba(99, 102, 241, 0.15); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.3); }
+
+    .target-tag {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.08);
+      padding: 6px 14px;
+      border-radius: 8px;
+    }
+
+    .ods-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+
+    .ods-grid-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 18px;
+    }
+
+    .detail-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: var(--radius-md);
+      padding: 18px;
+    }
+
+    .detail-box h4 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .detail-box p {
+      font-size: 0.95rem;
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    .nasa-link-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--cyan-nasa);
+      font-weight: 700;
+      font-size: 0.85rem;
+      margin-top: 8px;
+    }
+
+    /* Regional Consortia Boxes */
+    .consortium-box {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .consortium-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+    }
+
+    .consortium-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .consortium-icon {
+      font-size: 1.8rem;
+    }
+
+    .consortium-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .synergy-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+    }
+
+    .synergy-list li strong {
+      color: #fff;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding: 40px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      margin-top: 50px;
+    }
+
+    footer a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .compare-grid { grid-template-columns: 1fr; }
+      .hero-title { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="container nav-bar">
+      <a href="index.html" class="brand">
+        <div class="brand-logo">🌾</div>
+        <div>
+          <span class="brand-title">tellai</span>
+          <span class="brand-sub">Juazeiro do Norte • Agenda 2030</span>
+        </div>
+      </a>
+      <div class="nav-links">
+        <a href="index.html">← Briefing Geral</a>
+        <a href="submission.html" style="color: var(--solar-gold); font-weight: 700;">🚀 Submissão NASA</a>
+        <a href="kpis.html">📊 KPIs & Métricas</a>
+        <a href="#comparativo">Monocultura vs Policultura</a>
+        <a href="#ods-chave">ODS na Prática</a>
+        <a href="#consorcios-ce">Consórcios do Ceará</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Hero -->
+    <section class="hero-ods">
+      <div class="badge-pill">
+        <span>🌍</span> Tema Específico • NASA Space Apps Challenge 2026
+      </div>
+      <h1 class="hero-title">Onde se Aplicam os ODS da ONU <br>na Policultura Agrícola?</h1>
+      <p class="hero-desc">
+        Como a ciência da policultura e rotação de culturas (*Field Shift*) rompe a fragilidade ambiental e socioeconômica das monoculturas no Semiárido Cearense, respondendo diretamente às metas globais da ONU validadas por satélites da NASA.
+      </p>
+    </section>
+
+    <!-- Comparativo Fundamental -->
+    <section id="comparativo" class="compare-section">
+      <h2 style="font-size: 1.6rem; font-weight: 800; color: #fff; text-align: center;">Por Que a Monocultura Falha nos ODS e a Policultura Triunfa?</h2>
+      <p style="text-align: center; color: var(--text-muted); max-width: 750px; margin: 8px auto 20px;">
+        A policultura não é apenas uma prática tradicional; é um sistema biológico dinâmico de alta eficiência ecológica.
+      </p>
+
+      <div class="compare-grid">
+        <div class="compare-col mono">
+          <h3 class="col-title">❌ Monocultura Sucessiva (Fragilidade)</h3>
+          <ul class="compare-list">
+            <li><span>🚫</span> <strong>Degradação da Terra (ODS 15):</strong> Exaustão de nutrientes específicos e perda da microbiota do solo.</li>
+            <li><span>🚫</span> <strong>Gasto Excessivo de Água (ODS 6):</strong> Solo nu entre linhas sofre evapotranspiração acelerada pelo calor intenso (>35°C).</li>
+            <li><span>🚫</span> <strong>Dependência Química Fóssil (ODS 12):</strong> Demanda adubos nitrogenados químicos (ureia) de alto custo e alta pegada de $CO_2$.</li>
+            <li><span>🚫</span> <strong>Risco de Quebra Total (ODS 2):</strong> Se faltar chuva no pendoamento do milho, o produtor perde 100% de sua safra e renda.</li>
+          </ul>
+        </div>
+
+        <div class="compare-col poly">
+          <h3 class="col-title">✅ Policultura Regenerativa (Sustentabilidade)</h3>
+          <ul class="compare-list">
+            <li><span>🌱</span> <strong>Mais Alimento por Hectare (ODS 2):</strong> LER > 1.35, gerando até 45% mais biomassa sem desmatar novas áreas.</li>
+            <li><span>💧</span> <strong>Conservação Hídrica (ODS 6):</strong> Cobertura vegetal viva (mulching) reduz evaporação do solo em até 60%.</li>
+            <li><span>🔄</span> <strong>Adubação Biológica Gratuita (ODS 12):</strong> Leguminosas fixam até 70 kg N/ha via bactérias simbióticas <em>Rhizobium</em>.</li>
+            <li><span>🛡️</span> <strong>Resiliência Climática (ODS 13):</strong> Plantas de ciclos e raízes diferentes dividem água e mitigam choques de seca.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detalhamento ODS a ODS -->
+    <section id="ods-chave">
+      <h2 style="font-size: 2rem; font-weight: 800; color: #fff; margin-bottom: 8px;">Mapeamento Sistemático dos ODS na Policultura</h2>
+      <p style="color: var(--text-muted); margin-bottom: 30px;">Análise agronômica, ecológica e tecnológica de cada Objetivo Global aplicado ao nosso projeto.</p>
+
+      <div class="ods-cards-stack">
+
+        <!-- ODS 2 -->
+        <div class="ods-card ods2">
+          <div class="ods-card-header">
+            <span class="ods-badge-id">🌾 ODS 2: Fome Zero e Agricultura Sustentável</span>
+            <span class="target-tag">Meta Oficial: 2.4 (Sistemas Resilientes)</span>
+          </div>
+          <h3 class="ods-title">Como a Policultura se Aplica ao ODS 2:</h3>
+          <p style="color: var(--text-muted);">
+            A monocultura produz calorias homogêneas e vulneráveis. A policultura introduz segurança alimentar e diversidade nutricional o ano todo na agricultura familiar.
+          </p>
+          <div class="ods-grid-details">
+            <div class="detail-box">
+              <h4>Mecanismo Agronômico</h4>
+              <p>O <strong>Land Equivalent Ratio (LER > 1.4)</strong> garante colheita simultânea de carboidratos (milho/mandioca), proteínas vegetais (feijão-caupi) e vitaminas A/C (jerimum/abóbora) no mesmo lote de terra.</p>
+            </div>
+            <div class="detail-box">
+              <h4>Redução do Risco de Fome</h4>
+              <p>Em anos secos com estiagem precoce, o milho pode produzir menos grão, mas o feijão-caupi de ciclo curto (60 dias) e a palma forrageira garantem a subsistência da família e do rebanho.</p>
+            </div>
+            <div class="detail-box">
+              <h4>Validação Espacial NASA</h4>
+              <p>Índice de Vegetação <strong>NDVI (Landsat/MODIS)</strong> comprova que parcelas consorciadas mantêm vigor fotossintético verde por 3 a 4 semanas a mais após o fim da estação chuvosa.</p>
+              <span class="nasa-link-tag">🛰️ Landsat 8/9 & MODIS Surface Reflectance</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ODS 6 -->
+        <div class="ods-card ods6">
+          <div class="ods-card-header">
+            <span class="ods-badge-id">💧 ODS 6: Água Potável e Saneamento</span>
+            <span class="target-tag">Meta Oficial: 6.4 (Eficiência Hídrica)</span>
+          </div>
+          <h3 class="ods-title">Como a Policultura se Aplica ao ODS 6:</h3>
+          <p style="color: var(--text-muted);">
+            No Semiárido cearense, a escassez de água é o maior gargalo. Em monoculturas, a maior parte da água evapora do solo quente antes que as raízes possam absorvê-la.
+          </p>
+          <div class="ods-grid-details">
+            <div class="detail-box">
+              <h4>Estratificação Radicular</h4>
+              <p>Raízes pivotantes profundas (feijão-guandu) buscam umidade em camadas inferiores (> 1m), enquanto raízes fasciculadas (milho) e superficiais (jerimum) protegem o horizonte superior (0-20 cm).</p>
+            </div>
+            <div class="detail-box">
+              <h4>Cobertura Viva (Mulching)</h4>
+              <p>As folhas largas do jerimum funcionam como um guarda-sol natural, cortando a radiação incidente direta no solo e <strong>reduzindo a evapotranspiração em até 45-60%</strong>.</p>
+            </div>
+            <div class="detail-box">
+              <h4>Validação Espacial NASA</h4>
+              <p>O satélite <strong>NASA SMAP</strong> mede a umidade volumétrica ($cm^3/cm^3$) na zona radicular, comprovando retenção hídrica superior em solos sob consórcio vegetal.</p>
+              <span class="nasa-link-tag">🛰️ NASA SMAP L3/L4 Root-Zone Soil Moisture</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ODS 12 -->
+        <div class="ods-card ods12">
+          <div class="ods-card-header">
+            <span class="ods-badge-id">🔄 ODS 12: Consumo e Produção Responsáveis</span>
+            <span class="target-tag">Metas Oficiais: 12.2 (Uso de Recursos) e 12.4 (Químicos)</span>
+          </div>
+          <h3 class="ods-title">Como a Policultura se Aplica ao ODS 12:</h3>
+          <p style="color: var(--text-muted);">
+            A agricultura moderna depende de fertilizantes químicos derivados de combustíveis fósseis (gás natural via processo Haber-Bosch). A policultura restaura a autossuficiência de nutrientes.
+          </p>
+          <div class="ods-grid-details">
+            <div class="detail-box">
+              <h4>Fixação Biológica de Nitrogênio (BNF)</h4>
+              <p>Leguminosas nativas e adaptadas (Feijão-Caupi, Crotalária e Guandu) realizam simbiose com bactérias <em>Bradyrhizobium</em>, convertendo o $N_2$ do ar em adubo assimilável pelas culturas vizinhas.</p>
+            </div>
+            <div class="detail-box">
+              <h4>Manejo Integrado "Push-Pull"</h4>
+              <p>Plantas aromáticas e consórcios repelem insetos herbívoros ("Push") ou atraem inimigos naturais ("Pull"), eliminando a necessidade de pulverização de agrotóxicos danosos à saúde.</p>
+            </div>
+            <div class="detail-box">
+              <h4>Validação Espacial NASA</h4>
+              <p>A <strong>NASA POWER API</strong> fornece o balanço de radiação solar total (`ALLSKY`) e precipitação (`PRECTOTCORR`), permitindo calcular a taxa exata de ciclagem de nutrientes.</p>
+              <span class="nasa-link-tag">🛰️ NASA POWER Agroclimatology</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ODS 13 -->
+        <div class="ods-card ods13">
+          <div class="ods-card-header">
+            <span class="ods-badge-id">🌍 ODS 13: Ação Contra a Mudança Global do Clima</span>
+            <span class="target-tag">Meta Oficial: 13.1 (Resiliência Climática)</span>
+          </div>
+          <h3 class="ods-title">Como a Policultura se Aplica ao ODS 13:</h3>
+          <p style="color: var(--text-muted);">
+            Solos agrícolas podem ser grandes fontes de gases de efeito estufa (especialmente óxido nitroso $N_2O$, 300x mais potente que o $CO_2$) ou imensos sumidouros de carbono.
+          </p>
+          <div class="ods-grid-details">
+            <div class="detail-box">
+              <h4>Sequestro de Carbono no Solo (SOC)</h4>
+              <p>O aporte contínuo de raízes com diferentes taxas de lignina e decomposição eleva a taxa de estocagem de carbono no solo em <strong>+0.8 a +1.4 toneladas de Carbono/ha/ano</strong>.</p>
+            </div>
+            <div class="detail-box">
+              <h4>Amortecimento Microclimático</h4>
+              <p>O dossel vegetal multinível resfria a camada de contato em 2.5°C a 4.0°C em comparação ao solo desnudo ("Campo Nu"), protegendo as plantas contra choques de ondas de calor.</p>
+            </div>
+            <div class="detail-box">
+              <h4>Validação Espacial NASA</h4>
+              <p>O sensor <strong>ECOSTRESS na Estação Espacial Internacional (ISS)</strong> monitora o índice de estresse evaporativo (ESI) em alta resolução térmica de 70m, detectando a proteção microclimática.</p>
+              <span class="nasa-link-tag">🛰️ NASA ECOSTRESS (ISS Thermal Radiometer)</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ODS 15 -->
+        <div class="ods-card ods15">
+          <div class="ods-card-header">
+            <span class="ods-badge-id">🌳 ODS 15: Vida Terrestre</span>
+            <span class="target-tag">Metas Oficiais: 15.3 (Desertificação) e 15.5 (Biodiversidade)</span>
+          </div>
+          <h3 class="ods-title">Como a Policultura se Aplica ao ODS 15:</h3>
+          <p style="color: var(--text-muted);">
+            O Semiárido e o bioma Caatinga são altamente suscetíveis à desertificação quando desmatados para monoculturas expostas à erosão eólica e hídrica.
+          </p>
+          <div class="ods-grid-details">
+            <div class="detail-box">
+              <h4>Combate à Desertificação</h4>
+              <p>A manutenção de cobertura viva perene (ex: consórcio com Palma Forrageira CAM) impede a formação de crosta superficial dura e a arenização dos solos rasos (Neossolos Litólicos).</p>
+            </div>
+            <div class="detail-box">
+              <h4>Teia Biológica & Polinizadores</h4>
+              <p>A floração escalonada em diferentes meses sustenta populações nativas de abelhas sem ferrão (Jandaíra, Uruçu) e fungos micorrízicos arbusculares que expandem a absorção de fósforo.</p>
+            </div>
+            <div class="detail-box">
+              <h4>Validação Espacial NASA</h4>
+              <p>Monitoramento de índices de água e vegetação (<strong>NDWI / EVI</strong>) que identificam zonas de regeneração da Caatinga versus áreas degradadas por sobrepastoreio.</p>
+              <span class="nasa-link-tag">🛰️ NASA GIBS & Landsat OLI</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ODS Tecnológicos e Sociais -->
+        <div class="ods-card ods-tech">
+          <div class="ods-card-header">
+            <span class="ods-badge-id">💡 ODS 1, 8, 9, 10 e 17: Inovação e Justiça Social</span>
+            <span class="target-tag">Dimensão Socioeconômica & Parcerias</span>
+          </div>
+          <h3 class="ods-title">A Dimensão Social e Tecnológica da Policultura:</h3>
+          <p style="color: var(--text-muted);">
+            A união entre o saber tradicional camponês e a mais avançada tecnologia espacial da NASA cria um ecossistema inclusivo e replicável.
+          </p>
+          <div class="ods-grid-details">
+            <div class="detail-box">
+              <h4>ODS 1 & 8: Estabilidade Econômica</h4>
+              <p>O agricultor colhe produtos ao longo de vários meses, com valor agregado comprovado pelo IBGE em Juazeiro do Norte (R$ 965 mil em feijão e R$ 512 mil em milho), superando a vulnerabilidade.</p>
+            </div>
+            <div class="detail-box">
+              <h4>ODS 9 & 10: Tecnologia Democrática</h4>
+              <p>Ao transformar dados complexos de satélite em recomendações simples via nossa plataforma, reduzimos a desigualdade tecnológica entre o grande agronegócio e a agricultura familiar.</p>
+            </div>
+            <div class="detail-box">
+              <h4>ODS 17: Parcerias para Metas Globais</h4>
+              <p>Dados públicos da NASA + Estatísticas do IBGE + Sabedoria comunitária de Juazeiro do Norte: o exemplo perfeito de cooperação científica para os Objetivos do Milênio.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Modelos de Consórcios no Ceará -->
+    <section id="consorcios-ce" style="margin-top: 50px;">
+      <h2 style="font-size: 2rem; font-weight: 800; color: #fff; margin-bottom: 8px;">Consórcios Típicos do Ceará e Seus ODS Alvo</h2>
+      <p style="color: var(--text-muted); margin-bottom: 24px;">Exemplos práticos de consórcios desenhados pela equipe tellai para o Cariri.</p>
+
+      <div class="consortium-box">
+        <div class="consortium-card">
+          <div class="consortium-header">
+            <span class="consortium-icon">🌽🫘🎃</span>
+            <div>
+              <h4 class="consortium-title">Milpa Sertaneja</h4>
+              <span style="font-size: 0.8rem; color: var(--solar-gold); font-weight: 700;">Milho + Feijão-Caupi + Jerimum</span>
+            </div>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            O milho fornece suporte físico e palhada; o feijão-caupi fixa nitrogênio no solo; o jerimum sombreia a terra evitando a perda da água preciosa da quadra chuvosa.
+          </p>
+          <ul class="synergy-list">
+            <li>🎯 <strong>ODS Chave:</strong> ODS 2, ODS 6, ODS 12</li>
+            <li>📈 <strong>Métrica LER Esperada:</strong> 1.45 (45% mais produtivo)</li>
+            <li>💧 <strong>Economia de Água:</strong> 45% a menos de evaporação</li>
+          </ul>
+        </div>
+
+        <div class="consortium-card">
+          <div class="consortium-header">
+            <span class="consortium-icon">🌵🌳🌾</span>
+            <div>
+              <h4 class="consortium-title">Resiliência Forrageira</h4>
+              <span style="font-size: 0.8rem; color: var(--primary); font-weight: 700;">Palma Forrageira + Feijão-Guandu</span>
+            </div>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            A palma possui metabolismo CAM (abre estômatos à noite, perda mínima de água); o guandu arbustivo tem raiz pivotante que fura camadas compactadas e recicla nutrientes do subsolo.
+          </p>
+          <ul class="synergy-list">
+            <li>🎯 <strong>ODS Chave:</strong> ODS 6, ODS 13, ODS 15</li>
+            <li>📈 <strong>Resiliência à Seca:</strong> Sobrevive a até 8 meses de estiagem</li>
+            <li>🥛 <strong>Impacto:</strong> Ração contínua para gado leiteiro da agricultura familiar</li>
+          </ul>
+        </div>
+
+        <div class="consortium-card">
+          <div class="consortium-header">
+            <span class="consortium-icon">🍌🍠🥭</span>
+            <div>
+              <h4 class="consortium-title">Agrofloresta da Chapada</h4>
+              <span style="font-size: 0.8rem; color: var(--cyan-nasa); font-weight: 700;">Mandioca + Banana + Frutíferas (Manga/Caju)</span>
+            </div>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">
+            Estratificação de copas de 3 níveis que cria um microclima florestal úmido na encosta da Chapada do Araripe, com receita escalonada o ano inteiro.
+          </p>
+          <ul class="synergy-list">
+            <li>🎯 <strong>ODS Chave:</strong> ODS 1, ODS 8, ODS 13, ODS 15</li>
+            <li>📈 <strong>Sequestro de Carbono:</strong> > 2.5 t C/ha/ano</li>
+            <li>💰 <strong>Renda Estável:</strong> Colheita contínua em todas as estações</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>Desenvolvido pela equipe <strong>tellai</strong> • Juazeiro do Norte, Ceará, Brasil</p>
+      <p style="margin-top: 6px; font-size: 0.8rem;">NASA Space Apps Challenge 2026 • Desafio Field Shift: Adapting Farms with NASA Data</p>
+    </div>
+  </footer>
+
+</body>
+</html>
