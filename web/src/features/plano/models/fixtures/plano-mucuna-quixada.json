@@ -1,0 +1,377 @@
+{
+ "versao": "plano-1",
+ "ponto_id": "quixada_ce",
+ "cultura": "mucuna",
+ "cultura_nome": "Mucuna",
+ "cultura_exemplo": false,
+ "etapas": [
+  {
+   "numero": 1,
+   "slug": "introducao",
+   "titulo": "Introdução ao Plantio",
+   "origem": "dado_curado",
+   "itens": [
+    {
+     "atributo": "finalidade",
+     "rotulo": "Para que serve",
+     "valor": "Leguminosa usada como adubo verde",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Semiárido. Comportamento de leguminosas para adubação verde em cultivo irrigado no submédio São Francisco (Boletim de Pesquisa 63, 2004)",
+      "pagina": 7,
+      "url": "https://www.infoteca.cnptia.embrapa.br/bitstream/doc/154470/1/BPD63.pdf"
+     },
+     "trecho": "As leguminosas sao as plantas mais utilizadas como adubo verde",
+     "contexto": "a fonte trata das leguminosas em geral, não desta espécie em particular; semiárido do Nordeste",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    }
+   ],
+   "lacunas": [
+    "Principal limitação: Sem fonte consultada: não localizado trecho específico",
+    "Vantagem no semiárido: Sem fonte consultada: o boletim não isola vantagem por espécie no semiárido"
+   ],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  },
+  {
+   "numero": 2,
+   "slug": "recomendacao",
+   "titulo": "Recomendação de Plantação",
+   "origem": "motor",
+   "itens": [
+    {
+     "atributo": "cultura_recomendada_1",
+     "rotulo": "Mucuna",
+     "valor": "Costuma dar certo aqui (10 em cada 10 anos).",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "Sulco: clima do local (NASA, 2001–2024) e zoneamento do Ministério da Agricultura",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "Pelo clima daqui nos últimos anos e pelo zoneamento do Ministério da Agricultura. Confirme com o técnico.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "cultura_recomendada_2",
+     "rotulo": "Gergelim",
+     "valor": "Costuma dar certo aqui (10 em cada 10 anos). Época de plantio (solo médio): de 1º de fevereiro até 10 de maio.",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "Sulco: clima do local (NASA, 2001–2024) e zoneamento do Ministério da Agricultura",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "Pelo clima daqui nos últimos anos e pelo zoneamento do Ministério da Agricultura. Confirme com o técnico.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "cultura_recomendada_3",
+     "rotulo": "Milheto",
+     "valor": "Costuma dar certo aqui (10 em cada 10 anos). Época de plantio (solo médio): de 1º de fevereiro até 10 de maio.",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "Sulco: clima do local (NASA, 2001–2024) e zoneamento do Ministério da Agricultura",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "Pelo clima daqui nos últimos anos e pelo zoneamento do Ministério da Agricultura. Confirme com o técnico.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "cultura_recomendada_4",
+     "rotulo": "Palma forrageira",
+     "valor": "Costuma dar certo aqui (10 em cada 10 anos). Época de plantio (solo médio): de 1º de janeiro até 10 de março e de 11 de dezembro até o fim de dezembro.",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "Sulco: clima do local (NASA, 2001–2024) e zoneamento do Ministério da Agricultura",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "Pelo clima daqui nos últimos anos e pelo zoneamento do Ministério da Agricultura. Confirme com o técnico.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    },
+    {
+     "atributo": "cultura_recomendada_5",
+     "rotulo": "Feijão-caupi",
+     "valor": "Costuma dar certo aqui (10 em cada 10 anos). Época de plantio (solo médio): de 11 de fevereiro até 10 de abril.",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "Sulco: clima do local (NASA, 2001–2024) e zoneamento do Ministério da Agricultura",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "Pelo clima daqui nos últimos anos e pelo zoneamento do Ministério da Agricultura. Confirme com o técnico.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    },
+    {
+     "atributo": "cultura_recomendada_6",
+     "rotulo": "Girassol",
+     "valor": "Costuma dar certo aqui (10 em cada 10 anos). Época de plantio (solo médio): de 11 de fevereiro até 20 de março.",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "Sulco: clima do local (NASA, 2001–2024) e zoneamento do Ministério da Agricultura",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "Pelo clima daqui nos últimos anos e pelo zoneamento do Ministério da Agricultura. Confirme com o técnico.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    }
+   ],
+   "lacunas": [
+    "Não há preço, custo nem mercado: a comparação não considera renda."
+   ],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  },
+  {
+   "numero": 3,
+   "slug": "clima_epoca",
+   "titulo": "Clima e Época de Plantio",
+   "origem": "motor",
+   "itens": [
+    {
+     "atributo": "ciclo_cultura",
+     "rotulo": "Da semente até a colheita",
+     "valor": "cerca de 180 dias (entre 90 e 270, conforme a semente)",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "EcoCrop (FAO), faixa de ciclo",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "Valor de referência; a sua semente pode levar mais ou menos tempo.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "estacao_chuvosa",
+     "rotulo": "Quando costuma chover mais",
+     "valor": "de 16 de janeiro até 15 de maio",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "Sulco: clima do local (NASA, 2001–2024)",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "Na média dos últimos anos; cada ano é diferente.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "periodo_seco",
+     "rotulo": "Veranico (dias seguidos sem chuva no meio das águas)",
+     "valor": "Costuma ficar uns 9 dias sem chuva; em 1 de cada 10 anos passa de 15 dias; o maior foi 31 dias.",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "Sulco: clima do local (NASA, 2001–2024)",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "Conta como dia sem chuva o que teve menos de 1 mm.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    }
+   ],
+   "lacunas": [
+    "Zoneamento de risco climático: cultura 'mucuna' sem correspondência clara no ZARC (ou sem ZARC).",
+    "Não há previsão de chuva: o plano mostra o que costuma acontecer, não o que vai acontecer."
+   ],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  },
+  {
+   "numero": 4,
+   "slug": "preparacao_solo",
+   "titulo": "Preparação do Solo",
+   "origem": "dado_curado",
+   "itens": [],
+   "lacunas": [
+    "Ainda não há dado com fonte para esta cultura nesta etapa.",
+    "Solo e preparo: ainda não coletado"
+   ],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  },
+  {
+   "numero": 5,
+   "slug": "semeadura",
+   "titulo": "Semeadura e Plantio",
+   "origem": "dado_curado",
+   "itens": [],
+   "lacunas": [
+    "Ainda não há dado com fonte para esta cultura nesta etapa.",
+    "Espaçamento, densidade e semente: a fonte só dá o espaçamento de um experimento para 'mucuna anã' e 'as demais'; não atribuído a esta cultura"
+   ],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  },
+  {
+   "numero": 6,
+   "slug": "irrigacao_agua",
+   "titulo": "Irrigação e Cuidados com a Água",
+   "origem": "dado_curado",
+   "itens": [],
+   "lacunas": [
+    "Ainda não há dado com fonte para esta cultura nesta etapa.",
+    "Coeficiente da cultura (Kc): a cultura não consta na Tabela 12 da FAO-56 (conferido: nenhuma linha correspondente no arquivo baixado)"
+   ],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  },
+  {
+   "numero": 7,
+   "slug": "adubacao",
+   "titulo": "Adubação e Nutrição",
+   "origem": "dado_curado",
+   "itens": [],
+   "lacunas": [
+    "Ainda não há dado com fonte para esta cultura nesta etapa.",
+    "Adubação (referência da fonte): ainda não coletado"
+   ],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  },
+  {
+   "numero": 8,
+   "slug": "desenvolvimento",
+   "titulo": "Desenvolvimento e Manutenção",
+   "origem": "dado_curado",
+   "itens": [
+    {
+     "atributo": "fase_duracao_dias",
+     "rotulo": "Duração das fases",
+     "valor": "105 a 120",
+     "unidade": "dias",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Semiárido. Comportamento de leguminosas para adubação verde em cultivo irrigado no submédio São Francisco (Boletim de Pesquisa 63, 2004)",
+      "pagina": 7,
+      "url": "https://www.infoteca.cnptia.embrapa.br/bitstream/doc/154470/1/BPD63.pdf"
+     },
+     "trecho": "O guandu D2-TYPE e as mucunas apresentaram ciclo médio (105 a 120 dias)",
+     "contexto": "até a floração plena; semiárido do Nordeste",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    }
+   ],
+   "lacunas": [
+    "Doença: Sem fonte consultada: não localizado trecho específico",
+    "Duração das fases: Viçosa-MG, não semiárido",
+    "Praga: Sem fonte consultada: não localizado trecho específico"
+   ],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  },
+  {
+   "numero": 9,
+   "slug": "colheita",
+   "titulo": "Colheita",
+   "origem": "dado_curado",
+   "itens": [
+    {
+     "atributo": "ciclo_ate_floracao_plena",
+     "rotulo": "Ciclo até a floração plena",
+     "valor": "O ciclo da leguminosa de adubação verde é contado do plantio até a floração plena",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Semiárido. Comportamento de leguminosas para adubação verde em cultivo irrigado no submédio São Francisco (Boletim de Pesquisa 63, 2004)",
+      "pagina": 7,
+      "url": "https://www.infoteca.cnptia.embrapa.br/bitstream/doc/154470/1/BPD63.pdf"
+     },
+     "trecho": "o período compreendido entre o plantio e a floracao plena (ciclo)",
+     "contexto": "a fonte define o ciclo; não diz quando manejar; semiárido do Nordeste",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    }
+   ],
+   "lacunas": [],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  },
+  {
+   "numero": 10,
+   "slug": "pos_colheita",
+   "titulo": "Pós-colheita e Armazenamento",
+   "origem": "dado_curado",
+   "itens": [],
+   "lacunas": [
+    "Ainda não há dado com fonte para esta cultura nesta etapa.",
+    "Umidade segura para guardar: não se aplica a esta cultura (cultura de cobertura: não há grão colhido nesta finalidade; o pós-colheita aqui seria o manejo da biomassa (não coletado))",
+    "Preço e venda: sem série de preço estruturada para o produtor (CONAB só 2025–2026 e poucas culturas; ver docs/31)"
+   ],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  }
+ ],
+ "cobertura_itens": {
+  "1": 1,
+  "2": 6,
+  "3": 3,
+  "4": 0,
+  "5": 0,
+  "6": 0,
+  "7": 0,
+  "8": 1,
+  "9": 1,
+  "10": 0
+ },
+ "limites": [
+  "Os dados das etapas vêm de publicações da Embrapa, da FAO e do MAPA, muitas de outras regiões; o campo 'contexto' de cada item diz a origem.",
+  "Nenhum técnico local revisou este plano.",
+  "Satélite e clima não enxergam o seu talhão; o solo é estimado de um mapa global, não é análise de solo.",
+  "Não há preço, custo nem mercado."
+ ],
+ "aviso": "Apoio à decisão: converse com o técnico antes de decidir. O plano mostra o que as fontes e os dados dizem; não promete colheita, lucro nem clima futuro."
+}

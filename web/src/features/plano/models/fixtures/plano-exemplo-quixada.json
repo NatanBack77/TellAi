@@ -1,0 +1,741 @@
+{
+ "versao": "plano-1",
+ "ponto_id": "quixada_ce",
+ "cultura": "gergelim",
+ "cultura_nome": "Gergelim",
+ "cultura_exemplo": true,
+ "etapas": [
+  {
+   "numero": 1,
+   "slug": "introducao",
+   "titulo": "Introdução ao Plantio",
+   "origem": "dado_curado",
+   "itens": [
+    {
+     "atributo": "finalidade",
+     "rotulo": "Para que serve",
+     "valor": "Sementes para as indústrias alimentícia e oleoquímica e, potencialmente, para biodiesel",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Algodão. Cultivo do Gergelim (sistema de produção)",
+      "pagina": 2,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1155372/1/Cultivo-do-Gergelim.pdf"
+     },
+     "trecho": "aplicações nas indústrias alimentícias e óleo química, e potencialmente para a produção de energia, via biodiesel",
+     "contexto": "Embrapa Algodão (Nordeste)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "limitacao_principal",
+     "rotulo": "Principal limitação",
+     "valor": "Frutos abrem após a maturação completa e podem causar perdas de 50% ou mais de sementes",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Algodão. Cultivo do Gergelim (sistema de produção)",
+      "pagina": 26,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1155372/1/Cultivo-do-Gergelim.pdf"
+     },
+     "trecho": "perdas de sementes de 50%, ou mais, podem ocorrer em decorrência da abertura dos frutos depois da maturação completa",
+     "contexto": "Embrapa Algodão (Nordeste)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "vantagem_semiarido",
+     "rotulo": "Vantagem no semiárido",
+     "valor": "Ampla adaptabilidade a clima quente, bom nível de resistência à seca e facilidade de cultivo",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Algodão. Cultivo do Gergelim (sistema de produção)",
+      "pagina": 3,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1155372/1/Cultivo-do-Gergelim.pdf"
+     },
+     "trecho": "O gergelim apresenta ampla adaptabilidade às condições edafoclimáticas de clima quente; tem bom nível de resistência à seca e facilidade de cultivo",
+     "contexto": "Embrapa Algodão (Nordeste)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    }
+   ],
+   "lacunas": [],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  },
+  {
+   "numero": 2,
+   "slug": "recomendacao",
+   "titulo": "Recomendação de Plantação",
+   "origem": "motor",
+   "itens": [
+    {
+     "atributo": "cultura_recomendada_1",
+     "rotulo": "Gergelim",
+     "valor": "Costuma dar certo aqui (10 em cada 10 anos). Época de plantio (solo médio): de 1º de fevereiro até 10 de maio.",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "Sulco: clima do local (NASA, 2001–2024) e zoneamento do Ministério da Agricultura",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "Pelo clima daqui nos últimos anos e pelo zoneamento do Ministério da Agricultura. Confirme com o técnico.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "cultura_recomendada_2",
+     "rotulo": "Milheto",
+     "valor": "Costuma dar certo aqui (10 em cada 10 anos). Época de plantio (solo médio): de 1º de fevereiro até 10 de maio.",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "Sulco: clima do local (NASA, 2001–2024) e zoneamento do Ministério da Agricultura",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "Pelo clima daqui nos últimos anos e pelo zoneamento do Ministério da Agricultura. Confirme com o técnico.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "cultura_recomendada_3",
+     "rotulo": "Palma forrageira",
+     "valor": "Costuma dar certo aqui (10 em cada 10 anos). Época de plantio (solo médio): de 1º de janeiro até 10 de março e de 11 de dezembro até o fim de dezembro.",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "Sulco: clima do local (NASA, 2001–2024) e zoneamento do Ministério da Agricultura",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "Pelo clima daqui nos últimos anos e pelo zoneamento do Ministério da Agricultura. Confirme com o técnico.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "cultura_recomendada_4",
+     "rotulo": "Feijão-caupi",
+     "valor": "Costuma dar certo aqui (10 em cada 10 anos). Época de plantio (solo médio): de 11 de fevereiro até 10 de abril.",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "Sulco: clima do local (NASA, 2001–2024) e zoneamento do Ministério da Agricultura",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "Pelo clima daqui nos últimos anos e pelo zoneamento do Ministério da Agricultura. Confirme com o técnico.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    },
+    {
+     "atributo": "cultura_recomendada_5",
+     "rotulo": "Girassol",
+     "valor": "Costuma dar certo aqui (10 em cada 10 anos). Época de plantio (solo médio): de 11 de fevereiro até 20 de março.",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "Sulco: clima do local (NASA, 2001–2024) e zoneamento do Ministério da Agricultura",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "Pelo clima daqui nos últimos anos e pelo zoneamento do Ministério da Agricultura. Confirme com o técnico.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    },
+    {
+     "atributo": "cultura_recomendada_6",
+     "rotulo": "Mamona",
+     "valor": "Costuma dar certo aqui (10 em cada 10 anos). Época de plantio (solo médio): de 21 de fevereiro até 20 de abril.",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "Sulco: clima do local (NASA, 2001–2024) e zoneamento do Ministério da Agricultura",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "Pelo clima daqui nos últimos anos e pelo zoneamento do Ministério da Agricultura. Confirme com o técnico.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    }
+   ],
+   "lacunas": [
+    "Não há preço, custo nem mercado: a comparação não considera renda."
+   ],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  },
+  {
+   "numero": 3,
+   "slug": "clima_epoca",
+   "titulo": "Clima e Época de Plantio",
+   "origem": "motor",
+   "itens": [
+    {
+     "atributo": "janela_zarc",
+     "rotulo": "Época para plantar",
+     "valor": "de 1º de fevereiro até 10 de maio",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "Ministério da Agricultura, zoneamento de risco climático (sequeiro)",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "São as datas com menos risco de perder a lavoura por causa da chuva.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "ciclo_cultura",
+     "rotulo": "Da semente até a colheita",
+     "valor": "cerca de 110 dias (entre 110 e 110, conforme a semente)",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "FAO-56 (Allen et al., 1998), cap. 6, Tabela 11",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "Valor de referência; a sua semente pode levar mais ou menos tempo.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "estacao_chuvosa",
+     "rotulo": "Quando costuma chover mais",
+     "valor": "de 16 de janeiro até 15 de maio",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "Sulco: clima do local (NASA, 2001–2024)",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "Na média dos últimos anos; cada ano é diferente.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "periodo_seco",
+     "rotulo": "Veranico (dias seguidos sem chuva no meio das águas)",
+     "valor": "Costuma ficar uns 9 dias sem chuva; em 1 de cada 10 anos passa de 15 dias; o maior foi 31 dias.",
+     "unidade": "",
+     "status": "calculado",
+     "fonte": {
+      "nome": "Sulco: clima do local (NASA, 2001–2024)",
+      "pagina": null,
+      "url": null
+     },
+     "trecho": null,
+     "contexto": "Conta como dia sem chuva o que teve menos de 1 mm.",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    }
+   ],
+   "lacunas": [
+    "Não há previsão de chuva: o plano mostra o que costuma acontecer, não o que vai acontecer."
+   ],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  },
+  {
+   "numero": 4,
+   "slug": "preparacao_solo",
+   "titulo": "Preparação do Solo",
+   "origem": "dado_curado",
+   "itens": [
+    {
+     "atributo": "solo_evitar",
+     "rotulo": "Solo a evitar",
+     "valor": "solos muito argilosos (planta muito sensível a alagamento, mesmo curto)",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Algodão. Cultivo do Gergelim (sistema de produção)",
+      "pagina": 5,
+      "url": null
+     },
+     "trecho": "Os solos muito argilosos devem ser evitados, pois as plantas são extremamente susceptíveis, mesmo a curtos períodos de alagamento",
+     "contexto": "",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    },
+    {
+     "atributo": "solo_exigencia",
+     "rotulo": "Solo que a cultura pede",
+     "valor": "profundo (pelo menos 60 cm), bem drenado, boa fertilidade natural, textura franca (de franco-arenosa a franco-argilosa)",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Algodão. Cultivo do Gergelim (sistema de produção)",
+      "pagina": 5,
+      "url": null
+     },
+     "trecho": "atinge a plenitude em solos profundos, pelo menos 60 cm, bem drenados e de boa fertilidade natural, francos do ponto de vista textural, desde franco-arenosos até franco-argilosos",
+     "contexto": "",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    }
+   ],
+   "lacunas": [],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  },
+  {
+   "numero": 5,
+   "slug": "semeadura",
+   "titulo": "Semeadura e Plantio",
+   "origem": "dado_curado",
+   "itens": [
+    {
+     "atributo": "densidade_plantas_ha",
+     "rotulo": "Plantas por hectare",
+     "valor": "cerca de 100 mil",
+     "unidade": "plantas/ha",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Algodão. Cultivo do Gergelim (sistema de produção)",
+      "pagina": 10,
+      "url": null
+     },
+     "trecho": "em torno de 100 mil plantas por ha",
+     "contexto": "exige desbaste; fonte manda raleamento",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "espacamento_cultivar_nao_ramificada",
+     "rotulo": "Espaçamento (cultivar não ramificada)",
+     "valor": "0,60 a 0,70 m entre fileiras x 0,10 m entre plantas",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Algodão. Cultivo do Gergelim (sistema de produção)",
+      "pagina": 10,
+      "url": null
+     },
+     "trecho": "usar o espaçamento de 0,60 m a 0,70 m entre fileiras com 0,10 m entre plantas",
+     "contexto": "cultivares não ramificadas",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "espacamento_cultivar_ramificada",
+     "rotulo": "Espaçamento (cultivar ramificada)",
+     "valor": "0,80 a 1,0 m entre fileiras x 0,20 m entre plantas",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Algodão. Cultivo do Gergelim (sistema de produção)",
+      "pagina": 10,
+      "url": null
+     },
+     "trecho": "recomenda-se o espaçamento de 0,80 m a 1,0 m entre fileiras e de 0,20 m entre plantas",
+     "contexto": "cultivares ramificadas",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    },
+    {
+     "atributo": "profundidade_semeadura",
+     "rotulo": "Profundidade da semeadura",
+     "valor": "2",
+     "unidade": "cm",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Algodão. Cultivo do Gergelim (sistema de produção)",
+      "pagina": 9,
+      "url": null
+     },
+     "trecho": "em sulcos rasos contínuos ou em covas rasas, à profundidade de 2 cm",
+     "contexto": "",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    },
+    {
+     "atributo": "semente_kg_ha",
+     "rotulo": "Semente por hectare",
+     "valor": "1,5 a 3,5",
+     "unidade": "kg/ha",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Algodão. Cultivo do Gergelim (sistema de produção)",
+      "pagina": 9,
+      "url": null
+     },
+     "trecho": "A quantidade de sementes por hectare varia entre de 1,5 kg a 3,5 kg",
+     "contexto": "varia com espaçamento e densidade",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    }
+   ],
+   "lacunas": [],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  },
+  {
+   "numero": 6,
+   "slug": "irrigacao_agua",
+   "titulo": "Irrigação e Cuidados com a Água",
+   "origem": "dado_curado",
+   "itens": [
+    {
+     "atributo": "kc",
+     "rotulo": "Kc (inicial · médio · final)",
+     "valor": "inicial 0,35 · médio 1,10 · final 0,25",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "FAO. Irrigation and Drainage Paper 56 (Crop evapotranspiration), Tabela 12: coeficientes de cultura Kc de valor único",
+      "pagina": 1,
+      "url": null
+     },
+     "trecho": "Sesame |  | 1.10 | 0.25 | 1.0",
+     "contexto": "climas sub-úmidos (UR mín ~45%, vento ~2 m/s); para clima semiárido a própria FAO manda ajustar. Texto das notas de rodapé não foi baixado. URL de origem não registrada pelo agente que baixou o arquivo",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    }
+   ],
+   "lacunas": [],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  },
+  {
+   "numero": 7,
+   "slug": "adubacao",
+   "titulo": "Adubação e Nutrição",
+   "origem": "dado_curado",
+   "itens": [
+    {
+     "atributo": "base_da_recomendacao",
+     "rotulo": "Em que se baseia a recomendação",
+     "valor": "análise química do solo",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Algodão. Cultivo do Gergelim (sistema de produção)",
+      "pagina": 5,
+      "url": null
+     },
+     "trecho": "devem ser feitas com base em resultados de análise química",
+     "contexto": "correção de acidez e adubação",
+     "requer_tecnico": false,
+     "referencia_da_fonte": true,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "calagem_antecedencia",
+     "rotulo": "Quando aplicar o calcário",
+     "valor": "calcário incorporado pelo menos 2 meses antes da semeadura",
+     "unidade": "meses",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Algodão. Cultivo do Gergelim (sistema de produção)",
+      "pagina": 6,
+      "url": null
+     },
+     "trecho": "o calcário esteja incorporado pelo menos dois meses antes da semeadura do gergelim",
+     "contexto": "se houver necessidade de calagem",
+     "requer_tecnico": false,
+     "referencia_da_fonte": true,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "exigencia_nutrientes_referencia",
+     "rotulo": "O que a planta retira do solo (referência da fonte)",
+     "valor": "50 N - 14 P2O5 - 60 K2O por 1.000 kg de sementes produzidas",
+     "unidade": "kg/ha",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Algodão. Cultivo do Gergelim (sistema de produção)",
+      "pagina": 6,
+      "url": null
+     },
+     "trecho": "a planta precisa de 50 kg ha-1 – 14 kg ha-1 – 60 kg ha-1 de N-P2O5–K2O para produzir 1.000 kg de sementes",
+     "contexto": "é a exigência da planta, não a dose de adubo a aplicar",
+     "requer_tecnico": false,
+     "referencia_da_fonte": true,
+     "experimento": false,
+     "destaque": false
+    }
+   ],
+   "lacunas": [],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  },
+  {
+   "numero": 8,
+   "slug": "desenvolvimento",
+   "titulo": "Desenvolvimento e Manutenção",
+   "origem": "dado_curado",
+   "itens": [
+    {
+     "atributo": "doenca",
+     "rotulo": "Doença",
+     "valor": "Podridão-negra, causada por Macrophomina phaseolina, com sintomas no caule e nas plantas de gergelim",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Algodão. Cultivo do Gergelim (sistema de produção)",
+      "pagina": 16,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1155372/1/Cultivo-do-Gergelim.pdf"
+     },
+     "trecho": "Sintomas de podridão-negra causada por Macrophomina phaseolina",
+     "contexto": "Embrapa Algodão (Nordeste)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    },
+    {
+     "atributo": "fase_duracao_dias",
+     "rotulo": "Duração das fases",
+     "valor": "90 a 110",
+     "unidade": "dias",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Algodão. Cultivo do Gergelim (sistema de produção)",
+      "pagina": 26,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1155372/1/Cultivo-do-Gergelim.pdf"
+     },
+     "trecho": "em sincronia com o ciclo da cultivar, que, na maioria, é de 90 a 110 dias",
+     "contexto": "ciclo da maioria das cultivares; Embrapa Algodão (Nordeste)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "praga",
+     "rotulo": "Praga",
+     "valor": "Pulgões (cultivos irrigados): ataque inicial em reboleiras; formam colônias na face inferior das folhas, que ficam brilhosas pela 'mela'; a fumagina impede a fotossíntese; transmitem viroses",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Algodão. Cultivo do Gergelim (sistema de produção)",
+      "pagina": 24,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1155372/1/Cultivo-do-Gergelim.pdf"
+     },
+     "trecho": "pulgões ocorrem em cultivos irrigados. O ataque inicial é feito em reboleiras. Formam colônias na face inferior das folhas (Figura 2), que se tornam brilhosas por causa da excreção da “mela” proveniente da sucção do açúcar. O açúcar serve de substrato para o desenvolvimento da fumagina, que impede a fotossíntese. Eles são transmissores de viroses",
+     "contexto": "Embrapa Algodão (Nordeste)",
+     "requer_tecnico": true,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    }
+   ],
+   "lacunas": [
+    "Mato mais problemático: Sem fonte consultada: lista de espécies não transcrita"
+   ],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  },
+  {
+   "numero": 9,
+   "slug": "colheita",
+   "titulo": "Colheita",
+   "origem": "dado_curado",
+   "itens": [
+    {
+     "atributo": "colheita_dias_apos_plantio",
+     "rotulo": "Dias até a colheita",
+     "valor": "90 a 110",
+     "unidade": "dias",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Algodão. Cultivo do Gergelim (sistema de produção)",
+      "pagina": 26,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1155372/1/Cultivo-do-Gergelim.pdf"
+     },
+     "trecho": "A colheita do gergelim deve ser programada para a época de estiagem e em sincronia com o ciclo da cultivar, que, na maioria, é de 90 a 110 dias",
+     "contexto": "ciclo da maioria das cultivares; Embrapa Algodão (Nordeste)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "colheita_indicador",
+     "rotulo": "Como saber que é hora de colher",
+     "valor": "Colher quando hastes, folhas e frutos atingirem o amarelecimento completo e antes de os frutos estarem totalmente abertos",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Algodão. Cultivo do Gergelim (sistema de produção)",
+      "pagina": 26,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1155372/1/Cultivo-do-Gergelim.pdf"
+     },
+     "trecho": "assim que as hastes, folhas e frutos atinjam o amarelecimento completo e antes que os frutos estejam totalmente abertos",
+     "contexto": "Embrapa Algodão (Nordeste)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    },
+    {
+     "atributo": "colheita_metodo",
+     "rotulo": "Como colher",
+     "valor": "As plantas devem ser cortadas na base, a 20 cm do solo",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Algodão. Cultivo do Gergelim (sistema de produção)",
+      "pagina": 26,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1155372/1/Cultivo-do-Gergelim.pdf"
+     },
+     "trecho": "As plantas devem ser cortadas na base, a uma distância de 20 cm do solo",
+     "contexto": "Embrapa Algodão (Nordeste)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    }
+   ],
+   "lacunas": [],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  },
+  {
+   "numero": 10,
+   "slug": "pos_colheita",
+   "titulo": "Pós-colheita e Armazenamento",
+   "origem": "dado_curado",
+   "itens": [
+    {
+     "atributo": "armazenamento_condicoes",
+     "rotulo": "Condições do armazém",
+     "valor": "Local ventilado, sobre estrado de madeira, protegido de chuvas e orvalho",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Algodão. Cultivo do Gergelim (sistema de produção)",
+      "pagina": 27,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1155372/1/Cultivo-do-Gergelim.pdf"
+     },
+     "trecho": "obedecendo às normas gerais de armazenamento, como local ventilado, sobre estrado de madeira, proteção contra chuvas e orvalho",
+     "contexto": "Embrapa Algodão (Nordeste)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    },
+    {
+     "atributo": "secagem_cuidados",
+     "rotulo": "Cuidados na secagem",
+     "valor": "Cobrir os feixes com lona em caso de chuva, para evitar escurecimento e oxidação das sementes",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Algodão. Cultivo do Gergelim (sistema de produção)",
+      "pagina": 28,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1155372/1/Cultivo-do-Gergelim.pdf"
+     },
+     "trecho": "agruparam os feixes sob uma lona plástica grande",
+     "contexto": "Embrapa Algodão (Nordeste)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": false
+    },
+    {
+     "atributo": "secagem_metodo",
+     "rotulo": "Como secar",
+     "valor": "Secagem dos feixes ao sol por cerca de 10 dias até a batedura",
+     "unidade": "",
+     "status": "verificado",
+     "fonte": {
+      "nome": "Embrapa Algodão. Cultivo do Gergelim (sistema de produção)",
+      "pagina": 26,
+      "url": "https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1155372/1/Cultivo-do-Gergelim.pdf"
+     },
+     "trecho": "para secagem ao sol, durante 10 dias, aproximadamente",
+     "contexto": "Embrapa Algodão (Nordeste)",
+     "requer_tecnico": false,
+     "referencia_da_fonte": false,
+     "experimento": false,
+     "destaque": true
+    }
+   ],
+   "lacunas": [
+    "Preço e venda: sem série de preço estruturada para o produtor (CONAB só 2025–2026 e poucas culturas; ver docs/31)",
+    "Praga do grão guardado: Sem fonte consultada: não localizado trecho específico"
+   ],
+   "nao_se_aplica": false,
+   "aviso_tecnico": true
+  }
+ ],
+ "cobertura_itens": {
+  "1": 3,
+  "2": 6,
+  "3": 4,
+  "4": 2,
+  "5": 5,
+  "6": 1,
+  "7": 3,
+  "8": 3,
+  "9": 3,
+  "10": 3
+ },
+ "limites": [
+  "Os dados das etapas vêm de publicações da Embrapa, da FAO e do MAPA, muitas de outras regiões; o campo 'contexto' de cada item diz a origem.",
+  "Nenhum técnico local revisou este plano.",
+  "Satélite e clima não enxergam o seu talhão; o solo é estimado de um mapa global, não é análise de solo.",
+  "Não há preço, custo nem mercado."
+ ],
+ "aviso": "Apoio à decisão: converse com o técnico antes de decidir. O plano mostra o que as fontes e os dados dizem; não promete colheita, lucro nem clima futuro."
+}

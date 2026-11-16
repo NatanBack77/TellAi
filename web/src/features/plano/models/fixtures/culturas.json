@@ -1,0 +1,226 @@
+[
+ {
+  "cultura": "algodao",
+  "nome": "Algodão",
+  "itens_por_etapa": {
+   "1": 3,
+   "4": 3,
+   "5": 3,
+   "6": 3,
+   "7": 1,
+   "8": 5,
+   "9": 3,
+   "10": 3
+  }
+ },
+ {
+  "cultura": "amendoim",
+  "nome": "Amendoim",
+  "itens_por_etapa": {
+   "1": 2,
+   "4": 1,
+   "5": 3,
+   "6": 3,
+   "7": 3,
+   "8": 2,
+   "9": 4,
+   "10": 4
+  }
+ },
+ {
+  "cultura": "crotalaria_juncea",
+  "nome": "Crotalária juncea",
+  "itens_por_etapa": {
+   "1": 1,
+   "4": 0,
+   "5": 1,
+   "6": 0,
+   "7": 0,
+   "8": 1,
+   "9": 1,
+   "10": 0
+  }
+ },
+ {
+  "cultura": "feijao_caupi",
+  "nome": "Feijão-caupi",
+  "itens_por_etapa": {
+   "1": 1,
+   "4": 0,
+   "5": 4,
+   "6": 4,
+   "7": 1,
+   "8": 6,
+   "9": 3,
+   "10": 7
+  }
+ },
+ {
+  "cultura": "feijao_comum",
+  "nome": "Feijão comum",
+  "itens_por_etapa": {
+   "1": 0,
+   "4": 0,
+   "5": 4,
+   "6": 3,
+   "7": 1,
+   "8": 6,
+   "9": 3,
+   "10": 9
+  }
+ },
+ {
+  "cultura": "feijao_de_porco",
+  "nome": "Feijão-de-porco",
+  "itens_por_etapa": {
+   "1": 1,
+   "4": 0,
+   "5": 0,
+   "6": 0,
+   "7": 0,
+   "8": 1,
+   "9": 1,
+   "10": 0
+  }
+ },
+ {
+  "cultura": "gergelim",
+  "nome": "Gergelim",
+  "itens_por_etapa": {
+   "1": 3,
+   "4": 2,
+   "5": 5,
+   "6": 3,
+   "7": 3,
+   "8": 3,
+   "9": 3,
+   "10": 3
+  }
+ },
+ {
+  "cultura": "girassol",
+  "nome": "Girassol",
+  "itens_por_etapa": {
+   "1": 3,
+   "4": 1,
+   "5": 2,
+   "6": 4,
+   "7": 0,
+   "8": 3,
+   "9": 3,
+   "10": 1
+  }
+ },
+ {
+  "cultura": "guandu",
+  "nome": "Feijão-guandu",
+  "itens_por_etapa": {
+   "1": 2,
+   "4": 0,
+   "5": 1,
+   "6": 0,
+   "7": 1,
+   "8": 1,
+   "9": 0,
+   "10": 0
+  }
+ },
+ {
+  "cultura": "mamona",
+  "nome": "Mamona",
+  "itens_por_etapa": {
+   "1": 3,
+   "4": 1,
+   "5": 2,
+   "6": 3,
+   "7": 2,
+   "8": 4,
+   "9": 3,
+   "10": 3
+  }
+ },
+ {
+  "cultura": "mandioca",
+  "nome": "Mandioca",
+  "itens_por_etapa": {
+   "1": 3,
+   "4": 4,
+   "5": 1,
+   "6": 3,
+   "7": 4,
+   "8": 3,
+   "9": 3,
+   "10": 4
+  }
+ },
+ {
+  "cultura": "milheto",
+  "nome": "Milheto",
+  "itens_por_etapa": {
+   "1": 2,
+   "4": 1,
+   "5": 2,
+   "6": 3,
+   "7": 1,
+   "8": 6,
+   "9": 3,
+   "10": 2
+  }
+ },
+ {
+  "cultura": "milho",
+  "nome": "Milho",
+  "itens_por_etapa": {
+   "1": 2,
+   "4": 0,
+   "5": 1,
+   "6": 3,
+   "7": 0,
+   "8": 8,
+   "9": 4,
+   "10": 5
+  }
+ },
+ {
+  "cultura": "mucuna",
+  "nome": "Mucuna",
+  "itens_por_etapa": {
+   "1": 1,
+   "4": 0,
+   "5": 0,
+   "6": 0,
+   "7": 0,
+   "8": 1,
+   "9": 1,
+   "10": 0
+  }
+ },
+ {
+  "cultura": "palma_forrageira",
+  "nome": "Palma forrageira",
+  "itens_por_etapa": {
+   "1": 3,
+   "4": 0,
+   "5": 2,
+   "6": 0,
+   "7": 2,
+   "8": 3,
+   "9": 3,
+   "10": 0
+  }
+ },
+ {
+  "cultura": "sorgo",
+  "nome": "Sorgo",
+  "itens_por_etapa": {
+   "1": 3,
+   "4": 0,
+   "5": 5,
+   "6": 3,
+   "7": 1,
+   "8": 2,
+   "9": 2,
+   "10": 3
+  }
+ }
+]

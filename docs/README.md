@@ -28,6 +28,7 @@
 | 23_REQUISITOS_PRODUCAO_DOCKER | stack, recursos medidos, segurança e decisões para produção em Docker |
 | 24_FUNCIONALIDADES_E_INFORMACOES_PITCH | o que o Sulco entrega (funcionalidades e informações) para o pitch |
 | 25_PESQUISA_FAO | bases da FAO: o que abre, o que fecha das lacunas, testes de ciclo, Kc e matriz |
+ feat/ods-impacto-sustentavel
 | 26_PESQUISA_AGENTE_HUMANO | personas de agricultores do semiárido e cenários de conversa |
 | 27_CALENDARIO_SOLO_SEMENTE_MERCADO | cruzamento de calendário, solo, sementes crioulas e mercado |
 | 27_EPOCA_DE_PLANTIO | janelas de plantio por cultura no semiárido |
@@ -38,3 +39,6 @@
 | 32_FRONTEND_HANDOFF | contrato e especificações da interface React |
 | 33_PROGRESSO_2026-11-15 | registro de progresso, correções da Maíra e testes |
 | 34_ODS_E_IMPACTO_SUSTENTAVEL | **alinhamento sistemático com as metas da ONU (ODS 2, 6, 12, 13, 15)** |
+
+| Plano de plantio em 10 etapas (contrato, API, front) | [`34_PLANO_DE_PLANTIO.md`](34_PLANO_DE_PLANTIO.md) |
+| Registro do dia 2026-11-15 (curadoria, chat da Maíra, como rodar, pendências) | [`35_REGISTRO_2026-11-15.md`](35_REGISTRO_2026-11-15.md) |
