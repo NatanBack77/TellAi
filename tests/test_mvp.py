@@ -32,6 +32,21 @@ def test_renda_nao_altera_o_ranking_e_vira_lacuna():
     assert "NÃO altera o ranking" in M.PRIORIDADES["renda"]["regra"]
 
 
+def test_prioridade_alimento_ods2():
+    p = M.parametros("alimento", 500)
+    assert p.bloco_ranking == "completo"
+    assert p.consorcio_modo == "rotulo"
+    assert p.ordem_pesos[0] == "familia_diferente"
+    s = M.calcular(LOCAL, "milho", "alimento", n_sorteios=500, com_evidencias=False)
+    alts = [c for c in s["cenarios"] if not c["atual"]]
+    assert len(alts) >= 1
+    # Verifica que o bloco consorcio foi devidamente anexado nas alternativas
+    assert all("consorcio" in c for c in alts)
+    respaldos = [c["consorcio"]["respaldo"] for c in alts if c.get("consorcio") and c["consorcio"].get("respaldo")]
+    if respaldos:
+        assert any(r["ler_min"] > 0 for r in respaldos)
+
+
 def test_prioridade_solo_usa_bloco_completo_e_muda_o_resultado():
     p = M.parametros("solo", 500)
     assert p.bloco_ranking == "completo" and p.ordem_pesos[0] == "palha"

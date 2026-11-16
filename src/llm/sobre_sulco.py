@@ -108,7 +108,7 @@ GLOSSARIO_SIMPLES = {
 }
 SIMPLES_FUNCIONA = [
     ("como o Sulco calcula", "O Sulco olha o seu local, compara três caminhos de rotação e mostra por que cada um foi sugerido e o que ainda falta saber."),
-    ("prioridades", "Você escolhe o que pesa mais: economizar água, proteger o solo ou renda extra. Isso muda a ordem dos caminhos."),
+    ("prioridades", "Você escolhe o que pesa mais: economizar água, proteger o solo, garantir alimento (ODS 2) ou renda extra. Isso muda a ordem dos caminhos."),
     ("aviso do app", "O Sulco ajuda a conversar com o técnico; ele não escolhe a rotação por você nem promete ganho."),
 ]
 

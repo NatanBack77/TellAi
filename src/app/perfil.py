@@ -20,7 +20,7 @@ from src.culturas.regras_duras import RegrasDuras
 
 SCHEMA = "sulco.perfil.v1"
 TAMANHO_MAX_BYTES = 20_000
-PRIORIDADES = ("sem", "agua", "solo", "renda")
+PRIORIDADES = ("sem", "alimento", "agua", "solo", "renda")
 TEXTURAS = ("não sei", "arenoso", "médio", "argiloso")
 MATERIAS_ORGANICAS = ("não sei", "baixa", "média", "alta")
 DECLIVES = ("plano", "suave", "forte")
@@ -423,7 +423,7 @@ def cultura_base(ss) -> str | None:
     return cs[0] if cs else None
 
 
-FOCOS_PRIORIDADE = {"agua": "agua", "solo": "solo", "renda": "renda"}
+FOCOS_PRIORIDADE = {"agua": "agua", "solo": "solo", "renda": "renda", "alimento": "alimento"}
 
 
 def estado_conversa_para_perfil(estado: dict | None, culturas: Iterable[str]) -> dict:

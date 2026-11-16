@@ -467,6 +467,15 @@ def coluna_estrategia(c: dict, rotulo: str, prio: str):
                 st.markdown(f"- **{M.NOME_CRITERIO[x['criterio']]}**: {x['fonte_completa']}")
     if d["demanda"]:
         st.write(d["demanda"])
+    if d.get("consorcio") and isinstance(d["consorcio"], dict):
+        cons = d["consorcio"]
+        r = cons.get("respaldo")
+        if r:
+            st.info(f"🌾 **Consórcio Resiliente (ODS 2 / LER):** {r['rotulo']}. "
+                    f"LER observado de {M.br(r['ler_min'], 2)} a {M.br(r['ler_max'], 2)} em {r['n_estudos']} estudo(s) no Semiárido. "
+                    f"*(Fonte: {r['fonte']})*")
+        elif cons.get("lacuna"):
+            st.caption(f"ℹ️ {cons['lacuna']}")
     st.markdown("**Benefícios (só o que tem dado por trás)**")
     for t in d["beneficios"]:
         st.markdown(f"- {t}")
